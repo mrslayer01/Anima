@@ -1,0 +1,19 @@
+{
+  "id": "abf-system",
+  "title": "Anima Beyond Fantasy",
+  "description": "A custom system based on the dnd5e structure.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "Mrslayer01"
+    }
+  ],
+  "esmodules": ["module/main.js"],
+  "styles": ["styles/abf.css"],
+  "packs": [],
+  "languages": []
+}

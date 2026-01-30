@@ -1,0 +1,15 @@
+<form class="add-class-form">
+  <label>
+    <i class="fas fa-question-circle class-info-icon"
+       title="Click to see class details"></i>
+    Class:
+  </label>
+
+  <select class="class-selector">
+    {{#each classOptions as |cls|}}
+      <option value="{{cls}}">{{cls}}</option>
+    {{/each}}
+  </select>
+
+  <button type="button" class="confirm-add">OK</button>
+</form>

@@ -1,0 +1,92 @@
+<h2>{{className}}</h2>
+
+<section>
+  <h3>Core Stats</h3>
+  <ul>
+    <li><strong>Archetype:</strong> {{classData.archetype}}</li>
+    <li><strong>Life Point Multiple:</strong>
+      {{classData.lifePointMultiple}}</li>
+    <li><strong>Life Points per Level:</strong>
+      {{classData.lifePointsPerLevel}}</li>
+    <li><strong>Initiative per Level:</strong>
+      {{classData.initiativePerLevel}}</li>
+    <li><strong>Martial Knowledge per Level:</strong>
+      {{classData.martialKnowledgePerLevel}}</li>
+    <li><strong>Psychic Points per Level:</strong>
+      {{classData.psychicPointsPerLevel}}</li>
+    <li><strong>Psychic Interval:</strong>
+      {{classData.psychicPointsInterval}}</li>
+  </ul>
+</section>
+<section>
+  <h3>Description</h3>
+  <p>{{classData.descrtiption}}</p>
+</section>
+<section>
+  <h3>Ability Limits</h3>
+  <ul>
+    <li><strong>Combat:</strong> {{classData.abilityLimits.combat}}%</li>
+    <li><strong>Supernatural:</strong>
+      {{classData.abilityLimits.supernatural}}%</li>
+    <li><strong>Psychic:</strong> {{classData.abilityLimits.psychic}}%</li>
+  </ul>
+</section>
+
+<section>
+  <h3>Primary Ability Costs</h3>
+  <ul>
+    {{#each classData.primaryAbilityCosts as |val key|}}
+      <li><strong>{{key}}:</strong> {{val}}</li>
+    {{/each}}
+  </ul>
+</section>
+
+<section>
+  <h3>Supernatural Ability Costs</h3>
+  <ul>
+    {{#each classData.supernaturalAbilityCosts as |val key|}}
+      <li><strong>{{key}}:</strong> {{val}}</li>
+    {{/each}}
+  </ul>
+</section>
+
+<section>
+  <h3>Psychic Ability Costs</h3>
+  <ul>
+    {{#each classData.psychicAbilityCosts as |val key|}}
+      <li><strong>{{key}}:</strong> {{val}}</li>
+    {{/each}}
+  </ul>
+</section>
+
+<section>
+  <h3>Secondary Ability Costs</h3>
+  <ul>
+    {{#each classData.secondaryAbilityCosts as |val key|}}
+      <li><strong>{{key}}:</strong> {{val}}</li>
+    {{/each}}
+  </ul>
+</section>
+
+<section>
+  <h3>Innate Bonuses</h3>
+
+  <h4>Primary Abilities</h4>
+  <ul>
+    {{#each classData.innateBonuses.primaryAbilities}}
+      <li><strong>{{this.name}}:</strong> {{this.innateBonus}}</li>
+    {{/each}}
+  </ul>
+
+  <h4>Secondary Abilities</h4>
+  <ul>
+    {{#each classData.innateBonuses.secondaryAbilities}}
+      <li><strong>{{this.name}}:</strong> {{this.innateBonus}} (Reduced Cost: {{this.reducedCost}})</li>
+    {{/each}}
+  </ul>
+</section>
+
+<section>
+  <h3>Special Rules</h3>
+  <p>{{classData.specialRules}}</p>
+</section>

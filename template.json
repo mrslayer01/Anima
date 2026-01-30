@@ -1,0 +1,601 @@
+{
+  "Actor": {
+    "types": ["character"],
+    "character": {
+      "system": {
+        "class": "",
+        "level": 1,
+        "age": 0,
+        "gender": "",
+        "race": "",
+        "hairEyes": "",
+        "heightWeight": "",
+        "appearance": "",
+        "size": "",
+        "dp": 0,
+        "xp": {
+          "actual": 0,
+          "next": 1
+        },
+        "characteristics": {
+          "agi": { "base": 5, "actual": 5, "bonus": 0, "class": 0 },
+          "con": { "base": 5, "actual": 5, "bonus": 0, "class": 0 },
+          "dex": { "base": 5, "actual": 5, "bonus": 0, "class": 0 },
+          "str": { "base": 5, "actual": 5, "bonus": 0, "class": 0 },
+          "int": { "base": 5, "actual": 5, "bonus": 0, "class": 0 },
+          "per": { "base": 5, "actual": 5, "bonus": 0, "class": 0 },
+          "pow": { "base": 5, "actual": 5, "bonus": 0, "class": 0 },
+          "wp": { "base": 5, "actual": 5, "bonus": 0 }
+        },
+        "abilities": {
+          "Athletics": {
+            "Acrobatics": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Athletics": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Climb": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Jump": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Ride": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Swim": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            }
+          },
+          "Vigor": {
+            "Composure": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "FeatsOfStrength": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "WithstandPain": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            }
+          },
+          "Perception": {
+            "Notice": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Search": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Track": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            }
+          },
+
+          "Intellectual": {
+            "Animals": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Appraisal": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "HerbalLore": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "History": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "MagicAppraisal": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Medicine": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Memorize": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Navigation": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Occult": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Sciences": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            }
+          },
+          "Social": {
+            "Intimidate": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Leadership": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Persuasion": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Style": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            }
+          },
+          "Subterfuge": {
+            "Disguise": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Hide": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "LockPicking": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Poisons": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Theft": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "TrapLore": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Stealth": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            }
+          },
+          "Creative": {
+            "Art": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Dance": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Forging": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "Music": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            },
+            "SleightOfHand": {
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            }
+          },
+          "Special": [
+            {
+              "name": "",
+              "base": 0,
+              "bonus": 0,
+              "special": 0,
+              "class": 0,
+              "final": 0
+            }
+          ]
+        },
+        "combat": {
+          "attack": { "base": 0, "bonus": 0, "class": 0, "final": 0 },
+          "block": { "base": 0, "bonus": 0, "class": 0, "final": 0 },
+          "dodge": { "base": 0, "bonus": 0, "class": 0, "final": 0 }
+        },
+        "weapons": [
+          {
+            "attack": 0,
+            "defense": 0,
+            "baseDamage": 0,
+            "strBonus": 0,
+            "finalDamage": 0,
+            "special": "",
+            "speed": 0,
+            "fortitude": 0,
+            "breakage": 0,
+            "presence": 0,
+            "primaryType": "",
+            "secondaryType": ""
+          }
+        ],
+        "magic": {
+          "accumulation": {
+            "base": 0,
+            "multiples": 0,
+            "special": 0,
+            "final": 0
+          },
+          "zeon": {
+            "base": 0,
+            "class": 0,
+            "special": 0,
+            "final": 0,
+            "actual": 0
+          },
+          "projection": {
+            "base": 0,
+            "dexBonus": 0,
+            "special": 0,
+            "final": 0
+          },
+          "imbalance": {
+            "offensive": 0,
+            "defensive": 0
+          }
+        },
+        "psychic": {
+          "potential": {
+            "base": 0,
+            "special": 0,
+            "final": 0
+          },
+          "points": {
+            "base": 0,
+            "free": 0
+          },
+          "projection": {
+            "base": 0,
+            "dexBonus": 0,
+            "special": 0,
+            "final": 0
+          },
+          "disciplines": ["", "", "", ""],
+          "mentalPowers": {
+            "bonus": 0,
+            "difficulty": 0
+          }
+        },
+        "resistances": {
+          "presence": {
+            "base": 0,
+            "bonus": 0,
+            "characteristic": "con",
+            "final": 0
+          },
+          "physical": {
+            "base": 0,
+            "bonus": 0,
+            "characteristic": "con",
+            "final": 0
+          },
+          "disease": {
+            "base": 0,
+            "bonus": 0,
+            "characteristic": "con",
+            "final": 0
+          },
+          "poison": {
+            "base": 0,
+            "bonus": 0,
+            "characteristic": "con",
+            "final": 0
+          },
+          "magic": {
+            "base": 0,
+            "bonus": 0,
+            "characteristic": "pow",
+            "final": 0
+          },
+          "psychic": {
+            "base": 0,
+            "bonus": 0,
+            "characteristic": "wp",
+            "final": 0
+          }
+        },
+        "summoning": {
+          "summon": 0,
+          "control": 0,
+          "bind": 0,
+          "banish": 0
+        },
+        "pathLevel": {
+          "essence": 0,
+          "water": 0,
+          "earth": 0,
+          "fire": 0,
+          "air": 0,
+          "light": 0,
+          "darkness": 0,
+          "creation": 0,
+          "destruction": 0,
+          "necromancy": 0,
+          "illusion": 0
+        },
+        "ki": {
+          "useOfKi": 40,
+          "kiControl": {
+            "kiDetection": 20,
+            "erudition": 10,
+            "weightElimination": 10,
+            "levitation": 20,
+            "objectMotion": 20
+          },
+          "presenceExtrusion": {
+            "energyArmor": false,
+            "auraExtension": false,
+            "destructionByKi": false
+          },
+          "kiTransmission": {
+            "kiHealing": false
+          },
+          "necessaryEnergy": {
+            "kiConcealment": false,
+            "falseDeath": 10,
+            "eliminationOfNecessities": 10,
+            "penaltyReduction": 20,
+            "recovery": false,
+            "characteristicAugmentation": false,
+            "inhumanity": 30,
+            "zen": 50
+          }
+        },
+        "martialKnowledge": {
+          "used": 0,
+          "total": 0
+        },
+        "techniques": [
+          {
+            "mk": 0,
+            "level": 0,
+            "accumulation": 0,
+            "str": 0,
+            "agi": 0,
+            "dex": 0,
+            "con": 0,
+            "pow": 0,
+            "wp": 0
+          }
+        ],
+        "specialAbilities": [],
+        "advantages": [],
+        "disadvantages": [],
+        "creationPoints": 0,
+        "innateCount": 0,
+        "activeSpells": [],
+        "dailyZeon": 0,
+        "creaturesBound": [],
+        "invocations": [
+          {
+            "name": "",
+            "cost": 0,
+            "difficulty": 0,
+            "totalCost": 0
+          }
+        ],
+        "finalRegeneration": 0,
+        "innateMagic": {
+          "base": 0,
+          "special": 0,
+          "final": 0
+        },
+        "maximumZeon": {
+          "intelligence": {
+            "x10": 0,
+            "x20": 0,
+            "x30": 0,
+            "x40": 0,
+            "x50": 0
+          }
+        },
+        "innatePsychicPower": {
+          "value": 0,
+          "effects": ""
+        },
+        "freeAccessSpells": [
+          {
+            "level": 0,
+            "req": "",
+            "elan": 0,
+            "entity": ""
+          }
+        ],
+        "background": "",
+        "languages": {
+          "base": "Base",
+          "slots": ["", "", "", "", ""],
+          "max": 0
+        },
+        "combatEquipment": [
+          {
+            "item": "",
+            "location": ""
+          }
+        ],
+
+        "variedEquipment": [
+          {
+            "item": "",
+            "location": ""
+          }
+        ],
+
+        "clothingAccessories": [""],
+
+        "specialObjects": [
+          {
+            "item": "",
+            "description": ""
+          }
+        ],
+
+        "possessionsTitles": [""],
+
+        "notes": [""],
+
+        "contacts": [
+          {
+            "name": "",
+            "description": ""
+          }
+        ],
+
+        "characterIllustration": "",
+
+        "money": {
+          "gold": 0,
+          "silver": 0,
+          "copper": 0,
+          "jewellery": 0
+        },
+
+        "rations": {
+          "food": 0,
+          "drink": 0
+        }
+      }
+    }
+  },
+  "Item": {
+    "types": ["generic"],
+    "generic": {
+      "system": {
+        "description": "",
+        "value": 0
+      }
+    }
+  }
+}
