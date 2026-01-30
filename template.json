@@ -3,8 +3,8 @@
     "types": ["character"],
     "character": {
       "system": {
-        "class": "",
-        "level": 1,
+        "classes": [],
+        "level": 0,
         "age": 0,
         "gender": "",
         "race": "",

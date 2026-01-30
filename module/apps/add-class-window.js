@@ -5,6 +5,7 @@ export class AddClassWindow extends Application {
   constructor(options = {}) {
     super(options);
     this.selectedClass = null;
+    this.classData = null;
   }
 
   static get defaultOptions() {
@@ -24,6 +25,7 @@ export class AddClassWindow extends Application {
     // If no selection yet, default to the first class
     if (!this.selectedClass) {
       this.selectedClass = classOptions[0];
+      this.classData = ABF_CLASSES[this.selectedClass];
     }
 
     return {
@@ -36,6 +38,7 @@ export class AddClassWindow extends Application {
 
     html.find(".class-selector").on("change", async (event) => {
       this.selectedClass = event.target.value;
+      this.classData = ABF_CLASSES[this.selectedClass];
       console.log("Selected class:", this.selectedClass);
 
       // Refresh popup if it is open
@@ -52,18 +55,21 @@ export class AddClassWindow extends Application {
       ev.preventDefault();
 
       const className = this.selectedClass;
-      const classData = ABF_CLASSES[className];
 
-      new ClassInfoWindow(className, { classData }).render(true);
+      new ClassInfoWindow(className, { classData: this.classData }).render(true);
     });
 
     html.find(".confirm-add").click(async () => {
       if (!this.selectedClass)
         return ui.notifications.warn("Select a class first.");
+    if (!this.classData) {
+      this.classData = ABF_CLASSES[this.selectedClass];
+    }
       const actor = game.actors.get(this.options.actorId);
       const classes = duplicate(actor.system.classes ?? []);
-      classes.push({ name: this.selectedClass, level: 1 });
+      classes.push(this.classData);
       await actor.update({ "system.classes": classes });
+      console.log(actor.system.classes);
       //Close any open class info windows and the popup itself.
       for (let app of Object.values(ui.windows)) {
         if (app instanceof ClassInfoWindow) {

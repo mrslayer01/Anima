@@ -1,6 +1,7 @@
 // module/config/classes.js
 //#region Scehma and Validation
 const CLASS_SCHEMA = {
+  name: "string",
   level: "number",
   archetype: "string",
   descrtiption: "string",
@@ -118,6 +119,7 @@ export function createClass(classInput) {
   validateClassInput(classInput);
 
   const {
+    name = "",
     level = 0,
     archetype = "",
     descrtiption = "",
@@ -141,6 +143,7 @@ export function createClass(classInput) {
   } = classInput;
 
   return {
+    name,
     level,
     archetype,
     descrtiption,
@@ -172,6 +175,7 @@ export function createClass(classInput) {
 // Class Definitions
 export const ABF_CLASSES = {
   Warrior: createClass({
+    name: "Warrior",
     level: 1,
     archetype: "Fighter",
     descrtiption:
@@ -244,6 +248,7 @@ export const ABF_CLASSES = {
     specialRules: "",
   }),
   AcrobaticWarrior: createClass({
+    name: "Acrobatic Warrior",
     level: 1,
     archetype: "Fighter",
     descrtiption:
@@ -319,6 +324,7 @@ export const ABF_CLASSES = {
     specialRules: "",
   }),
   Paladin: createClass({
+    name: "Paladin",
     level: 1,
     archetype: "Fighter",
     descrtiption:
@@ -395,6 +401,7 @@ export const ABF_CLASSES = {
       "If the Paladin chooses not to develop supernatural abilities, they may exchange the +10 Banish and +20 Zeon bonuses for +10 Composure per level.",
   }),
   DarkPaladin: createClass({
+    name: "Dark Paladin",
     level: 1,
     archetype: "Fighter",
     descrtiption:
@@ -472,6 +479,7 @@ export const ABF_CLASSES = {
       "If the Dark Paladin chooses not to develop supernatural abilities, they may exchange the +10 Control and +20 Zeon bonuses for +10 Withstand Pain per level.",
   }),
   Weaponsmaster: createClass({
+    name: "Weaponsmaster",
     level: 1,
     archetype: "Fighter",
     descrtiption:
@@ -545,6 +553,7 @@ export const ABF_CLASSES = {
       "General Weapon Modules, Archetypical Weapon Modules, and Style Modules cost half DP.",
   }),
   Technician: createClass({
+    name: "Technician",
     level: 1,
     archetype: "Domine",
     descrtiption:
@@ -611,6 +620,7 @@ export const ABF_CLASSES = {
     specialRules: "",
   }),
   Tao: createClass({
+    name: "Tao",
     level: 1,
     archetype: "Fighter, Domine",
     descrtiption:
@@ -678,6 +688,7 @@ export const ABF_CLASSES = {
       "Martial arts cost only 20 DP (10 for the first martial art learned).",
   }),
   Ranger: createClass({
+    name: "Ranger",
     level: 1,
     archetype: "Fighter, Domine",
     descrtiption:
@@ -745,6 +756,7 @@ export const ABF_CLASSES = {
       "Martial arts cost only 20 DP (10 for the first martial art learned).",
   }),
   Shadow: createClass({
+    name: "Shadow",
     level: 1,
     archetype: "Fighter, Prowler",
     descrtiption:
@@ -819,6 +831,7 @@ export const ABF_CLASSES = {
     specialRules: "+5 per level to Ki Concealment (only if developed).",
   }),
   Thief: createClass({
+    name: "Thief",
     level: 1,
     archetype: "Prowler",
     descrtiption:
@@ -894,6 +907,7 @@ export const ABF_CLASSES = {
     specialRules: "+5 per level to Ki Concealment (only if developed).",
   }),
   Assassin: createClass({
+    name: "Assassin",
     level: 1,
     archetype: "Prowler",
     descrtiption:
@@ -969,6 +983,7 @@ export const ABF_CLASSES = {
     specialRules: "",
   }),
   Wizard: createClass({
+    name: "Wizard",
     level: 1,
     archetype: "Mystic",
     descrtiption:
@@ -1038,6 +1053,7 @@ export const ABF_CLASSES = {
     specialRules: "",
   }),
   Warlock: createClass({
+    name: "Warlock",
     level: 1,
     archetype: "Fighter, Mystic",
     descrtiption:
@@ -1111,6 +1127,7 @@ export const ABF_CLASSES = {
     specialRules: "",
   }),
   Illusionist: createClass({
+    name: "Illusionist",
     level: 1,
     archetype: "Mystic, Prowler",
     descrtiption: "Illusionists combine their notable skills at subterfuge with the control of magic. A good Illusionist makes it impossible for those who witness his feats to tell if he has done them using supernatural powers or mere natural skill. His mystical powers are nearly as great as those of other spellcasters, but he normally lacks the ability to cast spells quickly. In spite of being called Illusionists, these magic users master not only the power of illusion, but many other types of magic as well. They are very vulnerable physically, however, and usually reject the idea of direct combat in favor of more ingenious stratagems.",
@@ -1184,6 +1201,7 @@ export const ABF_CLASSES = {
     specialRules: "",
   }),
   WizardMentalist: createClass({
+    name: "Wizard Mentalist",
     level: 1,
     archetype: "Mystic, Psychic",
     descrtiption: "The potential for Wizard Mentalists is enormous. Persons in this category are dedicated to controlling the combination of exceptional abilities with which they are endowed – namely, magic and the psychic matrixes. Although their resistance and Secondary Abilities may be weak due to their extreme dedication, their ability to launch spells and support those spells with psychic disciplines make them exceptionally formidable characters.",
@@ -1252,6 +1270,7 @@ export const ABF_CLASSES = {
     specialRules: "",
   }),
   Summoner: createClass({
+    name: "Summoner",
     level: 1,
     archetype: "Mystic",
     descrtiption: "Summoners are mystics endowed with the ability to summon supernatural creatures and force them into submission. Although, in and of themselves, neither their magical powers nor their physical abilities are especially notable, the beings they summon may be capable of almost anything. Summoners can also perform invocations, calling on help from great supernatural Powers for a limited time.",
@@ -1326,6 +1345,7 @@ export const ABF_CLASSES = {
     specialRules: "",
   }),
   WarriorSummoner: createClass({
+    name: "Warrior Summoner",
     level: 1,
     archetype: "Fighter, Mystic",
     descrtiption: "Warrior Summoners bring together the combat abilities of Fighters and the Summoner’s powers of invocation and control, calling upon great Powers or supernatural creatures to aid them in battle, though their focus on mastering both arts often leaves other abilities underdeveloped.",
@@ -1400,6 +1420,7 @@ export const ABF_CLASSES = {
     specialRules: "",
   }),
   Mentalist: createClass({
+    name: "Mentalist",
     level: 1,
     archetype: "Psychic",
     descrtiption: "Mentalists are characters who have dedicated themselves to the maximum development of their psychic powers. They are not satisfied with merely possessing mental disciplines; they also wish to discover how they work and how to master new abilities. Like Wizards, Mentalists have wide knowledge in the intellectual fields – though that dedication leads their physical development and resistance to be less than those of other classes.",
@@ -1465,6 +1486,7 @@ export const ABF_CLASSES = {
     specialRules: "",
   }),
   WarriorMentalist: createClass({
+    name: "Warrior Mentalist",
     level: 1,
     archetype: "Fighter, Psychic",
     descrtiption: "Warrior Mentalists are fighters endowed with Psychic Abilities who have developed complete control of those powers to gain an edge in combat. Their mental and martial prowess can rival that of dedicated warriors, though such intense focus often leaves other abilities less refined. Typically, a Warrior Mentalist leans toward one side of their dual nature—either a warrior who augments his combat skill with psychic techniques, or a psychic who reinforces his mental disciplines with martial training.",
@@ -1534,6 +1556,7 @@ export const ABF_CLASSES = {
     specialRules: "",
   }),
   Freelancer: createClass({
+    name: "Freelancer",
     level: 1,
     archetype: "Novel",
     descrtiption: "The Freelancer class represents someone who does not fit any of the other Archetypes. A Freelancer has no true specialization; instead, they possess balanced, versatile abilities across every field—from combat to magic to psychic disciplines—without excelling in any single one. Farmers, bards, nobles, jesters, and countless others fall naturally into this category. Because their development is so flexible, Freelancers can easily transition into any other class later on. For players unsure of their long‑term direction, beginning as a Freelancer offers a safe, adaptable foundation that can evolve into whatever path they ultimately choose.",
