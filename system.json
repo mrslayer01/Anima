@@ -12,6 +12,7 @@
       "name": "Mrslayer01"
     }
   ],
+  "template": "template.json",
   "esmodules": ["module/main.js"],
   "styles": ["styles/abf.css"],
   "packs": [],

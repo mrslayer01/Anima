@@ -1,0 +1,41 @@
+<div class="header-container">
+
+  <!-- Column 1: Portrait -->
+  <div class="header-portrait header-block">
+    {{> "systems/abf-system/templates/actors/partials/header/portrait.hbs"}}
+  </div>
+
+  <!-- Column 2: Attributes -->
+  <div class="header-characteristics header-block">
+    {{> "systems/abf-system/templates/actors/partials/header/characteristics.hbs"}}
+  </div>
+
+  <!-- Column 3: Resistances -->
+  <div class="header-resistances header-block">
+    {{> "systems/abf-system/templates/actors/partials/header/resistances.hbs"}}
+  </div>
+  
+  <!-- Column 4: Nested Grid -->
+  <div class="header-col4">
+
+    <div class="col4-span-4">
+      {{> "systems/abf-system/templates/actors/partials/header/life-fatigue-turn.hbs"}}
+    </div>
+
+    <!-- Row 2: Movement (span 4) -->
+    <div class="header-block col4-span-4">
+      {{> "systems/abf-system/templates/actors/partials/header/movement.hbs"}}
+    </div>
+
+    <!-- Row 3: Modifiers (span 4) -->
+    <div class="header-block col4-span-4">
+      {{> "systems/abf-system/templates/actors/partials/header/modifiers.hbs"}}
+    </div>
+
+    <!-- Row 4: Final Armor (span 4) -->
+    <div class="header-block col4-span-4">
+      {{> "systems/abf-system/templates/actors/partials/header/final-armor.hbs"}}
+    </div>
+
+  </div>
+</div>

@@ -1,265 +1,42 @@
-<form class="flexcol abf-sheet" autocomplete="off">
-  <header class="sheet-header grid grid-3col">
-    <div class="player-info">
-      <label>Player Name:</label>
-      <input type="text" name="name" value="{{actor.name}}" />
-      <section class="class-table">
-        <h2>Classes</h2>
-        <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Archetype</th>
-              <th>Level</th>
-              <th></th>
-            </tr>
-          </thead>
-          <tbody>
-            {{#each system.classes as |cls idx|}}
-              <tr>
-                <td>{{cls.name}}</td>
-                <td>{{lookup (lookup ../classRegistry cls.name) "archetype"}}</td>
-                <td>{{cls.level}}</td>
-                <td>
-                  <button class="delete-class" data-index="{{idx}}">
-                    <i class="fas fa-trash"></i>
-                  </button>
-                </td>
-              </tr>
-            {{/each}}
-          </tbody>
-        </table>
+<form class="abf-character-sheet">
 
-        <button class="add-class">
-          <i class="fas fa-plus"></i> Add Class
-        </button>
-      </section>
-      <label>Level:</label>
-      <input type="number" name="system.level" value="{{system.level}}" />
-      <label>Age:</label>
-      <input type="number" name="system.age" value="{{system.age}}" />
-      <label>Gender:</label>
-      <input type="text" name="system.gender" value="{{system.gender}}" />
-      <label>Race:</label>
-      <input type="text" name="system.race" value="{{system.race}}" />
-    </div>
-    <div class="appearance-info">
-      <label>Hair / Eyes:</label>
-      <input type="text" name="system.hairEyes" value="{{system.hairEyes}}" />
-      <label>Height / Weight:</label>
-      <input
-        type="text"
-        name="system.heightWeight"
-        value="{{system.heightWeight}}"
-      />
-      <label>Appearance:</label>
-      <input
-        type="text"
-        name="system.appearance"
-        value="{{system.appearance}}"
-      />
-      <label>Size:</label>
-      <input type="text" name="system.size" value="{{system.size}}" />
-    </div>
-    <div class="xp-info">
-      <label>Development Points:</label>
-      <input type="number" name="system.dp" value="{{system.dp}}" />
-      <label>XP Actual:</label>
-      <input
-        type="number"
-        name="system.xp.actual"
-        value="{{system.xp.actual}}"
-      />
-      <label>XP Next Level:</label>
-      <input type="number" name="system.xp.next" value="{{system.xp.next}}" />
-    </div>
-  </header>
+  {{!-- Title Bar --}}
+  {{> "systems/abf-system/templates/actors/partials/header/header-top.hbs"}}
 
-  <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="stats">Stats</a>
-    <a class="item" data-tab="abilities">Abilities</a>
-    <a class="item" data-tab="combat">Combat</a>
-    <a class="item" data-tab="weapons">Weapons</a>
+  <!-- HEADER -->
+  {{> "systems/abf-system/templates/actors/partials/header/header.hbs"}}
+
+  <!-- TABS -->
+  <nav class="sheet-tabs" data-group="primary">
+    <a class="item" data-tab="main">Main</a>
   </nav>
 
+  <!-- BODY -->
   <section class="sheet-body">
-    <div class="tab" data-group="primary" data-tab="stats">
-      <table class="base-stats">
-        <tr><th>Characteristic</th><th>Base</th><th>Actual</th><th
-          >Bonus</th></tr>
-        {{#each system.characteristics as |char key|}}
-          <tr>
-            <td>{{key}}</td>
-            <td><input
-                type="number"
-                name="system.characteristics.{{key}}.base"
-                value="{{char.base}}"
-              /></td>
-            <td><input
-                type="number"
-                name="system.characteristics.{{key}}.actual"
-                value="{{char.actual}}"
-              /></td>
-            <td><input
-                type="number"
-                name="system.characteristics.{{key}}.bonus"
-                value="{{char.bonus}}"
-              /></td>
-          </tr>
-        {{/each}}
-      </table>
+
+    <div class="tab main" data-group="primary" data-tab="main">
+      {{!-- SECONDARY NAV (nested) --}}
+      <nav class="sub-tabs" data-group="main-sub">
+        <a class="item" data-tab="character">Character</a>
+        <a class="item" data-tab="details">Details</a>
+        <a class="item" data-tab="inventory">Inventory</a>
+      </nav>
+
+      {{!-- SECONDARY TAB PANELS --}}
+      <div class="tab" data-group="main-sub" data-tab="character">
+          {{> "systems/abf-system/templates/actors/partials/header/character.hbs"}}
+      </div>
+
+      <div class="tab" data-group="main-sub" data-tab="details">
+        {{!-- Details content goes here --}}
+      </div>
+
+      <div class="tab" data-group="main-sub" data-tab="inventory">
+        {{!-- Inventory content goes here --}}
+      </div>
+
     </div>
 
-    <div class="tab" data-group="primary" data-tab="abilities">
-      {{#each system.abilities as |group groupName|}}
-        <h3>{{groupName}}</h3>
-        <table class="abilities">
-          <tr><th>Name</th><th>Base</th><th>Bonus</th><th>Special</th><th
-            >Class</th><th>Final</th></tr>
-          {{#each group as |ability key|}}
-            <tr>
-              <td>{{key}}</td>
-              <td><input
-                  type="number"
-                  name="system.abilities.{{groupName}}.{{key}}.base"
-                  value="{{ability.base}}"
-                /></td>
-              <td><input
-                  type="number"
-                  name="system.abilities.{{groupName}}.{{key}}.bonus"
-                  value="{{ability.bonus}}"
-                /></td>
-              <td><input
-                  type="number"
-                  name="system.abilities.{{groupName}}.{{key}}.special"
-                  value="{{ability.special}}"
-                /></td>
-              <td><input
-                  type="number"
-                  name="system.abilities.{{groupName}}.{{key}}.class"
-                  value="{{ability.class}}"
-                /></td>
-              <td><input
-                  type="number"
-                  name="system.abilities.{{groupName}}.{{key}}.final"
-                  value="{{ability.final}}"
-                /></td>
-            </tr>
-          {{/each}}
-        </table>
-      {{/each}}
-    </div>
-
-    <div class="tab" data-group="primary" data-tab="combat">
-      <table class="combat-stats">
-        <tr><th>Stat</th><th>Base</th><th>Bonus</th><th>Class</th><th
-          >Final</th></tr>
-        {{#each system.combat as |stat key|}}
-          <tr>
-            <td>{{key}}</td>
-            <td><input
-                type="number"
-                name="system.combat.{{key}}.base"
-                value="{{stat.base}}"
-              /></td>
-            <td><input
-                type="number"
-                name="system.combat.{{key}}.bonus"
-                value="{{stat.bonus}}"
-              /></td>
-            <td><input
-                type="number"
-                name="system.combat.{{key}}.class"
-                value="{{stat.class}}"
-              /></td>
-            <td><input
-                type="number"
-                name="system.combat.{{key}}.final"
-                value="{{stat.final}}"
-              /></td>
-          </tr>
-        {{/each}}
-      </table>
-    </div>
-
-    <div class="tab" data-group="primary" data-tab="weapons">
-      {{#each system.weapons as |weapon index|}}
-        <fieldset class="weapon-block">
-          <legend>Weapon {{inc index}}</legend>
-          <label>Attack:</label>
-          <input
-            type="number"
-            name="system.weapons.{{index}}.attack"
-            value="{{weapon.attack}}"
-          />
-          <label>Defense:</label>
-          <input
-            type="number"
-            name="system.weapons.{{index}}.defense"
-            value="{{weapon.defense}}"
-          />
-          <label>Base Damage:</label>
-          <input
-            type="number"
-            name="system.weapons.{{index}}.baseDamage"
-            value="{{weapon.baseDamage}}"
-          />
-          <label>STR Bonus:</label>
-          <input
-            type="number"
-            name="system.weapons.{{index}}.strBonus"
-            value="{{weapon.strBonus}}"
-          />
-          <label>Final Damage:</label>
-          <input
-            type="number"
-            name="system.weapons.{{index}}.finalDamage"
-            value="{{weapon.finalDamage}}"
-          />
-          <label>Special:</label>
-          <input
-            type="text"
-            name="system.weapons.{{index}}.special"
-            value="{{weapon.special}}"
-          />
-          <label>Speed:</label>
-          <input
-            type="number"
-            name="system.weapons.{{index}}.speed"
-            value="{{weapon.speed}}"
-          />
-          <label>Fortitude:</label>
-          <input
-            type="number"
-            name="system.weapons.{{index}}.fortitude"
-            value="{{weapon.fortitude}}"
-          />
-          <label>Breakage:</label>
-          <input
-            type="number"
-            name="system.weapons.{{index}}.breakage"
-            value="{{weapon.breakage}}"
-          />
-          <label>Presence:</label>
-          <input
-            type="number"
-            name="system.weapons.{{index}}.presence"
-            value="{{weapon.presence}}"
-          />
-          <label>Primary Type:</label>
-          <input
-            type="text"
-            name="system.weapons.{{index}}.primaryType"
-            value="{{weapon.primaryType}}"
-          />
-          <label>Secondary Type:</label>
-          <input
-            type="text"
-            name="system.weapons.{{index}}.secondaryType"
-            value="{{weapon.secondaryType}}"
-          />
-        </fieldset>
-      {{/each}}
-    </div>
   </section>
+
 </form>

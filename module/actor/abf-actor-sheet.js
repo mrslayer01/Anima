@@ -6,14 +6,19 @@ export class AbfActorSheet extends ActorSheet {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["abf-system", "sheet", "actor"],
       template: "systems/abf-system/templates/actors/character-sheet.hbs",
-      width: 700,
-      height: 600,
+      width: 1300,
+      height: 850,
       tabs: [
         {
           navSelector: ".sheet-tabs",
           contentSelector: ".sheet-body",
           initial: "main",
         },
+        {
+          navSelector: ".sub-tabs",
+          contentSelector: ".tab.main",
+          initial: "character",
+        }
       ],
     });
   }
@@ -34,6 +39,7 @@ export class AbfActorSheet extends ActorSheet {
 
     html.find(".delete-class").click(async (event) => {
       const index = Number(event.currentTarget.dataset.index);
+
       const confirmed = await Dialog.confirm({
         title: "Confirm Delete",
         content: "<p>Are you sure you want to remove this class?</p>",
@@ -42,7 +48,28 @@ export class AbfActorSheet extends ActorSheet {
       if (!confirmed) return;
 
       const classes = duplicate(this.actor.system.classes);
+
+      // Grab the class name BEFORE deleting it
+      const deletedClassName = classes[index]?.name;
+
+      // Remove from actor
       classes.splice(index, 1);
+      await this.actor.update({ "system.classes": classes });
+
+      // Reset the class level in the registry (so re-adding starts at level 1)
+      if (deletedClassName && ABF_CLASSES[deletedClassName]) {
+        ABF_CLASSES[deletedClassName].level = 1;
+      }
+    });
+
+    // Change class level
+    html.find(".class-level-input").change(async (event) => {
+      const index = Number(event.currentTarget.dataset.index);
+      const newLevel = Number(event.currentTarget.value) || 1;
+
+      const classes = duplicate(this.actor.system.classes);
+      classes[index].level = newLevel;
+
       await this.actor.update({ "system.classes": classes });
     });
 
