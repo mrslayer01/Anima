@@ -1,0 +1,40 @@
+<h3>Total Level: {{system.level}}</h3>
+
+<table class="classes-table">
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Level</th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each system.classes as |cls idx|}}
+      <tr>
+        <td>{{cls.name}}</td>
+
+        <td>
+          <input
+            type="number"
+            class="class-level-input"
+            data-index="{{idx}}"
+            value="{{cls.level}}"
+            min="1"
+          />
+        </td>
+
+        <td>
+          <a class="delete-class" data-index="{{idx}}">
+            <i class="fas fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<button type="button" class="add-class add-class-btn">
+  <i class="fas fa-plus"></i>
+  Add Class
+</button>

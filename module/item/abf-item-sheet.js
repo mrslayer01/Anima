@@ -1,4 +1,4 @@
-export class AbfItemSheet extends ItemSheet {
+export class AbfItemSheet extends foundry.appv1.sheets.ItemSheet {
   static get defaultOptions() {
     return mergeObject(super.defaultOptions, {
       classes: ["abf-system", "sheet", "item"],

@@ -1,0 +1,50 @@
+{
+  "ABF": {
+    "Ability": {
+      "Acrobatics": "Acrobatics",
+      "Athletics": "Athletics",
+      "Climb": "Climb",
+      "Jump": "Jump",
+      "Ride": "Ride",
+      "Swim": "Swim",
+
+      "Composure": "Composure",
+      "FeatsOfStrength": "Feats of Strength",
+      "WithstandPain": "Withstand Pain",
+
+      "Notice": "Notice",
+      "Search": "Search",
+      "Track": "Track",
+
+      "Animals": "Animals",
+      "Appraisal": "Appraisal",
+      "HerbalLore": "Herbal Lore",
+      "History": "History",
+      "MagicAppraisal": "Magic Appraisal",
+      "Medicine": "Medicine",
+      "Memorize": "Memorize",
+      "Navigation": "Navigation",
+      "Occult": "Occult",
+      "Sciences": "Sciences",
+
+      "Intimidate": "Intimidate",
+      "Leadership": "Leadership",
+      "Persuasion": "Persuasion",
+      "Style": "Style",
+
+      "Disguise": "Disguise",
+      "Hide": "Hide",
+      "LockPicking": "Lock Picking",
+      "Poisons": "Poisons",
+      "Theft": "Theft",
+      "TrapLore": "Trap Lore",
+      "Stealth": "Stealth",
+
+      "Art": "Art",
+      "Dance": "Dance",
+      "Forging": "Forging",
+      "Music": "Music",
+      "SleightOfHand": "Sleight of Hand"
+    }
+  }
+}

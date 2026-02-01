@@ -1,0 +1,9 @@
+<h3>Description</h3>
+
+<div class="description-editor">
+  {{#if system.background}}
+    {{editor system.background target="system.background" button=true editable=true}}
+  {{else}}
+    {{editor "<p class='placeholder'>Write your background here…</p>" target="system.background" button=true editable=true}}
+  {{/if}}
+</div>

@@ -17,9 +17,25 @@ Hooks.once("init", function () {
   CONFIG.Actor.documentClass = AbfActor;
   CONFIG.Item.documentClass = AbfItem;
 
-    const mainPartials = [
-    "aspect",
-    "description",
+  //definie partials
+  const navMainCharacterPartials = [
+    "aspects",
+    "background",
+    "character",
+    "classes",
+    "dp",
+    "experience",
+    "presence"
+  ];
+    const navMainSecondariesPartials = [
+    "athletics",
+    "secondaries",
+    "vigor",
+    "perception",
+    "intellectual",
+    "social",
+    "subterfuge",
+    "creative"
   ];
 
   const headerPartials = [
@@ -31,25 +47,31 @@ Hooks.once("init", function () {
     "modifiers",
     "final-armor",
     "header-top",
-    "movement",
-    "character"
+    "movement"
   ];
 
-  for (const p of mainPartials) {
-    loadTemplates([
-      `systems/abf-system/templates/actors/partials/${p}.hbs`
-    ]);
-  }
-
+  //register partials
   for (const p of headerPartials) {
-    loadTemplates([
+    foundry.applications.handlebars.loadTemplates([
       `systems/abf-system/templates/actors/partials/header/${p}.hbs`
     ]);
   }
 
-  Actors.unregisterSheet("core", ActorSheet);
-  Actors.registerSheet("abf-system", AbfActorSheet, { makeDefault: true });
+  for (const p of navMainCharacterPartials) {
+    foundry.applications.handlebars.loadTemplates([
+      `systems/abf-system/templates/actors/partials/nav/main/character/${p}.hbs`
+    ]);
+  }
 
-  Items.unregisterSheet("core", ItemSheet);
-  Items.registerSheet("abf-system", AbfItemSheet, { makeDefault: true });
+    for (const p of navMainSecondariesPartials) {
+    foundry.applications.handlebars.loadTemplates([
+      `systems/abf-system/templates/actors/partials/nav/main/secondaries/${p}.hbs`
+    ]);
+  }
+
+  foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
+  foundry.documents.collections.Actors.registerSheet("abf-system", AbfActorSheet, { makeDefault: true });
+
+  foundry.documents.collections.Items.unregisterSheet("core", foundry.appv1.sheets.ItemSheet);
+  foundry.documents.collections.Items.registerSheet("abf-system", AbfItemSheet, { makeDefault: true });
 });

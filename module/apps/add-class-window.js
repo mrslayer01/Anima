@@ -39,7 +39,6 @@ export class AddClassWindow extends Application {
     html.find(".class-selector").on("change", async (event) => {
       this.selectedClass = event.target.value;
       this.classData = ABF_CLASSES[this.selectedClass];
-      console.log("Selected class:", this.selectedClass);
 
       // Refresh popup if it is open
       for (let app of Object.values(ui.windows)) {
@@ -53,9 +52,7 @@ export class AddClassWindow extends Application {
 
     html.find(".class-info-icon").click((ev) => {
       ev.preventDefault();
-
       const className = this.selectedClass;
-
       new ClassInfoWindow(className, { classData: this.classData }).render(true);
     });
 
@@ -66,10 +63,9 @@ export class AddClassWindow extends Application {
       this.classData = ABF_CLASSES[this.selectedClass];
     }
       const actor = game.actors.get(this.options.actorId);
-      const classes = duplicate(actor.system.classes ?? []);
+      const classes = foundry.utils.duplicate(actor.system.classes ?? []);
       classes.push(this.classData);
       await actor.update({ "system.classes": classes });
-      console.log(actor.system.classes);
       //Close any open class info windows and the popup itself.
       for (let app of Object.values(ui.windows)) {
         if (app instanceof ClassInfoWindow) {

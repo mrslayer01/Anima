@@ -16,5 +16,11 @@
   "esmodules": ["module/main.js"],
   "styles": ["styles/abf.css"],
   "packs": [],
-  "languages": []
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ]
 }

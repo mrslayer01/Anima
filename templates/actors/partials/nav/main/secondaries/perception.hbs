@@ -1,0 +1,41 @@
+<h3>Perception</h3>
+<div class="secondary-block">
+<table class="ability-table">
+  <thead>
+    <tr>
+      <th class="ability-table-name">Ability</th>
+      <th>Base</th>
+      <th>Bonus</th>
+      <th>Final</th>
+      <th>Passive</th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each actor.system.abilities.Perception as |ability key|}}
+      <tr>
+        <td>{{localize (concat "ABF.Ability." key)}}</td>
+        <td><input
+            class="mod-input-resize-char secondary-input"
+            type="number"
+            value="{{ability.base}}"
+            name="system.abilities.Perception.{{key}}.base"
+          /></td>
+        <td><input
+            class="mod-input-resize-char secondary-input"
+            type="number"
+            value="{{ability.bonus}}"
+            name="system.abilities.Perception.{{key}}.bonus"
+          /></td>
+        <td>{{ability.final}}</td>
+        <td class="passive-icon">
+          {{#if ability.passive}}
+            <i class="fas fa-check"></i>
+          {{else}}
+            <i class="fas fa-times"></i>
+          {{/if}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+</div>

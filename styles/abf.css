@@ -153,8 +153,8 @@
   padding: 0.5rem;
   justify-content: space-evenly;
 }
-
-.sheet-tabs .item {
+  
+.abf-character-sheet .sheet-tabs .item {
   padding: 0.4rem 0.75rem;
   border-radius: 6px;
   cursor: pointer;
@@ -164,7 +164,7 @@
   border: 1px solid transparent;
 }
 
-.sheet-tabs .item:hover {
+.abf-character-sheet .sheet-tabs .item:hover {
   background: rgba(255, 255, 255, 0.6);
 }
 
@@ -172,22 +172,6 @@
   background: #7a1f1f; /* your crimson */
   color: #f4e9d8;      /* parchment text */
   border: 1px solid #5a1515;
-}
-
-/* ---------------------------------------------------------
-   TAB CONTENT
---------------------------------------------------------- */
-
-.sheet-body {
-  padding-top: 0.5rem;
-}
-
-.tab {
-  display: none;
-}
-
-.tab.active {
-  display: block;
 }
 
 /* ---------------------------------------------------------
@@ -336,7 +320,9 @@ HEADER SECTION
 .movement-section,
 .modifiers-section,
 .modifiers-row,
-.final-armor-section {
+.final-armor-section,
+.secondaries-grid,
+.secondary-block {
   background: rgba(255, 255, 255, 0.65);
   border: 1px solid rgba(80, 50, 20, 0.35);
   border-radius: 6px;
@@ -350,7 +336,9 @@ HEADER SECTION
 .movement-section h3,
 .modifiers-section h3,
 .modifiers-row h3,
-.final-armor-section h3 {
+.final-armor-section h3,
+.secondaries-grid h3,
+.secondary-block h3 {
   margin: 0 0 0.35rem 0;
   font-size: 1.1rem;
   color: #3a2a1a;
@@ -364,7 +352,11 @@ HEADER SECTION
 .movement-table,
 .modifiers-table,
 .modifiers-row-table,
-.final-armor-table {
+.final-armor-table ,
+.ability-table, 
+.athletics-table,
+.aspects-table,
+.classes-table {
   width: 100%;
   border-collapse: collapse;
   background: none;
@@ -377,7 +369,11 @@ HEADER SECTION
 .movement-table td,
 .modifiers-table td,
 .modifiers-row-table td,
-.final-armor-table td {
+.final-armor-table td,
+.ability-table td,
+.athletics-table td,
+.aspects-table td,
+.classes-table td {
   padding: 0.25rem 0.35rem;
   color: #000;
 }
@@ -389,7 +385,11 @@ HEADER SECTION
 .movement-table tr:last-child td,
 .modifiers-table tr:last-child td,
 .modifiers-row-table tr:last-child td,
-.final-armor-table tr:last-child td {
+.final-armor-table tr:last-child td,
+.ability-table td,
+.athletics-table td,
+.aspects-table td,
+.classes-table td {
   border-bottom: none;
 }
 
@@ -400,7 +400,9 @@ HEADER SECTION
 .movement-table input,
 .modifiers-table input,
 .modifiers-row-table input,
-.final-armor-table input {
+.final-armor-table input,
+.aspects-table input,
+.classes-table input {
   width: 100%;
   background: rgba(255, 255, 255, 0.75);
   border: 1px solid rgba(80, 50, 20, 0.35);
@@ -430,6 +432,95 @@ HEADER SECTION
   box-sizing: border-box;
 }
 
+/* Resistance table column widths */
+.resistances-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.resistances-table th:first-child,
+.resistances-table td:first-child {
+  width: 30%;   /* Resistance name */
+}
+
+.resistances-table th:nth-child(2),
+.resistances-table td:nth-child(2) {
+  width: 40%;   /* Modifier column */
+  text-align: center;
+}
+
+.resistances-table th:nth-child(3),
+.resistances-table td:nth-child(3) {
+  width: 30%;   /* Final column */
+}
+
+/* characteristics table column widths */
+.characteristics-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.characteristics-table th:first-child,
+.characteristics-table td:first-child {
+  width: 30%;   /* name */
+}
+
+.characteristics-table th:nth-child(2),
+.characteristics-table td:nth-child(2) {
+  width: 15%;   /* base */
+  text-align: center;
+}
+
+.characteristics-table th:nth-child(3),
+.characteristics-table td:nth-child(3) {
+  width: 25%;   /* modifer */
+  text-align: center;
+}
+
+.characteristics-table th:nth-child(4),
+.characteristics-table td:nth-child(4) {
+  width: 30%;   /* final */
+}
+
+/* aspects table column widths */
+.aspects-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.aspects-table td:first-child {
+  width: 70%;   /* name */
+  text-align: left;
+}
+
+.aspects-table th:nth-child(2),
+.aspects-table td:nth-child(2) {
+  width: 30%;   /* base */
+}
+
+.aspects-table th:nth-child(2) input[type=text],
+.aspects-table td:nth-child(2) input[type=text] {
+  text-align: left;
+}
+
+/* Class table */
+.characteristics-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.classes-table th {
+  text-align: center;
+}
+
+.classes-table td:first-child {
+  width: 70%;   /* name */
+}
+
+.classes-table th:nth-child(2),
+.classes-table td:nth-child(2) {
+  width: 20%;   /* level */
+}
 
 .sub-tabs {
   display: flex;
@@ -528,18 +619,126 @@ HEADER SECTION
   flex: 1;
 }
 
-.classes-table {
-  background: none;
-}
-
-.classes-table th {
-  text-align: center;
-}
-
-input[disabled][type="number"] {
+.abf-character-sheet input[disabled][type="number"] {
   background: transparent;
   border: none;
   padding: 0;
   pointer-events: none;
   color: inherit;
 }
+
+.description-editor {
+  min-height: 200px;     /* prevents collapse */
+  width: 100%;
+  display: block;
+  text-align: left;
+}
+
+.description-editor .editor,
+.description-editor .editor-content {
+  min-height: 150px;     /* ensures TinyMCE has room */
+}
+
+.characteristics-table input.aspect-input,
+.resistances-table input.aspect-input,
+.lft-table input.aspect-input,
+.movement-table input.aspect-input,
+.modifiers-table input.aspect-input,
+.modifiers-row-table input.aspect-input,
+.final-armor-table input.aspect-input {
+  width: 60px; /* or whatever size you want */
+}
+
+.secondaries-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);   /* 4 columns */
+  grid-template-rows: repeat(3, auto);     /* 3 rows */
+  gap: 0rem;
+  padding: 0.25rem;
+  align-items: start;                       /* prevents row stretching */
+}
+
+.secondary-header {
+  text-align: center;
+  
+}
+
+/* Compact ability table layout */
+.ability-table {
+  font-size: 0.85rem;
+  line-height: 1.1;
+}
+
+.ability-table th,
+.ability-table td {
+  padding: 0.15rem 0.25rem;
+}
+
+.ability-table th {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.ability-table-name {
+  text-align: left !important;
+}
+
+/* Shrink the ability name column */
+.ability-table td:first-child {
+  width: 38%;
+  text-align: left;
+  padding-left: 0.2rem;
+}
+
+/* Shrink numeric inputs */
+.secondary-input {
+  width: 62px !important;
+  padding: 0.15rem !important;
+  font-size: 0.8rem;
+}
+
+/* Final column */
+.ability-table td:nth-child(4) {
+  width: 40px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* Passive icon column */
+.passive-icon {
+  width: 28px;
+  text-align: center;
+}
+
+.passive-icon i {
+  font-size: 0.85rem;
+  color: #333;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Reduce spacing inside the block */
+.secondary-block {
+  padding: 0.35rem 0.5rem;
+}
+
+.secondary-header {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.char-roll,
+.open-roll,
+.res-roll {
+  cursor: pointer;
+  transition: color 0.15s ease, text-shadow 0.15s ease;
+}
+
+.char-roll:hover,
+.open-roll:hover,
+.res-roll:hover {
+  color: #4da3ff;
+  text-shadow: 0 0 8px #4da3ff, 0 0 12px #4da3ff;
+}
+

@@ -4,7 +4,7 @@
   <table class="resistances-table">
     <tr>
       <th></th>
-      <th>Modifier</th>
+      <th>Bonus</th>
       <th>Final</th>
     </tr>
 
@@ -14,15 +14,11 @@
         <input
           type="number"
           class="mod-input-resize-res"
-          name="system.resistances.physical.mod"
-          value="{{system.resistances.physical.mod}}"
+          name="system.resistances.Physical.bonus"
+          value="{{system.resistances.Physical.bonus}}"
         />
       </td>
-      <td><input
-          type="number"
-          value="{{system.resistances.physical.final}}"
-          disabled
-        /></td>
+    <td class="res-roll" data-char="Physical">{{system.resistances.Physical.final}}</td>
     </tr>
 
     <tr>
@@ -31,15 +27,11 @@
         <input
           type="number"
           class="mod-input-resize-res"
-          name="system.resistances.disease.mod"
-          value="{{system.resistances.disease.mod}}"
+          name="system.resistances.Disease.bonus"
+          value="{{system.resistances.Disease.bonus}}"
         />
       </td>
-      <td><input
-          type="number"
-          value="{{system.resistances.disease.final}}"
-          disabled
-        /></td>
+      <td class="res-roll" data-char="Disease">{{system.resistances.Disease.final}}</td>
     </tr>
 
     <tr>
@@ -48,15 +40,11 @@
         <input
           type="number"
           class="mod-input-resize-res"
-          name="system.resistances.venom.mod"
-          value="{{system.resistances.venom.mod}}"
+          name="system.resistances.Venom.bonus"
+          value="{{system.resistances.Venom.bonus}}"
         />
       </td>
-      <td><input
-          type="number"
-          value="{{system.resistances.venom.final}}"
-          disabled
-        /></td>
+      <td class="res-roll" data-char="Venom">{{system.resistances.Venom.final}}</td>
     </tr>
 
     <tr>
@@ -65,15 +53,11 @@
         <input
           type="number"
           class="mod-input-resize-res"
-          name="system.resistances.magic.mod"
-          value="{{system.resistances.magic.mod}}"
+          name="system.resistances.Magic.bonus"
+          value="{{system.resistances.Magic.bonus}}"
         />
       </td>
-      <td><input
-          type="number"
-          value="{{system.resistances.magic.final}}"
-          disabled
-        /></td>
+    <td class="res-roll" data-char="Magic">{{system.resistances.Magic.final}}</td>
     </tr>
 
     <tr>
@@ -82,15 +66,11 @@
         <input
           type="number"
           class="mod-input-resize-res"
-          name="system.resistances.psychic.mod"
-          value="{{system.resistances.psychic.mod}}"
+          name="system.resistances.Psychic.bonus"
+          value="{{system.resistances.Psychic.bonus}}"
         />
       </td>
-      <td><input
-          type="number"
-          value="{{system.resistances.psychic.final}}"
-          disabled
-        /></td>
+      <td class="res-roll" data-char="Psychic">{{system.resistances.Psychic.final}}</td>
     </tr>
   </table>
 </section>

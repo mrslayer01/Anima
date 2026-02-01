@@ -1,4 +1,4 @@
-<form class="abf-character-sheet">
+<form>
 
   {{!-- Title Bar --}}
   {{> "systems/abf-system/templates/actors/partials/header/header-top.hbs"}}
@@ -18,17 +18,17 @@
       {{!-- SECONDARY NAV (nested) --}}
       <nav class="sub-tabs" data-group="main-sub">
         <a class="item" data-tab="character">Character</a>
-        <a class="item" data-tab="details">Details</a>
+        <a class="item" data-tab="secondaries">Secondaries</a>
         <a class="item" data-tab="inventory">Inventory</a>
       </nav>
 
       {{!-- SECONDARY TAB PANELS --}}
       <div class="tab" data-group="main-sub" data-tab="character">
-          {{> "systems/abf-system/templates/actors/partials/header/character.hbs"}}
+          {{> "systems/abf-system/templates/actors/partials/nav/main/character/character.hbs"}}
       </div>
 
-      <div class="tab" data-group="main-sub" data-tab="details">
-        {{!-- Details content goes here --}}
+      <div class="tab" data-group="main-sub" data-tab="secondaries">
+        {{> "systems/abf-system/templates/actors/partials/nav/main/secondaries/secondaries.hbs" }}
       </div>
 
       <div class="tab" data-group="main-sub" data-tab="inventory">

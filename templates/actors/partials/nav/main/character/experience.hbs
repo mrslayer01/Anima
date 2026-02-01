@@ -1,0 +1,20 @@
+<h3>Experience</h3>
+
+<div class="xp-bar">
+  <div
+    class="xp-fill"
+    style="width: {{percent system.xp.current system.xp.next}}%;"
+  >
+  </div>
+</div>
+
+<table class="lft-table">
+  <tr>
+    <td>
+      <input type="number" name="system.xp.current" value="{{system.xp.current}}" />
+    </td>
+    <td>
+      <input type="number" value="{{system.xp.next}}" disabled />
+    </td>
+  </tr>
+</table>
