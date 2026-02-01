@@ -5,14 +5,20 @@
     <tr>
       <th>Class</th>
       <th>Level</th>
-      <th></th>
+      <th class="class-actions-header">
+        <a class="add-class" data-tooltip="Add Class">
+          <i class="fas fa-plus-circle"></i>
+        </a>
+      </th>
     </tr>
   </thead>
 
   <tbody>
     {{#each system.classes as |cls idx|}}
       <tr>
-        <td>{{cls.name}}</td>
+        <td class="class-name clickable-class" data-index="{{idx}}" data-class="{{cls.name}}">
+          {{cls.name}}
+        </td>
 
         <td>
           <input
@@ -25,7 +31,7 @@
         </td>
 
         <td>
-          <a class="delete-class" data-index="{{idx}}">
+          <a class="delete-class" data-index="{{idx}}" data-tooltip="Delete Class">
             <i class="fas fa-trash"></i>
           </a>
         </td>
@@ -33,8 +39,3 @@
     {{/each}}
   </tbody>
 </table>
-
-<button type="button" class="add-class add-class-btn">
-  <i class="fas fa-plus"></i>
-  Add Class
-</button>

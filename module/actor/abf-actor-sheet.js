@@ -2,6 +2,7 @@ import { ABF_CLASSES } from "../config/classes.js";
 import { AddClassWindow } from "../apps/add-class-window.js";
 import { characteristicCheck, animaOpenRoll, resistanceCheck } from "../rolls.js";
 import { difficultyMap } from "./lookup.js"
+import {ClassInfoWindow} from "../apps/class-info.js";
 
 export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
   static get defaultOptions() {
@@ -85,12 +86,8 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
   activateListeners(html) {
     super.activateListeners(html);
 
-
-    html.find(".add-class").off("click"); //before adding new listener, remove old to avoid duplicates
-    html.find(".add-class").on("click", () => {
-      new AddClassWindow({ actorId: this.actor.id }).render(true);
-    });
-
+//#region ROLLS
+    //Characteristic Roll
     html.find(".char-roll").off("click"); //before adding new listener, remove old to avoid duplicates
     html.find(".char-roll").on("click", ev => {
       const char = ev.currentTarget.dataset.char;
@@ -160,7 +157,14 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
       }).render(true);
     });
 
+//#endregion
 
+//#region CLASS
+
+    html.find(".add-class").off("click"); //before adding new listener, remove old to avoid duplicates
+    html.find(".add-class").on("click", () => {
+      new AddClassWindow({ actorId: this.actor.id }).render(true);
+    });
 
     html.find(".delete-class").off("click"); //before adding new listener, remove old to avoid duplicates
     html.find(".delete-class").on("click", async (event) => {
@@ -199,6 +203,25 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
 
       await this.actor.update({ "system.classes": classes });
     });
+
+    // Click class name for information
+    html.find(".clickable-class").click(ev => {
+      ev.preventDefault();
+
+      const className = ev.currentTarget.dataset.class;
+      const classData = this.actor.system.classes.find(c => c.name === className);
+
+      console.log("Class Info Clicked:", className, classData);
+
+      if (!classData) return ui.notifications.error("Class data not found");
+
+      new ClassInfoWindow(className, { classData }).render(true);
+    });
+
+
+
+
+//#endregion
 
     // Ability rolls
     html.find(".abf-roll-ability").off("click");

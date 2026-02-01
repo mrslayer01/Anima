@@ -730,15 +730,38 @@ HEADER SECTION
 
 .char-roll,
 .open-roll,
-.res-roll {
+.res-roll,
+.clickable-class{
   cursor: pointer;
   transition: color 0.15s ease, text-shadow 0.15s ease;
 }
 
 .char-roll:hover,
 .open-roll:hover,
-.res-roll:hover {
+.res-roll:hover,
+.clickable-class:hover {
   color: #4da3ff;
   text-shadow: 0 0 8px #4da3ff, 0 0 12px #4da3ff;
 }
+
+.sheet-tabs {
+  margin-bottom: 0 !important;
+  background: #1a0f0f;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+}
+
+.sub-tabs {
+  margin-top: 0 !important;
+  border-top: none !important;
+  position: relative;
+  top: -6px; /* adjust between -1 and -6 depending on your rounding */
+  padding-top: 0.5rem;
+  background: #0d0606;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+
+
 
