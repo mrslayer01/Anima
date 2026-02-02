@@ -22,5 +22,7 @@
       "name": "English",
       "path": "lang/en.json"
     }
-  ]
+  ],
+    "download": "https://github.com/mrslayer01/Anima/archive/refs/tags/0.0.1.zip",
+    "manifest": "https://github.com/mrslayer01/Anima/releases/download/0.0.1/system.json"
 }
