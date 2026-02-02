@@ -2,6 +2,9 @@ import { AbfActor } from "./actor/abf-actor.js";
 import { AbfActorSheet } from "./actor/abf-actor-sheet.js";
 import { AbfItem } from "./item/abf-item.js";
 import { AbfItemSheet } from "./item/abf-item-sheet.js";
+import { ABF_CLASSES } from "./config/classes.js";
+import { ABF_ADVANTAGES } from "./config/advantages.js";
+import { ABF_DISADVANTAGES } from "./config/disadvantages.js";
 
 Hooks.once("init", function () {
   console.log("ABF | Initializing Anima Beyond Fantasy system");
@@ -13,21 +16,52 @@ Hooks.once("init", function () {
   if (!max || max === 0) return 0;
   return Math.min(100, Math.floor((current / max) * 100));
   });
+  Handlebars.registerHelper("className", function(key) {
+  return ABF_CLASSES[key].name;
+  });
+  Handlebars.registerHelper("advName", function(key) {
+  return ABF_ADVANTAGES[key].name;
+  });
+  Handlebars.registerHelper("disadvName", function(key) {
+  return ABF_DISADVANTAGES[key].name;
+  });
+
 
   CONFIG.Actor.documentClass = AbfActor;
   CONFIG.Item.documentClass = AbfItem;
 
   //definie partials
+  //Main Tab in Nav
+  const navMainPartials = [
+    "character",
+    "details",
+    "inventory"
+  ];
+
+  //Character Section
   const navMainCharacterPartials = [
     "aspects",
     "background",
-    "character",
     "classes",
     "dp",
     "experience",
     "presence"
   ];
-    const navMainSecondariesPartials = [
+
+  //Details Section
+  const navMainDetailsPartials = [
+    "advantages",
+    "disadvantages",
+    "elan",
+    "languages",
+    "titles"
+  ];
+
+  // //Inventory Section
+  // const navMainInventoryPartials = [
+  // ];
+
+  const navSecondariesPartials = [
     "athletics",
     "secondaries",
     "vigor",
@@ -57,15 +91,40 @@ Hooks.once("init", function () {
     ]);
   }
 
+  //nav
+  
+  //load the main nav partials
+  for (const p of navMainPartials) {
+    foundry.applications.handlebars.loadTemplates([
+      `systems/abf-system/templates/actors/partials/nav/main/${p}.hbs`
+    ]);
+  }
+  
+  //nav main/character partials
   for (const p of navMainCharacterPartials) {
     foundry.applications.handlebars.loadTemplates([
       `systems/abf-system/templates/actors/partials/nav/main/character/${p}.hbs`
     ]);
   }
 
-    for (const p of navMainSecondariesPartials) {
+  //nav main/details partials
+  for (const p of navMainDetailsPartials) {
     foundry.applications.handlebars.loadTemplates([
-      `systems/abf-system/templates/actors/partials/nav/main/secondaries/${p}.hbs`
+      `systems/abf-system/templates/actors/partials/nav/main/details/${p}.hbs`
+    ]);
+  }
+
+  //nav main/inventory partials
+  // for (const p of navMainInventoryPartials) {
+  //   foundry.applications.handlebars.loadTemplates([
+  //     `systems/abf-system/templates/actors/partials/nav/main/inventory/${p}.hbs`
+  //   ]);
+  // }
+
+  //nav secondaries
+  for (const p of navSecondariesPartials) {
+    foundry.applications.handlebars.loadTemplates([
+      `systems/abf-system/templates/actors/partials/nav/secondaries/${p}.hbs`
     ]);
   }
 

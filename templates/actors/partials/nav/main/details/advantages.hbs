@@ -1,0 +1,29 @@
+<table class="classes-table">
+  <thead>
+    <tr>
+      <th>Advantage</th>
+      {{!-- <th>Level</th> --}}
+      <th class="class-actions-header">
+        <a class="add-advantage" data-tooltip="Add Advantage">
+          <i class="fas fa-plus-circle"></i>
+        </a>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each system.advantages as |cls idx|}}
+      <tr>
+        <td class="advantage-name clickable-advantage" data-index="{{idx}}" data-advantage="{{cls.name}}">
+          {{cls.name}}
+        </td>
+
+        <td>
+          <a class="delete-advantage" data-index="{{idx}}" data-tooltip="Delete Advantage">
+            <i class="fas fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

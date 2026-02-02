@@ -13,6 +13,7 @@ import { calculateFinalLifePoints } from "./derived-life-points.js";
 import { calculateFinalInitiative } from "./derived-initiative.js";
 import { calculateFinalFatigue } from "./derived-fatigue.js";
 import { calculateCharacterSize } from "./derived-size.js"
+import { calculateMovement } from "./derived-movement.js"
 
 
 
@@ -27,6 +28,7 @@ export function calculateDerivedValues(system, actor) {
     calculateFinalInitiative(system);
     calculateFinalFatigue(system);
     calculateCharacterSize(system);
+    calculateMovement(system);
 
 
     // 2. Initialize all finals to prevent undefined values.

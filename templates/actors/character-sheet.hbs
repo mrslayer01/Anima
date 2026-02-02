@@ -30,21 +30,21 @@
 
       {{!-- SECONDARY TAB PANELS --}}
       <div class="tab" data-group="main-sub" data-tab="character">
-          {{> "systems/abf-system/templates/actors/partials/nav/main/character/character.hbs"}}
+        {{> "systems/abf-system/templates/actors/partials/nav/main/character.hbs"}}
       </div>
 
       <div class="tab" data-group="main-sub" data-tab="details">
-        {{!-- Details content goes here --}}
+        {{> "systems/abf-system/templates/actors/partials/nav/main/details.hbs"}}
       </div>
 
       <div class="tab" data-group="main-sub" data-tab="inventory">
-        {{!-- Inventory content goes here --}}
+        {{> "systems/abf-system/templates/actors/partials/nav/main/inventory.hbs"}}
       </div>
     </div>
 
     {{!-- Secondaries Tab --}}
     <div class="tab secondaries" data-group="primary" data-tab="secondaries">
-      {{> "systems/abf-system/templates/actors/partials/nav/main/secondaries/secondaries.hbs" }}
+      {{> "systems/abf-system/templates/actors/partials/nav/secondaries/secondaries.hbs" }}
     </div>
 
     {{!-- Combat Tab --}}

@@ -1,0 +1,15 @@
+<form class="add-class-form">
+    <label>
+    <i class="fas fa-question-circle advantage-info-icon"
+        title="Click to see advantage details"></i>
+    Advantage:
+    </label>
+
+    <select class="advantage-selector">
+    {{#each advantageOptions as |adv|}}
+        <option value="{{adv}}">{{advName adv}}</option>
+    {{/each}}
+    </select>
+
+  <button type="button" class="confirm-add">OK</button>
+</form>

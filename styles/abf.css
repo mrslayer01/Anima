@@ -87,7 +87,9 @@
 .abf-character-sheet .final-armor-section,
 .abf-character-sheet .secondaries-grid,
 .abf-character-sheet .secondary-block,
-.abf-character-sheet .character-grid {
+.abf-character-sheet .character-grid,
+.abf-character-sheet .details-grid,
+.abf-character-sheet .inventory-grid {
   background: #1a1d27;
   border: 1px solid #2f3547;
   border-radius: 6px;
@@ -283,7 +285,9 @@
   text-align: center;
 }
 
-.character-grid {
+.character-grid,
+.details-grid,
+.inventory-grid {
   display: grid;
   grid-template-columns: 0.3fr 0.7fr;
   gap: 1rem;
@@ -292,7 +296,11 @@
 }
 
 .character-left,
-.character-right {
+.character-right,
+.inventory-left,
+.inventory-right,
+.details-left,
+.details-right {
   display: flex;
   flex-direction: column;
   gap: 1rem;

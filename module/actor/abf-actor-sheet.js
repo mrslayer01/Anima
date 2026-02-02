@@ -1,8 +1,14 @@
 import { ABF_CLASSES } from "../config/classes.js";
 import { AddClassWindow } from "../apps/add-class-window.js";
+import { ClassInfoWindow } from "../apps/class-info.js";
+import { ABF_ADVANTAGES } from "../config/advantages.js";
+import { AddAdvantageWindow } from "../apps/add-advantage-window.js";
+import { AdvantageInfoWindow } from "../apps/advantage-info.js";
+import { ABF_DISADVANTAGES } from "../config/disadvantages.js";
+import { AddDisadvantageWindow } from "../apps/add-disadvantage-window.js";
+import { DisadvantageInfoWindow } from "../apps/disadvantage-info.js";
 import { characteristicCheck, animaOpenRoll, resistanceCheck } from "../rolls.js";
 import { difficultyMap } from "./lookup.js"
-import {ClassInfoWindow} from "../apps/class-info.js";
 
 export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
   static get defaultOptions() {
@@ -233,7 +239,116 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
       new ClassInfoWindow(className, { classData }).render(true);
     });
 
+//#endregion
 
+//#region Advanatage/Disadvantage
+    // html.find(".advantage-info-icon").click(ev => {
+    //   const select = html.find(".advantage-selector")[0];
+    //   const advName = select.value;
+    //   const advData = ABF_ADVANTAGES[advName];
+
+    //   new AdvantageInfoWindow(advName, advData).render(true);
+    // });
+
+    // html.find(".disadvantage-info-icon").click(ev => {
+    //   const select = html.find(".disadvantage-selector")[0];
+    //   const disName = select.value;
+    //   const disData = ABF_DISADVANTAGES[disName];
+
+    //   new DisadvantageInfoWindow(disName, disData).render(true);
+    // });
+
+// -----------------------------
+// ADD ADVANTAGE
+// -----------------------------
+html.find(".add-advantage").off("click");
+html.find(".add-advantage").on("click", () => {
+  new AddAdvantageWindow({ actorId: this.actor.id }).render(true);
+});
+
+// -----------------------------
+// DELETE ADVANTAGE
+// -----------------------------
+  html.find(".delete-advantage").off("click");
+  html.find(".delete-advantage").on("click", async (event) => {
+    const index = Number(event.currentTarget.dataset.index);
+
+    const confirmed = await Dialog.confirm({
+      title: "Confirm Delete",
+      content: "<p>Are you sure you want to remove this advantage?</p>",
+    });
+
+    if (!confirmed) return;
+
+    const advantages = foundry.utils.duplicate(this.actor.system.advantages);
+
+    const deletedName = advantages[index]?.name;
+
+    advantages.splice(index, 1);
+
+    await this.actor.update({ "system.advantages": advantages });
+  });
+
+  // -----------------------------
+  // CLICK ADVANTAGE NAME FOR INFO
+  // -----------------------------
+  html.find(".clickable-advantage").off("click");
+  html.find(".clickable-advantage").on("click", (ev) => {
+    ev.preventDefault();
+
+    const advName = ev.currentTarget.dataset.advantage;
+    const advData = this.actor.system.advantages.find(a => a.name === advName);
+
+    if (!advData) return ui.notifications.error("Advantage data not found");
+
+    new AdvantageInfoWindow(advName, advData).render(true);
+  });
+
+  // -----------------------------
+  // ADD DISADVANTAGE
+  // -----------------------------
+  html.find(".add-disadvantage").off("click");
+  html.find(".add-disadvantage").on("click", () => {
+    new AddDisadvantageWindow({ actorId: this.actor.id }).render(true);
+  });
+
+  // -----------------------------
+  // DELETE DISADVANTAGE
+  // -----------------------------
+  html.find(".delete-disadvantage").off("click");
+  html.find(".delete-disadvantage").on("click", async (event) => {
+    const index = Number(event.currentTarget.dataset.index);
+
+    const confirmed = await Dialog.confirm({
+      title: "Confirm Delete",
+      content: "<p>Are you sure you want to remove this disadvantage?</p>",
+    });
+
+    if (!confirmed) return;
+
+    const disadvantages = foundry.utils.duplicate(this.actor.system.disadvantages);
+
+    const deletedName = disadvantages[index]?.name;
+
+    disadvantages.splice(index, 1);
+
+    await this.actor.update({ "system.disadvantages": disadvantages });
+  });
+
+  // -----------------------------
+  // CLICK DISADVANTAGE NAME FOR INFO
+  // -----------------------------
+  html.find(".clickable-disadvantage").off("click");
+  html.find(".clickable-disadvantage").on("click", (ev) => {
+    ev.preventDefault();
+
+    const disName = ev.currentTarget.dataset.disadvantage;
+    const disData = this.actor.system.disadvantages.find(d => d.name === disName);
+
+    if (!disData) return ui.notifications.error("Disadvantage data not found");
+
+    new DisadvantageInfoWindow(disName, disData).render(true);
+  });
 
 
 //#endregion
