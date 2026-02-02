@@ -1,14 +1,26 @@
 <section class="header-block lft-wrapper">
   <!-- Life Points -->
   <div class="lft-block">
-    <h3>Life Points Total: {{system.lifePoints.final}}</h3>
+    <h3
+      data-tooltip="Final Life Points = 20 + (Constitution Base * 10)  + (Class Life Points Per Level * Class Level + Bonus.)"
+    >LP Total: {{system.lifePoints.final}}</h3>
     <table class="lft-table">
       <tr>
         <td>
-          <input type="number" name="system.lifePoints.current" value="{{system.lifePoints.current}}">
+          <input
+            data-tooltip="Current Life Points"
+            type="number"
+            name="system.lifePoints.current"
+            value="{{system.lifePoints.current}}"
+          />
         </td>
         <td>
-          <input type="number" name="system.lifePoints.bonus" value="{{system.lifePoints.bonus}}">
+          <input
+            data-tooltip="Bonus Life Points"
+            type="number"
+            name="system.lifePoints.bonus"
+            value="{{system.lifePoints.bonus}}"
+          />
         </td>
       </tr>
     </table>
@@ -16,29 +28,39 @@
 
   <!-- Fatigue -->
   <div class="lft-block">
-    <h3>Fatigue</h3>
+    <h3 data-tooltip="Final Fatigue = Constitution Base.">Fatigue Total:
+      {{system.fatigue.final}}</h3>
     <table class="lft-table">
       <tr>
         <td>
-          <input type="number" name="system.fatigue.current" value="{{system.fatigue.current}}">
+          <input
+            data-tooltip="Current Fatigue"
+            type="number"
+            name="system.fatigue.current"
+            value="{{system.fatigue.current}}"
+          />
         </td>
-        <td>
-          <input type="number" name="system.fatigue.max" value="{{system.fatigue.max}}">
-        </td>
+        <td
+          data-tooltip="The current penatly to all actions caused from current fatigue being < 4. (or < 3 if you have fatigue of 4 and so on)"
+        >{{system.fatigue.actionPenalty}}</td>
       </tr>
     </table>
   </div>
 
-  <!-- Turn -->
+  <!-- Initiative -->
   <div class="lft-block">
-    <h3>Turn</h3>
+    <h3
+      data-tooltip="Total Initiative = 20 (for normal sized creatures) + (Agility Final + Dexterity Final) + Armor Modifier + Weapon Modifier + (Class Initiative Per Level * Class Level) + Bonus + Special (Effect, magic Item, etc..)"
+    >Initiative Total: {{system.initiative.final}}</h3>
     <table class="lft-table">
       <tr>
         <td>
-          <input type="number" name="system.turn.current" value="{{system.turn.current}}">
-        </td>
-        <td>
-          <input type="number" name="system.turn.max" value="{{system.turn.max}}">
+          <input
+            data-tooltip="Initiative Bonus"
+            type="number"
+            name="system.initiative.bonus"
+            value="{{system.initiative.bonus}}"
+          />
         </td>
       </tr>
     </table>

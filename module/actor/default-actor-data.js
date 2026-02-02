@@ -10,10 +10,13 @@ export const DEFAULT_ACTOR_DATA = {
     race: "",
     ethnicity: "",
     age: 0,
-    size: "",
+    size: { bonus: 0, special: 0, final: 0},
     appearance: 0,
   },
   lifePoints: { current: 0, bonus: 0, class: 0, final: 0 },
+  fatigue: { current: 0, special: 0, final: 0, actionPenalty: 0 },
+  movement: { current: 0, bonus: 0, final: 0 },
+  initiative: { bonus: 0, class: 0, final: 0, armorPenalty: 0, weaponPenalty: 0, special: 0 },
   destinyPoints: { current: 0, final: 0 },
   xp: { current: 0, next: 1 },
 
@@ -30,62 +33,62 @@ export const DEFAULT_ACTOR_DATA = {
 
   abilities: {
     Athletics: {
-      Acrobatics:     { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Agility", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      Athletics:      { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Agility", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      Climb:          { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Agility", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      Jump:           { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Strength", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      Ride:           { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Agility", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      Swim:           { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Agility", knowledge: false, passive: false, undeveloped: true, mastery: false }
+      Acrobatics:     { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Agility", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      Athletics:      { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Agility", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      Climb:          { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Agility", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      Jump:           { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Strength", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      Ride:           { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Agility", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      Swim:           { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Agility", knowledge: false, passive: false, undeveloped: true, mastery: false }
     },
 
     Vigor: {
-      Composure:      { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Willpower", knowledge: false, passive: true, undeveloped: true, mastery: false },
-      FeatsOfStrength:{ base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Strength", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      WithstandPain:  { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Willpower", knowledge: false, passive: false, undeveloped: true, mastery: false }
+      Composure:      { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Willpower", knowledge: false, passive: true, undeveloped: true, mastery: false },
+      FeatsOfStrength:{ base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Strength", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      WithstandPain:  { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Willpower", knowledge: false, passive: false, undeveloped: true, mastery: false }
     },
 
     Perception: {
-      Notice:         { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Perception", knowledge: false, passive: true, undeveloped: true, mastery: false },
-      Search:         { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Perception", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      Track:          { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Perception", knowledge: false, passive: false, undeveloped: true, mastery: false }
+      Notice:         { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Perception", knowledge: false, passive: true, undeveloped: true, mastery: false },
+      Search:         { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Perception", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      Track:          { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Perception", knowledge: false, passive: false, undeveloped: true, mastery: false }
     },
 
     Intellectual: {
-      Animals:        { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
-      Appraisal:      { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
-      HerbalLore:     { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
-      History:        { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
-      MagicAppraisal: { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Power", knowledge: true, passive: true, undeveloped: true, mastery: false },
-      Medicine:       { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
-      Memorize:       { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Intelligence", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      Navigation:     { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
-      Occult:         { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
-      Sciences:       { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false }
+      Animals:        { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
+      Appraisal:      { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
+      HerbalLore:     { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
+      History:        { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
+      MagicAppraisal: { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Power", knowledge: true, passive: true, undeveloped: true, mastery: false },
+      Medicine:       { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
+      Memorize:       { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Intelligence", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      Navigation:     { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
+      Occult:         { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
+      Sciences:       { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false }
     },
 
     Social: {
-      Intimidate:     { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Willpower", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      Leadership:     { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Power", knowledge: false, passive: true, undeveloped: true, mastery: false },
-      Persuasion:     { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Intelligence", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      Style:          { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Power", knowledge: false, passive: true, undeveloped: true, mastery: false }
+      Intimidate:     { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Willpower", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      Leadership:     { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Power", knowledge: false, passive: true, undeveloped: true, mastery: false },
+      Persuasion:     { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Intelligence", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      Style:          { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Power", knowledge: false, passive: true, undeveloped: true, mastery: false }
     },
 
     Subterfuge: {
-      Disguise:       { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Dexterity", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      Hide:           { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Perception", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      LockPicking:    { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Dexterity", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      Poisons:        { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
-      Theft:          { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Dexterity", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      TrapLore:       { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Perception", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      Stealth:        { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic:"Agility", knowledge:false, passive:false, undeveloped:true, mastery: false }
+      Disguise:       { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Dexterity", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      Hide:           { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Perception", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      LockPicking:    { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Dexterity", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      Poisons:        { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Intelligence", knowledge: true, passive: false, undeveloped: true, mastery: false },
+      Theft:          { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Dexterity", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      TrapLore:       { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Perception", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      Stealth:        { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Agility", knowledge: false, passive: false, undeveloped: true, mastery: false }
     },
 
     Creative: {
-      Art:            { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Power", knowledge: false, passive: false, undeveloped: true, mastery: false },
-      Dance:          { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Agility", knowledge: true, passive: false, undeveloped: true, mastery: false },
-      Forging:        { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Dexterity", knowledge: true, passive: false, undeveloped: true, mastery: false },
-      Music:          { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic: "Power", knowledge: true, passive:false , undeveloped: true, mastery: false },
-      SleightOfHand:  { base: 0, bonus: 0, cost: 0, class: 0, final: 0, characteristic:"Dexterity", knowledge: false , passive:false , undeveloped: true, mastery: false }
+      Art:            { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Power", knowledge: false, passive: false, undeveloped: true, mastery: false },
+      Dance:          { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Agility", knowledge: true, passive: false, undeveloped: true, mastery: false },
+      Forging:        { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Dexterity", knowledge: true, passive: false, undeveloped: true, mastery: false },
+      Music:          { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Power", knowledge: true, passive: false, undeveloped: true, mastery: false },
+      SleightOfHand:  { base: 0, bonus: 0, cost: 0, class: 0, final: 0, special: 0, characteristic: "Dexterity", knowledge: false, passive: false, undeveloped: true, mastery: false }
     }
   },
 

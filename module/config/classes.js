@@ -8,17 +8,13 @@ const CLASS_SCHEMA = {
 
   lifePointMultiple: "number",
   lifePointsPerLevel: "number",
-  totalLifePoints: "number",
 
   initiativePerLevel: "number",
-  totalInitiative: "number",
 
   martialKnowledgePerLevel: "number",
-  totalMartialKnowledge: "number",
 
   psychicPointsPerLevel: "number",
   psychicPointsInterval: "number",
-  currentPsychicPoints: "number",
 
   abilityLimits: {
     combat: "number",
@@ -125,14 +121,10 @@ export function createClass(classInput) {
     descrtiption = "",
     lifePointMultiple = 0,
     lifePointsPerLevel = 0,
-    totalLifePoints = 0,
     initiativePerLevel = 0,
-    totalInitiative = 0,
     martialKnowledgePerLevel = 0,
-    totalMartialKnowledge = 0,
     psychicPointsPerLevel = 0,
     psychicPointsInterval = 0,
-    currentPsychicPoints = 0,
     abilityLimits,
     primaryAbilityCosts,
     supernaturalAbilityCosts,
@@ -150,17 +142,13 @@ export function createClass(classInput) {
 
     lifePointMultiple,
     lifePointsPerLevel,
-    totalLifePoints,
 
     initiativePerLevel,
-    totalInitiative,
 
     martialKnowledgePerLevel,
-    totalMartialKnowledge,
 
     psychicPointsPerLevel,
     psychicPointsInterval,
-    currentPsychicPoints,
 
     abilityLimits,
     primaryAbilityCosts,
@@ -183,17 +171,13 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 15,
     lifePointsPerLevel: 15,
-    totalLifePoints: 0,
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
 
     martialKnowledgePerLevel: 25,
-    totalMartialKnowledge: 0,
 
     psychicPointsPerLevel: 1,
-    psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    psychicPointsInterval: 3,    
 
     abilityLimits: {
       combat: 60,
@@ -256,17 +240,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 10,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 10,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 25,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 60,
@@ -332,17 +316,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 15,
     lifePointsPerLevel: 15,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 20,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 60,
@@ -409,17 +393,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 15,
     lifePointsPerLevel: 15,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 20,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 60,
@@ -487,17 +471,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 10,
     lifePointsPerLevel: 20,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 10,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 60,
@@ -561,17 +545,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 5,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 50,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 60,
@@ -628,17 +612,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 10,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 30,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 60,
@@ -696,17 +680,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 10,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 30,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 60,
@@ -764,17 +748,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 5,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 10,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 25,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 60,
@@ -839,17 +823,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 5,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 10,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 20,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 50,
@@ -915,17 +899,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 5,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 10,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 20,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 50,
@@ -991,17 +975,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 5,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 10,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 50,
@@ -1061,17 +1045,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 10,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 20,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 50,
@@ -1134,17 +1118,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 5,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 20,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 50,
@@ -1208,17 +1192,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 5,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 10,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 1,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 50,
@@ -1277,17 +1261,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 5,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 10,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 50,
@@ -1352,17 +1336,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 10,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 20,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 50,
@@ -1427,17 +1411,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 5,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 10,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 1,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 50,
@@ -1493,17 +1477,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 10,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 20,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 1,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 50,
@@ -1563,17 +1547,17 @@ export const ABF_CLASSES = {
 
     lifePointMultiple: 20,
     lifePointsPerLevel: 5,
-    totalLifePoints: 0,
+
 
     initiativePerLevel: 5,
-    totalInitiative: 0,
+
 
     martialKnowledgePerLevel: 20,
-    totalMartialKnowledge: 0,
+    
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 2,
-    currentPsychicPoints: 0,
+    
 
     abilityLimits: {
       combat: 60,

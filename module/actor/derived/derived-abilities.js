@@ -1,25 +1,39 @@
 // 1. Full initialization (prevents undefined finals)
 export function initializeAllAbilities(system) {
+    const allSecondaryInnateBonuses = (system.classes || [])
+      .flatMap(cls =>
+        (cls.innateBonuses?.secondaryAbilities || []).map(bonus => ({
+          ...bonus,
+          name: normalizeAbilityName(bonus.name), // proper normalization
+          level: cls.level || 0
+        }))
+    );
   for (const [categoryName, categoryData] of Object.entries(system.abilities)) {
-
-    for (const [, abilityData] of Object.entries(categoryData)) {
+    for (const [abilityName, abilityData] of Object.entries(categoryData)) {
       const linkedChar = abilityData.characteristic;
       const charFinal = system.characteristics[linkedChar]?.final || 0;
+      
+      //add class bonus, if any.
+      const match = allSecondaryInnateBonuses.find(b => b.name === abilityName);
+
+      if(match != null) {
+        abilityData.class = (match.innateBonus * match.level);
+      }
 
       // Calculate final
       abilityData.final =
         (abilityData.base || 0) +
         (abilityData.bonus || 0) +
         (abilityData.class || 0) +
+        (abilityData.special || 0) +
         charFinal;
 
       // determine if undeveloped
-      abilityData.undeveloped = abilityData.base === 0;
+      abilityData.undeveloped = (abilityData.base + abilityData.bonus + abilityData.class + abilityData.special) === 0;
 
       // determine if ability mastery
-      abilityData.mastery = abilityData.base >= 200;
+      abilityData.mastery = (abilityData.base + abilityData.bonus + abilityData.class + abilityData.special) >= 200;
     }
-
   }
 }
 
@@ -33,25 +47,42 @@ export function applyChangedAbilities(system, actor) {
         const abilityData = system.abilities[category]?.[ability];
         if (!abilityData) continue;
 
+
+        const allSecondaryInnateBonuses = (system.classes || [])
+          .flatMap(cls =>
+            (cls.innateBonuses?.secondaryAbilities || []).map(bonus => ({
+              ...bonus,
+              name: normalizeAbilityName(bonus.name), // proper normalization
+              level: cls.level || 0
+            }))
+        );
         const linkedChar = abilityData.characteristic;
         const charFinal = system.characteristics[linkedChar]?.final || 0;
+
+        //add class bonus, if any.
+        const match = allSecondaryInnateBonuses.find(b => b.name === ability);
+
+        if(match != null) {
+          abilityData.class = (match.innateBonus * match.level);
+        }
 
         // Calculate final
         abilityData.final =
             (abilityData.base || 0) +
             (abilityData.bonus || 0) +
             (abilityData.class || 0) +
+            (abilityData.special || 0) +
             charFinal;
         
         // determine if undeveloped
-        if (abilityData.base === 0) {
+        if ((abilityData.base + abilityData.bonus + abilityData.class + abilityData.special) === 0) {
             abilityData.undeveloped = true;
         } else {
             abilityData.undeveloped = false;
         }
 
         // determine if ability mastery
-        if (abilityData.base >= 200) {
+        if ((abilityData.base + abilityData.bonus + abilityData.class + abilityData.special) >= 200) {
             abilityData.mastery = true;
         } else {
             abilityData.mastery = false;
@@ -84,4 +115,12 @@ export function detectChangedAbilities(data, oldSystem) {
   }
 
   return changed;
+}
+
+function normalizeAbilityName(name) {
+  return name
+    .trim()
+    .split(/\s+/g)
+    .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+    .join("");
 }

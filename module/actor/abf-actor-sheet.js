@@ -10,7 +10,7 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
       classes: ["abf-character-sheet", "abf-system", "sheet", "actor"],
       template: "systems/abf-system/templates/actors/character-sheet.hbs",
       width: 1530,
-      height: 1000,
+      height: 1160,
       tabs: [
         {
           navSelector: ".sheet-tabs",
@@ -21,6 +21,21 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
           navSelector: ".sub-tabs",
           contentSelector: ".tab.main",
           initial: "character",
+        },
+        {
+          navSelector: ".sub-tabs[data-group='main-sub']",
+          contentSelector: ".tab.main",
+          initial: "character",
+        },
+        {
+          navSelector: ".sub-tabs[data-group='mystic-sub']",
+          contentSelector: ".tab.mystic",
+          initial: "mysticMain",
+        },
+        {
+          navSelector: ".sub-tabs[data-group='psychic-sub']",
+          contentSelector: ".tab.psychic",
+          initial: "psychicMain",
         }
       ],
     });
@@ -85,8 +100,8 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
 
   activateListeners(html) {
     super.activateListeners(html);
-
-//#region ROLLS
+    
+    //#region ROLLS
     //Characteristic Roll
     html.find(".char-roll").off("click"); //before adding new listener, remove old to avoid duplicates
     html.find(".char-roll").on("click", ev => {

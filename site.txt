@@ -1,0 +1,1017 @@
+/* ---------------------------------------------------------
+   GLOBAL SHEET LAYOUT
+--------------------------------------------------------- */
+
+.abf-character-sheet {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  font-family: "Inter", sans-serif;
+  background: url("/ui/parchment.jpg");
+  background-size: cover;          /* fills the window */
+  background-repeat: no-repeat;    /* no tiling */
+  background-position: center;     /* centered texture */
+  background-attachment: fixed;    /* subtle parallax effect */
+}
+
+.abf-character-sheet .window-content {
+  backdrop-filter: blur(2px);       /* subtle fantasy glass effect */
+}
+
+
+.abf-character-sheet h2 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 0.25rem;
+}
+
+/* ---------------------------------------------------------
+   HEADER
+--------------------------------------------------------- */
+
+.sheet-header {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.sheet-header h1 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0;
+}
+
+.sheet-header .char-meta {
+  display: flex;
+  gap: 1.5rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+/* ---------------------------------------------------------
+   PORTRAIT
+--------------------------------------------------------- */
+
+.portrait-section {
+  display: flex;
+  justify-content: center;
+}
+
+.portrait-frame {
+  width: 150px;
+  height: 150px;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #f0f0f0;
+  border: 1px solid #ccc;
+}
+
+.portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------------------------------------------------------
+   TABLE SECTIONS (Attributes, Resistances, Armor, etc.)
+   Now styled to blend with parchment
+--------------------------------------------------------- */
+
+.attributes-section,
+.resistances-section,
+.life-movement-section,
+.modifiers-section,
+.final-armor-section,
+.aspect-section {
+  background: rgba(255, 255, 255, 0.65); /* soft parchment overlay */
+  border: 1px solid rgba(80, 50, 20, 0.35); /* warm ink-like border */
+  border-radius: 8px;
+  padding: 1rem;
+  backdrop-filter: blur(1px); /* subtle fantasy glass effect */
+}
+
+/* Tables */
+.attributes-table,
+.resistances-table,
+.life-table,
+.modifiers-table,
+.armor-table,
+.aspect-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #000; /* readable ink color */
+}
+
+.attributes-table td,
+.resistances-table td,
+.life-table td,
+.modifiers-table td,
+.armor-table td,
+.aspect-table td {
+  padding: 0.35rem 0.5rem;
+}
+
+.attributes-table tr:last-child td,
+.resistances-table tr:last-child td,
+.life-table tr:last-child td,
+.modifiers-table tr:last-child td,
+.armor-table tr:last-child td,
+.aspect-table tr:last-child td {
+  border-bottom: none;
+}
+
+/* ---------------------------------------------------------
+   DESCRIPTION BOX
+--------------------------------------------------------- */
+
+.description-section textarea {
+  width: 100%;
+  height: 200px;
+  border-radius: 8px;
+  border: 1px solid rgba(80, 50, 20, 0.35);
+  padding: 0.75rem;
+  resize: vertical;
+  background: rgba(255, 255, 255, 0.65);
+  font-family: inherit;
+  color: #000;
+}
+
+/* ---------------------------------------------------------
+   TABS — now fantasy-themed
+--------------------------------------------------------- */
+
+.sheet-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding: 0.5rem;
+  justify-content: space-evenly;
+}
+  
+.abf-character-sheet .sheet-tabs .item {
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #3a2a1a; /* ink */
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid transparent;
+}
+
+.abf-character-sheet .sheet-tabs .item:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.sheet-tabs .item.active {
+  background: #7a1f1f; /* your crimson */
+  color: #f4e9d8;      /* parchment text */
+  border: 1px solid #5a1515;
+}
+
+/* ---------------------------------------------------------
+   FLEX HELPERS (unchanged)
+--------------------------------------------------------- */
+
+.flex { display: flex; }
+.flex-col { display: flex; flex-direction: column; }
+.flex-between { display: flex; justify-content: space-between; }
+.flex-center { display: flex; justify-content: center; align-items: center; }
+.gap-sm { gap: 0.5rem; }
+.gap-md { gap: 1rem; }
+.gap-lg { gap: 1.5rem; }
+
+/* ---------------------------------------------------------
+   HEADER LAYOUT
+--------------------------------------------------------- */
+
+.header-container {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  padding-bottom: 1rem;
+}
+
+.header-fields {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.meta-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.35rem 1rem;
+}
+
+/* ---------------------------------------------------------
+   TOP HEADER BAR
+--------------------------------------------------------- */
+
+.header-top {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  min-height: 3.2rem;
+  background: #7a1f1f;
+  color: #f4e9d8;
+  padding: 0.5rem 1rem;
+  border-radius: 6px 6px 0 0;
+}
+
+/* Centered name */
+.header-top-name {
+  font-size: 1.7rem;
+  font-weight: 700;
+  text-align: center;
+  color: #ffffff;
+  background: transparent;
+  border: none;
+  width: 100%;
+  height: 3rem;
+  line-height: 3rem; 
+  padding: 0;
+
+}
+
+.header-top-name:focus {
+  outline: none;
+}
+
+/* Dice icons */
+.header-top-dice img {
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+}
+
+.header-top-dice {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.dice-icon {
+  width: 45px;
+  height: 45px;
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+.dice-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.dice-icon:hover {
+  transform: scale(1.1);
+}
+/*---------------------------------------------------------
+HEADER SECTION
+--------------------------------------------------------- */
+.header-container {
+  display: grid;
+  grid-template-columns: 150px 1fr 1fr 1.4fr;
+  gap: 0.75rem;
+  align-items: start;        /* top align */
+  width: 100%;
+  padding: 0.5rem 0;         /* compact */
+  text-align: center;
+  background: #1a1d27;
+}
+
+.header-col4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.5rem;
+  align-items: start;
+}
+
+.col4-span-4 {
+  grid-column: span 4;
+}
+
+.header-block {
+  background: rgba(255,255,255,0.65);
+  border: 1px solid rgba(80,50,20,0.35);
+  border-radius: 6px;
+}
+
+.header-portrait {
+  width: fit-content;
+}
+
+.header-right {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+/* Shared block styling for all header sections */
+.characteristics-section,
+.resistances-section,
+.lft-block,
+.movement-section,
+.modifiers-section,
+.modifiers-row,
+.final-armor-section,
+.secondaries-grid,
+.secondary-block,
+.character-grid {
+  border: 1px solid rgba(80, 50, 20, 0.35);
+  border-radius: 6px;
+  padding: 0.5rem;
+}
+
+/* Shared header styling */
+.characteristics-section h3,
+.resistances-section h3,
+.lft-block h3,
+.movement-section h3,
+.modifiers-section h3,
+.modifiers-row h3,
+.final-armor-section h3,
+.secondaries-grid h3,
+.secondary-block h3 {
+  margin: 0 0 0.35rem 0;
+  font-size: 1.1rem;
+  color: #3a2a1a;
+  border-bottom: none;
+}
+
+/* Shared table styling */
+.characteristics-table,
+.resistances-table,
+.lft-table,
+.movement-table,
+.modifiers-table,
+.modifiers-row-table,
+.final-armor-table ,
+.ability-table, 
+.athletics-table,
+.aspects-table,
+.classes-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: none;
+}
+
+/* Shared cell styling */
+.characteristics-table td,
+.resistances-table td,
+.lft-table td,
+.movement-table td,
+.modifiers-table td,
+.modifiers-row-table td,
+.final-armor-table td,
+.ability-table td,
+.athletics-table td,
+.aspects-table td,
+.classes-table td {
+  padding: 0.25rem 0.35rem;
+  color: #000;
+}
+
+/* Remove bottom border on last row */
+.characteristics-table tr:last-child td,
+.resistances-table tr:last-child td,
+.lft-table tr:last-child td,
+.movement-table tr:last-child td,
+.modifiers-table tr:last-child td,
+.modifiers-row-table tr:last-child td,
+.final-armor-table tr:last-child td,
+.ability-table td,
+.athletics-table td,
+.aspects-table td,
+.classes-table td {
+  border-bottom: none;
+}
+
+/* Shared input styling */
+.characteristics-table input,
+.resistances-table input,
+.lft-table input,
+.movement-table input,
+.modifiers-table input,
+.modifiers-row-table input,
+.final-armor-table input,
+.aspects-table input,
+.classes-table input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(80, 50, 20, 0.35);
+  border-radius: 4px;
+  padding: 0.2rem;
+  color: #000;
+}
+
+.lft-wrapper {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.5rem;
+  align-items: start;
+}
+
+/* Resistance Modifier Resize */
+.mod-input-resize-res {
+  max-width: 30%;     /* or 10%, or whatever feels right */
+  width: 100%;        /* fills its cell but capped by max-width */
+  box-sizing: border-box;
+}
+
+/* Characteristic Modifier Resize */
+.mod-input-resize-char {
+  max-width: 55%;     /* or 10%, or whatever feels right */
+  width: 100%;        /* fills its cell but capped by max-width */
+  box-sizing: border-box;
+}
+
+/* Resistance table column widths */
+.resistances-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.resistances-table th:first-child,
+.resistances-table td:first-child {
+  width: 30%;   /* Resistance name */
+}
+
+.resistances-table th:nth-child(2),
+.resistances-table td:nth-child(2) {
+  width: 40%;   /* Modifier column */
+  text-align: center;
+}
+
+.resistances-table th:nth-child(3),
+.resistances-table td:nth-child(3) {
+  width: 30%;   /* Final column */
+}
+
+/* characteristics table column widths */
+.characteristics-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.characteristics-table th:first-child,
+.characteristics-table td:first-child {
+  width: 30%;   /* name */
+}
+
+.characteristics-table th:nth-child(2),
+.characteristics-table td:nth-child(2) {
+  width: 15%;   /* base */
+  text-align: center;
+}
+
+.characteristics-table th:nth-child(3),
+.characteristics-table td:nth-child(3) {
+  width: 25%;   /* modifer */
+  text-align: center;
+}
+
+.characteristics-table th:nth-child(4),
+.characteristics-table td:nth-child(4) {
+  width: 30%;   /* final */
+}
+
+/* aspects table column widths */
+.aspects-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.aspects-table td:first-child {
+  width: 70%;   /* name */
+  text-align: left;
+}
+
+.aspects-table th:nth-child(2),
+.aspects-table td:nth-child(2) {
+  width: 30%;   /* base */
+}
+
+.aspects-table th:nth-child(2) input[type=text],
+.aspects-table td:nth-child(2) input[type=text] {
+  text-align: left;
+}
+
+/* Class table */
+.characteristics-table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+.classes-table th {
+  text-align: center;
+}
+
+.classes-table td:first-child {
+  width: 70%;   /* name */
+}
+
+.classes-table th:nth-child(2),
+.classes-table td:nth-child(2) {
+  width: 20%;   /* level */
+}
+
+.sub-tabs {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 0.5rem;
+  justify-content: space-evenly;
+  font-size: 0.85rem;
+}
+
+.sub-tabs .item {
+  padding: 0.15rem 0.6rem;
+  line-height: 1.1;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  color: #3a2a1a; /* ink */
+  background: rgba(255, 255, 255, 0.4);
+  border: 1px solid transparent;
+}
+
+.sub-tabs .item:hover {
+  background: rgba(255, 255, 255, 0.6);
+}
+
+.sub-tabs .item.active {
+  background: #7a1f1f; /* your crimson */
+  color: #f4e9d8;      /* parchment text */
+  border: 1px solid #5a1515;
+}
+
+.character-grid {
+  display: grid;
+  grid-template-columns: 0.3fr 0.7fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
+.character-left,
+.character-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.char-block {
+  background: rgba(255, 255, 255, 0.4);
+  padding: 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(0,0,0,0.15);
+}
+
+.char-block h3 {
+  margin: 0 0 0.5rem 0;
+  font-weight: 700;
+  color: #3a2a1a;
+}
+
+/* XP BAR */
+.xp-bar {
+  width: 100%;
+  height: 14px;
+  background: rgba(0,0,0,0.2);
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.xp-fill {
+  height: 100%;
+  background: #7a1f1f;
+  transition: width 0.3s ease;
+}
+
+.xp-labels {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+}
+
+/* Field rows */
+.field-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+
+.field-row label {
+  flex: 0 0 40%;
+}
+
+.field-row input {
+  flex: 1;
+}
+
+.abf-character-sheet input[disabled][type="number"] {
+  background: transparent;
+  border: none;
+  padding: 0;
+  pointer-events: none;
+  color: inherit;
+}
+
+.description-editor {
+  min-height: 200px;     /* prevents collapse */
+  width: 100%;
+  display: block;
+  text-align: left;
+  color: white;
+}
+
+.description-editor .editor,
+.description-editor .editor-content {
+  min-height: 150px;     /* ensures TinyMCE has room */
+}
+
+.characteristics-table input.aspect-input,
+.resistances-table input.aspect-input,
+.lft-table input.aspect-input,
+.movement-table input.aspect-input,
+.modifiers-table input.aspect-input,
+.modifiers-row-table input.aspect-input,
+.final-armor-table input.aspect-input {
+  width: 60px; /* or whatever size you want */
+}
+
+.secondaries-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);   /* 4 columns */
+  grid-template-rows: repeat(3, auto);     /* 3 rows */
+  gap: 0rem;
+  padding: 0.25rem;
+  align-items: start;                       /* prevents row stretching */
+}
+
+.secondary-header {
+  text-align: center;
+  
+}
+
+/* Compact ability table layout */
+.ability-table {
+  font-size: 0.85rem;
+  line-height: 1.1;
+}
+
+.ability-table th,
+.ability-table td {
+  padding: 0.15rem 0.25rem;
+}
+
+.ability-table th {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.ability-table-name {
+  text-align: left !important;
+}
+
+/* Shrink the ability name column */
+.ability-table td:first-child {
+  width: 38%;
+  text-align: left;
+  padding-left: 0.2rem;
+}
+
+/* Shrink numeric inputs */
+.secondary-input {
+  width: 62px !important;
+  padding: 0.15rem !important;
+  font-size: 0.8rem;
+}
+
+/* Final column */
+.ability-table td:nth-child(4) {
+  width: 40px;
+  text-align: center;
+  font-size: 0.85rem;
+}
+
+/* Passive icon column */
+.passive-icon {
+  width: 28px;
+  text-align: center;
+}
+
+.passive-icon i {
+  font-size: 0.85rem;
+  color: #333;
+  display: inline-block;
+  width: 100%;
+}
+
+/* Reduce spacing inside the block */
+.secondary-block {
+  padding: 0.35rem 0.5rem;
+}
+
+.secondary-header {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.char-roll,
+.open-roll,
+.res-roll,
+.clickable-class{
+  cursor: pointer;
+  transition: color 0.15s ease, text-shadow 0.15s ease;
+}
+
+.char-roll:hover,
+.open-roll:hover,
+.res-roll:hover,
+.clickable-class:hover {
+  color: #4da3ff;
+  text-shadow: 0 0 8px #4da3ff, 0 0 12px #4da3ff;
+}
+
+.window-header {
+  gap: 0.5rem !important;
+}
+
+
+/* ============================================
+   ABF SHEET BASE RESET
+   Applies ONLY to your character sheet
+   ============================================ */
+
+.abf-character-sheet * {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Normalize fonts */
+.abf-character-sheet {
+  font-family: "Cinzel", "Cormorant Garamond", serif;
+  background: #1a1d27;
+}
+
+/* Remove Foundry default input styling */
+.abf-character-sheet input,
+.abf-character-sheet select,
+.abf-character-sheet textarea {
+  background: #11141c;
+  border: 1px solid #2f3547;
+  border-radius: 4px;
+  padding: 4px 6px;
+  color: #f5f5f5;
+  font-size: 0.85rem;
+  height: auto;
+  line-height: 1.2;
+}
+
+/* Center numeric inputs */
+.abf-character-sheet input[type="number"] {
+  text-align: center;
+}
+
+/* Table normalization */
+.abf-character-sheet table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.abf-character-sheet th,
+.abf-character-sheet td {
+  padding: 4px 6px;
+  text-align: center;
+  vertical-align: middle;
+  border-bottom: 1px solid #2f3547;
+  color: white;
+}
+
+/* Section headers */
+.abf-character-sheet h3 {
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+  color: #d9b56c;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Block containers */
+.abf-character-sheet .lft-block,
+.abf-character-sheet .header-block,
+.abf-character-sheet section {
+  background: #1a1d27;
+  border: 1px solid #2f3547;
+  padding: 2px;
+  margin-bottom: 6px;
+}
+
+/* Tabs */
+.abf-character-sheet .sheet-tabs .item,
+.abf-character-sheet .sub-tabs .item {
+  padding: 4px 10px;
+  border-radius: 4px 4px 0 0;
+  background: #11141c;
+  color: #b3a89a;
+  cursor: pointer;
+}
+
+.abf-character-sheet .sheet-tabs .item.active,
+.abf-character-sheet .sub-tabs .item.active {
+  background: #1f2433;
+  color: #d9b56c;
+  border-bottom: 2px solid #d9b56c;
+}
+
+/* Portrait */
+.abf-character-sheet .profile-img {
+  width: 90px;
+  height: 90px;
+  border-radius: 6px;
+  border: 2px solid #d9b56c;
+  object-fit: cover;
+}
+
+/* Dice icons */
+.abf-character-sheet .dice-icon img {
+  width: 45px;
+  height: 45px;
+  filter: drop-shadow(0 0 4px rgba(217,181,108,0.4));
+  cursor: pointer;
+}
+
+/* XP bar */
+.abf-character-sheet .xp-bar {
+  width: 100%;
+  height: 10px;
+  background: #11141c;
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.abf-character-sheet .xp-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #4aa3d9, #d9b56c);
+}
+
+
+.sheet-tabs {
+  margin-bottom: 0 !important;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: none;
+  border: 1px solid #2f3547;
+}
+
+.sub-tabs {
+  margin-top: 0 !important;
+  border-top: none !important;
+  position: relative;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.fas.fa-times,
+.fas.fa-check {
+  color: white;
+}
+
+
+/* ============================================
+   ABF Character Sheet — Themed Header Bar
+   ============================================ */
+
+.abf-character-sheet .header-top {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr; /* spacer | name | dice */
+  align-items: center;
+
+  background: linear-gradient(
+    135deg,
+    #1b1f2b 0%,
+    #252b3a 45%,
+    #171b26 100%
+  );
+  border-bottom: 1px solid rgba(217, 181, 108, 0.35);
+  padding: 0.5rem 1rem;
+
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.45);
+}
+
+/* Centered name input */
+.abf-character-sheet .header-top-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center;
+
+  color: #f5e9d0;
+  background: transparent;
+  border: none;
+
+  height: 3rem;
+  line-height: 3rem;
+  padding: 0;
+
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+}
+
+.abf-character-sheet .header-top-name:focus {
+  outline: none;
+  border: none;
+}
+
+/* Dice icons — unchanged except for subtle glow */
+.abf-character-sheet .header-top-dice {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.75rem;
+}
+
+.abf-character-sheet .header-top-dice img {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  filter: drop-shadow(0 0 4px rgba(217, 181, 108, 0.4));
+}
+
+.abf-character-sheet .header-top-dice img:hover {
+  transform: scale(1.1);
+  filter: drop-shadow(0 0 6px rgba(217, 181, 108, 0.7));
+}
+
+/* ============================================
+   ABF — ProseMirror Editor Toolbar Styling
+   ============================================ */
+
+.abf-character-sheet .editor .editor-menu {
+  background: linear-gradient(135deg, #1b1f2b, #252b3a 45%, #171b26 100%);
+  border-bottom: 1px solid rgba(217, 181, 108, 0.35);
+  padding: 4px 6px;
+  border-radius: 6px 6px 0 0;
+}
+
+/* Toolbar buttons */
+.abf-character-sheet .editor .editor-menu button {
+  color: #f5e9d0 !important;        /* readable parchment white */
+  background: transparent;
+  border: none;
+  padding: 4px 6px;
+  border-radius: 4px;
+  transition: 120ms ease;
+}
+
+/* Icons inside toolbar buttons */
+.abf-character-sheet .editor .editor-menu button i {
+  color: #f5e9d0 !important;
+}
+
+/* Hover effect */
+.abf-character-sheet .editor .editor-menu button:hover {
+  background: rgba(217, 181, 108, 0.15);
+  color: #d9b56c !important;
+}
+
+/* Active formatting button (bold, italic, etc.) */
+.abf-character-sheet .editor .editor-menu button.active {
+  background: rgba(217, 181, 108, 0.25);
+  color: #d9b56c !important;
+}
+
+/* ============================================
+   ABF — ProseMirror Editor Fix (no clipping)
+   ============================================ */
+
+.abf-character-sheet .editor {
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  min-height: 180px;        /* prevents collapse */
+}
+
+.abf-character-sheet .editor .editor-content,
+.abf-character-sheet .editor .ProseMirror {
+  max-height: 400px;        /* optional: prevents infinite growth */
+  overflow-y: auto;         /* scroll instead of clipping */
+  padding: 8px;
+
+  background: #11141c;
+  border: 1px solid #2f3547;
+  border-radius: 6px;
+  color: #f5f5f5;
+  line-height: 1.4;
+}

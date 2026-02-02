@@ -81,7 +81,12 @@
   <h4>Secondary Abilities</h4>
   <ul>
     {{#each classData.innateBonuses.secondaryAbilities}}
-      <li><strong>{{this.name}}:</strong> {{this.innateBonus}} (Reduced Cost: {{this.reducedCost}})</li>
+      <li>
+        <strong>{{this.name}}:</strong> {{this.innateBonus}}
+        {{#if (gt this.reducedCost 0)}}
+          (Reduced Cost: {{this.reducedCost}})
+        {{/if}}
+      </li>
     {{/each}}
   </ul>
 </section>

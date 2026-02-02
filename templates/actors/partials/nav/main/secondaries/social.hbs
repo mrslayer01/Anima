@@ -6,6 +6,7 @@
       <th class="ability-table-name">Ability</th>
       <th>Base</th>
       <th>Bonus</th>
+      <th>Class</th>
       <th>Final</th>
       <th>Passive</th>
     </tr>
@@ -26,6 +27,7 @@
             value="{{ability.bonus}}"
             name="system.abilities.Social.{{key}}.bonus"
           /></td>
+        <td>{{ability.class}}</td>
         <td>{{ability.final}}</td>
         <td class="passive-icon">
           {{#if ability.passive}}

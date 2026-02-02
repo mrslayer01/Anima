@@ -106,6 +106,7 @@ export async function fumbleRoll({ fumbleValue, label, mastery, actor }) {
 
 export async function animaOpenRoll({ value, label, mastery, undeveloped, actor }) {
   const bonus = Number(value) || 0;
+  const fatiguePenalty = Number(actor.system.fatigue.actionPenalty) || 0;
   const name = label ?? "Open Roll";
   const isMastery = mastery === true;
   const isUndeveloped = undeveloped === true;
@@ -142,8 +143,9 @@ export async function animaOpenRoll({ value, label, mastery, undeveloped, actor 
     }
   }
 
+  console.log(fatiguePenalty);
   const breakdown = rawRolls.map(r => `${r}`).join("<br>");
-  const final = isUndeveloped ? total + bonus - 30 : total + bonus;
+  const final = isUndeveloped ? total + bonus - 30 + fatiguePenalty : total + bonus + fatiguePenalty;
 
   const content = `
     <b>${name}${isUndeveloped ? " — Undeveloped" : ""}</b><br>
@@ -152,6 +154,7 @@ export async function animaOpenRoll({ value, label, mastery, undeveloped, actor 
     ${breakdown}<br>
     <b>Roll Total:</b> ${total}<br>
     <b>Roll Bonus:</b> ${bonus}<br>
+    ${fatiguePenalty < 0 ? `<b>Fatigue Penalty:</b> ${fatiguePenalty}<br>` : ""}
     ${isUndeveloped ? "<b>Undeveloped Penalty:</b> -30<br>" : ""}
     <hr>
     <b>Final Total:</b> ${final}
@@ -166,13 +169,14 @@ export async function animaOpenRoll({ value, label, mastery, undeveloped, actor 
 
 export async function resistanceCheck({ value, difficulty, label, actor }) {
   const bonus = Number(value) || 0;
+  const fatiguePenalty = Number(actor.system.fatigue.actionPenalty) || 0;
   const diff = Number(difficulty) || 80;
   const name = label ?? "Resistance Check";
 
   const roll = await rollDice("1d100");
   const raw = roll.total;
 
-  const total = raw + bonus;
+  const total = raw + bonus + fatiguePenalty;
   const success = total >= diff;
 
   const content = `
@@ -180,55 +184,13 @@ export async function resistanceCheck({ value, difficulty, label, actor }) {
     <hr>
     <b>Roll:</b> ${raw}<br>
     <b>Bonus:</b> ${bonus}<br>
+    ${fatiguePenalty < 0 ? `<b>Fatigue Penalty:</b> ${fatiguePenalty}<br>` : ""}
     <b>Total:</b> ${total}<br>
     <b>Difficulty:</b> ${diff}<br>
     <hr>
     ${success
       ? `<span style="color:green"><b>Success</b></span>`
       : `<span style="color:red"><b>Failure</b></span>`
-    }
-  `;
-
-  setTimeout(() => sendChat(content, actor), 1500);
-}
-
-// ============================================================
-//  RESISTANCE CHECK (MASTERY + FUMBLE)
-// ============================================================
-
-export async function resistanceCheckMastery({ value, difficulty, label, mastery, actor }) {
-  const modifier = Number(value) || 0;
-  const diff = Number(difficulty) || 0;
-  const name = label ?? "Resistance Check";
-  const isMastery = mastery === true;
-
-  const roll = await rollDice("1d100");
-  const checkRaw = roll.total;
-  const checkTotal = checkRaw + modifier;
-
-  const fumbleRange = isMastery ? [1, 2] : [1, 2, 3];
-
-  if (fumbleRange.includes(checkRaw)) {
-    return fumbleRoll({
-      fumbleValue: checkRaw,
-      label: name,
-      mastery: isMastery,
-      actor
-    });
-  }
-
-  const success = checkTotal >= diff;
-  const margin = Math.abs(checkTotal - diff);
-
-  const content = `
-    <b>${name} Resistance Check</b><br>
-    <hr>
-    <b>Your Roll:</b> ${checkRaw} + ${modifier} = <b>${checkTotal}</b><br>
-    <b>Difficulty:</b> <b>${diff}</b><br>
-    <hr>
-    ${success
-      ? `<span style="color:green"><b>Success</b></span> (Margin: ${margin})`
-      : `<span style="color:red"><b>Failure</b></span> (Missed by ${margin})`
     }
   `;
 

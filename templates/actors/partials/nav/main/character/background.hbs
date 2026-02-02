@@ -2,8 +2,20 @@
 
 <div class="description-editor">
   {{#if system.background}}
-    {{editor system.background target="system.background" button=true editable=true}}
+    {{editor
+      system.background
+      target="system.background"
+      button=true
+      editable=true
+      engine="prosemirror"
+    }}
   {{else}}
-    {{editor "<p class='placeholder'>Write your background here…</p>" target="system.background" button=true editable=true}}
+    {{editor
+      "<p class='placeholder'>Write your background here…</p>"
+      target="system.background"
+      button=true
+      editable=true
+      engine="prosemirror"
+    }}
   {{/if}}
 </div>
