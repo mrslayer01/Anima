@@ -37,6 +37,8 @@
 
 .abf-character-sheet input[type="number"] {
   text-align: center;
+  width: 7ch;     /* fits 3 digits comfortably */
+  min-width: 7ch; /* prevents shrinking */
 }
 
 .abf-character-sheet input[disabled][type="number"] {
@@ -195,9 +197,9 @@
    ============================================ */
 
 .abf-character-sheet .profile-img {
-  width: 90px;
-  height: 90px;
-  border-radius: 6px;
+  width: 120px;
+  height: 120px;
+  border-radius: 2px;
   border: 2px solid #d9b56c;
   object-fit: cover;
 }
@@ -371,7 +373,7 @@
 .characteristics-table input.aspect-input,
 .resistances-table input.aspect-input,
 .lft-table input.aspect-input,
-.movement-table input.aspect-input,
+.input.aspect-input,
 .modifiers-table input.aspect-input,
 .modifiers-row-table input.aspect-input,
 .final-armor-table input.aspect-input {
@@ -431,6 +433,22 @@
   display: inline-block;
   width: 100%;
 }
+
+/* .movement-table td:first-child {
+  width: 15%;
+}
+
+.characteristics-table td:nth-child(2) {
+  width: 15%;
+}
+
+.characteristics-table td:nth-child(3) {
+  width: 25%;
+} */
+
+/* .aspect-input input[type="number"] {
+  width: 30%;
+} */
 
 /* ============================================
    ROLL HOVER EFFECTS
