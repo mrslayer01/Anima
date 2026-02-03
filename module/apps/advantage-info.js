@@ -6,7 +6,7 @@ export class AdvantageInfoWindow extends Application {
   }
 
   static get defaultOptions() {
-    return mergeObject(super.defaultOptions, {
+    return foundry.utils.mergeObject(super.defaultOptions, {
       id: "advantage-info-window",
       classes: ["abf", "advantage-info"],
       template: "systems/abf-system/templates/apps/advantage-info.hbs",

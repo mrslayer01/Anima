@@ -16,7 +16,7 @@ Hooks.once("init", function () {
   if (!max || max === 0) return 0;
   return Math.min(100, Math.floor((current / max) * 100));
   });
-  Handlebars.registerHelper("className", function(key) {
+  Handlebars.registerHelper("clsName", function(key) {
   return ABF_CLASSES[key].name;
   });
   Handlebars.registerHelper("advName", function(key) {
@@ -25,6 +25,81 @@ Hooks.once("init", function () {
   Handlebars.registerHelper("disadvName", function(key) {
   return ABF_DISADVANTAGES[key].name;
   });
+  Handlebars.registerHelper("humanize", function (str) {
+  if (!str) return "";
+  return str
+    .replace(/([A-Z])/g, " $1")   // insert spaces before capitals
+    .replace(/^./, c => c.toUpperCase()); // capitalize first letter
+  });
+
+  //#region Secondaries
+  // Athletics
+  Handlebars.registerHelper("orderAthletics", () => [
+    "Acrobatics",
+    "Athletics",
+    "Climb",
+    "Jump",
+    "Ride",
+    "Swim"
+  ]);
+
+  // Vigor
+  Handlebars.registerHelper("orderVigor", () => [
+    "Composure",
+    "FeatsOfStrength",
+    "WithstandPain"
+  ]);
+
+  // Perception
+  Handlebars.registerHelper("orderPerception", () => [
+    "Notice",
+    "Search",
+    "Track"
+  ]);
+
+  // Intellectual
+  Handlebars.registerHelper("orderIntellectual", () => [
+    "Animals",
+    "Appraisal",
+    "HerbalLore",
+    "History",
+    "MagicAppraisal",
+    "Medicine",
+    "Memorize",
+    "Navigation",
+    "Occult",
+    "Sciences"
+  ]);
+
+  // Social
+  Handlebars.registerHelper("orderSocial", () => [
+    "Intimidate",
+    "Leadership",
+    "Persuasion",
+    "Style"
+  ]);
+
+  // Subterfuge
+  Handlebars.registerHelper("orderSubterfuge", () => [
+    "Disguise",
+    "Hide",
+    "LockPicking",
+    "Poisons",
+    "Theft",
+    "TrapLore",
+    "Stealth"
+  ]);
+
+  // Creative
+  Handlebars.registerHelper("orderCreative", () => [
+    "Art",
+    "Dance",
+    "Forging",
+    "Music",
+    "SleightOfHand"
+  ]);
+  //#endregion
+
 
 
   CONFIG.Actor.documentClass = AbfActor;

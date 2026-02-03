@@ -15,11 +15,10 @@ export const DEFAULT_ACTOR_DATA = {
   },
   lifePoints: { current: 0, bonus: 0, class: 0, final: 0 },
   fatigue: { current: 0, special: 0, final: 0, actionPenalty: 0 },
-  movement: { base: 0, penalty: 0, bonus: 0, final: 0, movePerTurn: "", inhuman: false, zen: false  },
+  movement: { base: 0, penalty: 0, bonus: 0, final: 0, movePerTurn: 0 },
   initiative: { bonus: 0, class: 0, final: 0, armorPenalty: 0, weaponPenalty: 0, special: 0 },
-  globalModifiers: { physical: 0, actions: 0, naturalPenalty: 0, perceptionPenalty: 0 },
   destinyPoints: { current: 0, final: 0 },
-  finalArmor: {cut: 0, imp: 0, thr: 0, hea: 0, ele: 0, col: 0, ene: 0 },
+  finalArmor: {cut: 0, imp: 0, thr: 0, hea: 0, ele: 0, col: 0, ene: 0},
   xp: { current: 0, next: 1 },
 
   characteristics: {

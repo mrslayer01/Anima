@@ -1,7 +1,7 @@
 <table class="classes-table">
   <thead>
     <tr>
-      <th>Disadvantage</th>
+      <th>Disadvantages</th>
       {{!-- <th>Level</th> --}}
       <th class="class-actions-header">
         <a class="add-disadvantage" data-tooltip="Add Disadvantage">
@@ -12,7 +12,7 @@
   </thead>
 
   <tbody>
-    {{#each system.disadvantage as |cls idx|}}
+    {{#each system.disadvantages as |cls idx|}}
       <tr>
         <td class="disadvantage-name clickable-disadvantage" data-index="{{idx}}" data-disadvantage="{{cls.name}}">
           {{cls.name}}

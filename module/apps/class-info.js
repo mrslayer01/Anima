@@ -7,12 +7,14 @@ export class ClassInfoWindow extends Application {
   }
 
   static get defaultOptions() {
+    console.log(super.defaultOptions);
     return foundry.utils.mergeObject(super.defaultOptions, {
       id: "class-info-window",
       title: "Class Details",
+      classes: ["abf-character-sheet"],
       template: "systems/abf-system/templates/apps/class-info.hbs",
-      width: 400,
-      height: "auto",
+      width: 1015,
+      height: 1000,
       resizable: true,
     });
   }

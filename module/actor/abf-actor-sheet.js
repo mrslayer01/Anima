@@ -194,6 +194,9 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
       const confirmed = await Dialog.confirm({
         title: "Confirm Delete",
         content: "<p>Are you sure you want to remove this class?</p>",
+      },
+      {
+        classes: ["abf-character-sheet"]
       });
 
       if (!confirmed) return;
@@ -242,21 +245,6 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
 //#endregion
 
 //#region Advanatage/Disadvantage
-    // html.find(".advantage-info-icon").click(ev => {
-    //   const select = html.find(".advantage-selector")[0];
-    //   const advName = select.value;
-    //   const advData = ABF_ADVANTAGES[advName];
-
-    //   new AdvantageInfoWindow(advName, advData).render(true);
-    // });
-
-    // html.find(".disadvantage-info-icon").click(ev => {
-    //   const select = html.find(".disadvantage-selector")[0];
-    //   const disName = select.value;
-    //   const disData = ABF_DISADVANTAGES[disName];
-
-    //   new DisadvantageInfoWindow(disName, disData).render(true);
-    // });
 
 // -----------------------------
 // ADD ADVANTAGE
