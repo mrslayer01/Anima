@@ -1,5 +1,7 @@
+import { toNum } from "../lookup.js";
+
 export function calculateXpToNextLevel(system) {
-  const lvl = system.level || 0;
+  const lvl = toNum(system.level) || 0;
   const next = lvl + 1;
 
   let xp;

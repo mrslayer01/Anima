@@ -1,13 +1,15 @@
+import { toNum } from "../lookup.js";
+
 // 1. Full initialization (prevents undefined finals)
 export function initializeAllResistances(system) {
-    const presence = system.presence.final;
+    const presence = toNum(system.presence.final);
 
     for (const [name, res] of Object.entries(system.resistances)) {
         const linkedChar = res.characteristic; // e.g. "Constitution"
-        const charFinal = system.characteristics[linkedChar].final;
+        const charFinal = toNum(system.characteristics[linkedChar].final);
         
 
-        res.final = presence + charFinal + (res.bonus || 0);
+        res.final = presence + charFinal + (toNum(res.bonus) || 0);
     }
 }
 
@@ -16,14 +18,14 @@ export function applyChangedResistances(system, actor) {
   const changed = actor._changedResistances;
   if (!Array.isArray(changed)) return;
 
-  const presence = system.presence.final;
+  const presence = toNum(system.presence.final);
 
   for (const name of changed) {
     const res = system.resistances[name];
     const linkedChar = res.characteristic;
-    const charFinal = system.characteristics[linkedChar].final;
+    const charFinal = toNum(system.characteristics[linkedChar].final);
 
-    res.final = presence + charFinal + (res.bonus || 0);
+    res.final = presence + charFinal + (toNum(res.bonus) || 0);
   }
 
   delete actor._changedResistances;

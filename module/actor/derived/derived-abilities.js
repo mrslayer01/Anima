@@ -1,3 +1,5 @@
+import { toNum } from "../lookup.js";
+
 // 1. Full initialization (prevents undefined finals)
 export function initializeAllAbilities(system) {
     const allSecondaryInnateBonuses = (system.classes || [])
@@ -11,7 +13,11 @@ export function initializeAllAbilities(system) {
   for (const [categoryName, categoryData] of Object.entries(system.abilities)) {
     for (const [abilityName, abilityData] of Object.entries(categoryData)) {
       const linkedChar = abilityData.characteristic;
-      const charFinal = system.characteristics[linkedChar]?.final || 0;
+      const charFinal = toNum(system.characteristics[linkedChar]?.final) || 0;
+      const abilBase = toNum(abilityData.base);
+      const abilBonus = toNum(abilityData.bonus);
+      const abilClass = toNum(abilityData.class);
+      const abilSpecial = toNum(abilityData.special);
       
       //add class bonus, if any.
       const match = allSecondaryInnateBonuses.find(b => b.name === abilityName);
@@ -21,18 +27,13 @@ export function initializeAllAbilities(system) {
       }
 
       // Calculate final
-      abilityData.final =
-        (abilityData.base || 0) +
-        (abilityData.bonus || 0) +
-        (abilityData.class || 0) +
-        (abilityData.special || 0) +
-        charFinal;
+      abilityData.final = abilBase + abilBonus + abilClass + abilSpecial + charFinal;
 
       // determine if undeveloped
-      abilityData.undeveloped = (abilityData.base + abilityData.bonus + abilityData.class + abilityData.special) === 0;
+      abilityData.undeveloped = (abilBase + abilBonus + abilClass + abilSpecial) === 0;
 
       // determine if ability mastery
-      abilityData.mastery = (abilityData.base + abilityData.bonus + abilityData.class + abilityData.special) >= 200;
+      abilityData.mastery = (abilBase + abilBonus + abilClass + abilSpecial) >= 200;
     }
   }
 }
@@ -58,6 +59,10 @@ export function applyChangedAbilities(system, actor) {
         );
         const linkedChar = abilityData.characteristic;
         const charFinal = system.characteristics[linkedChar]?.final || 0;
+        const abilBase = toNum(abilityData.base);
+        const abilBonus = toNum(abilityData.bonus);
+        const abilClass = toNum(abilityData.class);
+        const abilSpecial = toNum(abilityData.special);
 
         //add class bonus, if any.
         const match = allSecondaryInnateBonuses.find(b => b.name === ability);
@@ -67,22 +72,17 @@ export function applyChangedAbilities(system, actor) {
         }
 
         // Calculate final
-        abilityData.final =
-            (abilityData.base || 0) +
-            (abilityData.bonus || 0) +
-            (abilityData.class || 0) +
-            (abilityData.special || 0) +
-            charFinal;
+        abilityData.final = abilBase + abilBonus + abilClass + abilSpecial + charFinal;
         
         // determine if undeveloped
-        if ((abilityData.base + abilityData.bonus + abilityData.class + abilityData.special) === 0) {
+        if ((abilBase + abilBonus + abilClass + abilSpecial) === 0) {
             abilityData.undeveloped = true;
         } else {
             abilityData.undeveloped = false;
         }
 
         // determine if ability mastery
-        if ((abilityData.base + abilityData.bonus + abilityData.class + abilityData.special) >= 200) {
+        if ((abilBase + abilBonus + abilClass + abilSpecial) >= 200) {
             abilityData.mastery = true;
         } else {
             abilityData.mastery = false;

@@ -12,3 +12,8 @@ export const difficultyMap = {
   320: "Inhuman — beyond logic, requires supernatural ability",
   440: "Zen — transcends reality, pure fiction without powers",
 };
+
+export const toNum = (v) => {
+        const n = parseFloat(v);
+        return Number.isFinite(n) ? n : 0;
+};

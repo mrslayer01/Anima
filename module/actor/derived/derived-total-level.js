@@ -1,4 +1,6 @@
+import { toNum } from "../lookup.js";
+
 export function calculateTotalLevel(system) {
   system.level = (system.classes || [])
-    .reduce((total, cls) => total + (Number(cls.level) || 0), 0);
+    .reduce((total, cls) => total + (toNum(cls.level) || 0), 0);
 }

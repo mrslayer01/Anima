@@ -25,6 +25,7 @@
         "destinyPoints": { "current": 0, "final": 0 },
         "finalArmor": {"cut": 0, "imp": 0, "thr": 0, "hea": 0, "ele": 0, "col": 0, "ene": 0 },
         "xp": { "current": 0, "next": 1 },
+        "elan": [],
         "characteristics": {
           "Agility": { "base": 5, "final": 5, "bonus": 0, "class": 0 },
           "Constitution": { "base": 5, "final": 5, "bonus": 0, "class": 0 },

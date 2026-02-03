@@ -1,4 +1,4 @@
-// derived-characteristics.js
+import { toNum } from "../lookup.js";
 
 // 1. Modifier lookup
 function lookupCharacteristicMod(base) {
@@ -22,8 +22,11 @@ function lookupCharacteristicMod(base) {
 // 2. Full initialization (prevents undefined finals)
 export function initializeAllCharacteristicFinals(system) {
   for (const [name, char] of Object.entries(system.characteristics)) {
-    const mod = lookupCharacteristicMod(char.base);
-    char.final = (char.bonus || 0) + (char.class || 0) + (mod || 0);
+    const mod = toNum(lookupCharacteristicMod(char.base));
+    const charBonus = toNum(char.bonus || 0); 
+    
+    
+    char.final = charBonus + (mod || 0);
   }
 }
 
@@ -34,8 +37,10 @@ export function applyChangedCharacteristics(system, actor) {
   if (Array.isArray(changed)) {
     for (const name of changed) {
       const char = system.characteristics[name];
-      const mod = lookupCharacteristicMod(char.base);
-      char.final = (char.bonus || 0) + (char.class || 0) + (mod || 0);
+      const mod = toNum(lookupCharacteristicMod(char.base));
+      const charBonus = toNum(char.bonus || 0); 
+
+      char.final = charBonus + (mod || 0);
     }
   }
 

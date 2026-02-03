@@ -8,7 +8,7 @@ export class DisadvantageInfoWindow extends Application {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       id: "disadvantage-info-window",
-      classes: ["abf", "disadvantage-info"],
+      classes: ["abf-character-sheet", "disadvantage-info"],
       template: "systems/abf-system/templates/apps/disadvantage-info.hbs",
       width: 500,
       height: "auto",

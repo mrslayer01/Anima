@@ -19,16 +19,11 @@ import { calculateMovement } from "./derived-movement.js"
 
 //used to calculate all derived values for an actor that depends on something else.
 export function calculateDerivedValues(system, actor) {
-    // 1. Other derived values
+    // 1. Primary derived values that others below depend on.
     calculateTotalLevel(system);
     calculateXpToNextLevel(system);
     calculatePresence(system);
     calculateMaxDP(system);
-    calculateFinalLifePoints(system);
-    calculateFinalInitiative(system);
-    calculateFinalFatigue(system);
-    calculateCharacterSize(system);
-    calculateMovement(system);
 
 
     // 2. Initialize all finals to prevent undefined values.
@@ -41,4 +36,11 @@ export function calculateDerivedValues(system, actor) {
     applyChangedCharacteristics(system, actor);
     applyChangedResistances(system, actor);
     applyChangedAbilities(system, actor);
+
+    //4. All Others
+    calculateFinalLifePoints(system);
+    calculateFinalInitiative(system);
+    calculateFinalFatigue(system);
+    calculateCharacterSize(system);
+    calculateMovement(system);
 }

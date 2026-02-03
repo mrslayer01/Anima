@@ -1,3 +1,5 @@
+import { toNum } from "../lookup.js";
+
 export function calculateMovement(system) {
     const MOVEMENT_DISTANCES = {
     1: "<3 ft",
@@ -22,7 +24,7 @@ export function calculateMovement(system) {
     20: "Special"
     };
 
-    const movement = system.characteristics.Agility.base + system.movement.bonus;
+    const movement = toNum(system.characteristics.Agility.base) + toNum(system.movement.bonus);
     const hasInhuman = system.movement.inhuman;
     const hasZen = system.movement.zen;
 

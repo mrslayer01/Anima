@@ -1,15 +1,32 @@
-<form class="add-class-form">
-    <label>
-    <i class="fas fa-question-circle disadvantage-info-icon"
-        title="Click to see disadvantage details"></i>
-    Disadvantage:
-    </label>
-
+<form class="disadvantage">
     <select class="disadvantage-selector">
-    {{#each disadvantageOptions as |dis|}}
-        <option value="{{dis}}">{{disadvName dis}}</option>
+    {{#each disadvantageOptions as |disAdv|}}
+      <option value="{{disAdv}}" {{#ifEquals disAdv ../selectedDisadvantage}}selected{{/ifEquals}}>
+        {{disadvName disAdv}}
+      </option>
     {{/each}}
     </select>
 
-  <button type="button" class="confirm-add">OK</button>
+<button type="button" class="confirm-add">OK</button>
+  <section>
+  <h3>Effects</h3>
+  <p>{{disadvantageData.effects}}</p>
+</section>
+
+{{#if disadvantageData.restriction}}
+<section>
+  <h3>Restriction</h3>
+  <p>{{disadvantageData.restriction}}</p>
+</section>
+{{/if}}
+
+<section>
+  <h3>Benefit</h3>
+  <p>{{disadvantageData.benefit}}</p>
+</section>
+
+<section>
+  <h3>Description</h3>
+  <p>{{disadvantageData.description}}</p>
+</section>
 </form>

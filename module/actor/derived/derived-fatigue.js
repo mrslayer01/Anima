@@ -1,3 +1,5 @@
+import { toNum } from "../lookup.js";
+
 //Calculates Final fatigue and action penalty
 export function calculateFinalFatigue(system) {
     const fatiguePenalty = {
@@ -8,20 +10,20 @@ export function calculateFinalFatigue(system) {
         4: -10
     };
 
-    system.fatigue.final = system.characteristics.Constitution.base;
+    system.fatigue.final = toNum(system.characteristics.Constitution.base);
 
 
-    if(system.fatigue.final <= 4) {
+    if(toNum(system.fatigue.final) <= 4) {
         //If has a fatigue of 4 or lower, don't start calculating until current does not match final
-        if(system.fatigue.current < system.fatigue.final) {
+        if(toNum(system.fatigue.current) < toNum(system.fatigue.final)) {
             //Has spent fatigue and will start getting penalties
-            system.fatigue.actionPenalty = fatiguePenalty[system.fatigue.current];
+            system.fatigue.actionPenalty = fatiguePenalty[toNum(system.fatigue.current)];
         } else {
             system.fatigue.actionPenalty = 0;
         }
     } else {
         //If has a higher that 4 fatigue, calculate normally.
-        system.fatigue.actionPenalty = fatiguePenalty[system.fatigue.current] ?? 0;
+        system.fatigue.actionPenalty = fatiguePenalty[toNum(system.fatigue.current)] ?? 0;
     }
     //
 }

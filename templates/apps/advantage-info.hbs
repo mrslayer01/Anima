@@ -1,30 +1,32 @@
-<h2>{{advantageName}}</h2>
+<div class="disadvantage">
+  <h3>{{advantageName}}</h3>
 
-<section>
-  <h3>Effects</h3>
-  <p>{{advantageData.effects}}</p>
-</section>
+  <section>
+    <h3>Effects</h3>
+    <p>{{advantageData.effects}}</p>
+  </section>
 
-{{#if advantageData.restriction}}
-<section>
-  <h3>Restriction</h3>
-  <p>{{advantageData.restriction}}</p>
-</section>
-{{/if}}
+  {{#if advantageData.restriction}}
+  <section>
+    <h3>Restriction</h3>
+    <p>{{advantageData.restriction}}</p>
+  </section>
+  {{/if}}
 
-{{#if advantageData.special}}
-<section>
-  <h3>Special</h3>
-  <p>{{advantageData.special}}</p>
-</section>
-{{/if}}
+  {{#if advantageData.special}}
+  <section>
+    <h3>Special</h3>
+    <p>{{advantageData.special}}</p>
+  </section>
+  {{/if}}
 
-<section>
-  <h3>Cost</h3>
-  <p>{{advantageData.cost}}</p>
-</section>
+  <section>
+    <h3>Cost</h3>
+    <p>{{advantageData.cost}}</p>
+  </section>
 
-<section>
-  <h3>Description</h3>
-  <p>{{advantageData.description}}</p>
-</section>
+  <section>
+    <h3>Description</h3>
+    <p>{{advantageData.description}}</p>
+  </section>
+</div>

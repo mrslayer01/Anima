@@ -5,7 +5,6 @@
 .abf-character-sheet * {
   box-sizing: border-box;
   margin: 0;
-  padding: 0;
 }
 
 .abf-character-sheet {
@@ -607,11 +606,15 @@
   height: auto;
 }
 
-.class-details-description {
+.class-details-description,
+.advantage p,
+.disadvantage p {
   color: white;
 }
 
-.class-selector option {
+.class-selector option,
+.advantage-selector option,
+.disadvantage-selector option {
   background-color: #1f2225;
 }
 

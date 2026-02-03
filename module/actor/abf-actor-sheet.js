@@ -235,8 +235,6 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
       const className = ev.currentTarget.dataset.class;
       const classData = this.actor.system.classes.find(c => c.name === className);
 
-      console.log("Class Info Clicked:", className, classData);
-
       if (!classData) return ui.notifications.error("Class data not found");
 
       new ClassInfoWindow(className, { classData }).render(true);

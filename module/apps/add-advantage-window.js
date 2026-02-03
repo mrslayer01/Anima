@@ -1,5 +1,4 @@
 import { ABF_ADVANTAGES } from "../config/advantages.js";
-import { AdvantageInfoWindow } from "../apps/advantage-info.js";
 
 export class AddAdvantageWindow extends Application {
   constructor(options = {}) {
@@ -12,6 +11,7 @@ export class AddAdvantageWindow extends Application {
     return foundry.utils.mergeObject(super.defaultOptions, {
       id: "add-advantage-window",
       title: "Add Advantage",
+      classes: ["abf-character-sheet"],
       template: "systems/abf-system/templates/apps/add-advantage.hbs",
       width: 300,
       height: "auto",
@@ -24,37 +24,28 @@ export class AddAdvantageWindow extends Application {
 
     if (!this.selectedAdvantage) {
       this.selectedAdvantage = advantageOptions[0];
-      this.advantageData = ABF_ADVANTAGES[this.selectedAdvantage];
     }
 
-    return { advantageOptions };
+    return { 
+      advantageOptions,
+      selectedAdvantage: this.selectedAdvantage,
+      advantageData: ABF_ADVANTAGES[this.selectedAdvantage]
+    };
   }
 
   activateListeners(html) {
     super.activateListeners(html);
 
-    html.find(".advantage-selector").on("change", (event) => {
+     const selector = html.find(".advantage-selector");
+
+    selector.on("change", (event) => {
       this.selectedAdvantage = event.target.value;
-      this.advantageData = ABF_ADVANTAGES[this.selectedAdvantage];
-
-      for (let app of Object.values(ui.windows)) {
-        if (app instanceof AdvantageInfoWindow) {
-          app.advName = this.advantageData.name;
-          app.advData = this.advantageData;
-          app.render(true);
-        }
-      }
+      this.render(true);
     });
 
-    html.find(".advantage-info-icon").click((ev) => {
+    html.find(".confirm-add").click(async ev => {
       ev.preventDefault();
-      new AdvantageInfoWindow(
-        this.advantageData.name,
-        this.advantageData
-      ).render(true);
-    });
-
-    html.find(".confirm-add").click(async () => {
+      
       if (!this.selectedAdvantage)
         return ui.notifications.warn("Select an advantage first.");
 
@@ -63,13 +54,10 @@ export class AddAdvantageWindow extends Application {
 
       const actor = game.actors.get(this.options.actorId);
       const advantages = foundry.utils.duplicate(actor.system.advantages ?? []);
+
       advantages.push(this.advantageData);
 
       await actor.update({ "system.advantages": advantages });
-
-      for (let app of Object.values(ui.windows)) {
-        if (app instanceof AdvantageInfoWindow) app.close();
-      }
 
       this.close();
     });

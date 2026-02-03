@@ -1,23 +1,25 @@
-<h2>{{disadvantageName}}</h2>
+<div class="disadvantage">
+  <h3>{{disadvantageName}}</h3>
 
-<section>
-  <h3>Effects</h3>
-  <p>{{disadvantageData.effects}}</p>
-</section>
+  <section>
+    <h3>Effects</h3>
+    <p>{{disadvantageData.effects}}</p>
+  </section>
 
-{{#if disadvantageData.restriction}}
-<section>
-  <h3>Restriction</h3>
-  <p>{{disadvantageData.restriction}}</p>
-</section>
-{{/if}}
+  {{#if disadvantageData.restriction}}
+  <section>
+    <h3>Restriction</h3>
+    <p>{{disadvantageData.restriction}}</p>
+  </section>
+  {{/if}}
 
-<section>
-  <h3>Benefit</h3>
-  <p>{{disadvantageData.benefit}}</p>
-</section>
+  <section>
+    <h3>Benefit</h3>
+    <p>{{disadvantageData.benefit}}</p>
+  </section>
 
-<section>
-  <h3>Description</h3>
-  <p>{{disadvantageData.description}}</p>
-</section>
+  <section>
+    <h3>Description</h3>
+    <p>{{disadvantageData.description}}</p>
+  </section>
+</div>
