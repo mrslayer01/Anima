@@ -1,16 +1,37 @@
 <h3>Development Points</h3>
 <table class="lft-table">
-  <tr>
-    <td>
-      <input
-        type="number"
-        name="system.destinyPoints.current"
-        value="{{system.destinyPoints.current}}"
-        data-tooltip="Current Development Points."
-      />
-    </td>
-    <td data-tooltip="Maximum Development Points. ">
-      {{system.destinyPoints.max}}
-    </td>
-  </tr>
+  <thead>
+    <tr>
+      <th>Current</th>
+      <th>Bonus</th>
+      <th>Remaining</th>
+      <th>Maximum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>
+        <input
+          type="number"
+          name="system.destinyPoints.current"
+          value="{{system.destinyPoints.current}}"
+          data-tooltip="Current Development Points."
+        />
+      </td>
+      <td>
+        <input
+          type="number"
+          name="system.destinyPoints.bonus"
+          value="{{system.destinyPoints.bonus}}"
+          data-tooltip="Bonus Development Points."
+        />
+      </td>
+        <td data-tooltip="Remaining Development Points. ">
+        {{system.destinyPoints.remaining}}
+      </td>
+      <td data-tooltip="Maximum Development Points. ">
+        {{system.destinyPoints.final}}
+      </td>
+    </tr>
+  </tbody>
 </table>

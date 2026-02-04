@@ -20,29 +20,47 @@ import { calculateElanFinal } from "./derived-elan.js";
 
 //used to calculate all derived values for an actor that depends on something else.
 export function calculateDerivedValues(system, actor) {
-    // 1. Primary derived values that others below depend on.
-    calculateTotalLevel(system);
-    calculateXpToNextLevel(system);
-    calculatePresence(system);
-    calculateMaxDP(system);
+  // 1. Primary derived values
+  calculateTotalLevel(system);
+  calculateXpToNextLevel(system);
+  calculatePresence(system);
+  calculateMaxDP(system); // PURE — safe to run always
 
-
-    // 2. Initialize all finals to prevent undefined values.
+  // 2. Initialize finals ONLY if actor is new or flagged
+  if(actor._initializeCharacteristics) {
     initializeAllCharacteristicFinals(system);
-    initializeAllResistances(system);
+    delete actor._initializeCharacteristics;
+  }
+
+
+  if (actor._initializeAbilities) {
     initializeAllAbilities(system);
-    
+    delete actor._initializeAbilities;
+  }
 
-    // 3. Apply selective recalculation
+  if (actor._initializeResistances) {
+    initializeAllResistances(system);
+    delete actor._initializeResistances;
+  }
+
+  // 3. Selective recalculation
+  if (actor._changedCharacteristics?.length) {
     applyChangedCharacteristics(system, actor);
-    applyChangedResistances(system, actor);
-    applyChangedAbilities(system, actor);
+  }
 
-    //4. All Others
-    calculateFinalLifePoints(system);
-    calculateFinalInitiative(system);
-    calculateFinalFatigue(system);
-    calculateCharacterSize(system);
-    calculateMovement(system);
-    calculateElanFinal(system);
+  if (actor._changedResistances?.length) {
+    applyChangedResistances(system, actor);
+  }
+
+  if (actor._changedAbilities?.length) {
+    applyChangedAbilities(system, actor);
+  }
+
+  // 4. Other derived values
+  calculateFinalLifePoints(system);
+  calculateFinalInitiative(system);
+  calculateFinalFatigue(system);
+  calculateCharacterSize(system);
+  calculateMovement(system);
+  calculateElanFinal(system);
 }

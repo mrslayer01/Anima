@@ -17,6 +17,8 @@
         <td data-tooltip="Kowledge Ability: {{ability.knowledge}}">{{localize (concat "ABF.Ability." key)}}</td>
         <td><input
             class="mod-input-resize-char secondary-input"
+            data-name="{{key}}"
+            data-cost="{{ability.cost}}"
             type="number"
             value="{{ability.base}}"
             name="system.abilities.Athletics.{{key}}.base"

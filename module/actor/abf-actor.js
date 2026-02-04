@@ -2,6 +2,7 @@ import { calculateDerivedValues } from "./derived/derived-calculations.js";
 import { updateCalculations } from "./update/update-calculations.js";
 import { DEFAULT_ACTOR_DATA } from "./default-actor-data.js";
 import { forceAbilityOrder } from "./helpers/force-ability-order.js";
+import { initializeActor } from "./initalize.js";
 
 export class AbfActor extends Actor {
 
@@ -12,6 +13,15 @@ export class AbfActor extends Actor {
       insertKeys: true,
       overwrite: false
     });
+    //initalize
+    this._initialize = true;
+    // this._initializePresence = true;
+
+    // this._initializeCharacteristics = true;
+    // this._initializeResistances = true;
+    // this._initializeAbilities = true;
+
+
 
     // Restore manual ordering AFTER Foundry normalizes keys
     forceAbilityOrder(this.system.abilities);
@@ -19,15 +29,23 @@ export class AbfActor extends Actor {
 
   prepareDerivedData() {
     super.prepareDerivedData();
+
+    if(this._initialize) {
+      initializeActor(this);
+    }
     calculateDerivedValues(this.system, this);
   }
 
   async update(data, options = {}) {
     const oldSystem = foundry.utils.duplicate(this.system);
-
-    updateCalculations(data, oldSystem, this);
+    const skip = options.skipRecalc === true;
 
     const result = await super.update(data, options);
+
+    if (!skip) {
+      await updateCalculations(data, oldSystem, this);
+    }
+
     return result;
   }
 }

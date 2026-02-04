@@ -48,7 +48,8 @@
           "naturalPenalty": 0,
           "perceptionPenalty": 0
         },
-        "destinyPoints": { "current": 0, "spent":0, "final": 0 },
+        "destinyPoints": { "current": 0, "special": 0, "bonus": 0, "spent": 0, "remaining": 0, "final": 0, "update": false },
+        "developmentPointsSpent": [],
         "finalArmor": {
           "cut": 0,
           "imp": 0,

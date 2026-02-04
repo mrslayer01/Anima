@@ -1,29 +1,30 @@
+import { toNum } from "../lookup.js";
+
 export function calculateMaxDP(system) {
   const lvl = system.level || 0;
+  const bonus = toNum(system.destinyPoints.bonus);
+  const special = toNum(system.destinyPoints.special);
 
   const dpTable = [
-    400,  // Level 0
-    600,  // Level 1
-    700,  // Level 2
-    800,  // Level 3
-    900,  // Level 4
-    1000, // Level 5
-    1100, // Level 6
-    1200, // Level 7
-    1300, // Level 8
-    1400, // Level 9
-    1500, // Level 10
-    1600, // Level 11
-    1700, // Level 12
-    1800, // Level 13
-    1900, // Level 14
-    2000  // Level 15
+    400, 600, 700, 800, 900,
+    1000, 1100, 1200, 1300, 1400,
+    1500, 1600, 1700, 1800, 1900,
+    2000
   ];
 
-  if (lvl <= 15) {
-    system.destinyPoints.max = dpTable[lvl];
+  // Base DP
+  let base = lvl <= 15
+    ? dpTable[lvl]
+    : dpTable[15] + ((lvl - 15) * 100);
+
+  system.destinyPoints.final = base + bonus + special;
+
+  // Compute spent (but DO NOT write it back)
+  let total = 0;
+  for (const item of system.developmentPointsSpent) {
+    total += toNum(item.amount) * toNum(item.costPer);
   }
 
-  // Scale beyond level 15: +100 DP per level
-  system.destinyPoints.max = dpTable[15] + (lvl - 15) * 100;
+  // Derived only
+  system.destinyPoints.remaining = system.destinyPoints.final - total;
 }

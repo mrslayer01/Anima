@@ -2,8 +2,7 @@ import { toNum } from "../lookup.js";
 
 // 1. Full initialization (prevents undefined finals)
 export function initializeAllAbilities(system) {
-
-  //#region Class
+    //#region Class
   const classes = system.classes || [];
 
   const allClassAbilityLimits = extractCostMap(classes, "abilityLimits");
@@ -16,13 +15,6 @@ export function initializeAllAbilities(system) {
   const allSecondaryAbilities = extractInnateArray(classes, "secondaryAbilities");
 
   //#endregion
-
-  //Primary Abilities
-
-
-
-
-  //Secondary Abilities
   for (const [categoryName, categoryData] of Object.entries(system.abilities)) {
     for (const [abilityName, abilityData] of Object.entries(categoryData)) {
       const linkedChar = abilityData.characteristic;
@@ -69,12 +61,25 @@ export function initializeAllAbilities(system) {
 
 // 2. Selective recalculation (only recalc changed ability)
 export function applyChangedAbilities(system, actor) {
+    //#region Class
+  const classes = system.classes || [];
+
+  const allClassAbilityLimits = extractCostMap(classes, "abilityLimits");
+  const allPrimaryAbilityCosts = extractCostMap(classes, "primaryAbilityCosts");
+  const allSupernaturalAbilityCosts = extractCostMap(classes, "supernaturalAbilityCosts");
+  const allPsychicAbilityCosts = extractCostMap(classes, "psychicAbilityCosts");
+  const allSecondaryAbilityCosts = extractCostMap(classes, "secondaryAbilityCosts");
+
+  const allPrimaryInnateBonuses = extractInnateArray(classes, "primaryAbilities");
+  const allSecondaryAbilities = extractInnateArray(classes, "secondaryAbilities");
+
+  //#endregion
     const changed = actor._changedAbilities;
     if (!Array.isArray(changed)) return;
 
-    for (const { category, ability } of changed) {
+    for (const { categoryName, ability } of changed) {
         // NORMAL (object)
-        const abilityData = system.abilities[category]?.[ability];
+        const abilityData = system.abilities[categoryName]?.[ability];
         if (!abilityData) continue;
 
 

@@ -7,7 +7,8 @@ import { AddElanWindow } from "../apps/add-elan-window.js";
 import { ElanInfoWindow } from "../apps/elan-info.js";
 import { DisadvantageInfoWindow } from "../apps/disadvantage-info.js";
 import { characteristicCheck, animaOpenRoll, resistanceCheck } from "../rolls.js";
-import { difficultyMap } from "../actor/lookup.js"
+import { difficultyMap, toNum } from "../actor/lookup.js"
+import { updateDP } from "../actor/update/update-dp.js";
 
 import { ABF_CLASSES } from "../config/classes.js";
 
@@ -51,8 +52,6 @@ export function registerSheetListeners(sheet, html) {
       if(ability.undeveloped && ability.knowledge) {
         return ui.notifications.error("Unable to roll for an undeveloped knowledge ability.");
       }
-
-
       
       animaOpenRoll({
         value: ability.final,
@@ -441,4 +440,24 @@ html.find(".titles-name-input").on("change", async (event) => {
   });
 
 //#endregion
+
+//#region Development Points
+  //Abilities
+
+  //Secondaries
+  html.find(".secondary-input").off("change");
+  html.find(".secondary-input").on("change", async (event) => {
+    const actor = sheet.actor;
+    const el = event.currentTarget;
+
+    const name = el.dataset.name;
+    const costPer = toNum(el.dataset.cost);
+    const amount = toNum(el.value);
+
+
+    await updateDP(actor, { name, amount, costPer });
+
+  });
+
+  //#endregion
 }
