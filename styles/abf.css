@@ -36,17 +36,17 @@
 
 .abf-character-sheet ul,
 .stat-grid {
-    border-radius: 4px;
-    padding: 4px 6px;
-    color: #f5f5f5;
-    font-size: 0.85rem;
-    height: auto;
-    line-height: 1.2;
+  border-radius: 4px;
+  padding: 4px 6px;
+  color: #f5f5f5;
+  font-size: 0.85rem;
+  height: auto;
+  line-height: 1.2;
 }
 
 .abf-character-sheet input[type="number"] {
   text-align: center;
-  width: 7ch;     /* fits 3 digits comfortably */
+  width: 7ch; /* fits 3 digits comfortably */
   min-width: 7ch; /* prevents shrinking */
 }
 
@@ -284,13 +284,31 @@
    GRID HELPERS & LAYOUT BLOCKS
    ============================================ */
 
-.flex { display: flex; }
-.flex-col { display: flex; flex-direction: column; }
-.flex-between { display: flex; justify-content: space-between; }
-.flex-center { display: flex; justify-content: center; align-items: center; }
-.gap-sm { gap: 0.5rem; }
-.gap-md { gap: 1rem; }
-.gap-lg { gap: 1.5rem; }
+.flex {
+  display: flex;
+}
+.flex-col {
+  display: flex;
+  flex-direction: column;
+}
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+.flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.gap-sm {
+  gap: 0.5rem;
+}
+.gap-md {
+  gap: 1rem;
+}
+.gap-lg {
+  gap: 1.5rem;
+}
 
 .lft-wrapper {
   display: grid;
@@ -360,7 +378,7 @@
 
 .abf-character-sheet .xp-fill {
   height: 100%;
-  background: linear-gradient(90deg, #4aa3d9, #d9b56c);
+  background: linear-gradient(90deg, #222311, #d9b56c);
 }
 
 .xp-labels {
@@ -479,9 +497,11 @@
 .abf-character-sheet .clickable-class,
 .abf-character-sheet .clickable-advantage,
 .abf-character-sheet .clickable-disadvantage,
-.abf-character-sheet .clickable {
+.abf-character-sheet .clickable-elan {
   cursor: pointer;
-  transition: color 0.15s ease, text-shadow 0.15s ease;
+  transition:
+    color 0.15s ease,
+    text-shadow 0.15s ease;
 }
 
 .abf-character-sheet .char-roll:hover,
@@ -490,9 +510,11 @@
 .abf-character-sheet .clickable-class:hover,
 .abf-character-sheet .clickable-advantage:hover,
 .abf-character-sheet .clickable-disadvantage:hover,
-.abf-character-sheet .clickable:hover  {
-  color: #4da3ff;
-  text-shadow: 0 0 8px #4da3ff, 0 0 12px #4da3ff;
+.abf-character-sheet .clickable-elan:hover {
+  color: #d9b56c !important;
+  text-shadow:
+    0 0 8px #d9b56c,
+    0 0 12px #d9b56c;
 }
 
 /* ============================================
@@ -502,7 +524,7 @@
 .abf-character-sheet .dice-icon img {
   width: 45px;
   height: 45px;
-  filter: drop-shadow(0 0 4px rgba(217,181,108,0.4));
+  filter: drop-shadow(0 0 4px rgba(217, 181, 108, 0.4));
   cursor: pointer;
 }
 
@@ -608,16 +630,46 @@
 
 .class-details-description,
 .advantage p,
-.disadvantage p {
+.disadvantage p,
+.elan p {
   color: white;
 }
 
 .class-selector option,
 .advantage-selector option,
-.disadvantage-selector option {
+.disadvantage-selector option,
+.elan-selector option {
   background-color: #1f2225;
 }
 
-.confirm-add {
+.confirm-add,
+.buy-gift,
+.remove-gift {
   color: white;
+}
+
+.gifts-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.gift-entry {
+  padding: 0.5rem;
+  border: 1px solid var(--color-border-light, #999);
+  border-radius: 4px;
+  background: rgba(0,0,0,0.05);
+}
+
+/* Popup dropdown and OK button */
+.selector-column {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.selector-column button {
+  align-self: center;
+  width: 80px;
 }

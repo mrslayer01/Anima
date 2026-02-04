@@ -1,0 +1,33 @@
+<h3>Titles</h3>
+<table class="classes-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th class="class-actions-header">
+        <a class="add-titles" data-tooltip="Add Title">
+          <i class="fas fa-plus-circle"></i>
+        </a>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each system.titles as |title idx|}}
+      <tr>
+        <td>
+          <input
+            class="titles-name-input"
+            type="text"
+            data-index="{{idx}}"
+            value="{{title.name}}"
+          />
+        </td>
+        <td>
+          <a class="delete-titles" data-index="{{idx}}" data-tooltip="Delete Titles">
+            <i class="fas fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -14,18 +14,52 @@
           "race": "",
           "ethnicity": "",
           "age": 0,
-          "size": { "bonus": 0, "special": 0, "final": 0},
+          "size": { "bonus": 0, "special": 0, "final": 0 },
           "appearance": 0
         },
         "lifePoints": { "current": 0, "bonus": 0, "class": 0, "final": 0 },
-        "initiative": { "bonus": 0, "class": 0, "final": 0, "armorPenalty": 0, "weaponPenalty": 0, "special": 0  },
-        "fatigue": { "current": 0, "special": 0, "final": 0, "actionPenalty": 0 },
-        "movement": { "base": 0, "penalty": 0, "bonus": 0, "final": 0, "movePerTurn": "", "inhuman": false, "zen": false },
-        "globalModifiers": { "physical": 0, "actions": 0, "naturalPenalty": 0, "perceptionPenalty": 0 },
+        "initiative": {
+          "bonus": 0,
+          "class": 0,
+          "final": 0,
+          "armorPenalty": 0,
+          "weaponPenalty": 0,
+          "special": 0
+        },
+        "titles": [{ "name": "" }],
+        "fatigue": {
+          "current": 0,
+          "special": 0,
+          "final": 0,
+          "actionPenalty": 0
+        },
+        "movement": {
+          "base": 0,
+          "penalty": 0,
+          "bonus": 0,
+          "final": 0,
+          "movePerTurn": "",
+          "inhuman": false,
+          "zen": false
+        },
+        "globalModifiers": {
+          "physical": 0,
+          "actions": 0,
+          "naturalPenalty": 0,
+          "perceptionPenalty": 0
+        },
         "destinyPoints": { "current": 0, "final": 0 },
-        "finalArmor": {"cut": 0, "imp": 0, "thr": 0, "hea": 0, "ele": 0, "col": 0, "ene": 0 },
+        "finalArmor": {
+          "cut": 0,
+          "imp": 0,
+          "thr": 0,
+          "hea": 0,
+          "ele": 0,
+          "col": 0,
+          "ene": 0
+        },
         "xp": { "current": 0, "next": 1 },
-        "elan": [],
+        "elans": [],
         "characteristics": {
           "Agility": { "base": 5, "final": 5, "bonus": 0, "class": 0 },
           "Constitution": { "base": 5, "final": 5, "bonus": 0, "class": 0 },
@@ -38,62 +72,518 @@
         },
         "abilities": {
           "Athletics": {
-            "Acrobatics":     { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Athletics":      { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Climb":          { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Jump":           { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Ride":           { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Swim":           { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false }
+            "Acrobatics": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Athletics": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Climb": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Jump": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Ride": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Swim": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            }
           },
 
           "Vigor": {
-            "Composure":      { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "FeatsOfStrength":{ "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "WithstandPain":  { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false }
+            "Composure": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "FeatsOfStrength": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "WithstandPain": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            }
           },
 
           "Perception": {
-            "Notice":         { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Search":         { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Track":          { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false }
+            "Notice": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Search": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Track": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            }
           },
 
           "Intellectual": {
-            "Animals":        { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Appraisal":      { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "HerbalLore":     { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "History":        { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "MagicAppraisal": { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Medicine":       { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Memorize":       { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Navigation":     { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Occult":         { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Sciences":       { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false }
+            "Animals": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Appraisal": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "HerbalLore": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "History": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "MagicAppraisal": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Medicine": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Memorize": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Navigation": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Occult": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Sciences": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            }
           },
 
           "Social": {
-            "Intimidate":     { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Leadership":     { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Persuasion":     { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Style":          { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false }
+            "Intimidate": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Leadership": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Persuasion": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Style": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            }
           },
 
           "Subterfuge": {
-            "Disguise":       { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Hide":           { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "LockPicking":    { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Poisons":        { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Theft":          { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "TrapLore":       { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Stealth":        { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false }
+            "Disguise": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Hide": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "LockPicking": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Poisons": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Theft": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "TrapLore": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Stealth": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            }
           },
 
           "Creative": {
-            "Art":            { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Dance":          { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Forging":        { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "Music":          { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false },
-            "SleightOfHand":  { "base": 0, "bonus": 0, "cost": 0, "class": 0, "final": 0, "special": 0, "characteristic": "", "knowledge": false, "passive": false, "undeveloped": true, "mastery": false }
+            "Art": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Dance": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Forging": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "Music": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            },
+            "SleightOfHand": {
+              "base": 0,
+              "bonus": 0,
+              "cost": 0,
+              "class": 0,
+              "final": 0,
+              "special": 0,
+              "characteristic": "",
+              "knowledge": false,
+              "passive": false,
+              "undeveloped": true,
+              "mastery": false
+            }
           }
         },
         "combat": {
@@ -300,11 +790,7 @@
           }
         ],
         "background": "",
-        "languages": {
-          "base": "Base",
-          "slots": ["", "", "", "", ""],
-          "max": 0
-        },
+        "languages": [{ "name": "", "level": 0 }],
         "combatEquipment": [
           {
             "item": "",
@@ -324,7 +810,6 @@
             "description": ""
           }
         ],
-        "possessionsTitles": [""],
         "notes": [""],
         "contacts": [
           {

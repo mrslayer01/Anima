@@ -1,0 +1,60 @@
+<h3>Elans</h3>
+<table class="classes-table">
+  <thead>
+    <tr>
+      <th>Deity</th>
+      <th>Current</th>
+      <th>Bonus</th>
+      <th>Remaining</th>
+      <th>Final</th>
+      <th class="class-actions-header">
+        <a class="add-elan" data-tooltip="Add Elan">
+          <i class="fas fa-plus-circle"></i>
+        </a>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each system.elans as |elan idx|}}
+      <tr>
+        <td class="elan-name clickable-elan" data-index="{{idx}}" data-elans="{{elan.name}}" data-tooltip="Click to see Deity details and spend Elan on Gifts.">
+          {{elan.name}}
+        </td>
+
+        <td>
+          <input
+            class="elan-current-input"
+            type="number"
+            data-index="{{idx}}"
+            value="{{elan.elan.current}}"
+            min="1"
+          />
+        </td>
+
+        <td>
+          <input
+            class="elan-bonus-input"
+            type="number"
+            data-index="{{idx}}"
+            value="{{elan.elan.bonus}}"
+          />
+        </td>
+
+        <td>
+          {{elan.elan.remaining}}
+        </td>
+
+        <td>
+          {{elan.elan.final}}
+        </td>
+
+        <td>
+          <a class="delete-elan" data-index="{{idx}}" data-tooltip="Delete Elans">
+            <i class="fas fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -9,7 +9,7 @@
     </tr>
 
     <tr>
-      <td>Physical</td>
+      <td data-tooltip="Represents a character’s tolerance for damage and shock. PhR allows characters to avoid falling unconscious and overcome the effects of criticals. Based on Constitution Final.">Physical</td>
       <td>
         <input
           type="number"
@@ -18,11 +18,11 @@
           value="{{system.resistances.Physical.bonus}}"
         />
       </td>
-    <td class="res-roll" data-char="Physical">{{system.resistances.Physical.final}}</td>
+    <td class="res-roll" data-char="Physical" data-tooltip="Click to roll Resistance Check.">{{system.resistances.Physical.final}}</td>
     </tr>
 
     <tr>
-      <td>Disease</td>
+      <td data-tooltip="Represents a character’s ability to avoid falling ill or being affected by a disease. DR also indicates how quickly a character can recuperate from an illness. Based on Constitution Final.">Disease</td>
       <td>
         <input
           type="number"
@@ -31,11 +31,11 @@
           value="{{system.resistances.Disease.bonus}}"
         />
       </td>
-      <td class="res-roll" data-char="Disease">{{system.resistances.Disease.final}}</td>
+      <td class="res-roll" data-char="Disease" data-tooltip="Click to roll Resistance Check.">{{system.resistances.Disease.final}}</td>
     </tr>
 
     <tr>
-      <td>Venom</td>
+      <td data-tooltip="Represents a character’s Resistance to venom, poison, and toxic environmental effects. VR allows a character to alleviate or overcome the effects of poison. Based on Constitution Final.">Venom</td>
       <td>
         <input
           type="number"
@@ -44,11 +44,11 @@
           value="{{system.resistances.Venom.bonus}}"
         />
       </td>
-      <td class="res-roll" data-char="Venom">{{system.resistances.Venom.final}}</td>
+      <td class="res-roll" data-char="Venom" data-tooltip="Click to roll Resistance Check.">{{system.resistances.Venom.final}}</td>
     </tr>
 
     <tr>
-      <td>Magic</td>
+      <td data-tooltip=" Represents how well a character can resist the effects of a spell or of an ability of supernatural origin. Based on Power Final.">Magic</td>
       <td>
         <input
           type="number"
@@ -57,11 +57,11 @@
           value="{{system.resistances.Magic.bonus}}"
         />
       </td>
-    <td class="res-roll" data-char="Magic">{{system.resistances.Magic.final}}</td>
+    <td class="res-roll" data-char="Magic" data-tooltip="Click to roll Resistance Check.">{{system.resistances.Magic.final}}</td>
     </tr>
 
     <tr>
-      <td>Psychic</td>
+      <td data-tooltip="Represents a character’s force of will which allows him to resist psychic attacks and any mind-altering attacks. Based on Willpower Final.">Psychic</td>
       <td>
         <input
           type="number"
@@ -70,7 +70,7 @@
           value="{{system.resistances.Psychic.bonus}}"
         />
       </td>
-      <td class="res-roll" data-char="Psychic">{{system.resistances.Psychic.final}}</td>
+      <td class="res-roll" data-char="Psychic" data-tooltip="Click to roll Resistance Check.">{{system.resistances.Psychic.final}}</td>
     </tr>
   </table>
 </section>

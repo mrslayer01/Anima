@@ -1,4 +1,5 @@
 <form class="disadvantage">
+  <div class="selector-column">
     <select class="disadvantage-selector">
     {{#each disadvantageOptions as |disAdv|}}
       <option value="{{disAdv}}" {{#ifEquals disAdv ../selectedDisadvantage}}selected{{/ifEquals}}>
@@ -6,8 +7,9 @@
       </option>
     {{/each}}
     </select>
+    <button type="button" class="confirm-add">OK</button>
+  </div>
 
-<button type="button" class="confirm-add">OK</button>
   <section>
   <h3>Effects</h3>
   <p>{{disadvantageData.effects}}</p>

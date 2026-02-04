@@ -1,0 +1,104 @@
+<form class="elan">
+  <div class="selector-column">
+    <select class="elan-selector">
+      {{#each elanOptions as |elan|}}
+        <option value="{{elan}}" {{#ifEquals elan ../selectedElan}}selected{{/ifEquals}}>
+          {{elan}}
+        </option>
+      {{/each}}
+    </select>
+
+    <button type="button" class="confirm-add">OK</button>
+  </div>
+
+  <section>
+    <h2>{{elanData.name}}</h2>
+    <h3>{{elanData.title}} — {{elanData.type}}</h3>
+    <p>{{elanData.description}}</p>
+  </section>
+
+  <section>
+    <h3>Gifts</h3>
+
+    <div class="gifts-grid">
+      {{#each elanData.gifts}}
+        <div class="gift-entry">
+          <h4>{{this.name}}</h4>
+          <p>{{this.description}}</p>
+          <p><strong>Cost:</strong> {{this.elanCost}}</p>
+          <p><strong>Requirements:</strong> Elan {{this.elanRequirements}}</p>
+        </div>
+      {{/each}}
+    </div>
+
+  </section>
+
+
+<section>
+  <h3>Modifiers</h3>
+
+  {{!-- ========================= --}}
+  {{!-- Elan lower than 50        --}}
+  {{!-- ========================= --}}
+  <h4>Elan lower than 50</h4>
+  <table class="modifier-table">
+    <thead>
+      <tr>
+        <th>Action</th>
+        <th>Modifier</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each elanData.modifiers.lowElan}}
+        <tr>
+          <td>{{this.action}}</td>
+          <td>{{this.modifier}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  {{!-- ========================= --}}
+  {{!-- Elan 50 or higher         --}}
+  {{!-- ========================= --}}
+  <h4>Elan 50 or higher</h4>
+  <table class="modifier-table">
+    <thead>
+      <tr>
+        <th>Action</th>
+        <th>Modifier</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each elanData.modifiers.highElan}}
+        <tr>
+          <td>{{this.action}}</td>
+          <td>{{this.modifier}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  {{!-- ========================= --}}
+  {{!-- Negative Modifiers        --}}
+  {{!-- ========================= --}}
+  <h4>Negative Modifiers</h4>
+  <table class="modifier-table">
+    <thead>
+      <tr>
+        <th>Action</th>
+        <th>Modifier</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each elanData.modifiers.negative}}
+        <tr>
+          <td>{{this.action}}</td>
+          <td>{{this.modifier}}</td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+</section>
+</form>

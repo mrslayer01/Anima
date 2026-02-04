@@ -1,4 +1,4 @@
-<h3>Destiny Points</h3>
+<h3>Development Points</h3>
 <table class="lft-table">
   <tr>
     <td>
@@ -6,10 +6,11 @@
         type="number"
         name="system.destinyPoints.current"
         value="{{system.destinyPoints.current}}"
+        data-tooltip="Current Development Points."
       />
     </td>
-    <td>
-      <input type="number" value="{{system.destinyPoints.max}}" disabled />
+    <td data-tooltip="Maximum Development Points. ">
+      {{system.destinyPoints.max}}
     </td>
   </tr>
 </table>

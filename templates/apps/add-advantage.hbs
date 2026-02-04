@@ -1,13 +1,16 @@
 <form class="advantage">
-    <select class="advantage-selector">
-    {{#each advantageOptions as |adv|}}
-      <option value="{{adv}}" {{#ifEquals adv ../selectedAdvantage}}selected{{/ifEquals}}>
-        {{advName adv}}
-      </option>
-    {{/each}}
-    </select>
+    <div class="selector-column">
+        <select class="advantage-selector">
+        {{#each advantageOptions as |adv|}}
+        <option value="{{adv}}" {{#ifEquals adv ../selectedAdvantage}}selected{{/ifEquals}}>
+            {{advName adv}}
+        </option>
+        {{/each}}
+        </select>
 
-  <button type="button" class="confirm-add">OK</button>
+        <button type="button" class="confirm-add">OK</button>
+
+    </div>
 
     <section>
         <h3>Effects</h3>

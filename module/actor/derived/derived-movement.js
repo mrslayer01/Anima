@@ -35,15 +35,6 @@ export function calculateMovement(system) {
 
 }
 
-function requiredTierFor(mv) {
-    const MOVEMENT_REQUIREMENTS = [
-        { max: 10, requirement: null },
-        { max: 13, requirement: "Inhuman" },
-        { max: 20, requirement: "Zen" }
-    ];
-  return MOVEMENT_REQUIREMENTS.find(r => mv <= r.max).requirement;
-}
-
 function movementCap(hasInhuman, hasZen) {
   if (hasZen) return 20;
   if (hasInhuman) return 13;

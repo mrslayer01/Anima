@@ -14,6 +14,7 @@ import { calculateFinalInitiative } from "./derived-initiative.js";
 import { calculateFinalFatigue } from "./derived-fatigue.js";
 import { calculateCharacterSize } from "./derived-size.js"
 import { calculateMovement } from "./derived-movement.js"
+import { calculateElanFinal } from "./derived-elan.js";
 
 
 
@@ -43,4 +44,5 @@ export function calculateDerivedValues(system, actor) {
     calculateFinalFatigue(system);
     calculateCharacterSize(system);
     calculateMovement(system);
+    calculateElanFinal(system);
 }

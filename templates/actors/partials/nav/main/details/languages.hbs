@@ -1,0 +1,44 @@
+<h3>languages</h3>
+<table class="classes-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Level</th>
+      <th class="class-actions-header">
+        <a class="add-language" data-tooltip="Add Language">
+          <i class="fas fa-plus-circle"></i>
+        </a>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each system.languages as |lang idx|}}
+      <tr>
+        <td>
+          <input
+            class="languages-name-input"
+            type="text"
+            data-index="{{idx}}"
+            value="{{lang.name}}"
+          />
+        </td>
+
+        <td>
+          <input
+            class="languages-level-input"
+            type="number"
+            data-index="{{idx}}"
+            value="{{lang.level}}"
+            min="0"
+          />
+        </td>
+        <td>
+          <a class="delete-languages" data-index="{{idx}}" data-tooltip="Delete Languages">
+            <i class="fas fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,15 +1,14 @@
 <form class="add-class-form">
-  <label>Class:</label>
-
-  <select class="class-selector">
-    {{#each classOptions as |cls|}}
-      <option value="{{cls}}" {{#ifEquals cls ../selectedClass}}selected{{/ifEquals}}>
-        {{clsName cls}}
-      </option>
-    {{/each}}
-  </select>
-
-  <button type="button" class="confirm-add">OK</button>
+  <div class="selector-column">
+    <select class="class-selector">
+      {{#each classOptions as |cls|}}
+        <option value="{{cls}}" {{#ifEquals cls ../selectedClass}}selected{{/ifEquals}}>
+          {{clsName cls}}
+        </option>
+      {{/each}}
+    </select>
+    <button type="button" class="confirm-add">OK</button>
+  </div>
 
   <div class="class-details-grid">
 

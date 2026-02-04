@@ -14,7 +14,7 @@
   <tbody>
     {{#each actor.system.abilities.Athletics as |ability key|}}
       <tr>
-        <td>{{localize (concat "ABF.Ability." key)}}</td>
+        <td data-tooltip="Kowledge Skill: {{ability.knowledge}}">{{localize (concat "ABF.Ability." key)}}</td>
         <td><input
             class="mod-input-resize-char secondary-input"
             type="number"
