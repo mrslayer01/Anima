@@ -1,6 +1,7 @@
+import { toNum } from "./actor/lookup.js";
+
 // ============================================================
 //  ABF Roll Engine
-//  Clean, reusable JS functions for your system
 // ============================================================
 
 /**
@@ -31,25 +32,27 @@ export function sendChat(content, actor) {
 // ============================================================
 
 export async function characteristicCheck({ value, label, actor }) {
-    console.log("Characteristic Check Invoked:", { value, label, actor });
   const target = Number(value) || 0;
   const name = label ?? "Characteristic Check";
 
   const roll = await rollDice("1d10");
   const result = roll.total;
 
-  let margin = Math.abs(result - target);
+  let effectiveRoll = result;   // start with the raw roll
   let ruleText = "";
 
   if (result === 1) {
-    margin += 3;
-    ruleText = " (+3 Rule of 1)";
+    effectiveRoll -= 3;         // roll becomes better
+    ruleText = " (-3 Rule of 1)";
   } else if (result === 10) {
-    margin += 3;
+    effectiveRoll += 3;         // roll becomes worse
     ruleText = " (+3 Rule of 10)";
   }
 
-  const success = result <= target;
+  const success = effectiveRoll <= target;
+  const margin = Math.abs(effectiveRoll - target);
+
+
 
   const content = `
     <b>${name}</b><br>
@@ -59,7 +62,7 @@ export async function characteristicCheck({ value, label, actor }) {
     <hr>
     ${success
       ? `<span style="color:green"><b>Success</b></span> (Margin: ${margin})`
-      : `<span style="color:red"><b>Failure</b></span> (Missed by ${margin})`
+      : `<span style="color:red"><b>Failure</b></span> (Margin: ${margin})`
     }
   `;
 
@@ -111,8 +114,6 @@ export async function animaOpenRoll({ value, label, mastery, undeveloped, actor 
   const isMastery = mastery === true;
   const isUndeveloped = undeveloped === true;
 
-  console.log("Anima Open Roll Invoked:", { bonus, name, isMastery, isUndeveloped, actor });
-
   let threshold = 90;
   let rawRolls = [];
   let total = 0;
@@ -143,7 +144,6 @@ export async function animaOpenRoll({ value, label, mastery, undeveloped, actor 
     }
   }
 
-  console.log(fatiguePenalty);
   const breakdown = rawRolls.map(r => `${r}`).join("<br>");
   const final = isUndeveloped ? total + bonus - 30 + fatiguePenalty : total + bonus + fatiguePenalty;
 

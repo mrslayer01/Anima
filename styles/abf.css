@@ -497,7 +497,8 @@
 .abf-character-sheet .clickable-class,
 .abf-character-sheet .clickable-advantage,
 .abf-character-sheet .clickable-disadvantage,
-.abf-character-sheet .clickable-elan {
+.abf-character-sheet .clickable-elan,
+.abf-character-sheet .clickable {
   cursor: pointer;
   transition:
     color 0.15s ease,
@@ -510,7 +511,8 @@
 .abf-character-sheet .clickable-class:hover,
 .abf-character-sheet .clickable-advantage:hover,
 .abf-character-sheet .clickable-disadvantage:hover,
-.abf-character-sheet .clickable-elan:hover {
+.abf-character-sheet .clickable-elan:hover,
+.abf-character-sheet .clickable:hover {
   color: #d9b56c !important;
   text-shadow:
     0 0 8px #d9b56c,

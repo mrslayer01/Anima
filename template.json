@@ -48,7 +48,7 @@
           "naturalPenalty": 0,
           "perceptionPenalty": 0
         },
-        "destinyPoints": { "current": 0, "final": 0 },
+        "destinyPoints": { "current": 0, "spent":0, "final": 0 },
         "finalArmor": {
           "cut": 0,
           "imp": 0,
@@ -586,10 +586,30 @@
             }
           }
         },
+        "primarryAbilityDetails": {
+          "Combat": {
+            "limit": 0,
+            "abilityCosts": {
+              "Attack": 0, "Block": 0, "Dodge": 0, "WearArmor": 0, "Ki": 0, "KiAccumulation": 0
+            }
+          },
+          "Supernatural": {
+            "limit": 0,
+            "abilityCosts": {
+              "Zeon": 0, "MagicProjection": 0, "Summon": 0, "Control": 0, "Bind": 0, "Banish": 0
+            }
+          },
+          "Psychic": {
+            "limit": 0,
+            "abilityCosts": {
+              "PsychicPoints": 0, "PsychicProjection": 0
+            }
+          }
+        },
         "combat": {
-          "attack": { "base": 0, "bonus": 0, "class": 0, "final": 0 },
-          "block": { "base": 0, "bonus": 0, "class": 0, "final": 0 },
-          "dodge": { "base": 0, "bonus": 0, "class": 0, "final": 0 }
+          "attack": { "base": 0, "bonus": 0, "class": 0, "final": 0, "cost": 0 },
+          "block": { "base": 0, "bonus": 0, "class": 0, "final": 0, "cost": 0 },
+          "dodge": { "base": 0, "bonus": 0, "class": 0, "final": 0, "cost": 0 }
         },
         "weapons": [
           {

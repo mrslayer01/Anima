@@ -17,42 +17,42 @@ const CLASS_SCHEMA = {
   psychicPointsInterval: "number",
 
   abilityLimits: {
-    combat: "number",
-    supernatural: "number",
-    psychic: "number",
+    Combat: "number",
+    Supernatural: "number",
+    Psychic: "number",
   },
 
   primaryAbilityCosts: {
-    attack: "number",
-    block: "number",
-    dodge: "number",
-    wearArmor: "number",
-    ki: "number",
-    kiAccumulation: "number",
+    Attack: "number",
+    Block: "number",
+    Dodge: "number",
+    WearArmor: "number",
+    Ki: "number",
+    KiAccumulation: "number",
   },
 
   supernaturalAbilityCosts: {
-    zeon: "number",
-    magicProjection: "number",
-    summon: "number",
-    control: "number",
-    bind: "number",
-    banish: "number",
+    Zeon: "number",
+    MagicProjection: "number",
+    Summon: "number",
+    Control: "number",
+    Bind: "number",
+    Banish: "number",
   },
 
   psychicAbilityCosts: {
-    psychicPoints: "number",
-    psychicProjection: "number",
+    PsychicPoints: "number",
+    PsychicProjection: "number",
   },
 
   secondaryAbilityCosts: {
-    athletics: "number",
-    social: "number",
-    perceptive: "number",
-    intellectual: "number",
-    vigor: "number",
-    subterfuge: "number",
-    creative: "number",
+    Athletics: "number",
+    Social: "number",
+    Perception: "number",
+    Intellectual: "number",
+    Vigor: "number",
+    Subterfuge: "number",
+    Creative: "number",
   },
 
   innateBonuses: {
@@ -180,42 +180,42 @@ export const ABF_CLASSES = {
     psychicPointsInterval: 3,    
 
     abilityLimits: {
-      combat: 60,
-      supernatural: 50,
-      psychic: 50,
+      Combat: 60,
+      Supernatural: 50,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 2,
-      block: 2,
-      dodge: 2,
-      wearArmor: 2,
-      ki: 2,
-      kiAccumulation: 20,
+      Attack: 2,
+      Block: 2,
+      Dodge: 2,
+      WearArmor: 2,
+      Ki: 2,
+      KiAccumulation: 20,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 3,
-      magicProjection: 3,
-      summon: 3,
-      control: 3,
-      bind: 3,
-      banish: 3,
+      Zeon: 3,
+      MagicProjection: 3,
+      Summon: 3,
+      Control: 3,
+      Bind: 3,
+      Banish: 3,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 3,
-      vigor: 2,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 3,
+      Vigor: 2,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -253,42 +253,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 60,
-      supernatural: 50,
-      psychic: 50,
+      Combat: 60,
+      Supernatural: 50,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 2,
-      block: 3,
-      dodge: 2,
-      wearArmor: 2,
-      ki: 2,
-      kiAccumulation: 20,
+      Attack: 2,
+      Block: 3,
+      Dodge: 2,
+      WearArmor: 2,
+      Ki: 2,
+      KiAccumulation: 20,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 3,
-      magicProjection: 3,
-      summon: 3,
-      control: 3,
-      bind: 3,
-      banish: 3,
+      Zeon: 3,
+      MagicProjection: 3,
+      Summon: 3,
+      Control: 3,
+      Bind: 3,
+      Banish: 3,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 3,
-      vigor: 2,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 3,
+      Vigor: 2,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -329,42 +329,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 60,
-      supernatural: 50,
-      psychic: 50,
+      Combat: 60,
+      Supernatural: 50,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 2,
-      block: 2,
-      dodge: 2,
-      wearArmor: 2,
-      ki: 2,
-      kiAccumulation: 20,
+      Attack: 2,
+      Block: 2,
+      Dodge: 2,
+      WearArmor: 2,
+      Ki: 2,
+      KiAccumulation: 20,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 2,
-      magicProjection: 3,
-      summon: 3,
-      control: 3,
-      bind: 3,
-      banish: 1,
+      Zeon: 2,
+      MagicProjection: 3,
+      Summon: 3,
+      Control: 3,
+      Bind: 3,
+      Banish: 1,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 1,
-      perceptive: 2,
-      intellectual: 2,
-      vigor: 2,
-      subterfuge: 3,
-      creative: 2,
+      Athletics: 2,
+      Social: 1,
+      Perception: 2,
+      Intellectual: 2,
+      Vigor: 2,
+      Subterfuge: 3,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -406,42 +406,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 60,
-      supernatural: 50,
-      psychic: 50,
+      Combat: 60,
+      Supernatural: 50,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 2,
-      block: 2,
-      dodge: 2,
-      wearArmor: 2,
-      ki: 2,
-      kiAccumulation: 20,
+      Attack: 2,
+      Block: 2,
+      Dodge: 2,
+      WearArmor: 2,
+      Ki: 2,
+      KiAccumulation: 20,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 2,
-      magicProjection: 3,
-      summon: 3,
-      control: 1,
-      bind: 3,
-      banish: 3,
+      Zeon: 2,
+      MagicProjection: 3,
+      Summon: 3,
+      Control: 1,
+      Bind: 3,
+      Banish: 3,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 1,
-      perceptive: 2,
-      intellectual: 2,
-      vigor: 2,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 1,
+      Perception: 2,
+      Intellectual: 2,
+      Vigor: 2,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -484,42 +484,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 60,
-      supernatural: 50,
-      psychic: 50,
+      Combat: 60,
+      Supernatural: 50,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 2,
-      block: 2,
-      dodge: 2,
-      wearArmor: 1,
-      ki: 3,
-      kiAccumulation: 30,
+      Attack: 2,
+      Block: 2,
+      Dodge: 2,
+      WearArmor: 1,
+      Ki: 3,
+      KiAccumulation: 30,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 3,
-      magicProjection: 3,
-      summon: 3,
-      control: 3,
-      bind: 3,
-      banish: 3,
+      Zeon: 3,
+      MagicProjection: 3,
+      Summon: 3,
+      Control: 3,
+      Bind: 3,
+      Banish: 3,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 3,
-      vigor: 1,
-      subterfuge: 3,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 3,
+      Vigor: 1,
+      Subterfuge: 3,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -558,42 +558,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 60,
-      supernatural: 50,
-      psychic: 50,
+      Combat: 60,
+      Supernatural: 50,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 2,
-      block: 2,
-      dodge: 2,
-      wearArmor: 2,
-      ki: 1,
-      kiAccumulation: 10,
+      Attack: 2,
+      Block: 2,
+      Dodge: 2,
+      WearArmor: 2,
+      Ki: 1,
+      KiAccumulation: 10,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 3,
-      magicProjection: 3,
-      summon: 3,
-      control: 3,
-      bind: 3,
-      banish: 3,
+      Zeon: 3,
+      MagicProjection: 3,
+      Summon: 3,
+      Control: 3,
+      Bind: 3,
+      Banish: 3,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 3,
-      vigor: 2,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 3,
+      Vigor: 2,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -625,42 +625,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 60,
-      supernatural: 50,
-      psychic: 50,
+      Combat: 60,
+      Supernatural: 50,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 2,
-      block: 2,
-      dodge: 2,
-      wearArmor: 2,
-      ki: 2,
-      kiAccumulation: 15,
+      Attack: 2,
+      Block: 2,
+      Dodge: 2,
+      WearArmor: 2,
+      Ki: 2,
+      KiAccumulation: 15,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 3,
-      magicProjection: 3,
-      summon: 3,
-      control: 3,
-      bind: 3,
-      banish: 3,
+      Zeon: 3,
+      MagicProjection: 3,
+      Summon: 3,
+      Control: 3,
+      Bind: 3,
+      Banish: 3,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 3,
-      vigor: 2,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 3,
+      Vigor: 2,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -693,42 +693,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 60,
-      supernatural: 50,
-      psychic: 50,
+      Combat: 60,
+      Supernatural: 50,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 2,
-      block: 2,
-      dodge: 2,
-      wearArmor: 2,
-      ki: 2,
-      kiAccumulation: 15,
+      Attack: 2,
+      Block: 2,
+      Dodge: 2,
+      WearArmor: 2,
+      Ki: 2,
+      KiAccumulation: 15,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 3,
-      magicProjection: 3,
-      summon: 3,
-      control: 3,
-      bind: 3,
-      banish: 3,
+      Zeon: 3,
+      MagicProjection: 3,
+      Summon: 3,
+      Control: 3,
+      Bind: 3,
+      Banish: 3,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 3,
-      vigor: 2,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 3,
+      Vigor: 2,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -761,42 +761,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 60,
-      supernatural: 50,
-      psychic: 50,
+      Combat: 60,
+      Supernatural: 50,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 2,
-      block: 3,
-      dodge: 2,
-      wearArmor: 2,
-      ki: 2,
-      kiAccumulation: 20,
+      Attack: 2,
+      Block: 3,
+      Dodge: 2,
+      WearArmor: 2,
+      Ki: 2,
+      KiAccumulation: 20,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 3,
-      magicProjection: 3,
-      summon: 3,
-      control: 3,
-      bind: 3,
-      banish: 3,
+      Zeon: 3,
+      MagicProjection: 3,
+      Summon: 3,
+      Control: 3,
+      Bind: 3,
+      Banish: 3,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 3,
-      vigor: 2,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 3,
+      Vigor: 2,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -836,42 +836,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 50,
-      supernatural: 50,
-      psychic: 50,
+      Combat: 50,
+      Supernatural: 50,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 2,
-      block: 3,
-      dodge: 2,
-      wearArmor: 3,
-      ki: 2,
-      kiAccumulation: 25,
+      Attack: 2,
+      Block: 3,
+      Dodge: 2,
+      WearArmor: 3,
+      Ki: 2,
+      KiAccumulation: 25,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 3,
-      magicProjection: 3,
-      summon: 3,
-      control: 3,
-      bind: 3,
-      banish: 3,
+      Zeon: 3,
+      MagicProjection: 3,
+      Summon: 3,
+      Control: 3,
+      Bind: 3,
+      Banish: 3,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 1,
-      social: 2,
-      perceptive: 2,
-      intellectual: 3,
-      vigor: 3,
-      subterfuge: 1,
-      creative: 2,
+      Athletics: 1,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 3,
+      Vigor: 3,
+      Subterfuge: 1,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -912,42 +912,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 50,
-      supernatural: 50,
-      psychic: 50,
+      Combat: 50,
+      Supernatural: 50,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 2,
-      block: 3,
-      dodge: 2,
-      wearArmor: 3,
-      ki: 2,
-      kiAccumulation: 25,
+      Attack: 2,
+      Block: 3,
+      Dodge: 2,
+      WearArmor: 3,
+      Ki: 2,
+      KiAccumulation: 25,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 3,
-      magicProjection: 3,
-      summon: 3,
-      control: 3,
-      bind: 3,
-      banish: 3,
+      Zeon: 3,
+      MagicProjection: 3,
+      Summon: 3,
+      Control: 3,
+      Bind: 3,
+      Banish: 3,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 1,
-      intellectual: 3,
-      vigor: 3,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 1,
+      Intellectual: 3,
+      Vigor: 3,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -988,42 +988,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 50,
-      supernatural: 60,
-      psychic: 50,
+      Combat: 50,
+      Supernatural: 60,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 3,
-      block: 3,
-      dodge: 2,
-      wearArmor: 3,
-      ki: 3,
-      kiAccumulation: 30,
+      Attack: 3,
+      Block: 3,
+      Dodge: 2,
+      WearArmor: 3,
+      Ki: 3,
+      KiAccumulation: 30,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 1,
-      magicProjection: 2,
-      summon: 2,
-      control: 2,
-      bind: 2,
-      banish: 2,
+      Zeon: 1,
+      MagicProjection: 2,
+      Summon: 2,
+      Control: 2,
+      Bind: 2,
+      Banish: 2,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 2,
-      vigor: 3,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 2,
+      Vigor: 3,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -1058,42 +1058,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 50,
-      supernatural: 50,
-      psychic: 50,
+      Combat: 50,
+      Supernatural: 50,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 2,
-      block: 2,
-      dodge: 2,
-      wearArmor: 2,
-      ki: 2,
-      kiAccumulation: 25,
+      Attack: 2,
+      Block: 2,
+      Dodge: 2,
+      WearArmor: 2,
+      Ki: 2,
+      KiAccumulation: 25,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 1,
-      magicProjection: 2,
-      summon: 2,
-      control: 2,
-      bind: 1,
-      banish: 2,
+      Zeon: 1,
+      MagicProjection: 2,
+      Summon: 2,
+      Control: 2,
+      Bind: 1,
+      Banish: 2,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 2,
-      vigor: 2,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 2,
+      Vigor: 2,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -1131,42 +1131,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 50,
-      supernatural: 60,
-      psychic: 50,
+      Combat: 50,
+      Supernatural: 60,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 3,
-      block: 3,
-      dodge: 2,
-      wearArmor: 3,
-      ki: 2,
-      kiAccumulation: 25,
+      Attack: 3,
+      Block: 3,
+      Dodge: 2,
+      WearArmor: 3,
+      Ki: 2,
+      KiAccumulation: 25,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 1,
-      magicProjection: 2,
-      summon: 3,
-      control: 3,
-      bind: 3,
-      banish: 3,
+      Zeon: 1,
+      MagicProjection: 2,
+      Summon: 3,
+      Control: 3,
+      Bind: 3,
+      Banish: 3,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 2,
-      vigor: 3,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 2,
+      Vigor: 3,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -1205,42 +1205,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 50,
-      supernatural: 50,
-      psychic: 50,
+      Combat: 50,
+      Supernatural: 50,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 3,
-      block: 3,
-      dodge: 2,
-      wearArmor: 3,
-      ki: 3,
-      kiAccumulation: 30,
+      Attack: 3,
+      Block: 3,
+      Dodge: 2,
+      WearArmor: 3,
+      Ki: 3,
+      KiAccumulation: 30,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 1,
-      magicProjection: 2,
-      summon: 2,
-      control: 2,
-      bind: 2,
-      banish: 2,
+      Zeon: 1,
+      MagicProjection: 2,
+      Summon: 2,
+      Control: 2,
+      Bind: 2,
+      Banish: 2,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 10,
-      psychicProjection: 2,
+      PsychicPoints: 10,
+      PsychicProjection: 2,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 2,
-      vigor: 3,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 2,
+      Vigor: 3,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -1274,42 +1274,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 50,
-      supernatural: 60,
-      psychic: 50,
+      Combat: 50,
+      Supernatural: 60,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 3,
-      block: 3,
-      dodge: 2,
-      wearArmor: 3,
-      ki: 3,
-      kiAccumulation: 30,
+      Attack: 3,
+      Block: 3,
+      Dodge: 2,
+      WearArmor: 3,
+      Ki: 3,
+      KiAccumulation: 30,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 1,
-      magicProjection: 3,
-      summon: 1,
-      control: 1,
-      bind: 1,
-      banish: 1,
+      Zeon: 1,
+      MagicProjection: 3,
+      Summon: 1,
+      Control: 1,
+      Bind: 1,
+      Banish: 1,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 2,
-      vigor: 3,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 2,
+      Vigor: 3,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -1349,42 +1349,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 50,
-      supernatural: 50,
-      psychic: 50,
+      Combat: 50,
+      Supernatural: 50,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 2,
-      block: 2,
-      dodge: 2,
-      wearArmor: 2,
-      ki: 2,
-      kiAccumulation: 20,
+      Attack: 2,
+      Block: 2,
+      Dodge: 2,
+      WearArmor: 2,
+      Ki: 2,
+      KiAccumulation: 20,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 1,
-      magicProjection: 3,
-      summon: 1,
-      control: 1,
-      bind: 1,
-      banish: 1,
+      Zeon: 1,
+      MagicProjection: 3,
+      Summon: 1,
+      Control: 1,
+      Bind: 1,
+      Banish: 1,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 20,
-      psychicProjection: 3,
+      PsychicPoints: 20,
+      PsychicProjection: 3,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 2,
-      vigor: 2,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 2,
+      Vigor: 2,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -1424,42 +1424,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 50,
-      supernatural: 50,
-      psychic: 60,
+      Combat: 50,
+      Supernatural: 50,
+      Psychic: 60,
     },
 
     primaryAbilityCosts: {
-      attack: 3,
-      block: 3,
-      dodge: 2,
-      wearArmor: 3,
-      ki: 3,
-      kiAccumulation: 30,
+      Attack: 3,
+      Block: 3,
+      Dodge: 2,
+      WearArmor: 3,
+      Ki: 3,
+      KiAccumulation: 30,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 3,
-      magicProjection: 3,
-      summon: 3,
-      control: 3,
-      bind: 3,
-      banish: 3,
+      Zeon: 3,
+      MagicProjection: 3,
+      Summon: 3,
+      Control: 3,
+      Bind: 3,
+      Banish: 3,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 10,
-      psychicProjection: 2,
+      PsychicPoints: 10,
+      PsychicProjection: 2,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 2,
-      vigor: 3,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 2,
+      Vigor: 3,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -1490,42 +1490,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 50,
-      supernatural: 50,
-      psychic: 50,
+      Combat: 50,
+      Supernatural: 50,
+      Psychic: 50,
     },
 
     primaryAbilityCosts: {
-      attack: 2,
-      block: 2,
-      dodge: 2,
-      wearArmor: 2,
-      ki: 2,
-      kiAccumulation: 25,
+      Attack: 2,
+      Block: 2,
+      Dodge: 2,
+      WearArmor: 2,
+      Ki: 2,
+      KiAccumulation: 25,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 3,
-      magicProjection: 3,
-      summon: 3,
-      control: 3,
-      bind: 3,
-      banish: 3,
+      Zeon: 3,
+      MagicProjection: 3,
+      Summon: 3,
+      Control: 3,
+      Bind: 3,
+      Banish: 3,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 1,
-      psychicProjection: 2,
+      PsychicPoints: 1,
+      PsychicProjection: 2,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 3,
-      vigor: 2,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 3,
+      Vigor: 2,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {
@@ -1560,42 +1560,42 @@ export const ABF_CLASSES = {
     
 
     abilityLimits: {
-      combat: 60,
-      supernatural: 60,
-      psychic: 60,
+      Combat: 60,
+      Supernatural: 60,
+      Psychic: 60,
     },
 
     primaryAbilityCosts: {
-      attack: 2,
-      block: 2,
-      dodge: 2,
-      wearArmor: 2,
-      ki: 2,
-      kiAccumulation: 20,
+      Attack: 2,
+      Block: 2,
+      Dodge: 2,
+      WearArmor: 2,
+      Ki: 2,
+      KiAccumulation: 20,
     },
 
     supernaturalAbilityCosts: {
-      zeon: 2,
-      magicProjection: 2,
-      summon: 2,
-      control: 2,
-      bind: 2,
-      banish: 2,
+      Zeon: 2,
+      MagicProjection: 2,
+      Summon: 2,
+      Control: 2,
+      Bind: 2,
+      Banish: 2,
     },
 
     psychicAbilityCosts: {
-      psychicPoints: 2,
-      psychicProjection: 2,
+      PsychicPoints: 2,
+      PsychicProjection: 2,
     },
 
     secondaryAbilityCosts: {
-      athletics: 2,
-      social: 2,
-      perceptive: 2,
-      intellectual: 2,
-      vigor: 2,
-      subterfuge: 2,
-      creative: 2,
+      Athletics: 2,
+      Social: 2,
+      Perception: 2,
+      Intellectual: 2,
+      Vigor: 2,
+      Subterfuge: 2,
+      Creative: 2,
     },
 
     innateBonuses: {

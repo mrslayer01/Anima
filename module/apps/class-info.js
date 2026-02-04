@@ -7,7 +7,6 @@ export class ClassInfoWindow extends Application {
   }
 
   static get defaultOptions() {
-    console.log(super.defaultOptions);
     return foundry.utils.mergeObject(super.defaultOptions, {
       id: "class-info-window",
       title: "Class Details",

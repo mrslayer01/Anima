@@ -14,7 +14,7 @@
   <tbody>
     {{#each actor.system.abilities.Subterfuge as |ability key|}}
       <tr>
-        <td data-tooltip="Kowledge Skill: {{ability.knowledge}}">{{localize (concat "ABF.Ability." key)}}</td>
+        <td data-tooltip="Kowledge Ability: {{ability.knowledge}}">{{localize (concat "ABF.Ability." key)}}</td>
         <td><input
             class="mod-input-resize-char secondary-input"
             type="number"
@@ -28,7 +28,7 @@
             name="system.abilities.Subterfuge.{{key}}.bonus"
           /></td>
         <td>{{ability.class}}</td>
-        <td>{{ability.final}}</td>
+        <td class="ability-roll clickable" data-category="Subterfuge" data-ability="{{key}}" data-tooltip="Click to make an Open roll.">{{ability.final}}</td>
         <td class="passive-icon">
           {{#if ability.passive}}
             <i class="fas fa-check"></i>

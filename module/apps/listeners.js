@@ -9,6 +9,8 @@ import { DisadvantageInfoWindow } from "../apps/disadvantage-info.js";
 import { characteristicCheck, animaOpenRoll, resistanceCheck } from "../rolls.js";
 import { difficultyMap } from "../actor/lookup.js"
 
+import { ABF_CLASSES } from "../config/classes.js";
+
 export function registerSheetListeners(sheet, html) {
     //#region ROLLS
     //Characteristic Roll
@@ -24,7 +26,7 @@ export function registerSheetListeners(sheet, html) {
       });
     });
 
-    //Open Roll
+    //Characteristic Open Roll
     html.find(".open-roll").off("click"); //before adding new listener, remove old to avoid duplicates
     html.find(".open-roll").on("click", ev => {
       const char = ev.currentTarget.dataset.char;
@@ -32,6 +34,29 @@ export function registerSheetListeners(sheet, html) {
       animaOpenRoll({
         value: sheet.actor.system.characteristics[char].final,
         label: `${char} Open Roll`,
+        actor: sheet.actor
+      });
+    });
+
+        //Characteristic Open Roll
+    html.find(".ability-roll").off("click"); //before adding new listener, remove old to avoid duplicates
+    html.find(".ability-roll").on("click", ev => {
+      const categoryName = ev.currentTarget.dataset.category;
+      const abilityName = ev.currentTarget.dataset.ability;
+      const ability = sheet.actor.system.abilities[categoryName][abilityName];
+
+      console.log(abilityName, ability);
+
+      //don't allow the rolling of Knoweldge skills that are undeveloped
+      if(ability.undeveloped && ability.knowledge) {
+        return ui.notifications.error("Unable to roll for an undeveloped knowledge ability.");
+      }
+
+
+      
+      animaOpenRoll({
+        value: ability.final,
+        label: `${abilityName} Open Roll`,
         actor: sheet.actor
       });
     });
