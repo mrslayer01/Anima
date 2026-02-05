@@ -19,8 +19,7 @@ function lookupCharacteristicMod(base) {
   return 45;
 }
 
-// 2. Full initialization (prevents undefined finals)
-export function initializeAllCharacteristicFinals(system) {
+export function initializeAllCharacteristics(system) {
   for (const [name, char] of Object.entries(system.characteristics)) {
     const mod = toNum(lookupCharacteristicMod(char.base));
     const charBonus = toNum(char.bonus || 0); 
@@ -30,7 +29,6 @@ export function initializeAllCharacteristicFinals(system) {
   }
 }
 
-// 3. Selective recalculation, updates only changed characteristics
 export function applyChangedCharacteristics(system, actor) {
   const changed = actor._changedCharacteristics;
 
@@ -47,7 +45,6 @@ export function applyChangedCharacteristics(system, actor) {
   delete actor._changedCharacteristics;
 }
 
-// 4. Change detection (called from update-calculations.js)
 export function detectChangedCharacteristics(data, oldSystem) {
   const changed = [];
 
@@ -65,4 +62,16 @@ export function detectChangedCharacteristics(data, oldSystem) {
   }
 
   return changed;
+}
+
+export async function updateCharacteristics(actor, changedNames) {
+  const system = actor.system;
+
+  for (const name of changedNames) {
+    const char = system.characteristics[name];
+    const mod = lookupCharacteristicMod(char.base);
+    const charBonus = toNum(char.bonus || 0);
+
+    char.final = charBonus + mod;
+  }
 }

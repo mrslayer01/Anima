@@ -1,14 +1,14 @@
-import { initializeAllCharacteristicFinals, applyChangedCharacteristics } 
-  from "./derived-characteristics.js";
+import { initializeAllCharacteristics, applyChangedCharacteristics } 
+  from "../classes/characteristics.js";
 import { initializeAllResistances, applyChangedResistances } 
-  from "./derived-resistance.js";
+  from "../classes/resistances.js";
   import {initializeAllAbilities, applyChangedAbilities } 
-  from "./derived-abilities.js";
+  from "../classes/abilities.js";
 
 import { calculateXpToNextLevel } from "./derived-xp.js";
 import { calculateTotalLevel } from "./derived-total-level.js";
-import { calculatePresence } from "./derived-presence.js";
-import { calculateMaxDP } from "./derived-dp.js";
+import { calculatePresence } from "../classes/presence.js";
+import { calculateMaxDP } from "../classes/development-points.js";
 import { calculateFinalLifePoints } from "./derived-life-points.js";
 import { calculateFinalInitiative } from "./derived-initiative.js";
 import { calculateFinalFatigue } from "./derived-fatigue.js";
@@ -27,33 +27,24 @@ export function calculateDerivedValues(system, actor) {
   calculateMaxDP(system); // PURE — safe to run always
 
   // 2. Initialize finals ONLY if actor is new or flagged
-  if(actor._initializeCharacteristics) {
-    initializeAllCharacteristicFinals(system);
-    delete actor._initializeCharacteristics;
-  }
-
-
-  if (actor._initializeAbilities) {
+  if(actor._initialize) {
+    initializeAllCharacteristics(system);
     initializeAllAbilities(system);
-    delete actor._initializeAbilities;
+    initializeAllResistances(system);
   }
 
-  if (actor._initializeResistances) {
-    initializeAllResistances(system);
-    delete actor._initializeResistances;
-  }
 
   // 3. Selective recalculation
   if (actor._changedCharacteristics?.length) {
     applyChangedCharacteristics(system, actor);
   }
 
-  if (actor._changedResistances?.length) {
-    applyChangedResistances(system, actor);
+    if (actor._changedAbilities?.length) {
+    applyChangedAbilities(system, actor);
   }
 
-  if (actor._changedAbilities?.length) {
-    applyChangedAbilities(system, actor);
+  if (actor._changedResistances?.length) {
+    applyChangedResistances(system, actor);
   }
 
   // 4. Other derived values

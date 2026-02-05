@@ -19,7 +19,6 @@ export function calculateMaxDP(system) {
 
   system.destinyPoints.final = base + bonus + special;
 
-  // Compute spent (but DO NOT write it back)
   let total = 0;
   for (const item of system.developmentPointsSpent) {
     total += toNum(item.amount) * toNum(item.costPer);

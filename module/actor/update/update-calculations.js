@@ -1,26 +1,66 @@
-import { detectChangedCharacteristics } from "../derived/derived-characteristics.js";
-import { detectChangedAbilities } from "../derived/derived-abilities.js";
-import { updateDP } from "./update-dp.js";
+import { detectChangedAbilities, updateAbilities } from "../classes/abilities.js";
 
-import { DEPENDENCIES } from "./dependency-map.js";
-import { detectChangedResistances } from "./detect-changed-resistances.js";
-import { updateResistances } from "./update-resistances.js";
-import { updatePresence } from "./update-presence.js";
+import { DEPENDENCIES } from "../classes/dependency-map.js";
+import { detectChangedResistances, updateResistances } from "../classes/resistances.js";
+import { updatePresence } from "../classes/presence.js";
+import { updateCharacteristics, detectChangedCharacteristics } from "../classes/characteristics.js";
+import { toNum } from "../lookup.js";
 
 
 export async function updateCalculations(data, oldSystem, actor) {
   const expanded = foundry.utils.expandObject(data);
-    //Presence
-  const presenceChanged =
-    expanded.system?.level !== undefined ||
-    expanded.system?.presence?.bonus !== undefined;
+
+  //#region Characteristics
+  
+  const changedChars = detectChangedCharacteristics(data, oldSystem);
+  actor._changedCharacteristics = changedChars;
+
+  // Dependency propagation
+  for (const trigger of DEPENDENCIES.characteristics.triggers) {
+    if (pathChanged(data, trigger)) {
+      actor._changedCharacteristics = DEPENDENCIES.characteristics.recalc(actor);
+    }
+  }
+
+  // Perform persistent update
+  if (actor._changedCharacteristics?.length) {
+    await updateCharacteristics(actor, actor._changedCharacteristics);
+  }
+
+  //#endregion
+  
+  //total level
+  if (pathChanged(data, "system.classes")) {
+    const newLevel = (actor.system.classes || [])
+      .reduce((t, c) => t + (toNum(c.level) || 0), 0);
+
+    await actor.update(
+      { "system.level": newLevel },
+      { skipRecalc: true }
+    );
+  }
+
+//#region Presence
+  let presenceChanged = false;
+
+  // Direct edits
+  if (expanded.system?.presence?.bonus !== undefined) presenceChanged = true;
+
+  // Dependency triggers
+  for (const trigger of DEPENDENCIES.presence.triggers) {
+    if (pathChanged(data, trigger)) {
+      presenceChanged = true;
+      break;
+    }
+  }
 
   if (presenceChanged) {
     await updatePresence(actor);
   }
 
-  
-  //Resistances
+//#endregion
+
+//#region Resistances
   const changedRes = detectChangedResistances(data, oldSystem);
 
   // Store direct changes
@@ -38,21 +78,27 @@ export async function updateCalculations(data, oldSystem, actor) {
     await updateResistances(actor, actor._changedResistances);
   }
 
+  //#endregion
 
+//#region Abilites
+  const changedAbil = detectChangedAbilities(data, oldSystem);
 
-  //Chacteristics
-  const changedChars = detectChangedCharacteristics(data, oldSystem);
-  actor._changedCharacteristics = changedChars;
+  // Store direct changes
+  actor._changedAbilities = changedAbil;
 
-  //Abilities
-  const changedAbility = detectChangedAbilities(data, oldSystem);
-  actor._changedAbilities = changedAbility;
+  // Dependency propagation
+  for (const trigger of DEPENDENCIES.abilities.triggers) {
+    if (pathChanged(data, trigger)) {
+      actor._changedAbilities = DEPENDENCIES.abilities.recalc(actor);
+    }
+  }
 
-  return {
-    characteristics: changedChars,
-    resistances: actor._changedResistances,
-    abilities: changedAbility
-  };
+  // Perform persistent update
+  if (actor._changedAbilities?.length) {
+    updateAbilities(actor, actor._changedAbilities);
+  }
+
+  //#endregion
 }
 
 function pathChanged(data, path) {

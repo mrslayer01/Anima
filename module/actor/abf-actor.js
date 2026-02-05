@@ -15,12 +15,6 @@ export class AbfActor extends Actor {
     });
     //initalize
     this._initialize = true;
-    // this._initializePresence = true;
-
-    // this._initializeCharacteristics = true;
-    // this._initializeResistances = true;
-    // this._initializeAbilities = true;
-
 
 
     // Restore manual ordering AFTER Foundry normalizes keys
@@ -33,6 +27,7 @@ export class AbfActor extends Actor {
     if(this._initialize) {
       initializeActor(this);
     }
+    
     calculateDerivedValues(this.system, this);
   }
 

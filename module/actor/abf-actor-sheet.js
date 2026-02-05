@@ -1,5 +1,5 @@
 import { ABF_CLASSES } from "../config/classes.js";
-import { registerSheetListeners } from "../apps/listeners.js"
+import { registerSheetListeners } from "./listeners.js"
 
 export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
   static get defaultOptions() {
