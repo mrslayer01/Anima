@@ -13,7 +13,21 @@ export const DEFAULT_ACTOR_DATA = {
     size: { bonus: 0, special: 0, final: 0 },
     appearance: 0,
   },
-  lifePoints: { current: 0, bonus: 0, class: 0, final: 0 },
+  lifePoints: { 
+    current: 0, 
+    bonus: 0, 
+    class: 0, 
+    final: 0,
+    regeneration: {
+      regenLevel: 0,
+      bonus: 0,
+      lifePointsPerDayResting: 0,
+      lifePointsPerDayNotResting: 0,
+      woundPenaltyReduc: "",
+      specialCapabilities: "",
+      damageResistance: false
+    }
+  },
   fatigue: { current: 0, special: 0, final: 0, actionPenalty: 0 },
   movement: { base: 0, penalty: 0, bonus: 0, final: 0, movePerTurn: 0 },
   initiative: {

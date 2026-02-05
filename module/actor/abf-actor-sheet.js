@@ -62,6 +62,11 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
         value = 1;
         input.value = 1;
       }
+      // Base cannot go above 20
+      if (name.endsWith(".base") && value > 20) {
+        value = 20;
+        input.value = 20;
+      }
 
       // Bonus cannot go below 0
       if (name.endsWith(".bonus") && value < 0) {

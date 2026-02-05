@@ -15,6 +15,7 @@ import { calculateFinalFatigue } from "./derived-fatigue.js";
 import { calculateCharacterSize } from "./derived-size.js"
 import { calculateMovement } from "./derived-movement.js"
 import { calculateElanFinal } from "./derived-elan.js";
+import { calculateRegeneration } from "./derived-regeneration.js";
 
 
 
@@ -54,4 +55,5 @@ export function calculateDerivedValues(system, actor) {
   calculateCharacterSize(system);
   calculateMovement(system);
   calculateElanFinal(system);
+  calculateRegeneration(system);
 }

@@ -153,7 +153,7 @@ Hooks.once("init", function () {
     "characteristics",
     "resistances",
     "life-fatigue-turn",
-    "modifiers",
+    "regeneration",
     "final-armor",
     "header-top",
     "movement"
