@@ -15,7 +15,16 @@
   "template": "template.json",
   "esmodules": ["module/main.js"],
   "styles": ["styles/abf.css"],
-  "packs": [],
+  "packs": [
+    {
+      "name": "abf-journals",
+      "label": "ABF Journals",
+      "system": "abf-system",
+      "path": "packs/journals",
+      "type": "JournalEntry",
+      "private": false
+    }
+  ],
   "languages": [
     {
       "lang": "en",

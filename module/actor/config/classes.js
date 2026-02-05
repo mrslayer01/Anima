@@ -111,6 +111,7 @@ function validateClassInput(input) {
 }
 //#endregion
 
+
 export function createClass(classInput) {
   validateClassInput(classInput);
 
@@ -132,6 +133,7 @@ export function createClass(classInput) {
     secondaryAbilityCosts,
     innateBonuses,
     specialRules,
+    journalEntry
   } = classInput;
 
   return {
@@ -157,6 +159,7 @@ export function createClass(classInput) {
     secondaryAbilityCosts,
     innateBonuses,
     specialRules,
+    journalEntry
   };
 }
 
@@ -230,6 +233,7 @@ export const ABF_CLASSES = {
     },
 
     specialRules: "",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.knnY8J4MdoHon4g9"
   }),
   AcrobaticWarrior: createClass({
     name: "Acrobatic Warrior",
@@ -306,6 +310,8 @@ export const ABF_CLASSES = {
     },
 
     specialRules: "",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.hkcWN4lc3AQZQsvN"
+
   }),
   Paladin: createClass({
     name: "Paladin",
@@ -381,8 +387,8 @@ export const ABF_CLASSES = {
       ],
     },
 
-    specialRules:
-      "If the Paladin chooses not to develop supernatural abilities, they may exchange the +10 Banish and +20 Zeon bonuses for +10 Composure per level.",
+    specialRules: "If the Paladin chooses not to develop supernatural abilities, they may exchange the +10 Banish and +20 Zeon bonuses for +10 Composure per level.",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.ihbxBD0PiK7HHtac"
   }),
   DarkPaladin: createClass({
     name: "Dark Paladin",
@@ -459,8 +465,8 @@ export const ABF_CLASSES = {
       ],
     },
 
-    specialRules:
-      "If the Dark Paladin chooses not to develop supernatural abilities, they may exchange the +10 Control and +20 Zeon bonuses for +10 Withstand Pain per level.",
+    specialRules: "If the Dark Paladin chooses not to develop supernatural abilities, they may exchange the +10 Control and +20 Zeon bonuses for +10 Withstand Pain per level.",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.AgT4p02U4NofkUZJ"
   }),
   Weaponsmaster: createClass({
     name: "Weaponsmaster",
@@ -535,6 +541,7 @@ export const ABF_CLASSES = {
 
     specialRules:
       "General Weapon Modules, Archetypical Weapon Modules, and Style Modules cost half DP.",
+      journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.AuAxRohri2AbkpMi"
   }),
   Technician: createClass({
     name: "Technician",
@@ -602,6 +609,7 @@ export const ABF_CLASSES = {
     },
 
     specialRules: "",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.2dPCnpwOvsiqeOXs"
   }),
   Tao: createClass({
     name: "Tao",
@@ -670,6 +678,7 @@ export const ABF_CLASSES = {
 
     specialRules:
       "Martial arts cost only 20 DP (10 for the first martial art learned).",
+      journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.bfm8UwrMpshMD03Z"
   }),
   Ranger: createClass({
     name: "Ranger",
@@ -738,6 +747,7 @@ export const ABF_CLASSES = {
 
     specialRules:
       "Martial arts cost only 20 DP (10 for the first martial art learned).",
+      journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.cqaw9g7WpSNofzJB"
   }),
   Shadow: createClass({
     name: "Shadow",
@@ -813,6 +823,7 @@ export const ABF_CLASSES = {
     },
 
     specialRules: "+5 per level to Ki Concealment (only if developed).",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.gyXs9KgckzHocrKz"
   }),
   Thief: createClass({
     name: "Thief",
@@ -889,6 +900,7 @@ export const ABF_CLASSES = {
     },
 
     specialRules: "+5 per level to Ki Concealment (only if developed).",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.WQRZPCon3aogFY04"
   }),
   Assassin: createClass({
     name: "Assassin",
@@ -965,6 +977,7 @@ export const ABF_CLASSES = {
     },
 
     specialRules: "",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.azjDf1IhKfE2n506"
   }),
   Wizard: createClass({
     name: "Wizard",
@@ -1035,6 +1048,7 @@ export const ABF_CLASSES = {
     },
 
     specialRules: "",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.JsGDMlnxeLdzLg2d"
   }),
   Warlock: createClass({
     name: "Warlock",
@@ -1109,6 +1123,7 @@ export const ABF_CLASSES = {
     },
 
     specialRules: "",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.kN7KPzmcV9luso1C"
   }),
   Illusionist: createClass({
     name: "Illusionist",
@@ -1183,6 +1198,7 @@ export const ABF_CLASSES = {
     },
 
     specialRules: "",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.NDe2o2r9dqd0aPgS"
   }),
   WizardMentalist: createClass({
     name: "Wizard Mentalist",
@@ -1252,6 +1268,7 @@ export const ABF_CLASSES = {
     },
 
     specialRules: "",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.xJFTJVNeAd8C3FFR"
   }),
   Summoner: createClass({
     name: "Summoner",
@@ -1327,6 +1344,7 @@ export const ABF_CLASSES = {
     },
 
     specialRules: "",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.sm8SaeYsoZ4n1rU1"
   }),
   WarriorSummoner: createClass({
     name: "Warrior Summoner",
@@ -1402,6 +1420,7 @@ export const ABF_CLASSES = {
     },
 
     specialRules: "",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.hTM4BXxPr1uhCoFQ"
   }),
   Mentalist: createClass({
     name: "Mentalist",
@@ -1468,6 +1487,7 @@ export const ABF_CLASSES = {
     },
 
     specialRules: "",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.IfEQbQc2WgDUPkGY"
   }),
   WarriorMentalist: createClass({
     name: "Warrior Mentalist",
@@ -1538,6 +1558,7 @@ export const ABF_CLASSES = {
     },
 
     specialRules: "",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.BsVMCjF6K6Jnb0EJ"
   }),
   Freelancer: createClass({
     name: "Freelancer",
@@ -1605,5 +1626,6 @@ export const ABF_CLASSES = {
 
     specialRules:
       "+10 per level to five different secondary abilities (chosen by the player). Changing class to or from Freelancer costs only 20 DP.",
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.3Dqbqt58xRV5npn3"
   }),
 };

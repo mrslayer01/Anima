@@ -8,6 +8,7 @@ export function createLord(lordInput) {
     gifts = [],
     modifiers = [],
     purchasedGifts = [],
+    journalEntry = ""
   } = lordInput;
 
   return {
@@ -19,6 +20,7 @@ export function createLord(lordInput) {
     gifts,
     modifiers,
     purchasedGifts,
+    journalEntry
   };
 }
 
@@ -31,6 +33,7 @@ export const ABF_LORDS = {
     description:
       "Mikael is the first among the Beryls – the most powerful and important of all the Daughters of Light. She is extremely consonant with C’iel’s ideas and she generally acts as her spokeswoman and representative. She was also the first one to feel the need to form part of the existence which is alien to all of them, and fused a fragment of her essence with reality, as Lady Jade had done before. Mikael incarnates the virtue of hope and creation, without which all living beings would be completely lost – hope and salvation. For centuries, she has looked after men and women of all races, giving little thought to their affiliation to the Light or the Darkness, since they are all her desire to be worshipped. Although several cultures worship her directly, her only goal was always to help and guide others. Nevertheless, she felt a strong empathy with the principles and precepts of Christianity when they were first developed. For this reason, she slowly began to promote the virtues preached by the figure of God. In time, she became the most benign and merciful face of the god-men who sought to save mankind from suffering and offer it hope for the future. Those who follow her are, above all, strong believers of salvation.",
     purchasedGifts: [],
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.LsxDkxLwfpJZr9pz.JournalEntryPage.5uFtMW1hvbwTIy9H",
     gifts: [
       {
         name: "Light of Hope",
@@ -149,6 +152,7 @@ export const ABF_LORDS = {
     type: "Shajad",
     title: "The End of Days",
     purchasedGifts: [],
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.LsxDkxLwfpJZr9pz.JournalEntryPage.chr6eh7aw982FZGR",
     description:
       "Zemial, the shadow of existence, the burden of all life – there are so many names for a nightmare that never should have been named. Many arguments are made to sustain his status as the greatest among the Shajads and Beryls, but Darkness itself states his power is only comparable to his insanity. Some legends say that after the War of Heaven, he exterminated entire races; others say he rebelled against his own. Whatever his actions may have been in the past, time has washed them away. The only thing we know for sure is that Gaira himself locked Zemial away in the darkness to prevent him from acting freely upon the world, and chained him to the Void as punishment for his disobedience. The very thought of the existence of a concept like Zemial is a contradiction. It incarnates unchained destruction, despair, and death without meaning or purpose – it is the end of all existence. He makes no distinction between Light and Darkness; to him all that exists must be destroyed. There is no record of cults who openly worshipped him, although there have been cases of individuals slightly synchronizing with him. These are destructive beings that neither seek nor need justification for their acts, subjects with nothing to lose or gain in life and, usually, with some degree of psychotic disorder.",
 
@@ -270,6 +274,7 @@ export const ABF_LORDS = {
     type: "Beryl",
     title: "The Spirit of Freedom",
     purchasedGifts: [],
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.LsxDkxLwfpJZr9pz.JournalEntryPage.ExYa1bTdncRUVskd",
     description:
       "Uriel Beryl is a spirit embodying freedom and rebellion, opposing tyranny, slavery, and laws that limit autonomy. The character is known for unpredictability and has inspired various religions and cults. Uriel is associated with the Beryls, a group of spiritual entities, and is said to have a strong connection with the Shaajad Eriol.",
 
@@ -396,6 +401,7 @@ export const ABF_LORDS = {
     type: "Shajad",
     title: "Puppet Master",
     purchasedGifts: [],
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.LsxDkxLwfpJZr9pz.JournalEntryPage.a5hlnPVBlfaDBsF3",
     description:
       "Jedah is the puppet master, the most manipulative and subtle of the Shajads. He is said to control the history of mankind through the manipulation of beings, events, and the course of time. The purpose of such manipulation is nothing more than power, especially if it can be obtained in secret. Jedah never seeks to rule openly or directly. To him, the ideal would be to become the true master of a game, so subtle that no one would even notice his influence. He is not truly evil. He does not promote hatred or seek to cause suffering. Instead, he sees existence and its forces as tools to be used as much as he can. However, he would never use too much affection or emotion to achieve his goals. Jedah has influenced the entire fundamental idea of true humanism, aloof reason, dominance, politics, and knowledge. To most mortals, Jedah does not appear to be evil. He is not cruel, nor does he take pleasure in suffering. He simply manipulates others to serve his own ends. He believes that the best way to improve the world is to control it. He believes that the truth is meaningless compared to perception. He believes that the best way to understand someone is to dominate them. He believes that the best way to protect someone is to enslave them. He believes that the best way to improve someone is to manipulate them.",
 
@@ -502,6 +508,7 @@ export const ABF_LORDS = {
     type: "Beryl",
     title: "Lady of Feelings",
     purchasedGifts: [],
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.LsxDkxLwfpJZr9pz.JournalEntryPage.NPzNJRpRuDqZNQ2I",
     description:
       "Gabriel, the great Lady of Feelings is undoubtedly the Beryl who incarnates the largest number of positive feelings. It is the lady of love, friendship, arts, and peace. Those who know the true identity of the Daughters of the Light think of her as the purest among them. She feels devotion for all living beings and has always tried to protect and help them. For years she has lived among mortals under several different identities to feel integrated in their society and to be able to understand them. She is said to have become close enough with men as to even fall in love with one, although his identity is unknown. Gabriel promotes peace, friendship, love, and creative feelings among artists and poets. She thinks the best way to reach the dream of C’iel is to create an awareness of the importance of these feelings. Her capacity for forgiving is limitless, and she usually tries to avoid violent solutions. Artists and lovers and those whose lives are ruled by the most positive of feelings synchronize with her.",
 
@@ -621,6 +628,7 @@ export const ABF_LORDS = {
     type: "Shajad",
     title: "The Dark Warrior",
     purchasedGifts: [],
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.LsxDkxLwfpJZr9pz.JournalEntryPage.F1oBGXaMW2U21SEb",
     description:
       "Undoubtedly, Noah is Gaira’s most strict disciple. Above all, he values strength and the drive to succeed that lies within every living creature. Noah incarnates competitiveness, combat, and victory. On the other hand, he also represents darker concepts – such as war and violence. He believes the only truly weak beings are those without the will to fight or to advance; such creatures are nothing but an obstacle in the way of evolution and universal progress. All means are acceptable when it comes to bettering one’s self. He approves of all conflicts, war, and the most critical of situations no matter how tragic or terrible, in the thought that those bring out the best in people and lead them into learning. Noah tremendously dislikes those that stupidly abuse their power, and those unable of controlling it. He has opened many fronts against the Beryls, which he considers to be a weakness for the world. Many cultures have worshipped him in his best known aspect as a god of war, but he has adopted many other identities throughout history. His main followers are typically great warriors or generals, but even thinkers and artists may also synchronize with him provided they are competitive enough.",
 
@@ -744,6 +752,7 @@ export const ABF_LORDS = {
     type: "Beryl",
     title: "Mother Nature",
     purchasedGifts: [],
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.LsxDkxLwfpJZr9pz.JournalEntryPage.npCe38Ug8U0LczLc",
     description:
       "Life and nature are the aspects of creation that Rafael, one of the most independent Daughters of the Light, has chosen to incarnate. She is mainly devoted to people, animals, and plants that inhabit the natural world, but deep down she loves all living creatures equally. Even though she respects magic and the occult powers, she regards them as unnecessary in comparison to natural elements and their laws. The only mystical creatures she openly sympathizes with are those closely connected to nature, such as spirits of the woods or beings associated with vegetation. She openly opposes those who destroy nature or even worse pervert life. Above all, she dislikes necromantic entities and all they stand for; she considers them as a deviation. For centuries she has struggled with the idea of initiating active confrontation against them for fear of losing an important part of her conscience in the process. Many druids and cultures associated with forests worship her as the origin of all life and think of her as a primary aspect of creation. Those who protect nature and life achieve the highest level of synchronicity with her.",
 
@@ -881,6 +890,7 @@ export const ABF_LORDS = {
     type: "Shajad",
     title: "The Shadow of Dreams",
     purchasedGifts: [],
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.LsxDkxLwfpJZr9pz.JournalEntryPage.aBtq0pZr3y5A7PLx",
     description:
       "Erebus is one of the most enigmatic of Shajads; his actions and goals are always wrapped in mystery. He is the Lord of Shadows, and he has chosen to incarnate the occult, the supernatural and fear. Throughout history, many cultures have worshipped him as a god of magic, dreams, or wonders. He remains away from the other Shajads’ conflicts for power while concentrating on his own mysterious ends. He is whimsical and unpredictable, but he follows a strange set of self-imposed rules which he never breaks. He supports the followers of the occult and magic, as well as all those dreamers who are able to create wonders in their sleep. Surprisingly, his influence is as big in dreams as it is in nightmares, although he is much more interested in the latter. He has a peculiar fascination with fear, which he considers to be the most fundamental and primeval emotion of living beings. To him, this is the secret drive behind all acts in the world and even the originator of existence itself. He who is not afraid, and is not able to understand this, has no future and is doomed to disappear. Whoever masters fear will have creation at his feet. Those who employ supernatural forces and dabble in the occult will synchronize with him. He is also drawn to those who learn to master fear, as well as dreamers and poets.",
 
@@ -999,6 +1009,7 @@ export const ABF_LORDS = {
     type: "Beryl",
     title: "Queen of Swords",
     purchasedGifts: [],
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.LsxDkxLwfpJZr9pz.JournalEntryPage.BxwAZRSHS7KCzGG6",
     description:
       "Azrael is the warrior of the Light, the Beryl who represents the concepts of good and justice. This is a combative entity always ready to employ violence in the defense of the innocent and all the principles she personifies. She has a rather tumultuous story. At the beginning she was as peaceful as Mikael or Rafael and devoted to helping everyone equally. But little by little, she started to witness daily massacres of innocent victims who were not helped by any of the principles she stood for. All the pain, suffering, and death influenced her deeply in her decision to fight for all those who deserved protection and justice. Since then, her philosophy has moved into a more violent direction, its goal being to confront evil and darkness even if this means going against some of C’iel’s ideas (whom she professes true devotion for). She is the Beryl who faces the Shajads and the forces of darkness most directly. She combats their agents and followers and is at all-out war with them. In the very few occasions C’iel requires the use of violence, it is usually Azrael’s agents and paladins she relies on. She is the precept heroes incarnate, as well as all those who fight to defend those in need even at the expense of their own lives.",
 
@@ -1124,6 +1135,7 @@ export const ABF_LORDS = {
     type: "Shajad",
     title: "The Primeval Evil",
     purchasedGifts: [],
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.LsxDkxLwfpJZr9pz.JournalEntryPage.zp1UzkJU7g2EcfgK",
     description:
       "Abbadon was originally the only Shajad unable to find a place for himself within the structure of reality. Indecisive, he ended up by absorbing in his essence all the minor negative feelings not related to his companions like disgust, envy, anger or pride. However, he did not feel attached to those emotions and to increase his importance he decided to personify the very principle of evil itself. As a form of mockery to all what the Beryls represent, his favorite incarnation is the traditional Christian devil; the figure of the fallen angel, which symbolizes all the sins of men and where he derives his name from. In time, he has come to feel exceptionally attached to this representation, to the point of considering it the main aspect of his being. He is constantly competing with the other Shajads for power and conspiring against Jedah and Meseguis to overtake their predominance. He is completely absorbed by the precept he has chosen and the role he plays, so he delights himself causing tragedies and spreading evil. His followers are usually satanists or worshippers of evil deities from different cultures. Those who synchronize best with him are low or deranged individuals whose lives are guided by evil.",
 
@@ -1234,6 +1246,7 @@ export const ABF_LORDS = {
     type: "Beryl",
     title: "The Perfect God",
     purchasedGifts: [],
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.LsxDkxLwfpJZr9pz.JournalEntryPage.L4k3Mzx68LsfSugu",
     description:
       "Barakiel is a powerful Beryl who incarnates the concepts of order and perfection. She thinks of herself as the greatest and highest of all powers, outdone only by C’iel herself, the only entity she admires and worships. The goal of her philosophy is to lead all civilizations into a perfect order of absolute equality. She thinks the way to achieve this is by establishing strict laws that govern every aspect of human life. She abhors chaos and instability, and fosters the advancement of the exact sciences, like mathematics and mechanics. She has a tense relationship with her sisters; in her opinion all of them are weak and imperfect. Her attitude has caused several open conflicts with Mikael, whose privileged position next to their Master she covets. She is extremely strict with her chosen ones and followers and demands them to maintain a scrupulous order and never to make mistakes. Those who fail rarely receive a second chance to please her. She is vain and likes to feel adored in all of the identities she takes on as a deity of order, law and the sciences. She synchronizes with narcissistic people who are endowed with great abilities or powers and who above all conduct their lives in an orderly fashion. She also favors scientists and those who worship her in any of her faces.",
 
@@ -1362,6 +1375,7 @@ export const ABF_LORDS = {
     type: "Shajad",
     title: "Angel of Chaos",
     purchasedGifts: [],
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.LsxDkxLwfpJZr9pz.JournalEntryPage.dSLczIbB7dHKJ6zd",
     description:
       "The Angel of Chaos is one of the strangest Lords of Darkness. His philosophy digresses from the principles of balance that both the Shajads and the Beryls have tried to sustain. He is an anarchic entity who, ironically, shares more doctrines with Uriel than anyone would care to admit. He is fickle and changes his mind according to his mood, yet he maintains a profound bond with Gaira, to whom he is completely faithful. Eriol incarnates chaos and luck, both good and bad. To him, existence is an infinite set of possibilities, and the true fascination lies in discovering which possibility will manifest. Everything is a game he calls 'The Law of Chance.' Those who synchronize with him are individuals who reject external rules, trust luck, and embrace chaos. Throughout history, Eriol and his agents have inspired cults devoted to luck, fortune, and chaos.",
 
@@ -1471,6 +1485,7 @@ export const ABF_LORDS = {
     type: "Beryl",
     title: "The Spirit of Emptiness",
     purchasedGifts: [],
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.LsxDkxLwfpJZr9pz.JournalEntryPage.2mrkIj2B6VXr2HcF",
     description:
       "There is no Shajad or Beryl as inscrutable and unfeeling as The Spirit of Emptiness. Edamiel is separated from the world by her own choice, and unlike her sisters, she is not interested in becoming integrated with it. In the beginning, she tried to incarnate pleasure, the only feeling that brought her some satisfaction. Unfortunately, she soon realized not even that was enough to fill the void she carried inside, and she slowly drifted apart from reality until she disappeared. This is how she involuntarily came to represent abstract notions—like ignorance and nothingness—that neither Light nor Dark wanted to pick up. She believes true happiness is impossible because all feelings fade, and the only escape is to become one with emptiness. Her sisters are horrified by her philosophy, yet they tolerate her, unaware of the threat she poses. Occasionally she returns to her old incarnation, unleashing pleasure and desire, but often uses them to confuse and drag people toward nothingness. She has worshippers across cultures, often as a deity of desire and pleasure. Alarmingly, many synchronize with her—from hedonists to isolated individuals who reject the world.",
 
@@ -1599,6 +1614,7 @@ export const ABF_LORDS = {
     type: "Shajad",
     title: "The Lament of Darkness",
     purchasedGifts: [],
+    journalEntry: "Compendium.abf-system.abf-journals.JournalEntry.LsxDkxLwfpJZr9pz.JournalEntryPage.rlzuvRlKPwy4qtvo",
     description:
       "Meseguis, the Lady of Vengeance, is the only Shajad to have adopted a female identity. Exceptionally powerful, she holds great influence over Gaira alongside Jedah. Her essence contains some of the darkest and most contradictory emotions of humanity—hatred, pain, and sadness—yet she despises these feelings and seeks to spare others from them. She believes forgiveness is a temporary escape, not a cure, and that only vengeance can bring true peace. Those consumed by hatred synchronize with her only faintly, while those who believe in vengeance and help others pursue it achieve true communion. Meseguis is a melancholy entity, sometimes protective of the weak, other times capable of cruelty beyond comprehension.",
 

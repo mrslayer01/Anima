@@ -16,6 +16,7 @@ import { updateDP } from "./classes/development-points.js";
 
 import { ABF_CLASSES } from "./config/classes.js";
 import { validateDP } from "./helpers/validate-dp-left.js";
+import { ABF_LORDS } from "./config/elans.js";
 
 export function registerSheetListeners(sheet, html) {
   //#region ROLLS
@@ -121,7 +122,80 @@ export function registerSheetListeners(sheet, html) {
 
   html.find(".add-class").off("click"); //before adding new listener, remove old to avoid duplicates
   html.find(".add-class").on("click", () => {
-    new AddClassWindow({ actorId: sheet.actor.id }).render(true);
+    const classOptions = Object.keys(ABF_CLASSES).sort();
+
+    new Dialog({
+      title: "Add Class",
+      content: `
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+
+        <label><b>Select Class:</b></label>
+
+        <div style="display: flex; gap: 6px; align-items: center;">
+
+          <!-- Shrunk info button -->
+          <button type="button" id="class-info"
+            style="
+              background: none;
+              border: none;
+              cursor: pointer;
+              padding: 0;
+              width: 18px;
+              height: 18px;
+              flex: 0 0 18px; /* prevents stretching */
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            ">
+            <i class="fas fa-question-circle" style="color: black; font-size: 0.9rem;"></i>
+          </button>
+
+          <select id="class-select" style="flex: 1;">
+            ${classOptions
+              .map((cls) => `<option value="${cls}">${cls}</option>`)
+              .join("")}
+          </select>
+
+        </div>
+      </div>
+
+    `,
+      buttons: {
+        add: {
+          label: "Add",
+          callback: async (html) => {
+            const selected = html.find("#class-select").val();
+            const classData = ABF_CLASSES[selected];
+
+            if (!classData) {
+              return ui.notifications.error("Class data missing.");
+            }
+
+            const actor = sheet.actor;
+            const classes = foundry.utils.duplicate(actor.system.classes ?? []);
+
+            classes.push(classData);
+
+            await actor.update({ "system.classes": classes });
+          },
+        },
+      },
+      render: (html) => {
+        // Info button click handler
+        html.find("#class-info").on("click", () => {
+          const selected = html.find("#class-select").val();
+          const classData = ABF_CLASSES[selected];
+
+          if (!classData?.journalEntry) {
+            return ui.notifications.warn(
+              "No journal entry linked for this class.",
+            );
+          }
+
+          openJournalFromUUID(classData.journalEntry);
+        });
+      },
+    }).render(true);
   });
 
   html.find(".delete-class").off("click"); //before adding new listener, remove old to avoid duplicates
@@ -177,8 +251,9 @@ export function registerSheetListeners(sheet, html) {
     );
 
     if (!classData) return ui.notifications.error("Class data not found");
+    console.log(classData);
 
-    new ClassInfoWindow(className, { classData }).render(true);
+    openJournalFromUUID(classData.journalEntry);
   });
 
   //#endregion
@@ -287,9 +362,82 @@ export function registerSheetListeners(sheet, html) {
   // -----------------------------
   // ADD ELAN
   // -----------------------------
-  html.find(".add-elan").off("click");
+  html.find(".add-elan").off("click"); //before adding new listener, remove old to avoid duplicates
   html.find(".add-elan").on("click", () => {
-    new AddElanWindow({ actorId: sheet.actor.id }).render(true);
+    const elanOptions = Object.keys(ABF_LORDS).sort();
+
+    new Dialog({
+      title: "Add Elan",
+      content: `
+      <div style="display: flex; flex-direction: column; gap: 8px;">
+
+        <label><b>Select Elan:</b></label>
+
+        <div style="display: flex; gap: 6px; align-items: center;">
+
+          <!-- Shrunk info button -->
+          <button type="button" id="elan-info"
+            style="
+              background: none;
+              border: none;
+              cursor: pointer;
+              padding: 0;
+              width: 18px;
+              height: 18px;
+              flex: 0 0 18px; /* prevents stretching */
+              display: flex;
+              align-items: center;
+              justify-content: center;
+            ">
+            <i class="fas fa-question-circle" style="color: black; font-size: 0.9rem;"></i>
+          </button>
+
+          <select id="elan-select" style="flex: 1;">
+            ${elanOptions
+              .map((elan) => `<option value="${elan}">${elan}</option>`)
+              .join("")}
+          </select>
+
+        </div>
+      </div>
+
+    `,
+      buttons: {
+        add: {
+          label: "Add",
+          callback: async (html) => {
+            const selected = html.find("#elan-select").val();
+            const elanData = ABF_LORDS[selected];
+
+            if (!elanData) {
+              return ui.notifications.error("Elan data missing.");
+            }
+
+            const actor = sheet.actor;
+            const elans = foundry.utils.duplicate(actor.system.elans ?? []);
+
+            elans.push(elanData);
+
+            await actor.update({ "system.elans": elans });
+          },
+        },
+      },
+      render: (html) => {
+        // Info button click handler
+        html.find("#elan-info").on("click", () => {
+          const selected = html.find("#elan-select").val();
+          const elanData = ABF_LORDS[selected];
+
+          if (!elanData?.journalEntry) {
+            return ui.notifications.warn(
+              "No journal entry linked for this elan.",
+            );
+          }
+
+          openJournalFromUUID(elanData.journalEntry);
+        });
+      },
+    }).render(true);
   });
 
   // -----------------------------
@@ -324,6 +472,7 @@ export function registerSheetListeners(sheet, html) {
     const elanData = sheet.actor.system.elans.find((d) => d.name === elanName);
 
     if (!elanData) return ui.notifications.error("Elan data not found");
+    //openJournalFromUUID(elanData.journalEntry);
 
     new ElanInfoWindow(elanName, elanData, { actorId: sheet.actor.id }).render(
       true,
@@ -543,4 +692,32 @@ export function registerSheetListeners(sheet, html) {
   });
 
   //#endregion
+}
+
+async function openJournalFromUUID(rawUuid) {
+  const [uuid, anchor] = rawUuid.split("#");
+
+  // Load the page document
+  const page = await fromUuid(uuid);
+  if (!page) return ui.notifications.warn("Journal entry not found.");
+
+  const entry = page.parent;
+
+  // Render the JournalEntry in VIEW mode
+  entry.sheet.render(true, {
+    editable: false,
+    pageId: page.id,
+  });
+
+  if (!anchor) return;
+
+  // Auto-scroll after the page sheet renders
+  Hooks.once("renderJournalPageSheet", (sheet, html) => {
+    setTimeout(() => {
+      const el = html[0].querySelector(`#${anchor}`);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
+  });
 }
