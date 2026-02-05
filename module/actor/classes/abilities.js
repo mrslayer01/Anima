@@ -1,4 +1,4 @@
-import { toNum } from "../lookup.js";
+import { toNum } from "../helpers/lookup.js";
 
 // 1. Full initialization (prevents undefined finals)
 export function initializeAllAbilities(system) {

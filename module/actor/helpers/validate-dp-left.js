@@ -1,4 +1,4 @@
-import { toNum } from "../lookup.js";
+import { toNum } from "../helpers/lookup.js";
 
 export async function validateDP(actor, { name, amount, costPer }) {
   const spent = foundry.utils.duplicate(actor.system.developmentPointsSpent || []);

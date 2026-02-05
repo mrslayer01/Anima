@@ -11,7 +11,7 @@ import {
   animaOpenRoll,
   resistanceCheck,
 } from "../apps/rolls.js";
-import { difficultyMap, toNum } from "./lookup.js";
+import { difficultyMap, toNum } from "./helpers/lookup.js";
 import { updateDP } from "./classes/development-points.js";
 
 import { ABF_CLASSES } from "../config/classes.js";
@@ -407,6 +407,60 @@ export function registerSheetListeners(sheet, html) {
     lang.splice(index, 1);
 
     await sheet.actor.update({ "system.languages": lang });
+  });
+
+  //#endregion
+
+  //#region Contacts
+
+  html.find(".add-contacts").on("click", async (event) => {
+    const actor = sheet.actor;
+    const contacts = foundry.utils.duplicate(actor.system.contacts);
+
+    // Add a new blank contacts entry
+    contacts.push({ name: "", description: "" });
+
+    await actor.update({ "system.contacts": contacts });
+  });
+
+  html.find(".contacts-name-input").on("change", async (event) => {
+    const actor = sheet.actor;
+    const index = Number(event.currentTarget.dataset.index);
+    const value = event.currentTarget.value;
+
+    const contacts = foundry.utils.duplicate(actor.system.contacts);
+    contacts[index].name = value;
+
+    await actor.update({ "system.contacts": contacts });
+  });
+
+  html.find(".contacts-description-input").on("change", async (event) => {
+    const actor = sheet.actor;
+    const index = Number(event.currentTarget.dataset.index);
+    const value = Number(event.currentTarget.value) || 0;
+
+    const contacts = foundry.utils.duplicate(actor.system.contacts);
+    contacts[index].description = value;
+
+    await actor.update({ "system.contacts": contacts });
+  });
+
+  html.find(".delete-contacts").off("click");
+  html.find(".delete-contacts").on("click", async (event) => {
+    const index = Number(event.currentTarget.dataset.index);
+
+    const confirmed = await Dialog.confirm({
+      title: "Confirm Delete",
+      content: "<p>Are you sure you want to remove this contact?</p>",
+    });
+
+    if (!confirmed) return;
+
+    const contacts = foundry.utils.duplicate(sheet.actor.system.contacts);
+
+    contacts.splice(index, 1);
+
+    await sheet.actor.update({ "system.contacts": contacts });
   });
 
   //#endregion

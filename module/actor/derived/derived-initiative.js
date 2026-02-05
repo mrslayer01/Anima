@@ -1,4 +1,4 @@
-import { toNum } from "../lookup.js";
+import { toNum } from "../helpers/lookup.js";
 
 // Base for normal sized creatures is 20.
 // Initiative is affected by mutlple factors, such as wearing armor or certain weapons etc. initiative.final will the the total after all penalties are applied. 

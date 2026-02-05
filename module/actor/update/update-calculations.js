@@ -4,7 +4,7 @@ import { DEPENDENCIES } from "../classes/dependency-map.js";
 import { detectChangedResistances, updateResistances } from "../classes/resistances.js";
 import { updatePresence } from "../classes/presence.js";
 import { updateCharacteristics, detectChangedCharacteristics } from "../classes/characteristics.js";
-import { toNum } from "../lookup.js";
+import { toNum } from "../helpers/lookup.js"
 
 
 export async function updateCalculations(data, oldSystem, actor) {

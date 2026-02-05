@@ -1,4 +1,4 @@
-import { toNum } from "../lookup.js";
+import { toNum } from "../helpers/lookup.js";
 
 export function calculateRegeneration(system) {
   const con = toNum(system.characteristics.Constitution.base);
@@ -15,8 +15,6 @@ export function calculateRegeneration(system) {
   const accountForDRNotResting = lpRegen.damageResistance
     ? reGenDetails.notResting * 5
     : reGenDetails.notResting;
-
-  console.log(reGenDetails);
 
   lpRegen.regenLevel = reggenLevel + lpRegen.bonus;
   lpRegen.lifePointsPerDayResting = accountForDRResting;

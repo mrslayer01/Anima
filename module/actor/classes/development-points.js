@@ -1,4 +1,4 @@
-import { toNum } from "../lookup.js";
+import { toNum } from "../helpers/lookup.js";
 
 export function calculateMaxDP(system) {
   const lvl = system.level || 0;

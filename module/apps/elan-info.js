@@ -1,4 +1,4 @@
-import { toNum } from "../actor/lookup.js";
+import { toNum } from "../actor/helpers/lookup.js";
 
 export class ElanInfoWindow extends Application {
   constructor(elanName, elanData, options = {}) {

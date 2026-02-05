@@ -13,10 +13,10 @@ export const DEFAULT_ACTOR_DATA = {
     size: { bonus: 0, special: 0, final: 0 },
     appearance: 0,
   },
-  lifePoints: { 
-    current: 0, 
-    bonus: 0, 
-    class: 0, 
+  lifePoints: {
+    current: 0,
+    bonus: 0,
+    class: 0,
     final: 0,
     regeneration: {
       regenLevel: 0,
@@ -25,8 +25,8 @@ export const DEFAULT_ACTOR_DATA = {
       lifePointsPerDayNotResting: 0,
       woundPenaltyReduc: "",
       specialCapabilities: "",
-      damageResistance: false
-    }
+      damageResistance: false,
+    },
   },
   fatigue: { current: 0, special: 0, final: 0, actionPenalty: 0 },
   movement: { base: 0, penalty: 0, bonus: 0, final: 0, movePerTurn: 0 },
@@ -39,7 +39,15 @@ export const DEFAULT_ACTOR_DATA = {
     special: 0,
   },
   titles: [],
-  destinyPoints: { current: 0, special: 0, bonus: 0, spent: 0, remaining: 0, final: 0, update: false },
+  destinyPoints: {
+    current: 0,
+    special: 0,
+    bonus: 0,
+    spent: 0,
+    remaining: 0,
+    final: 0,
+    update: false,
+  },
   developmentPointsSpent: [],
   finalArmor: { cut: 0, imp: 0, thr: 0, hea: 0, ele: 0, col: 0, ene: 0 },
   elans: [],
@@ -577,21 +585,32 @@ export const DEFAULT_ACTOR_DATA = {
     Combat: {
       limit: 0,
       abilityCosts: {
-        Attack: 0, Block: 0, Dodge: 0, WearArmor: 0, Ki: 0, KiAccumulation: 0
-      }
+        Attack: 0,
+        Block: 0,
+        Dodge: 0,
+        WearArmor: 0,
+        Ki: 0,
+        KiAccumulation: 0,
+      },
     },
     Supernatural: {
       limit: 0,
       abilityCosts: {
-        Zeon: 0, MagicProjection: 0, Summon: 0, Control: 0, Bind: 0, Banish: 0
-      }
+        Zeon: 0,
+        MagicProjection: 0,
+        Summon: 0,
+        Control: 0,
+        Bind: 0,
+        Banish: 0,
+      },
     },
     Psychic: {
       limit: 0,
       abilityCosts: {
-        PsychicPoints: 0, PsychicProjection: 0
-      }
-    }
+        PsychicPoints: 0,
+        PsychicProjection: 0,
+      },
+    },
   },
 
   combat: {
@@ -609,7 +628,9 @@ export const DEFAULT_ACTOR_DATA = {
   advantages: [],
   disadvantages: [],
   background: "",
-  languages: [ {name: "Base", level: 0} ],
-
+  languages: [{ name: "Base", level: 0 }],
+  contacts: [],
   presence: { bonus: 0, final: 0 },
+  notes: "",
+  currency: { copper: 0, silver: 0, gold: 0 },
 };

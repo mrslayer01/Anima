@@ -1,4 +1,4 @@
-import { toNum } from "../lookup.js";
+import { toNum } from "../helpers/lookup.js";
 
 //Calculates Final fatigue and action penalty
 export function calculateFinalFatigue(system) {

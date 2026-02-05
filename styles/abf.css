@@ -50,12 +50,8 @@
   min-width: 7ch; /* prevents shrinking */
 }
 
-.abf-character-sheet input[disabled][type="number"] {
-  background: transparent;
-  border: none;
-  padding: 0;
-  pointer-events: none;
-  color: inherit;
+.abf-character-sheet input[type="text"] {
+  text-align: left;
 }
 
 /* ============================================
@@ -431,6 +427,11 @@
 .modifiers-row-table input.aspect-input,
 .final-armor-table input.aspect-input {
   width: 60px;
+}
+
+.classes-table input.contacts-name-input,
+.classes-table input.languages-name-input {
+  width: 35%;
 }
 
 /* ============================================

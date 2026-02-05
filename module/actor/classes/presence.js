@@ -1,4 +1,4 @@
-import { toNum } from "../lookup.js";
+import { toNum } from "../helpers/lookup.js";
 
 export function calculatePresence(system) {
   const lvl = toNum(system.level) || 0;

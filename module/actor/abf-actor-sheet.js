@@ -7,7 +7,7 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
       classes: ["abf-character-sheet", "abf-system", "sheet", "actor"],
       template: "systems/abf-system/templates/actors/character-sheet.hbs",
       width: 1530,
-      height: 1160,
+      height: 1180,
       tabs: [
         {
           navSelector: ".sheet-tabs",
@@ -55,6 +55,7 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
     // Only validate characteristics
     const isCharacteristic = name.startsWith("system.characteristics.");
     const isAbility = name.startsWith("system.abilities.");
+    const isCurrency = name.startsWith("system.currency.");
 
     if (isCharacteristic) {
       // Base cannot go below 1
@@ -84,6 +85,14 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
 
       // Bonus cannot go below 0
       if (name.endsWith(".bonus") && value < 0) {
+        value = 0;
+        input.value = 0;
+      }
+    }
+
+    if(isCurrency) {
+      // Currency cannot go below 0
+      if (value < 0) {
         value = 0;
         input.value = 0;
       }
