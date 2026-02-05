@@ -11,7 +11,7 @@ export class AddElanWindow extends Application {
       id: "add-elan-window",
       title: "Add Elan",
       classes: ["abf-character-sheet"],
-      template: "systems/abf-system/templates/apps/add-elan.hbs",
+      template: "systems/abf-system/templates/actors/apps/add-elan.hbs",
       width: 1150,
       height: "auto",
     });

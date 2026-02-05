@@ -11,7 +11,7 @@ export class AddClassWindow extends Application {
       id: "add-class-window",
       title: "Add Class",
       classes: ["abf-character-sheet"],
-      template: "systems/abf-system/templates/apps/add-class.hbs",
+      template: "systems/abf-system/templates/actors/apps/add-class.hbs",
       width: 1000,
       height: 1160,
       resizable: true

@@ -12,7 +12,7 @@ export class AddAdvantageWindow extends Application {
       id: "add-advantage-window",
       title: "Add Advantage",
       classes: ["abf-character-sheet"],
-      template: "systems/abf-system/templates/apps/add-advantage.hbs",
+      template: "systems/abf-system/templates/actors/apps/add-advantage.hbs",
       width: 300,
       height: "auto",
       resizable: false,

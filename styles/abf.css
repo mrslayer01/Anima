@@ -52,6 +52,7 @@
 
 .abf-character-sheet input[type="text"] {
   text-align: left;
+  width: 40%;
 }
 
 /* ============================================
@@ -430,7 +431,8 @@
 }
 
 .classes-table input.contacts-name-input,
-.classes-table input.languages-name-input {
+.classes-table input.languages-name-input,
+.aspects-table input.aspect-input input[type="text"] {
   width: 35%;
 }
 

@@ -1,4 +1,4 @@
-import { toNum } from "../actor/helpers/lookup.js";
+import { toNum } from "../helpers/lookup.js";
 
 export class ElanInfoWindow extends Application {
   constructor(elanName, elanData, options = {}) {
@@ -13,7 +13,7 @@ export class ElanInfoWindow extends Application {
       id: "elan-info-window",
       title: "Elan Details",
       classes: ["abf-character-sheet", "elan-info"],
-      template: "systems/abf-system/templates/apps/elan-info.hbs",
+      template: "systems/abf-system/templates/actors/apps/elan-info.hbs",
       width: 1150,
       height: "auto",
     });

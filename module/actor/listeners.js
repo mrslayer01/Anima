@@ -1,20 +1,20 @@
-import { AddClassWindow } from "../apps/add-class-window.js";
-import { ClassInfoWindow } from "../apps/class-info.js";
-import { AddAdvantageWindow } from "../apps/add-advantage-window.js";
-import { AdvantageInfoWindow } from "../apps/advantage-info.js";
-import { AddDisadvantageWindow } from "../apps/add-disadvantage-window.js";
-import { AddElanWindow } from "../apps/add-elan-window.js";
-import { ElanInfoWindow } from "../apps/elan-info.js";
-import { DisadvantageInfoWindow } from "../apps/disadvantage-info.js";
+import { AddClassWindow } from "./apps/add-class-window.js";
+import { ClassInfoWindow } from "./apps/class-info.js";
+import { AddAdvantageWindow } from "./apps/add-advantage-window.js";
+import { AdvantageInfoWindow } from "./apps/advantage-info.js";
+import { AddDisadvantageWindow } from "./apps/add-disadvantage-window.js";
+import { AddElanWindow } from "./apps/add-elan-window.js";
+import { ElanInfoWindow } from "./apps/elan-info.js";
+import { DisadvantageInfoWindow } from "./apps/disadvantage-info.js";
 import {
   characteristicCheck,
   animaOpenRoll,
   resistanceCheck,
-} from "../apps/rolls.js";
+} from "./apps/rolls.js";
 import { difficultyMap, toNum } from "./helpers/lookup.js";
 import { updateDP } from "./classes/development-points.js";
 
-import { ABF_CLASSES } from "../config/classes.js";
+import { ABF_CLASSES } from "./config/classes.js";
 import { validateDP } from "./helpers/validate-dp-left.js";
 
 export function registerSheetListeners(sheet, html) {
@@ -437,7 +437,7 @@ export function registerSheetListeners(sheet, html) {
   html.find(".contacts-description-input").on("change", async (event) => {
     const actor = sheet.actor;
     const index = Number(event.currentTarget.dataset.index);
-    const value = Number(event.currentTarget.value) || 0;
+    const value = event.currentTarget.value;
 
     const contacts = foundry.utils.duplicate(actor.system.contacts);
     contacts[index].description = value;

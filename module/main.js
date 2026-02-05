@@ -3,7 +3,7 @@ import { AbfActorSheet } from "./actor/abf-actor-sheet.js";
 import { AbfItem } from "./item/abf-item.js";
 import { AbfItemSheet } from "./item/abf-item-sheet.js";
 import { loadAllPartials } from "./actor/partials/load-all-partials.js";
-import { loadAllHandlerbarsHelpers } from "./helpers/handlebars-helpers.js";
+import { loadAllHandlerbarsHelpers } from "./actor/helpers/handlebars-helpers.js";
 
 Hooks.once("init", function () {
   console.log("ABF | Initializing Anima Beyond Fantasy system");

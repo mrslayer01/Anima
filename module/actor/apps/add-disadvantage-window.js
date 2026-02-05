@@ -12,7 +12,7 @@ export class AddDisadvantageWindow extends Application {
       id: "add-disadvantage-window",
       title: "Add Disadvantage",
       classes: ["abf-character-sheet"],
-      template: "systems/abf-system/templates/apps/add-disadvantage.hbs",
+      template: "systems/abf-system/templates/actors/apps/add-disadvantage.hbs",
       width: 300,
       height: "auto",
       resizable: false,

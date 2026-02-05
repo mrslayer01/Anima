@@ -11,7 +11,7 @@ export class ClassInfoWindow extends Application {
       id: "class-info-window",
       title: "Class Details",
       classes: ["abf-character-sheet"],
-      template: "systems/abf-system/templates/apps/class-info.hbs",
+      template: "systems/abf-system/templates/actors/apps/class-info.hbs",
       width: 1015,
       height: 1000,
       resizable: true,
