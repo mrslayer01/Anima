@@ -18,3 +18,10 @@ export const toNum = (v) => {
         return Number.isFinite(n) ? n : 0;
 };
 
+export const TABLE_ITEM_TYPES = {
+  commonGoods: ["commonGood"],
+  weapons: ["weapon", "rangedWeapon"],
+  armor: ["armor"],
+  consumables: ["potion", "scroll"]
+};
+

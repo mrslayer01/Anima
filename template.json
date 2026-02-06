@@ -106,7 +106,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Athletics": {
               "base": 0,
@@ -119,7 +121,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Climb": {
               "base": 0,
@@ -132,7 +136,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Jump": {
               "base": 0,
@@ -145,7 +151,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Ride": {
               "base": 0,
@@ -158,7 +166,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Swim": {
               "base": 0,
@@ -171,7 +181,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             }
           },
 
@@ -187,7 +199,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "FeatsOfStrength": {
               "base": 0,
@@ -200,7 +214,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "WithstandPain": {
               "base": 0,
@@ -213,7 +229,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             }
           },
 
@@ -229,7 +247,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Search": {
               "base": 0,
@@ -242,7 +262,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Track": {
               "base": 0,
@@ -255,7 +277,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             }
           },
 
@@ -271,7 +295,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Appraisal": {
               "base": 0,
@@ -284,7 +310,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "HerbalLore": {
               "base": 0,
@@ -297,7 +325,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "History": {
               "base": 0,
@@ -310,7 +340,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "MagicAppraisal": {
               "base": 0,
@@ -323,7 +355,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Medicine": {
               "base": 0,
@@ -336,7 +370,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Memorize": {
               "base": 0,
@@ -349,7 +385,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Navigation": {
               "base": 0,
@@ -362,7 +400,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Occult": {
               "base": 0,
@@ -375,7 +415,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Sciences": {
               "base": 0,
@@ -388,7 +430,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             }
           },
 
@@ -404,7 +448,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Leadership": {
               "base": 0,
@@ -417,7 +463,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Persuasion": {
               "base": 0,
@@ -430,7 +478,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Style": {
               "base": 0,
@@ -443,7 +493,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             }
           },
 
@@ -459,7 +511,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Hide": {
               "base": 0,
@@ -472,7 +526,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "LockPicking": {
               "base": 0,
@@ -485,7 +541,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Poisons": {
               "base": 0,
@@ -498,7 +556,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Theft": {
               "base": 0,
@@ -511,7 +571,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "TrapLore": {
               "base": 0,
@@ -524,7 +586,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Stealth": {
               "base": 0,
@@ -537,7 +601,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             }
           },
 
@@ -553,7 +619,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Dance": {
               "base": 0,
@@ -566,7 +634,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Forging": {
               "base": 0,
@@ -579,7 +649,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "Music": {
               "base": 0,
@@ -592,7 +664,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             },
             "SleightOfHand": {
               "base": 0,
@@ -605,7 +679,9 @@
               "knowledge": false,
               "passive": false,
               "undeveloped": true,
-              "mastery": false
+              "mastery": false,
+              "armorPenalty": false,
+              "description": ""
             }
           }
         },
@@ -690,11 +766,21 @@
     }
   },
   "Item": {
-    "types": ["generic"],
-    "generic": {
+    "types": ["commonGood"],
+    "system": {
+      "name": "",
+      "cost": { "copper": 0, "silver": 0, "gold": 0 },
+      "weight": 0,
+      "availability": "",
+      "quality": { "value": "decent" }
+    },
+    "commonGood": {
       "system": {
-        "description": "",
-        "value": 0
+        "name": "",
+        "cost": { "copper": 0, "silver": 0, "gold": 0 },
+        "weight": 0,
+        "availability": "",
+        "quality": { "value": "decent"}
       }
     }
   }

@@ -2,18 +2,21 @@
    ABF CHARACTER SHEET — GLOBAL RESET
    ============================================ */
 
-.abf-character-sheet * {
+.abf-character-sheet *,
+.abf-item-sheet * {
   box-sizing: border-box;
   margin: 0;
 }
 
-.abf-character-sheet {
+.abf-character-sheet,
+.abf-item-sheet {
   font-family: "Cinzel", "Cormorant Garamond", serif;
   background: #1a1d27;
   color: #f5f5f5;
 }
 
-.abf-character-sheet .window-content {
+.abf-character-sheet .window-content,
+.abf-item-sheet .window-content {
   backdrop-filter: blur(2px);
 }
 
@@ -23,7 +26,10 @@
 
 .abf-character-sheet input,
 .abf-character-sheet select,
-.abf-character-sheet textarea {
+.abf-character-sheet textarea,
+.abf-item-sheet input,
+.abf-item-sheet select,
+.abf-item-sheet textarea {
   background: #11141c;
   border: 1px solid #2f3547;
   border-radius: 4px;
@@ -35,6 +41,7 @@
 }
 
 .abf-character-sheet ul,
+.abf-item-sheet ul,
 .stat-grid {
   border-radius: 4px;
   padding: 4px 6px;
@@ -44,28 +51,38 @@
   line-height: 1.2;
 }
 
-.abf-character-sheet input[type="number"] {
+.abf-character-sheet input[type="number"],
+.abf-item-sheet input[type="number"] {
   text-align: center;
   width: 7ch; /* fits 3 digits comfortably */
   min-width: 7ch; /* prevents shrinking */
 }
 
-.abf-character-sheet input[type="text"] {
+.abf-character-sheet input[type="text"],
+.abf-item-sheet input[type="text"] {
   text-align: left;
   width: 40%;
+}
+
+.abf-item-sheet .header-top-name {
+  text-align: center;
+  width: 100%;
 }
 
 /* ============================================
    TABLES
    ============================================ */
 
-.abf-character-sheet table {
+.abf-character-sheet table,
+.abf-item-sheet table {
   width: 100%;
   border-collapse: collapse;
 }
 
 .abf-character-sheet th,
-.abf-character-sheet td {
+.abf-character-sheet td,
+.abf-item-sheet th,
+.abf-item-sheet td {
   padding: 4px 6px;
   text-align: center;
   vertical-align: middle;
@@ -74,7 +91,8 @@
 }
 
 /* Shared cell inputs */
-.abf-character-sheet td input {
+.abf-character-sheet td input,
+.abf-item-sheet td input {
   width: 100%;
 }
 
@@ -102,7 +120,13 @@
   padding: 4px;
 }
 
-.abf-character-sheet h4 {
+.app.window-app.abf-system.sheet.item .window-content {
+  background: #1a1d27 !important;
+  border: 1px solid #2f3547;
+}
+
+.abf-character-sheet h4,
+.abf-item-sheet h4 {
   font-size: 0.75rem;
   font-weight: 600;
   color: #d9b56c;
@@ -111,7 +135,8 @@
   margin-bottom: 3px;
 }
 
-.abf-character-sheet h3 {
+.abf-character-sheet h3,
+.abf-item-sheet h3 {
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 4px;
@@ -120,7 +145,8 @@
   letter-spacing: 0.05em;
 }
 
-.abf-character-sheet h2 {
+.abf-character-sheet h2,
+.abf-item-sheet h2 {
   font-size: 1.25rem;
   font-weight: 700;
   color: #f5e9d0;
@@ -138,7 +164,15 @@
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;
+  background: linear-gradient(135deg, #1b1f2b, #252b3a 45%, #171b26 100%);
+  border-bottom: 1px solid rgba(217, 181, 108, 0.35);
+  padding: 0.5rem 1rem;
+  border-radius: 6px 6px 0 0;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.45);
+}
 
+.abf-item-sheet .header-top {
+  align-items: center;
   background: linear-gradient(135deg, #1b1f2b, #252b3a 45%, #171b26 100%);
   border-bottom: 1px solid rgba(217, 181, 108, 0.35);
   padding: 0.5rem 1rem;
@@ -149,34 +183,52 @@
 .abf-character-sheet .header-top-name {
   font-size: 1.6rem;
   font-weight: 700;
-  text-align: center;
+  text-align: center !important;
   color: #f5e9d0;
   background: transparent;
   border: none;
   height: 3rem;
   line-height: 3rem;
   text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+  width: 100% !important;
 }
 
-.abf-character-sheet .header-top-name:focus {
+.abf-item-sheet .header-top-name {
+  font-size: 1.6rem;
+  font-weight: 700;
+  text-align: center !important;
+  color: #f5e9d0;
+  background: transparent;
+  border: none;
+  height: 3rem;
+  line-height: 3rem;
+  text-shadow: 0 0 6px rgba(0, 0, 0, 0.8);
+  width: 100% !important;
+}
+
+.abf-character-sheet .header-top-name:focus,
+.abf-item-sheet .header-top-name:focus {
   outline: none;
   border: none;
 }
 
-.abf-character-sheet .header-top-dice {
+.abf-character-sheet .header-top-dice,
+.abf-item-sheet .header-top-dice {
   display: flex;
   justify-content: flex-end;
   gap: 0.75rem;
 }
 
-.abf-character-sheet .header-top-dice img {
+.abf-character-sheet .header-top-dice img,
+.abf-item-sheet .header-top-dice img {
   width: 40px;
   height: 40px;
   cursor: pointer;
   filter: drop-shadow(0 0 4px rgba(217, 181, 108, 0.4));
 }
 
-.abf-character-sheet .header-top-dice img:hover {
+.abf-character-sheet .header-top-dice img:hover,
+.abf-item-sheet .header-top-dice img:hover {
   transform: scale(1.1);
   filter: drop-shadow(0 0 6px rgba(217, 181, 108, 0.7));
 }
@@ -222,7 +274,8 @@
    PORTRAIT
    ============================================ */
 
-.abf-character-sheet .profile-img {
+.abf-character-sheet .profile-img,
+.abf-item-sheet .profile-img {
   width: 120px;
   height: 120px;
   border-radius: 2px;
@@ -234,7 +287,8 @@
    TABS (PRIMARY + SUB)
    ============================================ */
 
-.abf-character-sheet .sheet-tabs {
+.abf-character-sheet .sheet-tabs,
+.abf-item-sheet .sheet-tabs {
   margin-bottom: 0;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
@@ -242,7 +296,8 @@
   border: 1px solid #2f3547;
 }
 
-.abf-character-sheet .sub-tabs {
+.abf-character-sheet .sub-tabs,
+.abf-item-sheet .sub-tabs {
   margin-top: 0;
   border-top: none !important;
   position: relative;
@@ -251,7 +306,9 @@
 }
 
 .abf-character-sheet .sheet-tabs,
-.abf-character-sheet .sub-tabs {
+.abf-character-sheet .sub-tabs,
+.abf-item-sheet .sheet-tabs,
+.abf-item-sheet .sub-tabs {
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -261,7 +318,9 @@
 }
 
 .abf-character-sheet .sheet-tabs .item,
-.abf-character-sheet .sub-tabs .item {
+.abf-character-sheet .sub-tabs .item,
+.abf-item-sheet .sheet-tabs .item,
+.abf-item-sheet .sub-tabs .item {
   padding: 4px 10px;
   border-radius: 4px 4px 0 0;
   background: #11141c;
@@ -271,7 +330,9 @@
 }
 
 .abf-character-sheet .sheet-tabs .item.active,
-.abf-character-sheet .sub-tabs .item.active {
+.abf-character-sheet .sub-tabs .item.active,
+.abf-item-sheet .sheet-tabs .item.active,
+.abf-item-sheet .sub-tabs .item.active {
   background: #1f2433;
   color: #d9b56c;
   border-bottom: 2px solid #d9b56c;
@@ -495,7 +556,8 @@
 .abf-character-sheet .clickable-advantage,
 .abf-character-sheet .clickable-disadvantage,
 .abf-character-sheet .clickable-elan,
-.abf-character-sheet .clickable {
+.abf-character-sheet .clickable,
+.abf-item-sheet .clickable {
   cursor: pointer;
   transition:
     color 0.15s ease,
@@ -509,7 +571,8 @@
 .abf-character-sheet .clickable-advantage:hover,
 .abf-character-sheet .clickable-disadvantage:hover,
 .abf-character-sheet .clickable-elan:hover,
-.abf-character-sheet .clickable:hover {
+.abf-character-sheet .clickable:hover,
+.abf-item-sheet .clickable {
   color: #d9b56c !important;
   text-shadow:
     0 0 8px #d9b56c,
@@ -544,14 +607,16 @@
    PROSEMIRROR — TOOLBAR
    ============================================ */
 
-.abf-character-sheet .editor .editor-menu {
+.abf-character-sheet .editor .editor-menu,
+.abf-item-sheet .editor .editor-menu {
   background: linear-gradient(135deg, #1b1f2b, #252b3a 45%, #171b26 100%);
   border-bottom: 1px solid rgba(217, 181, 108, 0.35);
   padding: 4px 6px;
   border-radius: 6px 6px 0 0;
 }
 
-.abf-character-sheet .editor .editor-menu button {
+.abf-character-sheet .editor .editor-menu button,
+.abf-item-sheet .editor .editor-menu button {
   color: #f5e9d0 !important;
   background: transparent;
   border: none;
@@ -560,16 +625,19 @@
   transition: 120ms ease;
 }
 
-.abf-character-sheet .editor .editor-menu button i {
+.abf-character-sheet .editor .editor-menu button i,
+.abf-item-sheet .editor .editor-menu button i {
   color: #f5e9d0 !important;
 }
 
-.abf-character-sheet .editor .editor-menu button:hover {
+.abf-character-sheet .editor .editor-menu button:hover,
+.abf-item-sheet .editor .editor-menu button:hover {
   background: rgba(217, 181, 108, 0.15);
   color: #d9b56c !important;
 }
 
-.abf-character-sheet .editor .editor-menu button.active {
+.abf-character-sheet .editor .editor-menu button.active,
+.abf-item-sheet .editor .editor-menu button.active {
   background: rgba(217, 181, 108, 0.25);
   color: #d9b56c !important;
 }
@@ -578,7 +646,8 @@
    PROSEMIRROR — CONTENT AREA
    ============================================ */
 
-.abf-character-sheet .editor {
+.abf-character-sheet .editor,
+.abf-item-sheet .editor {
   display: flex;
   flex-direction: column;
   min-height: 180px;
@@ -586,7 +655,9 @@
 }
 
 .abf-character-sheet .editor .editor-content,
-.abf-character-sheet .editor .ProseMirror {
+.abf-character-sheet .editor .ProseMirror,
+.abf-item-sheet .editor .editor-content,
+.abf-item-sheet .editor .ProseMirror {
   min-height: 150px;
   max-height: 400px;
   overflow-y: auto;
@@ -672,3 +743,37 @@
   align-self: center;
   width: 80px;
 }
+
+/* Items */
+/* Grid layouts */
+.common-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.common-table td {
+  padding: 4px 6px;
+  vertical-align: top;
+}
+
+.common-table label {
+  display: block;
+  font-size: 0.8rem;
+  margin-bottom: 2px;
+}
+
+.common-table input,
+.common-table select {
+  height: 24px;
+  padding: 2px 4px;
+  box-sizing: border-box;
+}
+
+/* Dropdown option backgrounds */
+.quality-select option {
+  background-color: #11141c;
+  color: #fff;
+}
+
+
+

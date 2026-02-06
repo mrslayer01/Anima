@@ -2,7 +2,7 @@ import { ABF_CLASSES } from "../config/classes.js";
 import { ABF_ADVANTAGES } from "../config/advantages.js";
 import { ABF_DISADVANTAGES } from "../config/disadvantages.js";
 
-export function loadAllHandlerbarsHelpers () {
+export function loadAllActorHandlerbarsHelpers () {
       Handlebars.registerHelper("ifEquals", function(a, b, options) {
     return a === b ? options.fn(this) : options.inverse(this);
   });

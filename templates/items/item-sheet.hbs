@@ -1,0 +1,26 @@
+<form class="abf-item-sheet">
+<div class="header-top">
+  
+    <!-- Left spacer (keeps name centered) -->
+    <div class="header-top-spacer"></div>
+
+        <!-- Item Name -->
+        <input class="header-top-name"
+        type="text" 
+        name="name" 
+        value="{{item.name}}" 
+        />
+    </div>
+    <!-- Always render the common onto each item. -->
+    {{> "systems/abf-system/templates/items/partials/common.hbs"}}
+
+    {{!-- {{#if (eq item.type "weapon")}}
+      {{> "systems/abf-system/templates/items/partials/weapon.hbs"}}
+    {{/if}}
+
+    {{#if (eq item.type "commonGood")}}
+      {{> "systems/abf-system/templates/items/partials/commonGood.hbs"}}
+    {{/if}} --}}
+
+
+</form>

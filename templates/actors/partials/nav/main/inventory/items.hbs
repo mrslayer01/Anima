@@ -1,0 +1,31 @@
+<section class="inventory-table common-goods" data-table="commonGoods">
+  <h3>Common Goods</h3>
+
+  <table class="item-table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Weight</th>
+        <th>Cost</th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each system.tables.commonGoods as |item|}}
+        <tr data-item-id="{{item.id}}" class="item-row">
+          <td class="item-name item-edit clickable" >{{item.name}}</td>
+          <td>{{item.system.weight}}</td>
+          <td>
+            {{item.system.cost.copper}}c
+            {{item.system.cost.silver}}s
+            {{item.system.cost.gold}}g
+          </td>
+          <td class="item-controls">
+            <a class="item-delete"><i class="fas fa-trash"></i></a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>

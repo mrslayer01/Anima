@@ -78,6 +78,10 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: true,
+        description:
+          "Acrobatics helps a character perform physical tasks that require balance, coordination, and mobility, such as tumbling or walking a tightrope. It is also used to enable one to fall from heights without injury. A character who falls can make an Acrobatics Ability Check to try and land without breaking bones, as explained in Chapter 14. Characters wearing armor suffer a penalty to this Secondary Ability.",
       },
       Athletics: {
         base: 0,
@@ -91,6 +95,10 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: true,
+        description:
+          "This indicates a person’s capability to push themselves to their physical limits, skillfully perform a variety of athletic feats in extreme conditions, and to distribute their energies in order to endure more without flagging. Characters wearing armor suffer a penalty to this Secondary Ability.",
       },
       Climb: {
         base: 0,
@@ -104,6 +112,10 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: true,
+        description:
+          "This Secondary Ability is used to climb up or down any kind of vertical surface, such as walls or trees. If used with appropriate climbing equipment, the character can apply a bonus of up to +40 to his Ability Check. Normally, the rate at which a person can climb is one-quarter that of his Movement Value. However, a character’s climb rate can be one point higher for each level of Difficulty achieved above the requirement for the check (see Movement Value in Chapter 6). Characters wearing armor suffer a penalty to this Secondary Ability.",
       },
       Jump: {
         base: 0,
@@ -117,6 +129,10 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: true,
+        description:
+          "This Secondary Ability permits the character to jump vertically or horizontally. The higher the level of Difficulty achieved, the further the character can jump, as indicated by his Movement Value (see Chapter 6). Characters wearing armor suffer a penalty to this Secondary Ability.",
       },
       Ride: {
         base: 0,
@@ -130,6 +146,13 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description:
+          "This measures the ability of a person to ride animals. Almost everyone in the world of Anima can ride a tame and obedient horse under normal conditions;" +
+          " in such cases, Ride checks aren’t usually necessary. Things get more complicated when a rider wishes to go very fast or when he takes his mount into rough terrain. " +
+          " This ability also permits the character to bend his mount’s will to his own in problematic situations – obligating it to jump obstacles or continue traveling in spite of fatigue. It also enables the character to perform acrobatic actions from the saddle – such as hiding his body behind the mount while riding or picking up objects from the ground without dismounting. " +
+          " Although traditionally employed in relation to horses, this Secondary Ability also enables a character to ride other animals, such as camels or elephants.",
       },
       Swim: {
         base: 0,
@@ -143,6 +166,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: true,
+        description: "This represents how well a person handles themselves in the water, and, at higher levels, the speed with which they can swim or dive in water. Characters wearing armor suffer a penalty to this Secondary Ability, but unlike other penalties, this one cannot be overcome by the Wear Armor ability.",
       },
     },
 
@@ -159,6 +185,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: true,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       FeatsOfStrength: {
         base: 0,
@@ -172,6 +201,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       WithstandPain: {
         base: 0,
@@ -185,6 +217,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
     },
 
@@ -201,6 +236,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: true,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Search: {
         base: 0,
@@ -214,6 +252,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Track: {
         base: 0,
@@ -227,6 +268,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
     },
 
@@ -243,6 +287,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Appraisal: {
         base: 0,
@@ -256,6 +303,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       HerbalLore: {
         base: 0,
@@ -269,6 +319,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       History: {
         base: 0,
@@ -282,6 +335,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       MagicAppraisal: {
         base: 0,
@@ -295,6 +351,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: true,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Medicine: {
         base: 0,
@@ -308,6 +367,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Memorize: {
         base: 0,
@@ -321,6 +383,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Navigation: {
         base: 0,
@@ -334,6 +399,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Occult: {
         base: 0,
@@ -347,6 +415,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Sciences: {
         base: 0,
@@ -360,6 +431,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
     },
 
@@ -376,6 +450,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Leadership: {
         base: 0,
@@ -389,6 +466,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: true,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Persuasion: {
         base: 0,
@@ -402,6 +482,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Style: {
         base: 0,
@@ -415,6 +498,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: true,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
     },
 
@@ -431,6 +517,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Hide: {
         base: 0,
@@ -444,6 +533,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       LockPicking: {
         base: 0,
@@ -457,6 +549,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Poisons: {
         base: 0,
@@ -470,6 +565,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Theft: {
         base: 0,
@@ -483,6 +581,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       TrapLore: {
         base: 0,
@@ -496,6 +597,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Stealth: {
         base: 0,
@@ -509,6 +613,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
     },
 
@@ -525,6 +632,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Dance: {
         base: 0,
@@ -538,6 +648,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Forging: {
         base: 0,
@@ -551,6 +664,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       Music: {
         base: 0,
@@ -564,6 +680,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
       SleightOfHand: {
         base: 0,
@@ -577,6 +696,9 @@ export const DEFAULT_ACTOR_DATA = {
         passive: false,
         undeveloped: true,
         mastery: false,
+
+        armorPenalty: false,
+        description: "",
       },
     },
   },

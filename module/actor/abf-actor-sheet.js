@@ -1,5 +1,6 @@
 import { ABF_CLASSES } from "./config/classes.js";
 import { registerSheetListeners } from "./listeners.js"
+import { TABLE_ITEM_TYPES } from "./helpers/lookup.js";
 
 export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
   static get defaultOptions() {
@@ -100,6 +101,23 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
 
     // Apply update
     await this.actor.update({ [name]: value });
+  }
+
+  async _onDropItem(event, data) {
+    const item = await Item.implementation.fromDropData(data);
+    if (!item) return;
+
+    // Which table was dropped onto?
+    const table = event.target.closest("[data-table]");
+    if (!table) return;
+
+    const tableName = table.dataset.table;
+
+    const allowed = TABLE_ITEM_TYPES[tableName];
+    if (!allowed.includes(item.type)) return ui.notifications.warn("That item cannot go in this table.");
+
+    // Add item to actor
+    return this.actor.createEmbeddedDocuments("Item", [item.toObject()]);
   }
 
   getData(options) {

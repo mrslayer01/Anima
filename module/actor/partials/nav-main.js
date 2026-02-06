@@ -52,4 +52,4 @@ const navMainDetailsPartials = [
 ];
 
 //Inventory Section
-const navMainInventoryPartials = ["currency"];
+const navMainInventoryPartials = ["currency", "items"];

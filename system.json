@@ -13,6 +13,7 @@
     }
   ],
   "template": "template.json",
+  "itemTypes": ["commonGood"],
   "esmodules": ["module/main.js"],
   "styles": ["styles/abf.css"],
   "packs": [
@@ -22,6 +23,14 @@
       "system": "abf-system",
       "path": "packs/journals",
       "type": "JournalEntry",
+      "private": false
+    },
+    {
+      "name": "abf-items",
+      "label": "ABF Items",
+      "system": "abf-system",
+      "path": "packs/items",
+      "type": "Item",
       "private": false
     }
   ],

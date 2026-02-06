@@ -692,7 +692,33 @@ export function registerSheetListeners(sheet, html) {
   });
 
   //#endregion
+  //#region Item Tables
+  // Edit item
+  html.find(".item-edit").click(ev => {
+    const actor = sheet.actor;
+    const itemId = $(ev.currentTarget).closest(".item-row").data("item-id");
+    actor.items.get(itemId).sheet.render(true);
+  });
+
+  // Delete item
+  html.find(".item-delete").click(async ev => {
+    const actor = sheet.actor;
+    const itemId = $(ev.currentTarget).closest(".item-row").data("item-id");
+
+    const confirmed = await Dialog.confirm({
+      title: "Confirm Delete",
+      content: "<p>Are you sure you want to remove this item?</p>",
+    });
+
+    if (!confirmed) return;
+    
+    actor.deleteEmbeddedDocuments("Item", [itemId]);
+  });
+
+  //#endregion
+
 }
+
 
 async function openJournalFromUUID(rawUuid) {
   const [uuid, anchor] = rawUuid.split("#");

@@ -1,0 +1,52 @@
+<section class="common-fields">
+
+  <div class="section-block">
+
+      <table class="common-table">
+        <tr>
+          <td>
+            <label>Weight</label>
+            <input type="number" name="system.weight" value="{{system.weight}}" />
+          </td>
+
+          <td>
+            <label>Availability</label>
+            <input type="text" name="system.availability" value="{{system.availability}}" />
+          </td>
+
+          <td>
+            <label>Quality</label>
+            <select name="system.quality.value" class="quality-select">
+              <option value="mediocre" {{#if (eq system.quality.value "mediocre")}}selected{{/if}}>Mediocre</option>
+              <option value="decent" {{#if (eq system.quality.value "decent")}}selected{{/if}}>Decent</option>
+              <option value="good" {{#if (eq system.quality.value "good")}}selected{{/if}}>Good</option>
+              <option value="luxury" {{#if (eq system.quality.value "luxury")}}selected{{/if}}>Luxury / Designer</option>
+            </select>
+          </td>
+        </tr>
+      </table>
+
+  <div class="section-block">
+
+  <table class="common-table">
+    <tr>
+      <td>
+        <label>Copper</label>
+        <input type="number" name="system.cost.copper" value="{{system.cost.copper}}" />
+      </td>
+
+      <td>
+        <label>Silver</label>
+        <input type="number" name="system.cost.silver" value="{{system.cost.silver}}" />
+      </td>
+
+      <td>
+        <label>Gold</label>
+        <input type="number" name="system.cost.gold" value="{{system.cost.gold}}" />
+      </td>
+    </tr>
+  </table>
+
+  </div>
+
+</section>

@@ -32,13 +32,13 @@ export const ABF_ADVANTAGES = {
         description: "One of the character's attributes is greater than before."
     }),
     acuteSenses: createAdvantage({
-    name: "Acute Senses",
-    type: "Common",
-    effects: "Adds +1 to Perception for Characteristic Checks and grants a +30 bonus to Notice and Search.",
-    restriction: "",
-    special: "",
-    cost: "1",
-    description: "The character’s senses are as sharp as those of an animal."
+        name: "Acute Senses",
+        type: "Common",
+        effects: "Adds +1 to Perception for Characteristic Checks and grants a +30 bonus to Notice and Search.",
+        restriction: "",
+        special: "",
+        cost: "1",
+        description: "The character’s senses are as sharp as those of an animal."
     }),
 
     artifact: createAdvantage({
