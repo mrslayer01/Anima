@@ -4,6 +4,7 @@
     "character": {
       "system": {
         "classes": [],
+        "core": {},
         "level": 0,
         "aspects": {},
         "lifePoints": {},

@@ -34,7 +34,6 @@ export const DEFAULT_ACTOR_DATA = {
 
       description: "Ki Points and Accumulation per characteristic, matching the official sheet."
     },
-
     zeon: {
       base: 0,
       purchased: 0,
@@ -43,6 +42,16 @@ export const DEFAULT_ACTOR_DATA = {
       regeneration: 0,
       description:
         "Zeon pool and recovery, matching the official sheet’s Daily Zeon and Final Regeneration."
+    },
+    psychicPoints: {
+      perLevel: 0, // class PP per level
+      interval: 0, // class interval: +1 PP every X levels
+      bonus: 0, // advantages, items, supernatural bonuses
+      purchased: 0, // DP‑bought PP (if you allow it)
+      total: 0, // derived maximum PP
+      current: 0, // session tracking
+      description:
+        "Psychic Points represent a character’s mental energy for developing and using psychic powers."
     }
   },
   aspects: {
@@ -80,6 +89,7 @@ export const DEFAULT_ACTOR_DATA = {
   developmentPointsSpent: [],
   martialKnowledge: {
     bonus: 0,
+    class: 0,
     final: 0
   },
   finalArmor: {
@@ -816,16 +826,6 @@ export const DEFAULT_ACTOR_DATA = {
       },
       Psychic: {
         dpLimitPercent: 0,
-        PsychicPoints: {
-          base: 0,
-          bonus: 0,
-          cost: 0,
-          class: 0,
-          final: 0,
-          special: 0,
-          description:
-            "These represent points used by a psychic character to develop and utilize his mental powers."
-        },
         PsychicProjection: {
           base: 0,
           bonus: 0,

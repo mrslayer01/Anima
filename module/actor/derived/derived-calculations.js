@@ -20,6 +20,7 @@ import { calculateCharacterSize } from "./derived-size.js";
 import { calculateMovement } from "./derived-movement.js";
 import { calculateElanFinal } from "./derived-elan.js";
 import { calculateRegeneration } from "./derived-regeneration.js";
+import { applyClassBonuses } from "./derrived-class-details.js";
 
 //used to calculate all derived values for an actor that depends on something else.
 export function calculateDerivedValues(system, actor) {
@@ -40,6 +41,8 @@ export function calculateDerivedValues(system, actor) {
   if (actor._changedCharacteristics?.length) {
     applyChangedCharacteristics(system, actor);
   }
+
+  applyClassBonuses(system);
 
   if (actor._changedPrimariesAbilities?.length) {
     applyChangedPrimariesAbilities(system, actor);

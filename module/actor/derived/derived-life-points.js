@@ -6,11 +6,7 @@ export function calculateFinalLifePoints(system) {
   const totalCon = toNum(system.characteristics.Constitution.base) * 10;
   const baseLP = 20;
   const lpBonus = toNum(system.core.lifePoints.bonus);
-  const totalLifePointsForallClasses = (system.classes || []).reduce((total, cls) => {
-    const lvl = toNum(cls.level) || 0;
-    const lppl = toNum(cls.lifePointsPerLevel) || 0;
-    return total + lvl * lppl;
-  }, 0);
+  const classLP = toNum(system.core.lifePoints.class);
 
-  system.core.lifePoints.final = baseLP + totalCon + totalLifePointsForallClasses + lpBonus;
+  system.core.lifePoints.final = baseLP + totalCon + classLP + lpBonus;
 }
