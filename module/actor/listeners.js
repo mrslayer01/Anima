@@ -6,11 +6,7 @@ import { AddDisadvantageWindow } from "./apps/add-disadvantage-window.js";
 import { AddElanWindow } from "./apps/add-elan-window.js";
 import { ElanInfoWindow } from "./apps/elan-info.js";
 import { DisadvantageInfoWindow } from "./apps/disadvantage-info.js";
-import {
-  characteristicCheck,
-  animaOpenRoll,
-  resistanceCheck,
-} from "./apps/rolls.js";
+import { characteristicCheck, animaOpenRoll, resistanceCheck } from "./apps/rolls.js";
 import { difficultyMap, toNum } from "./helpers/lookup.js";
 import { updateDP } from "./classes/development-points.js";
 
@@ -29,7 +25,7 @@ export function registerSheetListeners(sheet, html) {
     characteristicCheck({
       value,
       label: `${char} Check`,
-      actor: sheet.actor,
+      actor: sheet.actor
     });
   });
 
@@ -41,7 +37,7 @@ export function registerSheetListeners(sheet, html) {
     animaOpenRoll({
       value: sheet.actor.system.characteristics[char].final,
       label: `${char} Open Roll`,
-      actor: sheet.actor,
+      actor: sheet.actor
     });
   });
 
@@ -50,15 +46,13 @@ export function registerSheetListeners(sheet, html) {
   html.find(".ability-roll").on("click", (ev) => {
     const categoryName = ev.currentTarget.dataset.category;
     const abilityName = ev.currentTarget.dataset.ability;
-    const ability = sheet.actor.system.abilities[categoryName][abilityName];
+    const ability = sheet.actor.system.abilities.Secondaries[categoryName][abilityName];
 
     console.log(abilityName, ability);
 
     //don't allow the rolling of Knoweldge skills that are undeveloped
     if (ability.undeveloped && ability.knowledge) {
-      return ui.notifications.error(
-        "Unable to roll for an undeveloped knowledge ability.",
-      );
+      return ui.notifications.error("Unable to roll for an undeveloped knowledge ability.");
     }
 
     animaOpenRoll({
@@ -66,7 +60,7 @@ export function registerSheetListeners(sheet, html) {
       label: `${abilityName} Open Roll`,
       actor: sheet.actor,
       undeveloped: ability.undeveloped,
-      mastery: ability.mastery,
+      mastery: ability.mastery
     });
   });
 
@@ -108,11 +102,11 @@ export function registerSheetListeners(sheet, html) {
               value,
               difficulty,
               label: `${char} Resistance Check`,
-              actor: sheet.actor,
+              actor: sheet.actor
             });
-          },
-        },
-      },
+          }
+        }
+      }
     }).render(true);
   });
 
@@ -151,9 +145,7 @@ export function registerSheetListeners(sheet, html) {
           </button>
 
           <select id="class-select" style="flex: 1;">
-            ${classOptions
-              .map((cls) => `<option value="${cls}">${cls}</option>`)
-              .join("")}
+            ${classOptions.map((cls) => `<option value="${cls}">${cls}</option>`).join("")}
           </select>
 
         </div>
@@ -177,8 +169,8 @@ export function registerSheetListeners(sheet, html) {
             classes.push(classData);
 
             await actor.update({ "system.classes": classes });
-          },
-        },
+          }
+        }
       },
       render: (html) => {
         // Info button click handler
@@ -187,14 +179,12 @@ export function registerSheetListeners(sheet, html) {
           const classData = ABF_CLASSES[selected];
 
           if (!classData?.journalEntry) {
-            return ui.notifications.warn(
-              "No journal entry linked for this class.",
-            );
+            return ui.notifications.warn("No journal entry linked for this class.");
           }
 
           openJournalFromUUID(classData.journalEntry);
         });
-      },
+      }
     }).render(true);
   });
 
@@ -205,11 +195,11 @@ export function registerSheetListeners(sheet, html) {
     const confirmed = await Dialog.confirm(
       {
         title: "Confirm Delete",
-        content: "<p>Are you sure you want to remove this class?</p>",
+        content: "<p>Are you sure you want to remove this class?</p>"
       },
       {
-        classes: ["abf-character-sheet"],
-      },
+        classes: ["abf-character-sheet"]
+      }
     );
 
     if (!confirmed) return;
@@ -246,9 +236,7 @@ export function registerSheetListeners(sheet, html) {
     ev.preventDefault();
 
     const className = ev.currentTarget.dataset.class;
-    const classData = sheet.actor.system.classes.find(
-      (c) => c.name === className,
-    );
+    const classData = sheet.actor.system.classes.find((c) => c.name === className);
 
     if (!classData) return ui.notifications.error("Class data not found");
     console.log(classData);
@@ -277,7 +265,7 @@ export function registerSheetListeners(sheet, html) {
 
     const confirmed = await Dialog.confirm({
       title: "Confirm Delete",
-      content: "<p>Are you sure you want to remove this advantage?</p>",
+      content: "<p>Are you sure you want to remove this advantage?</p>"
     });
 
     if (!confirmed) return;
@@ -297,9 +285,7 @@ export function registerSheetListeners(sheet, html) {
     ev.preventDefault();
 
     const advName = ev.currentTarget.dataset.advantage;
-    const advData = sheet.actor.system.advantages.find(
-      (a) => a.name === advName,
-    );
+    const advData = sheet.actor.system.advantages.find((a) => a.name === advName);
 
     if (!advData) return ui.notifications.error("Advantage data not found");
 
@@ -326,14 +312,12 @@ export function registerSheetListeners(sheet, html) {
 
     const confirmed = await Dialog.confirm({
       title: "Confirm Delete",
-      content: "<p>Are you sure you want to remove this disadvantage?</p>",
+      content: "<p>Are you sure you want to remove this disadvantage?</p>"
     });
 
     if (!confirmed) return;
 
-    const disadvantages = foundry.utils.duplicate(
-      sheet.actor.system.disadvantages,
-    );
+    const disadvantages = foundry.utils.duplicate(sheet.actor.system.disadvantages);
 
     disadvantages.splice(index, 1);
 
@@ -348,9 +332,7 @@ export function registerSheetListeners(sheet, html) {
     ev.preventDefault();
 
     const disName = ev.currentTarget.dataset.disadvantage;
-    const disData = sheet.actor.system.disadvantages.find(
-      (d) => d.name === disName,
-    );
+    const disData = sheet.actor.system.disadvantages.find((d) => d.name === disName);
 
     if (!disData) return ui.notifications.error("Disadvantage data not found");
 
@@ -393,9 +375,7 @@ export function registerSheetListeners(sheet, html) {
           </button>
 
           <select id="elan-select" style="flex: 1;">
-            ${elanOptions
-              .map((elan) => `<option value="${elan}">${elan}</option>`)
-              .join("")}
+            ${elanOptions.map((elan) => `<option value="${elan}">${elan}</option>`).join("")}
           </select>
 
         </div>
@@ -419,8 +399,8 @@ export function registerSheetListeners(sheet, html) {
             elans.push(elanData);
 
             await actor.update({ "system.elans": elans });
-          },
-        },
+          }
+        }
       },
       render: (html) => {
         // Info button click handler
@@ -429,14 +409,12 @@ export function registerSheetListeners(sheet, html) {
           const elanData = ABF_LORDS[selected];
 
           if (!elanData?.journalEntry) {
-            return ui.notifications.warn(
-              "No journal entry linked for this elan.",
-            );
+            return ui.notifications.warn("No journal entry linked for this elan.");
           }
 
           openJournalFromUUID(elanData.journalEntry);
         });
-      },
+      }
     }).render(true);
   });
 
@@ -449,7 +427,7 @@ export function registerSheetListeners(sheet, html) {
 
     const confirmed = await Dialog.confirm({
       title: "Confirm Delete",
-      content: "<p>Are you sure you want to remove this elan?</p>",
+      content: "<p>Are you sure you want to remove this elan?</p>"
     });
 
     if (!confirmed) return;
@@ -474,9 +452,7 @@ export function registerSheetListeners(sheet, html) {
     if (!elanData) return ui.notifications.error("Elan data not found");
     //openJournalFromUUID(elanData.journalEntry);
 
-    new ElanInfoWindow(elanName, elanData, { actorId: sheet.actor.id }).render(
-      true,
-    );
+    new ElanInfoWindow(elanName, elanData, { actorId: sheet.actor.id }).render(true);
   });
 
   //ELAN fix broken values when adding/removing
@@ -546,7 +522,7 @@ export function registerSheetListeners(sheet, html) {
 
     const confirmed = await Dialog.confirm({
       title: "Confirm Delete",
-      content: "<p>Are you sure you want to remove this language?</p>",
+      content: "<p>Are you sure you want to remove this language?</p>"
     });
 
     if (!confirmed) return;
@@ -600,7 +576,7 @@ export function registerSheetListeners(sheet, html) {
 
     const confirmed = await Dialog.confirm({
       title: "Confirm Delete",
-      content: "<p>Are you sure you want to remove this contact?</p>",
+      content: "<p>Are you sure you want to remove this contact?</p>"
     });
 
     if (!confirmed) return;
@@ -643,7 +619,7 @@ export function registerSheetListeners(sheet, html) {
 
     const confirmed = await Dialog.confirm({
       title: "Confirm Delete",
-      content: "<p>Are you sure you want to remove this title?</p>",
+      content: "<p>Are you sure you want to remove this title?</p>"
     });
 
     if (!confirmed) return;
@@ -694,31 +670,29 @@ export function registerSheetListeners(sheet, html) {
   //#endregion
   //#region Item Tables
   // Edit item
-  html.find(".item-edit").click(ev => {
+  html.find(".item-edit").click((ev) => {
     const actor = sheet.actor;
     const itemId = $(ev.currentTarget).closest(".item-row").data("item-id");
     actor.items.get(itemId).sheet.render(true);
   });
 
   // Delete item
-  html.find(".item-delete").click(async ev => {
+  html.find(".item-delete").click(async (ev) => {
     const actor = sheet.actor;
     const itemId = $(ev.currentTarget).closest(".item-row").data("item-id");
 
     const confirmed = await Dialog.confirm({
       title: "Confirm Delete",
-      content: "<p>Are you sure you want to remove this item?</p>",
+      content: "<p>Are you sure you want to remove this item?</p>"
     });
 
     if (!confirmed) return;
-    
+
     actor.deleteEmbeddedDocuments("Item", [itemId]);
   });
 
   //#endregion
-
 }
-
 
 async function openJournalFromUUID(rawUuid) {
   const [uuid, anchor] = rawUuid.split("#");
@@ -732,7 +706,7 @@ async function openJournalFromUUID(rawUuid) {
   // Render the JournalEntry in VIEW mode
   entry.sheet.render(true, {
     editable: false,
-    pageId: page.id,
+    pageId: page.id
   });
 
   if (!anchor) return;

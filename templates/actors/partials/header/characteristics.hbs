@@ -1,124 +1,268 @@
 <section class="characteristics-section">
-  <h3>Attributes</h3>
+  <h3>
+    Attributes
+  </h3>
 
   <table class="characteristics-table">
     <tr>
       <th></th>
-      <th>Base</th>
-      <th>Bonus</th>
-      <th>Final</th>
+      <th>
+        Base
+      </th>
+      <th>
+        Bonus
+      </th>
+      <th>
+        Final
+      </th>
     </tr>
-    <tr><td class="char-roll" data-char="Agility" data-tooltip="Agility represents character’s speed of movement and balance. A high agility makes a character more acrobatic and able to dodge attacks. Together with Dexterity, it defines reaction speed. Click to roll Characteristic check.">Agility</td><td><input
+    <tr>
+      <td
+        class="char-roll"
+        data-char="Agility"
+        data-tooltip="Agility represents character’s speed of movement and balance. A high agility makes a character more acrobatic and able to dodge attacks. Together with Dexterity, it defines reaction speed. Click to roll Characteristic check."
+      >
+        Agility
+      </td>
+      <td>
+        <input
           type="number"
           min="1"
           max="20"
           name="system.characteristics.Agility.base"
           value="{{system.characteristics.Agility.base}}"
-        /></td><td><input
+        />
+      </td>
+      <td>
+        <input
           type="number"
           min="0"
           class="mod-input-resize-char"
           name="system.characteristics.Agility.bonus"
           value="{{system.characteristics.Agility.bonus}}"
           data-tooltip="Agility Bonus"
-        /></td><td class="open-roll" data-char="Agility" data-tooltip="Click to Open Roll.">{{system.characteristics.Agility.final}}</td></tr>
-    <tr><td class="char-roll" data-char="Constitution" data-tooltip="Constitution defines the stamina and vitality of a character, his resistance to disease, and his ability to absorb damage. A character with a high Constitution score will have good physical resistance and will recover from wounds and sickness. This Characteristic indicates the amount of damage a character can suffer before dying. Click to roll Characteristic check.">Constitution</td><td><input
+        />
+      </td>
+      <td class="open-roll" data-char="Agility" data-tooltip="Click to Open Roll.">
+        {{system.characteristics.Agility.final}}
+      </td>
+    </tr>
+    <tr>
+      <td
+        class="char-roll"
+        data-char="Constitution"
+        data-tooltip="Constitution defines the stamina and vitality of a character, his resistance to disease, and his ability to absorb damage. A character with a high Constitution score will have good physical resistance and will recover from wounds and sickness. This Characteristic indicates the amount of damage a character can suffer before dying. Click to roll Characteristic check."
+      >
+        Constitution
+      </td>
+      <td>
+        <input
           type="number"
           min="1"
           max="20"
           name="system.characteristics.Constitution.base"
           value="{{system.characteristics.Constitution.base}}"
-        /></td><td><input
+        />
+      </td>
+      <td>
+        <input
           type="number"
           min="0"
           class="mod-input-resize-char"
           name="system.characteristics.Constitution.bonus"
           value="{{system.characteristics.Constitution.bonus}}"
           data-tooltip="Constitution Bonus"
-        /></td><td class="open-roll" data-char="Constitution" data-tooltip="Click to Open Roll.">{{system.characteristics.Constitution.final}}</td></tr>
-    <tr><td class="char-roll" data-char="Dexterity" data-tooltip="Dexterity represents a character’s physical skill and coordination. It affects his ability to make precise attacks, as well as to block them. Along with Agility, it also represents his reaction speed. Click to roll Characteristic check.">Dexterity</td><td><input
+        />
+      </td>
+      <td class="open-roll" data-char="Constitution" data-tooltip="Click to Open Roll.">
+        {{system.characteristics.Constitution.final}}
+      </td>
+    </tr>
+    <tr>
+      <td
+        class="char-roll"
+        data-char="Dexterity"
+        data-tooltip="Dexterity represents a character’s physical skill and coordination. It affects his ability to make precise attacks, as well as to block them. Along with Agility, it also represents his reaction speed. Click to roll Characteristic check."
+      >
+        Dexterity
+      </td>
+      <td>
+        <input
           min="1"
           max="20"
           type="number"
           name="system.characteristics.Dexterity.base"
           value="{{system.characteristics.Dexterity.base}}"
-        /></td><td><input
+        />
+      </td>
+      <td>
+        <input
           min="0"
           type="number"
           class="mod-input-resize-char"
           name="system.characteristics.Dexterity.bonus"
           value="{{system.characteristics.Dexterity.bonus}}"
           data-tooltip="Dexterity Bonus"
-        /></td><td class="open-roll" data-char="Dexterity" data-tooltip="Click to Open Roll." >{{system.characteristics.Dexterity.final}}</td></tr>
-    <tr><td class="char-roll" data-char="Strength" data-tooltip="Strength defines a character’s musculature and energy. This Characteristic permits you to lift heavy weights, cause major damage when hitting, and break objects. Click to roll Characteristic check.">Strength</td><td><input
+        />
+      </td>
+      <td class="open-roll" data-char="Dexterity" data-tooltip="Click to Open Roll.">
+        {{system.characteristics.Dexterity.final}}
+      </td>
+    </tr>
+    <tr>
+      <td
+        class="char-roll"
+        data-char="Strength"
+        data-tooltip="Strength defines a character’s musculature and energy. This Characteristic permits you to lift heavy weights, cause major damage when hitting, and break objects. Click to roll Characteristic check."
+      >
+        Strength
+      </td>
+      <td>
+        <input
           min="1"
           max="20"
           type="number"
           name="system.characteristics.Strength.base"
           value="{{system.characteristics.Strength.base}}"
-        /></td><td><input
+        />
+      </td>
+      <td>
+        <input
           min="0"
           type="number"
           class="mod-input-resize-char"
           name="system.characteristics.Strength.bonus"
           value="{{system.characteristics.Strength.bonus}}"
           data-tooltip="Strength Bonus"
-        /></td><td class="open-roll" data-char="Strength" data-tooltip="Click to Open Roll.">{{system.characteristics.Strength.final}}</td></tr>
-    <tr><td class="char-roll" data-char="Intelligence" data-tooltip="Intelligence covers reasoning, learning, and memory. Intellectual knowledge and logic depend on it, as does the capacity to understand and develop spells. Click to roll Characteristic check.">Intelligence</td><td><input
+        />
+      </td>
+      <td class="open-roll" data-char="Strength" data-tooltip="Click to Open Roll.">
+        {{system.characteristics.Strength.final}}
+      </td>
+    </tr>
+    <tr>
+      <td
+        class="char-roll"
+        data-char="Intelligence"
+        data-tooltip="Intelligence covers reasoning, learning, and memory. Intellectual knowledge and logic depend on it, as does the capacity to understand and develop spells. Click to roll Characteristic check."
+      >
+        Intelligence
+      </td>
+      <td>
+        <input
           min="1"
           max="20"
           type="number"
           name="system.characteristics.Intelligence.base"
           value="{{system.characteristics.Intelligence.base}}"
-        /></td><td><input
+        />
+      </td>
+      <td>
+        <input
           min="0"
           type="number"
           class="mod-input-resize-char"
           name="system.characteristics.Intelligence.bonus"
           value="{{system.characteristics.Intelligence.bonus}}"
           data-tooltip="Intelligence Bonus"
-        /></td><td class="open-roll" data-char="Intelligence" data-tooltip="Click to Open Roll.">{{system.characteristics.Intelligence.final}}</td></tr>
-    <tr><td class="char-roll" data-char="Perception" data-tooltip="This Characteristic encompasses the acuity of the character’s senses, and his ability to notice what is going on around him. It represents the five senses, as well as instinct. Click to roll Characteristic check.">Perception</td><td><input
+        />
+      </td>
+      <td class="open-roll" data-char="Intelligence" data-tooltip="Click to Open Roll.">
+        {{system.characteristics.Intelligence.final}}
+      </td>
+    </tr>
+    <tr>
+      <td
+        class="char-roll"
+        data-char="Perception"
+        data-tooltip="This Characteristic encompasses the acuity of the character’s senses, and his ability to notice what is going on around him. It represents the five senses, as well as instinct. Click to roll Characteristic check."
+      >
+        Perception
+      </td>
+      <td>
+        <input
           min="1"
           max="20"
           type="number"
           name="system.characteristics.Perception.base"
           value="{{system.characteristics.Perception.base}}"
-        /></td><td><input
+        />
+      </td>
+      <td>
+        <input
           min="0"
           type="number"
           class="mod-input-resize-char"
           name="system.characteristics.Perception.bonus"
           value="{{system.characteristics.Perception.bonus}}"
           data-tooltip="Perception Bonus"
-        /></td><td class="open-roll" data-char="Perception" data-tooltip="Click to Open Roll.">{{system.characteristics.Perception.final}}</td></tr>
-    <tr><td class="char-roll" data-char="Power" data-tooltip="This represents the state of mind and spiritual power of a character. The higher it is, the better the character’s ability to influence and resist the supernatural, as well as stand out in a crowd. Click to roll Characteristic check.">Power</td><td><input
+        />
+      </td>
+      <td class="open-roll" data-char="Perception" data-tooltip="Click to Open Roll.">
+        {{system.characteristics.Perception.final}}
+      </td>
+    </tr>
+    <tr>
+      <td
+        class="char-roll"
+        data-char="Power"
+        data-tooltip="This represents the state of mind and spiritual power of a character. The higher it is, the better the character’s ability to influence and resist the supernatural, as well as stand out in a crowd. Click to roll Characteristic check."
+      >
+        Power
+      </td>
+      <td>
+        <input
           min="1"
           max="20"
           type="number"
           name="system.characteristics.Power.base"
           value="{{system.characteristics.Power.base}}"
-        /></td><td><input
+        />
+      </td>
+      <td>
+        <input
           min="0"
           type="number"
           class="mod-input-resize-char"
           name="system.characteristics.Power.bonus"
           value="{{system.characteristics.Power.bonus}}"
           data-tooltip="Power Bonus"
-        /></td><td class="open-roll" data-char="Power" data-tooltip="Click to Open Roll.">{{system.characteristics.Power.final}}</td></tr>
-    <tr><td class="char-roll" data-char="Willpower" data-tooltip="This Characteristic measures the mental strength of an individual, his coolness and tenacity. It is also used to employ and resist psychic disciplines. Click to roll Characteristic check.">Willpower</td><td><input
+        />
+      </td>
+      <td class="open-roll" data-char="Power" data-tooltip="Click to Open Roll.">
+        {{system.characteristics.Power.final}}
+      </td>
+    </tr>
+    <tr>
+      <td
+        class="char-roll"
+        data-char="Willpower"
+        data-tooltip="This Characteristic measures the mental strength of an individual, his coolness and tenacity. It is also used to employ and resist psychic disciplines. Click to roll Characteristic check."
+      >
+        Willpower
+      </td>
+      <td>
+        <input
           min="1"
           max="20"
           type="number"
           name="system.characteristics.Willpower.base"
           value="{{system.characteristics.Willpower.base}}"
-        /></td><td><input
+        />
+      </td>
+      <td>
+        <input
           min="0"
           type="number"
           class="mod-input-resize-char"
           name="system.characteristics.Willpower.bonus"
           value="{{system.characteristics.Willpower.bonus}}"
           data-tooltip="Willpower Bonus"
-        /></td><td class="open-roll" data-char="Willpower" data-tooltip="Click to Open Roll.">{{system.characteristics.Willpower.final}}</td></tr>
+        />
+      </td>
+      <td class="open-roll" data-char="Willpower" data-tooltip="Click to Open Roll.">
+        {{system.characteristics.Willpower.final}}
+      </td>
+    </tr>
   </table>
 </section>

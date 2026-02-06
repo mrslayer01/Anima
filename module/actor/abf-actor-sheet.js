@@ -1,5 +1,5 @@
 import { ABF_CLASSES } from "./config/classes.js";
-import { registerSheetListeners } from "./listeners.js"
+import { registerSheetListeners } from "./listeners.js";
 import { TABLE_ITEM_TYPES } from "./helpers/lookup.js";
 
 export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
@@ -13,29 +13,29 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
         {
           navSelector: ".sheet-tabs",
           contentSelector: ".sheet-body",
-          initial: "main",
+          initial: "main"
         },
         {
           navSelector: ".sub-tabs",
           contentSelector: ".tab.main",
-          initial: "character",
+          initial: "character"
         },
         {
           navSelector: ".sub-tabs[data-group='main-sub']",
           contentSelector: ".tab.main",
-          initial: "character",
+          initial: "character"
         },
         {
           navSelector: ".sub-tabs[data-group='mystic-sub']",
           contentSelector: ".tab.mystic",
-          initial: "mysticMain",
+          initial: "mysticMain"
         },
         {
           navSelector: ".sub-tabs[data-group='psychic-sub']",
           contentSelector: ".tab.psychic",
-          initial: "psychicMain",
+          initial: "psychicMain"
         }
-      ],
+      ]
     });
   }
 
@@ -50,12 +50,12 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
       return;
     }
 
-    // NUMBER FIELDS  
+    // NUMBER FIELDS
     let value = Number(input.value);
 
     // Only validate characteristics
     const isCharacteristic = name.startsWith("system.characteristics.");
-    const isAbility = name.startsWith("system.abilities.");
+    const isAbility = name.startsWith("system.abilities.Secondaries.");
     const isCurrency = name.startsWith("system.currency.");
 
     if (isCharacteristic) {
@@ -91,7 +91,7 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
       }
     }
 
-    if(isCurrency) {
+    if (isCurrency) {
       // Currency cannot go below 0
       if (value < 0) {
         value = 0;
@@ -114,7 +114,8 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
     const tableName = table.dataset.table;
 
     const allowed = TABLE_ITEM_TYPES[tableName];
-    if (!allowed.includes(item.type)) return ui.notifications.warn("That item cannot go in this table.");
+    if (!allowed.includes(item.type))
+      return ui.notifications.warn("That item cannot go in this table.");
 
     // Add item to actor
     return this.actor.createEmbeddedDocuments("Item", [item.toObject()]);
@@ -140,13 +141,13 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
       const ability = ev.currentTarget.dataset.ability;
       if (!ability) return;
 
-      const value = this.actor.system?.abilities?.[ability]?.value ?? 0;
+      const value = this.actor.system?.abilities?.secondariesAbilities[ability]?.value ?? 0;
 
       const roll = new Roll("1d100 + @value", { value });
       await roll.evaluate();
       roll.toMessage({
         speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: `Ability Roll: ${ability}`,
+        flavor: `Ability Roll: ${ability}`
       });
     });
   }

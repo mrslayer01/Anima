@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#each actor.system.abilities.Athletics as |ability key|}}
+    {{#each actor.system.abilities.Secondaries.Athletics as |ability key|}}
       <tr>
         <td data-tooltip="{{ability.description}} - Kowledge Ability: {{ability.knowledge}}">{{localize (concat "ABF.Ability." key)}}</td>
         <td><input
@@ -21,13 +21,13 @@
             data-cost="{{ability.cost}}"
             type="number"
             value="{{ability.base}}"
-            name="system.abilities.Athletics.{{key}}.base"
+            name="system.abilities.Secondaries.Athletics.{{key}}.base"
           /></td>
         <td><input
             class="mod-input-resize-char"
             type="number"
             value="{{ability.bonus}}"
-            name="system.abilities.Athletics.{{key}}.bonus"
+            name="system.abilities.Secondaries.Athletics.{{key}}.bonus"
           /></td>
         <td>{{ability.class}}</td>
         <td class="ability-roll clickable" data-category="Athletics" data-ability="{{key}}" data-tooltip="Click to make an Open roll.">{{ability.final}}</td>

@@ -12,7 +12,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#each actor.system.abilities.Vigor as |ability key|}}
+    {{#each actor.system.abilities.Secondaries.Vigor as |ability key|}}
       <tr>
         <td data-tooltip="{{ability.description}} - Kowledge Ability: {{ability.knowledge}}">{{localize (concat "ABF.Ability." key)}}</td>
         <td><input
@@ -21,13 +21,13 @@
             data-name="{{key}}"
             data-cost="{{ability.cost}}"
             value="{{ability.base}}"
-            name="system.abilities.Vigor.{{key}}.base"
+            name="system.abilities.Secondaries.Vigor.{{key}}.base"
           /></td>
         <td><input
             class="mod-input-resize-char"
             type="number"
             value="{{ability.bonus}}"
-            name="system.abilities.Vigor.{{key}}.bonus"
+            name="system.abilities.Secondaries.Vigor.{{key}}.bonus"
           /></td>
         <td>{{ability.class}}</td>
         <td class="ability-roll clickable" data-category="Vigor" data-ability="{{key}}" data-tooltip="Click to make an Open roll.">{{ability.final}}</td>

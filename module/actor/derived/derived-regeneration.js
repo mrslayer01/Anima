@@ -5,7 +5,7 @@ export function calculateRegeneration(system) {
   const reggenLevel = getRegenerationLevel(con);
   const reGenDetails = getRegenerationDetails(reggenLevel);
   const reGenSpecial = getRegenerationSpecial(reggenLevel);
-  const lpRegen = system.lifePoints.regeneration;
+  const lpRegen = system.core.lifePoints.regeneration;
 
   //if has damage resistance, healing facotr is multiplied by 5.
   if (reGenDetails === null) return;
@@ -43,7 +43,7 @@ function getRegenerationSpecial(level) {
     bleeding: null,
     reattach: null,
     regrow: null,
-    criticals: null,
+    criticals: null
   };
 
   let lastText = "";
@@ -103,7 +103,7 @@ const REGEN_TABLE = [
   { min: 16, max: 16, regen: 9 },
   { min: 17, max: 17, regen: 10 },
   { min: 18, max: 18, regen: 11 },
-  { min: 19, max: 20, regen: 12 },
+  { min: 19, max: 20, regen: 12 }
 ];
 
 const REGEN_DETAILS = {
@@ -111,129 +111,129 @@ const REGEN_DETAILS = {
     resting: "Unable to Regenerate",
     notResting: "Unable to Regenerate",
     reduction: "0",
-    special: "",
+    special: ""
   },
   1: {
     resting: "10 per day",
     notResting: "5 per day",
     reduction: "-5 per day",
-    special: "",
+    special: ""
   },
   2: {
     resting: "20 per day",
     notResting: "10 per day",
     reduction: "-5 per day",
-    special: "",
+    special: ""
   },
   3: {
     resting: "30 per day",
     notResting: "15 per day",
     reduction: "-5 per day",
-    special: "",
+    special: ""
   },
   4: {
     resting: "40 per day",
     notResting: "20 per day",
     reduction: "-10 per day",
-    special: "",
+    special: ""
   },
   5: {
     resting: "50 per day",
     notResting: "25 per day",
     reduction: "-10 per day",
-    special: "No scars remain",
+    special: "No scars remain"
   },
   6: {
     resting: "75 per day",
     notResting: "30 per day",
     reduction: "-15 per day",
-    special: "Does not suffer Bleeding Out",
+    special: "Does not suffer Bleeding Out"
   },
   7: {
     resting: "100 per day",
     notResting: "50 per day",
     reduction: "-20 per day",
-    special: "Cleanly amputated limbs recover if placed within 1 week",
+    special: "Cleanly amputated limbs recover if placed within 1 week"
   },
   8: {
     resting: "250 per day",
     notResting: "100 per day",
     reduction: "-25 per day",
-    special: "Cleanly amputated limbs recover if placed within 5 days",
+    special: "Cleanly amputated limbs recover if placed within 5 days"
   },
   9: {
     resting: "500 per day",
     notResting: "200 per day",
     reduction: "-30 per day",
     special:
-      "Cleanly amputated limbs recover if placed within 3 days; automatically overcomes Between Life and Death",
+      "Cleanly amputated limbs recover if placed within 3 days; automatically overcomes Between Life and Death"
   },
   10: {
     resting: "1 per minute",
     notResting: "NA",
     reduction: "-40 per day",
     special:
-      "Cleanly amputated limbs recover if placed within 1 days; automatically overcomes Between Life and Death",
+      "Cleanly amputated limbs recover if placed within 1 days; automatically overcomes Between Life and Death"
   },
   11: {
     resting: "2 per minute",
     notResting: "NA",
     reduction: "-50 per day",
-    special: "Any amputated limb recovers if placed within 1 week",
+    special: "Any amputated limb recovers if placed within 1 week"
   },
   12: {
     resting: "5 per minute",
     notResting: "NA",
     reduction: "-5 per hour",
-    special: "As above, but within 3 days",
+    special: "As above, but within 3 days"
   },
   13: {
     resting: "10 per minute",
     notResting: "NA",
     reduction: "-10 per hour",
-    special: "As above, but within 1 day",
+    special: "As above, but within 1 day"
   },
   14: {
     resting: "1 per Turn",
     notResting: "NA",
     reduction: "-15 per hour",
-    special: "Any limb recovers within several hours",
+    special: "Any limb recovers within several hours"
   },
   15: {
     resting: "5 per Turn",
     notResting: "NA",
     reduction: "-20 per hour",
     special:
-      "Any limb recovers immediately if placed within 1 Turn; all limbs regrow within 1 week (except head)",
+      "Any limb recovers immediately if placed within 1 Turn; all limbs regrow within 1 week (except head)"
   },
   16: {
     resting: "10 per Turn",
     notResting: "NA",
     reduction: "-10 per minute",
-    special: "All limbs regrow within 3 days (except head)",
+    special: "All limbs regrow within 3 days (except head)"
   },
   17: {
     resting: "25 per Turn",
     notResting: "NA",
     reduction: "-10 per Turn",
-    special: "All limbs regrow within a few hours (except head)",
+    special: "All limbs regrow within a few hours (except head)"
   },
   18: {
     resting: "50 per Turn",
     notResting: "NA",
     reduction: "-25 per Turn",
-    special: "All limbs regrow within a few Turns (except head)",
+    special: "All limbs regrow within a few Turns (except head)"
   },
   19: {
     resting: "100 per Turn",
     notResting: "NA",
     reduction: "ALL each Turn",
-    special: "Limb regrows fully in one Turn",
+    special: "Limb regrows fully in one Turn"
   },
   20: {
     resting: "250 per Turn",
     notResting: "NA",
     reduction: "ALL each Turn",
-    special: "All physical criticals are annulled",
-  },
+    special: "All physical criticals are annulled"
+  }
 };

@@ -3,7 +3,9 @@
   <div class="lft-block">
     <h3
       data-tooltip="Final Life Points = 20 + (Constitution Base * 10)  + (Class Life Points Per Level * Class Level + Bonus.)"
-    >LP Total: {{system.lifePoints.final}}</h3>
+    >
+      LP Total: {{system.core.lifePoints.final}}
+    </h3>
     <table class="lft-table">
       <tr>
         <td>
@@ -11,8 +13,8 @@
             class="input-expand"
             data-tooltip="Current Life Points"
             type="number"
-            name="system.lifePoints.current"
-            value="{{system.lifePoints.current}}"
+            name="system.core.lifePoints.current"
+            value="{{system.core.lifePoints.current}}"
           />
         </td>
         <td>
@@ -20,8 +22,8 @@
             class="input-expand"
             data-tooltip="Bonus Life Points"
             type="number"
-            name="system.lifePoints.bonus"
-            value="{{system.lifePoints.bonus}}"
+            name="system.core.lifePoints.bonus"
+            value="{{system.core.lifePoints.bonus}}"
           />
         </td>
       </tr>
@@ -30,8 +32,10 @@
 
   <!-- Fatigue -->
   <div class="lft-block">
-    <h3 data-tooltip="Final Fatigue = Constitution Base.">Fatigue Total:
-      {{system.fatigue.final}}</h3>
+    <h3 data-tooltip="Final Fatigue = Constitution Base.">
+      Fatigue Total:
+      {{system.fatigue.final}}
+    </h3>
     <table class="lft-table">
       <tr>
         <td>
@@ -44,7 +48,9 @@
         </td>
         <td
           data-tooltip="The current penatly to all actions caused from current fatigue being < 4. (or < 3 if you have fatigue of 4 and so on)"
-        >{{system.fatigue.actionPenalty}}</td>
+        >
+          {{system.fatigue.actionPenalty}}
+        </td>
       </tr>
     </table>
   </div>
@@ -53,7 +59,9 @@
   <div class="lft-block">
     <h3
       data-tooltip="Total Initiative = 20 (for normal sized creatures) + (Agility Final + Dexterity Final) + Armor Modifier + Weapon Modifier + (Class Initiative Per Level * Class Level) + Bonus + Special (Effect, magic Item, etc..)"
-    >Initiative Total: {{system.initiative.final}}</h3>
+    >
+      Initiative {{system.initiative.final}}
+    </h3>
     <table class="lft-table">
       <tr>
         <td>

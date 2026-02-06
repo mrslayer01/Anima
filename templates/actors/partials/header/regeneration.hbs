@@ -1,45 +1,63 @@
 <section class="movement-section">
-  <h3>Regeneration</h3>
+  <h3>
+    Regeneration
+  </h3>
 
   <table class="movement-table">
     <tr>
-      <th>Bonus</th>
-      <th>Regen Level</th>
-      <th>Resting Recovery</th>
-      <th>Not Resting Recovery</th>
-      <th>Wound Penalty Reduction</th>
+      <th>
+        Bonus
+      </th>
+      <th>
+        Regen Level
+      </th>
+      <th>
+        Resting Recovery
+      </th>
+      <th>
+        Not Resting Recovery
+      </th>
+      <th>
+        Wound Penalty Reduction
+      </th>
     </tr>
 
     <tr>
       <td data-tooltip="Bonus to regen">
         <input
           type="number"
-          name="system.lifePoints.regeneration.bonus"
-          value="{{system.lifePoints.regeneration.bonus}}"
+          name="system.core.lifePoints.regeneration.bonus"
+          value="{{system.core.lifePoints.regeneration.bonus}}"
         />
       </td>
 
       <td data-tooltip="Regeneration Level">
-        {{system.lifePoints.regeneration.regenLevel}}
+        {{system.core.lifePoints.regeneration.regenLevel}}
       </td>
 
-      <td data-tooltip="Life Points Per Day Resting (Resting characters must pass the day receiving care and moving as little as possible.)">
-        {{system.lifePoints.regeneration.lifePointsPerDayResting}}
+      <td
+        data-tooltip="Life Points Per Day Resting (Resting characters must pass the day receiving care and moving as little as possible.)"
+      >
+        {{system.core.lifePoints.regeneration.lifePointsPerDayResting}}
       </td>
 
       <td data-tooltip="Life Points Per Day (Not Resting)">
-        {{system.lifePoints.regeneration.lifePointsPerDayNotResting}}
+        {{system.core.lifePoints.regeneration.lifePointsPerDayNotResting}}
       </td>
 
-      <td data-tooltip="Penalties to action due to physical wounds, such as broken bones or concussion.">
-        {{system.lifePoints.regeneration.woundPenaltyReduc}}
+      <td
+        data-tooltip="Penalties to action due to physical wounds, such as broken bones or concussion."
+      >
+        {{system.core.lifePoints.regeneration.woundPenaltyReduc}}
       </td>
     </tr>
 
     <tr>
       <td colspan="5">
-        <strong>Special:</strong>
-        {{system.lifePoints.regeneration.specialCapabilities}}
+        <strong>
+          Special:
+        </strong>
+        {{system.core.lifePoints.regeneration.specialCapabilities}}
       </td>
     </tr>
   </table>
