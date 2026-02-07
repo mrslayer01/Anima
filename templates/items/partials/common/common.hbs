@@ -1,5 +1,4 @@
 <section class="common-fields">
-
   <div class="section-block">
 
       <table class="common-table">
@@ -11,7 +10,11 @@
 
           <td>
             <label>Availability</label>
-            <input type="text" name="system.availability" value="{{system.availability}}" />
+              <select name="system.availability" class="availability-select">
+              <option value="common" {{#if (eq system.availability "common")}}selected{{/if}}>Common</option>
+              <option value="uncommon" {{#if (eq system.availability "uncommon")}}selected{{/if}}>Uncommon</option>
+              <option value="rare" {{#if (eq system.availability "rare")}}selected{{/if}}>Rare</option>
+            </select>
           </td>
 
           <td>
@@ -23,30 +26,17 @@
               <option value="luxury" {{#if (eq system.quality.value "luxury")}}selected{{/if}}>Luxury / Designer</option>
             </select>
           </td>
+          <td>
+            <label>Cost</label>
+            <input type="number" name="system.cost.value" value="{{system.cost.value}}" />
+            <select name="system.cost.type" class="currency-select">
+              <option value="copper" {{#if (eq system.cost.type "copper")}}selected{{/if}}>Copper</option>
+              <option value="silver" {{#if (eq system.cost.type "silver")}}selected{{/if}}>Silver</option>
+              <option value="gold" {{#if (eq system.cost.type "gold")}}selected{{/if}}>Gold</option>
+            </select>
+          </td>
         </tr>
       </table>
-
-  <div class="section-block">
-
-  <table class="common-table">
-    <tr>
-      <td>
-        <label>Copper</label>
-        <input type="number" name="system.cost.copper" value="{{system.cost.copper}}" />
-      </td>
-
-      <td>
-        <label>Silver</label>
-        <input type="number" name="system.cost.silver" value="{{system.cost.silver}}" />
-      </td>
-
-      <td>
-        <label>Gold</label>
-        <input type="number" name="system.cost.gold" value="{{system.cost.gold}}" />
-      </td>
-    </tr>
-  </table>
-
   </div>
-
+  
 </section>

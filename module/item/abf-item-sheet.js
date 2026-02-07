@@ -5,8 +5,15 @@ export class AbfItemSheet extends foundry.appv1.sheets.ItemSheet {
     return mergeObject(super.defaultOptions, {
       classes: ["abf-system", "sheet", "item"],
       template: "systems/abf-system/templates/items/item-sheet.hbs",
-      width: 500,
-      height: 400
+      width: 540,
+      height: 490,
+      tabs: [
+        {
+          navSelector: ".sheet-tabs",
+          contentSelector: ".sheet-body",
+          initial: "main"
+        }
+      ]
     });
   }
 
@@ -30,31 +37,20 @@ export class AbfItemSheet extends foundry.appv1.sheets.ItemSheet {
 
     let value = Number(input.value);
 
-    const isCurrency = name.startsWith("system.cost.");
+    const isCurrency = name.startsWith("system.cost.value");
 
-    if (isCurrency) {
-      //Currency can't go negative
-      if (name.endsWith(".copper") && value < 0) {
-        value = 0;
-        input.value = 0;
-      }
-      if (name.endsWith(".silver") && value < 0) {
-        value = 0;
-        input.value = 0;
-      }
-      if (name.endsWith(".gold") && value < 0) {
-        value = 0;
-        input.value = 0;
-      }
+    if (name.startsWith("system.cost.value") && value < 0) {
+      //currency can't go negative
+      value = 0;
+      input.value = 0;
     }
 
     await this.item.update({ [name]: value });
   }
 
   activateListeners(html) {
-  super.activateListeners(html);
+    super.activateListeners(html);
 
-  registerSheetListeners(this, html);
-
+    registerSheetListeners(this, html);
   }
 }

@@ -62,7 +62,6 @@ export function detectChangedPrimariesAbilities(data, oldSystem) {
 
 export function updatePrimariesAbilities(actor, changed) {
   const system = actor.system;
-  const classData = extractAllClassAbilityData(system);
 
   for (const { categoryName, ability } of changed) {
     recalcPrimariesAbilities(system, categoryName, ability);

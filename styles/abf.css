@@ -729,7 +729,7 @@
   padding: 0.5rem;
   border: 1px solid var(--color-border-light, #999);
   border-radius: 4px;
-  background: rgba(0,0,0,0.05);
+  background: rgba(0, 0, 0, 0.05);
 }
 
 /* Popup dropdown and OK button */
@@ -770,10 +770,12 @@
 }
 
 /* Dropdown option backgrounds */
-.quality-select option {
+.quality-select option,
+.currency-select option,
+.availability-select option,
+.prim-attk-select option,
+.sec-attk-select option,
+.modifier-select option {
   background-color: #11141c;
   color: #fff;
 }
-
-
-

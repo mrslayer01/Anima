@@ -1,12 +1,20 @@
-<section class="inventory-table common-goods" data-table="commonGoods">
-  <h3>Common Goods</h3>
+<section class="inventory-table common-goods">
+  <h3>
+    Common Goods
+  </h3>
 
-  <table class="item-table">
+  <table class="item-table" data-table="commonGoods">
     <thead>
       <tr>
-        <th>Name</th>
-        <th>Weight</th>
-        <th>Cost</th>
+        <th>
+          Name
+        </th>
+        <th>
+          Weight
+        </th>
+        <th>
+          Cost
+        </th>
         <th></th>
       </tr>
     </thead>
@@ -14,15 +22,123 @@
     <tbody>
       {{#each system.tables.commonGoods as |item|}}
         <tr data-item-id="{{item.id}}" class="item-row">
-          <td class="item-name item-edit clickable" >{{item.name}}</td>
-          <td>{{item.system.weight}}</td>
+          <td class="item-name item-edit clickable">
+            {{item.name}}
+          </td>
           <td>
-            {{item.system.cost.copper}}c
-            {{item.system.cost.silver}}s
-            {{item.system.cost.gold}}g
+            {{item.system.weight}}
+          </td>
+          <td>
+            {{item.system.cost.value}} {{item.system.cost.type}}
           </td>
           <td class="item-controls">
-            <a class="item-delete"><i class="fas fa-trash"></i></a>
+            <a class="item-delete">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <h3>
+    Weapons
+  </h3>
+
+  <table class="item-table" data-table="weapons">
+    <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Weight
+        </th>
+        <th>
+          Cost
+        </th>
+        <th>
+          Equipped?
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each system.tables.weapons as |item|}}
+        <tr data-item-id="{{item.id}}" class="item-row">
+          <td class="item-name item-edit clickable">
+            {{item.name}}
+          </td>
+          <td>
+            {{item.system.weight}}
+          </td>
+          <td>
+            {{item.system.cost.value}} {{item.system.cost.type}}
+          </td>
+          <td class="equip-toggle clickable" data-item-id="{{item.id}}">
+            {{#if item.system.weapon.equipped}}
+              <i class="fas fa-check"></i>
+            {{else}}
+              <i class="fas fa-times"></i>
+            {{/if}}
+          </td>
+          <td class="item-controls">
+            <a class="item-delete">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  <h3>
+    Armor
+  </h3>
+
+  <table class="item-table" data-table="armor">
+    <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Weight
+        </th>
+        <th>
+          Cost
+        </th>
+        <th>
+          Equipped?
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each system.tables.weapons as |item|}}
+        <tr data-item-id="{{item.id}}" class="item-row">
+          <td class="item-name item-edit clickable">
+            {{item.name}}
+          </td>
+          <td>
+            {{item.system.weight}}
+          </td>
+          <td>
+            {{item.system.cost.value}} {{item.system.cost.type}}
+          </td>
+          <td class="equip-toggle clickable" data-item-id="{{item.id}}">
+            {{#if item.system.weapon.equipped}}
+              <i class="fas fa-check"></i>
+            {{else}}
+              <i class="fas fa-times"></i>
+            {{/if}}
+          </td>
+          <td class="item-controls">
+            <a class="item-delete">
+              <i class="fas fa-trash"></i>
+            </a>
           </td>
         </tr>
       {{/each}}

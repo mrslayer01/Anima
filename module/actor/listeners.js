@@ -49,8 +49,6 @@ export function registerSheetListeners(sheet, html) {
     const abilityName = ev.currentTarget.dataset.ability;
     const ability = sheet.actor.system.abilities.Secondaries[categoryName][abilityName];
 
-    console.log(abilityName, ability);
-
     //don't allow the rolling of Knoweldge skills that are undeveloped
     if (ability.undeveloped && ability.knowledge) {
       return ui.notifications.error("Unable to roll for an undeveloped knowledge ability.");
@@ -242,7 +240,6 @@ export function registerSheetListeners(sheet, html) {
     const classData = sheet.actor.system.classes.find((c) => c.name === className);
 
     if (!classData) return ui.notifications.error("Class data not found");
-    console.log(classData);
 
     openJournalFromUUID(classData.journalEntry);
   });
@@ -692,6 +689,23 @@ export function registerSheetListeners(sheet, html) {
     if (!confirmed) return;
 
     actor.deleteEmbeddedDocuments("Item", [itemId]);
+  });
+
+  //#endregion
+
+  //#region Items
+
+  html.find(".weapon-equip-toggle").on("click", async (ev) => {
+    const itemId = ev.currentTarget.dataset.itemId;
+    const item = sheet.actor.items.get(itemId);
+
+    const current = item.system.weapon.equipped ?? false;
+
+    await item.update({
+      "system.weapon.equipped": !current
+    });
+
+    sheet.render(false);
   });
 
   //#endregion

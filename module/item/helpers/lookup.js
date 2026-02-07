@@ -1,8 +1,8 @@
 //General lookup tables for various calculations.
 
 export const toNum = (v) => {
-        const n = parseFloat(v);
-        return Number.isFinite(n) ? n : 0;
+  const n = parseFloat(v);
+  return Number.isFinite(n) ? n : 0;
 };
 
 export const PRICE_MODIFIERS = {
@@ -13,7 +13,7 @@ export const PRICE_MODIFIERS = {
 };
 
 export function costToCopper(cost) {
-  return (cost.gold * 1000) + (cost.silver * 10) + cost.copper;
+  return cost.gold * 1000 + cost.silver * 10 + cost.copper;
 }
 
 export function copperToCost(totalCopper) {
@@ -26,4 +26,15 @@ export function copperToCost(totalCopper) {
   return { gold, silver, copper };
 }
 
+export const CURRENCY_TYPES = {
+  copper: "Copper",
+  silver: "Silver",
+  gold: "Gold"
+};
 
+export const WEAPON_SIMILARITY_MODIFIERS = {
+  none: 0,
+  similar: -20,
+  mixed: -40,
+  unarmed: -60
+};

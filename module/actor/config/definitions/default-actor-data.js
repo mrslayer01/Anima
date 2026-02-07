@@ -153,7 +153,6 @@ export const DEFAULT_ACTOR_DATA = {
           passive: false,
           undeveloped: true,
           mastery: false,
-
           armorPenalty: true
         },
         Athletics: {
@@ -168,7 +167,6 @@ export const DEFAULT_ACTOR_DATA = {
           passive: false,
           undeveloped: true,
           mastery: false,
-
           armorPenalty: true
         },
         Climb: {
@@ -183,7 +181,6 @@ export const DEFAULT_ACTOR_DATA = {
           passive: false,
           undeveloped: true,
           mastery: false,
-
           armorPenalty: true
         },
         Jump: {
@@ -198,7 +195,6 @@ export const DEFAULT_ACTOR_DATA = {
           passive: false,
           undeveloped: true,
           mastery: false,
-
           armorPenalty: true
         },
         Ride: {
@@ -213,7 +209,6 @@ export const DEFAULT_ACTOR_DATA = {
           passive: false,
           undeveloped: true,
           mastery: false,
-
           armorPenalty: false
         },
         Swim: {
@@ -228,7 +223,6 @@ export const DEFAULT_ACTOR_DATA = {
           passive: false,
           undeveloped: true,
           mastery: false,
-
           armorPenalty: true
         }
       },
@@ -246,7 +240,6 @@ export const DEFAULT_ACTOR_DATA = {
           passive: true,
           undeveloped: true,
           mastery: false,
-
           armorPenalty: false
         },
         FeatsOfStrength: {
@@ -261,7 +254,6 @@ export const DEFAULT_ACTOR_DATA = {
           passive: false,
           undeveloped: true,
           mastery: false,
-
           armorPenalty: true
         },
         WithstandPain: {
@@ -276,7 +268,6 @@ export const DEFAULT_ACTOR_DATA = {
           passive: false,
           undeveloped: true,
           mastery: false,
-
           armorPenalty: false
         }
       },
@@ -294,7 +285,6 @@ export const DEFAULT_ACTOR_DATA = {
           passive: true,
           undeveloped: true,
           mastery: false,
-
           armorPenalty: false
         },
         Search: {
@@ -309,7 +299,6 @@ export const DEFAULT_ACTOR_DATA = {
           passive: false,
           undeveloped: true,
           mastery: false,
-
           armorPenalty: false
         },
         Track: {
@@ -324,7 +313,6 @@ export const DEFAULT_ACTOR_DATA = {
           passive: false,
           undeveloped: true,
           mastery: false,
-
           armorPenalty: false
         }
       },
@@ -342,7 +330,6 @@ export const DEFAULT_ACTOR_DATA = {
           passive: false,
           undeveloped: true,
           mastery: false,
-
           armorPenalty: false
         },
         Appraisal: {
@@ -357,7 +344,6 @@ export const DEFAULT_ACTOR_DATA = {
           passive: false,
           undeveloped: true,
           mastery: false,
-
           armorPenalty: false
         },
         HerbalLore: {
@@ -372,7 +358,6 @@ export const DEFAULT_ACTOR_DATA = {
           passive: false,
           undeveloped: true,
           mastery: false,
-
           armorPenalty: false
         },
         History: {
@@ -878,5 +863,23 @@ export const DEFAULT_ACTOR_DATA = {
   contacts: [],
   presence: { bonus: 0, final: 0 },
   notes: "",
-  currency: { copper: 0, silver: 0, gold: 0 }
+  currency: { copper: 0, silver: 0, gold: 0 },
+  globalModifier: {
+    physical: {
+      special: 0,
+      final: 0
+    },
+    actions: {
+      special: 0,
+      final: 0
+    },
+    natural: {
+      special: 0,
+      final: 0
+    },
+    perception: {
+      special: 0,
+      final: 0
+    }
+  }
 };

@@ -20,7 +20,7 @@ export const toNum = (v) => {
 
 export const TABLE_ITEM_TYPES = {
   commonGoods: ["commonGood"],
-  weapons: ["weapon", "rangedWeapon"],
-  armor: ["armor"],
+  weapons: ["weapon"],
+  armor: ["armor", "helm"],
   consumables: ["potion", "scroll"]
 };

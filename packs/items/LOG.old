@@ -1,4 +1,3 @@
-2026/02/06-19:27:34.749 ec60 Log #13: 0 ops saved to Table #14 OK
-2026/02/06-19:27:34.749 ec60 Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\items/000013.log: OK
-2026/02/06-19:27:34.751 ec60 Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\items/MANIFEST-000027: OK
-2026/02/06-19:27:34.753 ec60 **** Repaired leveldb C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\items; recovered 0 files; 0 bytes. Some data may have been lost. ****
+2026/02/07-11:06:13.504 18bfc Recovering log #18
+2026/02/07-11:06:13.507 18bfc Delete type=0 #18
+2026/02/07-11:06:13.507 18bfc Delete type=3 #17

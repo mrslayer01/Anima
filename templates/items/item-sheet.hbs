@@ -12,15 +12,26 @@
         />
     </div>
     <!-- Always render the common onto each item. -->
-    {{> "systems/abf-system/templates/items/partials/common.hbs"}}
+    {{> "systems/abf-system/templates/items/partials/common/common.hbs"}}
 
-    {{!-- {{#if (eq item.type "weapon")}}
-      {{> "systems/abf-system/templates/items/partials/weapon.hbs"}}
-    {{/if}}
+      <!-- TABS -->
+  <nav class="sheet-tabs" data-group="primary">
+    <a class="item" data-tab="main">Main</a>
+    <a class="item" data-tab="description">Description</a>
+  </nav>
 
-    {{#if (eq item.type "commonGood")}}
-      {{> "systems/abf-system/templates/items/partials/commonGood.hbs"}}
-    {{/if}} --}}
+    <section class="sheet-body">
 
+      <div class="tab main" data-group="primary" data-tab="main">
+        {{#if (eq item.type "weapon")}}
+          {{> "systems/abf-system/templates/items/partials/weapon/weapon.hbs"}}
+        {{/if}}
+      </div>
+      
+      <div class="tab description" data-group="primary" data-tab="description">
+        {{> "systems/abf-system/templates/items/partials/common/description.hbs"}}
+      </div>
+
+    </section>
 
 </form>

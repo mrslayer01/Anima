@@ -21,6 +21,7 @@ import { calculateMovement } from "./derived-movement.js";
 import { calculateElanFinal } from "./derived-elan.js";
 import { calculateRegeneration } from "./derived-regeneration.js";
 import { applyClassBonuses } from "./derrived-class-details.js";
+import { calculateGlobalModifiers } from "./derrived-modifiers.js";
 
 //used to calculate all derived values for an actor that depends on something else.
 export function calculateDerivedValues(system, actor) {
@@ -28,12 +29,19 @@ export function calculateDerivedValues(system, actor) {
   calculateTotalLevel(system);
   calculateXpToNextLevel(system);
   calculatePresence(system);
-  calculateMaxDP(system); // PURE — safe to run always
+  calculateMaxDP(system);
+  calculateFinalFatigue(system);
+  applyClassBonuses(system);
+  //Apply penalties if any to special
+  calculateGlobalModifiers(system);
 
   // 2. Initialize finals ONLY if actor is new or flagged
   if (actor._initialize) {
     initializeAllCharacteristics(system);
+    calculateFinalFatigue(system);
     applyClassBonuses(system);
+    //Apply penalties if any to special
+    calculateGlobalModifiers(system);
     initializeAllAbilities(system);
     initializeAllResistances(system);
   }
@@ -42,8 +50,6 @@ export function calculateDerivedValues(system, actor) {
   if (actor._changedCharacteristics?.length) {
     applyChangedCharacteristics(system, actor);
   }
-
-  applyClassBonuses(system);
 
   if (actor._changedPrimariesAbilities?.length) {
     applyChangedPrimariesAbilities(system, actor);
@@ -60,7 +66,6 @@ export function calculateDerivedValues(system, actor) {
   // 4. Other derived values
   calculateFinalLifePoints(system);
   calculateFinalInitiative(system);
-  calculateFinalFatigue(system);
   calculateCharacterSize(system);
   calculateMovement(system);
   calculateElanFinal(system);

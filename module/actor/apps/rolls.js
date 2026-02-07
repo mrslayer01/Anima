@@ -36,21 +36,19 @@ export async function characteristicCheck({ value, label, actor }) {
   const roll = await rollDice("1d10");
   const result = roll.total;
 
-  let effectiveRoll = result;   // start with the raw roll
+  let effectiveRoll = result; // start with the raw roll
   let ruleText = "";
 
   if (result === 1) {
-    effectiveRoll -= 3;         // roll becomes better
+    effectiveRoll -= 3; // roll becomes better
     ruleText = " (-3 Rule of 1)";
   } else if (result === 10) {
-    effectiveRoll += 3;         // roll becomes worse
+    effectiveRoll += 3; // roll becomes worse
     ruleText = " (+3 Rule of 10)";
   }
 
   const success = effectiveRoll <= target;
   const margin = Math.abs(effectiveRoll - target);
-
-
 
   const content = `
     <b>${name}</b><br>
@@ -58,9 +56,10 @@ export async function characteristicCheck({ value, label, actor }) {
     <b>Your Roll:</b> ${result}${ruleText}<br>
     <b>Target:</b> ${target}<br>
     <hr>
-    ${success
-      ? `<span style="color:green"><b>Success</b></span> (Margin: ${margin})`
-      : `<span style="color:red"><b>Failure</b></span> (Margin: ${margin})`
+    ${
+      success
+        ? `<span style="color:green"><b>Success</b></span> (Margin: ${margin})`
+        : `<span style="color:red"><b>Failure</b></span> (Margin: ${margin})`
     }
   `;
 
@@ -107,7 +106,6 @@ export async function fumbleRoll({ fumbleValue, label, mastery, actor }) {
 
 export async function animaOpenRoll({ value, label, mastery, undeveloped, actor }) {
   const bonus = Number(value) || 0;
-  const fatiguePenalty = Number(actor.system.fatigue.actionPenalty) || 0;
   const name = label ?? "Open Roll";
   const isMastery = mastery === true;
   const isUndeveloped = undeveloped === true;
@@ -142,8 +140,8 @@ export async function animaOpenRoll({ value, label, mastery, undeveloped, actor 
     }
   }
 
-  const breakdown = rawRolls.map(r => `${r}`).join("<br>");
-  const final = isUndeveloped ? total + bonus - 30 + fatiguePenalty : total + bonus + fatiguePenalty;
+  const breakdown = rawRolls.map((r) => `${r}`).join("<br>");
+  const final = isUndeveloped ? total + bonus - 30 : total + bonus;
 
   const content = `
     <b>${name}${isUndeveloped ? " — Undeveloped" : ""}</b><br>
@@ -152,7 +150,6 @@ export async function animaOpenRoll({ value, label, mastery, undeveloped, actor 
     ${breakdown}<br>
     <b>Roll Total:</b> ${total}<br>
     <b>Roll Bonus:</b> ${bonus}<br>
-    ${fatiguePenalty < 0 ? `<b>Fatigue Penalty:</b> ${fatiguePenalty}<br>` : ""}
     ${isUndeveloped ? "<b>Undeveloped Penalty:</b> -30<br>" : ""}
     <hr>
     <b>Final Total:</b> ${final}
@@ -167,28 +164,28 @@ export async function animaOpenRoll({ value, label, mastery, undeveloped, actor 
 
 export async function resistanceCheck({ value, difficulty, label, actor }) {
   const bonus = Number(value) || 0;
-  const fatiguePenalty = Number(actor.system.fatigue.actionPenalty) || 0;
   const diff = Number(difficulty) || 80;
   const name = label ?? "Resistance Check";
 
   const roll = await rollDice("1d100");
   const raw = roll.total;
 
-  const total = raw + bonus + fatiguePenalty;
+  const total = raw + bonus;
   const success = total >= diff;
+  //${fatiguePenalty < 0 ? `<b>Fatigue Penalty:</b> ${fatiguePenalty}<br>` : ""}
 
   const content = `
     <b>${name}</b><br>
     <hr>
     <b>Roll:</b> ${raw}<br>
     <b>Bonus:</b> ${bonus}<br>
-    ${fatiguePenalty < 0 ? `<b>Fatigue Penalty:</b> ${fatiguePenalty}<br>` : ""}
     <b>Total:</b> ${total}<br>
     <b>Difficulty:</b> ${diff}<br>
     <hr>
-    ${success
-      ? `<span style="color:green"><b>Success</b></span>`
-      : `<span style="color:red"><b>Failure</b></span>`
+    ${
+      success
+        ? `<span style="color:green"><b>Success</b></span>`
+        : `<span style="color:red"><b>Failure</b></span>`
     }
   `;
 

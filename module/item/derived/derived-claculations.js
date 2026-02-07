@@ -1,7 +1,3 @@
-import { toNum} from "../helpers/lookup.js";
+import { toNum, WEAPON_SIMILARITY_MODIFIERS } from "../helpers/lookup.js";
 
-export function calculateDerivedValues(system, item) {
-    //modify price of item depending on quality.
-
-    
-}
+export async function calculateDerivedValues(system, item) {}

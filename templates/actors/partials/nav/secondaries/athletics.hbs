@@ -61,7 +61,10 @@
             class="ability-roll clickable"
             data-category="Athletics"
             data-ability="{{key}}"
-            data-tooltip="Click to make an Open roll."
+            data-tooltip="
+              <div><strong>Knowledge:</strong> {{ability.knowledge}}</div>
+              <div><strong>DP Cost:</strong> {{ability.cost}}</div>
+            "
           >
             {{ability.final}}
           </td>

@@ -29,27 +29,23 @@
         "contacts": [],
         "presence": {},
         "notes": "",
-        "currency": {}
+        "currency": {},
+        "globalModifier": {}
       }
     }
   },
   "Item": {
-    "types": ["commonGood"],
+    "types": ["commonGood", "weapon"],
     "system": {
       "name": "",
-      "cost": { "copper": 0, "silver": 0, "gold": 0 },
+      "cost": {},
       "weight": 0,
       "availability": "",
-      "quality": { "value": "decent" }
+      "quality": {},
+      "description": ""
     },
-    "commonGood": {
-      "system": {
-        "name": "",
-        "cost": { "copper": 0, "silver": 0, "gold": 0 },
-        "weight": 0,
-        "availability": "",
-        "quality": { "value": "decent" }
-      }
+    "weapon": {
+      "system": {}
     }
   }
 }
