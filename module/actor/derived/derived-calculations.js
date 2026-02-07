@@ -33,6 +33,7 @@ export function calculateDerivedValues(system, actor) {
   // 2. Initialize finals ONLY if actor is new or flagged
   if (actor._initialize) {
     initializeAllCharacteristics(system);
+    applyClassBonuses(system);
     initializeAllAbilities(system);
     initializeAllResistances(system);
   }

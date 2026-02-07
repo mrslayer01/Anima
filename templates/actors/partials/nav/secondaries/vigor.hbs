@@ -1,45 +1,79 @@
-<h3>Vigor</h3>
+<h3>
+  Vigor
+</h3>
 <div class="secondary-block">
-<table class="ability-table">
-  <thead>
-    <tr>
-      <th class="ability-table-name">Ability</th>
-      <th>Base</th>
-      <th>Bonus</th>
-      <th>Class</th>
-      <th>Final</th>
-      <th>Passive</th>
-    </tr>
-  </thead>
-  <tbody>
-    {{#each actor.system.abilities.Secondaries.Vigor as |ability key|}}
+  <table class="ability-table">
+    <thead>
       <tr>
-        <td data-tooltip="{{ability.description}} - Kowledge Ability: {{ability.knowledge}}">{{localize (concat "ABF.Ability." key)}}</td>
-        <td><input
-            class="mod-input-resize-char secondary-input"
-            type="number"
-            data-name="{{key}}"
-            data-cost="{{ability.cost}}"
-            value="{{ability.base}}"
-            name="system.abilities.Secondaries.Vigor.{{key}}.base"
-          /></td>
-        <td><input
-            class="mod-input-resize-char"
-            type="number"
-            value="{{ability.bonus}}"
-            name="system.abilities.Secondaries.Vigor.{{key}}.bonus"
-          /></td>
-        <td>{{ability.class}}</td>
-        <td class="ability-roll clickable" data-category="Vigor" data-ability="{{key}}" data-tooltip="Click to make an Open roll.">{{ability.final}}</td>
-        <td class="passive-icon">
-          {{#if ability.passive}}
-            <i class="fas fa-check"></i>
-          {{else}}
-            <i class="fas fa-times"></i>
-          {{/if}}
-        </td>
+        <th class="ability-table-name">
+          Ability
+        </th>
+        <th>
+          Base
+        </th>
+        <th>
+          Bonus
+        </th>
+        <th>
+          Class
+        </th>
+        <th>
+          Final
+        </th>
+        <th>
+          Passive
+        </th>
       </tr>
-    {{/each}}
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      {{#each actor.system.abilities.Secondaries.Vigor as |ability key|}}
+        <tr>
+          <td
+            data-tooltip="
+              <div><strong>Knowledge:</strong> {{ability.knowledge}}</div>
+              <div><strong>DP Cost:</strong> {{ability.cost}}</div>
+            "
+          >
+            {{localize (concat "ABF.Ability." key)}}
+          </td>
+          <td>
+            <input
+              class="mod-input-resize-char secondary-input"
+              type="number"
+              data-name="{{key}}"
+              data-cost="{{ability.cost}}"
+              value="{{ability.base}}"
+              name="system.abilities.Secondaries.Vigor.{{key}}.base"
+            />
+          </td>
+          <td>
+            <input
+              class="mod-input-resize-char"
+              type="number"
+              value="{{ability.bonus}}"
+              name="system.abilities.Secondaries.Vigor.{{key}}.bonus"
+            />
+          </td>
+          <td>
+            {{ability.class}}
+          </td>
+          <td
+            class="ability-roll clickable"
+            data-category="Vigor"
+            data-ability="{{key}}"
+            data-tooltip="Click to make an Open roll."
+          >
+            {{ability.final}}
+          </td>
+          <td class="passive-icon">
+            {{#if ability.passive}}
+              <i class="fas fa-check"></i>
+            {{else}}
+              <i class="fas fa-times"></i>
+            {{/if}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </div>

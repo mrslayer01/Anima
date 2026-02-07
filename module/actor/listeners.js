@@ -13,6 +13,7 @@ import { updateDP } from "./classes/development-points.js";
 import { ABF_CLASSES } from "./config/classes.js";
 import { validateDP } from "./helpers/validate-dp-left.js";
 import { ABF_LORDS } from "./config/elans.js";
+import { COMBAT_TABLE } from "./helpers/combat.js";
 
 export function registerSheetListeners(sheet, html) {
   //#region ROLLS
@@ -145,7 +146,9 @@ export function registerSheetListeners(sheet, html) {
           </button>
 
           <select id="class-select" style="flex: 1;">
-            ${classOptions.map((cls) => `<option value="${cls}">${cls}</option>`).join("")}
+            ${classOptions
+              .map((cls) => `<option value="${cls}">${normalizeClassName(cls)}</option>`)
+              .join("")}
           </select>
 
         </div>
@@ -692,6 +695,92 @@ export function registerSheetListeners(sheet, html) {
   });
 
   //#endregion
+
+  html.find(".combat").off("click");
+  html.find(".combat").on("click", async (event) => {
+    // === Prompt for values ===
+    new Dialog({
+      title: "Combat Table Lookup",
+      content: `
+    <div style="margin-bottom:10px;">
+      <label>Attack Result:</label>
+      <input id="attackResult" type="number" style="width:100%;" />
+    </div>
+    <div>
+      <label>Armor Type (AT 0–10):</label>
+      <input id="armorType" type="number" min="0" max="10" style="width:100%;" />
+    </div>
+  `,
+      buttons: {
+        ok: {
+          label: "Resolve",
+          callback: (html) => {
+            const attackResult = Number(html.find("#attackResult").val());
+            const armorType = Number(html.find("#armorType").val());
+
+            const outcome = resolveCombat(attackResult, armorType, COMBAT_TABLE);
+
+            let title = "";
+            let body = "";
+
+            if (outcome.type === "damage") {
+              title = `<span style="color:#0a0; font-weight:bold;">Hit! Damage Dealt</span>`;
+              body = `
+            <b>Attack Result:</b> ${attackResult}<br>
+            <b>AT:</b> ${armorType}<br>
+            <b>Damage %:</b> ${outcome.percent}%<br>
+          `;
+            } else if (outcome.type === "counter") {
+              title = `<span style="color:#c00; font-weight:bold;">Counterattack!</span>`;
+              body = `
+            <b>Attack Result:</b> ${attackResult}<br>
+            <b>AT:</b> ${armorType}<br>
+            <b>Counter Bonus:</b> +${outcome.bonus}<br>
+          `;
+            } else if (outcome.type === "nodamage") {
+              title = `<span style="color:#666; font-weight:bold;">Hit, No Damage</span>`;
+              body = `
+            <b>Attack Result:</b> ${attackResult}<br>
+            <b>AT:</b> ${armorType}<br>
+            <b>Effect:</b> Defender loses Active Action<br>
+          `;
+            } else {
+              title = `<span style="color:#c00; font-weight:bold;">Error</span>`;
+              body = outcome.error;
+            }
+
+            const card = `
+          <div class="anima-card" style="border:1px solid #444; padding:8px; border-radius:6px;">
+            <div style="font-size:1.1em; margin-bottom:4px;">${title}</div>
+            <hr>
+            <div>${body}</div>
+          </div>
+        `;
+
+            ChatMessage.create({
+              user: game.user.id,
+              content: card
+            });
+          }
+        },
+        cancel: { label: "Cancel" }
+      }
+    }).render(true);
+
+    // === Resolver (uses your generated table) ===
+    function resolveCombat(attackResult, armorType, table) {
+      const column = table[armorType];
+      if (!column) return { error: "Invalid AT" };
+
+      for (const row of column) {
+        if (attackResult >= row.min && attackResult <= row.max) {
+          return row.value;
+        }
+      }
+
+      return { error: "No matching range" };
+    }
+  });
 }
 
 async function openJournalFromUUID(rawUuid) {
@@ -720,4 +809,15 @@ async function openJournalFromUUID(rawUuid) {
       }
     }, 100);
   });
+}
+
+function normalizeClassName(name) {
+  return name
+    .trim()
+    .replace(/([A-Z])/g, " $1") // split CamelCase
+    .replace(/\s+/g, " ") // collapse spaces
+    .trim()
+    .split(" ")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
 }

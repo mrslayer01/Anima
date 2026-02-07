@@ -1,3 +1,5 @@
-2026/02/06-14:34:16.803 cabc Recovering log #55
-2026/02/06-14:34:16.887 cabc Delete type=0 #55
-2026/02/06-14:34:16.887 cabc Delete type=3 #53
+2026/02/06-19:27:34.725 ec60 Log #37: 0 ops saved to Table #38 OK
+2026/02/06-19:27:34.726 ec60 Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\journals/000037.log: OK
+2026/02/06-19:27:34.727 ec60 Table #36: 40 entries OK
+2026/02/06-19:27:34.729 ec60 Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\journals/MANIFEST-000059: OK
+2026/02/06-19:27:34.731 ec60 **** Repaired leveldb C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\journals; recovered 1 files; 76312 bytes. Some data may have been lost. ****

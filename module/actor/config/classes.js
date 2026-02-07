@@ -195,6 +195,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
+      MAMultiple: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -264,6 +265,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
+      MAMultiple: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -338,6 +340,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 2,
       MagicProjection: 3,
+      MAMultiple: 60,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -370,6 +373,81 @@ export const ABF_CLASSES = {
         { name: "Leadership", innateBonus: 10, reducedCost: 0 },
         { name: "Withstand Pain", innateBonus: 10, reducedCost: 1 },
         { name: "Style", innateBonus: 5, reducedCost: 0 }
+      ]
+    },
+
+    specialRules:
+      "If the Paladin chooses not to develop supernatural abilities, they may exchange the +10 Banish and +20 Zeon bonuses for +10 Composure per level.",
+    journalEntry:
+      "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.ihbxBD0PiK7HHtac"
+  }),
+  PaladinAlt: createClass({
+    name: "Paladin",
+    level: 1,
+    archetype: "Fighter",
+    description:
+      "Paladins are Fighters who are very oriented toward defensive fighting, and also make use of certain mystical capabilities. One of their specialties is that of banishing supernatural beings using their own natural powers. Generally, they guide themselves by codes of conduct based on a religious belief or their own sense of honor—though this is not obligatory. They are natural leaders, capable of using their charisma to mobilize a great number of people who may even be willing to give their lives in their service.",
+
+    lifePointMultiple: 15,
+    lifePointsPerLevel: 15,
+
+    initiativePerLevel: 5,
+
+    martialKnowledgePerLevel: 20,
+
+    psychicPointsPerLevel: 1,
+    psychicPointsInterval: 3,
+
+    abilityLimits: {
+      Combat: 60,
+      Supernatural: 50,
+      Psychic: 50
+    },
+
+    primaryAbilityCosts: {
+      Attack: 2,
+      Block: 2,
+      Dodge: 2,
+      WearArmor: 2,
+      Ki: 2,
+      KiAccumulation: 20
+    },
+
+    supernaturalAbilityCosts: {
+      Zeon: 2,
+      MagicProjection: 3,
+      MAMultiple: 60,
+      Summon: 3,
+      Control: 3,
+      Bind: 3,
+      Banish: 1
+    },
+
+    psychicAbilityCosts: {
+      PsychicPoints: 20,
+      PsychicProjection: 3
+    },
+
+    secondaryAbilityCosts: {
+      Athletics: 2,
+      Social: 1,
+      Perception: 2,
+      Intellectual: 2,
+      Vigor: 2,
+      Subterfuge: 3,
+      Creative: 2
+    },
+
+    innateBonuses: {
+      primaryAbilities: [
+        { name: "Block", innateBonus: 5 },
+        { name: "Wear Armor", innateBonus: 10 }
+      ],
+      secondaryAbilities: [
+        { name: "Leadership", innateBonus: 10, reducedCost: 0 },
+        { name: "Withstand Pain", innateBonus: 10, reducedCost: 1 },
+        { name: "Style", innateBonus: 5, reducedCost: 0 },
+        { name: "Composure", innateBonus: 10, reducedCost: 0 }
       ]
     },
 
@@ -413,6 +491,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 2,
       MagicProjection: 3,
+      MAMultiple: 60,
       Summon: 3,
       Control: 1,
       Bind: 3,
@@ -446,6 +525,82 @@ export const ABF_CLASSES = {
         { name: "Composure", innateBonus: 10, reducedCost: 1 },
         { name: "Style", innateBonus: 5, reducedCost: 0 },
         { name: "Persuasion", innateBonus: 5, reducedCost: 0 }
+      ]
+    },
+
+    specialRules:
+      "If the Dark Paladin chooses not to develop supernatural abilities, they may exchange the +10 Control and +20 Zeon bonuses for +10 Withstand Pain per level.",
+    journalEntry:
+      "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.AgT4p02U4NofkUZJ"
+  }),
+  DarkPaladinAlt: createClass({
+    name: "Dark Paladin",
+    level: 1,
+    archetype: "Fighter",
+    description:
+      "In some ways, this class is the polar opposite of the Paladin. Dark Paladins are Fighters who specialize in offense, but who also use some limited mystical abilities. A Dark Paladin’s most important power is the control of supernatural beings who, once they submit to his will, are used to his own benefit. Dark Paladins have a real gift for command, but they employ intimidation and fear to bend others to their wishes. If that doesn’t work, they will use persuasion to get what they want.",
+
+    lifePointMultiple: 15,
+    lifePointsPerLevel: 15,
+
+    initiativePerLevel: 5,
+
+    martialKnowledgePerLevel: 20,
+
+    psychicPointsPerLevel: 1,
+    psychicPointsInterval: 3,
+
+    abilityLimits: {
+      Combat: 60,
+      Supernatural: 50,
+      Psychic: 50
+    },
+
+    primaryAbilityCosts: {
+      Attack: 2,
+      Block: 2,
+      Dodge: 2,
+      WearArmor: 2,
+      Ki: 2,
+      KiAccumulation: 20
+    },
+
+    supernaturalAbilityCosts: {
+      Zeon: 2,
+      MagicProjection: 3,
+      MAMultiple: 60,
+      Summon: 3,
+      Control: 1,
+      Bind: 3,
+      Banish: 3
+    },
+
+    psychicAbilityCosts: {
+      PsychicPoints: 20,
+      PsychicProjection: 3
+    },
+
+    secondaryAbilityCosts: {
+      Athletics: 2,
+      Social: 1,
+      Perception: 2,
+      Intellectual: 2,
+      Vigor: 2,
+      Subterfuge: 2,
+      Creative: 2
+    },
+
+    innateBonuses: {
+      primaryAbilities: [
+        { name: "Attack", innateBonus: 5 },
+        { name: "Wear Armor", innateBonus: 5 }
+      ],
+      secondaryAbilities: [
+        { name: "Intimidate", innateBonus: 10, reducedCost: 0 },
+        { name: "Composure", innateBonus: 10, reducedCost: 1 },
+        { name: "Style", innateBonus: 5, reducedCost: 0 },
+        { name: "Persuasion", innateBonus: 5, reducedCost: 0 },
+        { name: "Withstand Pain", innateBonus: 10, reducedCost: 0 }
       ]
     },
 
@@ -489,6 +644,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
+      MAMultiple: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -559,6 +715,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
+      MAMultiple: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -624,6 +781,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
+      MAMultiple: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -689,6 +847,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
+      MAMultiple: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -754,6 +913,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
+      MAMultiple: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -827,6 +987,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
+      MAMultiple: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -901,6 +1062,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
+      MAMultiple: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -975,6 +1137,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 1,
       MagicProjection: 2,
+      MAMultiple: 50,
       Summon: 2,
       Control: 2,
       Bind: 2,
@@ -1043,6 +1206,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 1,
       MagicProjection: 2,
+      MAMultiple: 50,
       Summon: 2,
       Control: 2,
       Bind: 1,
@@ -1113,6 +1277,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 1,
       MagicProjection: 2,
+      MAMultiple: 60,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -1186,6 +1351,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 1,
       MagicProjection: 2,
+      MAMultiple: 50,
       Summon: 2,
       Control: 2,
       Bind: 2,
@@ -1254,6 +1420,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 1,
       MagicProjection: 3,
+      MAMultiple: 60,
       Summon: 1,
       Control: 1,
       Bind: 1,
@@ -1328,6 +1495,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 1,
       MagicProjection: 3,
+      MAMultiple: 60,
       Summon: 1,
       Control: 1,
       Bind: 1,
@@ -1402,6 +1570,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
+      MAMultiple: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -1467,6 +1636,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
+      MAMultiple: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -1536,6 +1706,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 2,
       MagicProjection: 2,
+      MAMultiple: 60,
       Summon: 2,
       Control: 2,
       Bind: 2,

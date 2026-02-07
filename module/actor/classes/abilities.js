@@ -18,7 +18,7 @@ export function initializeAllAbilities(system) {
       // Skip objects that don't have the shape of an ability
       if (!("base" in abilityData)) continue;
 
-      recalcPrimariesAbilities(system, categoryName, abilityName, classData);
+      recalcPrimariesAbilities(system, categoryName, abilityName);
     }
   }
 
@@ -34,27 +34,21 @@ export function initializeAllAbilities(system) {
 export function applyChangedPrimariesAbilities(system, actor) {
   const changed = actor._changedPrimariesAbilities;
   if (!Array.isArray(changed)) return;
-
   const classData = extractAllClassAbilityData(system);
-
   for (const { categoryName, ability } of changed) {
-    recalcPrimariesAbilities(system, categoryName, ability, classData);
+    recalcPrimariesAbilities(system, categoryName, ability);
   }
-
   delete actor._changedPrimariesAbilities;
 }
 
 export function detectChangedPrimariesAbilities(data, oldSystem) {
   const changed = [];
   const expanded = foundry.utils.expandObject(data);
-
   const updatedCategories = expanded.system?.abilities?.Primaries ?? {};
-
   for (const [categoryName, abilities] of Object.entries(updatedCategories)) {
     // NORMAL (object)
     for (const [abilityName, fields] of Object.entries(abilities)) {
       const oldAbility = oldSystem.abilities.Primaries[categoryName][abilityName];
-
       for (const [field, newValue] of Object.entries(fields)) {
         if (oldAbility[field] !== newValue) {
           changed.push({ category: categoryName, ability: abilityName });
@@ -63,7 +57,6 @@ export function detectChangedPrimariesAbilities(data, oldSystem) {
       }
     }
   }
-
   return changed;
 }
 
@@ -72,90 +65,26 @@ export function updatePrimariesAbilities(actor, changed) {
   const classData = extractAllClassAbilityData(system);
 
   for (const { categoryName, ability } of changed) {
-    recalcPrimariesAbilities(system, categoryName, ability, classData);
+    recalcPrimariesAbilities(system, categoryName, ability);
   }
 }
 
-function recalcPrimariesAbilities(system, categoryName, abilityName, classData) {
+function recalcPrimariesAbilities(system, categoryName, abilityName) {
   const abilityData = system.abilities.Primaries[categoryName]?.[abilityName];
   if (!abilityData) return;
-  const {
-    allPrimaryAbilityCosts,
-    allPrimarySupernaturalAbilityCosts,
-    allPrimaryPsychicAbilityCosts,
-    allPrimaryInnateBonuses,
-    allAbilityLimits
-  } = classData;
 
-  //add ability limits
-  for (const limit of allAbilityLimits) {
-    if (limit.name === categoryName) {
-      const category = system.abilities.Primaries[categoryName];
+  const linkedChar = abilityData.characteristic;
+  const charFinal = toNum(system.characteristics[linkedChar]?.final) || 0;
 
-      if (typeof category !== "object") return; // protects against corrupted data
+  const base = toNum(abilityData.base);
+  const bonus = toNum(abilityData.bonus);
+  const cls = toNum(abilityData.class);
+  const special = toNum(abilityData.special);
 
-      category.dpLimitPercent = toNum(limit.cost);
-    }
-  }
+  const total = base + bonus + cls + special;
 
-  //Get data per category
-  if (categoryName == "Combat") {
-    //get costs
-    for (const primary of allPrimaryAbilityCosts) {
-      if (primary.name === abilityName) {
-        abilityData.cost = primary.cost;
-      }
-    }
-    //get innate
-    const innate = allPrimaryInnateBonuses.find((b) => b.name === abilityName);
-    if (innate) {
-      abilityData.class = innate.innateBonus * innate.level;
-    }
-
-    //add class ability limit
-
-    finalCalculations();
-  }
-
-  if (categoryName == "Psychic") {
-    //get costs, Psychic does not have any innate bonuses from classes
-    for (const primary of allPrimaryPsychicAbilityCosts) {
-      if (primary.name === abilityName) {
-        abilityData.cost = primary.cost;
-      }
-    }
-    finalCalculations();
-  }
-
-  if (categoryName == "Supernatural") {
-    for (const primary of allPrimarySupernaturalAbilityCosts) {
-      if (primary.name === abilityName) {
-        abilityData.cost = primary.cost;
-      }
-    }
-
-    //get innate
-    const innate = allPrimaryInnateBonuses.find((b) => b.name === abilityName);
-    if (innate) {
-      abilityData.class = innate.innateBonus * innate.level;
-    }
-    finalCalculations();
-  }
-
-  function finalCalculations() {
-    const linkedChar = abilityData.characteristic;
-    const charFinal = toNum(system.characteristics[linkedChar]?.final) || 0;
-
-    const base = toNum(abilityData.base);
-    const bonus = toNum(abilityData.bonus);
-    const cls = toNum(abilityData.class);
-    const special = toNum(abilityData.special);
-
-    const total = base + bonus + cls + special;
-
-    abilityData.final = total + charFinal;
-    abilityData.undeveloped = total === 0;
-  }
+  abilityData.final = total + charFinal;
+  abilityData.undeveloped = total === 0;
 }
 
 //#endregion
@@ -203,35 +132,14 @@ function recalcSecondaryAbilities(system, categoryName, abilityName, classData) 
   const abilityData = system.abilities.Secondaries[categoryName]?.[abilityName];
   if (!abilityData) return;
 
-  const { allSecondaryAbilityCosts, allSecondaryInnateBonuses } = classData;
-
-  // Apply class costs
-  for (const secondary of allSecondaryAbilityCosts) {
-    if (secondary.name === categoryName) {
-      abilityData.cost = secondary.cost;
-    }
-  }
-
-  // Apply innate bonuses
-  const innate = allSecondaryInnateBonuses.find((b) => b.name === abilityName);
-  if (innate) {
-    abilityData.class = innate.innateBonus * innate.level;
-    if (innate.reducedCost > 0) {
-      abilityData.cost = innate.reducedCost;
-    }
-  }
-
   // Characteristic dependency
   const linkedChar = abilityData.characteristic;
   const charFinal = toNum(system.characteristics[linkedChar]?.final) || 0;
-
   const base = toNum(abilityData.base);
   const bonus = toNum(abilityData.bonus);
   const cls = toNum(abilityData.class);
   const special = toNum(abilityData.special);
-
   const total = base + bonus + cls + special;
-
   abilityData.final = total + charFinal;
   abilityData.undeveloped = total === 0;
   abilityData.mastery = total >= 200;

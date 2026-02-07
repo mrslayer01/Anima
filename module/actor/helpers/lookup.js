@@ -10,12 +10,12 @@ export const difficultyMap = {
   240: "Almost Impossible — Even experts usually fail",
   280: "Impossible — Barely within physical reality",
   320: "Inhuman — Beyond logic, requires supernatural ability",
-  440: "Zen — Transcends reality, pure fiction without powers",
+  440: "Zen — Transcends reality, pure fiction without powers"
 };
 
 export const toNum = (v) => {
-        const n = parseFloat(v);
-        return Number.isFinite(n) ? n : 0;
+  const n = parseFloat(v);
+  return Number.isFinite(n) ? n : 0;
 };
 
 export const TABLE_ITEM_TYPES = {
@@ -24,4 +24,3 @@ export const TABLE_ITEM_TYPES = {
   armor: ["armor"],
   consumables: ["potion", "scroll"]
 };
-
