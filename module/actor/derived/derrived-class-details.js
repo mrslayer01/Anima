@@ -68,7 +68,9 @@ export function applyClassBonuses(system) {
       if (name === "Zeon") {
         system.core.zeon.class = toNum(innate.innateBonus) * level;
       } else if (system.abilities?.Primaries?.Combat[name]) {
-        system.abilities.Primaries.Combat[name].class = toNum(innate.innateBonus) * level;
+        let finalClassBonus = toNum(innate.innateBonus) * level;
+        if (finalClassBonus > 50) finalClassBonus = 50;
+        system.abilities.Primaries.Combat[name].class = finalClassBonus;
       } else if (system.abilities?.Primaries?.Supernatural[name]) {
         system.abilities.Primaries.Supernatural[name].class = toNum(innate.innateBonus) * level;
       }

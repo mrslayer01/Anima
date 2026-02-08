@@ -4,9 +4,10 @@ import { toNum } from "../helpers/lookup.js";
 //lifePoints.final = 20 + (characteristics.Constitution.base * 10)  + (classes[x].lifePointsPerLevel * classes[x].level).
 export function calculateFinalLifePoints(system) {
   const totalCon = toNum(system.characteristics.Constitution.base) * 10;
-  const baseLP = 20;
+  const totalConModifier = toNum(system.characteristics.Constitution.final);
+  const baseLP = 20 + totalCon + totalConModifier;
   const lpBonus = toNum(system.core.lifePoints.bonus);
   const classLP = toNum(system.core.lifePoints.class);
 
-  system.core.lifePoints.final = baseLP + totalCon + classLP + lpBonus;
+  system.core.lifePoints.final = baseLP + classLP + lpBonus;
 }

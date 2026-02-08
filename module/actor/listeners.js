@@ -1,9 +1,6 @@
-import { AddClassWindow } from "./apps/add-class-window.js";
-import { ClassInfoWindow } from "./apps/class-info.js";
 import { AddAdvantageWindow } from "./apps/add-advantage-window.js";
 import { AdvantageInfoWindow } from "./apps/advantage-info.js";
 import { AddDisadvantageWindow } from "./apps/add-disadvantage-window.js";
-import { AddElanWindow } from "./apps/add-elan-window.js";
 import { ElanInfoWindow } from "./apps/elan-info.js";
 import { DisadvantageInfoWindow } from "./apps/disadvantage-info.js";
 import { characteristicCheck, animaOpenRoll, resistanceCheck } from "./apps/rolls.js";
@@ -79,10 +76,10 @@ export function registerSheetListeners(sheet, html) {
                   return `
                     <option 
                       value="${value}" 
-                      title="${value} — ${label}"
+                      title="${label}"
                       ${value === "80" ? "selected" : ""}
                     >
-                      ${value} – ${label}
+                      ${label}
                     </option>
                   `;
                 })
