@@ -140,6 +140,8 @@ export const DEFAULT_ACTOR_DATA = {
 
   abilities: {
     Secondaries: {
+      totalDevelopmentPointsSpent: 0,
+      developmentPointsSpent: [],
       Athletics: {
         Acrobatics: {
           base: 0,
@@ -717,7 +719,13 @@ export const DEFAULT_ACTOR_DATA = {
       }
     },
     Primaries: {
-      abilityLimits: { Combat: 0, Psychic: 0, Supernatural: 0 },
+      totalDevelopmentPointsSpent: 0,
+      developmentPointsSpent: [],
+      abilityLimits: {
+        Combat: { percent: 0, final: 0, current: 0 },
+        Psychic: { percent: 0, final: 0, current: 0 },
+        Supernatural: { percent: 0, final: 0, current: 0 }
+      },
       Combat: {
         Attack: {
           base: 0,
@@ -727,6 +735,7 @@ export const DEFAULT_ACTOR_DATA = {
           final: 0,
           special: 0,
           characteristic: "Dexterity",
+          mastery: false,
           description:
             "This represents an individual’s ability to reach his opponent and get past his opponent’s guard to inflict damage. This ability depends on Dexterity."
         },
@@ -738,9 +747,9 @@ export const DEFAULT_ACTOR_DATA = {
           final: 0,
           special: 0,
           characteristic: "Dexterity",
+          mastery: false,
           description:
-            "This represents a character’s defensive ability – namely, how well he can deflect or stop attacks from hitting him. This ability depends on Dexterity.",
-          mastery: false
+            "This represents a character’s defensive ability – namely, how well he can deflect or stop attacks from hitting him. This ability depends on Dexterity."
         },
         Dodge: {
           base: 0,
@@ -750,6 +759,7 @@ export const DEFAULT_ACTOR_DATA = {
           final: 0,
           special: 0,
           characteristic: "Agility",
+          mastery: false,
           description:
             "This represents a character’s ability to move out of the way of an attack. This ability depends upon the Agility Characteristic."
         },
@@ -761,6 +771,7 @@ export const DEFAULT_ACTOR_DATA = {
           final: 0,
           special: 0,
           characteristic: "Strength",
+          mastery: false,
           description:
             "This represents character’s ability to wear heavy armor a without penalty or restrictions. This ability depends on Strength."
         }
@@ -774,6 +785,7 @@ export const DEFAULT_ACTOR_DATA = {
           final: 0,
           special: 0,
           characteristic: "Dexterity",
+          mastery: false,
           description:
             "This represents a character’s capacity to project his mental powers at a target. This ability depends upon a character’s Dexterity score."
         }
@@ -785,6 +797,7 @@ export const DEFAULT_ACTOR_DATA = {
           cost: 0,
           class: 0,
           final: 0,
+          mastery: false,
           description:
             "This ability represents a character’s ability to gather his Zeon to weave magic and cast spells."
         },
@@ -796,6 +809,7 @@ export const DEFAULT_ACTOR_DATA = {
           final: 0,
           special: 0,
           characteristic: "Dexterity",
+          mastery: false,
           description:
             "This represents a character’s ability to project spells and aim them at a desired target. This ability depends upon a character’s Dexterity score."
         },
@@ -807,6 +821,7 @@ export const DEFAULT_ACTOR_DATA = {
           final: 0,
           special: 0,
           characteristic: "Power",
+          mastery: false,
           description:
             "This represents a character’s capacity to bring supernatural creatures into the world. This ability depends upon a character’s Power score."
         },
@@ -818,6 +833,7 @@ export const DEFAULT_ACTOR_DATA = {
           final: 0,
           special: 0,
           characteristic: "Willpower",
+          mastery: false,
           description:
             "This represents a character’s capacity to control supernatural beings. Control depends upon a character’s Willpower score."
         },
@@ -829,6 +845,7 @@ export const DEFAULT_ACTOR_DATA = {
           final: 0,
           special: 0,
           characteristic: "Power",
+          mastery: false,
           description:
             "This represents a character’s capacity to trap the essence of mystical beings inside objects or persons. Bind depends upon a character’s Power score."
         },
@@ -840,6 +857,7 @@ export const DEFAULT_ACTOR_DATA = {
           final: 0,
           special: 0,
           characteristic: "Power",
+          mastery: false,
           description:
             "This represents a character’s ability to expel supernatural beings from this plane of reality. It depends upon a character’s Power score."
         }

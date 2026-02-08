@@ -1,0 +1,62 @@
+<h3>
+  Combat DP Limit : {{actor.system.abilities.Primaries.abilityLimits.Combat.final}}
+</h3>
+<div class="secondary-block">
+  <table class="ability-table">
+    <thead>
+      <tr>
+        <th class="ability-table-name">
+          Ability
+        </th>
+        <th>
+          Base
+        </th>
+        <th>
+          Bonus
+        </th>
+        <th>
+          Class
+        </th>
+        <th>
+          Final
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each actor.system.abilities.Primaries.Combat as |ability key|}}
+        <tr>
+          <td>
+            {{localize (concat "ABF.Ability." key)}}
+          </td>
+          <td>
+            <input
+              class="mod-input-resize-char primary-input"
+              data-name="{{key}}"
+              data-cost="{{ability.cost}}"
+              type="number"
+              value="{{ability.base}}"
+              name="system.abilities.Primaries.Combat.{{key}}.base"
+              data-tooltip="
+              <div><strong>DP Cost:</strong> {{ability.cost}}</div>
+            "
+            />
+          </td>
+          <td>
+            <input
+              class="mod-input-resize-char"
+              type="number"
+              value="{{ability.bonus}}"
+              name="system.abilities.Primaries.Combat.{{key}}.bonus"
+            />
+          </td>
+          <td>
+            {{ability.class}}
+          </td>
+          <td class="ability-roll clickable" data-category="Combat" data-ability="{{key}}">
+            {{ability.final}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

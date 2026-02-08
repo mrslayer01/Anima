@@ -15,14 +15,14 @@ export class ElanInfoWindow extends Application {
       classes: ["abf-character-sheet", "elan-info"],
       template: "systems/abf-system/templates/actors/apps/elan-info.hbs",
       width: 1150,
-      height: "auto",
+      height: "auto"
     });
   }
 
   getData() {
     return {
       elanName: this.elanName,
-      elanData: this.elanData,
+      elanData: this.elanData
     };
   }
 
@@ -40,10 +40,10 @@ export class ElanInfoWindow extends Application {
         buttons: {
           yes: {
             label: "Yes",
-            callback: () => this._purchaseGift(giftIndex),
+            callback: () => this._purchaseGift(giftIndex)
           },
-          no: { label: "No" },
-        },
+          no: { label: "No" }
+        }
       }).render(true);
     });
 
@@ -58,10 +58,10 @@ export class ElanInfoWindow extends Application {
         buttons: {
           yes: {
             label: "Yes",
-            callback: () => this._removeGift(giftIndex),
+            callback: () => this._removeGift(giftIndex)
           },
-          no: { label: "No" },
-        },
+          no: { label: "No" }
+        }
       }).render(true);
     });
   }
@@ -110,15 +110,13 @@ export class ElanInfoWindow extends Application {
     }
 
     if (elan.elan.final < gift.elanRequirements) {
-      ui.notifications.warn(
-        "You don't have enough Elan with this Deity to buy this gift.",
-      );
+      ui.notifications.warn("You don't have enough Elan with this Deity to buy this gift.");
       return;
     }
 
     if (elan.elan.remaining < gift.elanCost) {
       ui.notifications.warn(
-        "You don't have enough Elan remaining with this Deity to buy this gift.",
+        "You don't have enough Elan remaining with this Deity to buy this gift."
       );
       return;
     }

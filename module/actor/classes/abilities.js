@@ -48,7 +48,11 @@ export function detectChangedPrimariesAbilities(data, oldSystem) {
   for (const [categoryName, abilities] of Object.entries(updatedCategories)) {
     // NORMAL (object)
     for (const [abilityName, fields] of Object.entries(abilities)) {
-      const oldAbility = oldSystem.abilities.Primaries[categoryName][abilityName];
+      const oldCategory = oldSystem.abilities?.Primaries?.[categoryName];
+      if (!oldCategory) continue;
+
+      const oldAbility = oldCategory[abilityName];
+      if (!oldAbility) continue;
       for (const [field, newValue] of Object.entries(fields)) {
         if (oldAbility[field] !== newValue) {
           changed.push({ category: categoryName, ability: abilityName });
@@ -113,7 +117,11 @@ export function detectChangedSecondariesAbilities(data, oldSystem) {
   for (const [categoryName, abilities] of Object.entries(updatedCategories)) {
     // NORMAL (object)
     for (const [abilityName, fields] of Object.entries(abilities)) {
-      const oldAbility = oldSystem.abilities.Secondaries[categoryName][abilityName];
+      const oldCategory = oldSystem.abilities?.Secondaries?.[categoryName];
+      if (!oldCategory) continue;
+
+      const oldAbility = oldCategory[abilityName];
+      if (!oldAbility) continue;
 
       for (const [field, newValue] of Object.entries(fields)) {
         if (oldAbility[field] !== newValue) {

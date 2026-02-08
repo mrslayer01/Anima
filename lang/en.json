@@ -44,7 +44,21 @@
       "Dance": "Dance",
       "Forging": "Forging",
       "Music": "Music",
-      "SleightOfHand": "Sleight of Hand"
+      "SleightOfHand": "Sleight of Hand",
+
+      "Attack": "Attack",
+      "Block": "Block",
+      "Dodge": "Dodge",
+      "WearArmor": "Wear Armor",
+
+      "PsychicProjection": "Psychic Projection",
+
+      "MAMultiple": "MA Multiple",
+      "MagicProjection": "Magic Projection",
+      "Summon": "Summon",
+      "Control": "Control",
+      "Bind": "Bind",
+      "Banish": "Banish"
     }
   }
 }

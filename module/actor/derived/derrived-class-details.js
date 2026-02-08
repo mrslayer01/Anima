@@ -28,7 +28,13 @@ export function applyClassBonuses(system) {
     //#region Primary Abilities
     // Ability Limits
     for (const [limit, value] of Object.entries(cls.abilityLimits || {})) {
-      system.abilities.Primaries.abilityLimits[limit] = toNum(value);
+      const target = system.abilities.Primaries.abilityLimits[limit];
+      if (!target) continue;
+
+      target.percent = toNum(value);
+
+      const maxDP = system.destinyPoints.final;
+      target.final = maxDP * (toNum(value) / 100);
     }
 
     // Primary Ability DP Costs
@@ -114,10 +120,6 @@ function resetClassFields(system) {
 
   system.core.psychicPoints.perLevel = 0;
   system.core.psychicPoints.interval = 0;
-
-  for (const limit of Object.keys(system.abilities.Primaries.abilityLimits)) {
-    system.abilities.Primaries.abilityLimits[limit] = 0;
-  }
 
   system.core.ki.costKi = 0;
   system.core.ki.costAccumulation = 0;

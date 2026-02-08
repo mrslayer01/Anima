@@ -63,7 +63,7 @@ export async function characteristicCheck({ value, label, actor }) {
     }
   `;
 
-  setTimeout(() => sendChat(content, actor), 2300);
+  setTimeout(() => sendChat(content, actor), 2000);
 }
 
 // ============================================================
@@ -97,7 +97,7 @@ export async function fumbleRoll({ fumbleValue, label, mastery, actor }) {
     <b>Final Fumble Level:</b> <span style="color:red"><b>${finalFumble}</b></span>
   `;
 
-  setTimeout(() => sendChat(content, actor), 2300);
+  setTimeout(() => sendChat(content, actor), 2000);
 }
 
 // ============================================================
@@ -155,7 +155,7 @@ export async function animaOpenRoll({ value, label, mastery, undeveloped, actor 
     <b>Final Total:</b> ${final}
   `;
 
-  setTimeout(() => sendChat(content, actor), 2300 * rawRolls.length);
+  setTimeout(() => sendChat(content, actor), 2000 * rawRolls.length);
 }
 
 // ============================================================
@@ -189,5 +189,5 @@ export async function resistanceCheck({ value, difficulty, label, actor }) {
     }
   `;
 
-  setTimeout(() => sendChat(content, actor), 2300);
+  setTimeout(() => sendChat(content, actor), 2000);
 }

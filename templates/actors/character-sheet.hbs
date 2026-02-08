@@ -9,7 +9,7 @@
   <!-- TABS -->
   <nav class="sheet-tabs" data-group="primary">
     <a class="item" data-tab="main">Main</a>
-    <a class="item" data-tab="secondaries">Secondaries</a>
+    <a class="item" data-tab="abilities">Abilities</a>
     <a class="item" data-tab="combat">Combat</a>
     <a class="item" data-tab="mystic">Mystic</a>
     <a class="item" data-tab="domine">Domine</a>
@@ -43,8 +43,20 @@
     </div>
 
     {{!-- Secondaries Tab --}}
-    <div class="tab secondaries" data-group="primary" data-tab="secondaries">
-      {{> "systems/abf-system/templates/actors/partials/nav/secondaries/secondaries.hbs" }}
+    <div class="tab abilities" data-group="primary" data-tab="abilities">
+      <nav class="sub-tabs" data-group="ability-sub">
+        <a class="item" data-tab="primaries">Primaries</a>
+        <a class="item" data-tab="secondaries">Secondaries</a>
+      </nav>
+
+      <div class="tab" data-group="ability-sub" data-tab="primaries">
+        {{> "systems/abf-system/templates/actors/partials/nav/abilities/primaries/primaries.hbs" }}
+      </div>
+
+      <div class="tab" data-group="ability-sub" data-tab="secondaries">
+        {{> "systems/abf-system/templates/actors/partials/nav/abilities/secondaries/secondaries.hbs" }}
+      </div>
+
     </div>
 
     {{!-- Combat Tab --}}

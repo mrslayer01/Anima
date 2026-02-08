@@ -5,10 +5,14 @@ import { ElanInfoWindow } from "./apps/elan-info.js";
 import { DisadvantageInfoWindow } from "./apps/disadvantage-info.js";
 import { characteristicCheck, animaOpenRoll, resistanceCheck } from "./apps/rolls.js";
 import { difficultyMap, toNum } from "./helpers/lookup.js";
-import { updateDP } from "./classes/development-points.js";
+import {
+  primariesTotalDPSpent,
+  secondariesTotalDPSpent,
+  validateDP,
+  validateDPLimit
+} from "./classes/development-points.js";
 
 import { ABF_CLASSES } from "./config/classes.js";
-import { validateDP } from "./helpers/validate-dp-left.js";
 import { ABF_LORDS } from "./config/elans.js";
 import { COMBAT_TABLE } from "./helpers/combat.js";
 
@@ -40,24 +44,47 @@ export function registerSheetListeners(sheet, html) {
   });
 
   //Ability Open Roll
-  html.find(".ability-roll").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".ability-roll").off("click");
   html.find(".ability-roll").on("click", (ev) => {
     const categoryName = ev.currentTarget.dataset.category;
     const abilityName = ev.currentTarget.dataset.ability;
-    const ability = sheet.actor.system.abilities.Secondaries[categoryName][abilityName];
 
-    //don't allow the rolling of Knoweldge skills that are undeveloped
-    if (ability.undeveloped && ability.knowledge) {
-      return ui.notifications.error("Unable to roll for an undeveloped knowledge ability.");
+    const primaries = sheet.actor.system?.abilities?.Primaries;
+    const secondaries = sheet.actor.system?.abilities?.Secondaries;
+
+    const primaryAbility = primaries?.[categoryName]?.[abilityName];
+
+    const secondaryAbility = secondaries?.[categoryName]?.[abilityName];
+
+    // Primary ability roll
+    if (primaryAbility) {
+      animaOpenRoll({
+        value: primaryAbility.final,
+        label: `${abilityName} Open Roll`,
+        actor: sheet.actor,
+        undeveloped: primaryAbility.undeveloped,
+        mastery: primaryAbility.mastery
+      });
+      return;
     }
 
-    animaOpenRoll({
-      value: ability.final,
-      label: `${abilityName} Open Roll`,
-      actor: sheet.actor,
-      undeveloped: ability.undeveloped,
-      mastery: ability.mastery
-    });
+    // Secondary ability roll
+    if (secondaryAbility) {
+      if (secondaryAbility.undeveloped && secondaryAbility.knowledge) {
+        return ui.notifications.error("Unable to roll for an undeveloped knowledge ability.");
+      }
+
+      animaOpenRoll({
+        value: secondaryAbility.final,
+        label: `${abilityName} Open Roll`,
+        actor: sheet.actor,
+        undeveloped: secondaryAbility.undeveloped,
+        mastery: secondaryAbility.mastery
+      });
+      return;
+    }
+
+    // If neither exists, silently ignore
   });
 
   //Resistance Roll
@@ -634,9 +661,43 @@ export function registerSheetListeners(sheet, html) {
 
   //#region Development Points
   //Abilities
+  //Primaries
+  //capture the previous value incase of not being able to afford the increase.
+  html.find(".primary-input").on("focus", (event) => {
+    const el = event.currentTarget;
+    el.dataset.previous = el.value;
+  });
+
+  html.find(".primary-input").on("change", async (event) => {
+    const actor = sheet.actor;
+    const el = event.currentTarget;
+
+    const name = el.dataset.name;
+    const costPer = toNum(el.dataset.cost);
+    const amount = toNum(el.value);
+
+    // 1. Validate BEFORE updating the actor
+    const canAfford = await validateDP(actor, { name, amount, costPer });
+
+    if (!canAfford) {
+      ui.notifications.error("Not enough Development Points.");
+      el.value = el.dataset.previous || 0; // revert UI
+      return;
+    }
+
+    const underLimit = await validateDPLimit(actor, { name, amount, costPer });
+
+    if (!underLimit) {
+      ui.notifications.error("Outside of allowed limit for ability.");
+      el.value = el.dataset.previous || 0; // revert UI
+      return;
+    }
+
+    // 2. If valid, update primaries DP spent
+    await primariesTotalDPSpent(actor, { name, amount, costPer });
+  });
 
   //Secondaries
-
   //capture the previous value incase of not being able to afford the increase.
   html.find(".secondary-input").on("focus", (event) => {
     const el = event.currentTarget;
@@ -660,8 +721,8 @@ export function registerSheetListeners(sheet, html) {
       return;
     }
 
-    // 2. If valid, update DP
-    await updateDP(actor, { name, amount, costPer });
+    // 2. If valid, update secondaries DP spent
+    await secondariesTotalDPSpent(actor, { name, amount, costPer });
   });
 
   //#endregion

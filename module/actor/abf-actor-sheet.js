@@ -34,6 +34,11 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
           navSelector: ".sub-tabs[data-group='psychic-sub']",
           contentSelector: ".tab.psychic",
           initial: "psychicMain"
+        },
+        {
+          navSelector: ".sub-tabs[data-group='ability-sub']",
+          contentSelector: ".tab.abilities",
+          initial: "primaries"
         }
       ]
     });
@@ -132,23 +137,5 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
     super.activateListeners(html);
 
     registerSheetListeners(this, html);
-
-    // Ability rolls
-    html.find(".abf-roll-ability").off("click");
-    html.find(".abf-roll-ability").on("click", async (ev) => {
-      ev.preventDefault();
-
-      const ability = ev.currentTarget.dataset.ability;
-      if (!ability) return;
-
-      const value = this.actor.system?.abilities?.secondariesAbilities[ability]?.value ?? 0;
-
-      const roll = new Roll("1d100 + @value", { value });
-      await roll.evaluate();
-      roll.toMessage({
-        speaker: ChatMessage.getSpeaker({ actor: this.actor }),
-        flavor: `Ability Roll: ${ability}`
-      });
-    });
   }
 }
