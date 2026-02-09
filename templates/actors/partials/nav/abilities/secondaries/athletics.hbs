@@ -44,6 +44,7 @@
               type="number"
               value="{{ability.base}}"
               name="system.abilities.Secondaries.Athletics.{{key}}.base"
+              {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
           <td>
@@ -52,6 +53,7 @@
               type="number"
               value="{{ability.bonus}}"
               name="system.abilities.Secondaries.Athletics.{{key}}.bonus"
+              {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
           <td>

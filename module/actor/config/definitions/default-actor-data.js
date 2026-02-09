@@ -4,6 +4,8 @@ export const DEFAULT_ACTOR_DATA = {
   core: {
     lifePoints: {
       current: 0,
+      classMultiple: 0,
+      classMultipleCost: 0,
       bonus: 0,
       class: 0,
       final: 0,
@@ -80,16 +82,15 @@ export const DEFAULT_ACTOR_DATA = {
     special: 0
   },
   titles: [],
-  destinyPoints: {
+  developmentPoints: {
     current: 0,
     special: 0,
     bonus: 0,
     spent: 0,
     remaining: 0,
     final: 0,
-    update: false
+    spentRecords: []
   },
-  developmentPointsSpent: [],
   martialKnowledge: {
     bonus: 0,
     class: 0,
@@ -140,8 +141,7 @@ export const DEFAULT_ACTOR_DATA = {
 
   abilities: {
     Secondaries: {
-      totalDevelopmentPointsSpent: 0,
-      developmentPointsSpent: [],
+      totalDPSpent: 0,
       Athletics: {
         Acrobatics: {
           base: 0,
@@ -719,13 +719,12 @@ export const DEFAULT_ACTOR_DATA = {
       }
     },
     Primaries: {
-      totalDevelopmentPointsSpent: 0,
-      developmentPointsSpent: [],
       abilityLimits: {
         Combat: { percent: 0, final: 0, current: 0 },
         Psychic: { percent: 0, final: 0, current: 0 },
         Supernatural: { percent: 0, final: 0, current: 0 }
       },
+      totalDPSpent: 0,
       Combat: {
         Attack: {
           base: 0,
@@ -899,5 +898,6 @@ export const DEFAULT_ACTOR_DATA = {
       special: 0,
       final: 0
     }
-  }
+  },
+  lockUi: false
 };

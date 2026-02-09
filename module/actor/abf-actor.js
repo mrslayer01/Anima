@@ -26,7 +26,8 @@ export class AbfActor extends Actor {
     }
 
     // Restore manual ordering AFTER Foundry normalizes keys
-    forceAbilityOrder(this.system.abilities.Secondaries);
+    forceAbilityOrder(this.system.abilities.Primaries, "Primaries");
+    forceAbilityOrder(this.system.abilities.Secondaries, "Secondaries");
   }
 
   prepareDerivedData() {

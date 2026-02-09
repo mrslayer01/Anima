@@ -11,7 +11,7 @@
 
     <tr>
       <td>
-        <input type="number" name="system.movement.bonus" value="{{system.movement.bonus}}">
+        <input type="number" name="system.movement.bonus" value="{{system.movement.bonus}}" {{#if actor.system.lockUi}}disabled{{/if}}>
       </td>
       <td>{{system.movement.base}}</td>
       <td>{{system.movement.penalty}}</td>

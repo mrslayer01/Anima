@@ -1,5 +1,8 @@
 <h3>
-  Combat DP Limit : {{actor.system.abilities.Primaries.abilityLimits.Combat.final}}
+  Combat DP Limit:
+  {{actor.system.abilities.Primaries.abilityLimits.Combat.current}}
+  /
+  {{actor.system.abilities.Primaries.abilityLimits.Combat.final}}
 </h3>
 <div class="secondary-block">
   <table class="ability-table">
@@ -36,6 +39,7 @@
               type="number"
               value="{{ability.base}}"
               name="system.abilities.Primaries.Combat.{{key}}.base"
+              {{#if actor.system.lockUi}}disabled{{/if}}
               data-tooltip="
               <div><strong>DP Cost:</strong> {{ability.cost}}</div>
             "
@@ -47,6 +51,7 @@
               type="number"
               value="{{ability.bonus}}"
               name="system.abilities.Primaries.Combat.{{key}}.bonus"
+              {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
           <td>

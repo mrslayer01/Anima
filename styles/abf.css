@@ -227,8 +227,17 @@
   filter: drop-shadow(0 0 4px rgba(217, 181, 108, 0.4));
 }
 
+.abf-character-sheet .toggle-lock i,
+.abf-item-sheet .toggle-lock i {
+  cursor: pointer;
+  filter: drop-shadow(0 0 4px rgba(217, 181, 108, 0.4));
+  font-size: 30px;
+}
+
 .abf-character-sheet .header-top-dice img:hover,
-.abf-item-sheet .header-top-dice img:hover {
+.abf-item-sheet .header-top-dice img:hover,
+.abf-character-sheet .toggle-lock i:hover,
+.abf-item-sheet .toggle-lock i:hover {
   transform: scale(1.1);
   filter: drop-shadow(0 0 6px rgba(217, 181, 108, 0.7));
 }
@@ -778,4 +787,9 @@
 .modifier-select option {
   background-color: #11141c;
   color: #fff;
+}
+
+.locked input {
+  opacity: 0.5;
+  pointer-events: none;
 }

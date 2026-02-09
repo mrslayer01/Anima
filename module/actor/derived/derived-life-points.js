@@ -8,6 +8,8 @@ export function calculateFinalLifePoints(system) {
   const baseLP = 20 + totalCon + totalConModifier;
   const lpBonus = toNum(system.core.lifePoints.bonus);
   const classLP = toNum(system.core.lifePoints.class);
+  const classLPMultiple =
+    toNum(system.core.lifePoints.classMultiple) * toNum(system.characteristics.Constitution.base);
 
-  system.core.lifePoints.final = baseLP + classLP + lpBonus;
+  system.core.lifePoints.final = baseLP + classLP + lpBonus + classLPMultiple;
 }

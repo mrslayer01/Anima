@@ -5,18 +5,25 @@ import { ElanInfoWindow } from "./apps/elan-info.js";
 import { DisadvantageInfoWindow } from "./apps/disadvantage-info.js";
 import { characteristicCheck, animaOpenRoll, resistanceCheck } from "./apps/rolls.js";
 import { difficultyMap, toNum } from "./helpers/lookup.js";
-import {
-  primariesTotalDPSpent,
-  secondariesTotalDPSpent,
-  validateDP,
-  validateDPLimit
-} from "./classes/development-points.js";
 
 import { ABF_CLASSES } from "./config/classes.js";
 import { ABF_LORDS } from "./config/elans.js";
 import { COMBAT_TABLE } from "./helpers/combat.js";
+import { updateDPRecord, validateCategoryLimit, validateDP } from "./classes/dp.js";
 
 export function registerSheetListeners(sheet, html) {
+  html.find(".char-roll").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".toggle-lock").on("click", (ev) => {
+    const actor = sheet.actor;
+    const locked = actor.system.lockUi;
+
+    actor.update({
+      "system.lockUi": !locked
+    });
+
+    sheet.render(); // refresh UI
+  });
+
   //#region ROLLS
   //Characteristic Roll
   html.find(".char-roll").off("click"); //before adding new listener, remove old to avoid duplicates
@@ -676,25 +683,33 @@ export function registerSheetListeners(sheet, html) {
     const costPer = toNum(el.dataset.cost);
     const amount = toNum(el.value);
 
-    // 1. Validate BEFORE updating the actor
-    const canAfford = await validateDP(actor, { name, amount, costPer });
+    // Determine category from the actor’s class data
+    const category =
+      name in actor.system.abilities.Primaries.Combat
+        ? "Combat"
+        : name in actor.system.abilities.Primaries.Psychic
+          ? "Psychic"
+          : name in actor.system.abilities.Primaries.Supernatural
+            ? "Supernatural"
+            : null;
 
+    const change = { name, type: "Primary", category, amount, costPer };
+
+    const canAfford = validateDP(actor, change);
     if (!canAfford) {
       ui.notifications.error("Not enough Development Points.");
-      el.value = el.dataset.previous || 0; // revert UI
+      el.value = el.dataset.previous || 0;
       return;
     }
 
-    const underLimit = await validateDPLimit(actor, { name, amount, costPer });
-
+    const underLimit = validateCategoryLimit(actor, change);
     if (!underLimit) {
       ui.notifications.error("Outside of allowed limit for ability.");
-      el.value = el.dataset.previous || 0; // revert UI
+      el.value = el.dataset.previous || 0;
       return;
     }
 
-    // 2. If valid, update primaries DP spent
-    await primariesTotalDPSpent(actor, { name, amount, costPer });
+    await updateDPRecord(actor, change);
   });
 
   //Secondaries
@@ -712,17 +727,64 @@ export function registerSheetListeners(sheet, html) {
     const costPer = toNum(el.dataset.cost);
     const amount = toNum(el.value);
 
-    // 1. Validate BEFORE updating the actor
-    const canAfford = await validateDP(actor, { name, amount, costPer });
+    // Determine secondary category
+    const sec = actor.system.abilities.Secondaries;
+    const category =
+      name in sec.Athletics
+        ? "Athletics"
+        : name in sec.Vigor
+          ? "Vigor"
+          : name in sec.Perception
+            ? "Perception"
+            : name in sec.Intellectual
+              ? "Intellectual"
+              : name in sec.Social
+                ? "Social"
+                : name in sec.Subterfuge
+                  ? "Subterfuge"
+                  : name in sec.Creative
+                    ? "Creative"
+                    : null;
 
+    const change = { name, type: "Secondary", category, amount, costPer };
+
+    const canAfford = validateDP(actor, change);
     if (!canAfford) {
       ui.notifications.error("Not enough Development Points.");
-      el.value = el.dataset.previous || 0; // revert UI
+      el.value = el.dataset.previous || 0;
       return;
     }
 
-    // 2. If valid, update secondaries DP spent
-    await secondariesTotalDPSpent(actor, { name, amount, costPer });
+    await updateDPRecord(actor, change);
+  });
+
+  //capture the previous value incase of not being able to afford the increase.
+  html.find(".input-expand.lp-class-multiple").on("focus", (event) => {
+    const el = event.currentTarget;
+    el.dataset.previous = el.value;
+  });
+
+  html.find(".input-expand.lp-class-multiple").on("change", async (event) => {
+    const actor = sheet.actor;
+    const el = event.currentTarget;
+
+    const name = el.dataset.name;
+    const costPer = toNum(actor.system.core.lifePoints.classMultipleCost);
+    const amount = toNum(el.value);
+
+    console.log(costPer, amount);
+
+    const change = { name: "LP Multiple", type: null, category: null, amount, costPer };
+
+    const canAfford = validateDP(actor, change);
+    if (!canAfford) {
+      ui.notifications.error("Not enough Development Points.");
+      el.value = el.dataset.previous || 0;
+      console.log(el.dataset);
+      return;
+    }
+
+    await updateDPRecord(actor, change);
   });
 
   //#endregion

@@ -12,8 +12,9 @@ export function applyClassBonuses(system) {
   for (const cls of classes) {
     const level = toNum(cls.level) || 0;
 
-    // Life Points
+    // Life Points and LP Multiple Cost
     system.core.lifePoints.class += toNum(cls.lifePointsPerLevel) * level;
+    system.core.lifePoints.classMultipleCost = toNum(cls.lifePointMultiple);
 
     // Initiative
     system.initiative.class += toNum(cls.initiativePerLevel) * level;
@@ -32,9 +33,6 @@ export function applyClassBonuses(system) {
       if (!target) continue;
 
       target.percent = toNum(value);
-
-      const maxDP = system.destinyPoints.final;
-      target.final = maxDP * (toNum(value) / 100);
     }
 
     // Primary Ability DP Costs
@@ -187,4 +185,34 @@ function extractAllClassAbilityData(classes) {
     allSecondaryAbilityCosts: extractCostMap(classes, "secondaryAbilityCosts"),
     allSecondaryInnateBonuses: extractInnateArray(classes, "secondaryAbilities")
   };
+}
+
+export function calculatePrimaryLimits(system) {
+  const maxDP = system.developmentPoints.final;
+  const limits = system.abilities.Primaries.abilityLimits;
+
+  for (const [cat, obj] of Object.entries(limits)) {
+    obj.final = maxDP * (toNum(obj.percent) / 100);
+  }
+}
+
+export function calculatePrimaryCategoryTotals(system) {
+  const totals = {
+    Combat: 0,
+    Psychic: 0,
+    Supernatural: 0
+  };
+
+  for (const rec of system.developmentPoints.spentRecords) {
+    if (rec.type !== "Primary") continue;
+    if (!rec.category) continue;
+
+    const dp = toNum(rec.amount) * toNum(rec.costPer);
+    totals[rec.category] += dp;
+  }
+
+  const limits = system.abilities.Primaries.abilityLimits;
+  limits.Combat.current = totals.Combat;
+  limits.Psychic.current = totals.Psychic;
+  limits.Supernatural.current = totals.Supernatural;
 }

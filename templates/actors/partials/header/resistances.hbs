@@ -17,6 +17,7 @@
           name="system.resistances.Physical.bonus"
           value="{{system.resistances.Physical.bonus}}"
           data-tooltip="Physical Resistance Bonus"
+          {{#if actor.system.lockUi}}disabled{{/if}}
         />
       </td>
     <td class="res-roll" data-char="Physical" data-tooltip="Click to roll Resistance Check.">{{system.resistances.Physical.final}}</td>
@@ -31,6 +32,7 @@
           name="system.resistances.Disease.bonus"
           value="{{system.resistances.Disease.bonus}}"
           data-tooltip="Disease Resistance Bonus"
+          {{#if actor.system.lockUi}}disabled{{/if}}
         />
       </td>
       <td class="res-roll" data-char="Disease" data-tooltip="Click to roll Resistance Check.">{{system.resistances.Disease.final}}</td>
@@ -45,6 +47,7 @@
           name="system.resistances.Venom.bonus"
           value="{{system.resistances.Venom.bonus}}"
           data-tooltip="Venom Resistance Bonus"
+          {{#if actor.system.lockUi}}disabled{{/if}}
         />
       </td>
       <td class="res-roll" data-char="Venom" data-tooltip="Click to roll Resistance Check.">{{system.resistances.Venom.final}}</td>
@@ -59,6 +62,7 @@
           name="system.resistances.Magic.bonus"
           value="{{system.resistances.Magic.bonus}}"
           data-tooltip="Magic Resistance Bonus"
+          {{#if actor.system.lockUi}}disabled{{/if}}
         />
       </td>
     <td class="res-roll" data-char="Magic" data-tooltip="Click to roll Resistance Check.">{{system.resistances.Magic.final}}</td>
@@ -73,6 +77,7 @@
           name="system.resistances.Psychic.bonus"
           value="{{system.resistances.Psychic.bonus}}"
           data-tooltip="Psychic Resistance Bonus"
+          {{#if actor.system.lockUi}}disabled{{/if}}
         />
       </td>
       <td class="res-roll" data-char="Psychic" data-tooltip="Click to roll Resistance Check.">{{system.resistances.Psychic.final}}</td>

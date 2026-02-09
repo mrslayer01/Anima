@@ -1,7 +1,7 @@
-export function forceAbilityOrder(abilitiesRoot) {
+export function forceAbilityOrder(abilitiesRoot, abilities) {
   if (!abilitiesRoot) return;
 
-  const categories = [
+  const secondariesCategories = [
     "Athletics",
     "Vigor",
     "Perception",
@@ -11,32 +11,65 @@ export function forceAbilityOrder(abilitiesRoot) {
     "Creative"
   ];
 
-  for (const category of categories) {
-    const categoryObj = abilitiesRoot[category];
-    if (!categoryObj) continue;
+  const primariesCategories = ["Combat", "Supernatural", "Psychic"];
 
-    // Call the Handlebars helper to get the correct order
-    const orderHelper = Handlebars.helpers[`order${category}`];
-    if (!orderHelper) continue;
+  if (abilities === "Secondaries") {
+    for (const category of secondariesCategories) {
+      const categoryObj = abilitiesRoot[category];
+      if (!categoryObj) continue;
 
-    const order = orderHelper();
+      // Call the Handlebars helper to get the correct order
+      const orderHelper = Handlebars.helpers[`order${category}`];
+      if (!orderHelper) continue;
 
-    const sorted = {};
+      const order = orderHelper();
 
-    // Rebuild in the correct order
-    for (const key of order) {
-      if (categoryObj[key]) {
-        sorted[key] = categoryObj[key];
+      const sorted = {};
+
+      // Rebuild in the correct order
+      for (const key of order) {
+        if (categoryObj[key]) {
+          sorted[key] = categoryObj[key];
+        }
       }
-    }
 
-    // Add any unexpected keys at the end (safety)
-    for (const key of Object.keys(categoryObj)) {
-      if (!sorted[key]) {
-        sorted[key] = categoryObj[key];
+      // Add any unexpected keys at the end (safety)
+      for (const key of Object.keys(categoryObj)) {
+        if (!sorted[key]) {
+          sorted[key] = categoryObj[key];
+        }
       }
-    }
 
-    abilitiesRoot[category] = sorted;
+      abilitiesRoot[category] = sorted;
+    }
+  } else if (abilities === "Primaries") {
+    for (const category of primariesCategories) {
+      const categoryObj = abilitiesRoot[category];
+      if (!categoryObj) continue;
+
+      // Call the Handlebars helper to get the correct order
+      const orderHelper = Handlebars.helpers[`order${category}`];
+      if (!orderHelper) continue;
+
+      const order = orderHelper();
+
+      const sorted = {};
+
+      // Rebuild in the correct order
+      for (const key of order) {
+        if (categoryObj[key]) {
+          sorted[key] = categoryObj[key];
+        }
+      }
+
+      // Add any unexpected keys at the end (safety)
+      for (const key of Object.keys(categoryObj)) {
+        if (!sorted[key]) {
+          sorted[key] = categoryObj[key];
+        }
+      }
+
+      abilitiesRoot[category] = sorted;
+    }
   }
 }

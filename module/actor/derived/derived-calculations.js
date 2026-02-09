@@ -12,7 +12,11 @@ import {
 import { calculateXpToNextLevel } from "./derived-xp.js";
 import { calculateTotalLevel } from "./derived-total-level.js";
 import { calculatePresence } from "../classes/presence.js";
-import { calculateMaxDP } from "../classes/development-points.js";
+import {
+  calculateMaxDP,
+  calculatePrimaryTotalDP,
+  calculateSecondaryTotalDP
+} from "../classes/dp.js";
 import { calculateFinalLifePoints } from "./derived-life-points.js";
 import { calculateFinalInitiative } from "./derived-initiative.js";
 import { calculateFinalFatigue } from "./derived-fatigue.js";
@@ -20,33 +24,53 @@ import { calculateCharacterSize } from "./derived-size.js";
 import { calculateMovement } from "./derived-movement.js";
 import { calculateElanFinal } from "./derived-elan.js";
 import { calculateRegeneration } from "./derived-regeneration.js";
-import { applyClassBonuses } from "./derrived-class-details.js";
+import {
+  applyClassBonuses,
+  calculatePrimaryCategoryTotals,
+  calculatePrimaryLimits
+} from "./derrived-class-details.js";
 import { calculateGlobalModifiers } from "./derrived-modifiers.js";
 
-//used to calculate all derived values for an actor that depends on something else.
 export function calculateDerivedValues(system, actor) {
   // 1. Primary derived values
   calculateTotalLevel(system);
   calculateXpToNextLevel(system);
   calculatePresence(system);
-  calculateMaxDP(system);
-  calculateFinalFatigue(system);
+
+  // 2. Class bonuses BEFORE DP
   applyClassBonuses(system);
-  //Apply penalties if any to special
+
+  // 3. DP ACCOUNTING BLOCK (all DP-using systems plug in here)
+  calculateMaxDP(system); // sets final, spent, remaining
+  calculatePrimaryLimits(system); // uses final
+  calculatePrimaryCategoryTotals(system); // uses spentRecords
+  calculateSecondaryTotalDP(system);
+  calculatePrimaryTotalDP(system);
+
+  // 4. Global modifiers
   calculateGlobalModifiers(system);
 
-  // 2. Initialize finals ONLY if actor is new or flagged
+  // 5. Initialization
   if (actor._initialize) {
     initializeAllCharacteristics(system);
     calculateFinalFatigue(system);
+
     applyClassBonuses(system);
-    //Apply penalties if any to special
+
+    // DP ACCOUNTING BLOCK again
+    calculateMaxDP(system);
+    calculatePrimaryLimits(system);
+    calculatePrimaryCategoryTotals(system);
+    calculateSecondaryTotalDP(system);
+    calculatePrimaryTotalDP(system);
+
     calculateGlobalModifiers(system);
+
     initializeAllAbilities(system);
     initializeAllResistances(system);
   }
 
-  // 3. Selective recalculation
+  // 6. Selective recalculation
   if (actor._changedCharacteristics?.length) {
     applyChangedCharacteristics(system, actor);
   }
@@ -63,7 +87,7 @@ export function calculateDerivedValues(system, actor) {
     applyChangedResistances(system, actor);
   }
 
-  // 4. Other derived values
+  // 7. Other derived values
   calculateFinalLifePoints(system);
   calculateFinalInitiative(system);
   calculateCharacterSize(system);

@@ -13,16 +13,17 @@
       <td>
         <input
           type="number"
-          name="system.destinyPoints.bonus"
-          value="{{system.destinyPoints.bonus}}"
+          name="system.developmentPoints.bonus"
+          value="{{system.developmentPoints.bonus}}"
           data-tooltip="Bonus Development Points."
+          {{#if actor.system.lockUi}}disabled{{/if}}
         />
       </td>
         <td data-tooltip="Remaining Development Points. ">
-        {{system.destinyPoints.remaining}}
+        {{system.developmentPoints.remaining}}
       </td>
       <td data-tooltip="Maximum Development Points. ">
-        {{system.destinyPoints.final}}
+        {{system.developmentPoints.final}}
       </td>
     </tr>
   </tbody>

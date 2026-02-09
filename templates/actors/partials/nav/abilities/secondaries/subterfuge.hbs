@@ -44,6 +44,7 @@
               data-cost="{{ability.cost}}"
               value="{{ability.base}}"
               name="system.abilities.Secondaries.Subterfuge.{{key}}.base"
+              {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
           <td>
@@ -52,6 +53,7 @@
               type="number"
               value="{{ability.bonus}}"
               name="system.abilities.Secondaries.Subterfuge.{{key}}.bonus"
+              {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
           <td>
