@@ -1,0 +1,80 @@
+<section class="header-block lft-wrapper">
+  <!-- Life Points -->
+  <div class="lft-block">
+    <h3
+      data-tooltip="Final Life Points = 20 + (Constitution Base * 10) + Constitution Modifier + (Class Life Points Per Level * Class Level) + Bonus + Class Multiple. Current LP from class: {{system.core.lifePoints.class}}"
+    >
+      LP Total: {{system.core.lifePoints.final}}
+    </h3>
+    <table class="lft-table">
+      <tr>
+        <td>
+          <input
+            class="input-expand"
+            data-tooltip="Current Life Points"
+            type="number"
+            name="system.core.lifePoints.current"
+            value="{{system.core.lifePoints.current}}"
+          />
+        </td>
+        <td>
+          <input
+            class="input-expand lp-class-multiple"
+            data-tooltip="Class Multiple Ranks Cost: {{system.core.lifePoints.classMultipleCost}}"
+            type="number"
+            name="system.core.lifePoints.classMultiple"
+            value="{{system.core.lifePoints.classMultiple}}"
+            {{#if actor.system.lockUi}}disabled{{/if}}
+          />
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Fatigue -->
+  <div class="lft-block">
+    <h3 data-tooltip="Final Fatigue = Constitution Base.">
+      Fatigue Total:
+      {{system.fatigue.final}}
+    </h3>
+    <table class="lft-table">
+      <tr>
+        <td>
+          <input
+            data-tooltip="Current Fatigue"
+            type="number"
+            name="system.fatigue.current"
+            value="{{system.fatigue.current}}"
+          />
+        </td>
+        <td
+          data-tooltip="The current penatly to all actions caused from current fatigue being < 4. (or < 3 if you have fatigue of 4 and so on)"
+        >
+          {{system.fatigue.actionPenalty}}
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- Initiative -->
+  <div class="lft-block">
+    <h3
+      data-tooltip="Total Initiative = 20 (for normal sized creatures) + (Agility Final + Dexterity Final) + Armor Modifier + Weapon Modifier + (Class Initiative Per Level * Class Level) + Bonus + Special (Effect, magic Item, etc..)"
+    >
+      Initiative {{system.initiative.final}}
+    </h3>
+    <table class="lft-table">
+      <tr>
+        <td>
+          <input
+            data-tooltip="Initiative Bonus"
+            type="number"
+            name="system.initiative.bonus"
+            value="{{system.initiative.bonus}}"
+            {{#if actor.system.lockUi}}disabled{{/if}}
+          />
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>

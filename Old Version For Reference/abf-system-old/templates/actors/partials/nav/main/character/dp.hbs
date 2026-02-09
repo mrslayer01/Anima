@@ -1,0 +1,30 @@
+<h3>Development Points</h3>
+<table class="lft-table">
+  <thead>
+    <tr>
+      <th>Bonus</th>
+      <th>Remaining</th>
+      <th>Maximum</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      </td>
+      <td>
+        <input
+          type="number"
+          name="system.developmentPoints.bonus"
+          value="{{system.developmentPoints.bonus}}"
+          data-tooltip="Bonus Development Points."
+          {{#if actor.system.lockUi}}disabled{{/if}}
+        />
+      </td>
+        <td data-tooltip="Remaining Development Points. ">
+        {{system.developmentPoints.remaining}}
+      </td>
+      <td data-tooltip="Maximum Development Points. ">
+        {{system.developmentPoints.final}}
+      </td>
+    </tr>
+  </tbody>
+</table>

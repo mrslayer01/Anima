@@ -1,0 +1,81 @@
+<h3>
+  Combat DP Limit:
+  {{actor.system.abilities.Primaries.abilityLimits.Combat.current}}
+  /
+  {{actor.system.abilities.Primaries.abilityLimits.Combat.final}}
+</h3>
+<div class="secondary-block">
+  <table class="ability-table">
+    <thead>
+      <tr>
+        <th class="ability-table-name">
+          Ability
+        </th>
+        <th>
+          Base
+        </th>
+        <th>
+          Bonus
+        </th>
+        <th>
+          Class
+        </th>
+        <th>
+          Final
+        </th>
+        <th>
+          Focus?
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each actor.system.abilities.Primaries.Combat as |ability key|}}
+        <tr>
+          <td>
+            {{localize (concat "ABF.Ability." key)}}
+          </td>
+          <td>
+            <input
+              class="mod-input-resize-char primary-input"
+              data-name="{{key}}"
+              data-cost="{{ability.cost}}"
+              type="number"
+              value="{{ability.base}}"
+              name="system.abilities.Primaries.Combat.{{key}}.base"
+              {{#if actor.system.lockUi}}disabled{{/if}}
+              data-tooltip="
+              <div><strong>DP Cost:</strong> {{ability.cost}}</div>
+            "
+            />
+          </td>
+          <td>
+            <input
+              class="mod-input-resize-char"
+              type="number"
+              value="{{ability.bonus}}"
+              name="system.abilities.Primaries.Combat.{{key}}.bonus"
+              {{#if actor.system.lockUi}}disabled{{/if}}
+            />
+          </td>
+          <td>
+            {{ability.class}}
+          </td>
+          <td class="ability-roll clickable" data-category="Combat" data-ability="{{key}}">
+            {{ability.final}}
+          </td>
+          {{#if (eq key "WearArmor")}}
+            <td></td>
+          {{else}}
+            <td class="passive-icon clickable primary-focus" data-ability="{{key}}" data-tooltip="Enables focus of a single skill, this bypasses the within 50 limit, but halves DP limit. (50% would now be 25% limit, etc)">
+              {{#if ability.focus}}
+                <i class="fas fa-check"></i>
+              {{else}}
+                <i class="fas fa-times"></i>
+              {{/if}}
+            </td>
+          {{/if}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

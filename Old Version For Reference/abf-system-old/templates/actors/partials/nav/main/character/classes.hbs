@@ -1,0 +1,42 @@
+<h3>Total Level: {{system.level}}</h3>
+
+<table class="classes-table">
+  <thead>
+    <tr>
+      <th>Class</th>
+      <th>Level</th>
+      <th class="class-actions-header">
+        <a class="add-class" data-tooltip="Add Class">
+          <i class="fas fa-plus-circle"></i>
+        </a>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each system.classes as |cls idx|}}
+      <tr>
+        <td class="class-name clickable-class" data-index="{{idx}}" data-class="{{cls.name}}" data-tooltip="Click to see Class details.">
+          {{cls.name}}
+        </td>
+
+        <td>
+          <input
+            type="number"
+            class="class-level-input"
+            data-index="{{idx}}"
+            value="{{cls.level}}"
+            min="1"
+            {{#if actor.system.lockUi}}disabled{{/if}}
+          />
+        </td>
+
+        <td>
+          <a class="delete-class" data-index="{{idx}}" data-tooltip="Delete Class">
+            <i class="fas fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

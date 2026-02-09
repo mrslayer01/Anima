@@ -1,0 +1,50 @@
+{
+  "Actor": {
+    "types": ["character"],
+    "character": {
+      "system": {
+        "classes": [],
+        "core": {},
+        "level": 0,
+        "aspects": {},
+        "lifePoints": {},
+        "initiative": {},
+        "titles": [],
+        "fatigue": {},
+        "movement": {},
+        "globalModifiers": {},
+        "developmentPoints": {},
+        "martialKnowledge": {},
+        "finalArmor": {},
+        "xp": {},
+        "elans": [],
+        "characteristics": {},
+        "abilities": {},
+        "resistances": {},
+        "advantages": [],
+        "disadvantages": [],
+        "background": "",
+        "languages": [],
+        "contacts": [],
+        "presence": {},
+        "notes": "",
+        "currency": {},
+        "globalModifier": {}
+      }
+    }
+  },
+  "Item": {
+    "types": ["commonGood", "weapon"],
+    "system": {
+      "name": "",
+      "cost": {},
+      "weight": 0,
+      "availability": "",
+      "quality": {},
+      "description": ""
+    },
+    "weapon": {
+      "system": {}
+    }
+  }
+}

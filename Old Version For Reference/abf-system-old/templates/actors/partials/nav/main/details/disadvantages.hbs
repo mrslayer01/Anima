@@ -1,0 +1,30 @@
+<h3>Disadvantages</h3>
+<table class="classes-table">
+  <thead>
+    <tr>
+      <th>Disadvantage</th>
+      {{!-- <th>Level</th> --}}
+      <th class="class-actions-header">
+        <a class="add-disadvantage" data-tooltip="Add Disadvantage">
+          <i class="fas fa-plus-circle"></i>
+        </a>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each system.disadvantages as |cls idx|}}
+      <tr>
+        <td class="disadvantage-name clickable-disadvantage" data-index="{{idx}}" data-disadvantage="{{cls.name}}">
+          {{cls.name}}
+        </td>
+
+        <td>
+          <a class="delete-disadvantage" data-index="{{idx}}" data-tooltip="Delete Disadvantage">
+            <i class="fas fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

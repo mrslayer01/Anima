@@ -1,0 +1,108 @@
+<form class="add-class-form">
+  <div class="selector-column">
+    <select class="class-selector">
+      {{#each classOptions as |cls|}}
+        <option value="{{cls}}" {{#ifEquals cls ../selectedClass}}selected{{/ifEquals}}>
+          {{clsName cls}}
+        </option>
+      {{/each}}
+    </select>
+    <button type="button" class="confirm-add">OK</button>
+  </div>
+
+  <div class="class-details-grid">
+    
+    
+
+  {{!-- <section class="grid-span-2">
+    <h2>{{classData.name}}</h2>
+    <h3>Description</h3>
+    <p class="class-details-description">{{classData.description}}</p>
+  </section>
+
+  <section>
+    <h3>Core Stats</h3>
+    <ul>
+      <li><strong>Archetype:</strong> {{classData.archetype}}</li>
+      <li><strong>Life Point Multiple:</strong> {{classData.lifePointMultiple}}</li>
+      <li><strong>Life Points per Level:</strong> {{classData.lifePointsPerLevel}}</li>
+      <li><strong>Initiative per Level:</strong> {{classData.initiativePerLevel}}</li>
+      <li><strong>Martial Knowledge per Level:</strong> {{classData.martialKnowledgePerLevel}}</li>
+      <li><strong>Psychic Points per Level:</strong> {{classData.psychicPointsPerLevel}}</li>
+      <li><strong>Psychic Interval:</strong> {{classData.psychicPointsInterval}}</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Ability Limits</h3>
+    <ul>
+      <li><strong>Combat:</strong> {{classData.abilityLimits.Combat}}%</li>
+      <li><strong>Supernatural:</strong> {{classData.abilityLimits.Supernatural}}%</li>
+      <li><strong>Psychic:</strong> {{classData.abilityLimits.Psychic}}%</li>
+    </ul>
+  </section>
+
+  <section>
+    <h3>Primary Ability Costs</h3>
+    <ul>
+      {{#each classData.primaryAbilityCosts as |val key|}}
+        <li><strong>{{humanize key}}:</strong> {{val}}</li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <section>
+    <h3>Secondary Ability Costs</h3>
+    <ul>
+      {{#each classData.secondaryAbilityCosts as |val key|}}
+        <li><strong>{{humanize key}}:</strong> {{val}}</li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <section>
+    <h3>Supernatural Ability Costs</h3>
+    <ul>
+      {{#each classData.supernaturalAbilityCosts as |val key|}}
+        <li><strong>{{humanize key}}:</strong> {{val}}</li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <section>
+    <h3>Innate Bonuses</h3>
+
+    <h4>Primary Abilities</h4>
+    <ul>
+      {{#each classData.innateBonuses.primaryAbilities}}
+        <li><strong>{{this.name}}:</strong> {{this.innateBonus}}</li>
+      {{/each}}
+    </ul>
+
+    <h4>Secondary Abilities</h4>
+    <ul>
+      {{#each classData.innateBonuses.secondaryAbilities}}
+        <li>
+          <strong>{{this.name}}:</strong> {{this.innateBonus}}
+          {{#if (gt this.reducedCost 0)}}
+            (Reduced Cost: {{this.reducedCost}})
+          {{/if}}
+        </li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <section>
+    <h3>Psychic Ability Costs</h3>
+    <ul>
+      {{#each classData.psychicAbilityCosts as |val key|}}
+        <li><strong>{{humanize key}}:</strong> {{val}}</li>
+      {{/each}}
+    </ul>
+  </section>
+
+  <section>
+  </section> --}}
+
+</div>
+</form>

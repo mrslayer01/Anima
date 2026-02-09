@@ -14,7 +14,7 @@
   ],
   "template": "template.json",
   "itemTypes": ["commonGood", "weapon"],
-  "esmodules": ["module/main.js"],
+  "esmodules": ["scripts/main.js"],
   "styles": ["styles/abf.css"],
   "packs": [
     {

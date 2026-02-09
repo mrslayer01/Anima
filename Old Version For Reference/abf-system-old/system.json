@@ -1,0 +1,46 @@
+{
+  "id": "abf-system",
+  "title": "Anima Beyond Fantasy",
+  "description": "A custom system based on the dnd5e structure.",
+  "version": "0.1.0",
+  "compatibility": {
+    "minimum": "13",
+    "verified": "13"
+  },
+  "authors": [
+    {
+      "name": "Mrslayer01"
+    }
+  ],
+  "template": "template.json",
+  "itemTypes": ["commonGood", "weapon"],
+  "esmodules": ["module/main.js"],
+  "styles": ["styles/abf.css"],
+  "packs": [
+    {
+      "name": "abf-journals",
+      "label": "ABF Journals",
+      "system": "abf-system",
+      "path": "packs/journals",
+      "type": "JournalEntry",
+      "private": false
+    },
+    {
+      "name": "abf-items",
+      "label": "ABF Items",
+      "system": "abf-system",
+      "path": "packs/items",
+      "type": "Item",
+      "private": false
+    }
+  ],
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json"
+    }
+  ],
+  "download": "https://github.com/mrslayer01/Anima/archive/refs/tags/0.0.1.zip",
+  "manifest": "https://github.com/mrslayer01/Anima/releases/download/0.0.1/system.json"
+}

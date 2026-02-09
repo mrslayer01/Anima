@@ -1,0 +1,23 @@
+<h3>
+  Description
+</h3>
+
+<div class="description-editor">
+  {{#if system.description}}
+    {{editor
+      system.description
+      target="system.description"
+      button=true
+      editable=true
+      engine="prosemirror"
+    }}
+  {{else}}
+    {{editor
+      "<p class='placeholder'></p>"
+      target="system.description"
+      button=true
+      editable=true
+      engine="prosemirror"
+    }}
+  {{/if}}
+</div>

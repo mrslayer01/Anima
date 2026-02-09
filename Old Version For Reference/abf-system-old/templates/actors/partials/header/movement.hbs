@@ -1,0 +1,21 @@
+<section class="movement-section">
+  <h3 data-tooltip="Final Movement = Agility Base + Movement Bonus.">Movement Final: {{system.movement.final}}</h3>
+
+  <table class="movement-table">
+    <tr>
+      <td>Bonus</td>
+      <td>Base</td>
+      <td>Penalty</td>
+      <td>M/Turn</td>
+    </tr>
+
+    <tr>
+      <td>
+        <input type="number" name="system.movement.bonus" value="{{system.movement.bonus}}" {{#if actor.system.lockUi}}disabled{{/if}}>
+      </td>
+      <td>{{system.movement.base}}</td>
+      <td>{{system.movement.penalty}}</td>
+      <td>{{system.movement.movePerTurn}}</td>
+    </tr>
+  </table>
+</section>

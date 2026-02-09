@@ -1,0 +1,21 @@
+<h3>Notes</h3>
+
+<div class="notes-editor">
+  {{#if system.notes}}
+    {{editor
+      system.notes
+      target="system.notes"
+      button=true
+      editable=true
+      engine="prosemirror"
+    }}
+  {{else}}
+    {{editor
+    "<p class='placeholder'>Write your notes here…</p>"
+      target="system.notes"
+      button=true
+      editable=true
+      engine="prosemirror"
+    }}
+  {{/if}}
+</div>

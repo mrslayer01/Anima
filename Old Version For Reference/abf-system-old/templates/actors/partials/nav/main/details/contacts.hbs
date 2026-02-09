@@ -1,0 +1,43 @@
+<h3>Contacts</h3>
+<table class="classes-table">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Descrtiption</th>
+      <th class="class-actions-header">
+        <a class="add-contacts" data-tooltip="Add Contact">
+          <i class="fas fa-plus-circle"></i>
+        </a>
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each system.contacts as |contact idx|}}
+      <tr>
+        <td>
+          <input
+            class="contacts-name-input"
+            type="text"
+            data-index="{{idx}}"
+            value="{{contact.name}}"
+          />
+        </td>
+
+        <td>
+          <input
+            class="contacts-description-input"
+            type="text"
+            data-index="{{idx}}"
+            value="{{contact.description}}"
+          />
+        </td>
+        <td>
+          <a class="delete-contacts" data-index="{{idx}}" data-tooltip="Delete Contact">
+            <i class="fas fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

@@ -1,115 +1,166 @@
 <form class="abf-new-character-sheet">
+  {{! Title Bar }}
+  <div class="header-top">
+    <!-- Left spacer (keeps name centered) -->
+    <div class="header-top-spacer"></div>
 
-  {{!-- Title Bar --}}
-  {{> "systems/abf-system/templates/actors/partials/header/header-top.hbs"}}
+    <!-- Actor Name -->
+    <input class="header-top-name" type="text" name="name" value="{{actor.name}}" />
+
+    <!-- Dice Icons -->
+    <div class="header-top-dice">
+      <div class="dice-icon" data-action="roll-10">
+        <img src="systems/abf-system/images/d10.svg" alt="d10" />
+      </div>
+      <div class="dice-icon" data-action="roll-100">
+        <img src="systems/abf-system/images/d100.svg" alt="d100" />
+      </div>
+      <div class="toggle-lock" data-tooltip="Click to lock all base fields.">
+        {{#if actor.system.lockUi}}
+          <i class="fas fa-lock"></i>
+        {{else}}
+          <i class="fas fa-lock-open"></i>
+        {{/if}}
+      </div>
+    </div>
+  </div>
 
   <!-- HEADER -->
   {{> "systems/abf-system/templates/actors/partials/header/header.hbs"}}
 
   <!-- TABS -->
   <nav class="sheet-tabs" data-group="primary">
-    <a class="item" data-tab="main">Main</a>
-    <a class="item" data-tab="abilities">Abilities</a>
-    <a class="item" data-tab="combat">Combat</a>
-    <a class="item" data-tab="mystic">Mystic</a>
-    <a class="item" data-tab="domine">Domine</a>
-    <a class="item" data-tab="psychic">Psychic</a>
+    <a class="item" data-tab="main">
+      Main
+    </a>
+    <a class="item" data-tab="abilities">
+      Abilities
+    </a>
+    <a class="item" data-tab="combat">
+      Combat
+    </a>
+    <a class="item" data-tab="mystic">
+      Mystic
+    </a>
+    <a class="item" data-tab="domine">
+      Domine
+    </a>
+    <a class="item" data-tab="psychic">
+      Psychic
+    </a>
   </nav>
 
   <!-- BODY -->
   <section class="sheet-body">
-    {{!-- Main Tab --}}
+    {{! Main Tab }}
     <div class="tab main" data-group="primary" data-tab="main">
-      {{!-- SECONDARY NAV (nested) --}}
+      {{! SECONDARY NAV (nested) }}
       <nav class="sub-tabs" data-group="main-sub">
-        <a class="item" data-tab="character">Character</a>
-        <a class="item" data-tab="details">Details</a>
-        <a class="item" data-tab="inventory">Inventory</a>
+        <a class="item" data-tab="character">
+          Character
+        </a>
+        <a class="item" data-tab="details">
+          Details
+        </a>
+        <a class="item" data-tab="inventory">
+          Inventory
+        </a>
       </nav>
-      
 
-      {{!-- SECONDARY TAB PANELS --}}
+      {{! SECONDARY TAB PANELS }}
       <div class="tab" data-group="main-sub" data-tab="character">
-        {{> "systems/abf-system/templates/actors/partials/nav/main/character.hbs"}}
+        {{!-- {{> "systems/abf-system/templates/actors/partials/nav/main/character.hbs"}} --}}
       </div>
 
       <div class="tab" data-group="main-sub" data-tab="details">
-        {{> "systems/abf-system/templates/actors/partials/nav/main/details.hbs"}}
+        {{!-- {{> "systems/abf-system/templates/actors/partials/nav/main/details.hbs"}} --}}
       </div>
 
       <div class="tab" data-group="main-sub" data-tab="inventory">
-        {{> "systems/abf-system/templates/actors/partials/nav/main/inventory.hbs"}}
+        {{!-- {{> "systems/abf-system/templates/actors/partials/nav/main/inventory.hbs"}} --}}
       </div>
     </div>
 
-    {{!-- Secondaries Tab --}}
+    {{! Secondaries Tab }}
     <div class="tab abilities" data-group="primary" data-tab="abilities">
       <nav class="sub-tabs" data-group="ability-sub">
-        <a class="item" data-tab="primaries">Primaries</a>
-        <a class="item" data-tab="secondaries">Secondaries</a>
+        <a class="item" data-tab="primaries">
+          Primaries
+        </a>
+        <a class="item" data-tab="secondaries">
+          Secondaries
+        </a>
       </nav>
 
       <div class="tab" data-group="ability-sub" data-tab="primaries">
-        {{> "systems/abf-system/templates/actors/partials/nav/abilities/primaries/primaries.hbs" }}
+        {{!-- {{> "systems/abf-system/templates/actors/partials/nav/abilities/primaries/primaries.hbs" }} --}}
       </div>
 
       <div class="tab" data-group="ability-sub" data-tab="secondaries">
-        {{> "systems/abf-system/templates/actors/partials/nav/abilities/secondaries/secondaries.hbs" }}
+        {{!-- {{> "systems/abf-system/templates/actors/partials/nav/abilities/secondaries/secondaries.hbs" }} --}}
       </div>
-
     </div>
 
-    {{!-- Combat Tab --}}
+    {{! Combat Tab }}
     <div class="tab combat" data-group="primary" data-tab="combat">
       <p class="combat" type="button">
         Combat
       </p>
-
     </div>
 
-    {{!-- Mystic Tab --}}
+    {{! Mystic Tab }}
     <div class="tab mystic" data-group="primary" data-tab="mystic">
-      {{!-- SECONDARY NAV (nested) --}}
+      {{! SECONDARY NAV (nested) }}
       <nav class="sub-tabs" data-group="mystic-sub">
-        <a class="item" data-tab="mysticMain">Main</a>
-        <a class="item" data-tab="mysticSpells">Spells</a>
+        <a class="item" data-tab="mysticMain">
+          Main
+        </a>
+        <a class="item" data-tab="mysticSpells">
+          Spells
+        </a>
       </nav>
-      
-      {{!-- SECONDARY TAB PANELS --}}
+
+      {{! SECONDARY TAB PANELS }}
       <div class="tab" data-group="mystic-sub" data-tab="mysticMain">
-        <p>Mystic main.</p>
+        <p>
+          Mystic main.
+        </p>
       </div>
 
       <div class="tab" data-group="mystic-sub" data-tab="mysticSpells">
-        <p>Mystic spells.</p>
+        <p>
+          Mystic spells.
+        </p>
       </div>
     </div>
 
-    {{!-- Domine Tab --}}
-    <div class="tab domine" data-group="primary" data-tab="domine">
+    {{! Domine Tab }}
+    <div class="tab domine" data-group="primary" data-tab="domine"></div>
 
-    </div>
-
-    {{!-- Psychic Tab --}}
+    {{! Psychic Tab }}
     <div class="tab psychic" data-group="primary" data-tab="psychic">
-      {{!-- SECONDARY NAV (nested) --}}
+      {{! SECONDARY NAV (nested) }}
       <nav class="sub-tabs" data-group="psychic-sub">
-        <a class="item" data-tab="psychicMain">Main</a>
-        <a class="item" data-tab="psychicSpells">Spells</a>
+        <a class="item" data-tab="psychicMain">
+          Main
+        </a>
+        <a class="item" data-tab="psychicSpells">
+          Spells
+        </a>
       </nav>
-      
 
-      {{!-- SECONDARY TAB PANELS --}}
+      {{! SECONDARY TAB PANELS }}
       <div class="tab" data-group="psychic-sub" data-tab="psychicMain">
-        <p>Psychic main.</p>
-
+        <p>
+          Psychic main.
+        </p>
       </div>
 
       <div class="tab" data-group="psychic-sub" data-tab="psychicSpells">
-        <p>Psychic spells.</p>
+        <p>
+          Psychic spells.
+        </p>
       </div>
     </div>
-
   </section>
-
 </form>

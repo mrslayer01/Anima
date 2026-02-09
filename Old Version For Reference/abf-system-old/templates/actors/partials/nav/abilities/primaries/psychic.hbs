@@ -1,0 +1,67 @@
+<h3>
+  Psychic DP Limit:
+  {{actor.system.abilities.Primaries.abilityLimits.Psychic.current}}
+  /
+  {{actor.system.abilities.Primaries.abilityLimits.Psychic.final}}
+</h3>
+<div class="secondary-block">
+  <table class="ability-table">
+    <thead>
+      <tr>
+        <th class="ability-table-name">
+          Ability
+        </th>
+        <th>
+          Base
+        </th>
+        <th>
+          Bonus
+        </th>
+        <th>
+          Class
+        </th>
+        <th>
+          Final
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each actor.system.abilities.Primaries.Psychic as |ability key|}}
+        <tr>
+          <td>
+            {{localize (concat "ABF.Ability." key)}}
+          </td>
+          <td>
+            <input
+              class="mod-input-resize-char primary-input"
+              data-name="{{key}}"
+              data-cost="{{ability.cost}}"
+              type="number"
+              value="{{ability.base}}"
+              name="system.abilities.Primaries.Psychic.{{key}}.base"
+              {{#if actor.system.lockUi}}disabled{{/if}}
+              data-tooltip="
+              <div><strong>DP Cost:</strong> {{ability.cost}}</div>
+            "
+            />
+          </td>
+          <td>
+            <input
+              class="mod-input-resize-char"
+              type="number"
+              value="{{ability.bonus}}"
+              name="system.abilities.Primaries.Psychic.{{key}}.bonus"
+              {{#if actor.system.lockUi}}disabled{{/if}}
+            />
+          </td>
+          <td>
+            {{ability.class}}
+          </td>
+          <td class="ability-roll clickable" data-category="Psychic" data-ability="{{key}}">
+            {{ability.final}}
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

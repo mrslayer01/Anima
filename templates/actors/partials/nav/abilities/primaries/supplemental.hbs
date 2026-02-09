@@ -1,0 +1,95 @@
+<h3>
+  Supplemental Values:
+</h3>
+<div class="secondary-block">
+  <table class="ability-table">
+    <thead>
+      <tr>
+        <th class="ability-table-name">
+          Ability
+        </th>
+        <th>
+          Base
+        </th>
+        <th>
+          Bonus
+        </th>
+        <th>
+          Class
+        </th>
+        <th>
+          Total
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          Ki
+        </td>
+        <td>
+        <input
+            class="mod-input-resize-char primary-input"
+            data-name="ki"
+            data-cost="{{system.core.ki.costKi}}"
+            type="number"
+            value="{{system.core.ki.base}}"
+            name="system.core.ki.base"
+            {{#if actor.system.lockUi}}disabled{{/if}}
+            data-tooltip="
+            <div><strong>DP Cost:</strong> {{system.core.ki.costKi}}</div>
+        "
+        />
+        </td>
+        <td>
+            <input
+                class="mod-input-resize-char"
+                type="number"
+                value="{{system.core.ki.bonus}}"
+                name="{{system.core.ki.bonus}}"
+                {{#if actor.system.lockUi}}disabled{{/if}}
+            />
+        </td>
+        <td>
+        </td>
+        <td>
+            {{system.core.ki.total}}
+        </td>
+      </tr>
+        <tr>
+        <td>
+          Zeon
+        </td>
+        <td>
+        <input
+            class="mod-input-resize-char primary-input"
+            data-name="zeon"
+            data-cost="{{system.core.zeon.cost}}"
+            type="number"
+            value="{{system.core.zeon.base}}"
+            name="system.core.zeon.base"
+            {{#if actor.system.lockUi}}disabled{{/if}}
+            data-tooltip="
+            <div><strong>DP Cost:</strong> {{system.core.zeon.costKi}}</div>
+        "
+        />
+        </td>
+        <td>
+            <input
+                class="mod-input-resize-char"
+                type="number"
+                value="{{system.core.zeon.bonus}}"
+                name="{{system.core.zeon.bonus}}"
+                {{#if actor.system.lockUi}}disabled{{/if}}
+            />
+        </td>
+        <td>
+            {{system.core.zeon.class}}
+        </td>
+        <td>
+            {{system.core.zeon.total}}
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

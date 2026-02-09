@@ -1,0 +1,37 @@
+<form class="abf-item-sheet">
+<div class="header-top">
+  
+    <!-- Left spacer (keeps name centered) -->
+    <div class="header-top-spacer"></div>
+
+        <!-- Item Name -->
+        <input class="header-top-name"
+        type="text" 
+        name="name" 
+        value="{{item.name}}" 
+        />
+    </div>
+    <!-- Always render the common onto each item. -->
+    {{> "systems/abf-system/templates/items/partials/common/common.hbs"}}
+
+      <!-- TABS -->
+  <nav class="sheet-tabs" data-group="primary">
+    <a class="item" data-tab="main">Main</a>
+    <a class="item" data-tab="description">Description</a>
+  </nav>
+
+    <section class="sheet-body">
+
+      <div class="tab main" data-group="primary" data-tab="main">
+        {{#if (eq item.type "weapon")}}
+          {{> "systems/abf-system/templates/items/partials/weapon/weapon.hbs"}}
+        {{/if}}
+      </div>
+      
+      <div class="tab description" data-group="primary" data-tab="description">
+        {{> "systems/abf-system/templates/items/partials/common/description.hbs"}}
+      </div>
+
+    </section>
+
+</form>
