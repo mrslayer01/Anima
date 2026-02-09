@@ -157,7 +157,7 @@ export const DEFAULT_ACTOR_DATA = {
           mastery: false,
           armorPenalty: true
         },
-        Athletics: {
+        Athleticism: {
           base: 0,
           bonus: 0,
           cost: 0,
@@ -735,6 +735,7 @@ export const DEFAULT_ACTOR_DATA = {
           special: 0,
           characteristic: "Dexterity",
           mastery: false,
+          focus: false,
           description:
             "This represents an individual’s ability to reach his opponent and get past his opponent’s guard to inflict damage. This ability depends on Dexterity."
         },
@@ -747,6 +748,7 @@ export const DEFAULT_ACTOR_DATA = {
           special: 0,
           characteristic: "Dexterity",
           mastery: false,
+          focus: false,
           description:
             "This represents a character’s defensive ability – namely, how well he can deflect or stop attacks from hitting him. This ability depends on Dexterity."
         },
@@ -759,6 +761,7 @@ export const DEFAULT_ACTOR_DATA = {
           special: 0,
           characteristic: "Agility",
           mastery: false,
+          focus: false,
           description:
             "This represents a character’s ability to move out of the way of an attack. This ability depends upon the Agility Characteristic."
         },

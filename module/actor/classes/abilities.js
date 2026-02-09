@@ -87,7 +87,6 @@ function recalcPrimariesAbilities(system, categoryName, abilityName) {
   const total = base + bonus + cls + special;
 
   abilityData.final = total + charFinal;
-  abilityData.undeveloped = total === 0;
 }
 
 //#endregion

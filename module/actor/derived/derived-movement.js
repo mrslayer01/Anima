@@ -1,7 +1,7 @@
 import { toNum } from "../helpers/lookup.js";
 
 export function calculateMovement(system) {
-    const MOVEMENT_DISTANCES = {
+  const MOVEMENT_DISTANCES = {
     1: "<3 ft",
     2: "15 ft",
     3: "25 ft",
@@ -22,17 +22,21 @@ export function calculateMovement(system) {
     18: "3 miles",
     19: "15 miles",
     20: "Special"
-    };
+  };
 
-    const movement = toNum(system.characteristics.Agility.base) + toNum(system.movement.bonus);
-    const hasInhuman = system.movement.inhuman;
-    const hasZen = system.movement.zen;
+  const agility = toNum(system.characteristics.Agility.base);
+  const moveBonus = toNum(system.movement.bonus);
+  const athleticism = toNum(system.abilities.Secondaries.Athletics.Athleticism.final);
 
-    const cap = movementCap(hasInhuman, hasZen);
-    system.movement.final = Math.min(movement, cap);
-    system.movement.movePerTurn = MOVEMENT_DISTANCES[system.movement.final];
+  let movement = agility + moveBonus + athleticism;
 
+  if (movement < 0) movement = 1;
+  const hasInhuman = system.movement.inhuman;
+  const hasZen = system.movement.zen;
 
+  const cap = movementCap(hasInhuman, hasZen);
+  system.movement.final = Math.min(movement, cap);
+  system.movement.movePerTurn = MOVEMENT_DISTANCES[system.movement.final];
 }
 
 function movementCap(hasInhuman, hasZen) {
@@ -40,4 +44,3 @@ function movementCap(hasInhuman, hasZen) {
   if (hasInhuman) return 13;
   return 10;
 }
-

@@ -9,7 +9,12 @@ import { difficultyMap, toNum } from "./helpers/lookup.js";
 import { ABF_CLASSES } from "./config/classes.js";
 import { ABF_LORDS } from "./config/elans.js";
 import { COMBAT_TABLE } from "./helpers/combat.js";
-import { updateDPRecord, validateCategoryLimit, validateDP } from "./classes/dp.js";
+import {
+  updateDPRecord,
+  validateAttackDefenseRule,
+  validateCategoryLimit,
+  validateDP
+} from "./classes/dp.js";
 
 export function registerSheetListeners(sheet, html) {
   html.find(".char-roll").off("click"); //before adding new listener, remove old to avoid duplicates
@@ -69,7 +74,7 @@ export function registerSheetListeners(sheet, html) {
         value: primaryAbility.final,
         label: `${abilityName} Open Roll`,
         actor: sheet.actor,
-        undeveloped: primaryAbility.undeveloped,
+        undeveloped: false,
         mastery: primaryAbility.mastery
       });
       return;
@@ -709,7 +714,43 @@ export function registerSheetListeners(sheet, html) {
       return;
     }
 
+    const attackDefenceRule = validateAttackDefenseRule(actor, change);
+    if (!attackDefenceRule) {
+      ui.notifications.error(
+        "Cannot increase this ability: when one combat ability is focused, only that ability may be raised, if not then focused then Attack, Block, and Dodge must remain within 50 points of each other."
+      );
+      el.value = el.dataset.previous || 0;
+      return;
+    }
+
     await updateDPRecord(actor, change);
+  });
+
+  html.find(".passive-icon.clickable.primary-focus").on("focus", (event) => {
+    const el = event.currentTarget;
+    el.dataset.previous = el.value;
+  });
+
+  html.find(".passive-icon.clickable.primary-focus").off("click");
+  html.find(".passive-icon.clickable.primary-focus").on("click", async (ev) => {
+    const ability = ev.currentTarget.dataset.ability;
+    const actor = sheet.actor;
+
+    const prim = actor.system.abilities.Primaries.Combat;
+    const isFocused = prim[ability]?.focus === true;
+
+    const update = {
+      "system.abilities.Primaries.Combat.Attack.focus": false,
+      "system.abilities.Primaries.Combat.Block.focus": false,
+      "system.abilities.Primaries.Combat.Dodge.focus": false
+    };
+
+    if (!isFocused) {
+      update[`system.abilities.Primaries.Combat.${ability}.focus`] = true;
+    }
+
+    await actor.update(update);
+    sheet.render();
   });
 
   //Secondaries
