@@ -53,7 +53,7 @@ export class ResistancesRule extends BaseRule {
     //Check if any characteristic's final has changed
     for (const [name, res] of Object.entries(oldSystem.resistances)) {
       const linked = res.characteristic;
-      const charPath = `system.characteristics.${name}.final`;
+      const charPath = `system.characteristics.${linked}.final`;
       const newChar = foundry.utils.getProperty(updateData, charPath);
 
       if (newChar !== undefined && newChar !== oldSystem.characteristics[linked].final) {

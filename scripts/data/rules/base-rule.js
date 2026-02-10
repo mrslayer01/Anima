@@ -4,11 +4,13 @@ export class BaseRule {
   }
 
   Derived(system) {
-    //Init
+    this.Initialize(system);
   }
 
   DetectChanged(updateData, oldSystem) {
-    //Init
+    const changed = [];
+
+    return changed;
   }
 
   RecalcUpdated(system, name) {

@@ -10,7 +10,8 @@ export const DEFAULT_ACTOR_DATA = {
   core: {
     lifePoints: {
       current: 0,
-      bonus: 0
+      bonus: 0,
+      classMultiple: 0
     },
     ki: {
       current: 0,
