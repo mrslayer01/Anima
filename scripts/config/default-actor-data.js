@@ -7,23 +7,32 @@ export const DEFAULT_ACTOR_DATA = {
   advantages: [],
   disadvantages: [],
   contacts: [],
+  armor: {
+    body: {},
+    head: {},
+    special: {},
+    total: {}
+  },
   core: {
     lifePoints: {
       current: 0,
       bonus: 0,
-      classMultiple: 0
+      classMultiple: 0,
+      regeneration: {
+        bonus: 0
+      }
     },
     ki: {
-      current: 0,
-      bonus: 0
+      current: 0
     },
     zeon: {
-      current: 0,
-      bonus: 0
+      current: 0
     },
     psychicPoints: {
-      current: 0,
-      bonus: 0
+      current: 0
+    },
+    fatigue: {
+      current: 0
     }
   },
   aspects: {
@@ -40,11 +49,9 @@ export const DEFAULT_ACTOR_DATA = {
     background: "",
     notes: ""
   },
-  fatigue: {
-    current: 0
-  },
   movement: {
-    base: 0
+    base: 0,
+    bonus: 0
   },
   initiative: {
     bonus: 0
@@ -123,6 +130,11 @@ export const DEFAULT_ACTOR_DATA = {
       }
     },
     primary: {
+      abilityLimits: {
+        Combat: { percent: 0, final: 0, current: 0 },
+        Psychic: { percent: 0, final: 0, current: 0 },
+        Supernatural: { percent: 0, final: 0, current: 0 }
+      },
       Combat: {
         Attack: { base: 0, bonus: 0, focus: false },
         Block: { base: 0, bonus: 0, focus: false },

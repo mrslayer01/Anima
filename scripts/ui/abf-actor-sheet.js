@@ -1,3 +1,5 @@
+import { registerSheetListeners } from "./listeners.js";
+
 export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
@@ -42,6 +44,7 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
 
   activateListeners(html) {
     super.activateListeners(html);
+    registerSheetListeners(this, html);
   }
 
   getData(options) {
@@ -66,37 +69,32 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
 
     // Only validate characteristics
     const isCharacteristic = name.startsWith("system.characteristics.");
+    const isResistance = name.startsWith("system.resistances.");
     const isAbility = name.startsWith("system.abilities.Secondaries.");
     const isCurrency = name.startsWith("system.currency.");
+    const isCore = name.startsWith("system.core.");
 
     if (isCharacteristic) {
-      // Base cannot go below 1
+      // Characteristic can't go above 20 or below 0
       if (name.endsWith(".base") && value < 1) {
         value = 1;
         input.value = 1;
       }
-      // Base cannot go above 20
-      if (name.endsWith(".base") && value > 20) {
-        value = 20;
-        input.value = 20;
-      }
 
-      // Bonus cannot go below 0
       if (name.endsWith(".bonus") && value < 0) {
         value = 0;
         input.value = 0;
+      }
+
+      if (value > 20) {
+        value = 20;
+        input.value = 20;
       }
     }
 
     if (isAbility) {
       // Base cannot go below 1
-      if (name.endsWith(".base") && value < 0) {
-        value = 0;
-        input.value = 0;
-      }
-
-      // Bonus cannot go below 0
-      if (name.endsWith(".bonus") && value < 0) {
+      if (value < 0) {
         value = 0;
         input.value = 0;
       }
@@ -104,6 +102,22 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
 
     if (isCurrency) {
       // Currency cannot go below 0
+      if (value < 0) {
+        value = 0;
+        input.value = 0;
+      }
+    }
+
+    if (isCore) {
+      // Fatigue cannot go below 0
+      if (value < 0) {
+        value = 0;
+        input.value = 0;
+      }
+    }
+
+    if (isResistance) {
+      // resistance cannot go below 0
       if (value < 0) {
         value = 0;
         input.value = 0;

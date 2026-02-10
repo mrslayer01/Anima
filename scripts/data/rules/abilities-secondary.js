@@ -4,6 +4,8 @@ import { ABILITIES_SECONDARIES_SCHEMA } from "./schema.js";
 
 export class AbilitiesSecondaryRule extends BaseRule {
   Initialize(system) {
+    if (system.abilities.secondary.totalDPSpent === undefined)
+      system.abilities.secondary.totalDPSpent = 0;
     // Add all the missing fields for cost, class, final, special, characteristic, knowledge, passive, undeveloped, mastery and armorPenalty.
     for (const [categoryName, category] of Object.entries(system.abilities.secondary)) {
       for (const [abilityName, abil] of Object.entries(category)) {
@@ -100,7 +102,7 @@ export class AbilitiesSecondaryRule extends BaseRule {
     return [...new Set(changed)];
   }
 
-  RecalcUpdated(system, name) {
+  RecalcUpdated(system, abilityName) {
     // Find the ability inside the nested categories
     for (const category of Object.values(system.abilities.secondary)) {
       if (category[abilityName]) {

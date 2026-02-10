@@ -35,7 +35,7 @@
   <div class="lft-block">
     <h3 data-tooltip="Final Fatigue = Constitution Base.">
       Fatigue Total:
-      {{system.fatigue.final}}
+      {{system.core.fatigue.final}}
     </h3>
     <table class="lft-table">
       <tr>
@@ -43,14 +43,14 @@
           <input
             data-tooltip="Current Fatigue"
             type="number"
-            name="system.fatigue.current"
-            value="{{system.fatigue.current}}"
+            name="system.core.fatigue.current"
+            value="{{system.core.fatigue.current}}"
           />
         </td>
         <td
           data-tooltip="The current penatly to all actions caused from current fatigue being < 4. (or < 3 if you have fatigue of 4 and so on)"
         >
-          {{system.fatigue.actionPenalty}}
+          {{system.core.fatigue.actionPenalty}}
         </td>
       </tr>
     </table>

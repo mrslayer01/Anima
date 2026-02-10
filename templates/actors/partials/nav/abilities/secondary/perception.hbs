@@ -26,7 +26,7 @@
       </tr>
     </thead>
     <tbody>
-      {{#each actor.system.abilities.Secondaries.Perception as |ability key|}}
+      {{#each actor.system.abilities.secondary.Perception as |ability key|}}
         <tr>
           <td
             data-tooltip="
@@ -43,7 +43,7 @@
               data-name="{{key}}"
               data-cost="{{ability.cost}}"
               value="{{ability.base}}"
-              name="system.abilities.Secondaries.Perception.{{key}}.base"
+              name="system.abilities.secondary.Perception.{{key}}.base"
               {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
@@ -52,7 +52,7 @@
               class="mod-input-resize-char"
               type="number"
               value="{{ability.bonus}}"
-              name="system.abilities.Secondaries.Perception.{{key}}.bonus"
+              name="system.abilities.secondary.Perception.{{key}}.bonus"
               {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>

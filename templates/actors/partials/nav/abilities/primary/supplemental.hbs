@@ -9,16 +9,13 @@
           Ability
         </th>
         <th>
-          Base
-        </th>
-        <th>
-          Bonus
+          Current
         </th>
         <th>
           Class
         </th>
         <th>
-          Total
+          Final
         </th>
       </tr>
     </thead>
@@ -31,29 +28,20 @@
         <input
             class="mod-input-resize-char primary-input"
             data-name="ki"
-            data-cost="{{system.core.ki.costKi}}"
+            data-cost="{{system.core.ki.cost}}"
             type="number"
-            value="{{system.core.ki.base}}"
-            name="system.core.ki.base"
+            value="{{system.core.ki.current}}"
+            name="system.core.ki.current"
             {{#if actor.system.lockUi}}disabled{{/if}}
             data-tooltip="
-            <div><strong>DP Cost:</strong> {{system.core.ki.costKi}}</div>
+            <div><strong>DP Cost:</strong> {{system.core.ki.cost}}</div>
         "
         />
         </td>
         <td>
-            <input
-                class="mod-input-resize-char"
-                type="number"
-                value="{{system.core.ki.bonus}}"
-                name="{{system.core.ki.bonus}}"
-                {{#if actor.system.lockUi}}disabled{{/if}}
-            />
         </td>
         <td>
-        </td>
-        <td>
-            {{system.core.ki.total}}
+            {{system.core.ki.final}}
         </td>
       </tr>
         <tr>
@@ -66,28 +54,19 @@
             data-name="zeon"
             data-cost="{{system.core.zeon.cost}}"
             type="number"
-            value="{{system.core.zeon.base}}"
-            name="system.core.zeon.base"
+            value="{{system.core.zeon.current}}"
+            name="system.core.zeon.current"
             {{#if actor.system.lockUi}}disabled{{/if}}
             data-tooltip="
-            <div><strong>DP Cost:</strong> {{system.core.zeon.costKi}}</div>
+            <div><strong>DP Cost:</strong> {{system.core.zeon.cost}}</div>
         "
         />
-        </td>
-        <td>
-            <input
-                class="mod-input-resize-char"
-                type="number"
-                value="{{system.core.zeon.bonus}}"
-                name="{{system.core.zeon.bonus}}"
-                {{#if actor.system.lockUi}}disabled{{/if}}
-            />
         </td>
         <td>
             {{system.core.zeon.class}}
         </td>
         <td>
-            {{system.core.zeon.total}}
+            {{system.core.zeon.final}}
         </td>
       </tr>
     </tbody>

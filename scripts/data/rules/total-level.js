@@ -38,11 +38,13 @@ export class TotalLevelRule extends BaseRule {
     );
   }
 
-  Update(updateData, oldSystem) {
+  Update(updateData, oldSystem, newSystem) {
     const changed = this.DetectChanged(updateData, oldSystem);
-    if (changed.length > 0) {
-      this.RecalcUpdated(newSystem);
+
+    for (const name of changed) {
+      this.RecalcUpdated(newSystem, name);
     }
+
     return changed;
   }
 }

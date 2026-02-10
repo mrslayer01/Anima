@@ -1,5 +1,5 @@
 <h3>
-  Creative
+  Intellectual
 </h3>
 <div class="secondary-block">
   <table class="ability-table">
@@ -15,7 +15,7 @@
           Bonus
         </th>
         <th>
-          class
+          Class
         </th>
         <th>
           Final
@@ -26,7 +26,7 @@
       </tr>
     </thead>
     <tbody>
-      {{#each actor.system.abilities.Secondaries.Creative as |ability key|}}
+      {{#each actor.system.abilities.secondary.Intellectual as |ability key|}}
         <tr>
           <td
             data-tooltip="
@@ -39,11 +39,11 @@
           <td>
             <input
               class="mod-input-resize-char secondary-input"
+              type="number"
               data-name="{{key}}"
               data-cost="{{ability.cost}}"
-              type="number"
               value="{{ability.base}}"
-              name="system.abilities.Secondaries.Creative.{{key}}.base"
+              name="system.abilities.secondary.Intellectual.{{key}}.base"
               {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
@@ -52,7 +52,7 @@
               class="mod-input-resize-char"
               type="number"
               value="{{ability.bonus}}"
-              name="system.abilities.Secondaries.Creative.{{key}}.bonus"
+              name="system.abilities.secondary.Intellectual.{{key}}.bonus"
               {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
@@ -61,7 +61,7 @@
           </td>
           <td
             class="ability-roll clickable"
-            data-category="Creative"
+            data-category="Intellectual"
             data-ability="{{key}}"
             data-tooltip="Click to make an Open roll."
           >

@@ -1,5 +1,5 @@
 <h3>
-  Social
+  Subterfuge
 </h3>
 <div class="secondary-block">
   <table class="ability-table">
@@ -26,7 +26,7 @@
       </tr>
     </thead>
     <tbody>
-      {{#each actor.system.abilities.Secondaries.Social as |ability key|}}
+      {{#each actor.system.abilities.secondary.Subterfuge as |ability key|}}
         <tr>
           <td
             data-tooltip="
@@ -43,7 +43,7 @@
               data-name="{{key}}"
               data-cost="{{ability.cost}}"
               value="{{ability.base}}"
-              name="system.abilities.Secondaries.Social.{{key}}.base"
+              name="system.abilities.secondary.Subterfuge.{{key}}.base"
               {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
@@ -52,7 +52,7 @@
               class="mod-input-resize-char"
               type="number"
               value="{{ability.bonus}}"
-              name="system.abilities.Secondaries.Social.{{key}}.bonus"
+              name="system.abilities.secondary.Subterfuge.{{key}}.bonus"
               {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
@@ -61,7 +61,7 @@
           </td>
           <td
             class="ability-roll clickable"
-            data-category="Social"
+            data-category="Subterfuge"
             data-ability="{{key}}"
             data-tooltip="Click to make an Open roll."
           >

@@ -1,5 +1,6 @@
 import { DEFAULT_ACTOR_DATA } from "../config/default-actor-data.js";
 import { RULES } from "../data/rules/rules.js";
+import { forceAbilityOrder } from "../ui/force-ability-order.js";
 
 export class AbfActor extends Actor {
   prepareBaseData() {
@@ -11,6 +12,9 @@ export class AbfActor extends Actor {
       insertKeys: true,
       overwrite: false
     });
+
+    forceAbilityOrder(this.system.abilities.primary, "Primaries");
+    forceAbilityOrder(this.system.abilities.secondary, "Secondaries");
   }
 
   prepareData() {

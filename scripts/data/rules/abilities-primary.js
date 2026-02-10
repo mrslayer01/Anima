@@ -4,18 +4,29 @@ import { ABILITIES_PRIMARIES_SCHEMA } from "./schema.js";
 
 export class AbilitiesPrimaryRule extends BaseRule {
   Initialize(system) {
-    // Add all the missing fields cost, class, final, special, mastery and characteristic
+    if (system.abilities.primary.totalDPSpent === undefined)
+      system.abilities.primary.totalDPSpent = 0;
 
+    // add percent, final and current for abilityLimits
+    for (const [categoryName, limit] of Object.entries(system.abilities.primary.abilityLimits)) {
+      if (limit.percent === undefined) limit.percent = 0;
+      if (limit.final === undefined) limit.final = 0;
+      if (limit.current === undefined) limit.current = 0;
+    }
+
+    // Add all the missing fields cost, class, final, special, mastery and characteristic
     for (const [categoryName, category] of Object.entries(system.abilities.primary)) {
       for (const [name, abil] of Object.entries(category)) {
-        if (abil.cost === undefined) abil.cost = 0;
-        if (abil.class === undefined) abil.class = 0;
-        if (abil.final === undefined) abil.final = 0;
-        if (abil.special === undefined) abil.special = 0;
-        if (name != "MAMultiple") {
-          if (abil.characteristic === undefined)
-            abil.characteristic = ABILITIES_PRIMARIES_SCHEMA[name].characteristic || null;
-          if (abil.mastery === undefined) abil.mastery = false;
+        if (categoryName != "abilityLimits") {
+          if (abil.cost === undefined) abil.cost = 0;
+          if (abil.class === undefined) abil.class = 0;
+          if (abil.final === undefined) abil.final = 0;
+          if (abil.special === undefined) abil.special = 0;
+          if (name != "MAMultiple") {
+            if (abil.characteristic === undefined)
+              abil.characteristic = ABILITIES_PRIMARIES_SCHEMA[name].characteristic || null;
+            if (abil.mastery === undefined) abil.mastery = false;
+          }
         }
       }
     }
@@ -27,15 +38,17 @@ export class AbilitiesPrimaryRule extends BaseRule {
     // Calculate Primary Abilities
     for (const [categoryName, category] of Object.entries(system.abilities.primary)) {
       for (const [name, abil] of Object.entries(category)) {
-        const linkedChar = abil.characteristic;
-        const charFinal = toNum(system.characteristics[linkedChar]?.final);
-        const base = toNum(abil.base);
-        const bonus = toNum(abil.bonus);
-        const cls = toNum(abil.class);
-        const special = toNum(abil.special);
-        const total = base + bonus + cls + special;
-        abil.final = total + charFinal;
-        abil.mastery = total >= 200;
+        if (categoryName != "abilityLimits") {
+          const linkedChar = abil.characteristic;
+          const charFinal = toNum(system.characteristics[linkedChar]?.final);
+          const base = toNum(abil.base);
+          const bonus = toNum(abil.bonus);
+          const cls = toNum(abil.class);
+          const special = toNum(abil.special);
+          const total = base + bonus + cls + special;
+          abil.final = total + charFinal;
+          abil.mastery = total >= 200;
+        }
       }
     }
   }
@@ -92,7 +105,7 @@ export class AbilitiesPrimaryRule extends BaseRule {
     return [...new Set(changed)];
   }
 
-  RecalcUpdated(system, name) {
+  RecalcUpdated(system, abilityName) {
     // Find the ability inside the nested categories
     for (const category of Object.values(system.abilities.primary)) {
       if (category[abilityName]) {

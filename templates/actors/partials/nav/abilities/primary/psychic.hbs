@@ -1,5 +1,8 @@
 <h3>
-  Vigor
+  Psychic DP Limit:
+  {{actor.system.abilities.primary.abilityLimits.Psychic.current}}
+  /
+  {{actor.system.abilities.primary.abilityLimits.Psychic.final}}
 </h3>
 <div class="secondary-block">
   <table class="ability-table">
@@ -20,31 +23,26 @@
         <th>
           Final
         </th>
-        <th>
-          Passive
-        </th>
       </tr>
     </thead>
     <tbody>
-      {{#each actor.system.abilities.Secondaries.Vigor as |ability key|}}
+      {{#each actor.system.abilities.primary.Psychic as |ability key|}}
         <tr>
-          <td
-            data-tooltip="
-              <div><strong>Knowledge:</strong> {{ability.knowledge}}</div>
-              <div><strong>DP Cost:</strong> {{ability.cost}}</div>
-            "
-          >
+          <td>
             {{localize (concat "ABF.Ability." key)}}
           </td>
           <td>
             <input
-              class="mod-input-resize-char secondary-input"
-              type="number"
+              class="mod-input-resize-char primary-input"
               data-name="{{key}}"
               data-cost="{{ability.cost}}"
+              type="number"
               value="{{ability.base}}"
-              name="system.abilities.Secondaries.Vigor.{{key}}.base"
+              name="system.abilities.primary.Psychic.{{key}}.base"
               {{#if actor.system.lockUi}}disabled{{/if}}
+              data-tooltip="
+              <div><strong>DP Cost:</strong> {{ability.cost}}</div>
+            "
             />
           </td>
           <td>
@@ -52,27 +50,15 @@
               class="mod-input-resize-char"
               type="number"
               value="{{ability.bonus}}"
-              name="system.abilities.Secondaries.Vigor.{{key}}.bonus"
+              name="system.abilities.primary.Psychic.{{key}}.bonus"
               {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
           <td>
             {{ability.class}}
           </td>
-          <td
-            class="ability-roll clickable"
-            data-category="Vigor"
-            data-ability="{{key}}"
-            data-tooltip="Click to make an Open roll."
-          >
+          <td class="ability-roll clickable" data-category="Psychic" data-ability="{{key}}">
             {{ability.final}}
-          </td>
-          <td class="passive-icon">
-            {{#if ability.passive}}
-              <i class="fas fa-check"></i>
-            {{else}}
-              <i class="fas fa-times"></i>
-            {{/if}}
           </td>
         </tr>
       {{/each}}

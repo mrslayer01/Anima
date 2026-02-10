@@ -1,5 +1,5 @@
 <h3>
-  Athletics
+  Creative
 </h3>
 <div class="secondary-block">
   <table class="ability-table">
@@ -15,7 +15,7 @@
           Bonus
         </th>
         <th>
-          Class
+          class
         </th>
         <th>
           Final
@@ -26,7 +26,7 @@
       </tr>
     </thead>
     <tbody>
-      {{#each actor.system.abilities.Secondaries.Athletics as |ability key|}}
+      {{#each actor.system.abilities.secondary.Creative as |ability key|}}
         <tr>
           <td
             data-tooltip="
@@ -43,7 +43,7 @@
               data-cost="{{ability.cost}}"
               type="number"
               value="{{ability.base}}"
-              name="system.abilities.Secondaries.Athletics.{{key}}.base"
+              name="system.abilities.secondary.Creative.{{key}}.base"
               {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
@@ -52,7 +52,7 @@
               class="mod-input-resize-char"
               type="number"
               value="{{ability.bonus}}"
-              name="system.abilities.Secondaries.Athletics.{{key}}.bonus"
+              name="system.abilities.secondary.Creative.{{key}}.bonus"
               {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
@@ -61,12 +61,9 @@
           </td>
           <td
             class="ability-roll clickable"
-            data-category="Athletics"
+            data-category="Creative"
             data-ability="{{key}}"
-            data-tooltip="
-              <div><strong>Knowledge:</strong> {{ability.knowledge}}</div>
-              <div><strong>DP Cost:</strong> {{ability.cost}}</div>
-            "
+            data-tooltip="Click to make an Open roll."
           >
             {{ability.final}}
           </td>

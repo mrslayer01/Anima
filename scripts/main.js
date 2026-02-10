@@ -3,6 +3,7 @@ import { AbfItem } from "./documents/abf-item.js";
 import { AbfActorSheet } from "./ui/abf-actor-sheet.js";
 import { AbfItemSheet } from "./ui/abf-item-sheet.js";
 import { InitalizeAllActorPartials } from "./templates/initialize-actor-partials.js";
+import { loadAllActorHandlerbarsHelpers } from "./ui/handlebars-helpers.js";
 
 Hooks.once("init", function () {
   console.log("ABF | Initializing Anima Beyond Fantasy system");
@@ -11,6 +12,7 @@ Hooks.once("init", function () {
   CONFIG.Actor.documentClass = AbfActor;
   CONFIG.Item.documentClass = AbfItem;
 
+  loadAllActorHandlerbarsHelpers();
   InitalizeAllActorPartials();
 
   foundry.documents.collections.Actors.unregisterSheet("core", foundry.appv1.sheets.ActorSheet);
