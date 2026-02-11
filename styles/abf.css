@@ -793,3 +793,21 @@
   opacity: 0.5;
   pointer-events: none;
 }
+
+.natural-bonus-config {
+  background: #11141d;
+}
+
+.secondary-expand {
+  width: 10px;
+}
+
+.secondary-table td:last-child {
+  width: 5%;
+}
+
+.natural-bonus-table th,
+.natural-bonus-table td:first-child {
+  text-align: center;
+  width: auto;
+}

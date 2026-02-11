@@ -23,12 +23,16 @@
         <th>
           Passive
         </th>
+        <th>Extra</th>
       </tr>
     </thead>
-    <tbody>
+    <tbody class="secondary-table">
       {{#each actor.system.abilities.secondary.Subterfuge as |ability key|}}
         <tr>
-          <td>
+          <td class="clickable-ability clickable"
+            data-category="Subterfuge"
+            data-ability="{{key}}"
+            data-tooltip="Click for Information">
             {{localize (concat "ABF.Ability." key)}}
           </td>
           <td>
@@ -71,6 +75,42 @@
             {{else}}
               <i class="fas fa-times"></i>
             {{/if}}
+          </td>
+          <td>
+            <a class="expand-secondary"
+            data-category="Subterfuge"
+            data-ability="{{key}}">
+              <i class="expand-icon fas fa-plus-circle"></i>
+            </a>
+          </td>
+        </tr>
+        <tr class="secondary-extra hidden"
+            data-category="Subterfuge"
+            data-ability="{{key}}">
+          <td colspan="7">
+            <div class="natural-bonus-config">
+
+              <table class="natural-bonus-table">
+                <thead>
+                  <tr>
+                    <th>Natural Bonus</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>
+                      <input
+                        class="mod-input-resize-char"
+                        type="number"
+                        value="{{ability.naturalBonuses}}"
+                        name="system.abilities.secondary.Subterfuge.{{key}}.naturalBonuses"
+                        {{#if actor.system.lockUi}}disabled{{/if}}
+                      />
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
           </td>
         </tr>
       {{/each}}

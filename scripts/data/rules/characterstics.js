@@ -18,9 +18,9 @@ export class CharactersiticsRule extends BaseRule {
     for (const [name, char] of Object.entries(system.characteristics)) {
       const base = toNum(char.base);
       const bonus = toNum(char.bonus);
-      const modifier = lookupCharacteristicMod(base + bonus);
+      const modifier = lookupCharacteristicMod(base);
 
-      char.final = modifier;
+      char.final = modifier + bonus;
     }
   }
 

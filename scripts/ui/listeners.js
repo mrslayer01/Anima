@@ -3,6 +3,20 @@ import { difficultyMap } from "../utils/lookup.js";
 import { characteristicCheck, animaOpenRoll, resistanceCheck } from "../utils/rolls.js";
 
 export function registerSheetListeners(sheet, html) {
+  for (const key of sheet._expandedSecondaries) {
+    const [category, ability] = key.split(".");
+
+    const extra = html.find(
+      `.secondary-extra[data-category="${category}"][data-ability="${ability}"]`
+    );
+    const icon = html.find(
+      `.expand-secondary[data-category="${category}"][data-ability="${ability}"] .expand-icon`
+    );
+
+    extra.removeClass("hidden");
+    icon.removeClass("fa-plus-circle").addClass("fa-minus-circle");
+  }
+
   html.find(".char-roll").off("click"); //before adding new listener, remove old to avoid duplicates
   html.find(".toggle-lock").on("click", (ev) => {
     const actor = sheet.actor;
@@ -266,6 +280,23 @@ export function registerSheetListeners(sheet, html) {
     openJournalFromUUID(classData.journalEntry);
   });
 
+  // Click class name for information
+  html.find(".clickable-ability").click((ev) => {
+    ev.preventDefault();
+    const categoryName = ev.currentTarget.dataset.category;
+    const abilityName = ev.currentTarget.dataset.ability;
+
+    const primaries = sheet.actor.system?.abilities?.primary;
+    const secondaries = sheet.actor.system?.abilities?.secondary;
+
+    const primaryAbility = primaries?.[categoryName]?.[abilityName];
+
+    const secondaryAbility = secondaries?.[categoryName]?.[abilityName];
+
+    if (primaryAbility) openJournalFromUUID(primaryAbility.journal);
+    if (secondaryAbility) openJournalFromUUID(secondaryAbility.journal);
+  });
+
   function normalizeClassName(name) {
     return name
       .trim()
@@ -276,6 +307,93 @@ export function registerSheetListeners(sheet, html) {
       .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
       .join(" ");
   }
+
+  // Add natural bonuses to secondaries.
+
+  html.find(".expand-secondary").off("click");
+  html.find(".expand-secondary").on("click", (event) => {
+    const category = event.currentTarget.dataset.category;
+    const ability = event.currentTarget.dataset.ability;
+    const key = `${category}.${ability}`;
+
+    const extra = html.find(
+      `.secondary-extra[data-category="${category}"][data-ability="${ability}"]`
+    );
+
+    const icon = $(event.currentTarget).find(".expand-icon");
+
+    const isHidden = extra.hasClass("hidden");
+
+    if (isHidden) {
+      extra.removeClass("hidden");
+      icon.removeClass("fa-plus-circle").addClass("fa-minus-circle");
+      sheet._expandedSecondaries.add(key);
+    } else {
+      extra.addClass("hidden");
+      icon.removeClass("fa-minus-circle").addClass("fa-plus-circle");
+      sheet._expandedSecondaries.delete(key);
+    }
+  });
+
+  html.find(".add-natural-bonus").off("click");
+  html.find(".add-natural-bonus").on("click", async (event) => {
+    const category = event.currentTarget.dataset.category;
+    const ability = event.currentTarget.dataset.ability;
+
+    const actor = sheet.actor;
+
+    // Get the ability data
+    const abil = foundry.utils.getProperty(
+      actor,
+      `system.abilities.secondary.${category}.${ability}`
+    );
+
+    // The characteristic this secondary uses
+    const characteristic = abil.characteristic;
+
+    const path = `system.abilities.secondary.${category}.${ability}.naturalBonuses`;
+
+    // Load existing bonuses
+    const bonuses = foundry.utils.duplicate(foundry.utils.getProperty(actor, path) || []);
+
+    // Add another instance of the same characteristic
+    bonuses.push({
+      characteristic,
+      enabled: true
+    });
+
+    await actor.update({ [path]: bonuses });
+
+    // Keep row expanded
+    sheet._expandedSecondaries.add(`${category}.${ability}`);
+  });
+
+  html.find(".delete-natural-bonus").off("click");
+  html.find(".delete-natural-bonus").on("click", async (event) => {
+    const category = event.currentTarget.dataset.category;
+    const ability = event.currentTarget.dataset.ability;
+    const index = Number(event.currentTarget.dataset.index);
+
+    const confirmed = await Dialog.confirm({
+      title: "Confirm Delete",
+      content: "<p>Remove this natural bonus?</p>"
+    });
+
+    if (!confirmed) return;
+
+    const actor = sheet.actor;
+    const path = `system.abilities.secondary.${category}.${ability}.naturalBonuses`;
+
+    // FIXED: correctly duplicate the array
+    // FIXED: correct way to load the array
+    const bonuses = foundry.utils.duplicate(foundry.utils.getProperty(actor, path) || []);
+
+    bonuses.splice(index, 1);
+
+    await actor.update({ [path]: bonuses });
+
+    sheet._expandedSecondaries.add(`${category}.${ability}`);
+  });
 
   //#endregion
 

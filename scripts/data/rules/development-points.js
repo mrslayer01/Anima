@@ -19,6 +19,7 @@ export class DevelopmentPointsRule extends BaseRule {
     system.developmentPoints.spentRecords = [];
 
     DerivedPrimaryAbilites(system);
+    DerivedSecondaryAbilites(system);
 
     // Now recalc DP totals
     recalculateDP(system);
@@ -40,10 +41,9 @@ export class DevelopmentPointsRule extends BaseRule {
 
     const { category, ability } = this._change;
 
-    const newBase = system.abilities.primary[category][ability].base;
-    const cost = system.abilities.primary[category][ability].cost;
+    RecalcPrimaryAbilites(system, category, ability);
+    RecalcSecondaryAbilites(system, category, ability);
 
-    updateAbilityRecord(system, category, ability, newBase, cost);
     recalculateDP(system);
   }
 
@@ -55,23 +55,6 @@ export class DevelopmentPointsRule extends BaseRule {
     }
 
     return changed; // MUST be array of strings
-  }
-}
-
-function updateAbilityRecord(system, category, ability, amount, cost) {
-  const records = system.developmentPoints.spentRecords;
-  const idx = records.findIndex((r) => r.category === category && r.ability === ability);
-
-  if (amount === 0) {
-    if (idx !== -1) records.splice(idx, 1);
-    return;
-  }
-
-  if (idx !== -1) {
-    records[idx].amount = amount;
-    records[idx].cost = cost;
-  } else {
-    records.push({ category, ability, amount, cost });
   }
 }
 
@@ -96,7 +79,27 @@ function recalculateDP(system) {
   system.developmentPoints.remaining = system.developmentPoints.final - spent;
 
   CalculatePrimaryAbilities(system);
+  CalculateSecondaryAbilities(system);
 }
+
+function updateAbilityRecord(system, category, ability, amount, cost) {
+  const records = system.developmentPoints.spentRecords;
+  const idx = records.findIndex((r) => r.category === category && r.ability === ability);
+
+  if (amount === 0) {
+    if (idx !== -1) records.splice(idx, 1);
+    return;
+  }
+
+  if (idx !== -1) {
+    records[idx].amount = amount;
+    records[idx].cost = cost;
+  } else {
+    records.push({ category, ability, amount, cost });
+  }
+}
+
+//#region Primary Abilities
 
 function DerivedPrimaryAbilites(system) {
   for (const [categoryName, category] of Object.entries(system.abilities.primary)) {
@@ -118,6 +121,15 @@ function DerivedPrimaryAbilites(system) {
   }
 }
 
+function RecalcPrimaryAbilites(system, category, ability) {
+  if (["Combat", "Psychic", "Supernatural"].includes(category)) {
+    const newBase = system.abilities.primary[category][ability].base;
+    const cost = system.abilities.primary[category][ability].cost;
+
+    updateAbilityRecord(system, category, ability, newBase, cost);
+  }
+}
+
 function CalculatePrimaryAbilities(system) {
   const limits = system.abilities.primary.abilityLimits;
 
@@ -128,9 +140,11 @@ function CalculatePrimaryAbilities(system) {
 
   // Sum DP spent per category
   for (const rec of system.developmentPoints.spentRecords) {
-    const cat = rec.category;
-    const cost = Number(rec.amount) * Number(rec.cost);
-    limits[cat].current += cost;
+    if (["Combat", "Psychic", "Supernatural"].includes(rec.category)) {
+      const cat = rec.category;
+      const cost = Number(rec.amount) * Number(rec.cost);
+      limits[cat].current += cost;
+    }
   }
 
   // Compute final limit per category (percent of max DP)
@@ -151,3 +165,70 @@ function CalculatePrimaryAbilities(system) {
 
   system.abilities.primary.totalDPSpent = primaryTotal;
 }
+
+//#endregion
+
+//#region Secondary Abilities
+
+function DerivedSecondaryAbilites(system) {
+  for (const [categoryName, category] of Object.entries(system.abilities.secondary)) {
+    for (const [abilityName, abil] of Object.entries(category)) {
+      const base = Number(abil.base) || 0;
+      const cost = Number(abil.cost) || 0;
+
+      if (base > 0 && cost > 0) {
+        system.developmentPoints.spentRecords.push({
+          category: categoryName,
+          ability: abilityName,
+          amount: base,
+          cost
+        });
+      }
+    }
+  }
+}
+
+function RecalcSecondaryAbilites(system, category, ability) {
+  if (
+    [
+      "Athletics",
+      "Vigor",
+      "Perception",
+      "Intellectual",
+      "Social",
+      "Subterfuge",
+      "Creative"
+    ].includes(category)
+  ) {
+    const newBase = system.abilities.secondary[category][ability].base;
+    const cost = system.abilities.secondary[category][ability].cost;
+
+    updateAbilityRecord(system, category, ability, newBase, cost);
+  }
+}
+
+function CalculateSecondaryAbilities(system) {
+  // --- TOTAL PRIMARY DP SPENT ---
+  let secondaryTotal = 0;
+
+  for (const rec of system.developmentPoints.spentRecords) {
+    // Only count secondary categories
+    if (
+      [
+        "Athletics",
+        "Vigor",
+        "Perception",
+        "Intellectual",
+        "Social",
+        "Subterfuge",
+        "Creative"
+      ].includes(rec.category)
+    ) {
+      secondaryTotal += Number(rec.amount) * Number(rec.cost);
+    }
+  }
+
+  system.abilities.secondary.totalDPSpent = secondaryTotal;
+}
+
+//#endregion

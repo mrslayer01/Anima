@@ -95,21 +95,8 @@ export class InitiativeRule extends BaseRule {
     const specBonus = toNum(system.initiative.special);
     const classBonus = toNum(system.initiative.class);
 
-    console.log(
-      "reclac: ",
-      baseIni,
-      agilFinal,
-      dexFinal,
-      weaponMod,
-      armorMod,
-      classBonus,
-      iniBonus,
-      specBonus
-    );
     system.initiative.final =
       baseIni + agilFinal + dexFinal + weaponMod + armorMod + classBonus + iniBonus + specBonus;
-
-    console.log(system.initiative.final);
   }
 
   Update(updateData, oldSystem, newSystem) {

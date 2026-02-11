@@ -78,56 +78,56 @@ export const DEFAULT_ACTOR_DATA = {
   abilities: {
     secondary: {
       Athletics: {
-        Acrobatics: { base: 0, bonus: 0 },
-        Athleticism: { base: 0, bonus: 0 },
-        Climb: { base: 0, bonus: 0 },
-        Jump: { base: 0, bonus: 0 },
-        Ride: { base: 0, bonus: 0 },
-        Swim: { base: 0, bonus: 0 }
+        Acrobatics: { base: 0, bonus: 0, naturalBonuses: [] },
+        Athleticism: { base: 0, bonus: 0, naturalBonuses: [] },
+        Climb: { base: 0, bonus: 0, naturalBonuses: [] },
+        Jump: { base: 0, bonus: 0, naturalBonuses: [] },
+        Ride: { base: 0, bonus: 0, naturalBonuses: [] },
+        Swim: { base: 0, bonus: 0, naturalBonuses: [] }
       },
       Vigor: {
-        Composure: { base: 0, bonus: 0 },
-        FeatsOfStrength: { base: 0, bonus: 0 },
-        WithstandPain: { base: 0, bonus: 0 }
+        Composure: { base: 0, bonus: 0, naturalBonuses: [] },
+        FeatsOfStrength: { base: 0, bonus: 0, naturalBonuses: [] },
+        WithstandPain: { base: 0, bonus: 0, naturalBonuses: [] }
       },
       Perception: {
-        Notice: { base: 0, bonus: 0 },
-        Search: { base: 0, bonus: 0 },
-        Track: { base: 0, bonus: 0 }
+        Notice: { base: 0, bonus: 0, naturalBonuses: [] },
+        Search: { base: 0, bonus: 0, naturalBonuses: [] },
+        Track: { base: 0, bonus: 0, naturalBonuses: [] }
       },
       Intellectual: {
-        Animals: { base: 0, bonus: 0 },
-        Appraisal: { base: 0, bonus: 0 },
-        HerbalLore: { base: 0, bonus: 0 },
-        History: { base: 0, bonus: 0 },
-        MagicAppraisal: { base: 0, bonus: 0 },
-        Medicine: { base: 0, bonus: 0 },
-        Memorize: { base: 0, bonus: 0 },
-        Navigation: { base: 0, bonus: 0 },
-        Occult: { base: 0, bonus: 0 },
-        Sciences: { base: 0, bonus: 0 }
+        Animals: { base: 0, bonus: 0, naturalBonuses: [] },
+        Appraisal: { base: 0, bonus: 0, naturalBonuses: [] },
+        HerbalLore: { base: 0, bonus: 0, naturalBonuses: [] },
+        History: { base: 0, bonus: 0, naturalBonuses: [] },
+        MagicAppraisal: { base: 0, bonus: 0, naturalBonuses: [] },
+        Medicine: { base: 0, bonus: 0, naturalBonuses: [] },
+        Memorize: { base: 0, bonus: 0, naturalBonuses: [] },
+        Navigation: { base: 0, bonus: 0, naturalBonuses: [] },
+        Occult: { base: 0, bonus: 0, naturalBonuses: [] },
+        Sciences: { base: 0, bonus: 0, naturalBonuses: [] }
       },
       Social: {
-        Intimidate: { base: 0, bonus: 0 },
-        Leadership: { base: 0, bonus: 0 },
-        Persuasion: { base: 0, bonus: 0 },
-        Style: { base: 0, bonus: 0 }
+        Intimidate: { base: 0, bonus: 0, naturalBonuses: [] },
+        Leadership: { base: 0, bonus: 0, naturalBonuses: [] },
+        Persuasion: { base: 0, bonus: 0, naturalBonuses: [] },
+        Style: { base: 0, bonus: 0, naturalBonuses: [] }
       },
       Subterfuge: {
-        Disguise: { base: 0, bonus: 0 },
-        Hide: { base: 0, bonus: 0 },
-        LockPicking: { base: 0, bonus: 0 },
-        Poisons: { base: 0, bonus: 0 },
-        Theft: { base: 0, bonus: 0 },
-        TrapLore: { base: 0, bonus: 0 },
-        Stealth: { base: 0, bonus: 0 }
+        Disguise: { base: 0, bonus: 0, naturalBonuses: [] },
+        Hide: { base: 0, bonus: 0, naturalBonuses: [] },
+        LockPicking: { base: 0, bonus: 0, naturalBonuses: [] },
+        Poisons: { base: 0, bonus: 0, naturalBonuses: [] },
+        Theft: { base: 0, bonus: 0, naturalBonuses: [] },
+        TrapLore: { base: 0, bonus: 0, naturalBonuses: [] },
+        Stealth: { base: 0, bonus: 0, naturalBonuses: [] }
       },
       Creative: {
-        Art: { base: 0, bonus: 0 },
-        Dance: { base: 0, bonus: 0 },
-        Forging: { base: 0, bonus: 0 },
-        Music: { base: 0, bonus: 0 },
-        SleightOfHand: { base: 0, bonus: 0 }
+        Art: { base: 0, bonus: 0, naturalBonuses: [] },
+        Dance: { base: 0, bonus: 0, naturalBonuses: [] },
+        Forging: { base: 0, bonus: 0, naturalBonuses: [] },
+        Music: { base: 0, bonus: 0, naturalBonuses: [] },
+        SleightOfHand: { base: 0, bonus: 0, naturalBonuses: [] }
       }
     },
     primary: {

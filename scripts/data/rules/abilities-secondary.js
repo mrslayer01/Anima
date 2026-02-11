@@ -27,6 +27,8 @@ export class AbilitiesSecondaryRule extends BaseRule {
         if (abil.armorPenalty === undefined) {
           abil.armorPenalty = ABILITIES_SECONDARIES_SCHEMA[abilityName].armorPenalty;
         }
+        if (abil.journal === undefined) abil.journal = ABILITY_JOURNALS[categoryName][abilityName];
+        if (abil.naturalBonuses === undefined) abil.naturalBonuses = 0;
       }
     }
   }
@@ -43,12 +45,16 @@ export class AbilitiesSecondaryRule extends BaseRule {
         const bonus = toNum(abil.bonus);
         const cls = toNum(abil.class);
         const special = toNum(abil.special);
-        const total = base + bonus + cls + special;
+        let naturalTotal = charFinal * toNum(abil.naturalBonuses);
+
+        const total = base + bonus + cls + special + naturalTotal;
         abil.final = total + charFinal;
         abil.undeveloped = total === 0;
         abil.mastery = total >= 200;
       }
     }
+
+    // Calculate natural total
   }
 
   DetectChanged(updateData, oldSystem) {
@@ -132,8 +138,9 @@ export class AbilitiesSecondaryRule extends BaseRule {
         const bonus = toNum(abil.bonus);
         const cls = toNum(abil.class);
         const special = toNum(abil.special);
+        let naturalTotal = charFinal * toNum(abil.naturalBonuses);
 
-        const total = base + bonus + cls + special;
+        const total = base + bonus + cls + special + naturalTotal;
 
         abil.final = total + charFinal;
         abil.undeveloped = total === 0;
@@ -154,3 +161,97 @@ export class AbilitiesSecondaryRule extends BaseRule {
     return changed;
   }
 }
+
+const ABILITY_JOURNALS = {
+  Athletics: {
+    Acrobatics:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.MY510372A22d3JZR",
+    Athleticism:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.u0m1pw9SvzHCTQ13",
+    Climb:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.tHU1Sy3dECuOm5Yd",
+    Jump: "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.tMbowaxg3moap2GN",
+    Ride: "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.cmoLvO8bokz1Goo4",
+    Swim: "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.nmkXv5Da3A4qSz1E"
+  },
+
+  Social: {
+    Intimidate:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.ASkM6TlV7grJXawg",
+    Leadership:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.4zacNUG9hotGyEes",
+    Persuasion:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.G188zt90jhHGYIXm",
+    Style:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.GWbdUwcsWDANxcIS"
+  },
+
+  Perception: {
+    Notice:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.jhbUo9VzXLg3wmZB",
+    Search:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.RZGhWAWp9QRfL4Nv",
+    Track:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.xA81TuSVMIFnzmLS"
+  },
+
+  Intellectual: {
+    Animals:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.F40O0dGUWe8SS75i",
+    Appraisal:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.c9e4HqVapp9Yvepz",
+    HerbalLore:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.IgFKAYfgdFO8i6Zb",
+    History:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.RMKzEzr3TzIDgkSb",
+    MagicAppraisal:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.cpT8KkSTlw7KLZe5",
+    Medicine:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.TUixTdLd0PXDeTsg",
+    Memorize:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.nMp4mH73NQSqnT8S",
+    Navigation:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.PgsG7Zie0GHyzt8u",
+    Occult:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.x0teoetgOIrvahjU",
+    Science:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.ilEuj8At6aFrX4jD"
+  },
+
+  Vigor: {
+    Composure:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.8SzAsQABkNro17Hx",
+    WithstandPain:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.JnvWJUfo9LtpA33B",
+    FeatsOfStrength:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.oAf0IWrOdMJfJoR6"
+  },
+
+  Subterfuge: {
+    Theft:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.X634pdRrQyW7BU08",
+    Disguise:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.7gktntO25nCqiaAu",
+    Hide: "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.cbtLvz61ZjDNJExH",
+    Stealth:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.Hj9WBVRnNedMJOvj",
+    TrapLore:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.f6m1iAowOBdJJ8X8",
+    LockPicking:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.vxXroK8tCzrCq5mL",
+    Poisons:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.7rjn4Tklskks6cqC"
+  },
+
+  Creative: {
+    Art: "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.vsEq6zU8NAP9vpz4",
+    Dance:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.EUKGrUcllOmRWea0",
+    Music:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.awGkjAuCA0YrX91P",
+    SleightOfHand:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.B8itelptEhHOHvLl",
+    Forging:
+      "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.CZq6d9vixluxesck"
+  }
+};

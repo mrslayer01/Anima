@@ -26,6 +26,17 @@ export function loadAllActorHandlerbarsHelpers() {
       .replace(/^./, (c) => c.toUpperCase()); // capitalize first letter
   });
 
+  Handlebars.registerHelper("expandedIcon", function (set, category, ability) {
+    if (!set || !set.has) {
+      return '<i class="fas fa-plus-circle"></i>'; // default collapsed
+    }
+
+    const key = `${category}.${ability}`;
+    return set.has(key)
+      ? '<i class="fas fa-minus-circle"></i>'
+      : '<i class="fas fa-plus-circle"></i>';
+  });
+
   //#region Secondaries
   // Athletics
   Handlebars.registerHelper("orderAthletics", () => [

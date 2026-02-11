@@ -14,9 +14,8 @@ export class MovementRule extends BaseRule {
     console.log();
     const agility = toNum(system.characteristics.Agility.base);
     const moveBonus = toNum(system.movement.bonus);
-    const athleticism = toNum(system.abilities.secondary.Athletics.Athleticism.final);
 
-    let movement = agility + moveBonus + athleticism;
+    let movement = agility + moveBonus;
 
     if (movement < 0) movement = 1;
     const hasInhuman = system.movement.inhuman;
@@ -32,22 +31,12 @@ export class MovementRule extends BaseRule {
     //watches Agility.base, movement.bonus and Athleticism.final
     const newAgil = foundry.utils.getProperty(updateData, "system.characteristics.Agility.base");
     const newBonus = foundry.utils.getProperty(updateData, "system.movement.bonus");
-    const newAthleticism = foundry.utils.getProperty(
-      updateData,
-      "system.abilities.secondary.Athletics.Athleticism.final"
-    );
 
     if (newAgil !== undefined && newAgil !== oldSystem.characteristics.Agility.base) {
       changed.push("Agility");
     }
     if (newBonus !== undefined && newBonus !== oldSystem.movement.bonus) {
       changed.push("bonus");
-    }
-    if (
-      newAthleticism !== undefined &&
-      newAthleticism !== oldSystem.abilities.secondary.Athletics.Athleticism.final
-    ) {
-      changed.push("Athleticism");
     }
 
     for (const [index, cls] of Object.entries(oldSystem.classes)) {
@@ -64,9 +53,8 @@ export class MovementRule extends BaseRule {
   RecalcUpdated(system, name) {
     const agility = toNum(system.characteristics.Agility.base);
     const moveBonus = toNum(system.movement.bonus);
-    const athleticism = toNum(system.abilities.secondary.Athletics.Athleticism.final);
 
-    let movement = agility + moveBonus + athleticism;
+    let movement = agility + moveBonus;
 
     if (movement < 0) movement = 1;
     const hasInhuman = system.movement.inhuman;
