@@ -278,4 +278,55 @@ export function registerSheetListeners(sheet, html) {
   }
 
   //#endregion
+
+  //Primary ability focus.
+  html.find(".passive-icon.clickable.primary-focus").off("click");
+  html.find(".passive-icon.clickable.primary-focus").on("click", async (ev) => {
+    const ability = ev.currentTarget.dataset.ability;
+    const actor = sheet.actor;
+
+    const prim = actor.system.abilities.primary.Combat;
+    const isFocused = prim[ability]?.focus === true;
+
+    const update = {
+      "system.abilities.primary.Combat.Attack.focus": false,
+      "system.abilities.primary.Combat.Block.focus": false,
+      "system.abilities.primary.Combat.Dodge.focus": false
+    };
+
+    if (!isFocused) {
+      update[`system.abilities.primary.Combat.${ability}.focus`] = true;
+    }
+
+    await actor.update(update);
+    sheet.render();
+  });
+}
+
+async function openJournalFromUUID(rawUuid) {
+  const [uuid, anchor] = rawUuid.split("#");
+
+  // Load the page document
+  const page = await fromUuid(uuid);
+  if (!page) return ui.notifications.warn("Journal entry not found.");
+
+  const entry = page.parent;
+
+  // Render the JournalEntry in VIEW mode
+  entry.sheet.render(true, {
+    editable: false,
+    pageId: page.id
+  });
+
+  if (!anchor) return;
+
+  // Auto-scroll after the page sheet renders
+  Hooks.once("renderJournalPageSheet", (sheet, html) => {
+    setTimeout(() => {
+      const el = html[0].querySelector(`#${anchor}`);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
+  });
 }

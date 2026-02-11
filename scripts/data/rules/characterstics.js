@@ -38,6 +38,7 @@ export class CharactersiticsRule extends BaseRule {
       if (newBase !== undefined && newBase !== oldChar.base) changed.push(name);
       if (newBonus !== undefined && newBonus !== oldChar.bonus) changed.push(name);
     }
+
     return [...new Set(changed)];
   }
 

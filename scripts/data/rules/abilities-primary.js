@@ -57,14 +57,22 @@ export class AbilitiesPrimaryRule extends BaseRule {
     //watches characteristics, base, bonus, class and special
     const changed = [];
 
-    //check for any changed characterstics.
+    //check for any changed characterstics. Check base and bonus.
     for (const [categoryName, category] of Object.entries(oldSystem.abilities.primary)) {
       for (const [abilityName, abil] of Object.entries(category)) {
         const linkedChar = abil.characteristic;
-        const charPath = `system.characteristics.${linkedChar}.final`;
+        const charPath = `system.characteristics.${linkedChar}.base`;
+        const charPathBonus = `system.characteristics.${linkedChar}.bonus`;
         const newChar = foundry.utils.getProperty(updateData, charPath);
-        const oldChar = oldSystem.characteristics[linkedChar]?.final;
+        const newCharBonus = foundry.utils.getProperty(updateData, charPathBonus);
+        const oldChar = oldSystem.characteristics[linkedChar]?.base;
+        const oldCharBonus = oldSystem.characteristics[linkedChar]?.bonus;
+
         if (newChar !== undefined && newChar !== oldChar) {
+          changed.push(abilityName);
+        }
+
+        if (newCharBonus !== undefined && newCharBonus !== oldCharBonus) {
           changed.push(abilityName);
         }
       }
@@ -100,6 +108,14 @@ export class AbilitiesPrimaryRule extends BaseRule {
           changed.push(abilityName);
         }
       }
+    }
+
+    for (const [index, cls] of Object.entries(oldSystem.classes)) {
+      const lvlPath = `system.classes.${index}.level`;
+
+      const newLvl = foundry.utils.getProperty(updateData, lvlPath);
+
+      if (newLvl !== undefined && newLvl !== cls.level) changed.push("class");
     }
 
     return [...new Set(changed)];

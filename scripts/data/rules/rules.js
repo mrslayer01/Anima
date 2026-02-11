@@ -13,8 +13,10 @@ import { ResistancesRule } from "./resistances.js";
 import { TotalLevelRule } from "./total-level.js";
 import { PsychicPointsRule } from "./psychic-points.js";
 import { ClassesRule } from "./classes.js";
+import { ExperienceRule } from "./experience.js";
+import { DevelopmentPointsRule } from "./development-points.js";
 
-export const RULES = [
+export const INIT_RULES = [
   new CharactersiticsRule(),
   new TotalLevelRule(),
   new PresenceRule(),
@@ -29,5 +31,25 @@ export const RULES = [
   new ZeonRule(),
   new ArmorRule(),
   new PsychicPointsRule(),
-  new ClassesRule()
+  new ExperienceRule(),
+  new DevelopmentPointsRule()
+];
+
+export const CLASS_RULE = [new ClassesRule()];
+
+export const FINAL_RULES = [
+  new TotalLevelRule(),
+  new PresenceRule(),
+  new ResistancesRule(),
+  new AbilitiesPrimaryRule(),
+  new AbilitiesSecondaryRule(),
+  new LifePointsRule(),
+  new FatigueRule(),
+  new InitiativeRule(),
+  new MovementRule(),
+  new KiRule(),
+  new ZeonRule(),
+  new PsychicPointsRule(),
+  new ExperienceRule(),
+  new DevelopmentPointsRule()
 ];

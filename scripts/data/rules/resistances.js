@@ -50,14 +50,21 @@ export class ResistancesRule extends BaseRule {
       }
     }
 
-    //Check if any characteristic's final has changed
-    for (const [name, res] of Object.entries(oldSystem.resistances)) {
-      const linked = res.characteristic;
-      const charPath = `system.characteristics.${linked}.final`;
+    for (const [abilityName, abil] of Object.entries(oldSystem.resistances)) {
+      const linkedChar = abil.characteristic;
+      const charPath = `system.characteristics.${linkedChar}.base`;
+      const charPathBonus = `system.characteristics.${linkedChar}.bonus`;
       const newChar = foundry.utils.getProperty(updateData, charPath);
+      const newCharBonus = foundry.utils.getProperty(updateData, charPathBonus);
+      const oldChar = oldSystem.characteristics[linkedChar]?.base;
+      const oldCharBonus = oldSystem.characteristics[linkedChar]?.bonus;
 
-      if (newChar !== undefined && newChar !== oldSystem.characteristics[linked].final) {
-        changed.push(name);
+      if (newChar !== undefined && newChar !== oldChar) {
+        changed.push(abilityName);
+      }
+
+      if (newCharBonus !== undefined && newCharBonus !== oldCharBonus) {
+        changed.push(abilityName);
       }
     }
 

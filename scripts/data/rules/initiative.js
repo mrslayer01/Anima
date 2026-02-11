@@ -29,13 +29,29 @@ export class InitiativeRule extends BaseRule {
   DetectChanged(updateData, oldSystem) {
     const changed = [];
     // check for characteristic change Agility Dexterity
-    const newAgil = foundry.utils.getProperty(updateData, "system.characteristics.Agility.final");
-    const newDex = foundry.utils.getProperty(updateData, "system.characteristics.Dexterity.final");
+    const newAgil = foundry.utils.getProperty(updateData, "system.characteristics.Agility.base");
+    const newAgilBonus = foundry.utils.getProperty(
+      updateData,
+      "system.characteristics.Agility.bonus"
+    );
 
-    if (newAgil !== undefined && newAgil !== oldSystem.characteristics.Agility.final) {
+    const newDex = foundry.utils.getProperty(updateData, "system.characteristics.Dexterity.base");
+    const newDexBonus = foundry.utils.getProperty(
+      updateData,
+      "system.characteristics.Dexterity.bonus"
+    );
+
+    if (newAgil !== undefined && newAgil !== oldSystem.characteristics.Agility.base) {
       changed.push("Constitution");
     }
-    if (newDex !== undefined && newDex !== oldSystem.characteristics.Dexterity.final) {
+    if (newDex !== undefined && newDex !== oldSystem.characteristics.Dexterity.base) {
+      changed.push("Dexterity");
+    }
+
+    if (newAgilBonus !== undefined && newAgilBonus !== oldSystem.characteristics.Agility.bonus) {
+      changed.push("Constitution");
+    }
+    if (newDexBonus !== undefined && newDexBonus !== oldSystem.characteristics.Dexterity.bonus) {
       changed.push("Dexterity");
     }
 
@@ -54,7 +70,17 @@ export class InitiativeRule extends BaseRule {
     if (newSpec !== undefined && newSpec !== oldSystem.initiative.special) changed.push("special");
     if (newClass !== undefined && newClass !== oldSystem.initiative.class) changed.push("class");
 
-    console.log(updateData, oldSystem);
+    for (const [index, cls] of Object.entries(oldSystem.classes)) {
+      const lvlPath = `system.classes.${index}.level`;
+      const perPath = `system.classes.${index}.initiativePerLevel`;
+
+      const newLvl = foundry.utils.getProperty(updateData, lvlPath);
+      const newPer = foundry.utils.getProperty(updateData, perPath);
+
+      if (newLvl !== undefined && newLvl !== cls.level) changed.push("class");
+
+      if (newPer !== undefined && newPer !== cls.initiativePerLevel) changed.push("class");
+    }
 
     return changed;
   }
@@ -70,7 +96,7 @@ export class InitiativeRule extends BaseRule {
     const classBonus = toNum(system.initiative.class);
 
     console.log(
-      "reclacl: ",
+      "reclac: ",
       baseIni,
       agilFinal,
       dexFinal,
@@ -82,6 +108,8 @@ export class InitiativeRule extends BaseRule {
     );
     system.initiative.final =
       baseIni + agilFinal + dexFinal + weaponMod + armorMod + classBonus + iniBonus + specBonus;
+
+    console.log(system.initiative.final);
   }
 
   Update(updateData, oldSystem, newSystem) {

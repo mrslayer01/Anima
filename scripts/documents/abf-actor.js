@@ -1,5 +1,5 @@
 import { DEFAULT_ACTOR_DATA } from "../config/default-actor-data.js";
-import { RULES } from "../data/rules/rules.js";
+import { INIT_RULES, CLASS_RULE, FINAL_RULES } from "../data/rules/rules.js";
 import { forceAbilityOrder } from "../ui/force-ability-order.js";
 
 export class AbfActor extends Actor {
@@ -19,26 +19,46 @@ export class AbfActor extends Actor {
 
   prepareData() {
     super.prepareData();
+
+    // Skip until system.core exists
+    if (!this.system?.core) return;
+
     if (this._needsInit) {
-      //InitalizeAllActorData(this); // ← initialization happens here
+      for (const rule of INIT_RULES) rule.Derived(this.system);
+      for (const rule of CLASS_RULE) rule.Derived(this.system);
+      for (const rule of FINAL_RULES) rule.Derived(this.system);
+
       this._needsInit = false;
     }
   }
 
   prepareDerivedData() {
     super.prepareDerivedData();
-    for (const rule of RULES) {
-      rule.Derived(this.system);
-    }
+
+    // Do not run rules until the actor has been initialized
+    if (this._needsInit) return;
+    if (!this.system?.core) return; // still starting
+
+    // Phase 1: initialize structures
+    for (const rule of INIT_RULES) rule.Derived(this.system);
+    // Phase 2: populate class-derived values
+    for (const rule of CLASS_RULE) rule.Derived(this.system);
+    // Phase 3: recalc dependent rules
+    for (const rule of FINAL_RULES) rule.Derived(this.system);
   }
 
   async update(data, options = {}) {
     const oldSystem = foundry.utils.duplicate(this.system);
     const result = await super.update(data, options);
+    // Phase 1: create system values and pre populate
+    for (const rule of INIT_RULES) rule.Update(data, oldSystem, this.system);
+    // Phase 2: populate class-derived values
+    for (const rule of CLASS_RULE) rule.Update(data, oldSystem, this.system);
+    // Phase 3: recalc dependent rules
+    for (const rule of FINAL_RULES) rule.Update(data, oldSystem, this.system);
 
-    for (const rule of RULES) {
-      rule.Update(data, oldSystem, this.system);
-    }
+    // Persist rule‑mutated system
+    await super.update({ system: this.system });
 
     return result;
   }

@@ -1,4 +1,1 @@
-2026/02/10-07:51:34.420 dd68 Log #33: 0 ops saved to Table #34 OK
-2026/02/10-07:51:34.422 dd68 Archiving D:\foundry\Data\Data\systems\abf-system\packs\items/000033.log: OK
-2026/02/10-07:51:34.449 dd68 Archiving D:\foundry\Data\Data\systems\abf-system\packs\items/MANIFEST-000050: OK
-2026/02/10-07:51:34.510 dd68 **** Repaired leveldb D:\foundry\Data\Data\systems\abf-system\packs\items; recovered 0 files; 0 bytes. Some data may have been lost. ****
+2026/02/10-18:52:33.423 864 Delete type=3 #1

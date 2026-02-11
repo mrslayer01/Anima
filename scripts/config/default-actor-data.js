@@ -7,6 +7,7 @@ export const DEFAULT_ACTOR_DATA = {
   advantages: [],
   disadvantages: [],
   contacts: [],
+  xp: { current: 0 },
   armor: {
     body: {},
     head: {},

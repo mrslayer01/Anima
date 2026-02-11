@@ -28,12 +28,7 @@
     <tbody>
       {{#each actor.system.abilities.secondary.Athletics as |ability key|}}
         <tr>
-          <td
-            data-tooltip="
-              <div><strong>Knowledge:</strong> {{ability.knowledge}}</div>
-              <div><strong>DP Cost:</strong> {{ability.cost}}</div>
-            "
-          >
+          <td>
             {{localize (concat "ABF.Ability." key)}}
           </td>
           <td>
@@ -44,6 +39,9 @@
               type="number"
               value="{{ability.base}}"
               name="system.abilities.secondary.Athletics.{{key}}.base"
+              data-tooltip="
+              <div><strong>Knowledge:</strong> {{ability.knowledge}}</div>
+              <div><strong>DP Cost:</strong> {{ability.cost}}</div>"
               {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>

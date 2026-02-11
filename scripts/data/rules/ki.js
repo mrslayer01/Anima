@@ -8,6 +8,7 @@ export class KiRule extends BaseRule {
     if (system.core.ki.cost === undefined) system.core.ki.cost = 0;
     if (system.core.ki.class === undefined) system.core.ki.class = 0;
     if (system.core.ki.special === undefined) system.core.ki.special = 0;
+    if (system.core.ki.accumulationCost === undefined) system.core.ki.accumulationCost = 0;
     if (system.core.ki.final === undefined) system.core.ki.final = 0;
   }
 
@@ -34,6 +35,14 @@ export class KiRule extends BaseRule {
 
     if (newKiSpecial !== undefined && newKiSpecial !== oldSystem.core.ki.special) {
       changed.push("ki");
+    }
+
+    for (const [index, cls] of Object.entries(oldSystem.classes)) {
+      const lvlPath = `system.classes.${index}.level`;
+
+      const newLvl = foundry.utils.getProperty(updateData, lvlPath);
+
+      if (newLvl !== undefined && newLvl !== cls.level) changed.push("class");
     }
     return changed;
   }

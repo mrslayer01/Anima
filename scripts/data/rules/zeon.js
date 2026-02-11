@@ -21,8 +21,9 @@ export class ZeonRule extends BaseRule {
   DetectChanged(updateData, oldSystem) {
     const changed = [];
     // Zeon
-    const zeonClassPath = oldSystem.core.zeon.class;
-    const zeonSpecialPath = oldSystem.core.zeon.special;
+    const zeonClassPath = "oldSystem.core.zeon.class";
+    const zeonSpecialPath = "oldSystem.core.zeon.special";
+
     const newZeonClass = foundry.utils.getProperty(updateData, zeonClassPath);
     const newZeonSpecial = foundry.utils.getProperty(updateData, zeonSpecialPath);
     if (newZeonClass !== undefined && newZeonClass !== oldSystem.core.zeon.class) {
@@ -31,6 +32,14 @@ export class ZeonRule extends BaseRule {
 
     if (newZeonSpecial !== undefined && newZeonSpecial !== oldSystem.core.zeon.special) {
       changed.push("zeon");
+    }
+
+    for (const [index, cls] of Object.entries(oldSystem.classes)) {
+      const lvlPath = `system.classes.${index}.level`;
+
+      const newLvl = foundry.utils.getProperty(updateData, lvlPath);
+
+      if (newLvl !== undefined && newLvl !== cls.level) changed.push("class");
     }
     return changed;
   }

@@ -34,6 +34,14 @@ export class PsychicPointsRule extends BaseRule {
       changed.push("levelInterval");
     }
 
+    for (const [index, cls] of Object.entries(oldSystem.classes)) {
+      const lvlPath = `system.classes.${index}.level`;
+
+      const newLvl = foundry.utils.getProperty(updateData, lvlPath);
+
+      if (newLvl !== undefined && newLvl !== cls.level) changed.push("class");
+    }
+
     return changed;
   }
 
