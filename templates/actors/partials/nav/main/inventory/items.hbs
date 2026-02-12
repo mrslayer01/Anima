@@ -20,7 +20,7 @@
     </thead>
 
     <tbody>
-      {{#each system.tables.commonGoods as |item|}}
+      {{#each system.items.commonGoods as |item|}}
         <tr data-item-id="{{item.id}}" class="item-row">
           <td class="item-name item-edit clickable">
             {{item.name}}
@@ -65,7 +65,7 @@
     </thead>
 
     <tbody>
-      {{#each system.tables.weapons as |item|}}
+      {{#each system.items.weapons as |item|}}
         <tr data-item-id="{{item.id}}" class="item-row">
           <td class="item-name item-edit clickable">
             {{item.name}}

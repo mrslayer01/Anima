@@ -1,4 +1,4 @@
-export function forceAbilityOrder(abilitiesRoot, abilities) {
+export function forceOrder(abilitiesRoot, abilities) {
   if (!abilitiesRoot) return;
 
   const secondariesCategories = [
@@ -12,6 +12,8 @@ export function forceAbilityOrder(abilitiesRoot, abilities) {
   ];
 
   const primariesCategories = ["Combat", "Supernatural", "Psychic"];
+
+  const armorTypes = ["cut", "imp", "thr", "hea", "ele", "col", "ene"];
 
   if (abilities === "Secondaries") {
     for (const category of secondariesCategories) {

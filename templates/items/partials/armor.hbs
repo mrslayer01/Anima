@@ -1,0 +1,146 @@
+<section class="common-fields">
+  <div class="section-block">
+    <h3>
+      AT Values
+    </h3>
+    <table class="common-table">
+      <tr>
+        <th>
+          Cut
+        </th>
+        <th>
+          Impact
+        </th>
+        <th>
+          Thrust
+        </th>
+        <th>
+          Heat
+        </th>
+        <th>
+          Electricity
+        </th>
+        <th>
+          Cold
+        </th>
+        <th>
+          Energy
+        </th>
+      </tr>
+      <tr>
+        <td>
+          <input type="number" name="system.armorType.cut" value="{{system.armorType.cut}}" />
+        </td>
+        <td>
+          <input type="number" name="system.armorType.imp" value="{{system.armorType.imp}}" />
+        </td>
+        <td>
+          <input type="number" name="system.armorType.thr" value="{{system.armorType.thr}}" />
+        </td>
+        <td>
+          <input type="number" name="system.armorType.hea" value="{{system.armorType.hea}}" />
+        </td>
+        <td>
+          <input type="number" name="system.armorType.ele" value="{{system.armorType.ele}}" />
+        </td>
+        <td>
+          <input type="number" name="system.armorType.col" value="{{system.armorType.col}}" />
+        </td>
+        <td>
+          <input type="number" name="system.armorType.ene" value="{{system.armorType.ene}}" />
+        </td>
+      </tr>
+    </table>
+    <h3>
+      Details
+    </h3>
+    <table class="common-table">
+      <tr>
+        <td>
+          <label>
+            Fortitude
+          </label>
+          <input
+            type="number"
+            name="system.armorType.fortitude"
+            value="{{system.armorType.fortitude}}"
+          />
+        </td>
+        <td>
+          <label>
+            Presence
+          </label>
+          <input
+            type="number"
+            name="system.armorType.presence"
+            value="{{system.armorType.presence}}"
+          />
+        </td>
+        <td>
+          <label>
+            Wear Armor Req
+          </label>
+          <input
+            type="number"
+            name="system.armorType.wearArmorReq"
+            value="{{system.armorType.wearArmorReq}}"
+          />
+        </td>
+        <td>
+          <label>
+            Movement Restrction
+          </label>
+          <input
+            type="number"
+            name="system.armorType.moveRestriction"
+            value="{{system.armorType.moveRestriction}}"
+          />
+        </td>
+        <td>
+          <label>
+            Natural Penalty
+          </label>
+          <input
+            type="number"
+            name="system.armorType.naturalPenalty"
+            value="{{system.armorType.naturalPenalty}}"
+          />
+        </td>
+      </tr>
+    </table>
+    <table class="common-table">
+      <tr>
+        <td class="passive-icon clickable primary-focus">
+          <label>
+            Enchanted?
+          </label>
+        {{#if system.isEnchanted}}
+          <i class="fas fa-check"></i>
+        {{else}}
+          <i class="fas fa-times"></i>
+        {{/if}}
+        </td>
+        <td>
+          <label>
+            Armor Class
+          </label>
+          <select name="system.armorClass" class="armor-armorClass-select select">
+            <option value="soft" {{#if (eq system.armorClass "soft")}}selected{{/if}}>Soft</option>
+            <option value="hard" {{#if (eq system.armorClass "hard")}}selected{{/if}}>Hard</option>
+        </select>
+        </td>
+        <td>
+          <label>
+            Location
+          </label>
+          <select name="system.location" class="armor-location-select select">
+            <option value="breastplate" {{#if (eq system.location "breastplate")}}selected{{/if}}>Breastplate</option>
+            <option value="shirt" {{#if (eq system.location "shirt")}}selected{{/if}}>Shirt</option>
+            <option value="complete" {{#if (eq system.location "complete")}}selected{{/if}}>Complete</option>
+            <option value="helm" {{#if (eq system.location "helm")}}selected{{/if}}>Helmet</option>
+        </select>
+        </td>
+      </tr>
+    </table>
+  </div>
+</section>

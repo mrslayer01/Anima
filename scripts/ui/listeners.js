@@ -2,7 +2,7 @@ import { ABF_CLASSES } from "../../Old Version For Reference/abf-system-old/modu
 import { ABF_ADVANTAGES } from "../config/advantages.js";
 import { ABF_DISADVANTAGES } from "../config/disadvantages.js";
 import { ABF_LORDS } from "../config/elans.js";
-import { difficultyMap } from "../utils/lookup.js";
+import { difficultyMap, WEAPON_SIMILARITY_MODIFIERS } from "../utils/lookup.js";
 import { characteristicCheck, animaOpenRoll, resistanceCheck } from "../utils/rolls.js";
 import { ElanInfoWindow } from "./windows/elan-info.js";
 
@@ -803,28 +803,28 @@ export function registerSheetListeners(sheet, html) {
 
   //ELAN fix broken values when adding/removing
   // Change elan current value
-  // html.find(".elan-current-input").off("change");
-  // html.find(".elan-current-input").on("change", async (event) => {
-  //   const index = Number(event.currentTarget.dataset.index);
-  //   const newLevel = Number(event.currentTarget.value) || 1;
+  html.find(".elan-current-input").off("change");
+  html.find(".elan-current-input").on("change", async (event) => {
+    const index = Number(event.currentTarget.dataset.index);
+    const newLevel = Number(event.currentTarget.value) || 1;
 
-  //   const elans = foundry.utils.duplicate(sheet.actor.system.elans);
-  //   elans[index].elan.current = newLevel;
+    const elans = foundry.utils.duplicate(sheet.actor.system.elans);
+    elans[index].elan.current = newLevel;
 
-  //   await sheet.actor.update({ "system.elans": elans });
-  // });
+    await sheet.actor.update({ "system.elans": elans });
+  });
 
   // // Change elan bonus value
-  // html.find(".elan-bonus-input").off("change");
-  // html.find(".elan-bonus-input").on("change", async (event) => {
-  //   const index = Number(event.currentTarget.dataset.index);
-  //   const newLevel = Number(event.currentTarget.value) || 0;
+  html.find(".elan-bonus-input").off("change");
+  html.find(".elan-bonus-input").on("change", async (event) => {
+    const index = Number(event.currentTarget.dataset.index);
+    const newLevel = Number(event.currentTarget.value) || 0;
 
-  //   const elans = foundry.utils.duplicate(sheet.actor.system.elans);
-  //   elans[index].elan.bonus = newLevel;
+    const elans = foundry.utils.duplicate(sheet.actor.system.elans);
+    elans[index].elan.bonus = newLevel;
 
-  //   await sheet.actor.update({ "system.elans": elans });
-  // });
+    await sheet.actor.update({ "system.elans": elans });
+  });
 
   //#endregion
 
@@ -980,6 +980,56 @@ export function registerSheetListeners(sheet, html) {
   });
 
   //#endregion
+
+  //#region Item Tables
+  // Edit item
+  html.find(".item-edit").click((ev) => {
+    const actor = sheet.actor;
+    const itemId = $(ev.currentTarget).closest(".item-row").data("item-id");
+    actor.items.get(itemId).sheet.render(true);
+  });
+
+  // Delete item
+  html.find(".item-delete").click(async (ev) => {
+    const actor = sheet.actor;
+    const itemId = $(ev.currentTarget).closest(".item-row").data("item-id");
+
+    const confirmed = await Dialog.confirm({
+      title: "Confirm Delete",
+      content: "<p>Are you sure you want to remove this item?</p>"
+    });
+
+    if (!confirmed) return;
+
+    actor.deleteEmbeddedDocuments("Item", [itemId]);
+  });
+
+  html.find(".combat").on("click", async (event) => {
+    const actor = sheet.actor;
+
+    const ch = actor.system.armor.breastplate.cut + 10;
+
+    actor.update({ "system.armor.breastplate.cut": ch });
+  });
+
+  //#endregion
+
+  //#region Items
+
+  html.find(".weapon-equip-toggle").on("click", async (ev) => {
+    const itemId = ev.currentTarget.dataset.itemId;
+    const item = sheet.actor.items.get(itemId);
+
+    const current = item.system.weapon.equipped ?? false;
+
+    await item.update({
+      "system.weapon.equipped": !current
+    });
+
+    sheet.render(false);
+  });
+
+  //#endregion
 }
 
 async function openJournalFromUUID(rawUuid) {
@@ -1007,5 +1057,93 @@ async function openJournalFromUUID(rawUuid) {
         el.scrollIntoView({ behavior: "smooth", block: "start" });
       }
     }, 100);
+  });
+}
+
+//#region Item Registers
+
+export function registerItemSheetListeners(sheet, html) {
+  html.find(".quality-select").on("change", async (ev) => {
+    const quality = ev.currentTarget.value;
+
+    await sheet.item.update({
+      "system.quality.value": quality
+    });
+
+    sheet.render(false);
+  });
+
+  html.find(".currency-select").on("change", async (ev) => {
+    const type = ev.currentTarget.value;
+
+    await sheet.item.update({
+      "system.cost.type": type
+    });
+
+    sheet.render(false);
+  });
+
+  html.find(".availability-select").on("change", async (ev) => {
+    const availability = ev.currentTarget.value;
+
+    await sheet.item.update({
+      "system.availability": availability
+    });
+
+    sheet.render(false);
+  });
+
+  html.find(".prim-attk-select").on("change", async (ev) => {
+    const type = ev.currentTarget.value;
+
+    await sheet.item.update({
+      "system.weapon.primaryAtkType": type
+    });
+
+    sheet.render(false);
+  });
+
+  html.find(".sec-attk-select").on("change", async (ev) => {
+    const type = ev.currentTarget.value;
+
+    await sheet.item.update({
+      "system.weapon.secondaryAtckType": type
+    });
+
+    sheet.render(false);
+  });
+
+  html.find(".modifier-select").on("change", async (ev) => {
+    const name = ev.currentTarget.value;
+
+    const modValue = WEAPON_SIMILARITY_MODIFIERS[name] ?? 0;
+
+    await sheet.item.update({
+      "system.weapon.modifier.name": name,
+      "system.weapon.modifier.value": modValue
+    });
+
+    sheet.render(false);
+  });
+
+  //Armor
+  html.find(".armor-armorClass-select").on("change", async (ev) => {
+    const type = ev.currentTarget.value;
+
+    await sheet.item.update({
+      "system.armorClass": type
+    });
+
+    sheet.render(false);
+  });
+
+  html.find(".armor-location-select").on("change", async (ev) => {
+    const type = ev.currentTarget.value;
+
+    await sheet.item.update({
+      "system.location": type
+    });
+
+    sheet.render(false);
   });
 }

@@ -8,12 +8,7 @@ export const DEFAULT_ACTOR_DATA = {
   disadvantages: [],
   contacts: [],
   xp: { current: 0 },
-  armor: {
-    body: {},
-    head: {},
-    special: {},
-    total: {}
-  },
+  armor: {},
   core: {
     lifePoints: {
       current: 0,
@@ -169,5 +164,6 @@ export const DEFAULT_ACTOR_DATA = {
   languages: [{ name: "Base", level: 0 }],
   presence: { bonus: 0 },
   currency: { copper: 0, silver: 0, gold: 0 },
-  lockUi: false
+  lockUi: false,
+  items: { weapons: [], commonGoods: [], armor: [] }
 };

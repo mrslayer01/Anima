@@ -1,7 +1,7 @@
 import { calculateDerivedValues } from "./derived/derived-calculations.js";
 import { updateCalculations } from "./update/update-calculations.js";
 import { DEFAULT_ACTOR_DATA } from "./config/definitions/default-actor-data.js";
-import { forceAbilityOrder } from "./helpers/force-ability-order.js";
+import { forceOrder } from "./helpers/force-order.js";
 import { initializeActor } from "./initalize.js";
 import { TABLE_ITEM_TYPES } from "./helpers/lookup.js";
 

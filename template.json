@@ -34,7 +34,7 @@
     }
   },
   "Item": {
-    "types": ["commonGood", "weapon"],
+    "types": ["commonGood", "weapon", "armor"],
     "system": {
       "name": "",
       "cost": {},
@@ -44,6 +44,9 @@
       "description": ""
     },
     "weapon": {
+      "system": {}
+    },
+    "armor": {
       "system": {}
     }
   }

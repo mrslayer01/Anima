@@ -60,7 +60,7 @@
           <label>
             Primary Attack Type
           </label>
-          <select name="system.weapon.primaryAtkType" class="prim-attk-select">
+          <select name="system.weapon.primaryAtkType" class="prim-attk-select select">
             <option value="cut" {{#if (eq system.weapon.primaryAtkType "cut")}}selected{{/if}}>Cut</option>
             <option value="thrust" {{#if (eq system.weapon.primaryAtkType "thrust")}}selected{{/if}}>Thrust</option>
             <option value="impact" {{#if (eq system.weapon.primaryAtkType "impact")}}selected{{/if}}>Impact</option>
@@ -70,12 +70,11 @@
             <option value="energy" {{#if (eq system.weapon.primaryAtkType "energy")}}selected{{/if}}>Energy</option>
         </select>
         </td>
-
         <td>
           <label>
             Second Attack Type
           </label>
-          <select name="system.weapon.secondaryAtckType" class="sec-attk-select">
+          <select name="system.weapon.secondaryAtckType" class="sec-attk-select select">
                 <option value="none" {{#if (eq system.weapon.secondaryAtckType "none")}}selected{{/if}}></option>
                 <option value="cut" {{#if (eq system.weapon.secondaryAtckType "cut")}}selected{{/if}}>Cut</option>
                 <option value="thrust" {{#if (eq system.weapon.secondaryAtckType "thrust")}}selected{{/if}}>Thrust</option>
@@ -95,7 +94,7 @@
             <label>
                 Modifier
             </label>
-            <select name="system.weapon.modifier.name" class="modifier-select">
+            <select name="system.weapon.modifier.name" class="modifier-select select">
                     <option value="none" {{#if (eq system.weapon.modifier.name "none")}}selected{{/if}}></option>
                     <option value="similar" {{#if (eq system.weapon.modifier.name "similar")}}selected{{/if}}>Similar Weapon</option>
                     <option value="mixed" {{#if (eq system.weapon.modifier.name "mixed")}}selected{{/if}}>Mixed-Class Weapon</option>

@@ -20,7 +20,5 @@ export class AbfItem extends Item {
 
   prepareDerivedData() {
     super.prepareDerivedData();
-
-    calculateDerivedValues(this.system, this);
   }
 }

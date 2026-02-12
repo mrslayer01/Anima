@@ -28,42 +28,14 @@
       </td>
     </tr>
 
-    <tr>
-      <td
-        data-tooltip="These are cutting or slashing attacks that leave long and bloody wounds. They possess a sharpened edge. Body: {{system.armor.body.cut}}, Head: {{system.armor.head.cut}}, Special: {{system.armor.special.cut}}"
-      >
-        {{system.armor.total.cut}}
-      </td>
-      <td
-        data-tooltip="These are crushing or smashing blows. The damage done is from the weight and force of the blow. Body: {{system.armor.body.imp}}, Head: {{system.armor.head.imp}}, Special: {{system.armor.special.imp}}"
-      >
-        {{system.armor.total.imp}}
-      </td>
-      <td
-        data-tooltip="These are penetrating attacks that puncture and run through the body. The weapons involved usually have a sharp pointed end. Body: {{system.armor.body.thr}}, Head: {{system.armor.head.thr}}, Special: {{system.armor.special.thr}}"
-      >
-        {{system.armor.total.thr}}
-      </td>
-      <td
-        data-tooltip=" These attacks are based on the effects of high temperatures. They cause burns and abrasive wounds. Body: {{system.armor.body.hea}}, Head: {{system.armor.head.hea}}, Special: {{system.armor.special.hea}}"
-      >
-        {{system.armor.total.hea}}
-      </td>
-      <td
-        data-tooltip=" These attacks are based on the shock of electrical discharges, like those caused by lightning. Body: {{system.armor.body.ele}}, Head: {{system.armor.head.ele}}, Special: {{system.armor.special.ele}}"
-      >
-        {{system.armor.total.ele}}
-      </td>
-      <td
-        data-tooltip="These attacks produce damage from freezing. They are caused by ice and extreme low temperatures. Body: {{system.armor.body.col}}, Head: {{system.armor.head.col}}, Special: {{system.armor.special.col}}"
-      >
-        {{system.armor.total.col}}
-      </td>
-      <td
-        data-tooltip="These are attacks of mystical origin that affect the soul and essence of an opponent. Body: {{system.armor.body.ene}}, Head: {{system.armor.head.ene}}, Special: {{system.armor.special.ene}}"
-      >
-        {{system.armor.total.ene}}
-      </td>
-    </tr>
+<tr>
+  {{#each actor.system.armor.total as |total type|}}
+    <td
+      data-tooltip="{{armorTooltip ../actor.system.armor type ../ARMOR_SECTIONS}}"
+    >
+      {{total}}
+    </td>
+  {{/each}}
+</tr>
   </table>
 </section>

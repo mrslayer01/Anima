@@ -10,7 +10,7 @@
 
           <td>
             <label>Availability</label>
-              <select name="system.availability" class="availability-select">
+              <select name="system.availability" class="availability-select select">
               <option value="common" {{#if (eq system.availability "common")}}selected{{/if}}>Common</option>
               <option value="uncommon" {{#if (eq system.availability "uncommon")}}selected{{/if}}>Uncommon</option>
               <option value="rare" {{#if (eq system.availability "rare")}}selected{{/if}}>Rare</option>
@@ -19,7 +19,7 @@
 
           <td>
             <label>Quality</label>
-            <select name="system.quality.value" class="quality-select">
+            <select name="system.quality.value" class="quality-select select">
               <option value="mediocre" {{#if (eq system.quality.value "mediocre")}}selected{{/if}}>Mediocre</option>
               <option value="decent" {{#if (eq system.quality.value "decent")}}selected{{/if}}>Decent</option>
               <option value="good" {{#if (eq system.quality.value "good")}}selected{{/if}}>Good</option>
@@ -29,7 +29,7 @@
           <td>
             <label>Cost</label>
             <input type="number" name="system.cost.value" value="{{system.cost.value}}" />
-            <select name="system.cost.type" class="currency-select">
+            <select name="system.cost.type" class="currency-select select">
               <option value="copper" {{#if (eq system.cost.type "copper")}}selected{{/if}}>Copper</option>
               <option value="silver" {{#if (eq system.cost.type "silver")}}selected{{/if}}>Silver</option>
               <option value="gold" {{#if (eq system.cost.type "gold")}}selected{{/if}}>Gold</option>

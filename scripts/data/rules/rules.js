@@ -15,6 +15,7 @@ import { PsychicPointsRule } from "./psychic-points.js";
 import { ClassesRule } from "./classes.js";
 import { ExperienceRule } from "./experience.js";
 import { DevelopmentPointsRule } from "./development-points.js";
+import { ElanRule } from "./elan.js";
 
 export const INIT_RULES = [
   new CharactersiticsRule(),
@@ -32,7 +33,8 @@ export const INIT_RULES = [
   new ArmorRule(),
   new PsychicPointsRule(),
   new ExperienceRule(),
-  new DevelopmentPointsRule()
+  new DevelopmentPointsRule(),
+  new ElanRule()
 ];
 
 export const CLASS_RULE = [new ClassesRule()];
@@ -51,5 +53,6 @@ export const FINAL_RULES = [
   new ZeonRule(),
   new PsychicPointsRule(),
   new ExperienceRule(),
-  new DevelopmentPointsRule()
+  new DevelopmentPointsRule(),
+  new ElanRule()
 ];

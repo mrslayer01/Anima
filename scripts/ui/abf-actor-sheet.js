@@ -1,4 +1,4 @@
-import { validateDP } from "../../Old Version For Reference/abf-system-old/module/actor/classes/dp.js";
+import { ARMOR_SECTIONS, DAMAGE_TYPES, TABLE_ITEM_TYPES } from "../utils/lookup.js";
 import { registerSheetListeners } from "./listeners.js";
 import { ValidateDPAbilities } from "./validators/validate-dp-abilities.js";
 import { ValidateInputs } from "./validators/validate-inputs.js";
@@ -48,8 +48,32 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
           contentSelector: ".tab.abilities",
           initial: "primaries"
         }
+      ],
+      dragDrop: [
+        {
+          dragSelector: ".item",
+          dropSelector: "[data-table]"
+        }
       ]
     });
+  }
+
+  async _onDropItem(event, data) {
+    const item = await Item.fromDropData(data);
+    if (!item) return;
+
+    // Which table was dropped onto?
+    const table = event.target.closest("[data-table]");
+    if (!table) return;
+
+    const tableName = table.dataset.table;
+
+    const allowed = TABLE_ITEM_TYPES[tableName];
+    if (!allowed.includes(item.type))
+      return ui.notifications.warn("That item cannot go in this table.");
+
+    // Add item to actor
+    return this.actor.createEmbeddedDocuments("Item", [item.toObject()]);
   }
 
   activateListeners(html) {
@@ -62,7 +86,17 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
     const data = super.getData(options);
     data.system = this.actor.system;
 
-    // ADD THIS
+    data.ARMOR_SECTIONS = ARMOR_SECTIONS;
+    data.DAMAGE_TYPES = DAMAGE_TYPES;
+
+    // Build tables dynamically from actor items
+    data.system.items = {
+      commonGoods: this.actor.items.filter((i) => i.type === "commonGood"),
+      weapons: this.actor.items.filter((i) => i.type === "weapon"),
+      armor: this.actor.items.filter((i) => i.type === "armor")
+      // add more tables here
+    };
+
     data.expandedSecondaries = this._expandedSecondaries;
 
     return data;

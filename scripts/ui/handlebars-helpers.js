@@ -38,7 +38,7 @@ export function loadAllActorHandlerbarsHelpers() {
   });
 
   Handlebars.registerHelper("in", function (value, ...list) {
-    list.pop(); // remove Handlebars options object
+    list.pop();
     return list.includes(value);
   });
 
@@ -124,4 +124,14 @@ export function loadAllActorHandlerbarsHelpers() {
 
   Handlebars.registerHelper("orderPsychic", () => ["PsychicProjection", "PsychicPoints"]);
   //#endregion
+
+  Handlebars.registerHelper("armorTooltip", function (armor, type, sections) {
+    if (!armor || !type || !sections) return "";
+
+    return sections.map((s) => `${s}: ${armor[s]?.[type] ?? 0}`).join(", ");
+  });
+
+  Handlebars.registerHelper("lookupArmor", function (total, type) {
+    return total?.[type] ?? 0;
+  });
 }

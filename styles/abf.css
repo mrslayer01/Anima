@@ -788,12 +788,7 @@
 }
 
 /* Dropdown option backgrounds */
-.quality-select option,
-.currency-select option,
-.availability-select option,
-.prim-attk-select option,
-.sec-attk-select option,
-.modifier-select option {
+.select option {
   background-color: #11141c;
   color: #fff;
 }

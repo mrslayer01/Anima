@@ -30,3 +30,33 @@ export const difficultyMap = {
   320: "Inhuman",
   440: "Zen"
 };
+
+export const PRICE_MODIFIERS = {
+  mediocre: 0.5,
+  decent: 1,
+  good: 10,
+  luxury: 100
+};
+
+export const CURRENCY_TYPES = {
+  copper: "Copper",
+  silver: "Silver",
+  gold: "Gold"
+};
+
+export const WEAPON_SIMILARITY_MODIFIERS = {
+  none: 0,
+  similar: -20,
+  mixed: -40,
+  unarmed: -60
+};
+
+export const TABLE_ITEM_TYPES = {
+  commonGoods: ["commonGood"],
+  weapons: ["weapon"],
+  armor: ["armor"],
+  consumables: ["potion", "scroll"]
+};
+
+export const ARMOR_SECTIONS = ["breastplate", "shirt", "complete", "head", "special"];
+export const DAMAGE_TYPES = ["cut", "imp", "thr", "hea", "ele", "col", "ene"];

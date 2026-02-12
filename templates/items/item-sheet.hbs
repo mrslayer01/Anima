@@ -24,7 +24,10 @@
 
       <div class="tab main" data-group="primary" data-tab="main">
         {{#if (eq item.type "weapon")}}
-          {{> "systems/abf-system/templates/items/partials/weapon/weapon.hbs"}}
+          {{> "systems/abf-system/templates/items/partials/weapon.hbs"}}
+        {{/if}}
+        {{#if (eq item.type "armor")}}
+          {{> "systems/abf-system/templates/items/partials/armor.hbs"}}
         {{/if}}
       </div>
       
