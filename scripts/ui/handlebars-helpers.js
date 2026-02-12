@@ -37,6 +37,11 @@ export function loadAllActorHandlerbarsHelpers() {
       : '<i class="fas fa-plus-circle"></i>';
   });
 
+  Handlebars.registerHelper("in", function (value, ...list) {
+    list.pop(); // remove Handlebars options object
+    return list.includes(value);
+  });
+
   //#region Secondaries
   // Athletics
   Handlebars.registerHelper("orderAthletics", () => [
@@ -98,19 +103,25 @@ export function loadAllActorHandlerbarsHelpers() {
   //#endregion
 
   //#region Primaries
-  Handlebars.registerHelper("orderCombat", () => ["Attack", "Block", "Dodge", "WearArmor"]);
+  Handlebars.registerHelper("orderCombat", () => [
+    "Attack",
+    "Block",
+    "Dodge",
+    "WearArmor",
+    "Ki",
+    "KiAccumulation"
+  ]);
 
   Handlebars.registerHelper("orderSupernatural", () => [
-    "MAMultiple",
     "MagicProjection",
     "Summon",
     "Control",
     "Bind",
-    "Banish"
+    "Banish",
+    "Zeon",
+    "MAMultiple"
   ]);
 
-  Handlebars.registerHelper("orderPsychic", () => ["PsychicProjection"]);
-
-  Handlebars.registerHelper("orderSupplemental", () => ["ki", "zeon"]);
+  Handlebars.registerHelper("orderPsychic", () => ["PsychicProjection", "PsychicPoints"]);
   //#endregion
 }

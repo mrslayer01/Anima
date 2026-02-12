@@ -14,7 +14,6 @@ export function forceAbilityOrder(abilitiesRoot, abilities) {
   const primariesCategories = ["Combat", "Supernatural", "Psychic"];
 
   if (abilities === "Secondaries") {
-    console.log();
     for (const category of secondariesCategories) {
       const categoryObj = abilitiesRoot[category];
       if (!categoryObj) continue;

@@ -1,6 +1,10 @@
 import { ABF_CLASSES } from "../../Old Version For Reference/abf-system-old/module/actor/config/classes.js";
+import { ABF_ADVANTAGES } from "../config/advantages.js";
+import { ABF_DISADVANTAGES } from "../config/disadvantages.js";
+import { ABF_LORDS } from "../config/elans.js";
 import { difficultyMap } from "../utils/lookup.js";
 import { characteristicCheck, animaOpenRoll, resistanceCheck } from "../utils/rolls.js";
+import { ElanInfoWindow } from "./windows/elan-info.js";
 
 export function registerSheetListeners(sheet, html) {
   for (const key of sheet._expandedSecondaries) {
@@ -61,42 +65,59 @@ export function registerSheetListeners(sheet, html) {
     const categoryName = ev.currentTarget.dataset.category;
     const abilityName = ev.currentTarget.dataset.ability;
 
-    const primaries = sheet.actor.system?.abilities?.Primaries;
-    const secondaries = sheet.actor.system?.abilities?.Secondaries;
+    const primaries = sheet.actor.system?.abilities?.primary;
+    const secondaries = sheet.actor.system?.abilities?.secondary;
 
     const primaryAbility = primaries?.[categoryName]?.[abilityName];
 
     const secondaryAbility = secondaries?.[categoryName]?.[abilityName];
 
-    // Primary ability roll
-    if (primaryAbility) {
-      animaOpenRoll({
-        value: primaryAbility.final,
-        label: `${abilityName} Open Roll`,
-        actor: sheet.actor,
-        undeveloped: false,
-        mastery: primaryAbility.mastery
-      });
-      return;
-    }
+    new Dialog({
+      title: "Open Roll Modifier",
+      content: `
+                <div style="margin-bottom: 1em;">
+                  <label><b>Modifier:</b></label>
+                  <input type="number" id="mod" value="0" style="width: 100%;" />
+                </div>
+              `,
+      buttons: {
+        roll: {
+          label: "Roll",
+          callback: (html) => {
+            const modifier = Number(html.find("#mod").val());
 
-    // Secondary ability roll
-    if (secondaryAbility) {
-      if (secondaryAbility.undeveloped && secondaryAbility.knowledge) {
-        return ui.notifications.error("Unable to roll for an undeveloped knowledge ability.");
-      }
+            // Primary ability roll
+            if (primaryAbility) {
+              animaOpenRoll({
+                value: primaryAbility.final + modifier,
+                label: `${abilityName} Open Roll`,
+                actor: sheet.actor,
+                undeveloped: false,
+                mastery: primaryAbility.mastery
+              });
+            }
+            // Secondary ability roll
+            if (secondaryAbility) {
+              if (secondaryAbility.undeveloped && secondaryAbility.knowledge) {
+                return ui.notifications.error(
+                  "Unable to roll for an undeveloped knowledge ability."
+                );
+              }
 
-      animaOpenRoll({
-        value: secondaryAbility.final,
-        label: `${abilityName} Open Roll`,
-        actor: sheet.actor,
-        undeveloped: secondaryAbility.undeveloped,
-        mastery: secondaryAbility.mastery
-      });
-      return;
-    }
-
-    // If neither exists, silently ignore
+              animaOpenRoll({
+                value: secondaryAbility.final + modifier,
+                label: `${abilityName} Open Roll`,
+                actor: sheet.actor,
+                undeveloped: secondaryAbility.undeveloped,
+                mastery: secondaryAbility.mastery
+              });
+              return;
+            }
+          }
+        }
+      },
+      default: "roll"
+    }).render(true);
   });
 
   //Resistance Roll
@@ -141,7 +162,8 @@ export function registerSheetListeners(sheet, html) {
             });
           }
         }
-      }
+      },
+      default: "roll"
     }).render(true);
   });
 
@@ -221,7 +243,8 @@ export function registerSheetListeners(sheet, html) {
 
           openJournalFromUUID(classData.journalEntry);
         });
-      }
+      },
+      default: "Add"
     }).render(true);
   });
 
@@ -419,6 +442,544 @@ export function registerSheetListeners(sheet, html) {
     await actor.update(update);
     sheet.render();
   });
+
+  //#region Advantages/Disadvantages
+
+  html.find(".add-advantage").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".add-advantage").on("click", () => {
+    const advOptions = Object.keys(ABF_ADVANTAGES).sort();
+
+    new Dialog({
+      title: "Add Advantage",
+      content: `
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+  
+          <label><b>Select Advantage:</b></label>
+  
+          <div style="display: flex; gap: 6px; align-items: center;">
+  
+            <!-- Shrunk info button -->
+            <button type="button" id="adv-info"
+              style="
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                width: 18px;
+                height: 18px;
+                flex: 0 0 18px; /* prevents stretching */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              ">
+              <i class="fas fa-question-circle" style="color: black; font-size: 0.9rem;"></i>
+            </button>
+  
+            <select id="adv-select" style="flex: 1;">
+              ${advOptions
+                .map((cls) => `<option value="${cls}">${normalizeClassName(cls)}</option>`)
+                .join("")}
+            </select>
+          </div>
+        </div>
+  
+      `,
+      buttons: {
+        add: {
+          label: "Add",
+          callback: async (html) => {
+            const selected = html.find("#adv-select").val();
+            const advData = ABF_ADVANTAGES[selected];
+
+            if (!advData) {
+              return ui.notifications.error("Advantage data missing.");
+            }
+
+            const actor = sheet.actor;
+            const advantages = foundry.utils.duplicate(actor.system.advantages ?? []);
+
+            advantages.push(advData);
+
+            await actor.update({ "system.advantages": advantages });
+          }
+        }
+      },
+      render: (html) => {
+        // Info button click handler
+        html.find("#adv-info").on("click", () => {
+          const selected = html.find("#adv-select").val();
+          const advData = ABF_ADVANTAGES[selected];
+
+          if (!advData?.journal) {
+            return ui.notifications.warn("No journal entry linked for this class.");
+          }
+
+          openJournalFromUUID(advData.journal);
+        });
+      },
+      default: "Add"
+    }).render(true);
+  });
+
+  html.find(".delete-advantage").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".delete-advantage").on("click", async (event) => {
+    const index = Number(event.currentTarget.dataset.index);
+
+    const confirmed = await Dialog.confirm(
+      {
+        title: "Confirm Delete",
+        content: "<p>Are you sure you want to remove this advantage?</p>"
+      },
+      {
+        classes: ["abf-character-sheet"]
+      }
+    );
+
+    if (!confirmed) return;
+
+    const advantages = foundry.utils.duplicate(sheet.actor.system.advantages);
+
+    // Grab the advantage name BEFORE deleting it
+    const deletedAdvantageName = advantages[index]?.name;
+
+    // Remove from actor
+    advantages.splice(index, 1);
+    await sheet.actor.update({ "system.advantages": advantages });
+
+    // Reset the class level in the registry (so re-adding starts at level 1)
+    if (deletedAdvantageName && ABF_ADVANTAGES[deletedAdvantageName]) {
+      ABF_ADVANTAGES[deletedAdvantageName].level = 1;
+    }
+  });
+
+  // Click class name for information
+  html.find(".clickable-advantage").click((ev) => {
+    ev.preventDefault();
+
+    const advName = ev.currentTarget.dataset.advantage;
+    const advData = sheet.actor.system.advantages.find((c) => c.name === advName);
+
+    if (!advData) return ui.notifications.error("Adavantage data not found");
+
+    openJournalFromUUID(advData.journal);
+  });
+
+  // Disadvantages
+  html.find(".add-disadvantage").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".add-disadvantage").on("click", () => {
+    const advOptions = Object.keys(ABF_DISADVANTAGES).sort();
+
+    new Dialog({
+      title: "Add Disadvantage",
+      content: `
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+  
+          <label><b>Select Disadvantage:</b></label>
+  
+          <div style="display: flex; gap: 6px; align-items: center;">
+  
+            <!-- Shrunk info button -->
+            <button type="button" id="adv-info"
+              style="
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                width: 18px;
+                height: 18px;
+                flex: 0 0 18px; /* prevents stretching */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              ">
+              <i class="fas fa-question-circle" style="color: black; font-size: 0.9rem;"></i>
+            </button>
+  
+            <select id="adv-select" style="flex: 1;">
+              ${advOptions
+                .map((cls) => `<option value="${cls}">${normalizeClassName(cls)}</option>`)
+                .join("")}
+            </select>
+          </div>
+        </div>
+  
+      `,
+      buttons: {
+        add: {
+          label: "Add",
+          callback: async (html) => {
+            const selected = html.find("#adv-select").val();
+            const advData = ABF_DISADVANTAGES[selected];
+
+            if (!advData) {
+              return ui.notifications.error("Disadvantage data missing.");
+            }
+
+            const actor = sheet.actor;
+            const disadvantages = foundry.utils.duplicate(actor.system.disadvantages ?? []);
+
+            disadvantages.push(advData);
+
+            await actor.update({ "system.disadvantages": disadvantages });
+          }
+        }
+      },
+      render: (html) => {
+        // Info button click handler
+        html.find("#adv-info").on("click", () => {
+          const selected = html.find("#adv-select").val();
+          const advData = ABF_DISADVANTAGES[selected];
+
+          if (!advData?.journal) {
+            return ui.notifications.warn("No journal entry linked for this class.");
+          }
+
+          openJournalFromUUID(advData.journal);
+        });
+      },
+      default: "Add"
+    }).render(true);
+  });
+
+  html.find(".delete-disadvantage").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".delete-disadvantage").on("click", async (event) => {
+    const index = Number(event.currentTarget.dataset.index);
+
+    const confirmed = await Dialog.confirm(
+      {
+        title: "Confirm Delete",
+        content: "<p>Are you sure you want to remove this disadvantage?</p>"
+      },
+      {
+        classes: ["abf-character-sheet"]
+      }
+    );
+
+    if (!confirmed) return;
+
+    const disadvantages = foundry.utils.duplicate(sheet.actor.system.disadvantages);
+
+    // Grab the disadvantage name BEFORE deleting it
+    const deletedDisadvantageName = disadvantages[index]?.name;
+
+    // Remove from actor
+    disadvantages.splice(index, 1);
+    await sheet.actor.update({ "system.disadvantages": disadvantages });
+
+    // Reset the class level in the registry (so re-adding starts at level 1)
+    if (deletedDisadvantageName && ABF_DISADVANTAGES[deletedDisadvantageName]) {
+      ABF_DISADVANTAGES[deletedDisadvantageName].level = 1;
+    }
+  });
+
+  // Click class name for information
+  html.find(".clickable-disadvantage").click((ev) => {
+    ev.preventDefault();
+
+    const advName = ev.currentTarget.dataset.disadvantage;
+    const advData = sheet.actor.system.disadvantages.find((c) => c.name === advName);
+
+    if (!advData) return ui.notifications.error("Disdisadvantage data not found");
+
+    openJournalFromUUID(advData.journal);
+  });
+
+  //#endregion
+
+  //#region Elan
+  // -----------------------------
+  // ADD ELAN
+  // -----------------------------
+  html.find(".add-elan").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".add-elan").on("click", () => {
+    const elanOptions = Object.keys(ABF_LORDS).sort();
+
+    new Dialog({
+      title: "Add Elan",
+      content: `
+        <div style="display: flex; flex-direction: column; gap: 8px;">
+  
+          <label><b>Select Elan:</b></label>
+  
+          <div style="display: flex; gap: 6px; align-items: center;">
+  
+            <!-- Shrunk info button -->
+            <button type="button" id="elan-info"
+              style="
+                background: none;
+                border: none;
+                cursor: pointer;
+                padding: 0;
+                width: 18px;
+                height: 18px;
+                flex: 0 0 18px; /* prevents stretching */
+                display: flex;
+                align-items: center;
+                justify-content: center;
+              ">
+              <i class="fas fa-question-circle" style="color: black; font-size: 0.9rem;"></i>
+            </button>
+  
+            <select id="elan-select" style="flex: 1;">
+              ${elanOptions.map((elan) => `<option value="${elan}">${elan}</option>`).join("")}
+            </select>
+  
+          </div>
+        </div>
+  
+      `,
+      buttons: {
+        add: {
+          label: "Add",
+          callback: async (html) => {
+            const selected = html.find("#elan-select").val();
+            const elanData = ABF_LORDS[selected];
+
+            if (!elanData) {
+              return ui.notifications.error("Elan data missing.");
+            }
+
+            const actor = sheet.actor;
+            const elans = foundry.utils.duplicate(actor.system.elans ?? []);
+
+            elans.push(elanData);
+
+            await actor.update({ "system.elans": elans });
+          }
+        }
+      },
+      render: (html) => {
+        // Info button click handler
+        html.find("#elan-info").on("click", () => {
+          const selected = html.find("#elan-select").val();
+          const elanData = ABF_LORDS[selected];
+
+          if (!elanData?.journalEntry) {
+            return ui.notifications.warn("No journal entry linked for this elan.");
+          }
+
+          openJournalFromUUID(elanData.journalEntry);
+        });
+      }
+    }).render(true);
+  });
+
+  // -----------------------------
+  // DELETE ELAN
+  // -----------------------------
+  html.find(".delete-elan").off("click");
+  html.find(".delete-elan").on("click", async (event) => {
+    const index = Number(event.currentTarget.dataset.index);
+
+    const confirmed = await Dialog.confirm({
+      title: "Confirm Delete",
+      content: "<p>Are you sure you want to remove this elan?</p>"
+    });
+
+    if (!confirmed) return;
+
+    const elans = foundry.utils.duplicate(sheet.actor.system.elans);
+
+    elans.splice(index, 1);
+
+    await sheet.actor.update({ "system.elans": elans });
+  });
+
+  // -----------------------------
+  // CLICK ELAN NAME FOR INFO
+  // -----------------------------
+  html.find(".clickable-elan").off("click");
+  html.find(".clickable-elan").on("click", (ev) => {
+    ev.preventDefault();
+
+    const elanName = ev.currentTarget.dataset.elans;
+    const elanData = sheet.actor.system.elans.find((d) => d.name === elanName);
+
+    if (!elanData) return ui.notifications.error("Elan data not found");
+    //openJournalFromUUID(elanData.journalEntry);
+
+    new ElanInfoWindow(elanName, elanData, { actorId: sheet.actor.id }).render(true);
+  });
+
+  //ELAN fix broken values when adding/removing
+  // Change elan current value
+  // html.find(".elan-current-input").off("change");
+  // html.find(".elan-current-input").on("change", async (event) => {
+  //   const index = Number(event.currentTarget.dataset.index);
+  //   const newLevel = Number(event.currentTarget.value) || 1;
+
+  //   const elans = foundry.utils.duplicate(sheet.actor.system.elans);
+  //   elans[index].elan.current = newLevel;
+
+  //   await sheet.actor.update({ "system.elans": elans });
+  // });
+
+  // // Change elan bonus value
+  // html.find(".elan-bonus-input").off("change");
+  // html.find(".elan-bonus-input").on("change", async (event) => {
+  //   const index = Number(event.currentTarget.dataset.index);
+  //   const newLevel = Number(event.currentTarget.value) || 0;
+
+  //   const elans = foundry.utils.duplicate(sheet.actor.system.elans);
+  //   elans[index].elan.bonus = newLevel;
+
+  //   await sheet.actor.update({ "system.elans": elans });
+  // });
+
+  //#endregion
+
+  //#region Languages
+
+  html.find(".add-language").on("click", async (event) => {
+    const actor = sheet.actor;
+    const languages = foundry.utils.duplicate(actor.system.languages);
+
+    // Add a new blank language entry
+    languages.push({ name: "", level: 0 });
+
+    await actor.update({ "system.languages": languages });
+  });
+
+  html.find(".languages-name-input").on("change", async (event) => {
+    const actor = sheet.actor;
+    const index = Number(event.currentTarget.dataset.index);
+    const value = event.currentTarget.value;
+
+    const languages = foundry.utils.duplicate(actor.system.languages);
+    languages[index].name = value;
+
+    await actor.update({ "system.languages": languages });
+  });
+
+  html.find(".languages-level-input").on("change", async (event) => {
+    const actor = sheet.actor;
+    const index = Number(event.currentTarget.dataset.index);
+    const value = Number(event.currentTarget.value) || 0;
+
+    const languages = foundry.utils.duplicate(actor.system.languages);
+    languages[index].level = value;
+
+    await actor.update({ "system.languages": languages });
+  });
+
+  html.find(".delete-languages").off("click");
+  html.find(".delete-languages").on("click", async (event) => {
+    const index = Number(event.currentTarget.dataset.index);
+
+    const confirmed = await Dialog.confirm({
+      title: "Confirm Delete",
+      content: "<p>Are you sure you want to remove this language?</p>"
+    });
+
+    if (!confirmed) return;
+
+    const lang = foundry.utils.duplicate(sheet.actor.system.languages);
+
+    lang.splice(index, 1);
+
+    await sheet.actor.update({ "system.languages": lang });
+  });
+
+  //#endregion
+
+  //#region Contacts
+
+  html.find(".add-contacts").on("click", async (event) => {
+    const actor = sheet.actor;
+    const contacts = foundry.utils.duplicate(actor.system.contacts);
+
+    // Add a new blank contacts entry
+    contacts.push({ name: "", description: "" });
+
+    await actor.update({ "system.contacts": contacts });
+  });
+
+  html.find(".contacts-name-input").on("change", async (event) => {
+    const actor = sheet.actor;
+    const index = Number(event.currentTarget.dataset.index);
+    const value = event.currentTarget.value;
+
+    const contacts = foundry.utils.duplicate(actor.system.contacts);
+    contacts[index].name = value;
+
+    await actor.update({ "system.contacts": contacts });
+  });
+
+  html.find(".contacts-description-input").on("change", async (event) => {
+    const actor = sheet.actor;
+    const index = Number(event.currentTarget.dataset.index);
+    const value = event.currentTarget.value;
+
+    const contacts = foundry.utils.duplicate(actor.system.contacts);
+    contacts[index].description = value;
+
+    await actor.update({ "system.contacts": contacts });
+  });
+
+  html.find(".delete-contacts").off("click");
+  html.find(".delete-contacts").on("click", async (event) => {
+    const index = Number(event.currentTarget.dataset.index);
+
+    const confirmed = await Dialog.confirm({
+      title: "Confirm Delete",
+      content: "<p>Are you sure you want to remove this contact?</p>"
+    });
+
+    if (!confirmed) return;
+
+    const contacts = foundry.utils.duplicate(sheet.actor.system.contacts);
+
+    contacts.splice(index, 1);
+
+    await sheet.actor.update({ "system.contacts": contacts });
+  });
+
+  //#endregion
+
+  //#region Titles
+
+  html.find(".add-titles").on("click", async (event) => {
+    const actor = sheet.actor;
+    const titles = foundry.utils.duplicate(actor.system.titles);
+
+    // Add a new blank language entry
+    titles.push({ name: "" });
+
+    await actor.update({ "system.titles": titles });
+  });
+
+  html.find(".titles-name-input").on("change", async (event) => {
+    const actor = sheet.actor;
+    const index = Number(event.currentTarget.dataset.index);
+    const value = event.currentTarget.value;
+
+    const titles = foundry.utils.duplicate(actor.system.titles);
+    titles[index].name = value;
+
+    await actor.update({ "system.titles": titles });
+  });
+
+  html.find(".delete-titles").off("click");
+  html.find(".delete-titles").on("click", async (event) => {
+    const index = Number(event.currentTarget.dataset.index);
+
+    const confirmed = await Dialog.confirm({
+      title: "Confirm Delete",
+      content: "<p>Are you sure you want to remove this title?</p>"
+    });
+
+    if (!confirmed) return;
+
+    const titles = foundry.utils.duplicate(sheet.actor.system.titles);
+
+    const deletedName = titles[index]?.name;
+
+    titles.splice(index, 1);
+
+    await sheet.actor.update({ "system.titles": titles });
+  });
+
+  //#endregion
 }
 
 async function openJournalFromUUID(rawUuid) {

@@ -22,7 +22,13 @@ export class AbilitiesPrimaryRule extends BaseRule {
           if (abil.class === undefined) abil.class = 0;
           if (abil.final === undefined) abil.final = 0;
           if (abil.special === undefined) abil.special = 0;
-          if (name != "MAMultiple") {
+          if (
+            name != "MAMultiple" &&
+            name != "Ki" &&
+            name != "KiAccumulation" &&
+            name != "Zeon" &&
+            name != "PsychicPoints"
+          ) {
             if (abil.characteristic === undefined)
               abil.characteristic = ABILITIES_PRIMARIES_SCHEMA[name].characteristic || null;
             if (abil.mastery === undefined) abil.mastery = false;

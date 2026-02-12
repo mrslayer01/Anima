@@ -23,12 +23,6 @@ export const DEFAULT_ACTOR_DATA = {
         bonus: 0
       }
     },
-    ki: {
-      current: 0
-    },
-    zeon: {
-      current: 0
-    },
     psychicPoints: {
       current: 0
     },
@@ -140,18 +134,28 @@ export const DEFAULT_ACTOR_DATA = {
         Attack: { base: 0, bonus: 0, focus: false },
         Block: { base: 0, bonus: 0, focus: false },
         Dodge: { base: 0, bonus: 0, focus: false },
-        WearArmor: { base: 0, bonus: 0 }
+        WearArmor: { base: 0, bonus: 0 },
+        Ki: {
+          base: 0,
+          current: 0
+        },
+        KiAccumulation: {
+          base: 0,
+          current: 0
+        }
       },
       Psychic: {
-        PsychicProjection: { base: 0, bonus: 0 }
+        PsychicProjection: { base: 0, bonus: 0 },
+        PsychicPoints: { base: 0, current: 0 }
       },
       Supernatural: {
-        MAMultiple: { base: 0, bonus: 0 },
         MagicProjection: { base: 0, bonus: 0 },
         Summon: { base: 0, bonus: 0 },
         Control: { base: 0, bonus: 0 },
         Bind: { base: 0, bonus: 0 },
-        Banish: { base: 0, bonus: 0 }
+        Banish: { base: 0, bonus: 0 },
+        MAMultiple: { base: 0, bonus: 0 },
+        Zeon: { base: 0, current: 0 }
       }
     }
   },

@@ -10,8 +10,14 @@ export class ClassesRule extends BaseRule {
     const classes = system.classes || [];
     const classDetails = extractAllClassAbilityData(classes);
 
-    const { allPrimaryInnateBonuses, allSecondaryAbilityCosts, allSecondaryInnateBonuses } =
-      classDetails;
+    const {
+      allPrimaryInnateBonuses,
+      allCombatAbilityCosts,
+      allSupernaturalAbilityCosts,
+      allPsychichAbilityCosts,
+      allSecondaryAbilityCosts,
+      allSecondaryInnateBonuses
+    } = classDetails;
 
     // First, reset all class derived values
     resetAllClassDerivedFields(system);
@@ -27,10 +33,20 @@ export class ClassesRule extends BaseRule {
 
       system.martialKnowledge.class += toNum(cls.martialKnowledgePerLevel) * level;
 
-      system.core.psychicPoints.ppPerLevel += toNum(cls.psychicPointsPerLevel);
-      system.core.psychicPoints.levelInterval = toNum(cls.psychicPointsInterval);
+      system.abilities.primary.Psychic.PsychicPoints.ppPerLevel += toNum(cls.psychicPointsPerLevel);
+      system.abilities.primary.Psychic.PsychicPoints.levelInterval = toNum(
+        cls.psychicPointsInterval
+      );
 
-      PrimaryAbilities(cls, system, allPrimaryInnateBonuses, level);
+      PrimaryAbilities(
+        cls,
+        system,
+        allPrimaryInnateBonuses,
+        allCombatAbilityCosts,
+        allSupernaturalAbilityCosts,
+        allPsychichAbilityCosts,
+        level
+      );
       SecondaryAbilities(system, allSecondaryInnateBonuses, allSecondaryAbilityCosts, level);
     }
 
@@ -77,11 +93,19 @@ function resetAllClassDerivedFields(system) {
   system.initiative.class = 0;
   system.martialKnowledge.class = 0;
 
-  system.core.psychicPoints.ppPerLevel = 0;
-  system.core.psychicPoints.levelInterval = 0;
+  system.abilities.primary.Psychic.PsychicPoints.ppPerLevel = 0;
+  system.abilities.primary.Psychic.PsychicPoints.levelInterval = 0;
 }
 
-function PrimaryAbilities(cls, system, allPrimaryInnateBonuses, level) {
+function PrimaryAbilities(
+  cls,
+  system,
+  allPrimaryInnateBonuses,
+  allCombatAbilityCosts,
+  allSupernaturalAbilityCosts,
+  allPsychichAbilityCosts,
+  level
+) {
   for (const [limit, value] of Object.entries(cls.abilityLimits || {})) {
     const target = system.abilities.primary.abilityLimits[limit];
     if (!target) continue;
@@ -89,42 +113,34 @@ function PrimaryAbilities(cls, system, allPrimaryInnateBonuses, level) {
     target.percent = toNum(value);
   }
 
-  // Primary Ability DP Costs
-  for (const [name, cost] of Object.entries(cls.primaryAbilityCosts || {})) {
-    const key = normalizeAbilityName(name);
-    if (key === "Ki") {
-      system.core.ki.cost = toNum(cost);
-    } else if (key === "KiAccumulation") {
-      system.core.ki.accumulationCost = toNum(cost);
-    } else {
-      system.abilities.primary.Combat[key].cost = toNum(cost);
+  // Primary Ability Combat DP Costs
+  for (const combat of allCombatAbilityCosts) {
+    const name = normalizeAbilityName(combat.name);
+    for (const [abilityName, ability] of Object.entries(system.abilities.primary.Combat)) {
+      system.abilities.primary.Combat[name].cost = toNum(combat.cost);
     }
   }
 
   // Primary supernaturalAbilityCosts
-  for (const [name, cost] of Object.entries(cls.supernaturalAbilityCosts || {})) {
-    const key = normalizeAbilityName(name);
-    if (key === "Zeon") {
-      system.core.zeon.cost = toNum(cost);
-    } else {
-      system.abilities.primary.Supernatural[key].cost = toNum(cost);
+  for (const supernatural of allSupernaturalAbilityCosts) {
+    const name = normalizeAbilityName(supernatural.name);
+    for (const [abilityName, ability] of Object.entries(system.abilities.primary.Supernatural)) {
+      system.abilities.primary.Supernatural[name].cost = toNum(supernatural.cost);
     }
   }
 
   // Primary psychicAbilityCosts
-  for (const [name, cost] of Object.entries(cls.psychicAbilityCosts || {})) {
-    const key = normalizeAbilityName(name);
-    if (key === "PsychicPoints") {
-      system.core.psychicPoints.cost = toNum(cost);
-    } else {
-      system.abilities.primary.Psychic[key].cost = toNum(cost);
+  for (const psychic of allPsychichAbilityCosts) {
+    const name = normalizeAbilityName(psychic.name);
+    for (const [abilityName, ability] of Object.entries(system.abilities.primary.Psychic)) {
+      system.abilities.primary.Psychic[name].cost = toNum(psychic.cost);
     }
   }
 
   for (const innate of allPrimaryInnateBonuses) {
     const name = normalizeAbilityName(innate.name);
     if (name === "Zeon") {
-      system.core.zeon.class = toNum(innate.innateBonus) * level;
+      system.abilities.primary.Supernatural.Zeon.class = toNum(innate.innateBonus) * level;
     } else if (system.abilities?.primary?.Combat[name]) {
       let finalClassBonus = toNum(innate.innateBonus) * level;
       if (finalClassBonus > 50) finalClassBonus = 50;
@@ -194,6 +210,9 @@ function extractInnateArray(classToExtract, key) {
 function extractAllClassAbilityData(classes) {
   return {
     allPrimaryInnateBonuses: extractInnateArray(classes, "primaryAbilities"),
+    allCombatAbilityCosts: extractCostMap(classes, "primaryAbilityCosts"),
+    allSupernaturalAbilityCosts: extractCostMap(classes, "supernaturalAbilityCosts"),
+    allPsychichAbilityCosts: extractCostMap(classes, "psychicAbilityCosts"),
 
     allSecondaryAbilityCosts: extractCostMap(classes, "secondaryAbilityCosts"),
     allSecondaryInnateBonuses: extractInnateArray(classes, "secondaryAbilities")

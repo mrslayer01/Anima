@@ -1644,7 +1644,7 @@ export const ABF_CLASSES = {
     },
 
     psychicAbilityCosts: {
-      PsychicPoints: 1,
+      PsychicPoints: 15,
       PsychicProjection: 2
     },
 
@@ -1714,7 +1714,7 @@ export const ABF_CLASSES = {
     },
 
     psychicAbilityCosts: {
-      PsychicPoints: 2,
+      PsychicPoints: 20,
       PsychicProjection: 2
     },
 

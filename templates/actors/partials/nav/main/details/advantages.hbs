@@ -1,9 +1,13 @@
-<h3>Advantages</h3>
+<h3>
+  Advantages
+</h3>
 <table class="classes-table">
   <thead>
     <tr>
-      <th>Advantage</th>
-      {{!-- <th>Level</th> --}}
+      <th>
+        Advantage
+      </th>
+      {{! <th>Level</th> }}
       <th class="class-actions-header">
         <a class="add-advantage" data-tooltip="Add Advantage">
           <i class="fas fa-plus-circle"></i>
@@ -15,7 +19,11 @@
   <tbody>
     {{#each system.advantages as |cls idx|}}
       <tr>
-        <td class="advantage-name clickable-advantage" data-index="{{idx}}" data-advantage="{{cls.name}}">
+        <td
+          class="advantage-name clickable-advantage"
+          data-index="{{idx}}"
+          data-advantage="{{cls.name}}"
+        >
           {{cls.name}}
         </td>
 

@@ -232,3 +232,30 @@ function CalculateSecondaryAbilities(system) {
 }
 
 //#endregion
+
+//#region Misc
+
+function DerivedMisc(system) {}
+
+function RecalcMisc(system, category, ability) {
+  const newBase = system.abilities.secondary[category][ability].base;
+  const cost = system.abilities.secondary[category][ability].cost;
+
+  updateAbilityRecord(system, category, ability, newBase, cost);
+}
+
+function CalculateSupplementalTotal(system) {
+  // --- TOTAL PRIMARY DP SPENT ---
+  let supplementalTotal = 0;
+
+  for (const rec of system.developmentPoints.spentRecords) {
+    // Only count secondary categories
+    if (["zeon", "ki"].includes(rec.category)) {
+      supplementalTotal += Number(rec.amount) * Number(rec.cost);
+    }
+  }
+
+  system.abilities.secondary.totalDPSpent = secondaryTotal;
+}
+
+//#endregion

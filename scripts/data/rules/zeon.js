@@ -3,34 +3,44 @@ import { toNum } from "../../utils/numbers.js";
 
 export class ZeonRule extends BaseRule {
   Initialize(system) {
-    if (system.core.zeon.cost === undefined) system.core.zeon.cost = 0;
-    if (system.core.zeon.class === undefined) system.core.zeon.class = 0;
-    if (system.core.zeon.special === undefined) system.core.zeon.special = 0;
-    if (system.core.zeon.final === undefined) system.core.zeon.final = 0;
+    const zeonPath = system.abilities.primary.Supernatural.Zeon;
+    if (zeonPath.cost === undefined) zeonPath.cost = 0;
+    if (zeonPath.class === undefined) zeonPath.class = 0;
+    if (zeonPath.special === undefined) zeonPath.special = 0;
+    if (zeonPath.final === undefined) zeonPath.final = 0;
   }
 
   Derived(system) {
     this.Initialize(system);
+    const zeonPath = system.abilities.primary.Supernatural.Zeon;
 
     //Zeon
-    const classZeon = toNum(system.core.zeon.class);
-    const specialZeon = toNum(system.core.zeon.special);
-    system.core.zeon.final = classZeon + specialZeon;
+    const baseZeon = toNum(zeonPath.base);
+    const classZeon = toNum(zeonPath.class);
+    const specialZeon = toNum(zeonPath.special);
+    zeonPath.final = classZeon + specialZeon + baseZeon;
   }
 
   DetectChanged(updateData, oldSystem) {
     const changed = [];
+    const zeonPathOld = oldSystem.abilities.primary.Supernatural.Zeon;
     // Zeon
-    const zeonClassPath = "oldSystem.core.zeon.class";
-    const zeonSpecialPath = "oldSystem.core.zeon.special";
+    const zeonBasePath = `${zeonPathOld}.base`;
+    const zeonClassPath = `${zeonPathOld}.class`;
+    const zeonSpecialPath = `${zeonPathOld}.special`;
 
+    const newZeonBase = foundry.utils.getProperty(updateData, zeonBasePath);
     const newZeonClass = foundry.utils.getProperty(updateData, zeonClassPath);
     const newZeonSpecial = foundry.utils.getProperty(updateData, zeonSpecialPath);
-    if (newZeonClass !== undefined && newZeonClass !== oldSystem.core.zeon.class) {
+    if (newZeonBase !== undefined && newZeonBase !== zeonPathOld.base) {
       changed.push("zeon");
     }
 
-    if (newZeonSpecial !== undefined && newZeonSpecial !== oldSystem.core.zeon.special) {
+    if (newZeonClass !== undefined && newZeonClass !== zeonPathOld.class) {
+      changed.push("zeon");
+    }
+
+    if (newZeonSpecial !== undefined && newZeonSpecial !== zeonPathOld.special) {
       changed.push("zeon");
     }
 
@@ -45,9 +55,13 @@ export class ZeonRule extends BaseRule {
   }
 
   RecalcUpdated(system, name) {
-    const classZeon = toNum(system.core.zeon.class);
-    const specialZeon = toNum(system.core.zeon.special);
-    system.core.zeon.final = classZeon + specialZeon;
+    const zeonPath = system.abilities.primary.Supernatural.Zeon;
+
+    //Zeon
+    const baseZeon = toNum(zeonPath.base);
+    const classZeon = toNum(zeonPath.class);
+    const specialZeon = toNum(zeonPath.special);
+    zeonPath.final = classZeon + specialZeon + baseZeon;
   }
 
   Update(updateData, oldSystem, newSystem) {

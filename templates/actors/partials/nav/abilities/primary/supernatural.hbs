@@ -45,6 +45,9 @@
             "
             />
           </td>
+          {{#if (in key "Zeon" "MAMultiple")}}
+          <td></td>
+          {{else}}
           <td>
             <input
               class="mod-input-resize-char"
@@ -54,12 +57,17 @@
               {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
+          {{/if}}
           <td>
             {{ability.class}}
           </td>
+          {{#if (in key "Zeon" "MAMultiple")}}
+          <td>{{ability.final}}</td>
+          {{else}}
           <td class="ability-roll clickable" data-category="Supernatural" data-ability="{{key}}">
             {{ability.final}}
           </td>
+          {{/if}}
         </tr>
       {{/each}}
     </tbody>

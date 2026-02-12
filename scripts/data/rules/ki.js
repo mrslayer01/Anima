@@ -5,36 +5,61 @@ export class KiRule extends BaseRule {
   Initialize(system) {
     // Add all the supplemental fields cost, class, final, special
     // Ki
-    if (system.core.ki.cost === undefined) system.core.ki.cost = 0;
-    if (system.core.ki.class === undefined) system.core.ki.class = 0;
-    if (system.core.ki.special === undefined) system.core.ki.special = 0;
-    if (system.core.ki.accumulationCost === undefined) system.core.ki.accumulationCost = 0;
-    if (system.core.ki.final === undefined) system.core.ki.final = 0;
+    const kiPath = system.abilities.primary.Combat.Ki;
+    const kiAccuPath = system.abilities.primary.Combat.KiAccumulation;
+    if (kiPath.base === undefined) kiPath.base = 0;
+    if (kiPath.cost === undefined) kiPath.cost = 0;
+    if (kiPath.class === undefined) kiPath.class = 0;
+    if (kiPath.special === undefined) kiPath.special = 0;
+    if (kiPath.final === undefined) kiPath.final = 0;
+    if (kiAccuPath.cost === undefined) kiPath.kiAccumulation.cost = 0;
+    if (kiAccuPath.final === undefined) kiPath.kiAccumulation.final = 0;
   }
 
   Derived(system) {
     this.Initialize(system);
+    const kiPath = system.abilities.primary.Combat.Ki;
+    const kiAccuPath = system.abilities.primary.Combat.KiAccumulation;
     //ki
-    const classKi = toNum(system.core.ki.class);
-    const specialKi = toNum(system.core.ki.special);
-    system.core.ki.final = classKi + specialKi;
+    const baseKi = toNum(kiPath.base);
+    const classKi = toNum(kiPath.class);
+    const specialKi = toNum(kiPath.special);
+    kiPath.final = classKi + specialKi + baseKi;
+    //ki accumulation
+
+    kiAccuPath.final = toNum(kiAccuPath.base);
   }
 
   DetectChanged(updateData, oldSystem) {
     const changed = [];
+    const oldSystemKiPath = oldSystem.abilities.primary.Combat.Ki;
+    const oldSystemKiAccuPath = oldSystem.abilities.primary.Combat.KiAccumulation;
 
     // Ki
-    const kiClassPath = oldSystem.core.ki.class;
-    const kiSpecialPath = oldSystem.core.ki.special;
+    const kiBasePath = `${oldSystemKiPath}.base`;
+    const kiClassPath = `${oldSystemKiPath}.base`;
+    const kiSpecialPath = `${oldSystemKiPath}.base`;
+    const newKiBase = foundry.utils.getProperty(updateData, kiBasePath);
     const newKiClass = foundry.utils.getProperty(updateData, kiClassPath);
     const newKiSpecial = foundry.utils.getProperty(updateData, kiSpecialPath);
 
-    if (newKiClass !== undefined && newKiClass !== oldSystem.core.ki.class) {
+    if (newKiBase !== undefined && newKiBase !== oldSystemKiPath.base) {
       changed.push("ki");
     }
 
-    if (newKiSpecial !== undefined && newKiSpecial !== oldSystem.core.ki.special) {
+    if (newKiClass !== undefined && newKiClass !== oldSystemKiPath.class) {
       changed.push("ki");
+    }
+
+    if (newKiSpecial !== undefined && newKiSpecial !== oldSystemKiPath.special) {
+      changed.push("ki");
+    }
+
+    // Ki Accumulation
+    const kiAccuBasePath = `${oldSystemKiAccuPath}.base`;
+    const newKiAccuBase = foundry.utils.getProperty(updateData, kiAccuBasePath);
+    if (newKiAccuBase !== undefined && newKiAccuBase !== oldSystemKiAccuPath.base) {
+      changed.push("kiAccu");
     }
 
     for (const [index, cls] of Object.entries(oldSystem.classes)) {
@@ -48,9 +73,16 @@ export class KiRule extends BaseRule {
   }
 
   RecalcUpdated(system, name) {
-    const classKi = toNum(system.core.ki.class);
-    const specialKi = toNum(system.core.ki.special);
-    system.core.ki.final = classKi + specialKi;
+    const kiPath = system.abilities.primary.Combat.Ki;
+    const kiAccuPath = system.abilities.primary.Combat.KiAccumulation;
+    //ki
+    const baseKi = toNum(kiPath.base);
+    const classKi = toNum(kiPath.class);
+    const specialKi = toNum(kiPath.special);
+    kiPath.final = classKi + specialKi + baseKi;
+    //ki accumulation
+
+    kiAccuPath.final = toNum(kiAccuPath.base);
   }
 
   Update(updateData, oldSystem, newSystem) {

@@ -1,5 +1,5 @@
 export function InitializeAbilitiesPartials() {
-  const primaryPartials = ["primaries", "combat", "supernatural", "psychic", "supplemental"];
+  const primaryPartials = ["primaries", "combat", "supernatural", "psychic"];
 
   const secondaryPartials = [
     "athletics",

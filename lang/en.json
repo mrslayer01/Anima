@@ -50,15 +50,19 @@
       "Block": "Block",
       "Dodge": "Dodge",
       "WearArmor": "Wear Armor",
+      "Ki": "Ki",
+      "KiAccumulation": "Ki Accumulation",
 
       "PsychicProjection": "Psychic Projection",
+      "PsychicPoints": "Psychic Points",
 
       "MAMultiple": "MA Multiple",
       "MagicProjection": "Magic Projection",
       "Summon": "Summon",
       "Control": "Control",
       "Bind": "Bind",
-      "Banish": "Banish"
+      "Banish": "Banish",
+      "Zeon": "Zeon"
     }
   }
 }
