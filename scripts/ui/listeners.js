@@ -993,6 +993,9 @@ export function registerSheetListeners(sheet, html) {
   html.find(".item-delete").click(async (ev) => {
     const actor = sheet.actor;
     const itemId = $(ev.currentTarget).closest(".item-row").data("item-id");
+    const item = sheet.actor.items.get(itemId);
+
+    //console.log(actor, itemId);
 
     const confirmed = await Dialog.confirm({
       title: "Confirm Delete",
@@ -1000,6 +1003,21 @@ export function registerSheetListeners(sheet, html) {
     });
 
     if (!confirmed) return;
+
+    if (item.type === "armor") {
+      // Be sure to un equip an equipped armor properly
+      const oldArmorEquipped = actor.system.items.armor.find((i) => i._id === itemId).system
+        .equipped;
+
+      if (oldArmorEquipped) {
+        // Old armor is still equipped, set equipped to false so it removed the supplied values.
+        const location = item.system.location;
+        await item.update({
+          "system.equipped": false
+        });
+        await recomputeArmorSection(actor, location);
+      }
+    }
 
     actor.deleteEmbeddedDocuments("Item", [itemId]);
   });
@@ -1032,20 +1050,51 @@ export function registerSheetListeners(sheet, html) {
   html.find(".armor-equip-toggle").on("click", async (ev) => {
     const actor = sheet.actor;
     const itemId = ev.currentTarget.dataset.itemId;
-    const item = sheet.actor.items.get(itemId);
-
-    const actorPath = `system.items.armor.${itemId}.system.equipped`;
+    const item = actor.items.get(itemId);
 
     const current = item.system.equipped ?? false;
+    const location = item.system.location;
 
-    await item.update({
-      "system.equipped": !current
-    });
+    // Unequip any other armor in the same location
+    const otherEquipped = actor.items.find(
+      (i) =>
+        i.type === "armor" && i.id !== itemId && i.system.location === location && i.system.equipped
+    );
+
+    if (otherEquipped) {
+      await otherEquipped.update({ "system.equipped": false });
+    }
+
+    // Toggle this one
+    await item.update({ "system.equipped": !current });
+
+    // Now recompute the section from scratch based on current flags
+    await recomputeArmorSection(actor, location);
 
     sheet.render(false);
   });
 
   //#endregion
+}
+
+function recomputeArmorSection(actor, location) {
+  const newSection = {};
+  for (const key of Object.keys(actor.system.armor[location])) {
+    newSection[key] = 0;
+  }
+
+  for (const armor of actor.system.items.armor) {
+    if (armor.system.location !== location) continue;
+    if (!armor.system.equipped) continue;
+
+    for (const [type, value] of Object.entries(armor.system.armorType)) {
+      newSection[type] += value;
+    }
+  }
+
+  return actor.update({
+    [`system.armor.${location}`]: newSection
+  });
 }
 
 async function openJournalFromUUID(rawUuid) {

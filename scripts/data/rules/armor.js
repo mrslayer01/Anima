@@ -49,44 +49,11 @@ export class ArmorRule extends BaseRule {
       }
     }
 
-    if (updateData.system.equipped !== undefined) {
-      for (const armor of oldSystem.items.armor) {
-        if (armor._id === updateData._id) {
-          const newEquip = updateData.system.equipped;
-          const oldEquip = armor.system.equipped;
-          if (newEquip != oldEquip) {
-            changed.push(updateData);
-          }
-        }
-      }
-    }
-
     return changed;
   }
 
   RecalcUpdated(system, name) {
     let armorBonus = {};
-
-    if (name?.system?.equipped) {
-      console.log("New Item Equipped.");
-      //Add the item's values to their respective location values
-      const armor = system.items.armor.find((i) => i._id === name._id);
-      const armorTypeValues = armor.system.armorType;
-      const sectionToAddTo = armor.system.location;
-      for (const [name, value] of Object.entries(armorTypeValues)) {
-        system.armor[sectionToAddTo][name] += value;
-      }
-    } else if (!name?.system?.equipped) {
-      console.log("Item Unequipped.");
-      //Remove the item's values to their respective location values
-      const armor = system.items.armor.find((i) => i._id === name._id);
-      const armorTypeValues = armor.system.armorType;
-      const sectionToRemoveFrom = armor.system.location;
-
-      for (const [name, value] of Object.entries(armorTypeValues)) {
-        system.armor[sectionToRemoveFrom][name] -= value;
-      }
-    }
 
     for (const type of DAMAGE_TYPES) {
       system.armor.total[type] = ARMOR_SECTIONS.reduce((sum, section) => {

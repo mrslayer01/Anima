@@ -37,7 +37,7 @@ export const INIT_RULES = [
   new ElanRule()
 ];
 
-export const CLASS_RULE = [new ClassesRule()];
+export const MOD_RULES = [new ClassesRule()];
 
 export const FINAL_RULES = [
   new TotalLevelRule(),
