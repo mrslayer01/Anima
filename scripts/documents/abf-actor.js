@@ -49,16 +49,21 @@ export class AbfActor extends Actor {
 
   async update(data, options = {}) {
     const oldSystem = foundry.utils.duplicate(this.system);
-    const result = await super.update(data, options);
-    // Phase 1: create system values and pre populate
-    for (const rule of INIT_RULES) rule.Update(data, oldSystem, this.system);
-    // Phase 2: populate class-derived values
-    for (const rule of CLASS_RULE) rule.Update(data, oldSystem, this.system);
-    // Phase 3: recalc dependent rules
-    for (const rule of FINAL_RULES) rule.Update(data, oldSystem, this.system);
 
-    // Persist rule‑mutated system
-    await super.update({ system: this.system });
+    // Merge item diffs into the actor diff
+    const itemDiff = this._pendingItemDiff || {};
+    delete this._pendingItemDiff;
+
+    const combined = foundry.utils.mergeObject(foundry.utils.duplicate(data), itemDiff);
+
+    const result = await super.update(data, options);
+
+    // Run rules ONCE, using the combined diff
+    for (const rule of INIT_RULES) rule.Update(combined, oldSystem, this.system);
+    for (const rule of CLASS_RULE) rule.Update(combined, oldSystem, this.system);
+    for (const rule of FINAL_RULES) rule.Update(combined, oldSystem, this.system);
+
+    // DO NOT call super.update again
 
     return result;
   }

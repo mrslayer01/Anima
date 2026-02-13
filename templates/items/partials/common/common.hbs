@@ -1,13 +1,11 @@
 <section class="common-fields">
   <div class="section-block">
-
       <table class="common-table">
         <tr>
           <td>
             <label>Weight</label>
             <input type="number" name="system.weight" value="{{system.weight}}" />
           </td>
-
           <td>
             <label>Availability</label>
               <select name="system.availability" class="availability-select select">
@@ -16,7 +14,6 @@
               <option value="rare" {{#if (eq system.availability "rare")}}selected{{/if}}>Rare</option>
             </select>
           </td>
-
           <td>
             <label>Quality</label>
             <select name="system.quality.value" class="quality-select select">
@@ -38,5 +35,4 @@
         </tr>
       </table>
   </div>
-  
 </section>

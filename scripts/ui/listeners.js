@@ -21,7 +21,7 @@ export function registerSheetListeners(sheet, html) {
     icon.removeClass("fa-plus-circle").addClass("fa-minus-circle");
   }
 
-  html.find(".char-roll").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".toggle-lock").off("click"); //before adding new listener, remove old to avoid duplicates
   html.find(".toggle-lock").on("click", (ev) => {
     const actor = sheet.actor;
     const locked = actor.system.lockUi;
@@ -1020,10 +1020,26 @@ export function registerSheetListeners(sheet, html) {
     const itemId = ev.currentTarget.dataset.itemId;
     const item = sheet.actor.items.get(itemId);
 
-    const current = item.system.weapon.equipped ?? false;
+    const current = item.system.equipped ?? false;
 
     await item.update({
-      "system.weapon.equipped": !current
+      "system.equipped": !current
+    });
+
+    sheet.render(false);
+  });
+
+  html.find(".armor-equip-toggle").on("click", async (ev) => {
+    const actor = sheet.actor;
+    const itemId = ev.currentTarget.dataset.itemId;
+    const item = sheet.actor.items.get(itemId);
+
+    const actorPath = `system.items.armor.${itemId}.system.equipped`;
+
+    const current = item.system.equipped ?? false;
+
+    await item.update({
+      "system.equipped": !current
     });
 
     sheet.render(false);
@@ -1097,7 +1113,7 @@ export function registerItemSheetListeners(sheet, html) {
     const type = ev.currentTarget.value;
 
     await sheet.item.update({
-      "system.weapon.primaryAtkType": type
+      "system.primaryAtkType": type
     });
 
     sheet.render(false);
@@ -1107,7 +1123,7 @@ export function registerItemSheetListeners(sheet, html) {
     const type = ev.currentTarget.value;
 
     await sheet.item.update({
-      "system.weapon.secondaryAtckType": type
+      "system.secondaryAtckType": type
     });
 
     sheet.render(false);
@@ -1119,8 +1135,8 @@ export function registerItemSheetListeners(sheet, html) {
     const modValue = WEAPON_SIMILARITY_MODIFIERS[name] ?? 0;
 
     await sheet.item.update({
-      "system.weapon.modifier.name": name,
-      "system.weapon.modifier.value": modValue
+      "system.modifier.name": name,
+      "system.modifier.value": modValue
     });
 
     sheet.render(false);
@@ -1145,5 +1161,17 @@ export function registerItemSheetListeners(sheet, html) {
     });
 
     sheet.render(false);
+  });
+
+  html.find(".armor-is-enchanted").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".armor-is-enchanted").on("click", (ev) => {
+    const actor = sheet.object;
+    const enchanted = actor.system.isEnchanted;
+
+    actor.update({
+      "system.isEnchanted": !enchanted
+    });
+
+    sheet.render(); // refresh UI
   });
 }

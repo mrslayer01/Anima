@@ -6,31 +6,31 @@
           <label>
             Damage
           </label>
-          <input type="number" name="system.weapon.damage" value="{{system.weapon.damage}}" />
+          <input type="number" name="system.damage" value="{{system.damage}}" />
         </td>
         <td>
           <label>
             Speed
           </label>
-          <input type="number" name="system.weapon.speed" value="{{system.weapon.speed}}" />
+          <input type="number" name="system.speed" value="{{system.speed}}" />
         </td>
         <td>
           <label>
             Fortitude
           </label>
-          <input type="number" name="system.weapon.fortitude" value="{{system.weapon.fortitude}}" />
+          <input type="number" name="system.fortitude" value="{{system.fortitude}}" />
         </td>
         <td>
           <label>
             Breakage
           </label>
-          <input type="number" name="system.weapon.breakage" value="{{system.weapon.breakage}}" />
+          <input type="number" name="system.breakage" value="{{system.breakage}}" />
         </td>
         <td>
           <label>
             Presence
           </label>
-          <input type="number" name="system.weapon.presence" value="{{system.weapon.presence}}" />
+          <input type="number" name="system.presence" value="{{system.presence}}" />
         </td>
       </tr>
     </table>
@@ -42,15 +42,15 @@
           </label>
           <input
             type="text"
-            name="system.weapon.requiredStrength"
-            value="{{system.weapon.requiredStrength}}"
+            name="system.requiredStrength"
+            value="{{system.requiredStrength}}"
           />
         </td>
         <td>
           <label>
             Type
           </label>
-          <input type="text" name="system.weapon.weaponType" value="{{system.weapon.weaponType}}" />
+          <input type="text" name="system.weaponType" value="{{system.weaponType}}" />
         </td>
       </tr>
     </table>
@@ -60,29 +60,29 @@
           <label>
             Primary Attack Type
           </label>
-          <select name="system.weapon.primaryAtkType" class="prim-attk-select select">
-            <option value="cut" {{#if (eq system.weapon.primaryAtkType "cut")}}selected{{/if}}>Cut</option>
-            <option value="thrust" {{#if (eq system.weapon.primaryAtkType "thrust")}}selected{{/if}}>Thrust</option>
-            <option value="impact" {{#if (eq system.weapon.primaryAtkType "impact")}}selected{{/if}}>Impact</option>
-            <option value="heat" {{#if (eq system.weapon.primaryAtkType "heat")}}selected{{/if}}>Heat</option>
-            <option value="electricity" {{#if (eq system.weapon.primaryAtkType "electricity")}}selected{{/if}}>Electricity</option>
-            <option value="cold" {{#if (eq system.weapon.primaryAtkType "cold")}}selected{{/if}}>Cold</option>
-            <option value="energy" {{#if (eq system.weapon.primaryAtkType "energy")}}selected{{/if}}>Energy</option>
+          <select name="system.primaryAtkType" class="prim-attk-select select">
+            <option value="cut" {{#if (eq system.primaryAtkType "cut")}}selected{{/if}}>Cut</option>
+            <option value="thrust" {{#if (eq system.primaryAtkType "thrust")}}selected{{/if}}>Thrust</option>
+            <option value="impact" {{#if (eq system.primaryAtkType "impact")}}selected{{/if}}>Impact</option>
+            <option value="heat" {{#if (eq system.primaryAtkType "heat")}}selected{{/if}}>Heat</option>
+            <option value="electricity" {{#if (eq system.primaryAtkType "electricity")}}selected{{/if}}>Electricity</option>
+            <option value="cold" {{#if (eq system.primaryAtkType "cold")}}selected{{/if}}>Cold</option>
+            <option value="energy" {{#if (eq system.primaryAtkType "energy")}}selected{{/if}}>Energy</option>
         </select>
         </td>
         <td>
           <label>
             Second Attack Type
           </label>
-          <select name="system.weapon.secondaryAtckType" class="sec-attk-select select">
-                <option value="none" {{#if (eq system.weapon.secondaryAtckType "none")}}selected{{/if}}></option>
-                <option value="cut" {{#if (eq system.weapon.secondaryAtckType "cut")}}selected{{/if}}>Cut</option>
-                <option value="thrust" {{#if (eq system.weapon.secondaryAtckType "thrust")}}selected{{/if}}>Thrust</option>
-                <option value="impact" {{#if (eq system.weapon.secondaryAtckType "impact")}}selected{{/if}}>Impact</option>
-                <option value="heat" {{#if (eq system.weapon.secondaryAtckType "heat")}}selected{{/if}}>Heat</option>
-                <option value="electricity" {{#if (eq system.weapon.secondaryAtckType "electricity")}}selected{{/if}}>Electricity</option>
-                <option value="cold" {{#if (eq system.weapon.secondaryAtckType "cold")}}selected{{/if}}>Cold</option>
-                <option value="energy" {{#if (eq system.weapon.secondaryAtckType "energy")}}selected{{/if}}>Energy</option>
+          <select name="system.secondaryAtckType" class="sec-attk-select select">
+                <option value="none" {{#if (eq system.secondaryAtckType "none")}}selected{{/if}}></option>
+                <option value="cut" {{#if (eq system.secondaryAtckType "cut")}}selected{{/if}}>Cut</option>
+                <option value="thrust" {{#if (eq system.secondaryAtckType "thrust")}}selected{{/if}}>Thrust</option>
+                <option value="impact" {{#if (eq system.secondaryAtckType "impact")}}selected{{/if}}>Impact</option>
+                <option value="heat" {{#if (eq system.secondaryAtckType "heat")}}selected{{/if}}>Heat</option>
+                <option value="electricity" {{#if (eq system.secondaryAtckType "electricity")}}selected{{/if}}>Electricity</option>
+                <option value="cold" {{#if (eq system.secondaryAtckType "cold")}}selected{{/if}}>Cold</option>
+                <option value="energy" {{#if (eq system.secondaryAtckType "energy")}}selected{{/if}}>Energy</option>
             </select>
         </td>
       </tr>
@@ -94,15 +94,15 @@
             <label>
                 Modifier
             </label>
-            <select name="system.weapon.modifier.name" class="modifier-select select">
-                    <option value="none" {{#if (eq system.weapon.modifier.name "none")}}selected{{/if}}></option>
-                    <option value="similar" {{#if (eq system.weapon.modifier.name "similar")}}selected{{/if}}>Similar Weapon</option>
-                    <option value="mixed" {{#if (eq system.weapon.modifier.name "mixed")}}selected{{/if}}>Mixed-Class Weapon</option>
-                    <option value="unarmed" {{#if (eq system.weapon.modifier.name "unarmed")}}selected{{/if}}>Different Class / Unarmed</option>
+            <select name="system.modifier.name" class="modifier-select select">
+                    <option value="none" {{#if (eq system.modifier.name "none")}}selected{{/if}}></option>
+                    <option value="similar" {{#if (eq system.modifier.name "similar")}}selected{{/if}}>Similar Weapon</option>
+                    <option value="mixed" {{#if (eq system.modifier.name "mixed")}}selected{{/if}}>Mixed-Class Weapon</option>
+                    <option value="unarmed" {{#if (eq system.modifier.name "unarmed")}}selected{{/if}}>Different Class / Unarmed</option>
                 </select>
             </td>
             <label>
-                Modifier: {{system.weapon.modifier.value}}
+                Modifier: {{system.modifier.value}}
             </label>
         </tr>
     </table>

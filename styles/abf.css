@@ -590,7 +590,7 @@
 .abf-character-sheet .clickable-disadvantage:hover,
 .abf-character-sheet .clickable-elan:hover,
 .abf-character-sheet .clickable:hover,
-.abf-item-sheet .clickable {
+.abf-item-sheet .clickable:hover {
   color: #d9b56c !important;
   text-shadow:
     0 0 8px #d9b56c,

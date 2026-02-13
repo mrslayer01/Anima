@@ -62,8 +62,8 @@
           </label>
           <input
             type="number"
-            name="system.armorType.fortitude"
-            value="{{system.armorType.fortitude}}"
+            name="system.fortitude"
+            value="{{system.fortitude}}"
           />
         </td>
         <td>
@@ -72,8 +72,8 @@
           </label>
           <input
             type="number"
-            name="system.armorType.presence"
-            value="{{system.armorType.presence}}"
+            name="system.presence"
+            value="{{system.presence}}"
           />
         </td>
         <td>
@@ -82,8 +82,8 @@
           </label>
           <input
             type="number"
-            name="system.armorType.wearArmorReq"
-            value="{{system.armorType.wearArmorReq}}"
+            name="system.wearArmorReq"
+            value="{{system.wearArmorReq}}"
           />
         </td>
         <td>
@@ -92,8 +92,8 @@
           </label>
           <input
             type="number"
-            name="system.armorType.moveRestriction"
-            value="{{system.armorType.moveRestriction}}"
+            name="system.moveRestriction"
+            value="{{system.moveRestriction}}"
           />
         </td>
         <td>
@@ -102,22 +102,22 @@
           </label>
           <input
             type="number"
-            name="system.armorType.naturalPenalty"
-            value="{{system.armorType.naturalPenalty}}"
+            name="system.naturalPenalty"
+            value="{{system.naturalPenalty}}"
           />
         </td>
       </tr>
     </table>
     <table class="common-table">
       <tr>
-        <td class="passive-icon clickable primary-focus">
+        <td>
           <label>
             Enchanted?
           </label>
         {{#if system.isEnchanted}}
-          <i class="fas fa-check"></i>
+          <i class="fas fa-check clickable armor-is-enchanted"></i>
         {{else}}
-          <i class="fas fa-times"></i>
+          <i class="fas fa-times clickable armor-is-enchanted"></i>
         {{/if}}
         </td>
         <td>
