@@ -2,8 +2,8 @@ import { ABF_CLASSES } from "../../Old Version For Reference/abf-system-old/modu
 import { ABF_ADVANTAGES } from "../config/advantages.js";
 import { ABF_DISADVANTAGES } from "../config/disadvantages.js";
 import { ABF_LORDS } from "../config/elans.js";
-import { CalculateEquippingArmor } from "../data/rules/items/armor-calculations.js";
-import { CalculateWeaponDetails } from "../data/rules/items/weapon-calculations.js";
+import { ArmorEquipped } from "../data/rules/items/armor-calculations.js";
+import { WeaponBaseCalculations } from "../data/rules/items/weapon-calculations.js";
 import { difficultyMap, WEAPON_SIMILARITY_MODIFIERS } from "../utils/lookup.js";
 import { characteristicCheck, animaOpenRoll, resistanceCheck } from "../utils/rolls.js";
 import { ElanInfoWindow } from "./windows/elan-info.js";
@@ -997,8 +997,6 @@ export function registerSheetListeners(sheet, html) {
     const itemId = $(ev.currentTarget).closest(".item-row").data("item-id");
     const item = sheet.actor.items.get(itemId);
 
-    //console.log(actor, itemId);
-
     const confirmed = await Dialog.confirm({
       title: "Confirm Delete",
       content: "<p>Are you sure you want to remove this item?</p>"
@@ -1017,7 +1015,7 @@ export function registerSheetListeners(sheet, html) {
         await item.update({
           "system.equipped": false
         });
-        await CalculateEquippingArmor(actor, location);
+        await ArmorEquipped(actor, location);
       }
     }
 
@@ -1039,7 +1037,7 @@ export function registerSheetListeners(sheet, html) {
       "system.equipped": !current
     });
 
-    CalculateWeaponDetails(actor);
+    WeaponBaseCalculations(actor);
 
     sheet.render(false);
   });
@@ -1066,7 +1064,7 @@ export function registerSheetListeners(sheet, html) {
     await item.update({ "system.equipped": !current });
 
     // Now recompute the section from scratch based on current flags
-    await CalculateEquippingArmor(actor, location);
+    await ArmorEquipped(actor, location);
 
     sheet.render(false);
   });

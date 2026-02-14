@@ -5,7 +5,8 @@ import { AbfItemSheet } from "./ui/abf-item-sheet.js";
 import { InitalizeAllActorPartials } from "./templates/initialize-actor-partials.js";
 import { loadAllActorHandlerbarsHelpers } from "./ui/handlebars-helpers.js";
 import { InitalizeAllItemPartials } from "./templates/initialize-item-partials.js";
-import { CalculateWeaponDetails } from "./data/rules/items/weapon-calculations.js";
+import { WeaponBaseCalculations } from "./data/rules/items/weapon-calculations.js";
+import { ArmorCalculation } from "./data/rules/items/armor-calculations.js";
 
 Hooks.once("init", function () {
   console.log("ABF | Initializing Anima Beyond Fantasy system");
@@ -32,7 +33,7 @@ Hooks.once("init", function () {
 Hooks.on("updateActor", (actor, updateData, options, userId) => {
   // Only recompute if Strength changed
   if (foundry.utils.hasProperty(updateData, "system.characteristics.Strength")) {
-    CalculateWeaponDetails(actor);
+    WeaponBaseCalculations(actor);
   }
 });
 
@@ -40,7 +41,13 @@ Hooks.on("updateItem", (item) => {
   const actor = item.parent;
   if (!actor) return;
 
-  if (item.type === "weapon") {
-    CalculateWeaponDetails(actor);
+  if (item.type === "weapon" && item.system.equipped) {
+    // If the equipped armor values are changed, prompt sheet to re calculate.
+    WeaponBaseCalculations(actor);
+  }
+
+  if (item.type === "armor" && item.system.equipped) {
+    // If the equipped armor values are changed, prompt sheet to re calculate.
+    ArmorCalculation(actor);
   }
 });

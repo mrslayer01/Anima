@@ -1,4 +1,5 @@
-export async function CalculateWeaponDetails(actor) {
+export async function WeaponBaseCalculations(actor) {
+  // Called when
   const strMod = actor.system.characteristics.Strength.final;
 
   for (const item of actor.items) {
@@ -11,4 +12,8 @@ export async function CalculateWeaponDetails(actor) {
       "system.finalDamage": baseDamage + strMod
     });
   }
+}
+
+export async function WeaponEquipped(actor) {
+  // Apply weapon negatives/bonuses to initiative for now. More calculations are needed later.
 }
