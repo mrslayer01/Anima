@@ -16,6 +16,10 @@
   "itemTypes": ["commonGood", "weapon", "armor"],
   "esmodules": ["scripts/main.js"],
   "styles": ["styles/abf.css"],
+  "itemIcons": {
+    "weapon": "icons/svg/sword.svg",
+    "armor": "icons/svg/armor.svg"
+  },
   "packs": [
     {
       "name": "abf-journals",

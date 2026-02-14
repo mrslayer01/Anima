@@ -815,3 +815,19 @@
   text-align: center;
   width: auto;
 }
+
+.weapon-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.weapon-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.weapon-col-full {
+  grid-column: 1 / span 2;
+  display: flex;
+  flex-direction: column;
+}

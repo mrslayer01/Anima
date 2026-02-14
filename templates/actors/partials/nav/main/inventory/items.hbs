@@ -42,64 +42,6 @@
   </table>
 
   <h3>
-    Weapons
-  </h3>
-
-  <table class="item-table" data-table="weapons">
-    <thead>
-      <tr>
-        <th>
-          Name
-        </th>
-        <th>
-          Weight
-        </th>
-        <th>
-          Cost
-        </th>
-        <th>
-          Modifier
-        </th>
-        <th>
-          Equipped?
-        </th>
-        <th></th>
-      </tr>
-    </thead>
-
-    <tbody>
-      {{#each system.items.weapons as |item|}}
-        <tr data-item-id="{{item.id}}" class="item-row">
-          <td class="item-name item-edit clickable">
-            {{item.name}}
-          </td>
-          <td>
-            {{item.system.weight}}
-          </td>
-          <td>
-            {{item.system.cost.value}} {{item.system.cost.type}}
-          </td>
-          <td>
-            {{item.system.modifier.value}}
-          </td>
-          <td class="weapon-equip-toggle clickable" data-item-id="{{item.id}}">
-            {{#if item.system.equipped}}
-              <i class="fas fa-check"></i>
-            {{else}}
-              <i class="fas fa-times"></i>
-            {{/if}}
-          </td>
-          <td class="item-controls">
-            <a class="item-delete">
-              <i class="fas fa-trash"></i>
-            </a>
-          </td>
-        </tr>
-      {{/each}}
-    </tbody>
-  </table>
-
-  <h3>
     Armor
   </h3>
 

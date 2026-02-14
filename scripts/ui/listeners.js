@@ -2,6 +2,8 @@ import { ABF_CLASSES } from "../../Old Version For Reference/abf-system-old/modu
 import { ABF_ADVANTAGES } from "../config/advantages.js";
 import { ABF_DISADVANTAGES } from "../config/disadvantages.js";
 import { ABF_LORDS } from "../config/elans.js";
+import { CalculateEquippingArmor } from "../data/rules/items/armor-calculations.js";
+import { CalculateWeaponDetails } from "../data/rules/items/weapon-calculations.js";
 import { difficultyMap, WEAPON_SIMILARITY_MODIFIERS } from "../utils/lookup.js";
 import { characteristicCheck, animaOpenRoll, resistanceCheck } from "../utils/rolls.js";
 import { ElanInfoWindow } from "./windows/elan-info.js";
@@ -1015,19 +1017,11 @@ export function registerSheetListeners(sheet, html) {
         await item.update({
           "system.equipped": false
         });
-        await recomputeArmorSection(actor, location);
+        await CalculateEquippingArmor(actor, location);
       }
     }
 
     actor.deleteEmbeddedDocuments("Item", [itemId]);
-  });
-
-  html.find(".combat").on("click", async (event) => {
-    const actor = sheet.actor;
-
-    const ch = actor.system.armor.breastplate.cut + 10;
-
-    actor.update({ "system.armor.breastplate.cut": ch });
   });
 
   //#endregion
@@ -1035,6 +1029,7 @@ export function registerSheetListeners(sheet, html) {
   //#region Items
 
   html.find(".weapon-equip-toggle").on("click", async (ev) => {
+    const actor = sheet.actor;
     const itemId = ev.currentTarget.dataset.itemId;
     const item = sheet.actor.items.get(itemId);
 
@@ -1043,6 +1038,8 @@ export function registerSheetListeners(sheet, html) {
     await item.update({
       "system.equipped": !current
     });
+
+    CalculateWeaponDetails(actor);
 
     sheet.render(false);
   });
@@ -1069,32 +1066,12 @@ export function registerSheetListeners(sheet, html) {
     await item.update({ "system.equipped": !current });
 
     // Now recompute the section from scratch based on current flags
-    await recomputeArmorSection(actor, location);
+    await CalculateEquippingArmor(actor, location);
 
     sheet.render(false);
   });
 
   //#endregion
-}
-
-function recomputeArmorSection(actor, location) {
-  const newSection = {};
-  for (const key of Object.keys(actor.system.armor[location])) {
-    newSection[key] = 0;
-  }
-
-  for (const armor of actor.system.items.armor) {
-    if (armor.system.location !== location) continue;
-    if (!armor.system.equipped) continue;
-
-    for (const [type, value] of Object.entries(armor.system.armorType)) {
-      newSection[type] += value;
-    }
-  }
-
-  return actor.update({
-    [`system.armor.${location}`]: newSection
-  });
 }
 
 async function openJournalFromUUID(rawUuid) {
@@ -1153,6 +1130,16 @@ export function registerItemSheetListeners(sheet, html) {
 
     await sheet.item.update({
       "system.availability": availability
+    });
+
+    sheet.render(false);
+  });
+
+  html.find(".weapon-type-select").on("change", async (ev) => {
+    const type = ev.currentTarget.value;
+
+    await sheet.item.update({
+      "system.weaponType": type
     });
 
     sheet.render(false);

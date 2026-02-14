@@ -1,3 +1,4 @@
+import { CalculateWeaponDetails } from "../data/rules/items/weapon-calculations.js";
 import { ARMOR_SECTIONS, DAMAGE_TYPES, TABLE_ITEM_TYPES } from "../utils/lookup.js";
 import { registerSheetListeners } from "./listeners.js";
 import { ValidateDPAbilities } from "./validators/validate-dp-abilities.js";
@@ -73,7 +74,14 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
       return ui.notifications.warn("That item cannot go in this table.");
 
     // Add item to actor
-    return this.actor.createEmbeddedDocuments("Item", [item.toObject()]);
+    const created = await this.actor.createEmbeddedDocuments("Item", [item.toObject()]);
+
+    // Recompute weapon section if it's a weapon
+    if (item.type === "weapon") {
+      await CalculateWeaponDetails(this.actor);
+    }
+
+    return created;
   }
 
   activateListeners(html) {

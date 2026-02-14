@@ -45,7 +45,7 @@ export const CURRENCY_TYPES = {
 };
 
 export const WEAPON_SIMILARITY_MODIFIERS = {
-  none: 0,
+  known: 0,
   similar: -20,
   mixed: -40,
   unarmed: -60
@@ -58,5 +58,17 @@ export const TABLE_ITEM_TYPES = {
   consumables: ["potion", "scroll"]
 };
 
-export const ARMOR_SECTIONS = ["breastplate", "shirt", "complete", "head", "special"];
+export const ARMOR_SECTIONS = ["breastplate", "shirt", "complete", "helm", "special"];
 export const DAMAGE_TYPES = ["cut", "imp", "thr", "hea", "ele", "col", "ene"];
+export const SECONDARY_DAMAGE_TYPES = ["none", "cut", "imp", "thr", "hea", "ele", "col", "ene"];
+export const WEAPON_TYPES = [
+  "shortArm",
+  "axe",
+  "mace",
+  "sword",
+  "twoHanded",
+  "pole",
+  "cord",
+  "mixed",
+  "shield"
+];

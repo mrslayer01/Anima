@@ -1,6 +1,7 @@
 import { ABF_CLASSES } from "../config/classes.js";
 import { ABF_ADVANTAGES } from "../config/advantages.js";
 import { ABF_DISADVANTAGES } from "../config/disadvantages.js";
+import { DAMAGE_TYPES, SECONDARY_DAMAGE_TYPES, WEAPON_TYPES } from "../utils/lookup.js";
 
 export function loadAllActorHandlerbarsHelpers() {
   Handlebars.registerHelper("ifEquals", function (a, b, options) {
@@ -18,6 +19,15 @@ export function loadAllActorHandlerbarsHelpers() {
   });
   Handlebars.registerHelper("disadvName", function (key) {
     return ABF_DISADVANTAGES[key].name;
+  });
+  Handlebars.registerHelper("weaponTypes", function () {
+    return WEAPON_TYPES;
+  });
+  Handlebars.registerHelper("weaponDamageType", function () {
+    return DAMAGE_TYPES;
+  });
+  Handlebars.registerHelper("secondaryWeaponDamageType", function () {
+    return SECONDARY_DAMAGE_TYPES;
   });
   Handlebars.registerHelper("humanize", function (str) {
     if (!str) return "";

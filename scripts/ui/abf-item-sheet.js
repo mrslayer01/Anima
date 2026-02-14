@@ -5,8 +5,8 @@ export class AbfItemSheet extends foundry.appv1.sheets.ItemSheet {
     return foundry.utils.mergeObject(super.defaultOptions, {
       classes: ["abf-system", "sheet", "item"],
       template: "systems/abf-system/templates/items/item-sheet.hbs",
-      width: 540,
-      height: 490,
+      width: 650,
+      height: 650,
       tabs: [
         {
           navSelector: ".sheet-tabs",

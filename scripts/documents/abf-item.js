@@ -5,6 +5,20 @@ import {
 } from "../config/default-item-data.js";
 
 export class AbfItem extends Item {
+  prepareBaseData() {
+    super.prepareBaseData();
+
+    // Only apply if the item has no custom icon
+    if (!this.img || this.img === "icons/svg/item-bag.svg") {
+      if (this.type === "weapon") {
+        this.updateSource({ img: "icons/svg/sword.svg" });
+      }
+      if (this.type === "armor") {
+        this.updateSource({ img: "icons/svg/shield.svg" });
+      }
+    }
+  }
+
   prepareData() {
     super.prepareData();
     foundry.utils.mergeObject(this.system, DEFAULT_ITEM_DATA, {

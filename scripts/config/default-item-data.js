@@ -3,22 +3,35 @@ export const DEFAULT_ITEM_DATA = {
   cost: { value: 0, type: "copper" },
   weight: 0,
   availability: "common",
-  quality: { value: "decent" },
+  quality: { value: "decent", spcialBonus: 0 },
   decription: ""
 };
 
 export const DEFAULT_WEAPON_DATA = {
   damage: 0,
+  finalDamage: 0,
   speed: 0,
   requiredStrength: "",
-  primaryAtkType: "",
-  secondaryAtckType: "",
+  primaryAtkType: "cut",
+  secondaryAtckType: "none",
   weaponType: "none",
+
+  size: "M",
+  handling: "oneHanded",
+  reach: 0,
+  initMod: 0,
+  blockMod: 0,
+  fumble: 0,
+  critType: "cut",
+  critMod: 0,
+
   fortitude: 0,
   breakage: 0,
   presence: 0,
   equipped: false,
-  modifier: { name: "", value: 0 }
+  modifier: { name: "known", value: 0 },
+
+  special: []
 };
 
 export const DEFAULT_ARMOR_DATA = {

@@ -1,0 +1,96 @@
+<h3>
+  Weapons
+</h3>
+
+<table class="item-table" data-table="weapons">
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Damage
+      </th>
+      <th>
+        speed
+      </th>
+      <th>
+        Type
+      </th>
+      <th>
+        Crit
+      </th>
+      <th>
+        Fumble
+      </th>
+      <th>
+        Presence
+      </th>
+      <th>
+        Req Str
+      </th>
+      <th>
+        Modifier
+      </th>
+      <th>
+        Equipped?
+      </th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each system.items.weapons as |item|}}
+      <tr data-item-id="{{item.id}}" class="item-row">
+        <td class="item-name item-edit clickable">
+          {{item.name}}
+        </td>
+
+        <td>
+          {{item.system.finalDamage}}
+        </td>
+        <td>
+          {{item.system.speed}}
+        </td>
+        <td>
+          {{humanize item.system.primaryAtkType}}
+        </td>
+
+        <td>
+          {{humanize item.system.critType}}
+          {{#if item.system.critMod}}
+            (+{{item.system.critMod}})
+          {{/if}}
+        </td>
+
+        <td>
+          {{item.system.fumble}}
+        </td>
+        <td>
+          {{item.system.presence}}
+        </td>
+        <td>
+          {{item.system.requiredStrength}}
+        </td>
+
+        <td>
+          {{item.system.modifier.value}}
+        </td>
+
+        <td class="weapon-equip-toggle clickable" data-item-id="{{item.id}}">
+          {{#if item.system.equipped}}
+            <i class="fas fa-check"></i>
+          {{else}}
+            <i class="fas fa-times"></i>
+          {{/if}}
+        </td>
+
+        <td class="item-controls">
+          <a class="item-delete">
+            <i class="fas fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

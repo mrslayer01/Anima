@@ -5,7 +5,7 @@ import { AbfItemSheet } from "./ui/abf-item-sheet.js";
 import { InitalizeAllActorPartials } from "./templates/initialize-actor-partials.js";
 import { loadAllActorHandlerbarsHelpers } from "./ui/handlebars-helpers.js";
 import { InitalizeAllItemPartials } from "./templates/initialize-item-partials.js";
-import { MOD_RULES, FINAL_RULES, INIT_RULES } from "./data/rules/rules.js";
+import { CalculateWeaponDetails } from "./data/rules/items/weapon-calculations.js";
 
 Hooks.once("init", function () {
   console.log("ABF | Initializing Anima Beyond Fantasy system");
@@ -27,4 +27,20 @@ Hooks.once("init", function () {
   foundry.documents.collections.Items.registerSheet("abf-system", AbfItemSheet, {
     makeDefault: true
   });
+});
+
+Hooks.on("updateActor", (actor, updateData, options, userId) => {
+  // Only recompute if Strength changed
+  if (foundry.utils.hasProperty(updateData, "system.characteristics.Strength")) {
+    CalculateWeaponDetails(actor);
+  }
+});
+
+Hooks.on("updateItem", (item) => {
+  const actor = item.parent;
+  if (!actor) return;
+
+  if (item.type === "weapon") {
+    CalculateWeaponDetails(actor);
+  }
 });
