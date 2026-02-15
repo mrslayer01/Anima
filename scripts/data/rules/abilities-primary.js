@@ -137,7 +137,6 @@ export class AbilitiesPrimaryRule extends BaseRule {
       if (newLvl !== undefined && newLvl !== cls.level) changed.push("class");
     }
 
-    console.log([...new Set(changed)]);
     return [...new Set(changed)];
   }
 

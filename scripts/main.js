@@ -35,6 +35,10 @@ Hooks.on("updateActor", (actor, updateData, options, userId) => {
   if (foundry.utils.hasProperty(updateData, "system.characteristics.Strength")) {
     WeaponBaseCalculations(actor);
   }
+  // Only recomputer if WearArmor Changed
+  if (foundry.utils.hasProperty(updateData, "system.abilities.primary.Combat.WearArmor.base")) {
+    UpdateArmor(actor);
+  }
 });
 
 Hooks.on("updateItem", (item) => {

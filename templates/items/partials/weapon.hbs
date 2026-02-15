@@ -44,16 +44,12 @@
       <table class="common-table">
         <tr>
           <td>
-            <label>Required Strength</label>
-            <input type="number" name="system.requiredStrength" value="{{system.requiredStrength}}" />
+            <label>One-Handed Strength</label>
+            <input type="number" name="system.strengthReq.oneHanded" value="{{system.strengthReq.oneHanded}}" />
           </td>
           <td>
-            <label>Size</label>
-            <select name="system.size" class="select">
-              <option value="S" {{#if (eq system.size "S")}}selected{{/if}}>Small</option>
-              <option value="M" {{#if (eq system.size "M")}}selected{{/if}}>Medium</option>
-              <option value="L" {{#if (eq system.size "L")}}selected{{/if}}>Large</option>
-            </select>
+            <label>Two-Handed Strength</label>
+            <input type="number" name="system.strengthReq.twoHanded" value="{{system.strengthReq.twoHanded}}" />
           </td>
         </tr>
         <tr>
@@ -65,16 +61,14 @@
             </select>
           </td>
           <td>
-            <label>
-                Modifier: {{system.modifier.value}}
-            </label>
-            <select name="system.modifier.name" class="modifier-select select">
-                    <option value="none" {{#if (eq system.modifier.name "none")}}selected{{/if}}>Known</option>
-                    <option value="similar" {{#if (eq system.modifier.name "similar")}}selected{{/if}}>Similar Weapon</option>
-                    <option value="mixed" {{#if (eq system.modifier.name "mixed")}}selected{{/if}}>Mixed-Class Weapon</option>
-                    <option value="unarmed" {{#if (eq system.modifier.name "unarmed")}}selected{{/if}}>Different Class / Unarmed</option>
-                </select>
-            </td>
+            <label>Size</label>
+            <select name="system.size" class="select">
+              <option value="S" {{#if (eq system.size "S")}}selected{{/if}}>Small</option>
+              <option value="M" {{#if (eq system.size "M")}}selected{{/if}}>Medium</option>
+              <option value="L" {{#if (eq system.size "L")}}selected{{/if}}>Large</option>
+              <option value="En" {{#if (eq system.size "En")}}selected{{/if}}>Enormous</option>
+            </select>
+          </td>
         </tr>
       </table>
 
@@ -138,6 +132,20 @@
             <label>Crit Mod</label>
             <input type="number" name="system.critMod" value="{{system.critMod}}" />
           </td>
+        </tr>
+        <tr>
+          <td>
+            <label>
+              Modifier: {{system.modifier.value}}
+            </label>
+            <select name="system.modifier.name" class="modifier-select select">
+              <option value="none" {{#if (eq system.modifier.name "none")}}selected{{/if}}>Known</option>
+              <option value="similar" {{#if (eq system.modifier.name "similar")}}selected{{/if}}>Similar</option>
+              <option value="mixed" {{#if (eq system.modifier.name "mixed")}}selected{{/if}}>Mixed-Class</option>
+              <option value="unarmed" {{#if (eq system.modifier.name "unarmed")}}selected{{/if}}>Diff Class/Unarmed</option>
+            </select>
+          </td>
+          <td></td>
         </tr>
       </table>
       <!-- ATTACK TYPES -->

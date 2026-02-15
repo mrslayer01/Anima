@@ -15,16 +15,16 @@
         Weapon Type
       </th>
       <th>
-        Attack Bonus
-      </th>
-      <th>
-        Block Bonus
-      </th>
-      <th>
         Damage
       </th>
       <th>
-        Initiative
+        Attack Mod
+      </th>
+      <th>
+        Block Mod
+      </th>
+      <th>
+        Initiative Mod
       </th>
       <th>
         Equipped?
@@ -46,13 +46,13 @@
           {{humanize item.system.weaponType}}
         </td>
         <td>
+          {{item.system.damage.final}}
+        </td>
+        <td>
           {{item.system.attackBonus}}
         </td>
         <td>
           {{item.system.blockBonus}}
-        </td>
-        <td>
-          {{item.system.damage.final}}
         </td>
         <td>
           {{item.system.speed.final}}

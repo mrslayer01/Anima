@@ -19,7 +19,7 @@ export const DEFAULT_WEAPON_DATA = {
 
   specialValue: 0,
 
-  requiredStrength: "",
+  strengthReq: { oneHanded: 0, twoHanded: 0 },
   primaryAtkType: "cut",
   secondaryAtkType: "none",
   weaponType: "shortArm",
@@ -50,9 +50,11 @@ export const DEFAULT_ARMOR_DATA = {
   },
   fortitude: { base: 0, bonus: 0, final: 0 }, // Fortitude
   presence: { base: 0, bonus: 0, final: 0 }, // Presence
-  wearArmorReq: { base: 0, bonus: 0, final: 0 }, // Armor Requirement, penalty is the difference between the req and wearArmor skills
+  wearArmorReq: { base: 0, bonus: 0, final: 0 }, //
   moveRestriction: { base: 0, bonus: 0, final: 0 }, // Movement Restriction
   naturalPenalty: { base: 0, bonus: 0, final: 0 },
+  physicalPenalty: 0,
+  perceptionPenalty: 0,
   isEnchanted: false,
   armorClass: "soft", // "soft" or "hard"
   location: "Breastplate", // Breastplate, Shirt, Complete, or helmet

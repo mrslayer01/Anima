@@ -58,7 +58,7 @@ export const TABLE_ITEM_TYPES = {
   consumables: ["potion", "scroll"]
 };
 
-export const ARMOR_SECTIONS = ["breastplate", "shirt", "complete", "helm", "special"];
+export const ARMOR_SECTIONS = ["breastplate", "shirt", "complete", "helm"];
 export const DAMAGE_TYPES = ["cut", "imp", "thr", "hea", "ele", "col", "ene"];
 export const SECONDARY_DAMAGE_TYPES = ["none", "cut", "imp", "thr", "hea", "ele", "col", "ene"];
 export const WEAPON_TYPES = [
@@ -69,6 +69,8 @@ export const WEAPON_TYPES = [
   "twoHanded",
   "pole",
   "cord",
+  "projectile",
+  "throwing",
   "shield"
 ];
 

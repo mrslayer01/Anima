@@ -16,6 +16,7 @@ import { ClassesRule } from "./classes.js";
 import { ExperienceRule } from "./experience.js";
 import { DevelopmentPointsRule } from "./development-points.js";
 import { ElanRule } from "./elan.js";
+import { GlobalModsRule } from "./global-modifiers.js";
 
 export const INIT_RULES = [
   new CharactersiticsRule(),
@@ -37,7 +38,7 @@ export const INIT_RULES = [
   new ElanRule()
 ];
 
-export const MOD_RULES = [new ClassesRule()];
+export const MOD_RULES = [new ClassesRule(), new GlobalModsRule()];
 
 export const FINAL_RULES = [
   new TotalLevelRule(),

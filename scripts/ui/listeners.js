@@ -1234,6 +1234,8 @@ export function registerItemSheetListeners(sheet, html) {
   html.find(".armor-location-select").on("change", async (ev) => {
     const type = ev.currentTarget.value;
 
+    // unequip the piece of armor.
+
     await sheet.item.update({
       "system.location": type
     });

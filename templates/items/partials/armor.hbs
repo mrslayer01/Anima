@@ -151,6 +151,18 @@
             {{/each}}
         </select>
         </td>
+        {{#ifEquals system.location "helm"}}
+        <td>
+          <label>
+            Perception Penalty
+          </label>
+          <input
+            type="number"
+            name="system.perceptionPenalty"
+            value="{{system.perceptionPenalty}}"
+          />
+        </td>
+        {{/ifEquals}}
       </tr>
     </table>
   </div>

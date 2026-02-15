@@ -1,9 +1,10 @@
+import { toNum } from "../../../utils/numbers.js";
+
 export async function WeaponBaseCalculations(actor) {
   UpdateWeapon(actor);
 }
 
 export async function WeaponEquipped(actor, item) {
-  console.log("Weapon Equipped");
   // Apply weapon negatives/bonuses to respective abilities. Attack, Block Dodge, init.
   //first UpdateWeapon
   UpdateWeapon(actor);
@@ -25,7 +26,8 @@ export async function WeaponEquipped(actor, item) {
 }
 
 export async function UpdateWeapon(actor) {
-  const strMod = actor.system.characteristics.Strength.final;
+  const strMod = toNum(actor.system.characteristics.Strength.final);
+  const strBase = toNum(actor.system.characteristics.Strength.base);
   for (const item of actor.items) {
     if (item.type !== "weapon") continue;
 
@@ -37,11 +39,19 @@ export async function UpdateWeapon(actor) {
     // Get all quality bonuses
     const q = quality(qualityValue);
 
+    // Get Strength Penalty if any
+    const strPenalty = strength(w.strengthReq, w.handling, strBase);
+
     // Compute final damage
-    console.log(q.speed);
+    const atkBonusfinal = q.attack + w.modifier.value + strPenalty;
+    let blockBonusfinal = q.block + w.modifier.value + strPenalty;
+    if (w.weaponType != "projectile" && w.weaponType != "throwing") {
+      // Ranged weapons can't block
+      blockBonusfinal = 0;
+    }
     const finalSpeed = w.speed.base + w.speed.bonus + q.speed;
     let finalDamage = baseDamage + strMod + q.damage;
-    if (w.handling === "twoHanded") {
+    if (w.handling === "twoHanded" && w.strengthReq.twoHanded > 0) {
       finalDamage = baseDamage + strMod * 2 + q.damage;
     }
     const finalpresence = w.presence.base + w.presence.bonus + q.presence;
@@ -49,8 +59,8 @@ export async function UpdateWeapon(actor) {
     const finalfortitude = w.fortitude.base + w.fortitude.bonus + q.fortitude;
 
     await item.update({
-      "system.attackBonus": q.attack + w.modifier.value,
-      "system.blockBonus": q.block + w.modifier.value,
+      "system.attackBonus": atkBonusfinal,
+      "system.blockBonus": blockBonusfinal,
       "system.speed.final": finalSpeed,
       "system.damage.final": finalDamage,
       "system.presence.final": finalpresence,
@@ -79,4 +89,23 @@ function quality(qualityValue) {
     // Presence NEVER decreases for negative quality
     presence: steps * 50
   };
+}
+
+function strength(strengthReq, handling, str) {
+  // get the difference between the strength req and base strength. If it's positive there is no negatives to attack or block (if weapon can block)
+  // If it's negative it's -10 for every point difference. Depends on current handling.
+  const strReqOneHanded = toNum(strengthReq.oneHanded);
+  const strReqTwoHanded = toNum(strengthReq.twoHanded);
+  let penalty = 0;
+
+  if (handling === "oneHanded" || strengthReq.twoHanded === 0) {
+    // If handling is one handed or if the weapon can't be wielded two handed.
+    const diff = Math.max(0, strReqOneHanded - str);
+    penalty = diff * -10;
+  } else {
+    // If handling is two handed.
+    const diff = Math.max(0, strReqTwoHanded - str);
+    penalty = diff * -10;
+  }
+  return penalty;
 }

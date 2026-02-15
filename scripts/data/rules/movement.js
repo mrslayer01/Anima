@@ -3,9 +3,9 @@ import { BaseRule } from "./base-rule.js";
 
 export class MovementRule extends BaseRule {
   Initialize(system) {
-    //Init penalty, final, movePerTurn
-    if (system.movement.penalty === undefined) system.movement.penalty = 0;
+    //Init final, movePerTurn
     if (system.movement.final === undefined) system.movement.final = 0;
+    if (system.movement.penalty === undefined) system.movement.penalty = 0;
     if (system.movement.movePerTurn === undefined) system.movement.movePerTurn = "";
   }
 
@@ -15,7 +15,7 @@ export class MovementRule extends BaseRule {
     const agility = toNum(system.characteristics.Agility.base);
     const moveBonus = toNum(system.movement.bonus);
 
-    let movement = agility + moveBonus;
+    let movement = agility + moveBonus - system.movement.penalty;
 
     if (movement < 0) movement = 1;
     const hasInhuman = system.movement.inhuman;
@@ -54,7 +54,7 @@ export class MovementRule extends BaseRule {
     const agility = toNum(system.characteristics.Agility.base);
     const moveBonus = toNum(system.movement.bonus);
 
-    let movement = agility + moveBonus;
+    let movement = agility + moveBonus - system.movement.penalty;
 
     if (movement < 0) movement = 1;
     const hasInhuman = system.movement.inhuman;
