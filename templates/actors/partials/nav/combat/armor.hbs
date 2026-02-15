@@ -1,30 +1,36 @@
 <h3>
-  Weapons
+  Armor
 </h3>
 
-<table class="item-table" data-table="weapons">
+<table class="item-table" data-table="armor">
   <thead>
     <tr>
       <th>
         Name
       </th>
       <th>
-        Attack Type
+        Cut
       </th>
       <th>
-        Weapon Type
+        Impact
       </th>
       <th>
-        Attack Bonus
+        Thrust
       </th>
       <th>
-        Block Bonus
+        Heat
       </th>
       <th>
-        Damage
+        Electricity
       </th>
       <th>
-        Initiative
+        Cold
+      </th>
+      <th>
+        Energy
+      </th>
+      <th>
+        Location
       </th>
       <th>
         Equipped?
@@ -34,37 +40,24 @@
   </thead>
 
   <tbody>
-    {{#each system.items.weapons as |item|}}
+    {{#each system.items.armor as |item|}}
       <tr data-item-id="{{item.id}}" class="item-row">
         <td class="item-name item-edit clickable">
           {{item.name}}
         </td>
+        {{#each item.system.armorType as |type|}}
+          <td>{{type.final}}</td>
+        {{/each}}
         <td>
-          {{humanize item.system.primaryAtkType}}
+          {{humanize item.system.location}}
         </td>
-        <td>
-          {{humanize item.system.weaponType}}
-        </td>
-        <td>
-          {{item.system.attackBonus}}
-        </td>
-        <td>
-          {{item.system.blockBonus}}
-        </td>
-        <td>
-          {{item.system.damage.final}}
-        </td>
-        <td>
-          {{item.system.speed.final}}
-        </td>
-        <td class="weapon-equip-toggle clickable" data-item-id="{{item.id}}">
+        <td class="armor-equip-toggle clickable" data-item-id="{{item.id}}">
           {{#if item.system.equipped}}
             <i class="fas fa-check"></i>
           {{else}}
             <i class="fas fa-times"></i>
           {{/if}}
         </td>
-
         <td class="item-controls">
           <a class="item-delete">
             <i class="fas fa-trash"></i>

@@ -1,7 +1,7 @@
 <section class="common-fields">
   <div class="weapon-grid">
 
-    <!-- Column 1 -->
+    <!-- COLUMN 1 -->
     <div class="weapon-col">
 
       <!-- CORE STATS -->
@@ -10,51 +10,43 @@
         <tr>
           <td>
             <label>Damage</label>
-            <input type="number" name="system.damage" value="{{system.damage}}" />
+            <input type="number" name="system.damage.base" value="{{system.damage.base}}" />
           </td>
           <td>
             <label>Speed</label>
-            <input type="number" name="system.speed" value="{{system.speed}}" />
+            <input type="number" name="system.speed.base" value="{{system.speed.base}}" />
           </td>
         </tr>
         <tr>
           <td>
             <label>Fortitude</label>
-            <input type="number" name="system.fortitude" value="{{system.fortitude}}" />
+            <input type="number" name="system.fortitude.base" value="{{system.fortitude.base}}" />
           </td>
           <td>
             <label>Breakage</label>
-            <input type="number" name="system.breakage" value="{{system.breakage}}" />
+            <input type="number" name="system.breakage.base" value="{{system.breakage.base}}" />
           </td>
         </tr>
         <tr>
-          <td colspan="2">
+          <td>
             <label>Presence</label>
-            <input type="number" name="system.presence" value="{{system.presence}}" />
+            <input type="number" name="system.presence.base" value="{{system.presence.base}}" />
+          </td>
+          <td>
+            <label>Quality</label>
+            <input type="number" name="system.specialValue" value="{{system.specialValue}}" />
           </td>
         </tr>
       </table>
 
-      <!-- REQUIREMENTS & TYPE -->
-      <h3 class="section-header">Requirements & Type</h3>
+      <!-- REQUIREMENTS -->
+      <h3 class="section-header">Requirements</h3>
       <table class="common-table">
         <tr>
           <td>
             <label>Required Strength</label>
             <input type="number" name="system.requiredStrength" value="{{system.requiredStrength}}" />
           </td>
-          <td>
-            <label>Weapon Type</label>
-            <select name="system.weaponType" class="select">
-              {{#each (weaponTypes) as |type|}}
-                <option value="{{type}}" {{#if (eq ../system.weaponType type)}}selected{{/if}}>
-                  {{humanize type}}
-                </option>
-              {{/each}}
-            </select>
-          </td>
-        </tr>
-        <tr>
           <td>
             <label>Size</label>
             <select name="system.size" class="select">
@@ -63,12 +55,51 @@
               <option value="L" {{#if (eq system.size "L")}}selected{{/if}}>Large</option>
             </select>
           </td>
+        </tr>
+        <tr>
           <td>
             <label>Handling</label>
-            <select name="system.handling" class="select">
+            <select name="system.handling" class="handling select">
               <option value="oneHanded" {{#if (eq system.handling "oneHanded")}}selected{{/if}}>One-Handed</option>
               <option value="twoHanded" {{#if (eq system.handling "twoHanded")}}selected{{/if}}>Two-Handed</option>
-              <option value="versatile" {{#if (eq system.handling "versatile")}}selected{{/if}}>Versatile</option>
+            </select>
+          </td>
+          <td>
+            <label>
+                Modifier: {{system.modifier.value}}
+            </label>
+            <select name="system.modifier.name" class="modifier-select select">
+                    <option value="none" {{#if (eq system.modifier.name "none")}}selected{{/if}}>Known</option>
+                    <option value="similar" {{#if (eq system.modifier.name "similar")}}selected{{/if}}>Similar Weapon</option>
+                    <option value="mixed" {{#if (eq system.modifier.name "mixed")}}selected{{/if}}>Mixed-Class Weapon</option>
+                    <option value="unarmed" {{#if (eq system.modifier.name "unarmed")}}selected{{/if}}>Different Class / Unarmed</option>
+                </select>
+            </td>
+        </tr>
+      </table>
+
+      <!-- WEAPON TYPES -->
+      <h3 class="section-header">Weapon Types</h3>
+      <table class="common-table">
+        <tr>
+          <td>
+            <label>Primary Type</label>
+            <select name="system.weaponType" class="weapon-type select">
+              {{#each (weaponTypes) as |type|}}
+                <option value="{{type}}" {{#if (eq ../system.weaponType type)}}selected{{/if}}>
+                  {{humanize type}}
+                </option>
+              {{/each}}
+            </select>
+          </td>
+          <td>
+            <label>Secondary Type</label>
+            <select name="system.secondaryWeaponType" class="sec-weapon-type select">
+              {{#each (secondaryWeaponTypes) as |type|}}
+                <option value="{{type}}" {{#if (eq ../system.secondaryWeaponType type)}}selected{{/if}}>
+                  {{humanize type}}
+                </option>
+              {{/each}}
             </select>
           </td>
         </tr>
@@ -76,7 +107,7 @@
 
     </div>
 
-    <!-- Column 2 -->
+    <!-- COLUMN 2 -->
     <div class="weapon-col">
 
       <!-- COMBAT MODIFIERS -->
@@ -88,16 +119,6 @@
             <input type="number" name="system.reach" value="{{system.reach}}" />
           </td>
           <td>
-            <label>Initiative Mod</label>
-            <input type="number" name="system.initMod" value="{{system.initMod}}" />
-          </td>
-        </tr>
-        <tr>
-          <td>
-            <label>Block Mod</label>
-            <input type="number" name="system.blockMod" value="{{system.blockMod}}" />
-          </td>
-          <td>
             <label>Fumble</label>
             <input type="number" name="system.fumble" value="{{system.fumble}}" />
           </td>
@@ -105,7 +126,7 @@
         <tr>
           <td>
             <label>Crit Type</label>
-            <select name="system.critType" class="select">
+            <select name="system.critType" class="crit-select select">
               {{#each (weaponDamageType) as |type|}}
                 <option value="{{type}}" {{#if (eq ../system.critType type)}}selected{{/if}}>
                   {{humanize type}}
@@ -119,8 +140,8 @@
           </td>
         </tr>
       </table>
-
-      <h3 class="section-header">Weapon Types</h3>
+      <!-- ATTACK TYPES -->
+      <h3 class="section-header">Attack Types</h3>
       <table class="common-table">
         <tr>
           <td>
@@ -135,9 +156,9 @@
           </td>
           <td>
             <label>Secondary Attack</label>
-            <select name="system.secondaryAtckType" class="secondary-attk-select select">
+            <select name="system.secondaryAtkType" class="sec-attk-select select">
               {{#each (secondaryWeaponDamageType) as |type|}}
-                <option value="{{type}}" {{#if (eq ../system.secondaryAtckType type)}}selected{{/if}}>
+                <option value="{{type}}" {{#if (eq ../system.secondaryAtkType type)}}selected{{/if}}>
                   {{humanize type}}
                 </option>
               {{/each}}
@@ -145,10 +166,9 @@
           </td>
         </tr>
       </table>
-
     </div>
 
-    <!-- SPECIAL RULES (full width) -->
+    <!-- FULL WIDTH -->
     <div class="weapon-col-full">
       <h3 class="section-header">Special Rules</h3>
       <table class="common-table">

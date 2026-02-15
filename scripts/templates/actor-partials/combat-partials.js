@@ -7,4 +7,4 @@ export function InitializeCombatPartials() {
   }
 }
 
-const combatPartials = ["weapons", "combat"];
+const combatPartials = ["weapons", "combat", "armor"];

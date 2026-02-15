@@ -14,7 +14,7 @@ export class AbilitiesPrimaryRule extends BaseRule {
       if (limit.current === undefined) limit.current = 0;
     }
 
-    // Add all the missing fields cost, class, final, special, mastery and characteristic
+    // Add all the missing fields cost, class, final, special, mastery, characteristic and weapon mod
     for (const [categoryName, category] of Object.entries(system.abilities.primary)) {
       for (const [name, abil] of Object.entries(category)) {
         if (categoryName != "abilityLimits") {
@@ -22,6 +22,7 @@ export class AbilitiesPrimaryRule extends BaseRule {
           if (abil.class === undefined) abil.class = 0;
           if (abil.final === undefined) abil.final = 0;
           if (abil.special === undefined) abil.special = 0;
+          if (abil.weapon === undefined) abil.weapon = 0;
           if (
             name != "MAMultiple" &&
             name != "Ki" &&
@@ -51,7 +52,13 @@ export class AbilitiesPrimaryRule extends BaseRule {
           const bonus = toNum(abil.bonus);
           const cls = toNum(abil.class);
           const special = toNum(abil.special);
-          const total = base + bonus + cls + special;
+          const weapon = toNum(abil.weapon);
+          let total = 0;
+          if (name === "Attack" || name === "Block") {
+            total = base + bonus + cls + special + weapon;
+          } else {
+            total = base + bonus + cls + special;
+          }
           abil.final = total + charFinal;
           abil.mastery = total >= 200;
         }
@@ -92,11 +99,13 @@ export class AbilitiesPrimaryRule extends BaseRule {
         const basePath = `system.abilities.primary.${categoryName}.${abilityName}.base`;
         const classPath = `system.abilities.primary.${categoryName}.${abilityName}.class`;
         const specialPath = `system.abilities.primary.${categoryName}.${abilityName}.special`;
+        const weaponPath = `system.abilities.primary.${categoryName}.${abilityName}.weapon`;
 
         const newBonus = foundry.utils.getProperty(updateData, bonusPath);
         const newBase = foundry.utils.getProperty(updateData, basePath);
         const newClass = foundry.utils.getProperty(updateData, classPath);
         const newSpecial = foundry.utils.getProperty(updateData, specialPath);
+        const newWeapon = foundry.utils.getProperty(updateData, weaponPath);
 
         if (newBonus !== undefined && newBonus !== oldAbil.bonus) {
           changed.push(abilityName);
@@ -113,6 +122,10 @@ export class AbilitiesPrimaryRule extends BaseRule {
         if (newSpecial !== undefined && newSpecial !== oldAbil.special) {
           changed.push(abilityName);
         }
+
+        if (newWeapon !== undefined && newWeapon !== oldAbil.weapon) {
+          changed.push(abilityName);
+        }
       }
     }
 
@@ -124,6 +137,7 @@ export class AbilitiesPrimaryRule extends BaseRule {
       if (newLvl !== undefined && newLvl !== cls.level) changed.push("class");
     }
 
+    console.log([...new Set(changed)]);
     return [...new Set(changed)];
   }
 
@@ -140,8 +154,9 @@ export class AbilitiesPrimaryRule extends BaseRule {
         const bonus = toNum(abil.bonus);
         const cls = toNum(abil.class);
         const special = toNum(abil.special);
+        const weapon = toNum(abil.weapon);
 
-        const total = base + bonus + cls + special;
+        const total = base + bonus + cls + special + weapon;
 
         abil.final = total + charFinal;
         abil.mastery = total >= 200;

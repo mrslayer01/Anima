@@ -1,9 +1,13 @@
 export const DEFAULT_ACTOR_DATA = {
   classes: [],
   elans: [],
-  WeaponModules: [],
-  MartialArts: [],
-  PsychicModules: [],
+  modules: {
+    WeaponModules: [],
+    StyleModules: [],
+    MysticalModules: [],
+    PsychicModules: [],
+    MartialArts: []
+  },
   advantages: [],
   disadvantages: [],
   contacts: [],

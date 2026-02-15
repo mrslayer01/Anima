@@ -69,6 +69,17 @@ export const WEAPON_TYPES = [
   "twoHanded",
   "pole",
   "cord",
-  "mixed",
+  "shield"
+];
+
+export const SECONDARY_WEAPON_TYPES = [
+  "none",
+  "shortArm",
+  "axe",
+  "mace",
+  "sword",
+  "twoHanded",
+  "pole",
+  "cord",
   "shield"
 ];

@@ -1,4 +1,5 @@
-import { WeaponBaseCalculations } from "../data/rules/items/weapon-calculations.js";
+import { UpdateArmor } from "../data/rules/items/armor-calculations.js";
+import { UpdateWeapon, WeaponBaseCalculations } from "../data/rules/items/weapon-calculations.js";
 import { ARMOR_SECTIONS, DAMAGE_TYPES, TABLE_ITEM_TYPES } from "../utils/lookup.js";
 import { registerSheetListeners } from "./listeners.js";
 import { ValidateDPAbilities } from "./validators/validate-dp-abilities.js";
@@ -78,7 +79,11 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
 
     // Recompute weapon section if it's a weapon automatically.
     if (item.type === "weapon") {
-      await WeaponBaseCalculations(this.actor);
+      await UpdateWeapon(this.actor);
+    }
+
+    if (item.type === "armor") {
+      await UpdateArmor(this.actor);
     }
 
     return created;

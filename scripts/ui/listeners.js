@@ -3,7 +3,7 @@ import { ABF_ADVANTAGES } from "../config/advantages.js";
 import { ABF_DISADVANTAGES } from "../config/disadvantages.js";
 import { ABF_LORDS } from "../config/elans.js";
 import { ArmorEquipped } from "../data/rules/items/armor-calculations.js";
-import { WeaponBaseCalculations } from "../data/rules/items/weapon-calculations.js";
+import { WeaponBaseCalculations, WeaponEquipped } from "../data/rules/items/weapon-calculations.js";
 import { difficultyMap, WEAPON_SIMILARITY_MODIFIERS } from "../utils/lookup.js";
 import { characteristicCheck, animaOpenRoll, resistanceCheck } from "../utils/rolls.js";
 import { ElanInfoWindow } from "./windows/elan-info.js";
@@ -1019,6 +1019,21 @@ export function registerSheetListeners(sheet, html) {
       }
     }
 
+    if (item.type === "weapon") {
+      // Be sure to un equip an equipped armor properly
+      const oldWeaponEquipped = actor.system.items.weapons.find((i) => i._id === itemId).system
+        .equipped;
+
+      if (oldWeaponEquipped) {
+        // Old armor is still equipped, set equipped to false so it removed the supplied values.
+        const location = item.system.location;
+        await item.update({
+          "system.equipped": false
+        });
+        await WeaponEquipped(actor, item);
+      }
+    }
+
     actor.deleteEmbeddedDocuments("Item", [itemId]);
   });
 
@@ -1033,11 +1048,20 @@ export function registerSheetListeners(sheet, html) {
 
     const current = item.system.equipped ?? false;
 
+    // Unequip any other weapon
+    const otherEquipped = actor.items.find(
+      (i) => i.type === "weapon" && i.id !== itemId && i.system.equipped
+    );
+
+    if (otherEquipped) {
+      await otherEquipped.update({ "system.equipped": false });
+    }
+
     await item.update({
       "system.equipped": !current
     });
 
-    WeaponBaseCalculations(actor);
+    await WeaponEquipped(actor, item);
 
     sheet.render(false);
   });
@@ -1133,11 +1157,21 @@ export function registerItemSheetListeners(sheet, html) {
     sheet.render(false);
   });
 
-  html.find(".weapon-type-select").on("change", async (ev) => {
+  html.find(".weapon-type").on("change", async (ev) => {
     const type = ev.currentTarget.value;
 
     await sheet.item.update({
       "system.weaponType": type
+    });
+
+    sheet.render(false);
+  });
+
+  html.find(".sec-weapon-type").on("change", async (ev) => {
+    const type = ev.currentTarget.value;
+
+    await sheet.item.update({
+      "system.secondaryWeaponType": type
     });
 
     sheet.render(false);
@@ -1157,7 +1191,17 @@ export function registerItemSheetListeners(sheet, html) {
     const type = ev.currentTarget.value;
 
     await sheet.item.update({
-      "system.secondaryAtckType": type
+      "system.secondaryAtkType": type
+    });
+
+    sheet.render(false);
+  });
+
+  html.find(".handling").on("change", async (ev) => {
+    const type = ev.currentTarget.value;
+
+    await sheet.item.update({
+      "system.handling": type
     });
 
     sheet.render(false);

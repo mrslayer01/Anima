@@ -53,8 +53,6 @@ export class ArmorRule extends BaseRule {
   }
 
   RecalcUpdated(system, name) {
-    let armorBonus = {};
-
     for (const type of DAMAGE_TYPES) {
       system.armor.total[type] = ARMOR_SECTIONS.reduce((sum, section) => {
         return sum + toNum(system.armor[section]?.[type]);

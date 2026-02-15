@@ -6,7 +6,7 @@ import { InitalizeAllActorPartials } from "./templates/initialize-actor-partials
 import { loadAllActorHandlerbarsHelpers } from "./ui/handlebars-helpers.js";
 import { InitalizeAllItemPartials } from "./templates/initialize-item-partials.js";
 import { WeaponBaseCalculations } from "./data/rules/items/weapon-calculations.js";
-import { ArmorCalculation } from "./data/rules/items/armor-calculations.js";
+import { ArmorCalculation, UpdateArmor } from "./data/rules/items/armor-calculations.js";
 
 Hooks.once("init", function () {
   console.log("ABF | Initializing Anima Beyond Fantasy system");
@@ -41,13 +41,17 @@ Hooks.on("updateItem", (item) => {
   const actor = item.parent;
   if (!actor) return;
 
-  if (item.type === "weapon" && item.system.equipped) {
+  if (item.type === "weapon") {
     // If the equipped armor values are changed, prompt sheet to re calculate.
     WeaponBaseCalculations(actor);
   }
 
-  if (item.type === "armor" && item.system.equipped) {
-    // If the equipped armor values are changed, prompt sheet to re calculate.
-    ArmorCalculation(actor);
+  if (item.type === "armor") {
+    if (item.system.equipped) {
+      // If the equipped armor values are changed, prompt sheet to re calculate.
+      ArmorCalculation(actor, item);
+    } else {
+      UpdateArmor(actor);
+    }
   }
 });

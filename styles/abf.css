@@ -416,12 +416,22 @@
   text-align: center;
 }
 
+.combat-grid {
+  display: grid;
+  grid-template-columns: 0.5fr 0.5fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
 .character-left,
 .character-right,
 .inventory-left,
 .inventory-right,
 .details-left,
-.details-right {
+.details-right,
+.combat-left,
+.combat-right {
   display: flex;
   flex-direction: column;
   gap: 1rem;

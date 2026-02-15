@@ -29,25 +29,25 @@
       </tr>
       <tr>
         <td>
-          <input type="number" name="system.armorType.cut" value="{{system.armorType.cut}}" />
+          <input type="number" name="system.armorType.cut.base" value="{{system.armorType.cut.base}}" />
         </td>
         <td>
-          <input type="number" name="system.armorType.imp" value="{{system.armorType.imp}}" />
+          <input type="number" name="system.armorType.imp.base" value="{{system.armorType.imp.base}}" />
         </td>
         <td>
-          <input type="number" name="system.armorType.thr" value="{{system.armorType.thr}}" />
+          <input type="number" name="system.armorType.thr.base" value="{{system.armorType.thr.base}}" />
         </td>
         <td>
-          <input type="number" name="system.armorType.hea" value="{{system.armorType.hea}}" />
+          <input type="number" name="system.armorType.hea.base" value="{{system.armorType.hea.base}}" />
         </td>
         <td>
-          <input type="number" name="system.armorType.ele" value="{{system.armorType.ele}}" />
+          <input type="number" name="system.armorType.ele.base" value="{{system.armorType.ele.base}}" />
         </td>
         <td>
-          <input type="number" name="system.armorType.col" value="{{system.armorType.col}}" />
+          <input type="number" name="system.armorType.col.base" value="{{system.armorType.col.base}}" />
         </td>
         <td>
-          <input type="number" name="system.armorType.ene" value="{{system.armorType.ene}}" />
+          <input type="number" name="system.armorType.ene.base" value="{{system.armorType.ene.base}}" />
         </td>
       </tr>
     </table>
@@ -62,8 +62,8 @@
           </label>
           <input
             type="number"
-            name="system.fortitude"
-            value="{{system.fortitude}}"
+            name="system.fortitude.base"
+            value="{{system.fortitude.base}}"
           />
         </td>
         <td>
@@ -72,8 +72,8 @@
           </label>
           <input
             type="number"
-            name="system.presence"
-            value="{{system.presence}}"
+            name="system.presence.base"
+            value="{{system.presence.base}}"
           />
         </td>
         <td>
@@ -82,8 +82,8 @@
           </label>
           <input
             type="number"
-            name="system.wearArmorReq"
-            value="{{system.wearArmorReq}}"
+            name="system.wearArmorReq.base"
+            value="{{system.wearArmorReq.base}}"
           />
         </td>
         <td>
@@ -92,8 +92,8 @@
           </label>
           <input
             type="number"
-            name="system.moveRestriction"
-            value="{{system.moveRestriction}}"
+            name="system.moveRestriction.base"
+            value="{{system.moveRestriction.base}}"
           />
         </td>
         <td>
@@ -102,8 +102,18 @@
           </label>
           <input
             type="number"
-            name="system.naturalPenalty"
-            value="{{system.naturalPenalty}}"
+            name="system.naturalPenalty.base"
+            value="{{system.naturalPenalty.base}}"
+          />
+        </td>
+        <td>
+          <label>
+            Quality
+          </label>
+          <input
+            type="number"
+            name="system.specialValue"
+            value="{{system.specialValue}}"
           />
         </td>
       </tr>
@@ -134,10 +144,11 @@
             Location
           </label>
           <select name="system.location" class="armor-location-select select">
-            <option value="breastplate" {{#if (eq system.location "breastplate")}}selected{{/if}}>Breastplate</option>
-            <option value="shirt" {{#if (eq system.location "shirt")}}selected{{/if}}>Shirt</option>
-            <option value="complete" {{#if (eq system.location "complete")}}selected{{/if}}>Complete</option>
-            <option value="helm" {{#if (eq system.location "helm")}}selected{{/if}}>Helmet</option>
+            {{#each (armorSection) as |sec|}}
+              <option value="{{sec}}" {{#if (eq ../system.location sec)}}selected{{/if}}>
+                {{humanize sec}}
+              </option>
+            {{/each}}
         </select>
         </td>
       </tr>
