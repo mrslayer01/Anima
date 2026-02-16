@@ -1,3 +1,47 @@
+<div class="combat-grid-core">
+  <!-- LEFT COLUMN -->
+  <div class="combat-left-core">
+    <h3>
+      Core Stats
+    </h3>
+    <div class="secondary-block">
+      <table class="ability-table">
+        <thead>
+          <tr>
+            <th class="ability-table-name">
+              Ability
+            </th>
+            <th>
+              Final
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each actor.system.abilities.primary.Combat as |ability key|}}
+            <tr>
+              <td>
+                {{localize (concat "ABF.Ability." key)}}
+              </td>
+              {{#if (in key "WearArmor" "Ki" "KiAccumulation")}}
+                <td></td>
+              {{else}}
+              <td class="ability-roll clickable" data-category="Combat" data-ability="{{key}}">
+                {{ability.final}}
+              </td>
+              {{/if}}
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- RIGHT COLUMN -->
+  <div class="combat-right-core">
+    <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/armor.hbs" }}</div>
+  </div>
+</div>
+
 <div class="combat-grid">
   <!-- LEFT COLUMN -->
   <div class="combat-left">

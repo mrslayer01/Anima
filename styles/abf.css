@@ -416,10 +416,18 @@
   text-align: center;
 }
 
+.combat-grid-core {
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+  gap: 0.1rem;
+  margin-top: 1rem;
+  text-align: center;
+}
+
 .combat-grid {
   display: grid;
   grid-template-columns: 0.5fr 0.5fr;
-  gap: 1rem;
+  gap: 0.1rem;
   margin-top: 1rem;
   text-align: center;
 }
