@@ -1,3 +1,4 @@
+import { AddModifier } from "../../../utils/helpers.js";
 import { toNum } from "../../../utils/numbers.js";
 
 export async function ArmorCalculation(actor, item) {
@@ -13,40 +14,36 @@ export async function ArmorCalculation(actor, item) {
     newSection[type] = value.final;
   }
 
-  let phyPenalty = actor.system.globalModifiers.Physical.armor;
-  let natPenalty = actor.system.globalModifiers.Natural.armor;
-  let perPenalty = actor.system.globalModifiers.Perception.armor;
+  // //update global modifiers for the item changed.
+  // AddModifier(actor.system.globalModifiers.Physical, {
+  //   id: item._id,
+  //   source: "Armor",
+  //   value: item.system.physicalPenalty,
+  //   type: "armor"
+  // });
 
-  // Update penalties
-  if (phyPenalty > 0) {
-    // Already has armor penalties applied, add to the base.
-    phyPenalty += toNum(item.system.physicalPenalty) ?? 0;
-  } else {
-    // Nothing is in armor, set the value
-    phyPenalty = toNum(item.system.physicalPenalty) ?? 0;
-  }
+  // AddModifier(actor.system.globalModifiers.Natural, {
+  //   id: item._id,
+  //   source: "Armor",
+  //   value: item.system.naturalPenalty.final,
+  //   type: "armor"
+  // });
+  // AddModifier(actor.system.globalModifiers.Natural, {
+  //   id: item._id,
+  //   source: "Armor",
+  //   value: item.system.moveRestriction.final,
+  //   type: "movement"
+  // });
 
-  if (natPenalty > 0) {
-    // Already has armor penalties applied, add to the base.
-    natPenalty += toNum(item.system.naturalPenalty.final) ?? 0;
-  } else {
-    // Nothing is in armor, set the value
-    natPenalty = toNum(item.system.naturalPenalty.final) ?? 0;
-  }
-
-  if (perPenalty > 0) {
-    // Already has armor penalties applied, add to the base.
-    perPenalty += toNum(item.system.perceptionPenalty) ?? 0;
-  } else {
-    // Nothing is in armor, set the value
-    perPenalty = toNum(item.system.perceptionPenalty) ?? 0;
-  }
+  // AddModifier(actor.system.globalModifiers.Perception, {
+  //   id: item._id,
+  //   source: "Armor",
+  //   value: item.system.perceptionPenalty,
+  //   type: "armor"
+  // });
 
   return actor.update({
-    [`system.armor.${location}`]: newSection,
-    "system.globalModifiers.Physical.armor": phyPenalty,
-    "system.globalModifiers.Natural.armor": natPenalty,
-    "system.globalModifiers.Perception.armor": perPenalty
+    [`system.armor.${location}`]: newSection
   });
 }
 
@@ -54,7 +51,7 @@ export async function ArmorEquipped(actor, location) {
   //handles removing/equipping armor. Subtracting/Adding values to armor per section. Also removed currently equipped armor if is in current section.
 
   //First, calculate the armor's final values.
-  UpdateArmor(actor);
+  await UpdateArmor(actor);
   const newSection = {};
   for (const key of Object.keys(actor.system.armor[location])) {
     newSection[key] = 0;
@@ -69,44 +66,8 @@ export async function ArmorEquipped(actor, location) {
     }
   }
 
-  let phyPenalty = actor.system.globalModifiers.Physical.armor;
-  let natPenalty = actor.system.globalModifiers.Natural.armor;
-  let perPenalty = actor.system.globalModifiers.Perception.armor;
-
-  // Apply/Remove Armor penalties to global modifiers depending on iff armor was equipped/unequipped.
-  for (const armor of actor.system.items.armor) {
-    if (armor.system.location !== location) continue;
-    if (!armor.system.equipped) continue;
-    if (phyPenalty > 0) {
-      // Already has armor penalties applied, add to the base.
-      phyPenalty += toNum(armor.system.physicalPenalty);
-    } else {
-      // Nothing is in armor, set the value
-      phyPenalty = toNum(armor.system.physicalPenalty);
-    }
-
-    if (natPenalty > 0) {
-      // Already has armor penalties applied, add to the base.
-      natPenalty += toNum(armor.system.naturalPenalty.final);
-    } else {
-      // Nothing is in armor, set the value
-      natPenalty = toNum(armor.system.naturalPenalty.final);
-    }
-
-    if (perPenalty > 0) {
-      // Already has armor penalties applied, add to the base.
-      perPenalty += toNum(armor.system.perceptionPenalty);
-    } else {
-      // Nothing is in armor, set the value
-      perPenalty = toNum(armor.system.perceptionPenalty);
-    }
-  }
-
   return actor.update({
-    [`system.armor.${location}`]: newSection,
-    "system.globalModifiers.Physical.armor": phyPenalty,
-    "system.globalModifiers.Natural.armor": natPenalty,
-    "system.globalModifiers.Perception.armor": perPenalty
+    [`system.armor.${location}`]: newSection
   });
 }
 
@@ -172,6 +133,73 @@ export async function UpdateArmor(actor) {
       "system.physicalPenalty": phyPenFinal,
       "system.perceptionPenalty": a.perceptionPenalty
     });
+
+    //finally remove any global modifiers that may exist for specific armor.
+    AddModifier(actor.system.globalModifiers.Physical, {
+      id: item._id,
+      source: "Armor",
+      value: 0,
+      type: "armor"
+    });
+
+    AddModifier(actor.system.globalModifiers.Natural, {
+      id: item._id,
+      source: "Armor",
+      value: 0,
+      type: "armor"
+    });
+
+    AddModifier(actor.system.globalModifiers.Natural, {
+      id: item._id,
+      source: "Armor",
+      value: 0,
+      type: "movement"
+    });
+
+    AddModifier(actor.system.globalModifiers.Perception, {
+      id: item._id,
+      source: "Armor",
+      value: 0,
+      type: "armor"
+    });
+  }
+  // Lastly, re calculate ArmorPenalties
+  ArmorPenalties(actor);
+}
+
+function ArmorPenalties(actor) {
+  // Apply/Remove Armor penalties to global modifiers depending on if armor was equipped/unequipped.
+  for (const armor of actor.system.items.armor) {
+    // rebuild armor penalties based on all equipped armor.
+    console.log(armor);
+    if (armor.system.equipped == false) continue;
+    AddModifier(actor.system.globalModifiers.Physical, {
+      id: armor._id,
+      source: "Armor",
+      value: toNum(armor.system.physicalPenalty),
+      type: "armor"
+    });
+
+    AddModifier(actor.system.globalModifiers.Natural, {
+      id: armor._id,
+      source: "Armor",
+      value: toNum(armor.system.naturalPenalty.final),
+      type: "armor"
+    });
+
+    AddModifier(actor.system.globalModifiers.Natural, {
+      id: armor._id,
+      source: "Armor",
+      value: toNum(armor.system.moveRestriction.final),
+      type: "movement"
+    });
+
+    AddModifier(actor.system.globalModifiers.Perception, {
+      id: armor._id,
+      source: "Armor",
+      value: toNum(armor.system.perceptionPenalty),
+      type: "armor"
+    });
   }
 }
 
@@ -195,7 +223,7 @@ function quality(qualityValue) {
 
 function physicalPenalty(actor, armorReqFinal) {
   // compare final WearArmor ability to the armor's final wearArmorReq. The difference is the penalty.
-  const wearArmor = toNum(actor.system.abilities.primary.Combat.WearArmor.final);
+  const wearArmor = toNum(actor.system.abilities.primary.Combat.WearArmor.base);
   const wearArmorReq = toNum(armorReqFinal);
 
   const diff = wearArmorReq - wearArmor;
@@ -208,7 +236,7 @@ function physicalPenalty(actor, armorReqFinal) {
 }
 
 function naturalPenalty(actor, armorReqFinal) {
-  const wearArmor = toNum(actor.system.abilities.primary.Combat.WearArmor.final);
+  const wearArmor = toNum(actor.system.abilities.primary.Combat.WearArmor.base);
   const wearArmorReq = toNum(armorReqFinal);
 
   const diff = wearArmor - wearArmorReq;
@@ -222,7 +250,7 @@ function naturalPenalty(actor, armorReqFinal) {
 }
 
 function moveRestriction(actor, armorReqFinal) {
-  const wearArmor = toNum(actor.system.abilities.primary.Combat.WearArmor.final);
+  const wearArmor = toNum(actor.system.abilities.primary.Combat.WearArmor.base);
   const wearArmorReq = toNum(armorReqFinal);
 
   const diff = wearArmor - wearArmorReq;

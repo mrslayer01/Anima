@@ -1,5 +1,6 @@
 import { BaseRule } from "./base-rule.js";
 import { toNum } from "../../utils/numbers.js";
+import { AddModifier } from "../../utils/helpers.js";
 
 export class FatigueRule extends BaseRule {
   Initialize(system) {
@@ -23,6 +24,13 @@ export class FatigueRule extends BaseRule {
       //If has a higher that 4 fatigue, calculate normally.
       system.core.fatigue.actionPenalty = fatiguePenalty[toNum(system.core.fatigue.current)] ?? 0;
     }
+
+    AddModifier(system.globalModifiers.Action, {
+      id: "fatigue",
+      source: "Fatigue",
+      value: system.core.fatigue.actionPenalty,
+      type: "special"
+    });
   }
 
   DetectChanged(updateData, oldSystem) {
@@ -59,6 +67,12 @@ export class FatigueRule extends BaseRule {
       //If has a higher that 4 fatigue, calculate normally.
       system.core.fatigue.actionPenalty = fatiguePenalty[toNum(system.core.fatigue.current)] ?? 0;
     }
+    AddModifier(system.globalModifiers.Action, {
+      id: "fatigue",
+      source: "Fatigue",
+      value: system.core.fatigue.actionPenalty,
+      type: "special"
+    });
   }
 
   Update(updateData, oldSystem, newSystem) {

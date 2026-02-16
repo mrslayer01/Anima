@@ -52,6 +52,7 @@ Hooks.on("updateItem", (item) => {
 
   if (item.type === "armor") {
     if (item.system.equipped) {
+      console.log("equipped update", actor);
       // If the equipped armor values are changed, prompt sheet to re calculate.
       ArmorCalculation(actor, item);
     } else {

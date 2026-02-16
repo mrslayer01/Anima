@@ -9,21 +9,20 @@ import { BaseRule } from "./base-rule.js";
 
 export class GlobalModsRule extends BaseRule {
   Initialize(system) {
-    // globalModfiers Physical, Action, Natural and Perception
     for (const mod of Object.values(system.globalModifiers)) {
       if (mod.base === undefined) mod.base = 0;
       if (mod.special === undefined) mod.special = 0;
       if (mod.armor === undefined) mod.armor = 0;
       if (mod.final === undefined) mod.final = 0;
+      if (!Array.isArray(mod.currentMods)) mod.currentMods = [];
     }
   }
 
   Derived(system) {
     this.Initialize(system);
-    // Calculate all modifiers
+
     calculateModifiers(system);
 
-    // Calculate final values
     for (const mod of Object.values(system.globalModifiers)) {
       mod.final = mod.base + mod.special + mod.armor;
     }
@@ -61,8 +60,6 @@ export class GlobalModsRule extends BaseRule {
         `system.globalModifiers.${modName}.armor`
       );
 
-      console.log(newArmor);
-
       if (newArmor !== undefined && newArmor !== oldMod.armor) {
         changed.push(modName);
       }
@@ -93,45 +90,19 @@ export class GlobalModsRule extends BaseRule {
 }
 
 function calculateModifiers(system) {
-  let PhysicalBase = 0;
-  let PhysicalSpecial = 0;
-  let PhysicalArmor = 0;
+  for (const [modName, mod] of Object.entries(system.globalModifiers)) {
+    // Reset totals
+    mod.base = 0;
+    mod.special = 0;
+    mod.armor = 0;
+    mod.movement = 0;
 
-  let ActionBase = 0;
-  let ActionSpecial = 0;
-
-  let NaturalBase = 0;
-  let NaturalSpecial = 0;
-  let NaturalArmor = 0;
-
-  let PerceptionBase = 0;
-  let PerceptionSpecial = 0;
-  let PerceptionArmor = 0;
-
-  // Physical
-
-  system.globalModifiers.Physical.base = PhysicalBase;
-  system.globalModifiers.Physical.special = PhysicalSpecial;
-
-  if (system.globalModifiers.Physical.armor > 0) {
-    // an armor modifier is already applied, add to it.
+    // Rebuild totals from currentMods
+    for (const entry of mod.currentMods) {
+      if (entry.type === "base") mod.base += toNum(entry.value);
+      if (entry.type === "special") mod.special += toNum(entry.value);
+      if (entry.type === "armor") mod.armor += toNum(entry.value);
+      if (entry.type === "movement") mod.movement += toNum(entry.value);
+    }
   }
-
-  // Action
-
-  // Fatigue
-  ActionBase += toNum(system.core.fatigue.actionPenalty);
-
-  system.globalModifiers.Action.base = ActionBase;
-  system.globalModifiers.Action.special = ActionSpecial;
-
-  // Natural
-
-  system.globalModifiers.Natural.base = NaturalBase;
-  system.globalModifiers.Natural.special = NaturalSpecial;
-
-  // Perception
-
-  system.globalModifiers.Perception.base = PerceptionBase;
-  system.globalModifiers.Perception.special = PerceptionSpecial;
 }

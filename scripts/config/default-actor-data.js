@@ -1,6 +1,11 @@
 export const DEFAULT_ACTOR_DATA = {
   classes: [],
-  globalModifiers: { Physical: {}, Action: {}, Natural: {}, Perception: {} },
+  globalModifiers: {
+    Physical: { currentMods: [] },
+    Action: { currentMods: [] },
+    Natural: { currentMods: [], movement: 0 },
+    Perception: { currentMods: [] }
+  },
   elans: [],
   modules: {
     WeaponModules: [],

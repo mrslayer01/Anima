@@ -5,7 +5,7 @@ export class MovementRule extends BaseRule {
   Initialize(system) {
     //Init final, movePerTurn
     if (system.movement.final === undefined) system.movement.final = 0;
-    if (system.movement.penalty === undefined) system.movement.penalty = 0;
+    if (system.movement.armorPenalty === undefined) system.movement.armorPenalty = 0;
     if (system.movement.movePerTurn === undefined) system.movement.movePerTurn = "";
   }
 
@@ -15,7 +15,7 @@ export class MovementRule extends BaseRule {
     const agility = toNum(system.characteristics.Agility.base);
     const moveBonus = toNum(system.movement.bonus);
 
-    let movement = agility + moveBonus - system.movement.penalty;
+    let movement = agility + moveBonus - system.globalModifiers.Natural.movement;
 
     if (movement < 0) movement = 1;
     const hasInhuman = system.movement.inhuman;
@@ -31,11 +31,18 @@ export class MovementRule extends BaseRule {
     //watches Agility.base, movement.bonus and Athleticism.final
     const newAgil = foundry.utils.getProperty(updateData, "system.characteristics.Agility.base");
     const newBonus = foundry.utils.getProperty(updateData, "system.movement.bonus");
+    const newNaturalPen = foundry.utils.getProperty(
+      updateData,
+      "system.globalModifiers.Natural.movement"
+    );
 
     if (newAgil !== undefined && newAgil !== oldSystem.characteristics.Agility.base) {
       changed.push("Agility");
     }
     if (newBonus !== undefined && newBonus !== oldSystem.movement.bonus) {
+      changed.push("bonus");
+    }
+    if (newNaturalPen !== undefined && newNaturalPen !== system.globalModifiers.Natural.movement) {
       changed.push("bonus");
     }
 
@@ -54,7 +61,7 @@ export class MovementRule extends BaseRule {
     const agility = toNum(system.characteristics.Agility.base);
     const moveBonus = toNum(system.movement.bonus);
 
-    let movement = agility + moveBonus - system.movement.penalty;
+    let movement = agility + moveBonus - system.globalModifiers.Natural.movement;
 
     if (movement < 0) movement = 1;
     const hasInhuman = system.movement.inhuman;
