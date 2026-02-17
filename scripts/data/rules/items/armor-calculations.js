@@ -14,34 +14,6 @@ export async function ArmorCalculation(actor, item) {
     newSection[type] = value.final;
   }
 
-  // //update global modifiers for the item changed.
-  // AddModifier(actor.system.globalModifiers.Physical, {
-  //   id: item._id,
-  //   source: "Armor",
-  //   value: item.system.physicalPenalty,
-  //   type: "armor"
-  // });
-
-  // AddModifier(actor.system.globalModifiers.Natural, {
-  //   id: item._id,
-  //   source: "Armor",
-  //   value: item.system.naturalPenalty.final,
-  //   type: "armor"
-  // });
-  // AddModifier(actor.system.globalModifiers.Natural, {
-  //   id: item._id,
-  //   source: "Armor",
-  //   value: item.system.moveRestriction.final,
-  //   type: "movement"
-  // });
-
-  // AddModifier(actor.system.globalModifiers.Perception, {
-  //   id: item._id,
-  //   source: "Armor",
-  //   value: item.system.perceptionPenalty,
-  //   type: "armor"
-  // });
-
   return actor.update({
     [`system.armor.${location}`]: newSection
   });
@@ -136,28 +108,28 @@ export async function UpdateArmor(actor) {
 
     //finally remove any global modifiers that may exist for specific armor.
     AddModifier(actor.system.globalModifiers.Physical, {
-      id: item._id,
+      id: `${item._id}-physical`,
       source: "Armor",
       value: 0,
       type: "armor"
     });
 
     AddModifier(actor.system.globalModifiers.Natural, {
-      id: item._id,
+      id: `${item._id}-natural`,
       source: "Armor",
       value: 0,
       type: "armor"
     });
 
     AddModifier(actor.system.globalModifiers.Natural, {
-      id: item._id,
+      id: `${item._id}-natural(movement)`,
       source: "Armor",
       value: 0,
       type: "movement"
     });
 
     AddModifier(actor.system.globalModifiers.Perception, {
-      id: item._id,
+      id: `${item._id}-perception`,
       source: "Armor",
       value: 0,
       type: "armor"
@@ -171,31 +143,30 @@ function ArmorPenalties(actor) {
   // Apply/Remove Armor penalties to global modifiers depending on if armor was equipped/unequipped.
   for (const armor of actor.system.items.armor) {
     // rebuild armor penalties based on all equipped armor.
-    console.log(armor);
     if (armor.system.equipped == false) continue;
     AddModifier(actor.system.globalModifiers.Physical, {
-      id: armor._id,
+      id: `${armor._id}-physical`,
       source: "Armor",
       value: toNum(armor.system.physicalPenalty),
       type: "armor"
     });
 
     AddModifier(actor.system.globalModifiers.Natural, {
-      id: armor._id,
+      id: `${armor._id}-natural`,
       source: "Armor",
       value: toNum(armor.system.naturalPenalty.final),
       type: "armor"
     });
 
     AddModifier(actor.system.globalModifiers.Natural, {
-      id: armor._id,
+      id: `${armor._id}-natural(movement)`,
       source: "Armor",
       value: toNum(armor.system.moveRestriction.final),
       type: "movement"
     });
 
     AddModifier(actor.system.globalModifiers.Perception, {
-      id: armor._id,
+      id: `${armor._id}-perception`,
       source: "Armor",
       value: toNum(armor.system.perceptionPenalty),
       type: "armor"

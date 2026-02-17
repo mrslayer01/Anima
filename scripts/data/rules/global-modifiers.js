@@ -14,6 +14,7 @@ export class GlobalModsRule extends BaseRule {
       if (mod.special === undefined) mod.special = 0;
       if (mod.armor === undefined) mod.armor = 0;
       if (mod.final === undefined) mod.final = 0;
+      if (mod.movement === undefined) mod.movement = 0;
       if (!Array.isArray(mod.currentMods)) mod.currentMods = [];
     }
   }

@@ -23,7 +23,7 @@
                 {{localize (concat "ABF.Ability." key)}}
               </td>
               {{#if (in key "WearArmor" "Ki" "KiAccumulation")}}
-                <td></td>
+                <td>{{ability.final}}</td>
               {{else}}
               <td class="ability-roll clickable" data-category="Combat" data-ability="{{key}}">
                 {{ability.final}}
@@ -38,18 +38,7 @@
 
   <!-- RIGHT COLUMN -->
   <div class="combat-right-core">
-    <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/armor.hbs" }}</div>
-  </div>
-</div>
-
-<div class="combat-grid">
-  <!-- LEFT COLUMN -->
-  <div class="combat-left">
     <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/weapons.hbs" }}</div>
-  </div>
-
-  <!-- RIGHT COLUMN -->
-  <div class="combat-right">
     <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/armor.hbs" }}</div>
   </div>
 </div>

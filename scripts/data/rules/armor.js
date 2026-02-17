@@ -64,7 +64,6 @@ export class ArmorRule extends BaseRule {
     const changed = this.DetectChanged(updateData, oldSystem);
 
     for (const name of changed) {
-      console.log(name);
       this.RecalcUpdated(newSystem, name);
     }
 

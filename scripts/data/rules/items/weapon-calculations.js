@@ -44,10 +44,10 @@ export async function UpdateWeapon(actor) {
 
     // Compute final damage
     const atkBonusfinal = q.attack + w.modifier.value + strPenalty;
-    let blockBonusfinal = q.block + w.modifier.value + strPenalty;
+    let blockBonusfinal = 0;
     if (w.weaponType != "projectile" && w.weaponType != "throwing") {
       // Ranged weapons can't block
-      blockBonusfinal = 0;
+      blockBonusfinal = q.block + w.modifier.value + strPenalty;
     }
     const finalSpeed = w.speed.base + w.speed.bonus + q.speed;
     let finalDamage = baseDamage + strMod + q.damage;
