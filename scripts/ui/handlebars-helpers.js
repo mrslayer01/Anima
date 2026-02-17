@@ -8,6 +8,7 @@ import {
   SECONDARY_WEAPON_TYPES,
   WEAPON_TYPES
 } from "../utils/lookup.js";
+import { ABF_MODULES } from "../config/modules.js";
 
 export function loadAllActorHandlerbarsHelpers() {
   Handlebars.registerHelper("ifEquals", function (a, b, options) {
@@ -25,6 +26,9 @@ export function loadAllActorHandlerbarsHelpers() {
   });
   Handlebars.registerHelper("disadvName", function (key) {
     return ABF_DISADVANTAGES[key].name;
+  });
+  Handlebars.registerHelper("moduleName", function (key) {
+    return ABF_MODULES[key].name;
   });
   Handlebars.registerHelper("armorSection", function () {
     return ARMOR_SECTIONS;

@@ -20,6 +20,7 @@ export class DevelopmentPointsRule extends BaseRule {
 
     DerivedPrimaryAbilites(system);
     DerivedSecondaryAbilites(system);
+    DerivedModules(system);
 
     // Now recalc DP totals
     recalculateDP(system);
@@ -43,6 +44,7 @@ export class DevelopmentPointsRule extends BaseRule {
 
     RecalcPrimaryAbilites(system, category, ability);
     RecalcSecondaryAbilites(system, category, ability);
+    DerivedModules(system);
 
     recalculateDP(system);
   }
@@ -80,6 +82,7 @@ function recalculateDP(system) {
 
   CalculatePrimaryAbilities(system);
   CalculateSecondaryAbilities(system);
+  DerivedModules(system);
 }
 
 function updateAbilityRecord(system, category, ability, amount, cost) {
@@ -98,6 +101,38 @@ function updateAbilityRecord(system, category, ability, amount, cost) {
     records.push({ category, ability, amount, cost });
   }
 }
+
+//#region Modules
+function DerivedModules(system) {
+  const modRoot = system.modules;
+  if (!modRoot) return;
+
+  const groups = [
+    "WeaponModules",
+    "StyleModules",
+    "MysticalModules",
+    "PsychicModules",
+    "MartialArts"
+  ];
+
+  for (const group of groups) {
+    const arr = modRoot[group];
+    if (!Array.isArray(arr)) continue;
+
+    for (const mod of arr) {
+      if (!mod || !mod.cost || !mod.name) continue;
+
+      system.developmentPoints.spentRecords.push({
+        category: group,
+        ability: mod.name,
+        amount: 1,
+        cost: Number(mod.cost)
+      });
+    }
+  }
+}
+
+//#endregion
 
 //#region Primary Abilities
 
@@ -138,10 +173,17 @@ function CalculatePrimaryAbilities(system) {
     limits[cat].current = 0;
   }
 
-  // Sum DP spent per category
+  // Sum DP spent per category (including modules)
   for (const rec of system.developmentPoints.spentRecords) {
-    if (["Combat", "Psychic", "Supernatural"].includes(rec.category)) {
-      const cat = rec.category;
+    let cat = rec.category;
+
+    // Map module groups to primary categories
+    if (MODULE_CATEGORY_MAP[cat]) {
+      cat = MODULE_CATEGORY_MAP[cat];
+    }
+
+    // Only count primary categories
+    if (["Combat", "Psychic", "Supernatural"].includes(cat)) {
       const cost = Number(rec.amount) * Number(rec.cost);
       limits[cat].current += cost;
     }
@@ -157,8 +199,13 @@ function CalculatePrimaryAbilities(system) {
   let primaryTotal = 0;
 
   for (const rec of system.developmentPoints.spentRecords) {
-    // Only count primary categories
-    if (["Combat", "Psychic", "Supernatural"].includes(rec.category)) {
+    let cat = rec.category;
+
+    if (MODULE_CATEGORY_MAP[cat]) {
+      cat = MODULE_CATEGORY_MAP[cat];
+    }
+
+    if (["Combat", "Psychic", "Supernatural"].includes(cat)) {
       primaryTotal += Number(rec.amount) * Number(rec.cost);
     }
   }
@@ -231,31 +278,15 @@ function CalculateSecondaryAbilities(system) {
   system.abilities.secondary.totalDPSpent = secondaryTotal;
 }
 
+const MODULE_CATEGORY_MAP = {
+  WeaponModules: "Combat",
+  StyleModules: "Combat",
+  MysticalModules: "Supernatural",
+  PsychicModules: "Psychic"
+};
+
 //#endregion
 
 //#region Misc
-
-function DerivedMisc(system) {}
-
-function RecalcMisc(system, category, ability) {
-  const newBase = system.abilities.secondary[category][ability].base;
-  const cost = system.abilities.secondary[category][ability].cost;
-
-  updateAbilityRecord(system, category, ability, newBase, cost);
-}
-
-function CalculateSupplementalTotal(system) {
-  // --- TOTAL PRIMARY DP SPENT ---
-  let supplementalTotal = 0;
-
-  for (const rec of system.developmentPoints.spentRecords) {
-    // Only count secondary categories
-    if (["zeon", "ki"].includes(rec.category)) {
-      supplementalTotal += Number(rec.amount) * Number(rec.cost);
-    }
-  }
-
-  system.abilities.secondary.totalDPSpent = secondaryTotal;
-}
 
 //#endregion

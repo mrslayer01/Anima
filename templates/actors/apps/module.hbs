@@ -1,0 +1,36 @@
+<div class="advantage">
+  <div class="selector-column">
+    <select class="module-selector">
+    {{#each moduleOptions as |moduleName|}}
+      <option value="{{moduleName}}" {{#ifEquals moduleName ../selectedModule}}selected{{/ifEquals}}>
+        {{humanize moduleName moduleName}}
+      </option>
+    {{/each}}
+    </select>
+    <button type="button" class="confirm-add">OK</button>
+  </div>
+
+<section>
+  <h3>Module Type</h3>
+  <p>{{moduleData.type}}</p>
+</section>
+
+<section>
+  <h3>Effects</h3>
+  <p>{{moduleData.effects}}</p>
+</section>
+
+<section>
+  <h3>Description</h3>
+  <p>{{moduleData.description}}</p>
+</section>
+<section>
+  <h3>Cost</h3>
+  <input
+  class="module-cost-input"
+  type="number"
+  value="{{moduleData.cost}}"
+  name="{{moduleData.cost}}"
+/>
+</section>
+</div>

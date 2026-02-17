@@ -34,6 +34,106 @@
         </tbody>
       </table>
     </div>
+
+      <h3>Modules</h3>
+      <div class="modules-grid">
+        <!-- WEAPON MODULES -->
+        <div class="module-card">
+          <div>
+            <h3>
+              Weapon Modules
+            </h3>
+          </div>
+
+          <ul class="module-list">
+            {{#each system.modules.WeaponModules as |mod idx|}}
+              <li class="module-row">
+                <span
+                  class="clickable"
+                  data-index="{{idx}}"
+                  data-module="{{mod.name}}"
+                  data-type="{{mod.type}}"
+                >
+                  {{mod.name}}
+                </span>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <!-- MYSTICAL MODULES -->
+        <div class="module-card">
+          <div>
+            <h3>
+              Mystical Modules
+            </h3>
+          </div>
+
+          <ul class="module-list">
+            {{#each system.modules.MysticalModules as |mod idx|}}
+              <li class="module-row">
+                <span
+                  class="clickable"
+                  data-index="{{idx}}"
+                  data-module="{{mod.name}}"
+                  data-type="{{mod.type}}"
+                >
+                  {{mod.name}}
+                </span>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <!-- STYLE MODULES -->
+        <div class="module-card">
+          <div>
+            <h3>
+              Style Modules
+            </h3>
+          </div>
+
+          <ul class="module-list">
+            {{#each system.modules.StyleModules as |mod idx|}}
+              <li class="module-row">
+                <span
+                  class="clickable"
+                  data-index="{{idx}}"
+                  data-module="{{mod.name}}"
+                  data-type="{{mod.type}}"
+                >
+                  {{mod.name}}
+                </span>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+
+        <!-- PSYCHIC MODULES -->
+        <div class="module-card">
+          <div>
+            <h3>
+              Psychic Modules
+            </h3>
+          </div>
+
+          <ul class="module-list">
+            {{#each system.modules.PsychicModules as |mod idx|}}
+              <li class="module-row">
+                <span
+                  class="clickable"
+                  data-index="{{idx}}"
+                  data-module="{{mod.name}}"
+                  data-type="{{mod.type}}"
+                >
+                  {{mod.name}}
+                </span>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+      </div>
+
   </div>
 
   <!-- RIGHT COLUMN -->

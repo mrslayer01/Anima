@@ -1,5 +1,5 @@
-2026/02/16-19:24:00.629 9628 Log #95: 19 ops saved to Table #96 OK
-2026/02/16-19:24:00.630 9628 Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\items/000095.log: OK
-2026/02/16-19:24:00.630 9628 Table #96: 19 entries OK
-2026/02/16-19:24:00.632 9628 Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\items/MANIFEST-000045: OK
-2026/02/16-19:24:00.634 9628 **** Repaired leveldb C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\items; recovered 1 files; 6070 bytes. Some data may have been lost. ****
+2026/02/17-09:29:34.975 7488 Log #46: 0 ops saved to Table #97 OK
+2026/02/17-09:29:34.976 7488 Archiving D:\foundry\Data\Data\systems\abf-system\packs\items/000046.log: OK
+2026/02/17-09:29:34.977 7488 Table #96: 19 entries OK
+2026/02/17-09:29:35.008 7488 Archiving D:\foundry\Data\Data\systems\abf-system\packs\items/MANIFEST-000097: OK
+2026/02/17-09:29:35.039 7488 **** Repaired leveldb D:\foundry\Data\Data\systems\abf-system\packs\items; recovered 1 files; 6070 bytes. Some data may have been lost. ****

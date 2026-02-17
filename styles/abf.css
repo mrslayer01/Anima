@@ -109,7 +109,7 @@
 .abf-character-sheet .modifiers-section,
 .abf-character-sheet .modifiers-row,
 .abf-character-sheet .final-armor-section,
-.abf-character-sheet .secondaries-grid,
+.abf-character-sheet .secondaries-grid .abf-character-sheet .primaries-grid,
 .abf-character-sheet .secondary-block,
 .abf-character-sheet .character-grid,
 .abf-character-sheet .details-grid,
@@ -744,7 +744,8 @@
 .class-selector option,
 .advantage-selector option,
 .disadvantage-selector option,
-.elan-selector option {
+.elan-selector option,
+.module-selector option {
   background-color: #1f2225;
 }
 
@@ -752,6 +753,7 @@
 .buy-gift,
 .remove-gift {
   color: white;
+  background-color: #11141c;
 }
 
 .gifts-grid {
@@ -836,7 +838,7 @@
 
 .weapon-grid {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 0.4fr 0.4fr;
 }
 
 .weapon-col {
@@ -848,4 +850,77 @@
   grid-column: 1 / span 2;
   display: flex;
   flex-direction: column;
+}
+
+.module-header {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* space between H2 and button */
+}
+
+.module-header h2 {
+  margin: 0;
+}
+
+.module-header .add-module-weapon i {
+  color: white;
+  padding: 4px;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.module-card {
+  border: 1px solid var(--color-border);
+  padding: 8px;
+  border-radius: 4px;
+  background: var(--color-bg-alt);
+}
+
+.module-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 2px;
+  gap: 4px;
+}
+
+.module-card-header h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.dp-limit {
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.module-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.module-row {
+  display: grid;
+  grid-template-columns: 1fr auto auto;
+  align-items: center;
+  padding: 2px 0;
+  line-height: 1.1;
+  border-bottom: none;
+}
+
+.module-row:last-child {
+  border-bottom: none;
+}
+
+.module-name {
+  cursor: pointer;
+}
+
+.module-cost {
+  margin-right: 8px;
 }

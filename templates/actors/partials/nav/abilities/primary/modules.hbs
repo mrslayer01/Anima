@@ -1,0 +1,123 @@
+<section class="module-header">
+  <h2>
+    Modules
+  </h2>
+  <a class="add-module-weapon" data-module="{{system.modules}}" data-tooltip="Add Module">
+    <i class="fas fa-plus-circle"></i>
+  </a>
+</section>
+
+<div class="modules-grid">
+  <!-- WEAPON MODULES -->
+  <div class="module-card">
+    <div class="module-card-header">
+      <h3>
+        Weapon Modules: {{actor.system.abilities.primary.abilityLimits.Combat.current}} /
+        {{actor.system.abilities.primary.abilityLimits.Combat.final}}
+      </h3>
+    </div>
+
+    <ul class="module-list">
+      {{#each system.modules.WeaponModules as |mod idx|}}
+        <li class="module-row">
+          <span
+            class="module-name clickable"
+            data-index="{{idx}}"
+            data-module="{{mod.name}}"
+            data-type="{{mod.type}}"
+          >
+            {{mod.name}} Cost: {{mod.cost}}
+          </span>
+
+          <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
+            <i class="fas fa-trash"></i>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <!-- MYSTICAL MODULES -->
+  <div class="module-card">
+    <div class="module-card-header">
+      <h3>
+        Mystical Modules: {{actor.system.abilities.primary.abilityLimits.Supernatural.current}} / {{actor.system.abilities.primary.abilityLimits.Supernatural.final}}
+      </h3>
+    </div>
+
+    <ul class="module-list">
+      {{#each system.modules.MysticalModules as |mod idx|}}
+        <li class="module-row">
+          <span
+            class="module-name clickable"
+            data-index="{{idx}}"
+            data-module="{{mod.name}}"
+            data-type="{{mod.type}}"
+          >
+            {{mod.name}} Cost: {{mod.cost}}
+          </span>
+
+          <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
+            <i class="fas fa-trash"></i>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <!-- STYLE MODULES -->
+  <div class="module-card">
+    <div class="module-card-header">
+      <h3>
+        Style Modules
+      </h3>
+    </div>
+
+    <ul class="module-list">
+      {{#each system.modules.StyleModules as |mod idx|}}
+        <li class="module-row">
+          <span
+            class="module-name clickable"
+            data-index="{{idx}}"
+            data-module="{{mod.name}}"
+            data-type="{{mod.type}}"
+          >
+            {{mod.name}} Cost: {{mod.cost}}
+          </span>
+
+          <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
+            <i class="fas fa-trash"></i>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+
+  <!-- PSYCHIC MODULES -->
+  <div class="module-card">
+    <div class="module-card-header">
+      <h3>
+        Psychic Modules: {{actor.system.abilities.primary.abilityLimits.Psychic.current}} / {{actor.system.abilities.primary.abilityLimits.Psychic.final}}
+      </h3>
+    </div>
+
+    <ul class="module-list">
+      {{#each system.modules.PsychicModules as |mod idx|}}
+        <li class="module-row">
+          <span
+            class="module-name clickable"
+            data-index="{{idx}}"
+            data-module="{{mod.name}}"
+            data-type="{{mod.type}}"
+          >
+            {{mod.name}} Cost: {{mod.cost}}
+          </span>
+
+          <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
+            <i class="fas fa-trash"></i>
+          </a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</div>

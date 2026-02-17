@@ -2,10 +2,12 @@ import { ABF_CLASSES } from "../../Old Version For Reference/abf-system-old/modu
 import { ABF_ADVANTAGES } from "../config/advantages.js";
 import { ABF_DISADVANTAGES } from "../config/disadvantages.js";
 import { ABF_LORDS } from "../config/elans.js";
+import { ABF_MODULES } from "../config/modules.js";
 import { ArmorEquipped } from "../data/rules/items/armor-calculations.js";
 import { WeaponBaseCalculations, WeaponEquipped } from "../data/rules/items/weapon-calculations.js";
 import { difficultyMap, WEAPON_SIMILARITY_MODIFIERS } from "../utils/lookup.js";
 import { characteristicCheck, animaOpenRoll, resistanceCheck } from "../utils/rolls.js";
+import { AddModuleWindow } from "./windows/add-Module.js";
 import { ElanInfoWindow } from "./windows/elan-info.js";
 
 export function registerSheetListeners(sheet, html) {
@@ -682,6 +684,68 @@ export function registerSheetListeners(sheet, html) {
     const advData = sheet.actor.system.disadvantages.find((c) => c.name === advName);
 
     if (!advData) return ui.notifications.error("Disdisadvantage data not found");
+
+    openJournalFromUUID(advData.journal);
+  });
+
+  //#endregion
+
+  //#region Modules
+  html.find(".add-module-weapon").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".add-module-weapon").on("click", (ev) => {
+    new AddModuleWindow({ actorId: sheet.actor.id }).render(true);
+  });
+
+  html.find(".delete-module").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".delete-module").on("click", async (event) => {
+    const index = Number(event.currentTarget.dataset.index);
+
+    const confirmed = await Dialog.confirm(
+      {
+        title: "Confirm Delete",
+        content: "<p>Are you sure you want to remove this module?</p>"
+      },
+      {
+        classes: ["abf-character-sheet"]
+      }
+    );
+
+    if (!confirmed) return;
+    let modType = event.currentTarget.dataset.type;
+
+    if (modType === "Archetypical Weapons" || modType === "General Weapon")
+      modType = "WeaponModules";
+    if (modType === "Style") modType = "StyleModules";
+    if (modType === "Mystical") modType = "MysticalModules";
+    if (modType === "Psychic") modType = "PsychicModules";
+    if (modType === "Martial Arts") modType = "MartialArts";
+
+    const modules = foundry.utils.duplicate(sheet.actor.system.modules[modType]);
+
+    // Remove from actor
+    modules.splice(index, 1);
+    await sheet.actor.update({
+      [`system.modules.${modType}`]: modules
+    });
+  });
+
+  // Click class name for information
+  html.find(".clickable-module").click((ev) => {
+    ev.preventDefault();
+
+    const modName = ev.currentTarget.dataset.module;
+    let modType = ev.currentTarget.dataset.type;
+
+    if (modType === "Archetypical Weapons" || modType === "General Weapon")
+      modType = "WeaponModules";
+    if (modType === "Style") modType = "StyleModules";
+    if (modType === "Mystical") modType = "MysticalModules";
+    if (modType === "Psychic") modType = "PsychicModules";
+    if (modType === "Martial Arts") modType = "MartialArts";
+
+    const advData = sheet.actor.system.modules[modType].find((c) => c.name === modName);
+
+    if (!advData) return ui.notifications.error("Module data not found");
 
     openJournalFromUUID(advData.journal);
   });
