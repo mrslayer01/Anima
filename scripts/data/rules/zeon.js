@@ -4,6 +4,7 @@ import { toNum } from "../../utils/numbers.js";
 export class ZeonRule extends BaseRule {
   Initialize(system) {
     const zeonPath = system.abilities.primary.Supernatural.Zeon;
+    if (zeonPath.purchased === undefined) zeonPath.purchased = 0;
     if (zeonPath.cost === undefined) zeonPath.cost = 0;
     if (zeonPath.class === undefined) zeonPath.class = 0;
     if (zeonPath.special === undefined) zeonPath.special = 0;
@@ -15,7 +16,10 @@ export class ZeonRule extends BaseRule {
     const zeonPath = system.abilities.primary.Supernatural.Zeon;
 
     //Zeon
-    const baseZeon = toNum(zeonPath.base);
+    const totalPow = toNum(system.characteristics.Power.base) * 10;
+    const totalPowModifier = toNum(system.characteristics.Power.final);
+    const purchasedZeon = toNum(zeonPath.base) * 5;
+    const baseZeon = 20 + totalPow + totalPowModifier + purchasedZeon;
     const classZeon = toNum(zeonPath.class);
     const specialZeon = toNum(zeonPath.special);
     zeonPath.final = classZeon + specialZeon + baseZeon;
@@ -58,7 +62,10 @@ export class ZeonRule extends BaseRule {
     const zeonPath = system.abilities.primary.Supernatural.Zeon;
 
     //Zeon
-    const baseZeon = toNum(zeonPath.base);
+    const totalPow = toNum(system.characteristics.Power.base) * 10;
+    const totalPowModifier = toNum(system.characteristics.Power.final);
+    const purchasedZeon = toNum(zeonPath.base) * 5;
+    const baseZeon = 20 + totalPow + totalPowModifier + purchasedZeon;
     const classZeon = toNum(zeonPath.class);
     const specialZeon = toNum(zeonPath.special);
     zeonPath.final = classZeon + specialZeon + baseZeon;

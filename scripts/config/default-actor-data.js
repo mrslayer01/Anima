@@ -159,7 +159,7 @@ export const DEFAULT_ACTOR_DATA = {
         Control: { base: 0, bonus: 0 },
         Bind: { base: 0, bonus: 0 },
         Banish: { base: 0, bonus: 0 },
-        MAMultiple: { base: 0, bonus: 0 },
+        MagicAccumulation: { base: 0, multiples: 0, cost: 0, special: 0 },
         Zeon: { base: 0, current: 0 }
       }
     }

@@ -55,3 +55,14 @@ export async function openJournalFromUUID(rawUuid) {
     }, 100);
   });
 }
+
+export function normalizeName(name) {
+  return name
+    .trim()
+    .replace(/([A-Z])/g, " $1") // split CamelCase
+    .replace(/\s+/g, " ") // collapse spaces
+    .trim()
+    .split(" ")
+    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
+    .join(" ");
+}

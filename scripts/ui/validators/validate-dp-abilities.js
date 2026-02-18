@@ -30,14 +30,15 @@ export function ValidateDPAbilities(name, value, input, actor) {
     const ability = parts[4]; // Attack, Block, Dodge, etc.
 
     const abil = actor.system.abilities.primary[category][ability];
-    const oldBase = Number(abil.base) || 0;
+    let oldBase = Number(abil.base) || 0;
+    if (ability === "MagicAccumulation") oldBase = Number(abil.multiples) || 0;
     const newBase = value;
     const cost = Number(abil.cost) || 0;
 
     const delta = newBase - oldBase;
     const dpCost = delta * cost;
 
-    if (name.endsWith(".base")) {
+    if (name.endsWith(".base") || name.endsWith(".multiples")) {
       // Only validate increases
       if (dpCost > 0) {
         const dp = actor.system.developmentPoints;

@@ -1,4 +1,4 @@
-import { openJournalFromUUID } from "../../utils/helpers.js";
+import { normalizeName, openJournalFromUUID } from "../../utils/helpers.js";
 import { toNum } from "../../utils/numbers.js";
 import { ABF_CLASSES } from "../../config/classes.js";
 
@@ -35,7 +35,7 @@ export function ClassListeners(sheet, html) {
       
                 <select id="class-select" style="flex: 1;">
                   ${classOptions
-                    .map((cls) => `<option value="${cls}">${normalizeClassName(cls)}</option>`)
+                    .map((cls) => `<option value="${cls}">${normalizeName(cls)}</option>`)
                     .join("")}
                 </select>
       
@@ -221,15 +221,4 @@ export function ClassListeners(sheet, html) {
 
     sheet._expandedSecondaries.add(`${category}.${ability}`);
   });
-}
-
-function normalizeClassName(name) {
-  return name
-    .trim()
-    .replace(/([A-Z])/g, " $1") // split CamelCase
-    .replace(/\s+/g, " ") // collapse spaces
-    .trim()
-    .split(" ")
-    .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
-    .join(" ");
 }

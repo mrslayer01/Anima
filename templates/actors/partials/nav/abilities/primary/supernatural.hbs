@@ -31,6 +31,22 @@
           <td>
             {{localize (concat "ABF.Ability." key)}}
           </td>
+          {{#if (in key "MagicAccumulation")}}
+          <td>
+            <input
+              class="mod-input-resize-char primary-input"
+              data-name="{{key}}"
+              data-cost="{{ability.cost}}"
+              type="number"
+              value="{{ability.multiples}}"
+              name="system.abilities.primary.Supernatural.{{key}}.multiples"
+              {{#if actor.system.lockUi}}disabled{{/if}}
+              data-tooltip="
+              <div><strong>MA Multiple DP Cost:</strong> {{ability.cost}}</div>
+            "
+            />
+          </td>
+          {{else}}
           <td>
             <input
               class="mod-input-resize-char primary-input"
@@ -45,7 +61,8 @@
             "
             />
           </td>
-          {{#if (in key "Zeon" "MAMultiple")}}
+          {{/if}}
+          {{#if (in key "Zeon" "MagicAccumulation")}}
           <td></td>
           {{else}}
           <td>
@@ -61,7 +78,7 @@
           <td>
             {{ability.class}}
           </td>
-          {{#if (in key "Zeon" "MAMultiple")}}
+          {{#if (in key "Zeon" "MagicAccumulation")}}
           <td>{{ability.final}}</td>
           {{else}}
           <td class="ability-roll clickable" data-category="Supernatural" data-ability="{{key}}">

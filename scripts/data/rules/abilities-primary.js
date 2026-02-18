@@ -24,7 +24,7 @@ export class AbilitiesPrimaryRule extends BaseRule {
           if (abil.special === undefined) abil.special = 0;
           if (abil.weapon === undefined) abil.weapon = 0;
           if (
-            name != "MAMultiple" &&
+            name != "MagicAccumulation" &&
             name != "Ki" &&
             name != "KiAccumulation" &&
             name != "Zeon" &&
@@ -46,6 +46,7 @@ export class AbilitiesPrimaryRule extends BaseRule {
     for (const [categoryName, category] of Object.entries(system.abilities.primary)) {
       for (const [name, abil] of Object.entries(category)) {
         if (categoryName != "abilityLimits") {
+          if (name === "Zeon" || name === "MagicAccumulation") continue; //Skip calculation for these.
           const linkedChar = abil.characteristic;
           const charFinal = toNum(system.characteristics[linkedChar]?.final);
           const base = toNum(abil.base);
@@ -145,6 +146,8 @@ export class AbilitiesPrimaryRule extends BaseRule {
     for (const category of Object.values(system.abilities.primary)) {
       if (category[abilityName]) {
         const abil = category[abilityName];
+
+        if (abilityName === "Zeon" || abilityName === "MagicAccumulation") continue;
 
         const linkedChar = abil.characteristic;
         const charFinal = toNum(system.characteristics[linkedChar]?.final);

@@ -1,6 +1,6 @@
 import { ABF_ADVANTAGES } from "../../config/advantages.js";
 import { ABF_DISADVANTAGES } from "../../config/disadvantages.js";
-import { openJournalFromUUID } from "../../utils/helpers.js";
+import { normalizeName, openJournalFromUUID } from "../../utils/helpers.js";
 import { toNum } from "../../utils/numbers.js";
 
 export function AdvantageDisadvantageListeners(sheet, html) {
@@ -41,7 +41,7 @@ function Advanatges(sheet, html) {
   
             <select id="adv-select" style="flex: 1;">
               ${advOptions
-                .map((cls) => `<option value="${cls}">${normalizeClassName(cls)}</option>`)
+                .map((cls) => `<option value="${cls}">${normalizeName(cls)}</option>`)
                 .join("")}
             </select>
           </div>
@@ -162,7 +162,7 @@ function Disadvantages(sheet, html) {
   
             <select id="adv-select" style="flex: 1;">
               ${advOptions
-                .map((cls) => `<option value="${cls}">${normalizeClassName(cls)}</option>`)
+                .map((cls) => `<option value="${cls}">${normalizeName(cls)}</option>`)
                 .join("")}
             </select>
           </div>

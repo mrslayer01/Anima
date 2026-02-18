@@ -125,7 +125,11 @@ function PrimaryAbilities(
   for (const supernatural of allSupernaturalAbilityCosts) {
     const name = normalizeAbilityName(supernatural.name);
     for (const [abilityName, ability] of Object.entries(system.abilities.primary.Supernatural)) {
-      system.abilities.primary.Supernatural[name].cost = toNum(supernatural.cost);
+      if (name === "MAMultiple") {
+        system.abilities.primary.Supernatural.MagicAccumulation.cost = toNum(supernatural.cost);
+      } else {
+        system.abilities.primary.Supernatural[name].cost = toNum(supernatural.cost);
+      }
     }
   }
 

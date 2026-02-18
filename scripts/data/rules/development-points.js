@@ -62,8 +62,8 @@ export class DevelopmentPointsRule extends BaseRule {
 
 function recalculateDP(system) {
   const lvl = system.level || 0;
-  const bonus = Number(system.developmentPoints.bonus) || 0;
-  const special = Number(system.developmentPoints.special) || 0;
+  const bonus = toNum(system.developmentPoints.bonus) || 0;
+  const special = toNum(system.developmentPoints.special) || 0;
 
   const dpTable = [
     400, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000
@@ -74,7 +74,7 @@ function recalculateDP(system) {
 
   let spent = 0;
   for (const rec of system.developmentPoints.spentRecords) {
-    spent += Number(rec.amount) * Number(rec.cost);
+    spent += toNum(rec.amount) * toNum(rec.cost);
   }
 
   system.developmentPoints.spent = spent;
@@ -126,7 +126,7 @@ function DerivedModules(system) {
         category: group,
         ability: mod.name,
         amount: 1,
-        cost: Number(mod.cost)
+        cost: toNum(mod.cost)
       });
     }
   }
@@ -141,8 +141,12 @@ function DerivedPrimaryAbilites(system) {
     if (categoryName === "abilityLimits") continue;
 
     for (const [abilityName, abil] of Object.entries(category)) {
-      const base = Number(abil.base) || 0;
-      const cost = Number(abil.cost) || 0;
+      let base = toNum(abil.base) || 0;
+      let cost = toNum(abil.cost) || 0;
+
+      if (abilityName === "MagicAccumulation") {
+        base = toNum(abil.multiples);
+      }
 
       if (base > 0 && cost > 0) {
         system.developmentPoints.spentRecords.push({
@@ -158,8 +162,12 @@ function DerivedPrimaryAbilites(system) {
 
 function RecalcPrimaryAbilites(system, category, ability) {
   if (["Combat", "Psychic", "Supernatural"].includes(category)) {
-    const newBase = system.abilities.primary[category][ability].base;
-    const cost = system.abilities.primary[category][ability].cost;
+    let newBase = system.abilities.primary[category][ability].base;
+    let cost = system.abilities.primary[category][ability].cost;
+
+    if (ability === "MagicAccumulation") {
+      newBase = system.abilities.primary[category][ability].multiples;
+    }
 
     updateAbilityRecord(system, category, ability, newBase, cost);
   }
@@ -184,14 +192,14 @@ function CalculatePrimaryAbilities(system) {
 
     // Only count primary categories
     if (["Combat", "Psychic", "Supernatural"].includes(cat)) {
-      const cost = Number(rec.amount) * Number(rec.cost);
+      let cost = toNum(rec.amount) * toNum(rec.cost);
       limits[cat].current += cost;
     }
   }
 
   // Compute final limit per category (percent of max DP)
   for (const cat of Object.keys(limits)) {
-    const percent = Number(limits[cat].percent) || 0;
+    const percent = toNum(limits[cat].percent) || 0;
     limits[cat].final = (system.developmentPoints.final * percent) / 100;
   }
 
@@ -206,7 +214,7 @@ function CalculatePrimaryAbilities(system) {
     }
 
     if (["Combat", "Psychic", "Supernatural"].includes(cat)) {
-      primaryTotal += Number(rec.amount) * Number(rec.cost);
+      primaryTotal += toNum(rec.amount) * toNum(rec.cost);
     }
   }
 
@@ -220,8 +228,8 @@ function CalculatePrimaryAbilities(system) {
 function DerivedSecondaryAbilites(system) {
   for (const [categoryName, category] of Object.entries(system.abilities.secondary)) {
     for (const [abilityName, abil] of Object.entries(category)) {
-      const base = Number(abil.base) || 0;
-      const cost = Number(abil.cost) || 0;
+      const base = toNum(abil.base) || 0;
+      const cost = toNum(abil.cost) || 0;
 
       if (base > 0 && cost > 0) {
         system.developmentPoints.spentRecords.push({

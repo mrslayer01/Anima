@@ -145,7 +145,7 @@ export function loadAllActorHandlerbarsHelpers() {
     "Bind",
     "Banish",
     "Zeon",
-    "MAMultiple"
+    "MagicAccumulation"
   ]);
 
   Handlebars.registerHelper("orderPsychic", () => ["PsychicProjection", "PsychicPoints"]);
