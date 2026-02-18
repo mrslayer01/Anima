@@ -15,16 +15,16 @@
         Weapon Type
       </th>
       <th>
-        Damage
+        Attack Mod
       </th>
       <th>
-        Attack Mod
+        Damage
       </th>
       <th>
         Block Mod
       </th>
       <th>
-        Initiative Mod
+        Speed Final
       </th>
       <th>
         Equipped?
@@ -45,11 +45,15 @@
         <td>
           {{humanize item.system.weaponType}}
         </td>
-        <td>
-          {{item.system.damage.final}}
-        </td>
-        <td>
+        <td
+          class="attack-roll clickable"
+          data-type="{{item.system.primaryAtkType}}"
+          data-tooltip="Click to roll attack, can be used against a targeted enemy."
+        >
           {{item.system.attackBonus}}
+        </td>
+        <td class="damage-roll clickable" data-damage="{{item.system.damage.final}}">
+          {{item.system.damage.final}}
         </td>
         <td>
           {{item.system.blockBonus}}

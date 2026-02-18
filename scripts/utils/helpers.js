@@ -27,3 +27,31 @@ export function AddModifier(mod, entry) {
     });
   }
 }
+
+export async function openJournalFromUUID(rawUuid) {
+  const [uuid, anchor] = rawUuid.split("#");
+
+  // Load the page document
+  const page = await fromUuid(uuid);
+  if (!page) return ui.notifications.warn("Journal entry not found.");
+
+  const entry = page.parent;
+
+  // Render the JournalEntry in VIEW mode
+  entry.sheet.render(true, {
+    editable: false,
+    pageId: page.id
+  });
+
+  if (!anchor) return;
+
+  // Auto-scroll after the page sheet renders
+  Hooks.once("renderJournalPageSheet", (sheet, html) => {
+    setTimeout(() => {
+      const el = html[0].querySelector(`#${anchor}`);
+      if (el) {
+        el.scrollIntoView({ behavior: "smooth", block: "start" });
+      }
+    }, 100);
+  });
+}

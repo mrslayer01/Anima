@@ -25,7 +25,7 @@
               {{#if (in key "WearArmor" "Ki" "KiAccumulation")}}
                 <td>{{ability.final}}</td>
               {{else}}
-              <td class="ability-roll clickable" data-category="Combat" data-ability="{{key}}">
+              <td>
                 {{ability.final}}
               </td>
               {{/if}}
@@ -49,7 +49,7 @@
             {{#each system.modules.WeaponModules as |mod idx|}}
               <li class="module-row">
                 <span
-                  class="clickable"
+                  class="clickable clickable-module"
                   data-index="{{idx}}"
                   data-module="{{mod.name}}"
                   data-type="{{mod.type}}"
@@ -73,7 +73,7 @@
             {{#each system.modules.MysticalModules as |mod idx|}}
               <li class="module-row">
                 <span
-                  class="clickable"
+                  class="clickable clickable-module"
                   data-index="{{idx}}"
                   data-module="{{mod.name}}"
                   data-type="{{mod.type}}"
@@ -97,7 +97,7 @@
             {{#each system.modules.StyleModules as |mod idx|}}
               <li class="module-row">
                 <span
-                  class="clickable"
+                  class="clickable clickable-module"
                   data-index="{{idx}}"
                   data-module="{{mod.name}}"
                   data-type="{{mod.type}}"
@@ -121,7 +121,7 @@
             {{#each system.modules.PsychicModules as |mod idx|}}
               <li class="module-row">
                 <span
-                  class="clickable"
+                  class="clickable clickable-module"
                   data-index="{{idx}}"
                   data-module="{{mod.name}}"
                   data-type="{{mod.type}}"

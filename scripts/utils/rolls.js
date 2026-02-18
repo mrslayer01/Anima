@@ -70,7 +70,7 @@ export async function characteristicCheck({ value, label, actor }) {
 //  FUMBLE ROLL
 // ============================================================
 
-export async function fumbleRoll({ fumbleValue, label, mastery, actor }) {
+export async function fumbleRoll({ fumbleValue, label, mastery, actor, capture = false }) {
   const f = Number(fumbleValue);
   const name = label ?? "Fumble";
   const isMastery = mastery === true;
@@ -97,6 +97,17 @@ export async function fumbleRoll({ fumbleValue, label, mastery, actor }) {
     <b>Final Fumble Level:</b> <span style="color:red"><b>${finalFumble}</b></span>
   `;
 
+  if (capture) {
+    return {
+      fumble: true,
+      fumbleValue: raw,
+      fumbleMod,
+      finalFumble,
+      label: name,
+      actor
+    };
+  }
+
   setTimeout(() => sendChat(content, actor), 2000);
 }
 
@@ -104,7 +115,14 @@ export async function fumbleRoll({ fumbleValue, label, mastery, actor }) {
 //  OPEN ROLL (ANIMA STYLE)
 // ============================================================
 
-export async function animaOpenRoll({ value, label, mastery, undeveloped, actor }) {
+export async function animaOpenRoll({
+  value,
+  label,
+  mastery,
+  undeveloped,
+  actor,
+  capture = false
+}) {
   const bonus = Number(value) || 0;
   const name = label ?? "Open Roll";
   const isMastery = mastery === true;
@@ -155,7 +173,22 @@ export async function animaOpenRoll({ value, label, mastery, undeveloped, actor 
     <b>Final Total:</b> ${final}
   `;
 
+  const resultData = {
+    total,
+    bonus,
+    final,
+    rawRolls,
+    breakdown,
+    label: name,
+    actor
+  };
+
+  if (capture) {
+    return resultData; // <-- return instead of sending chat
+  }
+
   setTimeout(() => sendChat(content, actor), 2000 * rawRolls.length);
+  return resultData;
 }
 
 // ============================================================

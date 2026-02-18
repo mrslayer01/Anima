@@ -841,6 +841,11 @@
   grid-template-columns: 0.4fr 0.4fr;
 }
 
+.weapon-grid-item {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .weapon-col {
   display: flex;
   flex-direction: column;
