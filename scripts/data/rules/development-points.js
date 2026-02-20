@@ -89,6 +89,32 @@ function updateAbilityRecord(system, category, ability, amount, cost) {
   const records = system.developmentPoints.spentRecords;
   const idx = records.findIndex((r) => r.category === category && r.ability === ability);
 
+  // ---------------------------------------
+  // SPECIAL CASE: MAMultiples
+  // ---------------------------------------
+  if (ability === "MAMultiples") {
+    // Baseline (1) → no DP record
+    if (amount <= 1) {
+      if (idx !== -1) records.splice(idx, 1);
+      return;
+    }
+
+    // Purchased ranks = amount - 1
+    const purchased = amount - 1;
+
+    if (idx !== -1) {
+      records[idx].amount = purchased;
+      records[idx].cost = cost;
+    } else {
+      records.push({ category, ability, amount: purchased, cost });
+    }
+
+    return;
+  }
+
+  // ---------------------------------------
+  // NORMAL ABILITIES
+  // ---------------------------------------
   if (amount === 0) {
     if (idx !== -1) records.splice(idx, 1);
     return;
@@ -144,10 +170,25 @@ function DerivedPrimaryAbilites(system) {
       let base = toNum(abil.base) || 0;
       let cost = toNum(abil.cost) || 0;
 
-      if (abilityName === "MagicAccumulation") {
-        base = toNum(abil.multiples);
+      // -------------------------------
+      // SPECIAL CASE: MAMultiples
+      // -------------------------------
+      if (abilityName === "MAMultiples") {
+        // Only store DP if > 1 (baseline)
+        if (base > 1 && cost > 0) {
+          system.developmentPoints.spentRecords.push({
+            category: categoryName,
+            ability: abilityName,
+            amount: base - 1, // purchased ranks
+            cost
+          });
+        }
+        continue;
       }
 
+      // -------------------------------
+      // NORMAL ABILITIES
+      // -------------------------------
       if (base > 0 && cost > 0) {
         system.developmentPoints.spentRecords.push({
           category: categoryName,
@@ -164,10 +205,6 @@ function RecalcPrimaryAbilites(system, category, ability) {
   if (["Combat", "Psychic", "Supernatural"].includes(category)) {
     let newBase = system.abilities.primary[category][ability].base;
     let cost = system.abilities.primary[category][ability].cost;
-
-    if (ability === "MagicAccumulation") {
-      newBase = system.abilities.primary[category][ability].multiples;
-    }
 
     updateAbilityRecord(system, category, ability, newBase, cost);
   }

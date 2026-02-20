@@ -195,7 +195,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
-      MAMultiple: 70,
+      MAMultiples: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -265,7 +265,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
-      MAMultiple: 70,
+      MAMultiples: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -340,7 +340,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 2,
       MagicProjection: 3,
-      MAMultiple: 60,
+      MAMultiples: 60,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -416,7 +416,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 2,
       MagicProjection: 3,
-      MAMultiple: 60,
+      MAMultiples: 60,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -491,7 +491,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 2,
       MagicProjection: 3,
-      MAMultiple: 60,
+      MAMultiples: 60,
       Summon: 3,
       Control: 1,
       Bind: 3,
@@ -568,7 +568,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 2,
       MagicProjection: 3,
-      MAMultiple: 60,
+      MAMultiples: 60,
       Summon: 3,
       Control: 1,
       Bind: 3,
@@ -644,7 +644,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
-      MAMultiple: 70,
+      MAMultiples: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -715,7 +715,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
-      MAMultiple: 70,
+      MAMultiples: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -781,7 +781,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
-      MAMultiple: 70,
+      MAMultiples: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -847,7 +847,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
-      MAMultiple: 70,
+      MAMultiples: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -913,7 +913,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
-      MAMultiple: 70,
+      MAMultiples: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -987,7 +987,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
-      MAMultiple: 70,
+      MAMultiples: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -1062,7 +1062,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
-      MAMultiple: 70,
+      MAMultiples: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -1137,7 +1137,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 1,
       MagicProjection: 2,
-      MAMultiple: 50,
+      MAMultiples: 50,
       Summon: 2,
       Control: 2,
       Bind: 2,
@@ -1206,7 +1206,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 1,
       MagicProjection: 2,
-      MAMultiple: 50,
+      MAMultiples: 50,
       Summon: 2,
       Control: 2,
       Bind: 1,
@@ -1277,7 +1277,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 1,
       MagicProjection: 2,
-      MAMultiple: 60,
+      MAMultiples: 60,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -1351,7 +1351,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 1,
       MagicProjection: 2,
-      MAMultiple: 50,
+      MAMultiples: 50,
       Summon: 2,
       Control: 2,
       Bind: 2,
@@ -1420,7 +1420,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 1,
       MagicProjection: 3,
-      MAMultiple: 60,
+      MAMultiples: 60,
       Summon: 1,
       Control: 1,
       Bind: 1,
@@ -1495,7 +1495,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 1,
       MagicProjection: 3,
-      MAMultiple: 60,
+      MAMultiples: 60,
       Summon: 1,
       Control: 1,
       Bind: 1,
@@ -1570,7 +1570,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
-      MAMultiple: 70,
+      MAMultiples: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -1636,7 +1636,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 3,
       MagicProjection: 3,
-      MAMultiple: 70,
+      MAMultiples: 70,
       Summon: 3,
       Control: 3,
       Bind: 3,
@@ -1706,7 +1706,7 @@ export const ABF_CLASSES = {
     supernaturalAbilityCosts: {
       Zeon: 2,
       MagicProjection: 2,
-      MAMultiple: 60,
+      MAMultiples: 60,
       Summon: 2,
       Control: 2,
       Bind: 2,

@@ -7,6 +7,7 @@ import { loadAllActorHandlerbarsHelpers } from "./ui/handlebars-helpers.js";
 import { InitalizeAllItemPartials } from "./templates/initialize-item-partials.js";
 import { WeaponBaseCalculations } from "./data/rules/items/weapon-calculations.js";
 import { ArmorCalculation, UpdateArmor } from "./data/rules/items/armor-calculations.js";
+import { AnimaCombat } from "./utils/combat.js";
 
 Hooks.once("init", function () {
   console.log("ABF | Initializing Anima Beyond Fantasy system");
@@ -14,6 +15,7 @@ Hooks.once("init", function () {
 
   CONFIG.Actor.documentClass = AbfActor;
   CONFIG.Item.documentClass = AbfItem;
+  CONFIG.Combat.documentClass = AnimaCombat;
 
   loadAllActorHandlerbarsHelpers();
   InitalizeAllActorPartials();
@@ -58,4 +60,14 @@ Hooks.on("updateItem", (item) => {
       UpdateArmor(actor);
     }
   }
+});
+
+Hooks.on("updateCombat", async (combat, changes) => {
+  if (!("round" in changes)) return; // only on new round
+
+  // Roll initiative for everyone
+  await combat.rollInitiative(
+    combat.combatants.map((c) => c.id),
+    { updateTurn: true }
+  );
 });

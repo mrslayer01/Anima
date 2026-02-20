@@ -246,8 +246,6 @@ export function RollListeners(sheet, html) {
 
     atValue = targetActor.system.armor.total[attackType];
 
-    console.log(atValue);
-
     const defender = await animaOpenRollCapture({
       value: defenseValue,
       label: type === "block" ? "Block" : "Dodge",

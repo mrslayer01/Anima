@@ -3,6 +3,7 @@
 
 export function ValidateInputs(name, value, input) {
   const isCharacteristic = name.startsWith("system.characteristics.");
+  const isMaMultiple = name.startsWith("system.abilities.primary.Supernatural.MAMultiples.");
   const isResistance = name.startsWith("system.resistances.");
   const isAbility =
     name.startsWith("system.abilities.secondary.") || name.startsWith("system.abilities.primary.");
@@ -21,6 +22,13 @@ export function ValidateInputs(name, value, input) {
     if (value > 20) {
       value = 20;
       input.value = 20;
+    }
+  }
+
+  if (isMaMultiple) {
+    if (name.endsWith(".base") && value < 1) {
+      value = 1;
+      input.value = 1;
     }
   }
 

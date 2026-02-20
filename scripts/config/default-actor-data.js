@@ -140,14 +140,8 @@ export const DEFAULT_ACTOR_DATA = {
         Block: { base: 0, bonus: 0, focus: false },
         Dodge: { base: 0, bonus: 0, focus: false },
         WearArmor: { base: 0, bonus: 0 },
-        Ki: {
-          base: 0,
-          current: 0
-        },
-        KiAccumulation: {
-          base: 0,
-          current: 0
-        }
+        Ki: { base: 0, current: 0 },
+        KiAccumulation: { base: 0, current: 0 }
       },
       Psychic: {
         PsychicProjection: { base: 0, bonus: 0 },
@@ -159,7 +153,8 @@ export const DEFAULT_ACTOR_DATA = {
         Control: { base: 0, bonus: 0 },
         Bind: { base: 0, bonus: 0 },
         Banish: { base: 0, bonus: 0 },
-        MagicAccumulation: { base: 0, multiples: 0, cost: 0, special: 0 },
+        MagicAccumulation: { base: 0, cost: 0, special: 0 },
+        MAMultiples: { base: 1, cost: 0, special: 0 },
         Zeon: { base: 0, current: 0 }
       }
     }
