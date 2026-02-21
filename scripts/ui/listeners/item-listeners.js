@@ -128,4 +128,17 @@ export function ItemListeners(sheet, html) {
 
     sheet.render(); // refresh UI
   });
+
+  html.find(".ammo-edit").click((ev) => {
+    const row = $(ev.currentTarget).closest(".ammo-row");
+    const ammoId = row.data("ammo-id");
+
+    const weapon = sheet.item;
+    const actor = weapon.actor;
+
+    const ammoItem = actor.items.get(ammoId);
+    if (!ammoItem) return ui.notifications.error("Ammo item not found.");
+
+    ammoItem.sheet.render(true);
+  });
 }

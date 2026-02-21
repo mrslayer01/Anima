@@ -7,6 +7,10 @@
             <input type="number" name="system.weight" value="{{system.weight}}" />
           </td>
           <td>
+            <label>Quantity</label>
+            <input type="number" name="system.quantity" value="{{system.quantity}}" />
+          </td>
+          <td>
             <label>Availability</label>
               <select name="system.availability" class="availability-select select">
               <option value="common" {{#if (eq system.availability "common")}}selected{{/if}}>Common</option>

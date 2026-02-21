@@ -1,0 +1,73 @@
+<section class="common-fields">
+  <div class="weapon-grid-item">
+
+    <!-- COLUMN 1 -->
+    <div class="weapon-col">
+
+      <!-- CORE STATS -->
+      <h3 class="section-header">Core Stats</h3>
+      <table class="common-table">
+        <tr>
+          <td>
+            <label>Damage</label>
+            <input type="number" name="system.damage" value="{{system.damage}}" />
+          </td>
+          <td>
+            <label>Fortitude</label>
+            <input type="number" name="system.fortitude" value="{{system.fortitude}}" />
+          </td>
+        </tr>
+        <tr>
+           <td>
+            <label>Presence</label>
+            <input type="number" name="system.presence" value="{{system.presence}}" />
+          </td>
+          <td>
+            <label>Breakage</label>
+            <input type="number" name="system.breakage" value="{{system.breakage}}" />
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label>Armor Pen</label>
+            <input type="number" name="system.armorReduction" value="{{system.armorReduction}}" />
+          </td>
+          <td></td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- COLUMN 2 -->
+    <div class="weapon-col">
+      <!-- ATTACK TYPES -->
+      <h3 class="section-header">Attack Types</h3>
+      <table class="common-table">
+        <tr>
+          <td>
+            <label>Ammo Attack Type</label>
+            <select name="system.primaryAtkType" class="prim-attk-select select">
+              {{#each (weaponDamageType) as |type|}}
+                <option value="{{type}}" {{#if (eq ../system.primaryAtkType type)}}selected{{/if}}>
+                  {{humanize type}}
+                </option>
+              {{/each}}
+            </select>
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    <!-- FULL WIDTH -->
+    <div class="weapon-col-full">
+      <h3 class="section-header">Special Rules</h3>
+      <table class="common-table">
+        <tr>
+          <td>
+            <input type="text" name="system.special" value="{{system.special}}" />
+          </td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</section>

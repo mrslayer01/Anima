@@ -4,7 +4,8 @@ export const DEFAULT_ITEM_DATA = {
   weight: 0,
   availability: "common",
   quality: { value: "decent", spcialBonus: 0 },
-  decription: ""
+  decription: "",
+  quantity: 1
 };
 
 export const DEFAULT_WEAPON_DATA = {
@@ -35,6 +36,22 @@ export const DEFAULT_WEAPON_DATA = {
 
   equipped: false,
   modifier: { name: "known", value: 0 },
+
+  special: [],
+  ammo: []
+};
+
+export const DEFAULT_AMMO_DATA = {
+  damage: 0,
+  presence: 0,
+  breakage: 0,
+  fortitude: 0,
+  armorReduction: 0,
+  primaryAtkType: "cut",
+  weaponType: "munition",
+  critType: "cut",
+  critMod: 0,
+  equipped: false,
 
   special: []
 };

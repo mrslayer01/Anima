@@ -16,8 +16,15 @@
 
       <!-- TABS -->
   <nav class="sheet-tabs" data-group="primary">
-    <a class="item" data-tab="main">Main</a>
-    <a class="item" data-tab="final">Final Values</a>
+    {{#if (in item.type "weapon" "armor" "ammo")}}
+      <a class="item" data-tab="main">Main</a>
+        {{#if (in item.type "weapon" "armor")}}
+        <a class="item" data-tab="final">Final Values</a>
+        {{/if}}
+      {{#if (in item.system.weaponType "projectile")}}
+        <a class="item" data-tab="ammo">Ammo</a>
+      {{/if}}
+    {{/if}}
     <a class="item" data-tab="description">Description</a>
   </nav>
 
@@ -30,6 +37,9 @@
         {{#if (eq item.type "armor")}}
           {{> "systems/abf-system/templates/items/partials/armor.hbs"}}
         {{/if}}
+        {{#if (eq item.type "ammo")}}
+          {{> "systems/abf-system/templates/items/partials/ammo.hbs"}}
+        {{/if}}
       </div>
 
       <div class="tab final" data-group="primary" data-tab="final">
@@ -40,6 +50,10 @@
         {{#if (eq item.type "armor")}}
           {{> "systems/abf-system/templates/items/partials/armor/armor-finals.hbs"}}
         {{/if}}
+      </div>
+
+      <div class="tab ammo" data-group="primary" data-tab="ammo">
+        {{> "systems/abf-system/templates/items/partials/weapon/weapon-ammo.hbs"}}
       </div>
       
       <div class="tab description" data-group="primary" data-tab="description">

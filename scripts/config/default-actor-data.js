@@ -171,5 +171,5 @@ export const DEFAULT_ACTOR_DATA = {
   presence: { bonus: 0 },
   currency: { copper: 0, silver: 0, gold: 0 },
   lockUi: false,
-  items: { weapons: [], commonGoods: [], armor: [] }
+  items: { weapons: [], commonGoods: [], armor: [], ammo: [] }
 };

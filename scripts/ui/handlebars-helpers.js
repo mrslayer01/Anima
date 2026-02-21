@@ -9,6 +9,7 @@ import {
   WEAPON_TYPES
 } from "../utils/lookup.js";
 import { ABF_MODULES } from "../config/modules.js";
+import { ABF_AMMO } from "../config/ammo.js";
 
 export function loadAllActorHandlerbarsHelpers() {
   Handlebars.registerHelper("ifEquals", function (a, b, options) {
@@ -29,6 +30,9 @@ export function loadAllActorHandlerbarsHelpers() {
   });
   Handlebars.registerHelper("moduleName", function (key) {
     return ABF_MODULES[key].name;
+  });
+  Handlebars.registerHelper("ammoName", function (key) {
+    return ABF_AMMO[key].name;
   });
   Handlebars.registerHelper("armorSection", function () {
     return ARMOR_SECTIONS;
@@ -160,5 +164,21 @@ export function loadAllActorHandlerbarsHelpers() {
 
   Handlebars.registerHelper("lookupArmor", function (total, type) {
     return total?.[type] ?? 0;
+  });
+
+  Handlebars.registerHelper("ammoField", function (actor, ammoId, path) {
+    if (!actor) return "";
+    const item = actor.items.get(ammoId);
+    if (!item) return "";
+
+    // Resolve nested paths like "system.damage"
+    const parts = path.split(".");
+    let value = item;
+    for (const p of parts) {
+      if (value == null) return "";
+      value = value[p];
+    }
+
+    return value ?? "";
   });
 }

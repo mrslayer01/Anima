@@ -1,7 +1,7 @@
 const commonPartials = ["common", "description"];
-const partials = ["weapon", "armor"];
+const partials = ["weapon", "armor", "ammo"];
 
-const weaponPartials = ["weapon-finals"];
+const weaponPartials = ["weapon-finals", "weapon-ammo"];
 const armorPartials = ["armor-finals"];
 
 export function InitalizeAllItemPartials() {

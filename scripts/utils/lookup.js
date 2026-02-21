@@ -102,7 +102,6 @@ export const SECONDARY_WEAPON_TYPES = [
   "twoHanded",
   "pole",
   "cord",
-  "projectile",
   "throwing",
   "shield"
 ];

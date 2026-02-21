@@ -1,0 +1,59 @@
+<div class="item" data-item-id="{{item.id}}">
+  <h3>
+    Ammo
+  </h3>
+
+  <table class="item-table" data-table="ammo">
+    <thead>
+      <tr>
+        <th>
+          Name
+        </th>
+        <th>
+          Damage
+        </th>
+        <th>
+          Attack Type
+        </th>
+        <th>
+          Equipped?
+        </th>
+        <th></th>
+      </tr>
+    </thead>
+
+<tbody>
+  {{#each item.system.ammo as |ammo idx|}}
+    <tr class="ammo-row" data-ammo-index="{{idx}}" data-ammo-id="{{ammo.id}}">
+
+      <td class="ammo-edit clickable">
+        {{ammoField ../actor ammo.id "name"}}
+      </td>
+
+      <td>
+        {{ammoField ../actor ammo.id "system.damage"}}
+      </td>
+
+      <td>
+        {{humanize (ammoField ../actor ammo.id "system.primaryAtkType")}}
+      </td>
+
+      <td class="ammo-equip-toggle clickable" data-ammo-index="{{idx}}">
+        {{#if (ammoField ../actor ammo.id "system.equipped")}}
+          <i class="fas fa-check"></i>
+        {{else}}
+          <i class="fas fa-times"></i>
+        {{/if}}
+      </td>
+
+      <td class="item-controls">
+        <a class="ammo-delete" data-ammo-index="{{idx}}">
+          <i class="fas fa-trash"></i>
+        </a>
+      </td>
+
+    </tr>
+  {{/each}}
+</tbody>
+  </table>
+</div>

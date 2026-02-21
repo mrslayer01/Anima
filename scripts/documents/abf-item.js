@@ -1,4 +1,5 @@
 import {
+  DEFAULT_AMMO_DATA,
   DEFAULT_ARMOR_DATA,
   DEFAULT_ITEM_DATA,
   DEFAULT_WEAPON_DATA
@@ -35,6 +36,13 @@ export class AbfItem extends Item {
 
     if (this.type === "armor") {
       foundry.utils.mergeObject(this.system, DEFAULT_ARMOR_DATA, {
+        insertKeys: true,
+        overwrite: false
+      });
+    }
+
+    if (this.type === "ammo") {
+      foundry.utils.mergeObject(this.system, DEFAULT_AMMO_DATA, {
         insertKeys: true,
         overwrite: false
       });

@@ -1,7 +1,7 @@
 {
   "id": "abf-system",
   "title": "Anima Beyond Fantasy",
-  "description": "A custom system based on the dnd5e structure.",
+  "description": "A custom system for Anima Beyond Fantasy.",
   "version": "0.1.0",
   "compatibility": {
     "minimum": "13",
@@ -13,7 +13,7 @@
     }
   ],
   "template": "template.json",
-  "itemTypes": ["commonGood", "weapon", "armor"],
+  "itemTypes": ["commonGood", "weapon", "armor", "ammo"],
   "esmodules": ["scripts/main.js"],
   "styles": ["styles/abf.css"],
   "itemIcons": {
