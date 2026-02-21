@@ -60,8 +60,9 @@ export class MovementRule extends BaseRule {
   RecalcUpdated(system, name) {
     const agility = toNum(system.characteristics.Agility.base);
     const moveBonus = toNum(system.movement.bonus);
+    const armorPenalty = toNum(system.globalModifiers.Natural.movement);
 
-    let movement = agility + moveBonus - system.globalModifiers.Natural.movement;
+    let movement = agility + moveBonus - armorPenalty;
 
     if (movement < 0) movement = 1;
     const hasInhuman = system.movement.inhuman;

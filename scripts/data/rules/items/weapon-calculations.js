@@ -1,3 +1,4 @@
+import { getBreakageBonus } from "../../../utils/lookup.js";
 import { toNum } from "../../../utils/numbers.js";
 
 export async function WeaponBaseCalculations(actor) {
@@ -47,7 +48,7 @@ export async function UpdateWeapon(actor) {
     let blockBonusfinal = 0;
     if (w.weaponType != "projectile" && w.weaponType != "throwing") {
       // Ranged weapons can't block
-      blockBonusfinal = q.block + w.modifier.value + strPenalty;
+      blockBonusfinal = q.block + w.modifier.value + strPenalty + w.blockBonus;
     }
     const finalSpeed = w.speed.base + w.speed.bonus + q.speed;
     let finalDamage = baseDamage + strMod + q.damage;
@@ -55,12 +56,14 @@ export async function UpdateWeapon(actor) {
       finalDamage = baseDamage + strMod * 2 + q.damage;
     }
     const finalpresence = w.presence.base + w.presence.bonus + q.presence;
-    const finalbreakage = w.breakage.base + w.breakage.bonus + q.breakage;
+    const finalbreakage =
+      w.breakage.base + w.breakage.bonus + q.breakage + getBreakageBonus(strBase);
     const finalfortitude = w.fortitude.base + w.fortitude.bonus + q.fortitude;
 
     await item.update({
       "system.attackBonus": atkBonusfinal,
       "system.blockBonus": blockBonusfinal,
+      "system.dodgeBonus": w.dodgeBonus,
       "system.speed.final": finalSpeed,
       "system.damage.final": finalDamage,
       "system.presence.final": finalpresence,

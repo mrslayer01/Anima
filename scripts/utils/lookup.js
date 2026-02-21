@@ -58,6 +58,25 @@ export const TABLE_ITEM_TYPES = {
   consumables: ["potion", "scroll"]
 };
 
+const ACTIONS_BY_DEX_AGI = [
+  { min: 1, max: 10, actions: 1 },
+  { min: 11, max: 14, actions: 2 },
+  { min: 15, max: 19, actions: 3 },
+  { min: 20, max: 22, actions: 4 },
+  { min: 23, max: 25, actions: 5 },
+  { min: 26, max: 28, actions: 6 },
+  { min: 29, max: 31, actions: 8 },
+  { min: 32, max: Infinity, actions: 10 }
+];
+
+const BREAKAGE_BY_STRENGTH = [
+  { min: 8, max: 9, bonus: 1 },
+  { min: 10, max: 10, bonus: 2 },
+  { min: 11, max: 12, bonus: 4 },
+  { min: 13, max: 14, bonus: 6 },
+  { min: 15, max: Infinity, bonus: 8 }
+];
+
 export const ARMOR_SECTIONS = ["breastplate", "shirt", "complete", "helm"];
 export const DAMAGE_TYPES = ["cut", "imp", "thr", "hea", "ele", "col", "ene"];
 export const SECONDARY_DAMAGE_TYPES = ["none", "cut", "imp", "thr", "hea", "ele", "col", "ene"];
@@ -83,8 +102,31 @@ export const SECONDARY_WEAPON_TYPES = [
   "twoHanded",
   "pole",
   "cord",
+  "projectile",
+  "throwing",
   "shield"
 ];
+
+export function getMaxActions(dex, agi) {
+  const total = dex + agi;
+
+  for (const row of ACTIONS_BY_DEX_AGI) {
+    if (total >= row.min && total <= row.max) {
+      return row.actions;
+    }
+  }
+
+  return 1; // fallback, though the table covers all valid values
+}
+
+export function getBreakageBonus(str) {
+  for (const row of BREAKAGE_BY_STRENGTH) {
+    if (str >= row.min && str <= row.max) {
+      return row.bonus;
+    }
+  }
+  return 0; // fallback if Strength < 8
+}
 
 export function computeDamagePercent(result, at = 0) {
   // Check counterattack first

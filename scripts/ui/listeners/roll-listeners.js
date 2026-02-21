@@ -352,14 +352,16 @@ function postCombinedCombatCard(attacker, defender, defenderAT) {
 
     <h4>Attacker: ${attacker.actor.name}</h4>
     <b>Bonus:</b> ${attacker.bonus}<br>
-    <b>Final:</b> ${attacker.final}<br>
     <b>Breakdown:</b><br>${attacker.rawRolls.join("<br>")}
+    <br>
+    <b>Final:</b> ${attacker.final}<br>
     <hr>
     <h4>Defender: ${defender.actor.name}</h4>
     <b>AT:</b> ${defenderAT}<br>
     <b>Bonus:</b> ${defender.bonus}<br>
-    <b>Final:</b> ${defender.final}<br>
     <b>Breakdown:</b><br>${defender.rawRolls.join("<br>")}
+    <br>
+    <b>Final:</b> ${defender.final}<br>
     <hr>
     <h4>Result</h4>
     <b>Margin:</b> ${margin}<br>
@@ -409,16 +411,18 @@ async function postCounterattackCard(attacker, defender, counterBonus) {
 
     <h4>Attacker: ${attacker.actor.name}</h4>
     <b>Bonus:</b> ${attacker.bonus}<br>
-    <b>Final:</b> ${attacker.final}<br>
     <b>Breakdown:</b><br>${attacker.rawRolls.join("<br>")}
+    <br>
+    <b>Final:</b> ${attacker.final}<br>
 
     <hr>
 
     <h4>Defender: ${defender.actor.name}</h4>
     <b>Bonus:</b> ${defender.bonus}<br>
-    <b>Final:</b> ${defender.final}<br>
     <b>Breakdown:</b><br>${defender.rawRolls.join("<br>")}
-
+    <br>
+    <b>Final:</b> ${defender.final}<br>
+    
     <hr>
 
     <h4>Result</h4>

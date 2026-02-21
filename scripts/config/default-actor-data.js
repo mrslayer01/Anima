@@ -166,6 +166,7 @@ export const DEFAULT_ACTOR_DATA = {
     Magic: { bonus: 0 },
     Psychic: { bonus: 0 }
   },
+  combat: { maxActions: 0 },
   languages: [{ name: "Base", level: 0 }],
   presence: { bonus: 0 },
   currency: { copper: 0, silver: 0, gold: 0 },

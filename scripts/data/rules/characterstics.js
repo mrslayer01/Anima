@@ -1,4 +1,4 @@
-import { lookupCharacteristicMod } from "../../utils/lookup.js";
+import { getMaxActions, lookupCharacteristicMod } from "../../utils/lookup.js";
 import { toNum } from "../../utils/numbers.js";
 import { BaseRule } from "./base-rule.js";
 
@@ -12,16 +12,23 @@ export class CharactersiticsRule extends BaseRule {
   Derived(system) {
     //first make sure the needed fields are created by initalizing them.
     this.Initialize(system);
+    const chars = system.characteristics;
 
     //Start logic
     //Calculate final value
-    for (const [name, char] of Object.entries(system.characteristics)) {
+    for (const [name, char] of Object.entries(chars)) {
       const base = toNum(char.base);
       const bonus = toNum(char.bonus);
       const modifier = lookupCharacteristicMod(base);
 
       char.final = modifier + bonus;
     }
+
+    //Calculate Max actions
+    system.combat.maxActions = getMaxActions(
+      toNum(chars.Agility.base),
+      toNum(chars.Dexterity.base)
+    );
   }
 
   DetectChanged(updateData, oldSystem) {
@@ -44,6 +51,7 @@ export class CharactersiticsRule extends BaseRule {
 
   RecalcUpdated(system, name) {
     //handles recalculating for only the value that was passed.
+    const chars = system.characteristics;
     const char = system.characteristics[name];
     if (!char) return;
 
@@ -52,6 +60,11 @@ export class CharactersiticsRule extends BaseRule {
 
     char.mod = lookupCharacteristicMod(base);
     char.final = char.mod + bonus;
+    //Calculate Max actions
+    system.combat.maxActions = getMaxActions(
+      toNum(chars.Agility.base),
+      toNum(chars.Dexterity.base)
+    );
   }
 
   Update(updateData, oldSystem, newSystem) {

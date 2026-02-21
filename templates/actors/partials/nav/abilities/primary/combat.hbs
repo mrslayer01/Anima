@@ -30,6 +30,8 @@
     </thead>
     <tbody>
       {{#each actor.system.abilities.primary.Combat as |ability key|}}
+      {{#if (in key "Ki" "KiAccumulation")}}
+      {{else}}
         <tr>
           <td>
             {{localize (concat "ABF.Ability." key)}}
@@ -48,9 +50,6 @@
             "
             />
           </td>
-          {{#if (in key "Ki" "KiAccumulation")}}
-            <td></td>
-          {{else}}
           <td>
             <input
               class="mod-input-resize-char"
@@ -60,24 +59,13 @@
               {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
-          {{/if}}
-          {{#if (in key "Ki" "KiAccumulation")}}
-            <td></td>
-          {{else}}
             <td>
             {{ability.class}}
             </td>
-          {{/if}}
-          {{#if (in key "Ki" "KiAccumulation")}}
-          <td>
-            {{ability.final}}
-          </td>
-          {{else}}
           <td class="ability-roll clickable" data-category="Combat" data-ability="{{key}}">
             {{ability.final}}
           </td>
-          {{/if}}
-          {{#if (in key "WearArmor" "Ki" "KiAccumulation")}}
+          {{#if (in key "WearArmor")}}
             <td></td>
           {{else}}
             <td class="passive-icon clickable primary-focus" data-ability="{{key}}" data-tooltip="Enables focus of a single skill, this bypasses the within 50 limit, but halves DP limit. (50% would now be 25% limit, etc)">
@@ -89,6 +77,7 @@
             </td>
           {{/if}}
         </tr>
+        {{/if}}
       {{/each}}
     </tbody>
   </table>

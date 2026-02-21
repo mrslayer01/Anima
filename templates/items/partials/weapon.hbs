@@ -37,6 +37,18 @@
             <input type="number" name="system.specialValue" value="{{system.specialValue}}" />
           </td>
         </tr>
+    {{#ifEquals system.weaponType "shield"}}
+        <tr>
+          <td>
+            <label>Block</label>
+            <input type="number" name="system.blockBonus" value="{{system.blockBonus}}" />
+          </td>
+          <td>
+            <label>Dodge</label>
+            <input type="number" name="system.dodgeBonus" value="{{system.dodgeBonus}}" />
+          </td>
+        </tr>
+    {{/ifEquals}}
       </table>
 
       <!-- REQUIREMENTS -->

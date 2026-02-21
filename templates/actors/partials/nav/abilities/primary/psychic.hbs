@@ -27,6 +27,8 @@
     </thead>
     <tbody>
       {{#each actor.system.abilities.primary.Psychic as |ability key|}}
+      {{#if (in key "PsychicPoints")}}
+      {{else}}
         <tr>
           <td>
             {{localize (concat "ABF.Ability." key)}}
@@ -45,9 +47,6 @@
             "
             />
           </td>
-          {{#if (in key "PsychicPoints")}}
-            <td></td>
-          {{else}}
           <td>
             <input
               class="mod-input-resize-char"
@@ -57,18 +56,14 @@
               {{#if actor.system.lockUi}}disabled{{/if}}
             />
           </td>
-          {{/if}}
           <td>
             {{ability.class}}
           </td>
-          {{#if (in key "PsychicPoints")}}
-            <td>{{ability.final}}</td>
-          {{else}}
           <td class="ability-roll clickable" data-category="Psychic" data-ability="{{key}}">
             {{ability.final}}
           </td>
-          {{/if}}
         </tr>
+        {{/if}}
       {{/each}}
     </tbody>
   </table>

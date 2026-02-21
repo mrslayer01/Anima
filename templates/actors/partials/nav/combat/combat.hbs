@@ -1,6 +1,7 @@
 <div class="combat-grid-core">
   <!-- LEFT COLUMN -->
   <div class="combat-left-core">
+    <h3>Number of actions: {{actor.system.combat.maxActions}}</h3>
     <h3>
       Core Stats
     </h3>
@@ -18,11 +19,13 @@
         </thead>
         <tbody>
           {{#each actor.system.abilities.primary.Combat as |ability key|}}
+          {{#if (in key "Ki" "KiAccumulation")}}
+          {{else}}
             <tr>
               <td>
                 {{localize (concat "ABF.Ability." key)}}
               </td>
-              {{#if (in key "WearArmor" "Ki" "KiAccumulation")}}
+              {{#if (in key "WearArmor")}}
                 <td>{{ability.final}}</td>
               {{else}}
               <td>
@@ -30,6 +33,7 @@
               </td>
               {{/if}}
             </tr>
+            {{/if}}
           {{/each}}
         </tbody>
       </table>

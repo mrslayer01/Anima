@@ -184,7 +184,7 @@ export async function animaOpenRoll({
   };
 
   if (capture) {
-    return resultData; // <-- return instead of sending chat
+    return resultData;
   }
 
   setTimeout(() => sendChat(content, actor), 2000 * rawRolls.length);

@@ -14,9 +14,13 @@ function Items(sheet, html) {
 
     const current = item.system.equipped ?? false;
 
-    // Unequip any other weapon
+    // Unequip any other weapon aside from a shield.
     const otherEquipped = actor.items.find(
-      (i) => i.type === "weapon" && i.id !== itemId && i.system.equipped
+      (i) =>
+        i.type === "weapon" &&
+        i.id !== itemId &&
+        i.system.equipped &&
+        i.system.weaponType !== "shield"
     );
 
     if (otherEquipped) {

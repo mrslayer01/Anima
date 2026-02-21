@@ -6,7 +6,7 @@ export class AbfItemSheet extends foundry.appv1.sheets.ItemSheet {
       classes: ["abf-system", "sheet", "item"],
       template: "systems/abf-system/templates/items/item-sheet.hbs",
       width: 650,
-      height: 650,
+      height: 695,
       tabs: [
         {
           navSelector: ".sheet-tabs",
