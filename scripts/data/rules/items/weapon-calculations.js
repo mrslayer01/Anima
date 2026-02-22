@@ -6,19 +6,16 @@ export async function WeaponBaseCalculations(actor) {
 }
 
 export async function WeaponEquipped(actor, item) {
-  // Apply weapon negatives/bonuses to respective abilities. Attack, Block Dodge, init.
-  //first UpdateWeapon
-  UpdateWeapon(actor);
+  await UpdateWeapon(actor);
 
-  //Apply values to Attack, block and init's weapon value.
   if (item.system.equipped) {
-    return actor.update({
+    return await actor.update({
       "system.abilities.primary.Combat.Attack.weapon": item.system.attackBonus,
       "system.abilities.primary.Combat.Block.weapon": item.system.blockBonus,
       "system.initiative.weaponPenalty": item.system.speed.final
     });
   } else {
-    return actor.update({
+    return await actor.update({
       "system.abilities.primary.Combat.Attack.weapon": 0,
       "system.abilities.primary.Combat.Block.weapon": 0,
       "system.initiative.weaponPenalty": 0
@@ -34,8 +31,8 @@ export async function UpdateWeapon(actor) {
 
     const w = item.system;
 
-    const baseDamage = Number(w.damage.base ?? w.damage ?? 0);
-    const qualityValue = Number(w.specialValue ?? 0);
+    const baseDamage = toNum(w.damage.base ?? w.damage ?? 0);
+    const qualityValue = toNum(w.specialValue ?? 0);
 
     // Get all quality bonuses
     const q = quality(qualityValue);
@@ -48,12 +45,27 @@ export async function UpdateWeapon(actor) {
     let blockBonusfinal = 0;
     if (w.weaponType != "projectile" && w.weaponType != "throwing") {
       // Ranged weapons can't block
-      blockBonusfinal = q.block + w.modifier.value + strPenalty + w.blockBonus;
+      blockBonusfinal = q.block + w.modifier.value + strPenalty + (w.blockBonus.base ?? 0);
     }
     const finalSpeed = w.speed.base + w.speed.bonus + q.speed;
     let finalDamage = baseDamage + strMod + q.damage;
     if (w.handling === "twoHanded" && w.strengthReq.twoHanded > 0) {
       finalDamage = baseDamage + strMod * 2 + q.damage;
+    }
+
+    // Ranged weapons add damage from equipped ammo and don't apply quality bonus to damage.
+    if (w.weaponType === "projectile" || w.weaponType === "throwing") {
+      //Get equipped ammo if any
+
+      let ammoStr = 0;
+      for (const ammo of w.ammo) {
+        // Get the list of ammo for this weapon and only return the ammo that is equipped.
+        const item = actor.items.get(ammo.id);
+        if (item.system.equipped) {
+          ammoStr = toNum(item.system.damage);
+        }
+      }
+      finalDamage = baseDamage + strMod + ammoStr;
     }
     const finalpresence = w.presence.base + w.presence.bonus + q.presence;
     const finalbreakage =
@@ -62,7 +74,7 @@ export async function UpdateWeapon(actor) {
 
     await item.update({
       "system.attackBonus": atkBonusfinal,
-      "system.blockBonus": blockBonusfinal,
+      "system.blockBonus.final": blockBonusfinal,
       "system.dodgeBonus": w.dodgeBonus,
       "system.speed.final": finalSpeed,
       "system.damage.final": finalDamage,
@@ -74,7 +86,7 @@ export async function UpdateWeapon(actor) {
   }
 }
 
-function quality(qualityValue) {
+export function quality(qualityValue) {
   // Normalize to nearest multiple of 5, clamp to [-25, 25]
   const q = Math.max(-25, Math.min(25, Math.floor(qualityValue / 5) * 5));
   const steps = Math.abs(q) / 5;
@@ -89,8 +101,8 @@ function quality(qualityValue) {
     fortitude: sign * steps * 10,
     armorReduction: sign * steps * 1,
 
-    // Presence NEVER decreases for negative quality
-    presence: steps * 50
+    // Presence only increases for positive quality
+    presence: q > 0 ? steps * 50 : 0
   };
 }
 

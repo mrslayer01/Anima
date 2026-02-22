@@ -1,3 +1,4 @@
+import { UpdateWeapon } from "../../data/rules/items/weapon-calculations.js";
 import { WEAPON_SIMILARITY_MODIFIERS } from "../../utils/lookup.js";
 
 export function ItemListeners(sheet, html) {
@@ -38,7 +39,7 @@ export function ItemListeners(sheet, html) {
       "system.weaponType": type
     });
 
-    sheet.render(false);
+    //sheet.render(false);
   });
 
   html.find(".sec-weapon-type").on("change", async (ev) => {
@@ -140,5 +141,64 @@ export function ItemListeners(sheet, html) {
     if (!ammoItem) return ui.notifications.error("Ammo item not found.");
 
     ammoItem.sheet.render(true);
+  });
+
+  html.find(".ammo-equip-toggle").on("click", async (ev) => {
+    const row = $(ev.currentTarget).closest(".ammo-row");
+    const ammoId = row.data("ammo-id");
+
+    const actor = sheet.actor;
+    const item = sheet.actor.items.get(ammoId);
+
+    const current = item.system.equipped ?? false;
+
+    // Unequip any other weapon aside from a shield.
+    const otherEquipped = actor.items.find(
+      (i) => i.type === "ammo" && i.id !== ammoId && i.system.equipped
+    );
+
+    if (otherEquipped) {
+      await otherEquipped.update({ "system.equipped": false });
+    }
+
+    await item.update({
+      "system.equipped": !current
+    });
+
+    await UpdateWeapon(actor);
+
+    sheet.render(false);
+  });
+
+  html.find(".ammo-delete").click(async (ev) => {
+    const row = $(ev.currentTarget).closest(".ammo-row");
+    const ammoId = row.data("ammo-id");
+
+    const actor = sheet.actor;
+
+    // Find the parent weapon ID from the row
+    const parentItemId = row.closest("[data-item-id]")?.data("item-id");
+    const parentItem = actor.items.get(parentItemId);
+
+    if (!parentItem) {
+      return ui.notifications.error("Parent weapon not found.");
+    }
+
+    const confirmed = await Dialog.confirm({
+      title: "Confirm Delete",
+      content: "<p>Are you sure you want to remove this ammo?</p>"
+    });
+
+    if (!confirmed) return;
+
+    // 1. Remove ammo reference from weapon.system.ammo[]
+    const updatedAmmo = (parentItem.system.ammo ?? []).filter((a) => a.id !== ammoId);
+
+    await parentItem.update({
+      "system.ammo": updatedAmmo
+    });
+
+    // 2. Delete the embedded ammo item from the actor
+    await actor.deleteEmbeddedDocuments("Item", [ammoId]);
   });
 }
