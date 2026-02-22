@@ -1,3 +1,5 @@
+import { toNum } from "./numbers.js";
+
 // ============================================================
 //  ABF Roll Engine
 // ============================================================
@@ -30,7 +32,7 @@ export function sendChat(content, actor) {
 // ============================================================
 
 export async function characteristicCheck({ value, label, actor }) {
-  const target = Number(value) || 0;
+  const target = toNum(value) || 0;
   const name = label ?? "Characteristic Check";
 
   const roll = await rollDice("1d10");
@@ -71,7 +73,7 @@ export async function characteristicCheck({ value, label, actor }) {
 // ============================================================
 
 export async function fumbleRoll({ fumbleValue, label, mastery, actor, capture = false }) {
-  const f = Number(fumbleValue);
+  const f = toNum(fumbleValue);
   const name = label ?? "Fumble";
   const isMastery = mastery === true;
 
@@ -123,7 +125,10 @@ export async function animaOpenRoll({
   actor,
   capture = false
 }) {
-  const bonus = Number(value) || 0;
+  const actionPenalty = toNum(actor.system.globalModifiers.Action.final);
+  const hasBadLuck = actor.system.advantages.some((adv) => adv.name === "Bad Luck");
+  const hasGoodLuck = actor.system.advantages.some((adv) => adv.name === "Good Luck");
+  const bonus = toNum(value) + actionPenalty || 0 + actionPenalty;
   const name = label ?? "Open Roll";
   const isMastery = mastery === true;
   const isUndeveloped = undeveloped === true;
@@ -133,7 +138,10 @@ export async function animaOpenRoll({
   let total = 0;
   let keepRolling = true;
 
-  const fumbleRange = isMastery ? [1, 2] : [1, 2, 3];
+  let fumbleRange = isMastery ? [1, 2] : [1, 2, 3];
+
+  if (hasBadLuck) fumbleRange = isMastery ? [1, 2, 3, 4] : [1, 2, 3, 4, 5];
+  if (hasGoodLuck) fumbleRange = isMastery ? [1] : [1, 2];
 
   while (keepRolling) {
     const roll = await rollDice("1d100");
@@ -196,8 +204,8 @@ export async function animaOpenRoll({
 // ============================================================
 
 export async function resistanceCheck({ value, difficulty, label, actor }) {
-  const bonus = Number(value) || 0;
-  const diff = Number(difficulty) || 80;
+  const bonus = toNum(value) || 0;
+  const diff = toNum(difficulty) || 80;
   const name = label ?? "Resistance Check";
 
   const roll = await rollDice("1d100");

@@ -90,7 +90,7 @@ export class GlobalModsRule extends BaseRule {
   }
 }
 
-function calculateModifiers(system) {
+export function calculateModifiers(system) {
   for (const [modName, mod] of Object.entries(system.globalModifiers)) {
     // Reset totals
     mod.base = 0;

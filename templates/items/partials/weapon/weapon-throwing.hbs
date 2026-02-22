@@ -1,0 +1,155 @@
+<!-- COLUMN 1 -->
+<div class="weapon-col">
+
+    <!-- CORE STATS -->
+    <h3 class="section-header">Core Stats</h3>
+    <table class="common-table">
+    <tr>
+        <td>
+        <label>Damage</label>
+        <input type="number" name="system.damage.base" value="{{system.damage.base}}" />
+        </td>
+        <td>
+        <label>Speed</label>
+        <input type="number" name="system.speed.base" value="{{system.speed.base}}" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <label>Fortitude</label>
+        <input type="number" name="system.fortitude.base" value="{{system.fortitude.base}}" />
+        </td>
+        <td>
+        <label>Breakage</label>
+        <input type="number" name="system.breakage.base" value="{{system.breakage.base}}" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <label>Presence</label>
+        <input type="number" name="system.presence.base" value="{{system.presence.base}}" />
+        </td>
+        <td>
+        <label>Quality</label>
+        <input type="number" name="system.specialValue" value="{{system.specialValue}}" />
+        </td>
+    </tr>
+    </table>
+
+    <!-- REQUIREMENTS -->
+    <h3 class="section-header">Requirements</h3>
+    <table class="common-table">
+    <tr>
+        <td>
+        <label>One-Handed Strength</label>
+        <input type="number" name="system.strengthReq.oneHanded" value="{{system.strengthReq.oneHanded}}" />
+        </td>
+        <td>
+        <label>Two-Handed Strength</label>
+        <input type="number" name="system.strengthReq.twoHanded" value="{{system.strengthReq.twoHanded}}" />
+        </td>
+    </tr>
+    </table>
+
+        <!-- WEAPON TYPES -->
+    <h3 class="section-header">Weapon Types</h3>
+    <table class="common-table">
+        <tr>
+            <td>
+            <label>Primary Type</label>
+            <select name="system.weaponType" class="weapon-type select">
+                {{#each (weaponTypes) as |type|}}
+                <option value="{{type}}" {{#if (eq ../system.weaponType type)}}selected{{/if}}>
+                    {{humanize type}}
+                </option>
+                {{/each}}
+            </select>
+            </td>
+            <td>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<!-- COLUMN 2 -->
+<div class="weapon-col">
+    <!-- COMBAT MODIFIERS -->
+    <h3 class="section-header">Combat Modifiers</h3>
+    <table class="common-table">
+    <tr>
+        <td>
+        <label>Crit Type</label>
+        <select name="system.critType" class="crit-select select">
+            {{#each (weaponDamageType) as |type|}}
+            <option value="{{type}}" {{#if (eq ../system.critType type)}}selected{{/if}}>
+                {{humanize type}}
+            </option>
+            {{/each}}
+        </select>
+        </td>
+        <td>
+        <label>Crit Mod</label>
+        <input type="number" name="system.critMod" value="{{system.critMod}}" />
+        </td>
+    </tr>
+    <tr>
+        <td>
+        <label>Fumble</label>
+        <input type="number" name="system.fumble" value="{{system.fumble}}" />
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>
+        <label>Rate of Fire</label>
+        <input type="number" name="system.rateOfFire" value="{{system.rateOfFire}}" />
+        </td>
+        <td>
+        <label>Weapon Range</label>
+        <input type="number" name="system.projectileWeaponRange.base" value="{{system.projectileWeaponRange.base}}" />
+        </td>
+    </tr>
+    </table>
+    <h3 class="section-header">Modifier: {{system.modifier.value}}</h3>
+    <table class="common-table">
+        <tr>
+            <td>
+            <select name="system.modifier.name" class="modifier-select select">
+                <option value="none" {{#if (eq system.modifier.name "none")}}selected{{/if}}>Known</option>
+                <option value="similar" {{#if (eq system.modifier.name "similar")}}selected{{/if}}>Similar</option>
+                <option value="mixed" {{#if (eq system.modifier.name "mixed")}}selected{{/if}}>Mixed-Class</option>
+                <option value="unarmed" {{#if (eq system.modifier.name "unarmed")}}selected{{/if}}>Diff Class/Unarmed</option>
+            </select>
+            </td>
+            <td></td>
+        </tr>
+    </table>
+    <!-- ATTACK TYPES -->
+    <h3 class="section-header">Attack Types</h3>
+    <table class="common-table">
+    <tr>
+        <td>
+        <label>Primary Attack</label>
+        <select name="system.primaryAtkType" class="prim-attk-select select">
+            {{#each (weaponDamageType) as |type|}}
+            <option value="{{type}}" {{#if (eq ../system.primaryAtkType type)}}selected{{/if}}>
+                {{humanize type}}
+            </option>
+            {{/each}}
+        </select>
+        </td>
+    </tr>
+    </table>
+</div>
+
+<!-- FULL WIDTH -->
+<div class="weapon-col-full">
+    <h3 class="section-header">Special Rules</h3>
+    <table class="common-table">
+    <tr>
+        <td>
+        <input type="text" name="system.special" value="{{system.special}}" />
+        </td>
+    </tr>
+    </table>
+</div>

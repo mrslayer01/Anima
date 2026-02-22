@@ -15,17 +15,17 @@ function Items(sheet, html) {
     const current = item.system.equipped ?? false;
 
     // Unequip any other weapon aside from a shield.
-    const otherEquipped = actor.items.find(
-      (i) =>
-        i.type === "weapon" &&
-        i.id !== itemId &&
-        i.system.equipped &&
-        i.system.weaponType !== "shield"
-    );
+    // const otherEquipped = actor.items.find(
+    //   (i) =>
+    //     i.type === "weapon" &&
+    //     i.id !== itemId &&
+    //     i.system.equipped &&
+    //     i.system.weaponType !== "shield"
+    // );
 
-    if (otherEquipped) {
-      await otherEquipped.update({ "system.equipped": false });
-    }
+    // if (otherEquipped) {
+    //   await otherEquipped.update({ "system.equipped": false });
+    // }
 
     await item.update({
       "system.equipped": !current
@@ -100,17 +100,21 @@ function EditItems(sheet, html) {
     }
 
     if (item.type === "weapon") {
-      // Be sure to un equip an equipped armor properly
-      const oldWeaponEquipped = actor.system.items.weapons.find((i) => i._id === itemId).system
+      const oldWeaponEquipped = actor.system.items.weapons.find((i) => i._id === itemId)?.system
         .equipped;
 
       if (oldWeaponEquipped) {
-        // Old armor is still equipped, set equipped to false so it removed the supplied values.
-        const location = item.system.location;
-        await item.update({
-          "system.equipped": false
-        });
+        await item.update({ "system.equipped": false });
         await WeaponEquipped(actor, item);
+      }
+
+      const ammoRefs = item.system.ammo ?? [];
+
+      if (ammoRefs.length > 0) {
+        const ammoIds = ammoRefs.map((a) => a.id).filter((id) => !!id);
+
+        // Delete the embedded ammo items
+        await actor.deleteEmbeddedDocuments("Item", ammoIds);
       }
     }
 

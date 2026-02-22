@@ -17,7 +17,7 @@ export class MovementRule extends BaseRule {
 
     let movement = agility + moveBonus - armorPenalty;
 
-    if (movement < 0) movement = 1;
+    if (movement <= 0) movement = 1;
     const hasInhuman = system.movement.inhuman;
     const hasZen = system.movement.zen;
 
@@ -64,7 +64,7 @@ export class MovementRule extends BaseRule {
 
     let movement = agility + moveBonus - armorPenalty;
 
-    if (movement < 0) movement = 1;
+    if (movement <= 0) movement = 1;
     const hasInhuman = system.movement.inhuman;
     const hasZen = system.movement.zen;
 

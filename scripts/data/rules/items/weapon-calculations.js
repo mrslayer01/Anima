@@ -1,4 +1,4 @@
-import { getBreakageBonus } from "../../../utils/lookup.js";
+import { getBreakageBonus, lookupCharacteristicMod } from "../../../utils/lookup.js";
 import { toNum } from "../../../utils/numbers.js";
 
 export async function WeaponBaseCalculations(actor) {
@@ -6,26 +6,48 @@ export async function WeaponBaseCalculations(actor) {
 }
 
 export async function WeaponEquipped(actor, item) {
-  await UpdateWeapon(actor);
+  // 1. Capture the equipped state of all weapons AFTER this toggle
+  const equippedWeapons = actor.items.filter((i) => i.type === "weapon" && i.system.equipped);
 
-  if (item.system.equipped) {
-    return await actor.update({
-      "system.abilities.primary.Combat.Attack.weapon": item.system.attackBonus,
-      "system.abilities.primary.Combat.Block.weapon": item.system.blockBonus,
-      "system.initiative.weaponPenalty": item.system.speed.final
-    });
+  // 2. Recompute all weapon stats
+  const allWeaponSpeed = await UpdateWeapon(actor);
+
+  // 3. Determine which weapon should apply attack/block
+  let activeWeapon = null;
+
+  if (equippedWeapons.length === 1) {
+    // Only one weapon equipped → always use it (even if it's a shield)
+    activeWeapon = equippedWeapons[0];
   } else {
-    return await actor.update({
-      "system.abilities.primary.Combat.Attack.weapon": 0,
-      "system.abilities.primary.Combat.Block.weapon": 0,
-      "system.initiative.weaponPenalty": 0
-    });
+    // Multiple weapons equipped → ignore shields
+    activeWeapon = equippedWeapons.find((w) => w.system.weaponType !== "shield") ?? null;
   }
+
+  // 4. Build update object
+  const updateData = {
+    "system.initiative.weaponPenalty": allWeaponSpeed
+  };
+
+  if (activeWeapon) {
+    updateData["system.abilities.primary.Combat.Attack.weapon"] = activeWeapon.system.attackBonus;
+    updateData["system.abilities.primary.Combat.Block.weapon"] =
+      activeWeapon.system.blockBonus.final ?? activeWeapon.system.blockBonus;
+  } else {
+    // No valid weapon → zero out
+    updateData["system.abilities.primary.Combat.Attack.weapon"] = 0;
+    updateData["system.abilities.primary.Combat.Block.weapon"] = 0;
+  }
+
+  // 5. Apply update
+  return await actor.update(updateData);
 }
 
 export async function UpdateWeapon(actor) {
   const strMod = toNum(actor.system.characteristics.Strength.final);
   const strBase = toNum(actor.system.characteristics.Strength.base);
+
+  let allWeaponSpeed = 0;
+
   for (const item of actor.items) {
     if (item.type !== "weapon") continue;
 
@@ -47,16 +69,19 @@ export async function UpdateWeapon(actor) {
       // Ranged weapons can't block
       blockBonusfinal = q.block + w.modifier.value + strPenalty + (w.blockBonus.base ?? 0);
     }
-    const finalSpeed = w.speed.base + w.speed.bonus + q.speed;
+    const weaponSpeed = w.speed.base + w.speed.bonus + q.speed;
+    if (item.system.equipped) {
+      allWeaponSpeed += weaponSpeed;
+    }
     let finalDamage = baseDamage + strMod + q.damage;
-    if (w.handling === "twoHanded" && w.strengthReq.twoHanded > 0) {
+    if (w.handling === "twoHanded" && w.strengthReq.twoHanded > 0 && w.weaponType != "projectile") {
       finalDamage = baseDamage + strMod * 2 + q.damage;
     }
 
+    let finalProjectileRange = 0;
     // Ranged weapons add damage from equipped ammo and don't apply quality bonus to damage.
     if (w.weaponType === "projectile" || w.weaponType === "throwing") {
       //Get equipped ammo if any
-
       let ammoStr = 0;
       for (const ammo of w.ammo) {
         // Get the list of ammo for this weapon and only return the ammo that is equipped.
@@ -65,8 +90,19 @@ export async function UpdateWeapon(actor) {
           ammoStr = toNum(item.system.damage);
         }
       }
-      finalDamage = baseDamage + strMod + ammoStr;
+      if (toNum(w.projectileWeaponStrength) > 0) {
+        // If projectile weapon has a listed strength, (crossbows, etc) use that instead of base strength.
+        finalProjectileRange =
+          toNum(w.projectileWeaponRange.base) +
+          lookupCharacteristicMod(toNum(w.projectileWeaponStrength));
+        finalDamage =
+          baseDamage + lookupCharacteristicMod(toNum(w.projectileWeaponStrength)) + ammoStr;
+      } else {
+        finalProjectileRange = toNum(w.projectileWeaponRange.base) + strMod;
+        finalDamage = baseDamage + strMod + ammoStr;
+      }
     }
+
     const finalpresence = w.presence.base + w.presence.bonus + q.presence;
     const finalbreakage =
       w.breakage.base + w.breakage.bonus + q.breakage + getBreakageBonus(strBase);
@@ -76,14 +112,18 @@ export async function UpdateWeapon(actor) {
       "system.attackBonus": atkBonusfinal,
       "system.blockBonus.final": blockBonusfinal,
       "system.dodgeBonus": w.dodgeBonus,
-      "system.speed.final": finalSpeed,
+      "system.speed.final": weaponSpeed,
       "system.damage.final": finalDamage,
       "system.presence.final": finalpresence,
       "system.breakage.final": finalbreakage,
       "system.fortitude.final": finalfortitude,
-      "system.armorReduction": q.armorReduction
+      "system.armorReduction": q.armorReduction,
+      "system.projectileWeaponRange.final": finalProjectileRange
     });
   }
+
+  // Update speed to include all weapons equipped speed.
+  return allWeaponSpeed;
 }
 
 export function quality(qualityValue) {

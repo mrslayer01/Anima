@@ -200,5 +200,6 @@ export function ItemListeners(sheet, html) {
 
     // 2. Delete the embedded ammo item from the actor
     await actor.deleteEmbeddedDocuments("Item", [ammoId]);
+    sheet.render(false);
   });
 }

@@ -1,6 +1,8 @@
 import { DEFAULT_ACTOR_DATA } from "../config/default-actor-data.js";
+import { calculateModifiers } from "../data/rules/global-modifiers.js";
 import { INIT_RULES, MOD_RULES, FINAL_RULES } from "../data/rules/rules.js";
 import { forceOrder } from "../ui/force-order.js";
+import { AddModifier } from "../utils/helpers.js";
 
 export class AbfActor extends Actor {
   prepareBaseData() {
@@ -35,32 +37,37 @@ export class AbfActor extends Actor {
   prepareDerivedData() {
     super.prepareDerivedData();
 
-    // Do not run rules until the actor has been initialized
     if (this._needsInit) return;
-    if (!this.system?.core) return; // still starting
+    if (!this.system?.core) return;
 
-    // Phase 1: initialize structures
-    for (const rule of INIT_RULES) rule.Derived(this.system);
-    // Phase 2: populate class-derived values
-    for (const rule of MOD_RULES) rule.Derived(this.system);
-    // Phase 3: recalc dependent rules
-    for (const rule of FINAL_RULES) rule.Derived(this.system);
-  }
+    const system = this.system;
 
-  async update(data, options = {}) {
-    const oldSystem = foundry.utils.duplicate(this.system);
+    // Phase 1
+    for (const rule of INIT_RULES) rule.Derived(system);
 
-    const itemDiff = this._pendingItemDiff || {};
-    delete this._pendingItemDiff;
+    // Phase 2
+    for (const rule of MOD_RULES) rule.Derived(system);
 
-    const combined = foundry.utils.mergeObject(duplicate(data), itemDiff);
+    // Phase 3 — Apply Active Effects
+    for (const effect of this.effects) {
+      const mods = effect.flags?.abf?.modifiers;
+      if (!mods) continue;
 
-    const result = await super.update(data, options);
+      for (const [modName, entry] of Object.entries(mods)) {
+        const target = system.globalModifiers[modName];
+        if (target) AddModifier(target, entry);
+      }
+    }
 
-    for (const rule of INIT_RULES) rule.Update(combined, oldSystem, this.system);
-    for (const rule of MOD_RULES) rule.Update(combined, oldSystem, this.system);
-    for (const rule of FINAL_RULES) rule.Update(combined, oldSystem, this.system);
+    // recompute totals after effects
+    calculateModifiers(system);
 
-    return result;
+    // Phase 4 — Final rules
+    for (const rule of FINAL_RULES) rule.Derived(system);
+
+    // Finalize
+    for (const mod of Object.values(system.globalModifiers)) {
+      mod.final = mod.base + mod.special + mod.armor;
+    }
   }
 }

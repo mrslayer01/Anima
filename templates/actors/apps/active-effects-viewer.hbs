@@ -1,0 +1,34 @@
+<div class="abf-effects-list">
+  {{#if effects.length}}
+    {{#each effects}}
+      <div class="effect-row flexrow">
+        <img src="{{this.icon}}" class="effect-icon" />
+
+        <div class="effect-info">
+          <div class="effect-name">
+            {{this.name}}
+          </div>
+
+          {{#if this.flags.abf.modifiers}}
+            <div class="effect-mods">
+              {{#each this.flags.abf.modifiers}}
+                <div class="mod-entry">
+                  <b>
+                    {{@key}}:
+                  </b>
+                  {{this.value}} ({{this.type}})
+                </div>
+              {{/each}}
+            </div>
+          {{/if}}
+        </div>
+
+        <a class="effect-remove" data-effect-id="{{this.id}}">
+          <i class="fas fa-trash"></i>
+        </a>
+      </div>
+    {{/each}}
+  {{else}}
+    <p>No active effects.</p>
+  {{/if}}
+</div>

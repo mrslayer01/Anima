@@ -24,10 +24,18 @@ export class ArmorRule extends BaseRule {
 
   Derived(system) {
     this.Initialize(system);
+    //Check if the advantage Natural Armor Exsists.
+    const hasNaturalArmor = system.advantages.some((adv) => adv.name === "Natural Armor");
     for (const type of DAMAGE_TYPES) {
       system.armor.total[type] = ARMOR_SECTIONS.reduce((sum, section) => {
         return sum + toNum(system.armor[section]?.[type]);
       }, 0);
+      if (hasNaturalArmor) {
+        //Gets +2 natural bonus to all types except energy
+        if (type != "ene") {
+          system.armor.total[type] += 2;
+        }
+      }
     }
   }
 
@@ -53,10 +61,18 @@ export class ArmorRule extends BaseRule {
   }
 
   RecalcUpdated(system, name) {
+    //Check if the advantage Natural Armor Exsists.
+    const hasNaturalArmor = system.advantages.some((adv) => adv.name === "Natural Armor");
     for (const type of DAMAGE_TYPES) {
       system.armor.total[type] = ARMOR_SECTIONS.reduce((sum, section) => {
         return sum + toNum(system.armor[section]?.[type]);
       }, 0);
+      if (hasNaturalArmor) {
+        //Gets +2 natural bonus to all types except energy
+        if (type != "ene") {
+          system.armor.total[type] += 2;
+        }
+      }
     }
   }
 

@@ -48,7 +48,11 @@ export class AbilitiesSecondaryRule extends BaseRule {
         const cls = toNum(abil.class);
         const special = toNum(abil.special);
         let naturalTotal = charFinal * toNum(abil.naturalBonuses);
-        const total = base + bonus + cls + special + naturalTotal;
+        let armorPenalty = 0;
+        if (abil.armorPenalty) {
+          armorPenalty = toNum(system.globalModifiers.Natural.final);
+        }
+        const total = base + bonus + cls + special + naturalTotal - armorPenalty;
 
         if (hasJackOfAllTrades) {
           abil.final = total + charFinal + 10;

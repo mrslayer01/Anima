@@ -18,6 +18,10 @@ export const DEFAULT_WEAPON_DATA = {
   breakage: { base: 0, bonus: 0, final: 0 },
   fortitude: { base: 0, bonus: 0, final: 0 },
   armorReduction: 0,
+  projectileWeaponStrength: 0,
+  projectileWeaponRange: { base: 0, bonus: 0, final: 0 },
+  rateOfFire: 0,
+  reload: 0,
 
   specialValue: 0,
 

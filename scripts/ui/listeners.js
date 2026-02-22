@@ -6,6 +6,7 @@ import { ItemListeners } from "./listeners/item-listeners.js";
 import { LanguageContactTitlesListeners } from "./listeners/lang-contact-titles-listeners.js";
 import { ModuelsListeners } from "./listeners/modules-listeners.js";
 import { RollListeners } from "./listeners/roll-listeners.js";
+import { ActiveEffectsViewer } from "./windows/active-effects-viewer.js";
 
 export function registerSheetListeners(sheet, html) {
   for (const key of sheet._expandedSecondaries) {
@@ -21,6 +22,12 @@ export function registerSheetListeners(sheet, html) {
     extra.removeClass("hidden");
     icon.removeClass("fa-plus-circle").addClass("fa-minus-circle");
   }
+
+  html.find(".open-effects").on("click", (ev) => {
+    ev.preventDefault();
+    const actor = sheet.actor;
+    new ActiveEffectsViewer(actor).render(true);
+  });
 
   html.find(".toggle-lock").off("click"); //before adding new listener, remove old to avoid duplicates
   html.find(".toggle-lock").on("click", (ev) => {

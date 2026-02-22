@@ -15,6 +15,24 @@ export function loadAllActorHandlerbarsHelpers() {
   Handlebars.registerHelper("ifEquals", function (a, b, options) {
     return a === b ? options.fn(this) : options.inverse(this);
   });
+  Handlebars.registerHelper("switch", function (value, options) {
+    this._switch_value_ = value;
+    this._switch_break_ = false;
+    return options.fn(this);
+  });
+
+  Handlebars.registerHelper("case", function (value, options) {
+    if (value === this._switch_value_ && !this._switch_break_) {
+      this._switch_break_ = true;
+      return options.fn(this);
+    }
+  });
+
+  Handlebars.registerHelper("default", function (options) {
+    if (!this._switch_break_) {
+      return options.fn(this);
+    }
+  });
   Handlebars.registerHelper("percent", function (current, max) {
     if (!max || max === 0) return 0;
     return Math.min(100, Math.floor((current / max) * 100));

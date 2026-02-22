@@ -172,12 +172,45 @@ export function RollListeners(sheet, html) {
 
   html.find(".attack-roll").off("click");
   html.find(".attack-roll").on("click", async (ev) => {
-    let attackValue = toNum(toNum(sheet.actor.system.abilities.primary.Combat.Attack.final));
-    const attackType = ev.currentTarget.dataset.type;
+    const equippedWeapon = sheet.actor.items.find((i) => i.type === "weapon" && i.system.equipped);
+    if (equippedWeapon === undefined) {
+      ui.notifications.error("No weapon equipped, unable to make the attack.");
+      return;
+    }
+
+    const w = equippedWeapon.system;
+
+    let attackValue = toNum(sheet.actor.system.abilities.primary.Combat.Attack.final);
+    let attackType = ev.currentTarget.dataset.type;
 
     attackValue += await promptAttackModifier();
 
-    let atValue = 0;
+    let armorPen = 0;
+
+    // ---------------------------------------------------------
+    // PROJECTILE WEAPON → REQUIRE EQUIPPED AMMO
+    // ---------------------------------------------------------
+    if (w.weaponType === "projectile") {
+      const ammoRefs = w.ammo ?? [];
+      let equippedAmmo = null;
+
+      for (const ref of ammoRefs) {
+        const ammoItem = sheet.actor.items.get(ref.id);
+        if (ammoItem?.system?.equipped) {
+          equippedAmmo = ammoItem;
+          break;
+        }
+      }
+
+      if (!equippedAmmo) {
+        ui.notifications.error("You cannot attack with a projectile weapon without equipped ammo.");
+        return; // STOP THE ATTACK
+      }
+
+      // Use the ammo’s AT
+      attackType = equippedAmmo.system.primaryAtkType;
+      armorPen = equippedAmmo.system.armorReduction ?? 0;
+    }
 
     const targets = Array.from(game.user.targets);
     const target = targets[0] ?? null;
@@ -197,7 +230,7 @@ export function RollListeners(sheet, html) {
           <label><b>Attack Modifier:</b></label>
           <input type="number" id="mod" value="0" style="width: 100%;" />
           <label><b>AT Value:</b></label>
-          <input type="number" id="at" value="0" style="width: 100%;" />
+          <input type="number" id="at" value="${armorPen}" style="width: 100%;" />
         </div>
       `,
         buttons: {
@@ -206,9 +239,13 @@ export function RollListeners(sheet, html) {
             callback: async (html) => {
               const defenseFinal = toNum(html.find("#defense").val());
               const modifier = toNum(html.find("#mod").val());
-              atValue = toNum(html.find("#at").val());
+              const manualAT = toNum(html.find("#at").val());
+
+              console.log(attackValue);
+
               const finalAttack = attackValue + modifier;
 
+              console.log(finalAttack);
               const defender = await animaOpenRollCapture({
                 value: defenseFinal,
                 label: "Defense (Manual)",
@@ -221,7 +258,10 @@ export function RollListeners(sheet, html) {
                 actor: sheet.actor
               });
 
-              setTimeout(() => postCombinedCombatCard(attacker, defender, atValue), 2500);
+              setTimeout(
+                () => postCombinedCombatCard(attacker, defender, manualAT, armorPen),
+                2500
+              );
             }
           }
         }
@@ -233,6 +273,11 @@ export function RollListeners(sheet, html) {
     // ---------------------------------------------------------
     const targetActor = target.actor;
     const { type, modifier } = await promptDefenseChoice(targetActor);
+    const blockMastery = targetActor.system.abilities.primary.Combat.Block.mastery;
+    const dodgeMastery = targetActor.system.abilities.primary.Combat.Dodge.mastery;
+    const equippedshield = targetActor.items.find(
+      (i) => i.type === "weapon" && i.system.weaponType === "shield" && i.system.equipped
+    );
 
     let defenseValue = 0;
 
@@ -242,9 +287,20 @@ export function RollListeners(sheet, html) {
       defenseValue = toNum(targetActor.system.abilities.primary.Combat.Dodge.final);
     }
 
-    defenseValue += modifier;
+    // If being attacked by a projectile or thrown weapon, apply penalties
+    let defensePenalty = DefensePenalty(
+      w.weaponType,
+      type,
+      blockMastery,
+      equippedshield,
+      dodgeMastery
+    );
 
-    atValue = targetActor.system.armor.total[attackType];
+    defenseValue += modifier + defensePenalty;
+
+    let defATValue = targetActor.system.armor.total[attackType] - armorPen;
+
+    if (defATValue < 0) defATValue = 0;
 
     const defender = await animaOpenRollCapture({
       value: defenseValue,
@@ -258,7 +314,7 @@ export function RollListeners(sheet, html) {
       actor: sheet.actor
     });
 
-    setTimeout(() => postCombinedCombatCard(attacker, defender, atValue), 2500);
+    setTimeout(() => postCombinedCombatCard(attacker, defender, defATValue, armorPen), 2500);
   });
 
   html.find(".damage-roll").off("click");
@@ -269,6 +325,45 @@ export function RollListeners(sheet, html) {
 
     postDamageCard({ dmg, pct });
   });
+}
+
+function DefensePenalty(weaponType, type, blockMastery, equippedshield, dodgeMastery) {
+  let penalty = 0;
+  if (weaponType === "projectile") {
+    if (type === "block") {
+      // If blocking check if has mastery or is wearing a shield.
+      if (blockMastery) {
+        if (!equippedshield) {
+          //If has mastery but no shield there is a -20 penalty.
+          penalty = -20;
+        }
+      } else {
+        //If no blocking mastery
+        if (!equippedshield) {
+          // No block master and not wearing a shield is a -80 penalty.
+          penalty = -80;
+        } else {
+          // No block mastery and wearing a shield is a -30 penalty
+          penalty = -30;
+        }
+      }
+    } else {
+      // If dodging check if has mastery.
+      if (!dodgeMastery) {
+        // If dodging and does not have mastery it's -30
+        penalty = -30;
+      }
+    }
+  } else if (weaponType === "throwing") {
+    // Throwing only applies a penalty if attempting to block without master or a shield.
+    if (type === "block") {
+      // If blocking check if has mastery or is wearing a shield.
+      if (!blockMastery && !equippedshield) {
+        penalty = -50;
+      }
+    }
+  }
+  return penalty;
 }
 
 async function animaOpenRollCapture(opts) {
@@ -334,7 +429,8 @@ async function promptDefenseChoice(targetActor) {
   });
 }
 
-function postCombinedCombatCard(attacker, defender, defenderAT) {
+function postCombinedCombatCard(attacker, defender, defenderAT, armorPen) {
+  if (attacker === undefined || defender === undefined) return; // Wehna fumble happens there is no defender.
   const margin = attacker.final - defender.final;
 
   const counterBonus = computeCounterattack(margin);
@@ -352,6 +448,7 @@ function postCombinedCombatCard(attacker, defender, defenderAT) {
 
     <h4>Attacker: ${attacker.actor.name}</h4>
     <b>Bonus:</b> ${attacker.bonus}<br>
+    ${armorPen > 0 ? `<b>Armor Pen:</b> ${armorPen}<br>` : ""}
     <b>Breakdown:</b><br>${attacker.rawRolls.join("<br>")}
     <br>
     <b>Final:</b> ${attacker.final}<br>

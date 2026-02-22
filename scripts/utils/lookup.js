@@ -77,7 +77,7 @@ const BREAKAGE_BY_STRENGTH = [
   { min: 15, max: Infinity, bonus: 8 }
 ];
 
-export const ARMOR_SECTIONS = ["breastplate", "shirt", "complete", "helm"];
+export const ARMOR_SECTIONS = ["breastplate", "shirt", "complete", "helm", "natural"];
 export const DAMAGE_TYPES = ["cut", "imp", "thr", "hea", "ele", "col", "ene"];
 export const SECONDARY_DAMAGE_TYPES = ["none", "cut", "imp", "thr", "hea", "ele", "col", "ene"];
 export const WEAPON_TYPES = [
