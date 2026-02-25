@@ -221,23 +221,25 @@
 
 .abf-character-sheet .header-top-dice img,
 .abf-item-sheet .header-top-dice img {
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   cursor: pointer;
   filter: drop-shadow(0 0 4px rgba(217, 181, 108, 0.4));
 }
 
 .abf-character-sheet .toggle-lock i,
-.abf-item-sheet .toggle-lock i {
+.abf-item-sheet .toggle-lock i,
+.abf-character-sheet .open-effects i {
   cursor: pointer;
   filter: drop-shadow(0 0 4px rgba(217, 181, 108, 0.4));
-  font-size: 30px;
+  font-size: 20px;
 }
 
 .abf-character-sheet .header-top-dice img:hover,
 .abf-item-sheet .header-top-dice img:hover,
 .abf-character-sheet .toggle-lock i:hover,
-.abf-item-sheet .toggle-lock i:hover {
+.abf-item-sheet .toggle-lock i:hover,
+.abf-character-sheet .open-effects i:hover {
   transform: scale(1.1);
   filter: drop-shadow(0 0 6px rgba(217, 181, 108, 0.7));
 }
@@ -619,12 +621,12 @@
    DICE ICONS (GLOBAL)
    ============================================ */
 
-.abf-character-sheet .dice-icon img {
+/* .abf-character-sheet .dice-icon img {
   width: 45px;
   height: 45px;
   filter: drop-shadow(0 0 4px rgba(217, 181, 108, 0.4));
   cursor: pointer;
-}
+} */
 
 /* ============================================
    WINDOW HEADER TWEAK
@@ -867,7 +869,8 @@
   margin: 0;
 }
 
-.module-header .add-module-weapon i {
+.module-header .add-module-weapon i,
+.open-effects i .toggle-lock i {
   color: white;
   padding: 4px;
 }

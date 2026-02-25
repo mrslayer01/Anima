@@ -5,7 +5,7 @@ export function createAdvantage(advInput) {
     effects = "",
     restriction = "",
     special = "",
-    cost = "",
+    cost = 0,
     description = "",
     journal = ""
   } = advInput;
@@ -31,7 +31,7 @@ export const ABF_ADVANTAGES = {
     restriction:
       "Strength, Dexterity, Agility, and Constitution cannot be increased to more than 11 through this Advantage. Intelligence, Power, Willpower, and Perception cannot be increased to more than 13 through this Advantage.",
     special: "You may take this Advantage as many times as you wish.",
-    cost: "1",
+    cost: 0,
     description: "One of the character's attributes is greater than before.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.UgeRpnAbbdvgZzYS"
@@ -44,7 +44,7 @@ export const ABF_ADVANTAGES = {
       "Adds +1 to Perception for Characteristic Checks and grants a +30 bonus to Notice and Search.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description: "The character’s senses are as sharp as those of an animal.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.4l792pocJEes65DG"
@@ -57,7 +57,7 @@ export const ABF_ADVANTAGES = {
       "The character possesses a mystical device of significant power. Its abilities are determined collaboratively with the Game Master.",
     restriction: "",
     special: "Additional points increase the artifact’s capabilities.",
-    cost: "1, 2, 3",
+    cost: 0,
     description: "A powerful and unique magical object accompanies the character.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.ryROWltDOM5xmfio"
@@ -70,7 +70,7 @@ export const ABF_ADVANTAGES = {
       "The character can use both hands equally well. In combat, he suffers only –10 to attacks made with an additional weapon.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description: "Both hands function with equal coordination and precision.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.E6Ryy95bVkp1H55j"
@@ -82,7 +82,7 @@ export const ABF_ADVANTAGES = {
     effects: "One Primary Characteristic is set to a value of 9, regardless of its original value.",
     restriction: "",
     special: "This Advantage may be taken multiple times.",
-    cost: "2",
+    cost: 0,
     description: "One of the character’s attributes is significantly enhanced.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.MaFHAx7KG9X2Wcjv"
@@ -94,7 +94,7 @@ export const ABF_ADVANTAGES = {
     effects: "Grants affinity to a single psychic discipline and access to its matrix powers.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description: "The character possesses limited psychic talent focused on a single discipline.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.I7wA2lEY3d9eRtTx"
@@ -107,7 +107,7 @@ export const ABF_ADVANTAGES = {
       "The character naturally receives positive reactions from strangers and may be treated more permissively.",
     restriction: "",
     special: "The exact limits are determined by the Game Master.",
-    cost: "1",
+    cost: 0,
     description: "A magnetic personality makes others instinctively like the character.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.7YFHZurYy0kZeG98"
@@ -120,7 +120,7 @@ export const ABF_ADVANTAGES = {
       "The character can make others uneasy at will, discouraging aggression or influencing intimidating individuals.",
     restriction: "",
     special: "The exact limits are determined by the Game Master.",
-    cost: "1",
+    cost: 0,
     description: "A subtle aura of menace unsettles those nearby.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.8GMoqJhd4I6KGTmc"
@@ -133,7 +133,7 @@ export const ABF_ADVANTAGES = {
       "The character gains positive reactions from animals and can communicate basic intentions with them.",
     restriction: "",
     special: "Trained attack animals may still attack, but usually after warning the character.",
-    cost: "1",
+    cost: 0,
     description: "A natural bond with animals allows limited communication and trust.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.FHYiqZ3GFHxwjD3T"
@@ -146,7 +146,7 @@ export const ABF_ADVANTAGES = {
       "The character cannot be taken by surprise unless the attacker’s Initiative exceeds his by 150 or more.",
     restriction: "",
     special: "",
-    cost: "2",
+    cost: 0,
     description: "A sixth sense alerts the character to imminent danger.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.yLg2vHtmzIVuZAB0"
@@ -159,7 +159,7 @@ export const ABF_ADVANTAGES = {
       "The character begins with 50, 100, or 150 additional Experience Points, depending on points spent.",
     restriction: "",
     special: "",
-    cost: "1, 2, 3",
+    cost: 0,
     description: "Past experiences have taught the character valuable lessons.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.v24rx76txKSn42iA"
@@ -171,7 +171,7 @@ export const ABF_ADVANTAGES = {
     effects: "Reduces the Development Cost of a single Secondary Ability by 1 per point spent.",
     restriction: "Development Costs cannot be reduced below 1.",
     special: "",
-    cost: "1, 2",
+    cost: 0,
     description: "The character excels naturally in one specific Secondary Ability.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.P8vxEabfG9gt03JB"
@@ -184,7 +184,7 @@ export const ABF_ADVANTAGES = {
       "The character can use one Psychic Ability instinctively once per minute without rolling. Additional points increase the difficulty tier.",
     restriction: "",
     special: "",
-    cost: "1, 2, 3",
+    cost: 0,
     description: "A latent psychic talent manifests without conscious control.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.ueRaEAO8m9wUkEkT"
@@ -196,7 +196,7 @@ export const ABF_ADVANTAGES = {
     effects: "Reduces the Development Cost of an entire field of Secondary Abilities by 1.",
     restriction: "Development Costs cannot be reduced below 1.",
     special: "",
-    cost: "2",
+    cost: 0,
     description: "The character learns an entire category of abilities with exceptional ease.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.iIV5swnbFVVDBYSL"
@@ -209,7 +209,7 @@ export const ABF_ADVANTAGES = {
       "Allows the player to roll one additional die during Characteristic generation and replace one previous result.",
     restriction: "Not compatible with the fourth method of generating Characteristics.",
     special: "This Advantage may be taken multiple times.",
-    cost: "1",
+    cost: 0,
     description: "The character’s natural attributes benefit from a second chance.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.AnjL0XtvRwu4X4lB"
@@ -222,7 +222,7 @@ export const ABF_ADVANTAGES = {
       "Adds 40, 80, or 120 points to the character’s Martial Knowledge, depending on points spent.",
     restriction: "",
     special: "",
-    cost: "1, 2, 3",
+    cost: 0,
     description: "Exceptional training or innate talent grants superior Martial Knowledge.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.MUbExbetWy2RmvPZ"
@@ -234,7 +234,7 @@ export const ABF_ADVANTAGES = {
     effects: "Reduces the fumble range by 1. With mastery, the character fumbles only on a 1.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description: "Fortune favors the character in all endeavors.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.QZDKfaKgQrorLfgF"
@@ -247,7 +247,7 @@ export const ABF_ADVANTAGES = {
       "The character recovers 1 Ki every 10 minutes. Additional points reduce the interval to 5 minutes and 1 minute.",
     restriction: "",
     special: "",
-    cost: "1, 2, 3",
+    cost: 0,
     description: "Spiritual energy replenishes far faster than normal.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.NbFr733m5kVCJXjj"
@@ -260,7 +260,7 @@ export const ABF_ADVANTAGES = {
       "The character never suffers the –30 penalty for untrained Secondary Abilities and gains +10 to all of them.",
     restriction: "",
     special: "",
-    cost: "2",
+    cost: 0,
     description: "A broad base of knowledge allows competence in any situation.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.tne2opm4c30g8VcT"
@@ -273,7 +273,7 @@ export const ABF_ADVANTAGES = {
       "Grants natural armor 2 against all attacks except energy-based ones, without applying armor penalties.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description: "The character’s body is exceptionally tough and resistant.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.iRpi0zFnJwQpo05Q"
@@ -286,7 +286,7 @@ export const ABF_ADVANTAGES = {
       "Grants natural armor 4 against energy-based attacks, without applying armor penalties.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description: "A protective aura shields the character from supernatural harm.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.bZrbLpqCEhHLuOZW"
@@ -298,7 +298,7 @@ export const ABF_ADVANTAGES = {
     effects: "Adds +3 Fatigue. Additional points increase this to +6 and +9.",
     restriction: "",
     special: "",
-    cost: "1, 2, 3",
+    cost: 0,
     description: "The character possesses exceptional endurance and stamina.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.kQ0byssV12oLpL6b"
@@ -310,7 +310,7 @@ export const ABF_ADVANTAGES = {
     effects: "Allows the character to increase or decrease Size by up to 5 points during creation.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description: "The character’s physical proportions differ significantly from the norm.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.imB9lpa7279H0N7f"
@@ -324,7 +324,7 @@ export const ABF_ADVANTAGES = {
     restriction:
       "The Game Master may prefer to give a different amount of money tailored to his game. In this case, both the GM and the player should decide the amount.",
     special: "",
-    cost: "1, 2, 3",
+    cost: 0,
     description: "The character has a great fortune in materials and equipment.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.XV3By8c7d88bNhfv"
@@ -337,7 +337,7 @@ export const ABF_ADVANTAGES = {
       "This Advantage increases the character’s Regeneration by two levels. Spending additional points increases Regeneration by four and six levels, respectively.",
     restriction: "",
     special: "",
-    cost: "1, 2, 3",
+    cost: 0,
     description: "Wounds suffered by the character heal easily.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.IdbCsGGl4QSguuwc"
@@ -350,7 +350,7 @@ export const ABF_ADVANTAGES = {
       "The character has Elan 25 for the entity he chooses. Spending additional points increases the level to 45 and 60, respectively.",
     restriction: "",
     special: "",
-    cost: "1, 2, 3",
+    cost: 0,
     description:
       "A character with this Advantage has attracted the attention of a Shajad or a Beryl.",
     journal:
@@ -363,7 +363,7 @@ export const ABF_ADVANTAGES = {
     effects: "Penalties caused by pain and Fatigue are reduced by half.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description: "The character is especially resistant to the effects of pain and fatigue.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.mD9PyyafX7g73TZy"
@@ -375,7 +375,7 @@ export const ABF_ADVANTAGES = {
     effects: "The character can see and use magic. He also adds a special bonus of +10 to his MR.",
     restriction: "",
     special: "",
-    cost: "2",
+    cost: 0,
     description:
       "The character can feel and control supernatural energies inherent within his own soul.",
     journal:
@@ -389,7 +389,7 @@ export const ABF_ADVANTAGES = {
       "The character sees supernatural things—including magic and psychic matrices—as spiritual creatures.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description: "The character can perceive the Soul Flow and the energy of psychic matrices.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.rwtuqeTeFJFEJnaK"
@@ -402,7 +402,7 @@ export const ABF_ADVANTAGES = {
       "The character may ignore any penalty caused by the dark—except magically induced dark or absolute lack of light.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description:
       "The character can see in the dark and adapt quickly to changes in light intensity.",
     journal:
@@ -415,7 +415,7 @@ export const ABF_ADVANTAGES = {
       "The character will never suffer the negative effects of a trap or attack determined solely by chance.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description: "A fortunate character enjoys true luck and often escapes difficult situations.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.LKTvx42MRNNtLKri"
@@ -428,7 +428,7 @@ export const ABF_ADVANTAGES = {
       "This Advantage enables the character to use as many psychic disciplines as he wishes using his Psychic Points.",
     restriction: "",
     special: "",
-    cost: "2",
+    cost: 0,
     description: "The character may use any type of psychic discipline and its abilities.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.5YtoqLd30EhAndSK"
@@ -441,7 +441,7 @@ export const ABF_ADVANTAGES = {
       "Grants a special bonus of +25 to a character’s Initiative score. Spending additional Creation Points increases the bonus to +45 and +60, respectively.",
     restriction: "",
     special: "",
-    cost: "1, 2, 3",
+    cost: 0,
     description:
       "The character has exceptional reflexes that allow him to respond quickly to any situation.",
     journal:
@@ -455,7 +455,7 @@ export const ABF_ADVANTAGES = {
       "The character gains an additional 3 Experience Points when the Game Master grants points at the end of each game session. Spending additional Creation Points increases the benefit to 6 and 9 points, respectively.",
     restriction: "",
     special: "",
-    cost: "1, 2, 3",
+    cost: 0,
     description: "The character possesses an enormous capacity to learn and develop his potential.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.v2RBOTVodq4CkyiX"
@@ -468,7 +468,7 @@ export const ABF_ADVANTAGES = {
       "Grants a special modifier of +10 per level in a single Secondary Ability. Spending additional points increases the bonus to +20 and +30, respectively.",
     restriction: "",
     special: "",
-    cost: "1, 2, 3",
+    cost: 0,
     description: "The character naturally improves in a specific Secondary Ability.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.97sqnOIivuB6klZE"
@@ -495,7 +495,7 @@ export const ABF_ADVANTAGES = {
       "Adds a special bonus of +25 to Magic Resistance (MR). Spending a second Creation Point increases the bonus to +50.",
     restriction: "",
     special: "",
-    cost: "1, 2",
+    cost: 0,
     description: "The character possesses heightened resistance to magical attacks and effects.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.PlhTo5UYOm1SR4h4"
@@ -508,7 +508,7 @@ export const ABF_ADVANTAGES = {
       "Adds a special bonus of +25 to Physical Resistance (PhR), Venom Resistance (VR), and Disease Resistance (DR). Spending a second Creation Point increases the bonus to +50.",
     restriction: "",
     special: "",
-    cost: "1, 2",
+    cost: 0,
     description:
       "The character possesses heightened resistance to physical attacks, poisons, and diseases.",
     journal:
@@ -522,7 +522,7 @@ export const ABF_ADVANTAGES = {
       "Adds a special bonus of +25 to Psychic Resistance (PsR). Spending a second Creation Point increases the bonus to +50.",
     restriction: "",
     special: "",
-    cost: "1, 2",
+    cost: 0,
     description:
       "The character possesses strong mental barriers that protect him from psychic attacks.",
     journal:
@@ -535,7 +535,7 @@ export const ABF_ADVANTAGES = {
     effects: "The character applies a penalty of only –20 to his Notice ability while sleeping.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description: "The character remains partially conscious while sleeping and wakes easily.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.9OzPcoZ4M5mS659n"
@@ -548,7 +548,7 @@ export const ABF_ADVANTAGES = {
       "The character has a special bonus of +20 to his MA and to his MR in the magical path that he chooses. When he uses spells of the opposed path, he has a penalty of –20 to his MA and to his MR. If the chosen path is Necromancy, apply the penalty to all other paths.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description:
       "The character is naturally compatible with the powers of a specific magical path and weaker in its opposite.",
     journal:
@@ -562,7 +562,7 @@ export const ABF_ADVANTAGES = {
       "This Advantage grants innate knowledge of a Path at level 40 without investing Magic Level points. As it is innate knowledge, the wizard can continue to develop it beyond level 40 by spending new Magic Level points.",
     restriction: "",
     special: "This Advantage can be acquired again for different Paths.",
-    cost: "1",
+    cost: 0,
     description:
       "The character can cast certain spells naturally, without study, as if the Path responds instinctively to him.",
     journal:
@@ -576,7 +576,7 @@ export const ABF_ADVANTAGES = {
       "The character applies a bonus of +50 to his roll to calculate the result of a Collision against another beam.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description:
       "The character’s attack spells are stronger when clashing against another Supernatural Beam.",
     journal:
@@ -590,7 +590,7 @@ export const ABF_ADVANTAGES = {
       "A player can add 3 points to his character’s Intelligence to determine the maximum potential of the spell. This bonus is not applied to any other ability—not even to calculate the character’s level of magic.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description:
       "The character can achieve levels of spell power far beyond what his Intelligence would normally allow.",
     journal:
@@ -604,7 +604,7 @@ export const ABF_ADVANTAGES = {
       "The wizard has a special bonus of +20 to his MA and his MR in the five magical Paths of a segment of the Tree. In the rest, he has a penalty of –20 to his MA and his MR.",
     restriction: "Necromancy is not included in this Advantage.",
     special: "",
-    cost: "2",
+    cost: 0,
     description:
       "The character is naturally compatible with the magic of half of the Mystical Tree.",
     journal:
@@ -618,7 +618,7 @@ export const ABF_ADVANTAGES = {
       "The innate spells of the wizard add +10 to their potential as indicated by their MA. Additional Creation Points increase the value to +20 and +30, respectively.",
     restriction: "",
     special: "",
-    cost: "1, 2, 3",
+    cost: 0,
     description: "The character can execute his innate spells with greater potential than normal.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.yWsswGSqFIk9KYu5"
@@ -630,7 +630,7 @@ export const ABF_ADVANTAGES = {
     effects: "The character can cast spells in complete silence without reducing his MA.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description: "The character does not need to speak to control the powers of the Soul Flow.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.JiPhv9aS6Cjdepr3"
@@ -642,7 +642,7 @@ export const ABF_ADVANTAGES = {
     effects: "The character does not reduce his MA if unable to gesture.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description: "The character does not need to make physical gestures to use his magic.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.tOGOpPcxaanUhMXI"
@@ -654,7 +654,7 @@ export const ABF_ADVANTAGES = {
       "The character recovers his Zeon at twice his normal Zeonic regeneration rate. Spending additional Creation Points will triple or quadruple the normal rate.",
     restriction: "",
     special: "",
-    cost: "1, 2, 3",
+    cost: 0,
     description:
       "The character’s essence draws in magic more efficiently, regenerating power at an accelerated rate.",
     journal:
@@ -668,7 +668,7 @@ export const ABF_ADVANTAGES = {
       "Any powers maintained in this way are one difficulty level higher than what the psychic could normally attain.",
     restriction: "",
     special: "",
-    cost: "2",
+    cost: 0,
     description: "The character can maintain his psychic powers with greater force.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.RgSRV1Jj6WkVDKjw"
@@ -681,7 +681,7 @@ export const ABF_ADVANTAGES = {
       "The character’s recovery rate for Psychic Points is 1 point every 10 minutes. Spending additional Creation Points increases the rate to 1 point every five minutes or every minute, respectively.",
     restriction: "",
     special: "",
-    cost: "1, 2, 3",
+    cost: 0,
     description: "The character can easily recover from using his abilities.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.ObMrhkKhv5uw3hCO"
@@ -694,7 +694,7 @@ export const ABF_ADVANTAGES = {
       "If a character fails in the use of one of his powers, he does not lose Fatigue when he has used up his available PP. Third level powers are not affected by this Advantage.",
     restriction: "",
     special: "",
-    cost: "2",
+    cost: 0,
     description: "The character never experiences exhaustion when using his psychic powers.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.9UMleJ0jEh44wqcR"
@@ -706,7 +706,7 @@ export const ABF_ADVANTAGES = {
     effects: "The psychic can concentrate to harness a power even while executing active actions.",
     restriction: "",
     special: "",
-    cost: "2",
+    cost: 0,
     description:
       "The character can concentrate in any situation, regardless of difficulty or complications.",
     journal:
@@ -720,7 +720,7 @@ export const ABF_ADVANTAGES = {
       "The character automatically gains one level of difficulty greater than normal when using the powers of a specific discipline.",
     restriction: "",
     special: "",
-    cost: "2",
+    cost: 0,
     description: "The character has developed one of his Psychic Disciplines more than the rest.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.zqDfYYsplL65Grob"
@@ -733,7 +733,7 @@ export const ABF_ADVANTAGES = {
       "Psychic Points spent to improve Psychic Projection increase the ability by +20 instead of +10.",
     restriction: "",
     special: "",
-    cost: "1",
+    cost: 0,
     description:
       "The character can harness his ability more than normal and focus his powers on a particular objective.",
     journal:
@@ -747,7 +747,7 @@ export const ABF_ADVANTAGES = {
       "The psychic doubles the bonus he normally gains from concentration. For example, if he concentrates for a full round, he gains +20 instead of +10.",
     restriction: "",
     special: "",
-    cost: "2",
+    cost: 0,
     description:
       "The character can concentrate far more intensely than most psychics, gaining greater benefits from his abilities.",
     journal:

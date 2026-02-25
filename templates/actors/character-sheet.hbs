@@ -9,12 +9,12 @@
 
     <!-- Dice Icons -->
     <div class="header-top-dice">
-      <div class="dice-icon" data-action="roll-10">
+      {{!-- <div class="dice-icon" data-action="roll-10">
         <img src="systems/abf-system/images/d10.svg" alt="d10" />
       </div>
       <div class="dice-icon" data-action="roll-100">
         <img src="systems/abf-system/images/d100.svg" alt="d100" />
-      </div>
+      </div> --}}
       <div class="toggle-lock" data-tooltip="Click to lock all base fields.">
         {{#if actor.system.lockUi}}
           <i class="fas fa-lock"></i>
@@ -23,9 +23,9 @@
         {{/if}}
       </div>
       <div class="dice-icon">
-        <button type="button" class="open-effects clickable">
-          <i class="fas fa-bolt"></i> Effects
-        </button>
+          <a class="open-effects clickable" data-tooltip="Effects">
+            <i class="fas fa-bolt"></i>
+          </a>
       </div>
     </div>
   </div>
