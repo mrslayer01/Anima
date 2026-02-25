@@ -2,9 +2,12 @@
   <h2>
     Modules
   </h2>
-  <a class="add-module-weapon" data-module="{{system.modules}}" data-tooltip="Add Module">
-    <i class="fas fa-plus-circle"></i>
-  </a>
+  {{#if @root.actor.system.lockUi}}
+  {{else}}
+    <a class="add-module-weapon" data-module="{{system.modules}}" data-tooltip="Add Module">
+      <i class="fas fa-plus-circle"></i>
+    </a>
+  {{/if}}
 </section>
 
 <div class="modules-grid">
@@ -28,10 +31,13 @@
           >
             {{mod.name}} Cost: {{mod.cost}}
           </span>
-
-          <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
-            <i class="fas fa-trash"></i>
-          </a>
+          {{#if @root.actor.system.lockUi}}
+            <td></td>
+          {{else}}
+            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
+              <i class="fas fa-trash"></i>
+            </a>
+          {{/if}}
         </li>
       {{/each}}
     </ul>
@@ -56,10 +62,13 @@
           >
             {{mod.name}} Cost: {{mod.cost}}
           </span>
-
-          <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
-            <i class="fas fa-trash"></i>
-          </a>
+          {{#if @root.actor.system.lockUi}}
+            <td></td>
+          {{else}}
+            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
+              <i class="fas fa-trash"></i>
+            </a>
+          {{/if}}
         </li>
       {{/each}}
     </ul>
@@ -84,10 +93,13 @@
           >
             {{mod.name}} Cost: {{mod.cost}}
           </span>
-
-          <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
-            <i class="fas fa-trash"></i>
-          </a>
+          {{#if @root.actor.system.lockUi}}
+            <td></td>
+          {{else}}
+            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
+              <i class="fas fa-trash"></i>
+            </a>
+          {{/if}}
         </li>
       {{/each}}
     </ul>
@@ -112,10 +124,13 @@
           >
             {{mod.name}} Cost: {{mod.cost}}
           </span>
-
-          <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
-            <i class="fas fa-trash"></i>
-          </a>
+          {{#if @root.actor.system.lockUi}}
+            <td></td>
+          {{else}}
+            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
+              <i class="fas fa-trash"></i>
+            </a>
+          {{/if}}
         </li>
       {{/each}}
     </ul>

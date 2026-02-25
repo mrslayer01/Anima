@@ -5,11 +5,15 @@
     <tr>
       <th>Class</th>
       <th>Level</th>
-      <th class="class-actions-header">
-        <a class="add-class" data-tooltip="Add Class">
-          <i class="fas fa-plus-circle"></i>
-        </a>
-      </th>
+      {{#if @root.actor.system.lockUi}}
+        <th></th>
+      {{else}}
+        <th class="class-actions-header">
+          <a class="add-class" data-tooltip="Add Class">
+            <i class="fas fa-plus-circle"></i>
+          </a>
+        </th>
+      {{/if}}
     </tr>
   </thead>
 
@@ -27,15 +31,16 @@
             data-index="{{idx}}"
             value="{{cls.level}}"
             min="1"
-            {{#if actor.system.lockUi}}disabled{{/if}}
+            {{#if @root.actor.system.lockUi}}disabled{{/if}}
           />
         </td>
-
+        {{#if @root.actor.system.lockUi}}<td></td>{{else}}
         <td>
           <a class="delete-class" data-index="{{idx}}" data-tooltip="Delete Class">
             <i class="fas fa-trash"></i>
           </a>
         </td>
+        {{/if}}
       </tr>
     {{/each}}
   </tbody>

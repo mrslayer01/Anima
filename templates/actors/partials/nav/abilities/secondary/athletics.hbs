@@ -46,7 +46,7 @@
               data-tooltip="
               <div><strong>Knowledge:</strong> {{ability.knowledge}}</div>
               <div><strong>DP Cost:</strong> {{ability.cost}}</div>"
-              {{#if actor.system.lockUi}}disabled{{/if}}
+              {{#if @root.actor.system.lockUi}}disabled{{/if}}
             />
           </td>
           <td>
@@ -55,7 +55,7 @@
               type="number"
               value="{{ability.bonus}}"
               name="system.abilities.secondary.Athletics.{{key}}.bonus"
-              {{#if actor.system.lockUi}}disabled{{/if}}
+              {{#if @root.actor.system.lockUi}}disabled{{/if}}
             />
           </td>
           <td>
@@ -107,7 +107,7 @@
                         type="number"
                         value="{{ability.naturalBonuses}}"
                         name="system.abilities.secondary.Athletics.{{key}}.naturalBonuses"
-                        {{#if actor.system.lockUi}}disabled{{/if}}
+                        {{#if @root.actor.system.lockUi}}disabled{{/if}}
                       />
                     </td>
                   </tr>

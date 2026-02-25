@@ -7,11 +7,15 @@
       <th>
         Name
       </th>
-      <th class="class-actions-header">
-        <a class="add-titles" data-tooltip="Add Title">
-          <i class="fas fa-plus-circle"></i>
-        </a>
-      </th>
+      {{#if @root.actor.system.lockUi}}
+        <th></th>
+      {{else}}
+        <th class="class-actions-header">
+          <a class="add-titles" data-tooltip="Add Title">
+            <i class="fas fa-plus-circle"></i>
+          </a>
+        </th>
+      {{/if}}
     </tr>
   </thead>
 
@@ -26,11 +30,15 @@
             value="{{title.name}}"
           />
         </td>
-        <td>
-          <a class="delete-titles" data-index="{{idx}}" data-tooltip="Delete Titles">
-            <i class="fas fa-trash"></i>
-          </a>
-        </td>
+        {{#if @root.actor.system.lockUi}}
+          <td></td>
+        {{else}}
+          <td>
+            <a class="delete-titles" data-index="{{idx}}" data-tooltip="Delete Titles">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        {{/if}}
       </tr>
     {{/each}}
   </tbody>

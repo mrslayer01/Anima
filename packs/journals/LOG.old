@@ -1,1 +1,5 @@
-2026/02/23-08:01:55.080 d304 Delete type=3 #1
+2026/02/25-06:49:16.561 8a00 Log #172: 0 ops saved to Table #173 OK
+2026/02/25-06:49:16.561 8a00 Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\journals/000172.log: OK
+2026/02/25-06:49:16.565 8a00 Table #148: 249 entries OK
+2026/02/25-06:49:16.566 8a00 Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\journals/MANIFEST-000160: OK
+2026/02/25-06:49:16.569 8a00 **** Repaired leveldb C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\journals; recovered 1 files; 170849 bytes. Some data may have been lost. ****

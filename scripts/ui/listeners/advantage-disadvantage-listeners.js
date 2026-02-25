@@ -2,6 +2,8 @@ import { ABF_ADVANTAGES } from "../../config/advantages.js";
 import { ABF_DISADVANTAGES } from "../../config/disadvantages.js";
 import { normalizeName, openJournalFromUUID } from "../../utils/helpers.js";
 import { toNum } from "../../utils/numbers.js";
+import { AddADisadvantageWindow } from "../windows/add-disadvantage.js";
+import { AddAdvantageWindow } from "../windows/add-advantage.js";
 
 export function AdvantageDisadvantageListeners(sheet, html) {
   Advanatges(sheet, html);
@@ -11,78 +13,7 @@ export function AdvantageDisadvantageListeners(sheet, html) {
 function Advanatges(sheet, html) {
   html.find(".add-advantage").off("click"); //before adding new listener, remove old to avoid duplicates
   html.find(".add-advantage").on("click", () => {
-    const advOptions = Object.keys(ABF_ADVANTAGES).sort();
-
-    new Dialog({
-      title: "Add Advantage",
-      content: `
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-  
-          <label><b>Select Advantage:</b></label>
-  
-          <div style="display: flex; gap: 6px; align-items: center;">
-  
-            <!-- Shrunk info button -->
-            <button type="button" id="adv-info"
-              style="
-                background: none;
-                border: none;
-                cursor: pointer;
-                padding: 0;
-                width: 18px;
-                height: 18px;
-                flex: 0 0 18px; /* prevents stretching */
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              ">
-              <i class="fas fa-question-circle" style="color: black; font-size: 0.9rem;"></i>
-            </button>
-  
-            <select id="adv-select" style="flex: 1;">
-              ${advOptions
-                .map((cls) => `<option value="${cls}">${normalizeName(cls)}</option>`)
-                .join("")}
-            </select>
-          </div>
-        </div>
-  
-      `,
-      buttons: {
-        add: {
-          label: "Add",
-          callback: async (html) => {
-            const selected = html.find("#adv-select").val();
-            const advData = ABF_ADVANTAGES[selected];
-
-            if (!advData) {
-              return ui.notifications.error("Advantage data missing.");
-            }
-
-            const actor = sheet.actor;
-            const advantages = foundry.utils.duplicate(actor.system.advantages ?? []);
-
-            advantages.push(advData);
-
-            await actor.update({ "system.advantages": advantages });
-          }
-        }
-      },
-      render: (html) => {
-        // Info button click handler
-        html.find("#adv-info").on("click", () => {
-          const selected = html.find("#adv-select").val();
-          const advData = ABF_ADVANTAGES[selected];
-
-          if (!advData?.journal) {
-            return ui.notifications.warn("No journal entry linked for this class.");
-          }
-
-          openJournalFromUUID(advData.journal);
-        });
-      },
-      default: "Add"
-    }).render(true);
+    new AddAdvantageWindow({ actorId: sheet.actor.id }).render(true);
   });
 
   html.find(".delete-advantage").off("click"); //before adding new listener, remove old to avoid duplicates
@@ -132,78 +63,7 @@ function Advanatges(sheet, html) {
 function Disadvantages(sheet, html) {
   html.find(".add-disadvantage").off("click"); //before adding new listener, remove old to avoid duplicates
   html.find(".add-disadvantage").on("click", () => {
-    const advOptions = Object.keys(ABF_DISADVANTAGES).sort();
-
-    new Dialog({
-      title: "Add Disadvantage",
-      content: `
-        <div style="display: flex; flex-direction: column; gap: 8px;">
-  
-          <label><b>Select Disadvantage:</b></label>
-  
-          <div style="display: flex; gap: 6px; align-items: center;">
-  
-            <!-- Shrunk info button -->
-            <button type="button" id="adv-info"
-              style="
-                background: none;
-                border: none;
-                cursor: pointer;
-                padding: 0;
-                width: 18px;
-                height: 18px;
-                flex: 0 0 18px; /* prevents stretching */
-                display: flex;
-                align-items: center;
-                justify-content: center;
-              ">
-              <i class="fas fa-question-circle" style="color: black; font-size: 0.9rem;"></i>
-            </button>
-  
-            <select id="adv-select" style="flex: 1;">
-              ${advOptions
-                .map((cls) => `<option value="${cls}">${normalizeName(cls)}</option>`)
-                .join("")}
-            </select>
-          </div>
-        </div>
-  
-      `,
-      buttons: {
-        add: {
-          label: "Add",
-          callback: async (html) => {
-            const selected = html.find("#adv-select").val();
-            const advData = ABF_DISADVANTAGES[selected];
-
-            if (!advData) {
-              return ui.notifications.error("Disadvantage data missing.");
-            }
-
-            const actor = sheet.actor;
-            const disadvantages = foundry.utils.duplicate(actor.system.disadvantages ?? []);
-
-            disadvantages.push(advData);
-
-            await actor.update({ "system.disadvantages": disadvantages });
-          }
-        }
-      },
-      render: (html) => {
-        // Info button click handler
-        html.find("#adv-info").on("click", () => {
-          const selected = html.find("#adv-select").val();
-          const advData = ABF_DISADVANTAGES[selected];
-
-          if (!advData?.journal) {
-            return ui.notifications.warn("No journal entry linked for this class.");
-          }
-
-          openJournalFromUUID(advData.journal);
-        });
-      },
-      default: "Add"
-    }).render(true);
+    new AddADisadvantageWindow({ actorId: sheet.actor.id }).render(true);
   });
 
   html.find(".delete-disadvantage").off("click"); //before adding new listener, remove old to avoid duplicates

@@ -41,7 +41,7 @@
               type="number"
               value="{{ability.base}}"
               name="system.abilities.primary.Supernatural.{{key}}.base"
-              {{#if actor.system.lockUi}}disabled{{/if}}
+              {{#if @root.actor.system.lockUi}}disabled{{/if}}
               data-tooltip="
               <div><strong>DP Cost:</strong> {{ability.cost}}</div>
             "
@@ -53,7 +53,7 @@
               type="number"
               value="{{ability.bonus}}"
               name="system.abilities.primary.Supernatural.{{key}}.bonus"
-              {{#if actor.system.lockUi}}disabled{{/if}}
+              {{#if @root.actor.system.lockUi}}disabled{{/if}}
             />
           </td>
           <td>

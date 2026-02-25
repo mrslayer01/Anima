@@ -5,7 +5,6 @@ export class MovementRule extends BaseRule {
   Initialize(system) {
     //Init final, movePerTurn
     if (system.movement.final === undefined) system.movement.final = 0;
-    if (system.movement.armorPenalty === undefined) system.movement.armorPenalty = 0;
     if (system.movement.movePerTurn === undefined) system.movement.movePerTurn = "";
   }
 

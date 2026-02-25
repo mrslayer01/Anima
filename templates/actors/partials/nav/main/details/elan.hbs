@@ -19,11 +19,15 @@
       <th>
         Final
       </th>
-      <th class="class-actions-header">
-        <a class="add-elan" data-tooltip="Add Elan">
-          <i class="fas fa-plus-circle"></i>
-        </a>
-      </th>
+      {{#if @root.actor.system.lockUi}}
+        <th></th>
+      {{else}}
+        <th class="class-actions-header">
+          <a class="add-elan" data-tooltip="Add Elan">
+            <i class="fas fa-plus-circle"></i>
+          </a>
+        </th>
+      {{/if}}
     </tr>
   </thead>
 
@@ -46,6 +50,7 @@
             data-index="{{idx}}"
             value="{{elan.elan.current}}"
             min="1"
+            {{#if @root.actor.system.lockUi}}disabled{{/if}}
           />
         </td>
 
@@ -55,6 +60,7 @@
             type="number"
             data-index="{{idx}}"
             value="{{elan.elan.bonus}}"
+            {{#if @root.actor.system.lockUi}}disabled{{/if}}
           />
         </td>
 
@@ -66,11 +72,13 @@
           {{elan.elan.final}}
         </td>
 
+        {{#if @root.actor.system.lockUi}}<td></td>{{else}}
         <td>
           <a class="delete-elan" data-index="{{idx}}" data-tooltip="Delete Elans">
             <i class="fas fa-trash"></i>
           </a>
         </td>
+        {{/if}}
       </tr>
     {{/each}}
   </tbody>

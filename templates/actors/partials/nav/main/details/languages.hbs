@@ -1,14 +1,24 @@
-<h3>languages</h3>
+<h3>
+  languages
+</h3>
 <table class="classes-table">
   <thead>
     <tr>
-      <th>Name</th>
-      <th>Level</th>
-      <th class="class-actions-header">
-        <a class="add-language" data-tooltip="Add Language">
-          <i class="fas fa-plus-circle"></i>
-        </a>
+      <th>
+        Name
       </th>
+      <th>
+        Level
+      </th>
+      {{#if @root.actor.system.lockUi}}
+        <th></th>
+      {{else}}
+        <th class="class-actions-header">
+          <a class="add-language" data-tooltip="Add Language">
+            <i class="fas fa-plus-circle"></i>
+          </a>
+        </th>
+      {{/if}}
     </tr>
   </thead>
 
@@ -33,11 +43,15 @@
             min="0"
           />
         </td>
-        <td>
-          <a class="delete-languages" data-index="{{idx}}" data-tooltip="Delete Languages">
-            <i class="fas fa-trash"></i>
-          </a>
-        </td>
+        {{#if @root.actor.system.lockUi}}
+          <td></td>
+        {{else}}
+          <td>
+            <a class="delete-languages" data-index="{{idx}}" data-tooltip="Delete Languages">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        {{/if}}
       </tr>
     {{/each}}
   </tbody>
