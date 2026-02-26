@@ -12,9 +12,9 @@ export class MovementRule extends BaseRule {
     this.Initialize(system);
     const agility = toNum(system.characteristics.Agility.base);
     const moveBonus = toNum(system.movement.bonus);
-    const armorPenalty = toNum(system.globalModifiers.Natural.movement);
+    const armorPenalty = toNum(system.globalModifiers.Movement.final);
 
-    let movement = agility + moveBonus - armorPenalty;
+    let movement = agility + moveBonus + armorPenalty;
 
     if (movement <= 0) movement = 1;
     const hasInhuman = system.movement.inhuman;
@@ -32,7 +32,7 @@ export class MovementRule extends BaseRule {
     const newBonus = foundry.utils.getProperty(updateData, "system.movement.bonus");
     const newNaturalPen = foundry.utils.getProperty(
       updateData,
-      "system.globalModifiers.Natural.movement"
+      "system.globalModifiers.Movement.final"
     );
 
     if (newAgil !== undefined && newAgil !== oldSystem.characteristics.Agility.base) {
@@ -41,7 +41,7 @@ export class MovementRule extends BaseRule {
     if (newBonus !== undefined && newBonus !== oldSystem.movement.bonus) {
       changed.push("bonus");
     }
-    if (newNaturalPen !== undefined && newNaturalPen !== system.globalModifiers.Natural.movement) {
+    if (newNaturalPen !== undefined && newNaturalPen !== system.globalModifiers.Movement.final) {
       changed.push("bonus");
     }
 
@@ -59,9 +59,9 @@ export class MovementRule extends BaseRule {
   RecalcUpdated(system, name) {
     const agility = toNum(system.characteristics.Agility.base);
     const moveBonus = toNum(system.movement.bonus);
-    const armorPenalty = toNum(system.globalModifiers.Natural.movement);
+    const armorPenalty = toNum(system.globalModifiers.Movement.final);
 
-    let movement = agility + moveBonus - armorPenalty;
+    let movement = agility + moveBonus + armorPenalty;
 
     if (movement <= 0) movement = 1;
     const hasInhuman = system.movement.inhuman;

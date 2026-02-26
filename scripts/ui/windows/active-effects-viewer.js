@@ -29,7 +29,8 @@ export class ActiveEffectsViewer extends Application {
 
     return {
       actor: this.actor,
-      effects
+      effects,
+      globalModifiers: this.actor.system.globalModifiers
     };
   }
 

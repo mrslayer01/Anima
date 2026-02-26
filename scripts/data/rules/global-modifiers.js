@@ -14,7 +14,6 @@ export class GlobalModsRule extends BaseRule {
       if (mod.special === undefined) mod.special = 0;
       if (mod.armor === undefined) mod.armor = 0;
       if (mod.final === undefined) mod.final = 0;
-      if (mod.movement === undefined) mod.movement = 0;
       if (!Array.isArray(mod.currentMods)) mod.currentMods = [];
     }
   }
@@ -96,14 +95,12 @@ export function calculateModifiers(system) {
     mod.base = 0;
     mod.special = 0;
     mod.armor = 0;
-    mod.movement = 0;
 
     // Rebuild totals from currentMods
     for (const entry of mod.currentMods) {
       if (entry.type === "base") mod.base += toNum(entry.value);
       if (entry.type === "special") mod.special += toNum(entry.value);
       if (entry.type === "armor") mod.armor += toNum(entry.value);
-      if (entry.type === "movement") mod.movement += toNum(entry.value);
     }
   }
 }

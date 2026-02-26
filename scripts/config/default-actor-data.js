@@ -3,8 +3,9 @@ export const DEFAULT_ACTOR_DATA = {
   globalModifiers: {
     Physical: { currentMods: [] },
     Action: { currentMods: [] },
-    Natural: { currentMods: [], movement: 0 },
-    Perception: { currentMods: [] }
+    Natural: { currentMods: [] },
+    Perception: { currentMods: [] },
+    Movement: { currentMods: [] }
   },
   elans: [],
   modules: {

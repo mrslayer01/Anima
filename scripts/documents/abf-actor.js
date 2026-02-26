@@ -26,9 +26,9 @@ export class AbfActor extends Actor {
     if (!this.system?.core) return;
 
     if (this._needsInit) {
-      for (const rule of INIT_RULES) rule.Derived(this.system);
+      for (const rule of INIT_RULES) rule.Derived(this.system, this);
       for (const rule of MOD_RULES) rule.Derived(this.system);
-      for (const rule of FINAL_RULES) rule.Derived(this.system);
+      for (const rule of FINAL_RULES) rule.Derived(this.system, this);
 
       this._needsInit = false;
     }
@@ -43,7 +43,7 @@ export class AbfActor extends Actor {
     const system = this.system;
 
     // Phase 1
-    for (const rule of INIT_RULES) rule.Derived(system);
+    for (const rule of INIT_RULES) rule.Derived(system, this);
 
     // Phase 2
     for (const rule of MOD_RULES) rule.Derived(system);
@@ -63,7 +63,7 @@ export class AbfActor extends Actor {
     calculateModifiers(system);
 
     // Phase 4 — Final rules
-    for (const rule of FINAL_RULES) rule.Derived(system);
+    for (const rule of FINAL_RULES) rule.Derived(system, this);
 
     // Finalize
     for (const mod of Object.values(system.globalModifiers)) {

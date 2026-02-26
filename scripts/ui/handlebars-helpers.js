@@ -33,6 +33,10 @@ export function loadAllActorHandlerbarsHelpers() {
       return options.fn(this);
     }
   });
+
+  Handlebars.registerHelper("json", function (context) {
+    return JSON.stringify(context, null, 2);
+  });
   Handlebars.registerHelper("percent", function (current, max) {
     if (!max || max === 0) return 0;
     return Math.min(100, Math.floor((current / max) * 100));

@@ -1,9 +1,53 @@
 <div class="abf-effects-list">
+  <h3>
+    Global Modifiers
+  </h3>
+
+  <div class="global-mods">
+    {{#each globalModifiers as |mod modName|}}
+      <div class="effect-row flexrow">
+        <div class="effect-info">
+          <div class="effect-name">
+            {{modName}}
+          </div>
+
+          <div class="effect-mods">
+            <div class="mod-entry">
+              <b>
+                Total:
+              </b>
+              {{mod.final}}
+            </div>
+
+            <div class="mod-entry small">
+              <b>
+                Base:
+              </b>
+              {{mod.base}}
+              <b>
+                Special:
+              </b>
+              {{mod.special}}
+              <b>
+                Armor:
+              </b>
+              {{mod.armor}}
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+  <hr />
+
+  <h3>
+    Active Effects
+  </h3>
+
   {{#if effects.length}}
     {{#each effects}}
       <div class="effect-row flexrow">
-        <img src="{{this.icon}}" class="effect-icon" />
-
         <div class="effect-info">
           <div class="effect-name">
             {{this.name}}

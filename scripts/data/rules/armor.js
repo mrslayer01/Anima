@@ -1,6 +1,7 @@
 import { BaseRule } from "./base-rule.js";
 import { toNum } from "../../utils/numbers.js";
 import { ARMOR_SECTIONS, DAMAGE_TYPES } from "../../utils/lookup.js";
+import { AddModifier } from "../../utils/helpers.js";
 
 export class ArmorRule extends BaseRule {
   Initialize(system) {
@@ -22,7 +23,7 @@ export class ArmorRule extends BaseRule {
     }
   }
 
-  Derived(system) {
+  Derived(system, actor) {
     this.Initialize(system);
     //Check if the advantage Natural Armor Exsists.
     const hasNaturalArmor = system.advantages.some((adv) => adv.name === "Natural Armor");
@@ -44,6 +45,8 @@ export class ArmorRule extends BaseRule {
         }
       }
     }
+
+    this.ApplyArmorPenalties(system, actor);
   }
 
   DetectChanged(updateData, oldSystem) {
@@ -98,5 +101,46 @@ export class ArmorRule extends BaseRule {
     }
 
     return changed;
+  }
+
+  ApplyArmorPenalties(system, actor) {
+    // clear old armor modifiers
+    for (const mod of Object.values(system.globalModifiers)) {
+      mod.currentMods = mod.currentMods.filter((m) => m.source !== "Armor");
+    }
+
+    // reapply penalties from equipped armor
+    for (const armor of actor.items) {
+      if (armor.type !== "armor") continue;
+      if (!armor.system.equipped) continue;
+
+      AddModifier(system.globalModifiers.Physical, {
+        id: `${armor.id}-physical`,
+        source: "Armor",
+        value: -armor.system.physicalPenalty,
+        type: "armor"
+      });
+
+      AddModifier(system.globalModifiers.Natural, {
+        id: `${armor.id}-natural`,
+        source: "Armor",
+        value: -armor.system.naturalPenalty.final,
+        type: "armor"
+      });
+
+      AddModifier(system.globalModifiers.Movement, {
+        id: `${armor.id}-movement`,
+        source: "Armor",
+        value: -armor.system.moveRestriction.final,
+        type: "armor"
+      });
+
+      AddModifier(system.globalModifiers.Perception, {
+        id: `${armor.id}-perception`,
+        source: "Armor",
+        value: -armor.system.perceptionPenalty,
+        type: "armor"
+      });
+    }
   }
 }
