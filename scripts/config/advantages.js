@@ -43,7 +43,7 @@ export const ABF_ADVANTAGES = {
     effects:
       "Adds +1 to Perception for Characteristic Checks and grants a +30 bonus to Notice and Search.",
     restriction: "",
-    special: "",
+    special: "Notice, Search",
     cost: 1,
     description: "The character’s senses are as sharp as those of an animal. Cost: 1",
     journal:

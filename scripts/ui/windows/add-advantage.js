@@ -22,6 +22,17 @@ export class AddAdvantageWindow extends Application {
 
   getData() {
     const advantageOptions = Object.keys(ABF_ADVANTAGES).sort();
+    const actor = game.actors.get(this.options.actorId);
+
+    let secondaryAbilities = [];
+    let secondaryCategories = [];
+
+    for (const [categoryName, category] of Object.entries(actor.system.abilities.secondary)) {
+      secondaryCategories.push(categoryName);
+      for (const [abilityName, abil] of Object.entries(category)) {
+        secondaryAbilities.push(abilityName);
+      }
+    }
 
     if (!this.selectedAdvantage) {
       this.selectedAdvantage = advantageOptions[0];
@@ -30,7 +41,9 @@ export class AddAdvantageWindow extends Application {
     return {
       advantageOptions,
       selectedAdvantage: this.selectedAdvantage,
-      advantageData: ABF_ADVANTAGES[this.selectedAdvantage]
+      advantageData: ABF_ADVANTAGES[this.selectedAdvantage],
+      secondaryAbilities,
+      secondaryCategories
     };
   }
 
@@ -39,10 +52,25 @@ export class AddAdvantageWindow extends Application {
 
     const selector = html.find(".advantage-selector");
 
+    const abilSelector = html.find(".ability-selector");
+    //const categorySelector = html.find(".advantage-selector");
+
     selector.on("change", (event) => {
       this.selectedAdvantage = event.target.value;
       this.render(true);
     });
+
+    abilSelector.on("change", (event) => {
+      console.log(this.advantageData);
+      if (this.advantageData.special === undefined) this.advantageData.special = "";
+      this.advantageData.special = event.target.value;
+      this.render(true);
+    });
+
+    // categorySelector.on("change", (event) => {
+    //   this.selectedAdvantage = event.target.value;
+    //   this.render(true);
+    // });
 
     html.find(".confirm-add").click(async (ev) => {
       ev.preventDefault();

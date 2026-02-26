@@ -24,6 +24,20 @@
         </section>
     {{/if}}
 
+    {{#ifEquals advantageData.name "Aptitude in a Subject"}}
+        <section>
+            <h3>Secondary Ability</h3>
+            <select class="ability-selector">
+                {{#each secondaryAbilities as |abil|}}
+                <option value="{{abil}}" {{#ifEquals abil ../advantageData.special}}selected{{/ifEquals}}>
+                    {{humanize abil}}
+                </option>
+                {{/each}}
+            </select>
+            <p>{{advantageData.special}}</p>
+        </section>
+    {{/ifEquals}}
+
     {{#if advantageData.special}}
         <section>
             <h3>Special</h3>
