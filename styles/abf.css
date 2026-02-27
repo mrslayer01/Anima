@@ -388,8 +388,8 @@
 
 .secondaries-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(3, auto);
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, auto);
   gap: 0rem;
   padding: 0.25rem;
   align-items: start;
