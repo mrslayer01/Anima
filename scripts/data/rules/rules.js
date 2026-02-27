@@ -42,6 +42,7 @@ export const INIT_RULES = [
 export const MOD_RULES = [new ClassesRule(), new GlobalModsRule(), new AdvantageRule()];
 
 export const FINAL_RULES = [
+  new CharactersiticsRule(),
   new TotalLevelRule(),
   new PresenceRule(),
   new ResistancesRule(),

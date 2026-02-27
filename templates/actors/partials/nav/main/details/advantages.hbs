@@ -29,8 +29,8 @@
           class="advantage-name clickable-advantage"
           data-index="{{idx}}"
           data-advantage="{{adv.name}}"
-          {{#ifEquals adv.name "Aptitude in a Subject"}} data-tooltip="Secondary: {{adv.special}}"{{/ifEquals}}
-          {{#ifEquals adv.name "Aptitude in a Field"}} data-tooltip="Secondary Category: {{adv.special}}"{{/ifEquals}}
+          {{#orEquals adv.name "Aptitude in a Subject" "Natural Learner"}} data-tooltip="Secondary: {{adv.special}}"{{/orEquals}}
+          {{#orEquals adv.name "Aptitude in a Field" "Natural Learner (Field)"}} data-tooltip="Secondary Category: {{adv.special}}"{{/orEquals}}
         >
           {{adv.name}}
         </td>

@@ -247,6 +247,26 @@ export const ABF_DISADVANTAGES = {
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.mal6nESxv59lRVym"
   }),
+
+  susceptibleToMagic: createDisadvantage({
+    name: "Susceptible to Magic",
+    type: "Common",
+    effects: "Magic Resistance (MR) is halved.",
+    benefit: "1",
+    description: "Magic Resistance (MR) is halved.",
+    journal:
+      "Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.Q6P6tq24yF3fMRWa"
+  }),
+
+  susceptibleToPoisons: createDisadvantage({
+    name: "Susceptible to Poisons",
+    type: "Common",
+    effects: "Venom Resistance (VR) is halved.",
+    benefit: "1",
+    description: "Venom Resistance (VR) is halved.",
+    journal:
+      "Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.hJkQqMgryqlLqVNl"
+  }),
   //Magic Disadvantages
   oralRequirement: createDisadvantage({
     name: "Oral Requirement",

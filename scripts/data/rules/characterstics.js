@@ -6,6 +6,7 @@ export class CharactersiticsRule extends BaseRule {
   Initialize(system) {
     for (const [name, char] of Object.entries(system.characteristics)) {
       if (char.final === undefined) char.final = 0;
+      if (char.special === undefined) char.special = 0;
     }
   }
 
@@ -19,9 +20,10 @@ export class CharactersiticsRule extends BaseRule {
     for (const [name, char] of Object.entries(chars)) {
       const base = toNum(char.base);
       const bonus = toNum(char.bonus);
-      const modifier = lookupCharacteristicMod(base);
+      const special = toNum(char.special);
+      const modifier = lookupCharacteristicMod(base + special + bonus);
 
-      char.final = modifier + bonus;
+      char.final = modifier;
     }
 
     //Calculate Max actions
@@ -57,9 +59,10 @@ export class CharactersiticsRule extends BaseRule {
 
     const base = toNum(char.base) || 0;
     const bonus = toNum(char.bonus) || 0;
+    const special = toNum(char.special);
 
-    char.mod = lookupCharacteristicMod(base);
-    char.final = char.mod + bonus;
+    char.mod = lookupCharacteristicMod(base + special + bonus);
+    char.final = char.mod;
     //Calculate Max actions
     system.combat.maxActions = getMaxActions(
       toNum(chars.Agility.base),

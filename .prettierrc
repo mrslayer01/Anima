@@ -7,5 +7,18 @@
   "printWidth": 100,
   "bracketSpacing": true,
   "arrowParens": "always",
-  "htmlWhitespaceSensitivity": "ignore"
+  "htmlWhitespaceSensitivity": "ignore",
+
+  "overrides": [
+    {
+      "files": "*.hbs",
+      "options": {
+        "parser": "glimmer",
+        "singleQuote": false,
+        "printWidth": 120,
+        "htmlWhitespaceSensitivity": "ignore",
+        "embeddedLanguageFormatting": "off"
+      }
+    }
+  ]
 }

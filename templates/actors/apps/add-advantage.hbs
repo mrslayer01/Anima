@@ -24,7 +24,7 @@
         </section>
     {{/if}}
 
-    {{#ifEquals advantageData.name "Aptitude in a Subject"}}
+    {{#orEquals advantageData.name "Aptitude in a Subject" "Natural Learner"}}
         <section>
             <h3>Secondary Ability</h3>
             <select class="ability-selector">
@@ -36,9 +36,9 @@
             </select>
             <p>{{advantageData.special}}</p>
         </section>
-    {{/ifEquals}}
+    {{/orEquals}}
 
-    {{#ifEquals advantageData.name "Aptitude in a Field"}}
+    {{#orEquals advantageData.name "Aptitude in a Field" "Natural Learner (Field)"}}
         <section>
             <h3>Secondary Category</h3>
             <select class="category-selector">
@@ -50,7 +50,7 @@
             </select>
             <p>{{advantageData.special}}</p>
         </section>
-    {{/ifEquals}}
+    {{/orEquals}}
 
     {{#if advantageData.special}}
         <section>

@@ -15,6 +15,11 @@ export function loadAllActorHandlerbarsHelpers() {
   Handlebars.registerHelper("ifEquals", function (a, b, options) {
     return a === b ? options.fn(this) : options.inverse(this);
   });
+  Handlebars.registerHelper("orEquals", function (a, b, c, options) {
+    if (a === b || a === c) return options.fn(this);
+    return options.inverse(this);
+  });
+
   Handlebars.registerHelper("switch", function (value, options) {
     this._switch_value_ = value;
     this._switch_break_ = false;

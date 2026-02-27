@@ -10,7 +10,7 @@ export class AddADisadvantageWindow extends Application {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
       id: "add-disadvanatge-window",
-      title: "Add Advantage",
+      title: "Add Disadvantage",
       classes: ["abf-character-sheet"],
       template: "systems/abf-system/templates/actors/apps/add-disadvantage.hbs",
       width: 300,

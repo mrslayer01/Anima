@@ -7,6 +7,7 @@ export class AdvantageRule extends BaseRule {
     //Init
 
     calculateAdvantages(system);
+    calculateDisadvanatges(system);
   }
 
   Derived(system) {
@@ -35,6 +36,14 @@ export class AdvantageRule extends BaseRule {
   }
 }
 
+function calculateDisadvanatges(system) {
+  const disadvantages = system.disadvantages || [];
+  if (disadvantages === undefined) return;
+  const hasNersighted = disadvantages.find((l) => l.name === "Nearsighted");
+
+  if (hasNersighted !== undefined) NearSighted(system);
+}
+
 function calculateAdvantages(system) {
   const advantages = system.advantages || [];
   if (advantages === undefined) return;
@@ -48,16 +57,26 @@ function calculateAdvantages(system) {
   const hasUntiring = advantages.find((l) => l.name === "Untiring");
   const hasRegen = advantages.find((l) => l.name === "Regeneration");
   const hasQuickReflexes = advantages.find((l) => l.name === "Quick Reflexes");
+  const hasNaturalLearner = advantages.find((l) => l.name === "Natural Learner");
+  const hasNaturalLearnerField = advantages.find((l) => l.name === "Natural Learner (Field)");
+  const hasExceptMR = advantages.find((l) => l.name === "Exceptional Magic Resistance");
+  const hasExceptPhr = advantages.find((l) => l.name === "Exceptional Physical Resistance");
+  const hasExceptPr = advantages.find((l) => l.name === "Exceptional Psychic Resistance");
 
   if (hasAptitudeSubject !== undefined) AptitudeInASubject(system, hasAptitudeSubject);
   if (hasAptitudeField !== undefined) AptitudeInAField(system, hasAptitudeField);
   if (hasUntiring !== undefined) Untiring(system, hasUntiring);
   if (hasRegen !== undefined) Regeneration(system, hasRegen);
   if (hasQuickReflexes !== undefined) QuickReflexes(system, hasQuickReflexes);
+  if (hasNaturalLearner !== undefined) NaturalLearner(system, hasNaturalLearner);
+  if (hasNaturalLearnerField !== undefined) NaturalLearnerField(system, hasNaturalLearnerField);
 
   if (hasAccuteSense !== undefined) AccuteSenses(system);
   if (hasJackOfAllTrades !== undefined) JackOfAllTrades(system);
   if (hasNaturalArmor !== undefined || hasMysticalArmor !== undefined) ArmorAdvantages(system);
+
+  if (hasExceptMR !== undefined || hasExceptPhr !== undefined || hasExceptPr !== undefined)
+    ResistanceAdvantages(system, hasExceptMR, hasExceptPhr, hasExceptPr);
 }
 
 function AptitudeInASubject(system, adv) {
@@ -94,6 +113,42 @@ function AptitudeInAField(system, adv) {
         if (finalCost <= 0) finalCost = 1;
 
         system.abilities.secondary[categoryName][abilityName].cost = finalCost;
+      }
+    }
+  }
+}
+
+function NaturalLearner(system, adv) {
+  // +10 / +20 / +30 per level in one Secondary Ability. 1, 2, 3
+  for (const [categoryName, category] of Object.entries(system.abilities.secondary)) {
+    for (const [abilityName, ability] of Object.entries(category)) {
+      if (abilityName === adv.special) {
+        const oldSpecial = toNum(system.abilities.secondary[categoryName][abilityName].special);
+        let cost = toNum(adv.cost);
+
+        system.abilities.secondary[categoryName][abilityName].special = oldSpecial + cost * 10;
+      }
+    }
+  }
+}
+
+function NaturalLearnerField(system, adv) {
+  // +5 / +10 per level to all abilities in a field. 2, 3
+  for (const [categoryName, category] of Object.entries(system.abilities.secondary)) {
+    if (categoryName === adv.special) {
+      for (const [abilityName, ability] of Object.entries(category)) {
+        const oldSpecial = toNum(system.abilities.secondary[categoryName][abilityName].special);
+        let cost = toNum(adv.cost);
+        let bonus = 0;
+
+        if (cost > 3) cost = 3;
+        if (cost === 2) {
+          bonus = 5;
+        } else if (cost === 3) {
+          bonus = 10;
+        }
+
+        system.abilities.secondary[categoryName][abilityName].special = oldSpecial + bonus;
       }
     }
   }
@@ -165,6 +220,7 @@ function ArmorAdvantages(system) {
   // Handles both Mystical and Natural armor advantages
   const hasNaturalArmor = system.advantages.some((adv) => adv.name === "Natural Armor");
   const hasMysticalArmor = system.advantages.some((adv) => adv.name === "Mystical Armor");
+
   for (const type of DAMAGE_TYPES) {
     if (hasNaturalArmor) {
       //Gets +2 natural bonus to all types except energy
@@ -176,6 +232,56 @@ function ArmorAdvantages(system) {
       //Gets +4 natural energy bonus.
       if (type === "ene") {
         system.armor.total[type] += 4;
+      }
+    }
+  }
+}
+
+function ResistanceAdvantages(system, exceptMR, exceptPhr, exceptPr) {
+  const hasExceptMR = system.advantages.some((adv) => adv.name === "Exceptional Magic Resistance"); // +25 / +50 MR. 1, 2
+  const hasExceptPhr = system.advantages.some(
+    (adv) => adv.name === "Exceptional Physical Resistance"
+  ); // +25 / +50 PhR, VR, DR. 1, 2
+  const hasExceptPr = system.advantages.some(
+    (adv) => adv.name === "Exceptional Psychic Resistance"
+  ); // +25 / +50 PsR. 1, 2
+
+  for (const [name, res] of Object.entries(system.resistances)) {
+    if (hasExceptMR && name === "Magic") {
+      const MR = exceptMR.cost;
+      const curSpec = toNum(system.resistances[name].special);
+      if (MR > 3) MR = 3;
+      system.resistances[name].special = curSpec + MR * 25;
+    }
+    if (hasExceptPhr) {
+      if (name === "Physical" || name === "Disease" || name === "Venom") {
+        const Phr = exceptPhr.cost;
+        const curSpec = toNum(system.resistances[name].special);
+        if (Phr > 3) Phr = 3;
+        system.resistances[name].special = curSpec + Phr * 25;
+      }
+    }
+    if (hasExceptPr && name === "Psychic") {
+      const curSpec = toNum(system.resistances[name].special);
+      const Pr = exceptPr.cost;
+      if (Pr > 3) Pr = 3;
+      system.resistances[name].special = curSpec + Pr * 25;
+    }
+  }
+}
+
+function NearSighted(system) {
+  // –50 Notice/Search (vision), –3 Perception, aiming penalties. 1.
+
+  let curSpe = toNum(system.characteristics.Perception.special);
+
+  system.characteristics.Perception.special = curSpe - 3;
+  for (const [categoryName, category] of Object.entries(system.abilities.secondary)) {
+    for (const [abilityName, ability] of Object.entries(category)) {
+      if (abilityName === "Notice" || abilityName === "Search") {
+        curSpe = toNum(system.abilities.secondary[categoryName][abilityName].special);
+
+        system.abilities.secondary[categoryName][abilityName].special = curSpe - 50;
       }
     }
   }
