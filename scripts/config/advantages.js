@@ -334,7 +334,7 @@ export const ABF_ADVANTAGES = {
   }),
 
   regeneration: createAdvantage({
-    name: "Regeneration: Basic, Advanced, and Greater",
+    name: "Regeneration",
     type: "Common",
     effects:
       "This Advantage increases the character’s Regeneration by two levels. Spending additional points increases Regeneration by four and six levels, respectively.",

@@ -6,12 +6,14 @@ export class FatigueRule extends BaseRule {
   Initialize(system) {
     if (system.core.fatigue.final === undefined) system.core.fatigue.final = 0;
     if (system.core.fatigue.actionPenalty === undefined) system.core.fatigue.actionPenalty = 0;
+    if (system.core.fatigue.special === undefined) system.core.fatigue.special = 0;
   }
 
   Derived(system) {
     this.Initialize(system);
 
-    system.core.fatigue.final = toNum(system.characteristics.Constitution.base);
+    system.core.fatigue.final =
+      toNum(system.characteristics.Constitution.base) + toNum(system.core.fatigue.special);
     if (toNum(system.core.fatigue.final) <= 4) {
       //If has a fatigue of 4 or lower, don't start calculating until current does not match final
       if (toNum(system.core.fatigue.current) < toNum(system.core.fatigue.final)) {
@@ -54,7 +56,8 @@ export class FatigueRule extends BaseRule {
   }
 
   RecalcUpdated(system, name) {
-    system.core.fatigue.final = toNum(system.characteristics.Constitution.base);
+    system.core.fatigue.final =
+      toNum(system.characteristics.Constitution.base) + toNum(system.core.fatigue.special);
     if (toNum(system.core.fatigue.final) <= 4) {
       //If has a fatigue of 4 or lower, don't start calculating until current does not match final
       if (toNum(system.core.fatigue.current) < toNum(system.core.fatigue.final)) {

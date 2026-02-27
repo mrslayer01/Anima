@@ -748,7 +748,8 @@
 .disadvantage-selector option,
 .elan-selector option,
 .module-selector option,
-.ability-selector option {
+.ability-selector option,
+.category-selector option {
   background-color: #1f2225;
 }
 

@@ -35,8 +35,6 @@ export class AbilitiesSecondaryRule extends BaseRule {
 
   Derived(system) {
     this.Initialize(system);
-    //Check if jack of All Trades exists
-    const hasJackOfAllTrades = system.advantages.some((adv) => adv.name === "Jack of All Trades");
 
     // calculate secondary abilities
     for (const [categoryName, category] of Object.entries(system.abilities.secondary)) {
@@ -54,13 +52,8 @@ export class AbilitiesSecondaryRule extends BaseRule {
         }
         const total = base + bonus + cls + special + naturalTotal - armorPenalty;
 
-        if (hasJackOfAllTrades) {
-          abil.final = total + charFinal + 10;
-          abil.undeveloped = 0;
-        } else {
-          abil.final = total + charFinal;
-          abil.undeveloped = total === 0;
-        }
+        abil.final = total + charFinal;
+        abil.undeveloped = total === 0;
         abil.mastery = total >= 200;
       }
     }
@@ -135,7 +128,6 @@ export class AbilitiesSecondaryRule extends BaseRule {
   }
 
   RecalcUpdated(system, abilityName) {
-    const hasJackOfAllTrades = system.advantages.some((adv) => adv.name === "Jack of All Trades");
     // Find the ability inside the nested categories
     for (const category of Object.values(system.abilities.secondary)) {
       if (category[abilityName]) {
@@ -151,13 +143,9 @@ export class AbilitiesSecondaryRule extends BaseRule {
         let naturalTotal = charFinal * toNum(abil.naturalBonuses);
 
         const total = base + bonus + cls + special + naturalTotal;
-        if (hasJackOfAllTrades) {
-          abil.final = total + charFinal + 10;
-          abil.undeveloped = 0;
-        } else {
-          abil.final = total + charFinal;
-          abil.undeveloped = total === 0;
-        }
+
+        abil.final = total + charFinal;
+        abil.undeveloped = total === 0;
         abil.mastery = total >= 200;
 
         return; // done

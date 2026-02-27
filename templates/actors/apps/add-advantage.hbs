@@ -38,6 +38,20 @@
         </section>
     {{/ifEquals}}
 
+    {{#ifEquals advantageData.name "Aptitude in a Field"}}
+        <section>
+            <h3>Secondary Category</h3>
+            <select class="category-selector">
+                {{#each secondaryCategories as |abil|}}
+                <option value="{{abil}}" {{#ifEquals abil ../advantageData.special}}selected{{/ifEquals}}>
+                    {{humanize abil}}
+                </option>
+                {{/each}}
+            </select>
+            <p>{{advantageData.special}}</p>
+        </section>
+    {{/ifEquals}}
+
     {{#if advantageData.special}}
         <section>
             <h3>Special</h3>

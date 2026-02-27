@@ -14,6 +14,8 @@ export class LifePointsRule extends BaseRule {
     // Regeneration regenLevel, lifePointsPerDayResting, lifePointsPerDayNotResting, woundPenaltyReduc, specialCapabilities, damageResistance
     if (system.core.lifePoints.regeneration.regenLevel === undefined)
       system.core.lifePoints.regeneration.regenLevel = 0;
+    if (system.core.lifePoints.regeneration.special === undefined)
+      system.core.lifePoints.regeneration.special = 0;
     if (system.core.lifePoints.regeneration.lifePointsPerDayResting === undefined)
       system.core.lifePoints.regeneration.lifePointsPerDayResting = 0;
     if (system.core.lifePoints.regeneration.lifePointsPerDayNotResting === undefined)
@@ -40,11 +42,11 @@ export class LifePointsRule extends BaseRule {
     system.core.lifePoints.final = baseLP + classLP + lpBonus + classLPMultiple;
 
     // Regeneration
+    const lpRegen = system.core.lifePoints.regeneration;
     const con = toNum(system.characteristics.Constitution.base);
-    const reggenLevel = getRegenerationLevel(con);
+    const reggenLevel = getRegenerationLevel(con + lpRegen.bonus + lpRegen.special);
     const reGenDetails = getRegenerationDetails(reggenLevel);
     const reGenSpecial = getRegenerationSpecial(reggenLevel);
-    const lpRegen = system.core.lifePoints.regeneration;
 
     //if has damage resistance, healing facotr is multiplied by 5.
     if (reGenDetails === null) return;
@@ -55,7 +57,7 @@ export class LifePointsRule extends BaseRule {
       ? reGenDetails.notResting * 5
       : reGenDetails.notResting;
 
-    lpRegen.regenLevel = reggenLevel + lpRegen.bonus;
+    lpRegen.regenLevel = reggenLevel;
     lpRegen.lifePointsPerDayResting = accountForDRResting;
     lpRegen.lifePointsPerDayNotResting = accountForDRNotResting;
     lpRegen.woundPenaltyReduc = reGenDetails.reduction;
@@ -120,11 +122,11 @@ export class LifePointsRule extends BaseRule {
     system.core.lifePoints.final = baseLP + classLP + lpBonus + classLPMultiple;
 
     // Regeneration
+    const lpRegen = system.core.lifePoints.regeneration;
     const con = toNum(system.characteristics.Constitution.base);
-    const reggenLevel = getRegenerationLevel(con);
+    const reggenLevel = getRegenerationLevel(con + lpRegen.bonus + lpRegen.special);
     const reGenDetails = getRegenerationDetails(reggenLevel);
     const reGenSpecial = getRegenerationSpecial(reggenLevel);
-    const lpRegen = system.core.lifePoints.regeneration;
 
     //if has damage resistance, healing facotr is multiplied by 5.
     if (reGenDetails === null) return;
@@ -135,7 +137,7 @@ export class LifePointsRule extends BaseRule {
       ? reGenDetails.notResting * 5
       : reGenDetails.notResting;
 
-    lpRegen.regenLevel = reggenLevel + lpRegen.bonus;
+    lpRegen.regenLevel = reggenLevel;
     lpRegen.lifePointsPerDayResting = accountForDRResting;
     lpRegen.lifePointsPerDayNotResting = accountForDRNotResting;
     lpRegen.woundPenaltyReduc = reGenDetails.reduction;

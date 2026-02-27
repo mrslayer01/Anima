@@ -1,5 +1,1 @@
-2026/02/26-08:31:47.978 c12c Log #161: 0 ops saved to Table #162 OK
-2026/02/26-08:31:47.979 c12c Archiving D:\foundry\Data\Data\systems\abf-system\packs\journals/000161.log: OK
-2026/02/26-08:31:47.980 c12c Table #148: 249 entries OK
-2026/02/26-08:31:48.023 c12c Archiving D:\foundry\Data\Data\systems\abf-system\packs\journals/MANIFEST-000176: OK
-2026/02/26-08:31:48.058 c12c **** Repaired leveldb D:\foundry\Data\Data\systems\abf-system\packs\journals; recovered 1 files; 170849 bytes. Some data may have been lost. ****
+2026/02/26-19:15:13.467 ebc4 Delete type=3 #1
