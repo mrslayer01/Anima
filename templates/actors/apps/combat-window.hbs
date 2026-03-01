@@ -1,0 +1,26 @@
+<div class="advantage">
+  <section>
+    <h3>
+      Modifier
+    </h3>
+    <input type="number" id="atkMod" value="{{atkMod}}" style="width: 100%;" />
+  </section>
+
+  <section style="margin-top: 1em;">
+    <h3>
+      Directed Attack
+    </h3>
+    <select id="directedAttack" class="selector" style="width: 100%;">
+      {{#each directedOptions}}
+        <option value="{{this.name}}">{{this.name}} ({{this.value}})</option>
+      {{/each}}
+    </select>
+  </section>
+
+  <button class="confirm-add" style="margin-top: 1em; width: 100%;">
+    Roll:
+    <span id="totalMod">
+      0
+    </span>
+  </button>
+</div>

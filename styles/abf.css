@@ -749,7 +749,8 @@
 .elan-selector option,
 .module-selector option,
 .ability-selector option,
-.category-selector option {
+.category-selector option,
+.selector option {
   background-color: #1f2225;
 }
 

@@ -1,6 +1,7 @@
 import { computeCounterattack, computeDamagePercent, difficultyMap } from "../../utils/lookup.js";
 import { toNum } from "../../utils/numbers.js";
 import { animaOpenRoll, characteristicCheck, resistanceCheck } from "../../utils/rolls.js";
+import { CombatWindow } from "../windows/combat-window.js";
 
 export function RollListeners(sheet, html) {
   html.find(".char-roll").off("click"); //before adding new listener, remove old to avoid duplicates
@@ -183,7 +184,8 @@ export function RollListeners(sheet, html) {
     let attackValue = toNum(sheet.actor.system.abilities.primary.Combat.Attack.final);
     let attackType = ev.currentTarget.dataset.type;
 
-    attackValue += await promptAttackModifier();
+    const { final } = await promptAttackModifierWindow();
+    attackValue += final;
 
     let armorPen = 0;
 
@@ -240,8 +242,6 @@ export function RollListeners(sheet, html) {
               const defenseFinal = toNum(html.find("#defense").val());
               const modifier = toNum(html.find("#mod").val());
               const manualAT = toNum(html.find("#at").val());
-
-              console.log(attackValue);
 
               const finalAttack = attackValue + modifier;
 
@@ -370,27 +370,10 @@ async function animaOpenRollCapture(opts) {
   return await animaOpenRoll({ ...opts, capture: true });
 }
 
-async function promptAttackModifier() {
+export function promptAttackModifierWindow() {
   return new Promise((resolve) => {
-    new Dialog({
-      title: "Attack Modifier",
-      content: `
-        <div style="margin-bottom: 1em;">
-          <label><b>Attack Modifier:</b></label>
-          <input type="number" id="atkMod" value="0" style="width: 100%;" />
-        </div>
-      `,
-      buttons: {
-        ok: {
-          label: "Apply",
-          callback: (html) => {
-            const mod = Number(html.find("#atkMod").val()) || 0;
-            resolve(mod);
-          }
-        }
-      },
-      default: "ok"
-    }).render(true);
+    const win = new CombatWindow(resolve);
+    win.render(true);
   });
 }
 
@@ -412,14 +395,14 @@ async function promptDefenseChoice(targetActor) {
         block: {
           label: "Block",
           callback: (html) => {
-            const mod = Number(html.find("#defMod").val()) || 0;
+            const mod = toNum(html.find("#defMod").val()) || 0;
             resolve({ type: "block", modifier: mod });
           }
         },
         dodge: {
           label: "Dodge",
           callback: (html) => {
-            const mod = Number(html.find("#defMod").val()) || 0;
+            const mod = toNum(html.find("#defMod").val()) || 0;
             resolve({ type: "dodge", modifier: mod });
           }
         }
@@ -490,8 +473,8 @@ async function promptDamageCalculation(baseDamage) {
         apply: {
           label: "Apply",
           callback: (html) => {
-            const dmg = Number(html.find("#baseDmg").val()) || 0;
-            const pct = Number(html.find("#dmgPct").val()) || 0;
+            const dmg = toNum(html.find("#baseDmg").val()) || 0;
+            const pct = toNum(html.find("#dmgPct").val()) || 0;
             resolve({ dmg, pct });
           }
         }
