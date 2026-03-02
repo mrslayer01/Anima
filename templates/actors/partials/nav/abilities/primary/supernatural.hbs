@@ -27,12 +27,13 @@
     </thead>
     <tbody>
       {{#each actor.system.abilities.primary.Supernatural as |ability key|}}
-        {{#if (in key "Zeon" "MagicAccumulation" "MAMultiples")}}
-        {{else}}
         <tr>
           <td>
             {{localize (concat "ABF.Ability." key)}}
           </td>
+        {{#if (in key "MagicAccumulation")}}
+        <td></td>
+        {{else}}
           <td>
             <input
               class="mod-input-resize-char primary-input"
@@ -47,6 +48,10 @@
             "
             />
           </td>
+          {{/if}}
+        {{#if (in key "Zeon" "MagicAccumulation" "MAMultiples")}}
+        <td></td>
+        {{else}}
           <td>
             <input
               class="mod-input-resize-char"
@@ -56,14 +61,18 @@
               {{#if @root.actor.system.lockUi}}disabled{{/if}}
             />
           </td>
+        {{/if}}
           <td>
             {{ability.class}}
           </td>
+        {{#if (in key "Zeon" "MagicAccumulation" "MAMultiples")}}
+        <td>{{ability.final}}</td>
+        {{else}}
           <td class="ability-roll clickable" data-category="Supernatural" data-ability="{{key}}">
             {{ability.final}}
           </td>
-        </tr>
         {{/if}}
+        </tr>
       {{/each}}
     </tbody>
   </table>

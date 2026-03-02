@@ -172,5 +172,37 @@ export const DEFAULT_ACTOR_DATA = {
   presence: { bonus: 0 },
   currency: { copper: 0, silver: 0, gold: 0 },
   lockUi: false,
-  items: { weapons: [], commonGoods: [], armor: [], ammo: [] }
+  items: { weapons: [], commonGoods: [], armor: [], ammo: [] },
+  mystic: {
+    innateMagic: { bonus: 0 },
+    imbalance: { only: 0, both: 0 },
+    magicLevels: {
+      base: 0
+    },
+    paths: {
+      Essence: { level: 0 },
+      Water: { level: 0 },
+      Earth: { level: 0 },
+      Darkness: { level: 0 },
+      Light: { level: 0 },
+      Creation: { level: 0 },
+      Necromancy: { level: 0 },
+      Air: { level: 0 },
+      Fire: { level: 0 },
+      Destruction: { level: 0 },
+      Illusion: { level: 0 }
+    },
+    freeAccessSpellSlots: {
+      10: 0,
+      20: 0,
+      30: 0,
+      40: 0,
+      50: 0,
+      60: 0,
+      70: 0,
+      80: 0,
+      90: 0,
+      100: 0
+    }
+  }
 };

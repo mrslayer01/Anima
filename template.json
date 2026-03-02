@@ -29,7 +29,8 @@
         "presence": {},
         "notes": "",
         "currency": {},
-        "globalModifier": {}
+        "globalModifier": {},
+        "mystic": {}
       }
     }
   },

@@ -5,7 +5,7 @@ import { CharactersiticsRule } from "./characterstics.js";
 import { FatigueRule } from "./fatigue.js";
 import { InitiativeRule } from "./initiative.js";
 import { KiRule } from "./ki.js";
-import { ZeonRule } from "./zeon.js";
+import { MysticRule } from "./mystic.js";
 import { LifePointsRule } from "./life-points.js";
 import { MovementRule } from "./movement.js";
 import { PresenceRule } from "./presence.js";
@@ -31,7 +31,7 @@ export const INIT_RULES = [
   new InitiativeRule(),
   new MovementRule(),
   new KiRule(),
-  new ZeonRule(),
+  new MysticRule(),
   new ArmorRule(),
   new PsychicPointsRule(),
   new ExperienceRule(),
@@ -53,7 +53,7 @@ export const FINAL_RULES = [
   new InitiativeRule(),
   new MovementRule(),
   new KiRule(),
-  new ZeonRule(),
+  new MysticRule(),
   new PsychicPointsRule(),
   new ExperienceRule(),
   new DevelopmentPointsRule(),
