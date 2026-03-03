@@ -1,7 +1,7 @@
-import { BaseRule } from "./base-rule.js";
-import { toNum } from "../../utils/numbers.js";
-import { ARMOR_SECTIONS, DAMAGE_TYPES } from "../../utils/lookup.js";
-import { AddModifier } from "../../utils/helpers.js";
+import { BaseRule } from "../base-rule.js";
+import { toNum } from "../../../utils/numbers.js";
+import { ARMOR_SECTIONS, DAMAGE_TYPES } from "../../../utils/lookup.js";
+import { AddModifier } from "../../../utils/helpers.js";
 
 export class ArmorRule extends BaseRule {
   Initialize(system) {

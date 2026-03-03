@@ -34,9 +34,7 @@
           {{#if @root.actor.system.lockUi}}
             <td></td>
           {{else}}
-            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
-              <i class="fas fa-trash"></i>
-            </a>
+            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}"><i class="fas fa-trash"></i></a>
           {{/if}}
         </li>
       {{/each}}
@@ -65,9 +63,7 @@
           {{#if @root.actor.system.lockUi}}
             <td></td>
           {{else}}
-            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
-              <i class="fas fa-trash"></i>
-            </a>
+            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}"><i class="fas fa-trash"></i></a>
           {{/if}}
         </li>
       {{/each}}
@@ -78,7 +74,8 @@
   <div class="module-card">
     <div class="module-card-header">
       <h3>
-        Style Modules
+        Style Modules: {{actor.system.abilities.primary.abilityLimits.Combat.current}} /
+        {{actor.system.abilities.primary.abilityLimits.Combat.final}}
       </h3>
     </div>
 
@@ -96,9 +93,7 @@
           {{#if @root.actor.system.lockUi}}
             <td></td>
           {{else}}
-            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
-              <i class="fas fa-trash"></i>
-            </a>
+            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}"><i class="fas fa-trash"></i></a>
           {{/if}}
         </li>
       {{/each}}
@@ -127,9 +122,7 @@
           {{#if @root.actor.system.lockUi}}
             <td></td>
           {{else}}
-            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}">
-              <i class="fas fa-trash"></i>
-            </a>
+            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}"><i class="fas fa-trash"></i></a>
           {{/if}}
         </li>
       {{/each}}

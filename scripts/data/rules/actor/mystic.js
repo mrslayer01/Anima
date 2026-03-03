@@ -1,5 +1,5 @@
-import { BaseRule } from "./base-rule.js";
-import { toNum } from "../../utils/numbers.js";
+import { BaseRule } from "../base-rule.js";
+import { toNum } from "../../../utils/numbers.js";
 
 export class MysticRule extends BaseRule {
   Initialize(system) {
@@ -30,6 +30,12 @@ export class MysticRule extends BaseRule {
       if (mysticPath.paths[name].spellsLearned === undefined)
         mysticPath.paths[name].spellsLearned = 0; // Learns 1 spell per every 2 path base levels.
     }
+
+    //Free Access Spell Slots
+    for (const [name, path] of Object.entries(mysticPath.freeAccessSpellSlots)) {
+      if (mysticPath.freeAccessSpellSlots[name].max === undefined)
+        mysticPath.freeAccessSpellSlots[name].max = 0;
+    }
   }
 
   Derived(system) {
@@ -52,6 +58,11 @@ export class MysticRule extends BaseRule {
     //MA
     maPath.final = lookupBaseMA(basePow) * toNum(maMultiplesPath.base);
 
+    // Reset all freeAccessSpellSlots max values
+    for (const level of Object.keys(mysticPath.freeAccessSpellSlots)) {
+      mysticPath.freeAccessSpellSlots[level].max = 0;
+    }
+
     //Path
     for (const [name, path] of Object.entries(mysticPath.paths)) {
       const level = toNum(path.level);
@@ -72,6 +83,17 @@ export class MysticRule extends BaseRule {
 
       // Spell Slots
       path.spellsLearned = Math.floor(level / 2);
+
+      // Free Access Spells
+      // Get the correct milestone array for this Path
+      const slots = FREE_ACCESS_SLOT_TABLE[name];
+
+      // Apply milestones
+      for (const slot of slots) {
+        if (level >= slot.requiredLevel) {
+          system.mystic.freeAccessSpellSlots[slot.maxLevel].max += 1;
+        }
+      }
     }
 
     mysticPath.magicLevels.used = Object.values(mysticPath.paths).reduce(
@@ -91,6 +113,7 @@ export class MysticRule extends BaseRule {
     const changed = [];
 
     const zeonPathOld = oldSystem.abilities.primary.Supernatural.Zeon;
+    const mysticPathOld = oldSystem.mystic;
     const newChar = foundry.utils.getProperty(updateData, "system.characteristics.Power.final");
 
     if (newChar !== undefined && newChar !== oldSystem.characteristics.Power.final) {
@@ -123,6 +146,14 @@ export class MysticRule extends BaseRule {
 
       if (newLvl !== undefined && newLvl !== cls.level) changed.push("class");
     }
+
+    for (const [name, path] of Object.entries(mysticPathOld.paths)) {
+      const lvlPath = `system.mystic.paths.${name}.level`;
+      const newLvl = foundry.utils.getProperty(updateData, lvlPath);
+
+      if (newLvl !== undefined && newLvl !== path.level) changed.push("path");
+    }
+
     return changed;
   }
 
@@ -144,6 +175,12 @@ export class MysticRule extends BaseRule {
 
     //MA
     maPath.final = lookupBaseMA(basePow) * toNum(maMultiplesPath.base);
+
+    // Reset all freeAccessSpellSlots max values
+    for (const level of Object.keys(system.mystic.freeAccessSpellSlots)) {
+      system.mystic.freeAccessSpellSlots[level].max = 0;
+    }
+
     //Path
     for (const [name, path] of Object.entries(mysticPath.paths)) {
       const level = toNum(path.level);
@@ -164,6 +201,17 @@ export class MysticRule extends BaseRule {
 
       // Spell Slots
       path.spellsLearned = Math.floor(level / 2);
+
+      // Free Access Spells
+      // Get the correct milestone array for this Path
+      const slots = FREE_ACCESS_SLOT_TABLE[name];
+
+      // Apply milestones
+      for (const slot of slots) {
+        if (level >= slot.requiredLevel) {
+          system.mystic.freeAccessSpellSlots[slot.maxLevel].max += 1;
+        }
+      }
     }
 
     mysticPath.magicLevels.used = Object.values(mysticPath.paths).reduce(
@@ -282,7 +330,7 @@ const ESSENCE_FREE_ACCESS_SLOTS = [
   { requiredLevel: 92, maxLevel: 100 }
 ];
 
-const PATH_SPELL_LISTS = {
+const FREE_ACCESS_SLOT_TABLE = {
   Light: LIGHT_FREE_ACCESS_SLOTS,
   Essence: ESSENCE_FREE_ACCESS_SLOTS,
   Darkness: STANDARD_FREE_ACCESS_SLOTS,

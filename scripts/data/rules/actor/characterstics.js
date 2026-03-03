@@ -1,6 +1,6 @@
-import { getMaxActions, lookupCharacteristicMod } from "../../utils/lookup.js";
-import { toNum } from "../../utils/numbers.js";
-import { BaseRule } from "./base-rule.js";
+import { getMaxActions, lookupCharacteristicMod } from "../../../utils/lookup.js";
+import { toNum } from "../../../utils/numbers.js";
+import { BaseRule } from "../base-rule.js";
 
 export class CharactersiticsRule extends BaseRule {
   Initialize(system) {

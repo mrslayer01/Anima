@@ -1,6 +1,6 @@
-import { BaseRule } from "./base-rule.js";
-import { toNum } from "../../utils/numbers.js";
-import { AddModifier } from "../../utils/helpers.js";
+import { BaseRule } from "../base-rule.js";
+import { toNum } from "../../../utils/numbers.js";
+import { AddModifier } from "../../../utils/helpers.js";
 
 export class FatigueRule extends BaseRule {
   Initialize(system) {

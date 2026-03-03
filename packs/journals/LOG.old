@@ -1,5 +1,1 @@
-2026/03/02-19:04:17.128 12aac Log #188: 0 ops saved to Table #189 OK
-2026/03/02-19:04:17.128 12aac Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\journals/000188.log: OK
-2026/03/02-19:04:17.131 12aac Table #148: 249 entries OK
-2026/03/02-19:04:17.133 12aac Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\journals/MANIFEST-000166: OK
-2026/03/02-19:04:17.136 12aac **** Repaired leveldb C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\journals; recovered 1 files; 170849 bytes. Some data may have been lost. ****
+2026/03/02-19:04:17.142 12aac Delete type=3 #1

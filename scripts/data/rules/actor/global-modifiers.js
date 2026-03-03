@@ -1,5 +1,5 @@
-import { toNum } from "../../utils/numbers.js";
-import { BaseRule } from "./base-rule.js";
+import { toNum } from "../../../utils/numbers.js";
+import { BaseRule } from "../base-rule.js";
 
 // What global modifiers do
 // Physical: Anything based on Strength, Agility, or Dexterity.
@@ -14,6 +14,7 @@ export class GlobalModsRule extends BaseRule {
       if (mod.special === undefined) mod.special = 0;
       if (mod.armor === undefined) mod.armor = 0;
       if (mod.final === undefined) mod.final = 0;
+      toNum;
       if (!Array.isArray(mod.currentMods)) mod.currentMods = [];
     }
   }

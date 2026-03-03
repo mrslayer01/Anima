@@ -1,6 +1,6 @@
-import { BaseRule } from "./base-rule.js";
-import { toNum } from "../../utils/numbers.js";
-import { DAMAGE_TYPES } from "../../utils/lookup.js";
+import { BaseRule } from "../base-rule.js";
+import { toNum } from "../../../utils/numbers.js";
+import { DAMAGE_TYPES } from "../../../utils/lookup.js";
 
 export class AdvantageRule extends BaseRule {
   Initialize(system) {

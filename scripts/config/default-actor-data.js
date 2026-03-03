@@ -193,16 +193,16 @@ export const DEFAULT_ACTOR_DATA = {
       Illusion: { level: 0 }
     },
     freeAccessSpellSlots: {
-      10: 0,
-      20: 0,
-      30: 0,
-      40: 0,
-      50: 0,
-      60: 0,
-      70: 0,
-      80: 0,
-      90: 0,
-      100: 0
+      10: { current: 0 },
+      20: { current: 0 },
+      30: { current: 0 },
+      40: { current: 0 },
+      50: { current: 0 },
+      60: { current: 0 },
+      70: { current: 0 },
+      80: { current: 0 },
+      90: { current: 0 },
+      100: { current: 0 }
     }
   }
 };

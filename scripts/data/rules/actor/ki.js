@@ -1,5 +1,5 @@
-import { BaseRule } from "./base-rule.js";
-import { toNum } from "../../utils/numbers.js";
+import { BaseRule } from "../base-rule.js";
+import { toNum } from "../../../utils/numbers.js";
 
 export class KiRule extends BaseRule {
   Initialize(system) {

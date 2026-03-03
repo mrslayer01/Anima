@@ -1,23 +1,23 @@
-import { AbilitiesPrimaryRule } from "./abilities-primary.js";
-import { AbilitiesSecondaryRule } from "./abilities-secondary.js";
-import { ArmorRule } from "./armor.js";
-import { CharactersiticsRule } from "./characterstics.js";
-import { FatigueRule } from "./fatigue.js";
-import { InitiativeRule } from "./initiative.js";
-import { KiRule } from "./ki.js";
-import { MysticRule } from "./mystic.js";
-import { LifePointsRule } from "./life-points.js";
-import { MovementRule } from "./movement.js";
-import { PresenceRule } from "./presence.js";
-import { ResistancesRule } from "./resistances.js";
-import { TotalLevelRule } from "./total-level.js";
-import { PsychicPointsRule } from "./psychic-points.js";
-import { ClassesRule } from "./classes.js";
-import { ExperienceRule } from "./experience.js";
-import { DevelopmentPointsRule } from "./development-points.js";
-import { ElanRule } from "./elan.js";
-import { GlobalModsRule } from "./global-modifiers.js";
-import { AdvantageRule } from "./advantage-rule.js";
+import { AbilitiesPrimaryRule } from "./actor/abilities-primary.js";
+import { AbilitiesSecondaryRule } from "./actor/abilities-secondary.js";
+import { ArmorRule } from "./actor/armor.js";
+import { CharactersiticsRule } from "./actor/characterstics.js";
+import { FatigueRule } from "./actor/fatigue.js";
+import { InitiativeRule } from "./actor/initiative.js";
+import { KiRule } from "./actor/ki.js";
+import { MysticRule } from "./actor/mystic.js";
+import { LifePointsRule } from "./actor/life-points.js";
+import { MovementRule } from "./actor/movement.js";
+import { PresenceRule } from "./actor/presence.js";
+import { ResistancesRule } from "./actor/resistances.js";
+import { TotalLevelRule } from "./actor/total-level.js";
+import { PsychicPointsRule } from "./actor/psychic-points.js";
+import { ClassesRule } from "./actor/classes.js";
+import { ExperienceRule } from "./actor/experience.js";
+import { DevelopmentPointsRule } from "./actor/development-points.js";
+import { ElanRule } from "./actor/elan.js";
+import { GlobalModsRule } from "./actor/global-modifiers.js";
+import { AdvantageRule } from "./actor/advantage-rule.js";
 
 export const INIT_RULES = [
   new CharactersiticsRule(),

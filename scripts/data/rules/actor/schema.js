@@ -285,10 +285,14 @@ export const ABILITIES_SECONDARIES_SCHEMA = {
 export const ABILITIES_PRIMARIES_SCHEMA = {
   // Combat
   Attack: {
-    characteristic: "Dexterity"
+    characteristic: "Dexterity",
+    naturalPenalty: false,
+    physicalPenalty: false
   },
   Block: {
-    characteristic: "Dexterity"
+    characteristic: "Dexterity",
+    naturalPenalty: false,
+    physicalPenalty: false
   },
   Dodge: {
     characteristic: "Agility",
@@ -296,30 +300,44 @@ export const ABILITIES_PRIMARIES_SCHEMA = {
     physicalPenalty: true
   },
   WearArmor: {
-    characteristic: "Agility"
+    characteristic: "Agility",
+    naturalPenalty: false,
+    physicalPenalty: false
   },
   // Psychic
   PsychicProjection: {
-    characteristic: "Dexterity"
+    characteristic: "Dexterity",
+    naturalPenalty: false,
+    physicalPenalty: false
   },
   // Supernatural
   MagicProjection: {
-    characteristic: "Dexterity"
+    characteristic: "Dexterity",
+    naturalPenalty: false,
+    physicalPenalty: false
   },
 
   Summon: {
-    characteristic: "Power"
+    characteristic: "Power",
+    naturalPenalty: false,
+    physicalPenalty: false
   },
 
   Control: {
-    characteristic: "Willpower"
+    characteristic: "Willpower",
+    naturalPenalty: false,
+    physicalPenalty: false
   },
 
   Bind: {
-    characteristic: "Power"
+    characteristic: "Power",
+    naturalPenalty: false,
+    physicalPenalty: false
   },
 
   Banish: {
-    characteristic: "Power"
+    characteristic: "Power",
+    naturalPenalty: false,
+    physicalPenalty: false
   }
 };

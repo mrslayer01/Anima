@@ -1,5 +1,5 @@
-import { toNum } from "../../utils/numbers.js";
-import { BaseRule } from "./base-rule.js";
+import { toNum } from "../../../utils/numbers.js";
+import { BaseRule } from "../base-rule.js";
 import { RESISTANCE_SCHEMA } from "./schema.js";
 
 export class ResistancesRule extends BaseRule {

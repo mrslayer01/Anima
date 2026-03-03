@@ -1,5 +1,5 @@
 import { DEFAULT_ACTOR_DATA } from "../config/default-actor-data.js";
-import { calculateModifiers } from "../data/rules/global-modifiers.js";
+import { calculateModifiers } from "../data/rules/actor/global-modifiers.js";
 import { INIT_RULES, MOD_RULES, FINAL_RULES } from "../data/rules/rules.js";
 import { forceOrder } from "../ui/force-order.js";
 import { AddModifier } from "../utils/helpers.js";

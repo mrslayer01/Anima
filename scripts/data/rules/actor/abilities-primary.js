@@ -1,5 +1,5 @@
-import { toNum } from "../../utils/numbers.js";
-import { BaseRule } from "./base-rule.js";
+import { toNum } from "../../../utils/numbers.js";
+import { BaseRule } from "../base-rule.js";
 import { ABILITIES_PRIMARIES_SCHEMA } from "./schema.js";
 
 export class AbilitiesPrimaryRule extends BaseRule {
@@ -33,6 +33,12 @@ export class AbilitiesPrimaryRule extends BaseRule {
           ) {
             if (abil.characteristic === undefined)
               abil.characteristic = ABILITIES_PRIMARIES_SCHEMA[name].characteristic || null;
+            if (abil.physicalPenalty === undefined) {
+              abil.physicalPenalty = ABILITIES_PRIMARIES_SCHEMA[name].physicalPenalty;
+            }
+            if (abil.naturalPenalty === undefined) {
+              abil.naturalPenalty = ABILITIES_PRIMARIES_SCHEMA[name].naturalPenalty;
+            }
             if (abil.mastery === undefined) abil.mastery = false;
           }
         }
@@ -61,7 +67,18 @@ export class AbilitiesPrimaryRule extends BaseRule {
           } else {
             total = base + bonus + cls + special;
           }
-          abil.final = total + charFinal;
+
+          let naturalPenalty = 0;
+          if (abil.naturalPenalty) {
+            naturalPenalty = toNum(system.globalModifiers.Natural.final);
+          }
+          let physicalPenalty = 0;
+          if (abil.physicalPenalty) {
+            physicalPenalty = toNum(system.globalModifiers.Physical.final);
+          }
+
+          let penalties = naturalPenalty + physicalPenalty;
+          abil.final = total + charFinal + penalties;
           abil.mastery = total >= 200;
         }
       }
@@ -162,8 +179,18 @@ export class AbilitiesPrimaryRule extends BaseRule {
         const cls = toNum(abil.class);
         const special = toNum(abil.special);
         const weapon = toNum(abil.weapon);
+        let naturalPenalty = 0;
+        if (abil.naturalPenalty) {
+          naturalPenalty = toNum(system.globalModifiers.Natural.final);
+        }
+        let physicalPenalty = 0;
+        if (abil.physicalPenalty) {
+          physicalPenalty = toNum(system.globalModifiers.Physical.final);
+        }
 
-        const total = base + bonus + cls + special + weapon;
+        let penalties = naturalPenalty + physicalPenalty;
+
+        const total = base + bonus + cls + special + weapon + penalties;
 
         abil.final = total + charFinal;
         abil.mastery = total >= 200;

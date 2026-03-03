@@ -113,7 +113,8 @@
 .abf-character-sheet .secondary-block,
 .abf-character-sheet .character-grid,
 .abf-character-sheet .details-grid,
-.abf-character-sheet .inventory-grid {
+.abf-character-sheet .inventory-grid,
+.abf-character-sheet .mystic-grid {
   background: #1a1d27;
   border: 1px solid #2f3547;
   border-radius: 6px;
@@ -410,7 +411,8 @@
 
 .character-grid,
 .details-grid,
-.inventory-grid {
+.inventory-grid,
+.mystic-grid {
   display: grid;
   grid-template-columns: 0.3fr 0.7fr;
   gap: 1rem;
@@ -441,7 +443,9 @@
 .details-left,
 .details-right,
 .combat-left,
-.combat-right {
+.combat-right,
+.mystic-left,
+.mystic-right {
   display: flex;
   flex-direction: column;
   gap: 1rem;

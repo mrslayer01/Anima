@@ -1,5 +1,5 @@
-import { toNum } from "../../utils/numbers.js";
-import { BaseRule } from "./base-rule.js";
+import { toNum } from "../../../utils/numbers.js";
+import { BaseRule } from "../base-rule.js";
 
 export class LifePointsRule extends BaseRule {
   Initialize(system) {
