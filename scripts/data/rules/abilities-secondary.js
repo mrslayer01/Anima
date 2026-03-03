@@ -24,8 +24,11 @@ export class AbilitiesSecondaryRule extends BaseRule {
         }
         if (abil.undeveloped === undefined) abil.undeveloped = true;
         if (abil.mastery === undefined) abil.mastery = false;
-        if (abil.armorPenalty === undefined) {
-          abil.armorPenalty = ABILITIES_SECONDARIES_SCHEMA[abilityName].armorPenalty;
+        if (abil.physicalPenalty === undefined) {
+          abil.physicalPenalty = ABILITIES_SECONDARIES_SCHEMA[abilityName].physicalPenalty;
+        }
+        if (abil.naturalPenalty === undefined) {
+          abil.naturalPenalty = ABILITIES_SECONDARIES_SCHEMA[abilityName].naturalPenalty;
         }
         if (abil.journal === undefined) abil.journal = ABILITY_JOURNALS[categoryName][abilityName];
         if (abil.naturalBonuses === undefined) abil.naturalBonuses = 0;
@@ -46,11 +49,17 @@ export class AbilitiesSecondaryRule extends BaseRule {
         const cls = toNum(abil.class);
         const special = toNum(abil.special);
         let naturalTotal = charFinal * toNum(abil.naturalBonuses);
-        let armorPenalty = 0;
-        if (abil.armorPenalty) {
-          armorPenalty = toNum(system.globalModifiers.Natural.final);
+        let naturalPenalty = 0;
+        if (abil.naturalPenalty) {
+          naturalPenalty = toNum(system.globalModifiers.Natural.final);
         }
-        const total = base + bonus + cls + special + naturalTotal - armorPenalty;
+        let physicalPenalty = 0;
+        if (abil.physicalPenalty) {
+          physicalPenalty = toNum(system.globalModifiers.Physical.final);
+        }
+
+        let penalties = naturalPenalty + physicalPenalty;
+        const total = base + bonus + cls + special + naturalTotal + penalties;
 
         abil.final = total + charFinal;
         abil.undeveloped = total === 0;
@@ -141,8 +150,18 @@ export class AbilitiesSecondaryRule extends BaseRule {
         const cls = toNum(abil.class);
         const special = toNum(abil.special);
         let naturalTotal = charFinal * toNum(abil.naturalBonuses);
+        let naturalPenalty = 0;
+        if (abil.naturalPenalty) {
+          naturalPenalty = toNum(system.globalModifiers.Natural.final);
+        }
+        let physicalPenalty = 0;
+        if (abil.physicalPenalty) {
+          physicalPenalty = toNum(system.globalModifiers.Physical.final);
+        }
 
-        const total = base + bonus + cls + special + naturalTotal;
+        let penalties = naturalPenalty + physicalPenalty;
+
+        const total = base + bonus + cls + special + naturalTotal + penalties;
 
         abil.final = total + charFinal;
         abil.undeveloped = total === 0;

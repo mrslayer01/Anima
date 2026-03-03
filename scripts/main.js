@@ -5,7 +5,7 @@ import { AbfItemSheet } from "./ui/abf-item-sheet.js";
 import { InitalizeAllActorPartials } from "./templates/initialize-actor-partials.js";
 import { loadAllActorHandlerbarsHelpers } from "./ui/handlebars-helpers.js";
 import { InitalizeAllItemPartials } from "./templates/initialize-item-partials.js";
-import { WeaponBaseCalculations } from "./data/rules/items/weapon-calculations.js";
+import { WeaponBaseCalculations, WeaponEquipped } from "./data/rules/items/weapon-calculations.js";
 import { ArmorCalculation, UpdateArmor } from "./data/rules/items/armor-calculations.js";
 import { AnimaCombat } from "./utils/combat.js";
 
@@ -49,7 +49,7 @@ Hooks.on("updateItem", (item) => {
 
   if (item.type === "weapon") {
     // If the equipped armor values are changed, prompt sheet to re calculate.
-    WeaponBaseCalculations(actor);
+    WeaponEquipped(actor, item);
   }
 
   if (item.type === "armor") {

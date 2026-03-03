@@ -6,39 +6,34 @@ export async function WeaponBaseCalculations(actor) {
 }
 
 export async function WeaponEquipped(actor, item) {
-  // 1. Capture the equipped state of all weapons AFTER this toggle
-  const equippedWeapons = actor.items.filter((i) => i.type === "weapon" && i.system.equipped);
+  // 1. Recompute all weapon stats and get results
+  const { allWeaponSpeed, equippedWeapons } = await UpdateWeapon(actor);
 
-  // 2. Recompute all weapon stats
-  const allWeaponSpeed = await UpdateWeapon(actor);
-
-  // 3. Determine which weapon should apply attack/block
+  // 2. Determine active weapon
   let activeWeapon = null;
 
   if (equippedWeapons.length === 1) {
-    // Only one weapon equipped → always use it (even if it's a shield)
     activeWeapon = equippedWeapons[0];
   } else {
-    // Multiple weapons equipped → ignore shields
     activeWeapon = equippedWeapons.find((w) => w.system.weaponType !== "shield") ?? null;
   }
 
-  // 4. Build update object
+  // 3. Build update object
   const updateData = {
     "system.initiative.weaponPenalty": allWeaponSpeed
   };
 
   if (activeWeapon) {
     updateData["system.abilities.primary.Combat.Attack.weapon"] = activeWeapon.system.attackBonus;
+
     updateData["system.abilities.primary.Combat.Block.weapon"] =
       activeWeapon.system.blockBonus.final ?? activeWeapon.system.blockBonus;
   } else {
-    // No valid weapon → zero out
     updateData["system.abilities.primary.Combat.Attack.weapon"] = 0;
     updateData["system.abilities.primary.Combat.Block.weapon"] = 0;
   }
 
-  // 5. Apply update
+  // 4. Apply update
   return await actor.update(updateData);
 }
 
@@ -123,7 +118,10 @@ export async function UpdateWeapon(actor) {
   }
 
   // Update speed to include all weapons equipped speed.
-  return allWeaponSpeed;
+  return {
+    allWeaponSpeed,
+    equippedWeapons: actor.items.filter((i) => i.type === "weapon" && i.system.equipped)
+  };
 }
 
 export function quality(qualityValue) {
