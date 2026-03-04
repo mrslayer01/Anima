@@ -1,4 +1,4 @@
-export function forceOrder(abilitiesRoot, abilities) {
+export function forceOrder(abilitiesRoot, list) {
   if (!abilitiesRoot) return;
 
   const secondariesCategories = [
@@ -15,7 +15,7 @@ export function forceOrder(abilitiesRoot, abilities) {
 
   const armorTypes = ["cut", "imp", "thr", "hea", "ele", "col", "ene"];
 
-  if (abilities === "Secondaries") {
+  if (list === "Secondaries") {
     for (const category of secondariesCategories) {
       const categoryObj = abilitiesRoot[category];
       if (!categoryObj) continue;
@@ -44,7 +44,7 @@ export function forceOrder(abilitiesRoot, abilities) {
 
       abilitiesRoot[category] = sorted;
     }
-  } else if (abilities === "Primaries") {
+  } else if (list === "Primaries") {
     for (const category of primariesCategories) {
       const categoryObj = abilitiesRoot[category];
       if (!categoryObj) continue;
@@ -73,5 +73,33 @@ export function forceOrder(abilitiesRoot, abilities) {
 
       abilitiesRoot[category] = sorted;
     }
+  } else if (list === "Paths") {
+    const categoryObj = abilitiesRoot;
+    if (!categoryObj) return;
+
+    // Call the Handlebars helper to get the correct order
+    const orderHelper = Handlebars.helpers["orderPaths"];
+    if (!orderHelper) return;
+
+    const order = orderHelper();
+    const sorted = {};
+
+    // Rebuild in the correct order
+    for (const key of order) {
+      if (categoryObj[key]) {
+        sorted[key] = categoryObj[key];
+      }
+    }
+
+    // Add any unexpected keys at the end (safety)
+    for (const key of Object.keys(categoryObj)) {
+      if (!sorted[key]) {
+        sorted[key] = categoryObj[key];
+      }
+    }
+
+    // Replace the original object in-place
+    for (const key of Object.keys(categoryObj)) delete categoryObj[key];
+    for (const key of Object.keys(sorted)) categoryObj[key] = sorted[key];
   }
 }

@@ -17,6 +17,7 @@ export class AbfActor extends Actor {
 
     forceOrder(this.system.abilities.primary, "Primaries");
     forceOrder(this.system.abilities.secondary, "Secondaries");
+    forceOrder(this.system.mystic.paths, "Paths");
   }
 
   prepareData() {

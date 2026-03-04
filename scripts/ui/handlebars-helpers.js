@@ -19,6 +19,9 @@ export function loadAllActorHandlerbarsHelpers() {
     if (a === b || a === c) return options.fn(this);
     return options.inverse(this);
   });
+  Handlebars.registerHelper("lower", (str) => {
+    return String(str).toLowerCase();
+  });
 
   Handlebars.registerHelper("switch", function (value, options) {
     this._switch_value_ = value;
@@ -181,6 +184,20 @@ export function loadAllActorHandlerbarsHelpers() {
   ]);
 
   Handlebars.registerHelper("orderPsychic", () => ["PsychicProjection", "PsychicPoints"]);
+
+  Handlebars.registerHelper("orderPaths", () => [
+    "Essence",
+    "Water",
+    "Earth",
+    "Darkness",
+    "Light",
+    "Air",
+    "Fire",
+    "Creation",
+    "Necromancy",
+    "Destruction",
+    "Illusion"
+  ]);
   //#endregion
 
   Handlebars.registerHelper("armorTooltip", function (armor, type, sections) {
