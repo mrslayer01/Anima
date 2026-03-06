@@ -77,8 +77,8 @@ const BREAKAGE_BY_STRENGTH = [
   { min: 15, max: Infinity, bonus: 8 }
 ];
 
-export const ARMOR_SECTIONS = ["body", "helm", "natural"];
-// export const ARMOR_SECTIONS = ["breastplate", "shirt", "complete", "helm", "natural"];
+//export const ARMOR_SECTIONS = ["body", "helm", "natural"];
+export const ARMOR_SECTIONS = ["breastplate", "shirt", "complete", "helm", "natural"];
 export const DAMAGE_TYPES = ["cut", "imp", "thr", "hea", "ele", "col", "ene"];
 export const SECONDARY_DAMAGE_TYPES = ["none", "cut", "imp", "thr", "hea", "ele", "col", "ene"];
 export const WEAPON_TYPES = [
@@ -191,7 +191,7 @@ export function computeDamagePercent(result, at = 0) {
 }
 
 export function computeCounterattack(result) {
-  if (result >= 0) return 0; // attacker wins or ties → no counterattack
+  if (result >= 0) return 0; // attacker wins or ties = no counterattack
 
   const abs = Math.abs(result);
 
@@ -228,3 +228,30 @@ export function computeCounterattack(result) {
 
   return 150; // -301 or lower
 }
+
+export const DIRECTED_ATTACK_TABLE = {
+  None: 0,
+  Eye: -100,
+  Neck: -80,
+  Head: -60,
+  Elbow: -60,
+  Heart: -60,
+  Groin: -60,
+  Foot: -50,
+  Hand: -40,
+  Wrist: -40,
+  Knee: -40,
+  Shoulder: -30,
+  Abdomen: -20,
+  Arm: -20,
+  Thigh: -20,
+  Torso: -10,
+  Calf: -10
+};
+
+export const ARMOR_COVERAGE = {
+  breastplate: ["Torso"],
+  shirt: ["Torso", "Arms"],
+  complete: ["Torso", "Arms", "Legs"],
+  helmet: ["Head"]
+};

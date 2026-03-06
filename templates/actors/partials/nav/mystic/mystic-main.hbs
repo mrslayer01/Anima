@@ -11,7 +11,7 @@
         <label class="path-name">
           Base Magic Accumulation.
         </label>
-        <span>
+        <span class="path-name">
           {{system.abilities.primary.Supernatural.MagicAccumulation.base}}
         </span>
       </div>
@@ -20,23 +20,16 @@
         <label class="path-name">
           Multiples
         </label>
-        <span>
-          {{system.abilities.primary.Supernatural.MAMultiples.final}}
+        <span class="path-name">
+          {{system.abilities.primary.Supernatural.MAMultiples.base}}
         </span>
-      </div>
-
-      <div class="field-row">
-        <label class="path-name">
-          Bonus
-        </label>
-        <input type="number" name="system.abilities.primary.Supernatural.MagicAccumulation.bonus" />
       </div>
 
       <div class="field-row final">
         <label class="path-name">
           Final Magic Accumulation.
         </label>
-        <span>
+        <span class="path-name">
           {{system.abilities.primary.Supernatural.MagicAccumulation.final}}
         </span>
       </div>
@@ -52,7 +45,7 @@
         <label class="path-name">
           Base Zeon
         </label>
-        <span>
+        <span class="path-name">
           {{system.abilities.primary.Supernatural.Zeon.base}}
         </span>
       </div>
@@ -61,26 +54,33 @@
         <label class="path-name">
           Class
         </label>
-        <span>
+        <span class="path-name">
           {{system.abilities.primary.Supernatural.Zeon.class}}
         </span>
       </div>
 
-      <div class="field-row">
-        <label class="path-name">
-          Bonus
-        </label>
-        <input type="number" name="system.abilities.primary.Supernatural.Zeon.bonus" />
-      </div>
-
-      <div class="field-row final">
-        <label class="path-name">
-          Final / Current Zeon
-        </label>
-        <span>
-          {{system.abilities.primary.Supernatural.Zeon.final}}
-        </span>
-        <input type="number" name="system.abilities.primary.Supernatural.Zeon.current" />
+      <div class="imbalance-group">
+        <div class="imbalance-row">
+          <div class="imbalance-field">
+            <label class="path-name">
+              Current
+            </label>
+            <input
+              class="path-name"
+              type="number"
+              name="system.abilities.primary.Supernatural.Zeon.current"
+              value="{{system.abilities.primary.Supernatural.Zeon.current}}"
+            />
+          </div>
+          <div class="imbalance-field">
+            <label class="path-name">
+              Maximum
+            </label>
+            <span class="path-name" data-tooltip="Final Zeon = 20 + (Base Power * 10) + Power Final + (Base Zeon * 5)">
+              {{system.abilities.primary.Supernatural.Zeon.final}}
+            </span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -94,30 +94,27 @@
         <label class="path-name">
           Base
         </label>
-        <span>
+        <span class="path-name">
           {{system.abilities.primary.Supernatural.MagicProjection.base}}
         </span>
       </div>
 
       <div class="field-row">
         <label class="path-name">
-          Dexterity Bonus
-        </label>
-        <span></span>
-      </div>
-
-      <div class="field-row">
-        <label class="path-name">
           Bonus
         </label>
-        <input type="number" name="system.magicProjection.special" />
+        <span class="path-name">
+          {{system.abilities.primary.Supernatural.MagicProjection.bonus}}
+        </span>
       </div>
 
       <div class="field-row final">
         <label class="path-name">
           Final
         </label>
-        <span></span>
+        <span class="path-name">
+          {{system.abilities.primary.Supernatural.MagicProjection.final}}
+        </span>
       </div>
 
       <!-- IMBALANCE (side-by-side) -->
@@ -126,19 +123,34 @@
           Imbalance
         </h4>
 
+        <input
+          type="range"
+          name="system.mystic.imbalance.value"
+          min="-30"
+          max="30"
+          step="5"
+          value="{{system.mystic.imbalance.value}}"
+          class="imbalance-slider"
+          {{#if @root.actor.system.lockUi}}disabled{{/if}}
+        />
+
         <div class="imbalance-row">
           <div class="imbalance-field">
             <label class="path-name">
               Offensive
             </label>
-            <input type="number" name="system.magicProjection.imbalance.offensive" />
+            <span class="path-name">
+              {{system.mystic.imbalance.offensive}}
+            </span>
           </div>
 
           <div class="imbalance-field">
             <label class="path-name">
               Defensive
             </label>
-            <input type="number" name="system.magicProjection.imbalance.defensive" />
+            <span class="path-name">
+              {{system.mystic.imbalance.defensive}}
+            </span>
           </div>
         </div>
       </div>
@@ -154,9 +166,11 @@
       <div class="path-grid">
         {{#each system.mystic.paths as |path key|}}
           <div class="path-card path-{{lower key}}">
-            <div class="path-name">
-              {{key}}
-            </div>
+            {{#if (in key "Illusion")}}
+              <div class="path-name">{{key}}</div>
+            {{else}}
+              <div class="path-name" data-tooltip="Opposed Path: {{path.opposedPath}}">{{key}}</div>
+            {{/if}}
             <input
               class="path-level"
               type="number"
@@ -173,14 +187,18 @@
             <label class="path-name">
               Used
             </label>
-            <input type="number" name="system.magicProjection.imbalance.offensive" />
+            <span class="path-name">
+              {{system.mystic.magicLevels.used}}
+            </span>
           </div>
 
           <div class="imbalance-field">
             <label class="path-name">
-              Total ML
+              Base ML
             </label>
-            <span></span>
+            <span class="path-name">
+              {{system.mystic.magicLevels.max}}
+            </span>
           </div>
         </div>
       </div>

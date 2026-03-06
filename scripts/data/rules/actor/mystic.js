@@ -29,6 +29,10 @@ export class MysticRule extends BaseRule {
         mysticPath.paths[name].effectiveCost = 0;
       if (mysticPath.paths[name].spellsLearned === undefined)
         mysticPath.paths[name].spellsLearned = 0; // Learns 1 spell per every 2 path base levels.
+      if (name !== "Illusion") {
+        if (mysticPath.paths[name].opposedPath === undefined)
+          mysticPath.paths[name].opposedPath = OPPOSED_PATHS[name];
+      }
     }
 
     //Free Access Spell Slots
@@ -36,6 +40,10 @@ export class MysticRule extends BaseRule {
       if (mysticPath.freeAccessSpellSlots[name].max === undefined)
         mysticPath.freeAccessSpellSlots[name].max = 0;
     }
+
+    // Imbalnce
+    if (mysticPath.imbalance.offensive === undefined) mysticPath.imbalance.offensive = 0;
+    if (mysticPath.imbalance.defensive === undefined) mysticPath.imbalance.defensive = 0;
   }
 
   Derived(system) {
@@ -64,38 +72,62 @@ export class MysticRule extends BaseRule {
     }
 
     //Path
+    // First pass: base cost = level, effectiveCost = level
     for (const [name, path] of Object.entries(mysticPath.paths)) {
       const level = toNum(path.level);
-
-      // Base cost
       path.cost = level;
-
-      // Opposed
-      let hasLevelsInOpposedPath = false;
-      if (name !== "Illusion") {
-        const opposedPath = OPPOSED_PATHS[name];
-        const opposedLevel = mysticPath.paths[name].level ?? 0;
-        hasLevelsInOpposedPath = opposedLevel > 0;
-      }
-
-      // Effective Cost
-      path.effectiveCost = hasLevelsInOpposedPath ? level * 2 : level;
+      path.effectiveCost = level;
 
       // Spell Slots
       path.spellsLearned = Math.floor(level / 2);
 
       // Free Access Spells
-      // Get the correct milestone array for this Path
       const slots = FREE_ACCESS_SLOT_TABLE[name];
-
-      // Apply milestones
       for (const slot of slots) {
         if (level >= slot.requiredLevel) {
-          system.mystic.freeAccessSpellSlots[slot.maxLevel].max += 1;
+          mysticPath.freeAccessSpellSlots[slot.maxLevel].max += 1;
         }
       }
     }
 
+    // Second pass: adjust opposed pairs
+    const processed = new Set();
+
+    for (const [name, path] of Object.entries(mysticPath.paths)) {
+      if (processed.has(name) || name === "Illusion") continue;
+
+      const opposedName = mysticPath.paths[name].opposedPath;
+      if (!opposedName) continue;
+
+      const opposedPath = mysticPath.paths[opposedName];
+      if (!opposedPath) continue;
+
+      const levelA = toNum(path.level);
+      const levelB = toNum(opposedPath.level);
+
+      // If either has no levels, no special cost
+      if (levelA === 0 || levelB === 0) {
+        processed.add(name);
+        processed.add(opposedName);
+        continue;
+      }
+
+      // Decide which is "second" (cheaper) and double that one
+      if (levelA <= levelB) {
+        // A is cheaper → A is opposed (double)
+        path.effectiveCost = levelA * 2;
+        opposedPath.effectiveCost = levelB;
+      } else {
+        // B is cheaper → B is opposed (double)
+        path.effectiveCost = levelA;
+        opposedPath.effectiveCost = levelB * 2;
+      }
+
+      processed.add(name);
+      processed.add(opposedName);
+    }
+
+    // Magic Levels used
     mysticPath.magicLevels.used = Object.values(mysticPath.paths).reduce(
       (sum, p) => sum + toNum(p.effectiveCost),
       0
@@ -107,6 +139,16 @@ export class MysticRule extends BaseRule {
     const usedML = toNum(mysticPath.magicLevels.used);
     mysticPath.magicLevels.max = getMaxMagicLevel(baseInt);
     mysticPath.magicLevels.final = baseML - usedML;
+
+    // Imbalance
+    const imbalance = toNum(mysticPath.imbalance.value);
+
+    // Clamp just in case
+    mysticPath.imbalance.value = Math.clamp(imbalance, -30, 30);
+
+    // Derived values
+    mysticPath.imbalance.offensive = -imbalance;
+    mysticPath.imbalance.defensive = imbalance;
   }
 
   DetectChanged(updateData, oldSystem) {
@@ -154,6 +196,13 @@ export class MysticRule extends BaseRule {
       if (newLvl !== undefined && newLvl !== path.level) changed.push("path");
     }
 
+    // Imbalance
+    const imbPath = `system.mystic.imbalance.value`;
+    const newimbValue = foundry.utils.getProperty(updateData, imbPath);
+
+    if (newimbValue !== undefined && newimbValue !== mysticPathOld.imbalance.value)
+      changed.push("imbalance");
+
     return changed;
   }
 
@@ -182,38 +231,62 @@ export class MysticRule extends BaseRule {
     }
 
     //Path
+    // First pass: base cost = level, effectiveCost = level
     for (const [name, path] of Object.entries(mysticPath.paths)) {
       const level = toNum(path.level);
-
-      // Base cost
       path.cost = level;
-
-      // Opposed
-      let hasLevelsInOpposedPath = false;
-      if (name !== "Illusion") {
-        const opposedPath = OPPOSED_PATHS[name];
-        const opposedLevel = mysticPath.paths[opposedPath].level ?? 0;
-        hasLevelsInOpposedPath = opposedLevel > 0;
-      }
-
-      // Effective Cost
-      path.effectiveCost = hasLevelsInOpposedPath ? level * 2 : level;
+      path.effectiveCost = level;
 
       // Spell Slots
       path.spellsLearned = Math.floor(level / 2);
 
       // Free Access Spells
-      // Get the correct milestone array for this Path
       const slots = FREE_ACCESS_SLOT_TABLE[name];
-
-      // Apply milestones
       for (const slot of slots) {
         if (level >= slot.requiredLevel) {
-          system.mystic.freeAccessSpellSlots[slot.maxLevel].max += 1;
+          mysticPath.freeAccessSpellSlots[slot.maxLevel].max += 1;
         }
       }
     }
 
+    // Second pass: adjust opposed pairs
+    const processed = new Set();
+
+    for (const [name, path] of Object.entries(mysticPath.paths)) {
+      if (processed.has(name) || name === "Illusion") continue;
+
+      const opposedName = mysticPath.paths[name].opposedPath;
+      if (!opposedName) continue;
+
+      const opposedPath = mysticPath.paths[opposedName];
+      if (!opposedPath) continue;
+
+      const levelA = toNum(path.level);
+      const levelB = toNum(opposedPath.level);
+
+      // If either has no levels, no special cost
+      if (levelA === 0 || levelB === 0) {
+        processed.add(name);
+        processed.add(opposedName);
+        continue;
+      }
+
+      // Decide which is "second" (cheaper) and double that one
+      if (levelA <= levelB) {
+        // A is cheaper → A is opposed (double)
+        path.effectiveCost = levelA * 2;
+        opposedPath.effectiveCost = levelB;
+      } else {
+        // B is cheaper → B is opposed (double)
+        path.effectiveCost = levelA;
+        opposedPath.effectiveCost = levelB * 2;
+      }
+
+      processed.add(name);
+      processed.add(opposedName);
+    }
+
+    // Magic Levels used
     mysticPath.magicLevels.used = Object.values(mysticPath.paths).reduce(
       (sum, p) => sum + toNum(p.effectiveCost),
       0
@@ -225,6 +298,16 @@ export class MysticRule extends BaseRule {
     const usedML = toNum(mysticPath.magicLevels.used);
     mysticPath.magicLevels.max = getMaxMagicLevel(baseInt);
     mysticPath.magicLevels.final = baseML - usedML;
+
+    // Imbalance
+    const imbalance = toNum(mysticPath.imbalance.value);
+
+    // Clamp just in case
+    mysticPath.imbalance.value = Math.clamp(imbalance, -30, 30);
+
+    // Derived values
+    mysticPath.imbalance.offensive = -imbalance;
+    mysticPath.imbalance.defensive = imbalance;
   }
 
   Update(updateData, oldSystem, newSystem) {

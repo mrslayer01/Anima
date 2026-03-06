@@ -1,3 +1,4 @@
+import { DIRECTED_ATTACK_TABLE } from "../../utils/lookup.js";
 import { toNum } from "../../utils/numbers.js";
 
 export class CombatWindow extends Application {
@@ -49,15 +50,17 @@ export class CombatWindow extends Application {
       ev.preventDefault();
 
       const atkMod = toNum(html.find("#atkMod").val());
-      const part = html.find("#directedAttack").val();
-      const directedPenalty = DIRECTED_ATTACK_TABLE[part] ?? 0;
+      const directed = html.find("#directedAttack").val();
+      const directedPenalty = DIRECTED_ATTACK_TABLE[directed] ?? 0;
+      const region = DIRECTED_TO_REGION[directed] ?? null;
 
       const final = atkMod + directedPenalty;
 
       this._resolve({
         atkMod,
         directedPenalty,
-        part,
+        directed,
+        region,
         final
       });
 
@@ -66,22 +69,24 @@ export class CombatWindow extends Application {
   }
 }
 
-const DIRECTED_ATTACK_TABLE = {
-  None: 0,
-  Eye: -100,
-  Neck: -80,
-  Head: -60,
-  Elbow: -60,
-  Heart: -60,
-  Groin: -60,
-  Foot: -50,
-  Hand: -40,
-  Wrist: -40,
-  Knee: -40,
-  Shoulder: -30,
-  Abdomen: -20,
-  Arm: -20,
-  Thigh: -20,
-  Torso: -10,
-  Calf: -10
+const DIRECTED_TO_REGION = {
+  Eye: "Head",
+  Head: "Head",
+  Neck: "Head",
+
+  Shoulder: "Arms",
+  Arm: "Arms",
+  Elbow: "Arms",
+  Wrist: "Arms",
+  Hand: "Arms",
+
+  Heart: "Torso",
+  Abdomen: "Torso",
+  Torso: "Torso",
+
+  Groin: "Legs",
+  Thigh: "Legs",
+  Knee: "Legs",
+  Calf: "Legs",
+  Foot: "Legs"
 };

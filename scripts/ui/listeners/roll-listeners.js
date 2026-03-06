@@ -1,4 +1,9 @@
-import { computeCounterattack, computeDamagePercent, difficultyMap } from "../../utils/lookup.js";
+import {
+  ARMOR_COVERAGE,
+  computeCounterattack,
+  computeDamagePercent,
+  difficultyMap
+} from "../../utils/lookup.js";
 import { toNum } from "../../utils/numbers.js";
 import { animaOpenRoll, characteristicCheck, resistanceCheck } from "../../utils/rolls.js";
 import { CombatWindow } from "../windows/combat-window.js";
@@ -184,7 +189,7 @@ export function RollListeners(sheet, html) {
     let attackValue = toNum(sheet.actor.system.abilities.primary.Combat.Attack.final);
     let attackType = ev.currentTarget.dataset.type;
 
-    const { final } = await promptAttackModifierWindow();
+    const { final, region, directed } = await promptAttackModifierWindow();
     attackValue += final;
 
     let armorPen = 0;
@@ -259,7 +264,15 @@ export function RollListeners(sheet, html) {
               });
 
               setTimeout(
-                () => postCombinedCombatCard(attacker, defender, manualAT, armorPen),
+                () =>
+                  postCombinedCombatCard(
+                    attacker,
+                    defender,
+                    manualAT,
+                    armorPen,
+                    directed,
+                    attackType
+                  ),
                 2500
               );
             }
@@ -298,8 +311,16 @@ export function RollListeners(sheet, html) {
 
     defenseValue += modifier + defensePenalty;
 
-    let defATValue = targetActor.system.armor.total[attackType] - armorPen;
+    let baseAT = 0;
 
+    console.log(directed);
+    if (directed !== "None") {
+      baseAT = getEffectiveAT(targetActor, region, attackType);
+    } else {
+      baseAT = targetActor.system.armor.total[attackType];
+    }
+
+    let defATValue = baseAT - armorPen;
     if (defATValue < 0) defATValue = 0;
 
     const defender = await animaOpenRollCapture({
@@ -314,7 +335,10 @@ export function RollListeners(sheet, html) {
       actor: sheet.actor
     });
 
-    setTimeout(() => postCombinedCombatCard(attacker, defender, defATValue, armorPen), 2500);
+    setTimeout(
+      () => postCombinedCombatCard(attacker, defender, defATValue, armorPen, directed, attackType),
+      2500
+    );
   });
 
   html.find(".damage-roll").off("click");
@@ -366,6 +390,23 @@ function DefensePenalty(weaponType, type, blockMastery, equippedshield, dodgeMas
   return penalty;
 }
 
+function getEffectiveAT(actor, region, attackType) {
+  let total = 0;
+
+  // Get real armor items
+  const armors = actor.items.filter((i) => i.type === "armor" && i.system.equipped);
+
+  for (const armor of armors) {
+    const coverage = ARMOR_COVERAGE[armor.system.location] ?? [];
+
+    if (coverage.includes(region)) {
+      total += actor.system.armor.total[attackType] ?? 0;
+    }
+  }
+
+  return total;
+}
+
 async function animaOpenRollCapture(opts) {
   return await animaOpenRoll({ ...opts, capture: true });
 }
@@ -412,7 +453,7 @@ async function promptDefenseChoice(targetActor) {
   });
 }
 
-function postCombinedCombatCard(attacker, defender, defenderAT, armorPen) {
+function postCombinedCombatCard(attacker, defender, defenderAT, armorPen, directed, attackType) {
   if (attacker === undefined || defender === undefined) return; // Wehna fumble happens there is no defender.
   const margin = attacker.final - defender.final;
 
@@ -427,23 +468,25 @@ function postCombinedCombatCard(attacker, defender, defenderAT, armorPen) {
   const { pct } = computeDamagePercent(margin, defenderAT);
 
   const content = `
-    <h3>Combat Exchange</h3>
+    <h4>Combat Exchange</h4>
 
-    <h4>Attacker: ${attacker.actor.name}</h4>
+    <h5>Attacker: ${attacker.actor.name}</h5>
     <b>Bonus:</b> ${attacker.bonus}<br>
+    <b>Attack Type:</b> ${attackType}<br>
     ${armorPen > 0 ? `<b>Armor Pen:</b> ${armorPen}<br>` : ""}
+    ${directed !== "None" ? `<b>Directed Attack:</b> ${directed} <br>` : ""}
     <b>Breakdown:</b><br>${attacker.rawRolls.join("<br>")}
     <br>
     <b>Final:</b> ${attacker.final}<br>
     <hr>
-    <h4>Defender: ${defender.actor.name}</h4>
+    <h5>Defender: ${defender.actor.name}</h5>
     <b>AT:</b> ${defenderAT}<br>
     <b>Bonus:</b> ${defender.bonus}<br>
     <b>Breakdown:</b><br>${defender.rawRolls.join("<br>")}
     <br>
     <b>Final:</b> ${defender.final}<br>
     <hr>
-    <h4>Result</h4>
+    <h5>Result</h5>
     <b>Margin:</b> ${margin}<br>
     <b>Damage Percent:</b> ${pct}%<br>
   `;
@@ -489,7 +532,7 @@ async function postCounterattackCard(attacker, defender, counterBonus) {
   const content = `
     <h4 style="color:#b30000;">Counterattack!</h4>
 
-    <h4>Attacker: ${attacker.actor.name}</h4>
+    <h5>Attacker: ${attacker.actor.name}</h5>
     <b>Bonus:</b> ${attacker.bonus}<br>
     <b>Breakdown:</b><br>${attacker.rawRolls.join("<br>")}
     <br>
@@ -497,7 +540,7 @@ async function postCounterattackCard(attacker, defender, counterBonus) {
 
     <hr>
 
-    <h4>Defender: ${defender.actor.name}</h4>
+    <h5>Defender: ${defender.actor.name}</h5>
     <b>Bonus:</b> ${defender.bonus}<br>
     <b>Breakdown:</b><br>${defender.rawRolls.join("<br>")}
     <br>
@@ -505,7 +548,7 @@ async function postCounterattackCard(attacker, defender, counterBonus) {
     
     <hr>
 
-    <h4>Result</h4>
+    <h5>Result</h5>
     <b>Margin:</b> ${margin}<br>
     <b>${defender.actor.name}</b> counters.<br>
     <b>Counterattack Bonus:</b> +${counterBonus}<br>

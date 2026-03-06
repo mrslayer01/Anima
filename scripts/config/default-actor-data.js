@@ -175,7 +175,7 @@ export const DEFAULT_ACTOR_DATA = {
   items: { weapons: [], commonGoods: [], armor: [], ammo: [] },
   mystic: {
     innateMagic: { bonus: 0 },
-    imbalance: { only: 0, both: 0 },
+    imbalance: { value: 0 },
     magicLevels: {
       base: 0
     },

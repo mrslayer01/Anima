@@ -1138,6 +1138,11 @@
   text-align: center;
 }
 
+.imbalance-slider {
+  width: 100%;
+  margin: 5px 0 10px 0;
+}
+
 .field-row label {
   text-align: left;
   width: 100%;
