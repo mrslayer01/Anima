@@ -11,11 +11,19 @@ export async function WeaponEquipped(actor, item) {
 
   // 2. Determine active weapon
   let activeWeapon = null;
+  let activeShield = null;
 
   if (equippedWeapons.length === 1) {
-    activeWeapon = equippedWeapons[0];
+    if (equippedWeapons[0].system.weaponType !== "shield") {
+      activeWeapon = equippedWeapons[0];
+    } else {
+      activeShield = equippedWeapons[0];
+    }
   } else {
-    activeWeapon = equippedWeapons.find((w) => w.system.weaponType !== "shield") ?? null;
+    if (equippedWeapons.find((w) => w.system.weaponType !== "shield"))
+      activeWeapon = equippedWeapons.find((w) => w.system.weaponType !== "shield");
+    if (equippedWeapons.find((w) => w.system.weaponType === "shield"))
+      activeShield = equippedWeapons.find((w) => w.system.weaponType === "shield");
   }
 
   // 3. Build update object
@@ -28,9 +36,15 @@ export async function WeaponEquipped(actor, item) {
 
     updateData["system.abilities.primary.Combat.Block.weapon"] =
       activeWeapon.system.blockBonus.final ?? activeWeapon.system.blockBonus;
+  } else if (activeShield) {
+    updateData["system.abilities.primary.Combat.Dodge.weapon"] = activeShield.system.dodgeBonus;
+
+    updateData["system.abilities.primary.Combat.Block.weapon"] =
+      activeShield.system.blockBonus.final ?? activeShield.system.blockBonus;
   } else {
     updateData["system.abilities.primary.Combat.Attack.weapon"] = 0;
     updateData["system.abilities.primary.Combat.Block.weapon"] = 0;
+    updateData["system.abilities.primary.Combat.Dodge.weapon"] = 0;
   }
 
   // 4. Apply update

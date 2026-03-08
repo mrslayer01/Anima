@@ -58,7 +58,13 @@ export class AbilitiesSecondaryRule extends BaseRule {
           physicalPenalty = toNum(system.globalModifiers.Physical.final);
         }
 
-        let penalties = naturalPenalty + physicalPenalty;
+        let perceptionPenalty = 0;
+        if (abilityName === "Notice" || abilityName === "Search") {
+          // Apply Perception Penalties
+          perceptionPenalty = toNum(system.globalModifiers.Perception.final);
+        }
+
+        let penalties = naturalPenalty + physicalPenalty + perceptionPenalty;
         const total = base + bonus + cls + special + naturalTotal + penalties;
 
         abil.final = total + charFinal;
@@ -158,8 +164,13 @@ export class AbilitiesSecondaryRule extends BaseRule {
         if (abil.physicalPenalty) {
           physicalPenalty = toNum(system.globalModifiers.Physical.final);
         }
+        let perceptionPenalty = 0;
+        if (abilityName === "Notice" || abilityName === "Search") {
+          // Apply Perception Penalties
+          perceptionPenalty = toNum(system.globalModifiers.Perception.final);
+        }
 
-        let penalties = naturalPenalty + physicalPenalty;
+        let penalties = naturalPenalty + physicalPenalty + perceptionPenalty;
 
         const total = base + bonus + cls + special + naturalTotal + penalties;
 

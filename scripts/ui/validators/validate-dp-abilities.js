@@ -43,21 +43,29 @@ export function ValidateDPAbilities(name, value, input, actor) {
         const dp = actor.system.developmentPoints;
 
         // --- 1. DP REMAINING CHECK ---
-
         if (ValidateDPRemaining(dpCost, actor)) {
           ui.notifications.error("Not enough Development Points.");
           input.value = oldBase;
           return;
         }
 
-        // --- 2. CATEGORY LIMIT CHECK ---
+        // --- 2. CATEGORY LIMIT CHECK (Class % Limit, Focus halves limit) ---
         const limits = actor.system.abilities.primary.abilityLimits;
         const percent = Number(limits[category].percent) || 0;
 
         let limit = (dp.final * percent) / 100;
 
-        // Focus halves the limit
-        if (abil.focus === true) {
+        // Detect which Combat ability is focused
+        let focusedAbility = null;
+        if (category === "Combat") {
+          const prim = actor.system.abilities.primary.Combat;
+          if (prim.Attack.focus) focusedAbility = "Attack";
+          else if (prim.Block.focus) focusedAbility = "Block";
+          else if (prim.Dodge.focus) focusedAbility = "Dodge";
+        }
+
+        // Halve limit ONLY for the focused ability
+        if (focusedAbility && ability === focusedAbility) {
           limit = limit / 2;
         }
 
@@ -68,52 +76,46 @@ export function ValidateDPAbilities(name, value, input, actor) {
         const newTotal = currentSpent + dpCost;
 
         if (newTotal > limit) {
-          ui.notifications.error("Outside of allowed limit for this ability.");
+          ui.notifications.error(
+            focusedAbility && ability === focusedAbility
+              ? "Outside of allowed limit for this category. When focused the limit is halved specifically for Attack, Block and Dodge."
+              : "Outside of allowed limit for this category."
+          );
           input.value = oldBase;
           return;
         }
 
-        // --- 3. OFFENSIVE / DEFENSIVE DP LIMIT (Attack + Block + Dodge <= 50% of total DP) ---
+        // --- 3. ATTACK + BLOCK + DODGE DP SUB-LIMIT (50% of TOTAL DP) ---
         if (category === "Combat" && ["Attack", "Block", "Dodge"].includes(ability)) {
-          const dp = actor.system.developmentPoints;
+          const totalDP = dp.final;
+          const abdLimit = totalDP * 0.5;
 
-          // Maximum DP allowed for Attack+Block+Dodge combined
-          const offDefLimit = dp.final * 0.5;
-
-          // Current DP spent on Attack+Block+Dodge
-          const offDefSpent = dp.spentRecords
+          const spentABD = dp.spentRecords
             .filter(
               (r) => r.category === "Combat" && ["Attack", "Block", "Dodge"].includes(r.ability)
             )
             .reduce((sum, r) => sum + Number(r.amount) * Number(r.cost), 0);
 
-          // New total after attempted change
-          const newOffDefTotal = offDefSpent + dpCost;
+          const newABDTotal = spentABD + dpCost;
 
-          if (newOffDefTotal > offDefLimit) {
-            ui.notifications.error("Cannot exceed 50% of total DP on Attack, Block, and Dodge.");
+          if (newABDTotal > abdLimit) {
+            ui.notifications.error(
+              "You cannot spend more than 50% of your total DP on Attack, Block, and Dodge."
+            );
             input.value = oldBase;
             return;
           }
         }
 
-        // --- 4. PSYCHIC PROJECTION DP LIMIT (Can't exceed 50% of the Psychic DP Ability Limit, not total DP like Above) ---
-        if (category === "Psychic" && ["PsychicProjection"].includes(ability)) {
-          const dp = actor.system.developmentPoints;
-          const limits = actor.system.abilities.primary.abilityLimits;
-
-          // Psychic category limit (already computed in your system)
+        // --- 4. PSYCHIC PROJECTION DP LIMIT (50% of Psychic DP Limit) ---
+        if (category === "Psychic" && ability === "PsychicProjection") {
           const psychicLimit = Number(limits.Psychic.final) || 0;
-
-          // Psychic Projection may not exceed 50% of the Psychic category limit
           const projLimit = psychicLimit * 0.5;
 
-          // Current DP spent on Psychic Projection
           const projSpent = dp.spentRecords
             .filter((r) => r.category === "Psychic" && r.ability === "PsychicProjection")
             .reduce((sum, r) => sum + Number(r.amount) * Number(r.cost), 0);
 
-          // New total after attempted increase
           const newProjTotal = projSpent + dpCost;
 
           if (newProjTotal > projLimit) {
@@ -123,11 +125,8 @@ export function ValidateDPAbilities(name, value, input, actor) {
           }
         }
 
-        // --- 4. MAGIC PROJECTION DP LIMIT (Can't exceed 50% of the Supernatural DP Ability Limit) ---
+        // --- 5. MAGIC PROJECTION DP LIMIT (50% of Supernatural DP Limit) ---
         if (category === "Supernatural" && ability === "MagicProjection") {
-          const dp = actor.system.developmentPoints;
-          const limits = actor.system.abilities.primary.abilityLimits;
-
           const magicLimit = Number(limits.Supernatural.final) || 0;
           const projLimit = magicLimit * 0.5;
 
@@ -145,52 +144,63 @@ export function ValidateDPAbilities(name, value, input, actor) {
             return;
           }
         }
+      }
+      // --- ATTACK / BLOCK / DODGE RULE ---
+      if (category === "Combat" && ["Attack", "Block", "Dodge"].includes(ability)) {
+        const combat = actor.system.abilities.primary.Combat;
 
-        // --- 5. ATTACK / BLOCK / DODGE RULE ---
-        if (category === "Combat" && ["Attack", "Block", "Dodge"].includes(ability)) {
-          const prim = actor.system.abilities.primary.Combat;
+        // Determine which ability is focused
+        const focused = combat.Attack.focus
+          ? "Attack"
+          : combat.Block.focus
+            ? "Block"
+            : combat.Dodge.focus
+              ? "Dodge"
+              : null;
 
-          const attack = prim.Attack;
-          const block = prim.Block;
-          const dodge = prim.Dodge;
+        // Current values
+        let attackBase = Number(combat.Attack.base) || 0;
+        let blockBase = Number(combat.Block.base) || 0;
+        let dodgeBase = Number(combat.Dodge.base) || 0;
 
-          const focused = attack.focus
-            ? "Attack"
-            : block.focus
-              ? "Block"
-              : dodge.focus
-                ? "Dodge"
-                : null;
+        // Apply the new value to the edited ability
+        if (ability === "Attack") attackBase = newBase;
+        if (ability === "Block") blockBase = newBase;
+        if (ability === "Dodge") dodgeBase = newBase;
 
-          // If one is focused, the others cannot increase
-          if (focused && ability !== focused) {
-            if (newBase > oldBase) {
-              ui.notifications.error("Only the focused combat ability may be increased.");
-              input.value = oldBase;
-              return;
-            }
+        // Helper: check if X is within 50 of Y
+        const within50 = (a, b) => Math.abs(a - b) <= 50;
+
+        // --- ATTACK CHECK ---
+        if (focused !== "Attack") {
+          const ok = within50(attackBase, blockBase) || within50(attackBase, dodgeBase);
+
+          if (!ok) {
+            ui.notifications.error("Attack must be within 50 points of either Block or Dodge.");
+            input.value = oldBase;
+            return;
           }
+        }
 
-          // If editing the focused one, skip the 50‑point rule
-          if (!focused || focused !== ability) {
-            let attackBase = Number(attack.base) || 0;
-            let blockBase = Number(block.base) || 0;
-            let dodgeBase = Number(dodge.base) || 0;
+        // --- BLOCK CHECK ---
+        if (focused !== "Block") {
+          const ok = within50(blockBase, attackBase) || within50(blockBase, dodgeBase);
 
-            if (ability === "Attack") attackBase = newBase;
-            if (ability === "Block") blockBase = newBase;
-            if (ability === "Dodge") dodgeBase = newBase;
+          if (!ok) {
+            ui.notifications.error("Block must be within 50 points of either Attack or Dodge.");
+            input.value = oldBase;
+            return;
+          }
+        }
 
-            const diffBlock = Math.abs(attackBase - blockBase);
-            const diffDodge = Math.abs(attackBase - dodgeBase);
+        // --- DODGE CHECK ---
+        if (focused !== "Dodge") {
+          const ok = within50(dodgeBase, attackBase) || within50(dodgeBase, blockBase);
 
-            if (diffBlock > 50 || diffDodge > 50) {
-              ui.notifications.error(
-                "Attack, Block, and Dodge must remain within 50 points of each other."
-              );
-              input.value = oldBase;
-              return;
-            }
+          if (!ok) {
+            ui.notifications.error("Dodge must be within 50 points of either Attack or Block.");
+            input.value = oldBase;
+            return;
           }
         }
       }

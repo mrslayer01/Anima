@@ -51,6 +51,11 @@
         <div class="effect-info">
           <div class="effect-name">
             {{this.name}}
+            <br />
+            Rounds remaining:
+            <b>
+              {{this.duration.remaining}}
+            </b>
           </div>
 
           {{#if this.flags.abf.modifiers}}

@@ -62,7 +62,7 @@ export class AbilitiesPrimaryRule extends BaseRule {
           const special = toNum(abil.special);
           const weapon = toNum(abil.weapon);
           let total = 0;
-          if (name === "Attack" || name === "Block") {
+          if (name === "Attack" || name === "Block" || name === "Dodge") {
             total = base + bonus + cls + special + weapon;
           } else {
             total = base + bonus + cls + special;

@@ -36,6 +36,14 @@
       "path": "packs/items",
       "type": "Item",
       "private": false
+    },
+    {
+      "name": "abf-macros",
+      "label": "ABF Macros",
+      "system": "abf-system",
+      "path": "packs/macros",
+      "type": "Macro",
+      "private": false
     }
   ],
   "languages": [

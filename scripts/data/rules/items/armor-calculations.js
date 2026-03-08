@@ -59,8 +59,8 @@ export async function UpdateArmor(actor) {
     const colFinal = a.armorType.col.base + a.armorType.col.bonus + q.at;
 
     let eneFinal = 0;
-    if (a.isEnchanted) {
-      // Only apply Energy AT bonus from quality if armor is magical.
+    if (a.isEnchanted || a.armorType.ene.base > 0) {
+      // Only apply Energy AT bonus from quality if armor is magical or already an energy value.
       eneFinal = a.armorType.ene.base + a.armorType.ene.bonus + q.at;
     } else {
       eneFinal = a.armorType.ene.base + a.armorType.ene.bonus;
