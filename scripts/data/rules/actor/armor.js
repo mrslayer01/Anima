@@ -8,7 +8,7 @@ export class ArmorRule extends BaseRule {
     // Ensure armor exists
     system.armor ??= {};
 
-    // Initialize normal sections
+    // Initialize each armor section
     for (const section of ARMOR_SECTIONS) {
       const target = (system.armor[section] ??= {});
       for (const type of DAMAGE_TYPES) {
@@ -25,13 +25,26 @@ export class ArmorRule extends BaseRule {
 
   Derived(system, actor) {
     this.Initialize(system);
-    //Check if the advantage Natural Armor Exsists.
+
     for (const type of DAMAGE_TYPES) {
-      system.armor.total[type] = ARMOR_SECTIONS.reduce((sum, section) => {
-        return sum + toNum(system.armor[section]?.[type]);
-      }, 0);
+      const naturalAT = toNum(system.armor.natural?.[type] ?? 0);
+
+      // Find worn AT from any worn section
+      let wornAT = 0;
+      for (const section of ARMOR_SECTIONS) {
+        if (section === "natural") continue;
+        const val = toNum(system.armor[section]?.[type]);
+        if (val > 0) {
+          wornAT = val;
+          break;
+        }
+      }
+
+      // Final total = worn + natural
+      system.armor.total[type] = wornAT + naturalAT;
     }
 
+    // Apply combined penalties (computed in ArmorCalculate)
     this.ApplyArmorPenalties(system, actor);
   }
 
@@ -57,11 +70,23 @@ export class ArmorRule extends BaseRule {
   }
 
   RecalcUpdated(system, name) {
-    //Check if the advantage Natural Armor Exsists.
+    // Recompute totals when a section changes
     for (const type of DAMAGE_TYPES) {
-      system.armor.total[type] = ARMOR_SECTIONS.reduce((sum, section) => {
-        return sum + toNum(system.armor[section]?.[type]);
-      }, 0);
+      const naturalAT = toNum(system.armor.natural?.[type] ?? 0);
+
+      // Find worn AT from any worn section
+      let wornAT = 0;
+      for (const section of ARMOR_SECTIONS) {
+        if (section === "natural") continue;
+        const val = toNum(system.armor[section]?.[type]);
+        if (val > 0) {
+          wornAT = val;
+          break;
+        }
+      }
+
+      // Final total = worn + natural
+      system.armor.total[type] = wornAT + naturalAT;
     }
   }
 
@@ -76,43 +101,41 @@ export class ArmorRule extends BaseRule {
   }
 
   ApplyArmorPenalties(system, actor) {
-    // clear old armor modifiers
+    // Clear old armor modifiers
     for (const mod of Object.values(system.globalModifiers)) {
       mod.currentMods = mod.currentMods.filter((m) => m.source !== "Armor");
     }
 
-    // reapply penalties from equipped armor
-    for (const armor of actor.items) {
-      if (armor.type !== "armor") continue;
-      if (!armor.system.equipped) continue;
+    // Read combined penalties stored by ArmorCalculate
+    const p = system.armor.combinedPenalties;
+    if (!p) return;
 
-      AddModifier(system.globalModifiers.Physical, {
-        id: `${armor.id}-physical`,
-        source: "Armor",
-        value: -armor.system.physicalPenalty,
-        type: "armor"
-      });
+    AddModifier(system.globalModifiers.Physical, {
+      id: "combined-physical",
+      source: "Armor",
+      value: -p.physical,
+      type: "armor"
+    });
 
-      AddModifier(system.globalModifiers.Natural, {
-        id: `${armor.id}-natural`,
-        source: "Armor",
-        value: -armor.system.naturalPenalty.final,
-        type: "armor"
-      });
+    AddModifier(system.globalModifiers.Natural, {
+      id: "combined-natural",
+      source: "Armor",
+      value: -p.natural,
+      type: "armor"
+    });
 
-      AddModifier(system.globalModifiers.Movement, {
-        id: `${armor.id}-movement`,
-        source: "Armor",
-        value: -armor.system.moveRestriction.final,
-        type: "armor"
-      });
+    AddModifier(system.globalModifiers.Movement, {
+      id: "combined-movement",
+      source: "Armor",
+      value: -p.movement,
+      type: "armor"
+    });
 
-      AddModifier(system.globalModifiers.Perception, {
-        id: `${armor.id}-perception`,
-        source: "Armor",
-        value: -armor.system.perceptionPenalty,
-        type: "armor"
-      });
-    }
+    AddModifier(system.globalModifiers.Perception, {
+      id: "combined-perception",
+      source: "Armor",
+      value: -p.perception,
+      type: "armor"
+    });
   }
 }

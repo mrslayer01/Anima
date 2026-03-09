@@ -1,4 +1,4 @@
-import { ArmorEquipped } from "../../data/rules/items/armor-calculations.js";
+import { ArmorCalculate } from "../../data/rules/items/armor-calculations.js";
 import { WeaponEquipped } from "../../data/rules/items/weapon-calculations.js";
 
 export function InventoryListeners(sheet, html) {
@@ -43,24 +43,19 @@ function Items(sheet, html) {
 
     const current = item.system.equipped ?? false;
     const location = item.system.location;
+    const armorClass = item.system.armorClass;
 
-    // Unequip any other armor in the same location
-    const otherEquipped = actor.items.find(
-      (i) =>
-        i.type === "armor" && i.id !== itemId && i.system.location === location && i.system.equipped
-    );
-
-    if (otherEquipped) {
-      await otherEquipped.update({ "system.equipped": false });
+    // Make sure new armor is valid before proceeding, only if attempting to equip. Excluding Natural armor.
+    if (!current && location !== "natural") {
+      if (!ValidateArmor(actor, itemId, armorClass)) return;
     }
 
-    // Toggle this one
+    //If validation succeeds, toggle equipped state and then send to armor-calculations.
     await item.update({ "system.equipped": !current });
 
     // Now recompute the section from scratch based on current flags
-    await ArmorEquipped(actor, location);
-
-    sheet.render(false);
+    await ArmorCalculate(actor);
+    await sheet.render(false);
   });
 }
 
@@ -95,7 +90,7 @@ function EditItems(sheet, html) {
         await item.update({
           "system.equipped": false
         });
-        await ArmorEquipped(actor, location);
+        await ArmorCalculate(actor);
       }
     }
 
@@ -120,4 +115,42 @@ function EditItems(sheet, html) {
 
     actor.deleteEmbeddedDocuments("Item", [itemId]);
   });
+}
+
+function ValidateArmor(actor, itemId, armorClass) {
+  // Make sure when equipping armor, it does not exceed the allowed limit. Max 1 hard and 2 soft armor classes can be worn at the same time. Excluding Natural armor
+  const softTotal = actor.items.filter(
+    (i) =>
+      i.type === "armor" &&
+      i.id !== itemId && // Verify it's not the currently being modified item.
+      i.system.armorClass === "soft" &&
+      i.system.equipped &&
+      i.system.location !== "natural"
+  ).length;
+
+  const hardTotal = actor.items.filter(
+    (i) =>
+      i.type === "armor" &&
+      i.id !== itemId && // Verify it's not the currently being modified item.
+      i.system.armorClass === "hard" &&
+      i.system.equipped &&
+      i.system.location !== "natural"
+  ).length;
+
+  // Check the current armor being equipped's armor class and see if equipping it will exceed the limit. Only if it's not already equipped.
+  if (armorClass === "hard" && hardTotal + 1 > 1) {
+    // Equipping armor will exceed the cap for hard armor class.
+    ui.notifications.error(
+      "Equipping this armor will exceed the maximum number of Hard equipment allowed."
+    );
+    return false;
+  } else if (armorClass === "soft" && softTotal + 1 > 2) {
+    // Equipping armor will exceed the cap for soft armor class.
+    ui.notifications.error(
+      "Equipping this armor will exceed the maximum number of Soft equipment allowed."
+    );
+    return false;
+  }
+
+  return true;
 }

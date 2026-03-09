@@ -83,3 +83,9 @@ export const DEFAULT_ARMOR_DATA = {
   equipped: false,
   specialValue: 0
 };
+
+export const DEFAULT_SPELL_DATA = {
+  path: "",
+  level: 0,
+  action: "passive" // Passive or Active actions depending on their nature.
+};

@@ -225,12 +225,14 @@ function ArmorAdvantages(system) {
     if (hasNaturalArmor) {
       //Gets +2 natural bonus to all types except energy
       if (type != "ene") {
+        system.armor.natural[type] += 2;
         system.armor.total[type] += 2;
       }
     }
     if (hasMysticalArmor) {
       //Gets +4 natural energy bonus.
       if (type === "ene") {
+        system.armor.natural[type] += 4;
         system.armor.total[type] += 4;
       }
     }

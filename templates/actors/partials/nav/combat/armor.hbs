@@ -33,6 +33,9 @@
         Location
       </th>
       <th>
+        Type
+      </th>
+      <th>
         Equipped?
       </th>
       <th></th>
@@ -50,6 +53,9 @@
         {{/each}}
         <td>
           {{humanize item.system.location}}
+        </td>
+        <td>
+          {{humanize item.system.armorClass}}
         </td>
         <td class="armor-equip-toggle clickable" data-item-id="{{item.id}}">
           {{#if item.system.equipped}}
