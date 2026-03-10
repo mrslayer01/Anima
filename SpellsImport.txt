@@ -1,0 +1,87 @@
+// --- CONFIG SOURCE ---
+const spells = game.ABF_SPELLS;
+
+if (!spells) {
+  ui.notifications.error("game.ABF_SPELLS is not defined.");
+  return;
+}
+
+// --- ENSURE TOP-LEVEL 'Spells' FOLDER EXISTS ---
+let rootFolder = game.folders.getName("Spells");
+if (!rootFolder) {
+  rootFolder = await Folder.create({
+    name: "Spells",
+    type: "Item"
+  });
+}
+
+// --- DELETE ALL EXISTING SPELL ITEMS & SUBFOLDERS UNDER 'Spells' ---
+const foldersToDelete = game.folders.filter(f => f.type === "Item" && f.parent?.id === rootFolder.id);
+
+// Delete items inside each subfolder
+for (const folder of foldersToDelete) {
+  const items = folder.contents;
+  if (items.length > 0) {
+    await Item.deleteDocuments(items.map(i => i.id));
+  }
+}
+
+// Delete subfolders themselves
+for (const folder of foldersToDelete) {
+  await folder.delete();
+}
+
+// Also delete any items directly inside the root folder
+const rootItems = rootFolder.contents;
+if (rootItems.length > 0) {
+  await Item.deleteDocuments(rootItems.map(i => i.id));
+}
+
+// --- HELPER: Capitalize Path Name ---
+function capitalizePath(path) {
+  if (!path) return "Misc";
+  return path.charAt(0).toUpperCase() + path.slice(1).toLowerCase();
+}
+
+// --- CACHE FOR NEW PATH FOLDERS ---
+const pathFolders = {};
+
+// --- IMPORT ALL SPELLS ---
+for (const [key, spell] of Object.entries(spells)) {
+
+  if (!spell || !spell.path) continue;
+
+  const pathName = capitalizePath(spell.path);
+
+  // Always create a fresh folder under Spells
+  if (!pathFolders[pathName]) {
+    const folder = await Folder.create({
+      name: pathName,
+      type: "Item",
+      parent: rootFolder.id
+    });
+    pathFolders[pathName] = folder;
+  }
+
+  const folder = pathFolders[pathName];
+
+  // --- CREATE THE SPELL ITEM ---
+  await Item.create({
+    name: spell.name,
+    type: "spell",
+    folder: folder.id,
+    system: {
+      path: spell.path,
+      level: spell.level,
+      action: spell.action,
+      cost: spell.cost,
+      effect: spell.effect,
+      addedEffect: spell.addedEffect,
+      maintenance: spell.maintenance,
+      maxZeon: spell.maxZeon,
+      typeOfSpell: spell.typeOfSpell
+    }
+  });
+}
+
+ui.notifications.info("All spells re-imported with correct nested path folders.");
