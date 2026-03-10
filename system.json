@@ -43,7 +43,7 @@
       "system": "abf-system",
       "path": "packs/macros",
       "type": "Macro",
-      "private": false
+      "private": true
     }
   ],
   "languages": [

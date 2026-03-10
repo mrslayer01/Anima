@@ -90,7 +90,8 @@ export const DEFAULT_SPELL_DATA = {
   action: "passive", // Passive or Active actions depending on their nature.
   cost: 0,
   effect: "",
+  addedEffect: "",
   maintenance: "",
-  maxZeon: { 10: 0, 20: 0, 30: 0, 40: 0, 50: 0 },
+  maxZeon: "",
   typeOfSpell: ""
 };

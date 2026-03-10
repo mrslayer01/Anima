@@ -30,7 +30,9 @@
           <a class="item" data-tab="ammo">Ammo</a>
         {{/if}}
       {{/if}}
+      {{#if (in item.type "weapon" "armor" "ammo" "commonGood")}}
       <a class="item" data-tab="description">Description</a>
+      {{/if}}
     </nav>
 
     <section class="sheet-body">

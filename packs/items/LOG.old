@@ -1,7 +1,1 @@
-2026/03/09-18:48:14.224 16fac Log #165: 224 ops saved to Table #166 OK
-2026/03/09-18:48:14.225 16fac Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\items/000165.log: OK
-2026/03/09-18:48:14.226 16fac Table #104: 18 entries OK
-2026/03/09-18:48:14.232 16fac Table #138: 5 entries OK
-2026/03/09-18:48:14.232 16fac Table #166: 224 entries OK
-2026/03/09-18:48:14.233 16fac Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\items/MANIFEST-000151: OK
-2026/03/09-18:48:14.238 16fac **** Repaired leveldb C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\items; recovered 3 files; 65934 bytes. Some data may have been lost. ****
+2026/03/10-10:02:34.307 14294 Delete type=3 #1

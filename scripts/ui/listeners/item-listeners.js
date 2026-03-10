@@ -42,6 +42,16 @@ export function ItemListeners(sheet, html) {
     sheet.render(false);
   });
 
+  html.find(".action-select").on("change", async (ev) => {
+    const action = ev.currentTarget.value;
+
+    await sheet.item.update({
+      "system.action": action
+    });
+
+    sheet.render(false);
+  });
+
   html.find(".weapon-type").on("change", async (ev) => {
     const type = ev.currentTarget.value;
 

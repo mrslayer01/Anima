@@ -7,8 +7,15 @@
             <input type="number" name="system.level" value="{{system.level}}" />
           </td>
           <td>
-            <label>Cost</label>
-            <input type="number" name="system.cost" value="{{system.cost}}" />
+            <label>Action</label>
+            <select name="system.action" class="action-select select">
+                <option value="active" {{#if (eq system.action "active")}}selected{{/if}}>Active</option>
+                <option value="passive" {{#if (eq system.action "passive")}}selected{{/if}}>Passive</option>
+            </select>
+          </td>
+          <td>
+            <label>Type</label>
+            <input type="text" name="system.typeOfSpell" value="{{system.typeOfSpell}}" />
           </td>
           <td>
             <label>Path</label>

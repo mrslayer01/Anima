@@ -1,0 +1,58 @@
+<div class="weapon-col">
+  <!-- ZEON & MAINTENANCE -->
+  <h3 class="section-header">
+    Zeon & Maintenance
+  </h3>
+  <table class="common-table">
+    <tr>
+      <td>
+        <label>
+          Cost
+        </label>
+        <input type="number" name="system.cost" value="{{system.cost}}" />
+      </td>
+      <td>
+        <label>
+          Maintenance
+        </label>
+        <input type="text" name="system.maintenance" value="{{system.maintenance}}" />
+      </td>
+      <td>
+        <label>
+          Max Zeon
+        </label>
+        <input type="text" name="system.maxZeon" value="{{system.maxZeon}}" />
+      </td>
+    </tr>
+  </table>
+
+  <h3 class="section-header">
+    Effects
+  </h3>
+  <label>
+    Added Effect
+  </label>
+  <div class="description-editor">
+    {{#if system.addedEffect}}
+      {{editor system.addedEffect target="system.addedEffect" button=true editable=true engine="prosemirror"}}
+    {{else}}
+      {{editor
+        "<p class='placeholder'></p>"
+        target="system.addedEffect"
+        button=true
+        editable=true
+        engine="prosemirror"
+      }}
+    {{/if}}
+  </div>
+  <label>
+    Effect
+  </label>
+  <div class="description-editor">
+    {{#if system.effect}}
+      {{editor system.effect target="system.effect" button=true editable=true engine="prosemirror"}}
+    {{else}}
+      {{editor "<p class='placeholder'></p>" target="system.effect" button=true editable=true engine="prosemirror"}}
+    {{/if}}
+  </div>
+</div>
