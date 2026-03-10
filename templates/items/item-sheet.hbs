@@ -12,21 +12,26 @@
         />
     </div>
     <!-- Always render the common onto each item. -->
-    {{> "systems/abf-system/templates/items/partials/common/common.hbs"}}
+    {{#if (in item.type "weapon" "armor" "ammo" "commonGood")}}
+      {{> "systems/abf-system/templates/items/partials/common/common.hbs"}}
+    {{else}}
+      {{> "systems/abf-system/templates/items/partials/spell/spell-header.hbs"}}
+    {{/if}}
+
 
       <!-- TABS -->
-  <nav class="sheet-tabs" data-group="primary">
-    {{#if (in item.type "weapon" "armor" "ammo")}}
-      <a class="item" data-tab="main">Main</a>
-        {{#if (in item.type "weapon" "armor")}}
-        <a class="item" data-tab="final">Final Values</a>
+    <nav class="sheet-tabs" data-group="primary">
+      {{#if (in item.type "weapon" "armor" "ammo" "spell")}}
+        <a class="item" data-tab="main">Main</a>
+          {{#if (in item.type "weapon" "armor")}}
+          <a class="item" data-tab="final">Final Values</a>
+          {{/if}}
+        {{#if (in item.system.weaponType "projectile")}}
+          <a class="item" data-tab="ammo">Ammo</a>
         {{/if}}
-      {{#if (in item.system.weaponType "projectile")}}
-        <a class="item" data-tab="ammo">Ammo</a>
       {{/if}}
-    {{/if}}
-    <a class="item" data-tab="description">Description</a>
-  </nav>
+      <a class="item" data-tab="description">Description</a>
+    </nav>
 
     <section class="sheet-body">
 
@@ -39,6 +44,9 @@
         {{/if}}
         {{#if (eq item.type "ammo")}}
           {{> "systems/abf-system/templates/items/partials/ammo.hbs"}}
+        {{/if}}
+        {{#if (eq item.type "spell")}}
+          {{> "systems/abf-system/templates/items/partials/spell.hbs"}}
         {{/if}}
       </div>
 
@@ -59,7 +67,6 @@
       <div class="tab description" data-group="primary" data-tab="description">
         {{> "systems/abf-system/templates/items/partials/common/description.hbs"}}
       </div>
-
     </section>
 
 </form>

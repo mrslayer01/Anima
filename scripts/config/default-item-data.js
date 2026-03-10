@@ -87,5 +87,10 @@ export const DEFAULT_ARMOR_DATA = {
 export const DEFAULT_SPELL_DATA = {
   path: "",
   level: 0,
-  action: "passive" // Passive or Active actions depending on their nature.
+  action: "passive", // Passive or Active actions depending on their nature.
+  cost: 0,
+  effect: "",
+  maintenance: "",
+  maxZeon: { 10: 0, 20: 0, 30: 0, 40: 0, 50: 0 },
+  typeOfSpell: ""
 };

@@ -32,6 +32,16 @@ export function ItemListeners(sheet, html) {
     sheet.render(false);
   });
 
+  html.find(".path-select").on("change", async (ev) => {
+    const path = ev.currentTarget.value;
+
+    await sheet.item.update({
+      "system.path": path
+    });
+
+    sheet.render(false);
+  });
+
   html.find(".weapon-type").on("change", async (ev) => {
     const type = ev.currentTarget.value;
 

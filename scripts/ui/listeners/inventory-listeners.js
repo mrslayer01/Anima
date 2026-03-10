@@ -46,7 +46,7 @@ function Items(sheet, html) {
     const armorClass = item.system.armorClass;
 
     // Make sure new armor is valid before proceeding, only if attempting to equip. Excluding Natural armor.
-    if (!current && location !== "natural") {
+    if (!current && location !== "natural" && location !== "helm") {
       if (!ValidateArmor(actor, itemId, armorClass)) return;
     }
 
@@ -125,7 +125,8 @@ function ValidateArmor(actor, itemId, armorClass) {
       i.id !== itemId && // Verify it's not the currently being modified item.
       i.system.armorClass === "soft" &&
       i.system.equipped &&
-      i.system.location !== "natural"
+      i.system.location !== "natural" &&
+      i.system.location !== "helm"
   ).length;
 
   const hardTotal = actor.items.filter(
@@ -134,7 +135,8 @@ function ValidateArmor(actor, itemId, armorClass) {
       i.id !== itemId && // Verify it's not the currently being modified item.
       i.system.armorClass === "hard" &&
       i.system.equipped &&
-      i.system.location !== "natural"
+      i.system.location !== "natural" &&
+      i.system.location !== "helm"
   ).length;
 
   // Check the current armor being equipped's armor class and see if equipping it will exceed the limit. Only if it's not already equipped.

@@ -2,6 +2,7 @@ import {
   DEFAULT_AMMO_DATA,
   DEFAULT_ARMOR_DATA,
   DEFAULT_ITEM_DATA,
+  DEFAULT_SPELL_DATA,
   DEFAULT_WEAPON_DATA
 } from "../config/default-item-data.js";
 
@@ -16,6 +17,9 @@ export class AbfItem extends Item {
       }
       if (this.type === "armor") {
         this.updateSource({ img: "icons/svg/shield.svg" });
+      }
+      if (this.type === "spell") {
+        this.updateSource({ img: "icons/svg/book.svg" });
       }
     }
   }
@@ -43,6 +47,13 @@ export class AbfItem extends Item {
 
     if (this.type === "ammo") {
       foundry.utils.mergeObject(this.system, DEFAULT_AMMO_DATA, {
+        insertKeys: true,
+        overwrite: false
+      });
+    }
+
+    if (this.type === "spell") {
+      foundry.utils.mergeObject(this.system, DEFAULT_SPELL_DATA, {
         insertKeys: true,
         overwrite: false
       });
