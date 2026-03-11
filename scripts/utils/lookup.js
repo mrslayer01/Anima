@@ -19,6 +19,7 @@ export function lookupCharacteristicMod(base) {
 }
 
 export const difficultyMap = {
+  0: "None",
   20: "Routine",
   40: "Easy",
   80: "Moderate",

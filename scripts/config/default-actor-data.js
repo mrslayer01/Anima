@@ -203,6 +203,8 @@ export const DEFAULT_ACTOR_DATA = {
       80: { current: 0 },
       90: { current: 0 },
       100: { current: 0 }
-    }
+    },
+    spells: [],
+    freeAccessSpells: []
   }
 };

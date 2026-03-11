@@ -8,7 +8,7 @@ import { InitalizeAllItemPartials } from "./templates/initialize-item-partials.j
 import { WeaponBaseCalculations, WeaponEquipped } from "./data/rules/items/weapon-calculations.js";
 import { ArmorCalculate, UpdateArmor } from "./data/rules/items/armor-calculations.js";
 import { AnimaCombat } from "./utils/combat.js";
-import { ABF_SPELLS } from "./config/spells.js";
+import { ABF_FREE_ACCESS_SPELLS, ABF_SPELLS } from "./config/spells.js";
 
 Hooks.once("init", function () {
   console.log("ABF | Initializing Anima Beyond Fantasy system");
@@ -19,6 +19,7 @@ Hooks.once("init", function () {
   CONFIG.Combat.documentClass = AnimaCombat;
 
   game.ABF_SPELLS = ABF_SPELLS;
+  game.ABF_FREE_ACCESS_SPELLS = ABF_FREE_ACCESS_SPELLS;
 
   loadAllActorHandlerbarsHelpers();
   InitalizeAllActorPartials();

@@ -1,0 +1,23 @@
+<form class="elan">
+  <section>
+    <h3>
+      {{spellData.name}} - Available Spells
+    </h3>
+    <div class="add-spells-window">
+      <label>
+        <b>
+          Select Spell:
+        </b>
+      </label>
+      <select class="select" id="spell-select" style="width: 100%;">
+        {{#each spells}}
+          <option value="{{this.name}}">{{this.name}} (Lv {{this.level}} – {{this.path}})</option>
+        {{/each}}
+      </select>
+
+      <button type="button" class="confirm-add-spell" style="margin-top: 10px;">
+        Add Spell
+      </button>
+    </div>
+  </section>
+</form>

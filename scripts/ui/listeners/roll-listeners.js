@@ -146,7 +146,7 @@ export function RollListeners(sheet, html) {
                           <option 
                             value="${value}" 
                             title="${label}"
-                            ${value === "80" ? "selected" : ""}
+                            ${String(value) === "0" ? "selected" : ""}
                           >
                             ${label}
                           </option>

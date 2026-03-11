@@ -112,6 +112,10 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
 
     data.expandedSecondaries = this._expandedSecondaries;
 
+    data.system.mystic.spellItems = (this.actor.system.mystic.spells ?? [])
+      .map((id) => this.actor.items.get(id))
+      .filter((i) => i);
+
     return data;
   }
 

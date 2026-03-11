@@ -205,15 +205,14 @@ export async function animaOpenRoll({
 
 export async function resistanceCheck({ value, difficulty, label, actor }) {
   const bonus = toNum(value) || 0;
-  const diff = toNum(difficulty) || 80;
+  const diff = toNum(difficulty);
   const name = label ?? "Resistance Check";
 
   const roll = await rollDice("1d100");
   const raw = roll.total;
 
   const total = raw + bonus;
-  const success = total >= diff;
-  //${fatiguePenalty < 0 ? `<b>Fatigue Penalty:</b> ${fatiguePenalty}<br>` : ""}
+  let success = total >= diff;
 
   const content = `
     <b>${name}</b><br>
@@ -221,12 +220,16 @@ export async function resistanceCheck({ value, difficulty, label, actor }) {
     <b>Roll:</b> ${raw}<br>
     <b>Bonus:</b> ${bonus}<br>
     <b>Total:</b> ${total}<br>
-    <b>Difficulty:</b> ${diff}<br>
+    ${difficulty > 0 ? `<b>Difficulty:</b> ${diff}<br>` : ""}
     <hr>
     ${
-      success
-        ? `<span style="color:green"><b>Success</b></span>`
-        : `<span style="color:red"><b>Failure</b></span>`
+      difficulty > 0
+        ? `${
+            success
+              ? `<span style="color:green"><b>Success</b></span>`
+              : `<span style="color:red"><b>Failure</b></span>`
+          }`
+        : ""
     }
   `;
 

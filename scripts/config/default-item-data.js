@@ -87,11 +87,16 @@ export const DEFAULT_ARMOR_DATA = {
 export const DEFAULT_SPELL_DATA = {
   path: "",
   level: 0,
+  minLevel: 0,
+  maxLevel: 0,
   action: "passive", // Passive or Active actions depending on their nature.
   cost: 0,
   effect: "",
   addedEffect: "",
   maintenance: "",
   maxZeon: "",
-  typeOfSpell: ""
+  typeOfSpell: "",
+  closedPaths: { path1: "none" },
+  spellType: "Spell",
+  active: false
 };

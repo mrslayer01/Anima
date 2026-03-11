@@ -411,14 +411,21 @@
 
 .character-grid,
 .details-grid,
-.inventory-grid,
-.mystic-grid {
+.inventory-grid {
   display: grid;
   grid-template-columns: 0.3fr 0.7fr;
   gap: 1rem;
   margin-top: 1rem;
   text-align: center;
 }
+
+/* .mystic-grid {
+  display: grid;
+  grid-template-columns: 0.3fr 0.3fr 0.7fr;
+  gap: 1rem;
+  margin-top: 1rem;
+  text-align: center;
+} */
 
 .combat-grid-core {
   display: grid;
@@ -445,7 +452,8 @@
 .combat-left,
 .combat-right,
 .mystic-left,
-.mystic-right {
+.mystic-right,
+.mystic-center {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -1041,12 +1049,12 @@
 
 .mystic-grid {
   display: grid;
-  grid-template-columns: 360px 1fr; /* left fixed, right flexible */
+  grid-template-columns: 360px 1fr 4fr; /* left fixed, right flexible */
   gap: 1.5rem;
   width: 100%;
 }
 
-.mystic-right {
+.mystic-center {
   display: flex;
   justify-content: center;
   align-items: start;

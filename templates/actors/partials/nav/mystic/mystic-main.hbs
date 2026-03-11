@@ -158,7 +158,7 @@
   </div>
 
   <!-- RIGHT COLUMN -->
-  <div class="mystic-right">
+  <div class="mystic-center">
     <section class="path-levels">
       <h3>
         Paths
@@ -202,6 +202,67 @@
           </div>
         </div>
       </div>
+    </section>
+  </div>
+
+  <div class="mystic-right">
+    <section class="path-levels">
+      <h3>
+        Active Spells
+      </h3>
+      <table class="classes-table">
+        <thead>
+          <tr>
+            <th>
+              Name
+            </th>
+            <th>
+              Level
+            </th>
+            <th>
+              Path
+            </th>
+
+            {{#if @root.actor.system.lockUi}}
+              <th></th>
+            {{else}}
+              <th class="class-actions-header">
+                <a class="add-spell" data-tooltip="Add Spell">
+                  <i class="fas fa-plus-circle"></i>
+                </a>
+              </th>
+            {{/if}}
+          </tr>
+        </thead>
+
+        <tbody>
+          {{#each system.mystic.spellItems as |spell idx|}}
+            <tr>
+              <td class="clickable spell-entry" data-item-id="{{spell.id}}" data-tooltip="Click to open spell">
+                {{spell.name}}
+              </td>
+
+              <td>
+                {{spell.system.level}}
+              </td>
+
+              <td>
+                {{spell.system.path}}
+              </td>
+
+              {{#if @root.actor.system.lockUi}}
+                <td></td>
+              {{else}}
+                <td>
+                  <a class="delete-spell" data-index="{{idx}}" data-item-id="{{spell.id}}" data-tooltip="Delete Spell">
+                    <i class="fas fa-trash"></i>
+                  </a>
+                </td>
+              {{/if}}
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
     </section>
   </div>
 </div>
