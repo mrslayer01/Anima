@@ -10,10 +10,7 @@ export class AbfActor extends Actor {
     const isNew = !this._id;
     if (isNew) this._needsInit = true;
 
-    foundry.utils.mergeObject(this.system, DEFAULT_ACTOR_DATA, {
-      insertKeys: true,
-      overwrite: false
-    });
+    mergeObject(this.system, DEFAULT_ACTOR_DATA, { insertKeys: true, overwrite: false });
 
     forceOrder(this.system.abilities.primary, "Primaries");
     forceOrder(this.system.abilities.secondary, "Secondaries");
@@ -32,6 +29,23 @@ export class AbfActor extends Actor {
       for (const rule of FINAL_RULES) rule.Derived(this.system, this);
 
       this._needsInit = false;
+    }
+  }
+
+  async _preCreate(data, options, user) {
+    await super._preCreate(data, options, user);
+
+    if (data.type === "character") {
+      // Ensure both structures exist
+      data.prototypeToken = data.prototypeToken ?? {};
+      data.token = data.token ?? {};
+
+      // Apply defaults to both
+      data.prototypeToken.actorLink = true;
+      data.prototypeToken.disposition = CONST.TOKEN_DISPOSITIONS.FRIENDLY;
+
+      data.token.actorLink = true;
+      data.token.disposition = CONST.TOKEN_DISPOSITIONS.FRIENDLY;
     }
   }
 

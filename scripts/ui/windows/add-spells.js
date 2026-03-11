@@ -18,15 +18,38 @@ export class AddSpellsWindow extends Application {
   }
 
   getData() {
+    const actor = game.actors.get(this.actorId);
     const grouped = {};
+
+    // Normalize actor spell names
+    const knownNames = new Set(
+      actor.items
+        .filter((i) => i.type.toLowerCase() === "spell")
+        .map((i) => i.name.trim().toLowerCase())
+    );
 
     for (const spell of Object.values(ABF_SPELLS)) {
       const path = spell.path ?? "Unknown";
-      if (!grouped[path]) grouped[path] = [];
-      grouped[path].push(spell);
-    }
+      const spellLevel = spell.level ?? 0;
 
-    console.log(grouped);
+      // Normalize path key to match actor data
+      const normalized = path.charAt(0).toUpperCase() + path.slice(1).toLowerCase();
+
+      // Actor's current level in this path
+      const actorPathLevel = actor.system.mystic.paths[normalized]?.level ?? 0;
+
+      // Normalize spell name for duplicate detection
+      const spellName = spell.name.trim().toLowerCase();
+
+      // Skip duplicates
+      if (knownNames.has(spellName)) continue;
+
+      // Only show unlocked spells
+      if (spellLevel <= actorPathLevel) {
+        if (!grouped[normalized]) grouped[normalized] = [];
+        grouped[normalized].push(spell);
+      }
+    }
 
     return {
       groupedSpells: grouped,
@@ -70,21 +93,7 @@ export class AddSpellsWindow extends Application {
   }
 
   async _addSpellToActor(actor, spellName) {
-    const pack = game.packs.get("abf-system.abf-items");
-    if (!pack) {
-      ui.notifications.error("Spell compendium not found.");
-      return;
-    }
-
-    const index = await pack.getIndex();
-
-    const entry = index.find((e) => e.name.toLowerCase() === spellName.toLowerCase());
-    if (!entry) {
-      ui.notifications.error(`Spell "${spellName}" not found in compendium.`);
-      return;
-    }
-
-    const spellDoc = await pack.getDocument(entry._id);
+    const spellDoc = await GetSpell(spellName);
 
     // 1. Add as embedded Item
     const created = await actor.createEmbeddedDocuments("Item", [spellDoc.toObject()]);
@@ -98,4 +107,41 @@ export class AddSpellsWindow extends Application {
 
     ui.notifications.info(`Added spell: ${spellName}`);
   }
+}
+
+async function GetSpell(spellName) {
+  const pack = game.packs.get("abf-system.abf-items");
+  if (!pack) {
+    ui.notifications.error("Spell compendium not found.");
+    return;
+  }
+
+  const index = await pack.getIndex();
+
+  // Find ALL entries with the same name
+  const nameMatches = index.filter((e) => e.name.toLowerCase() === spellName.toLowerCase());
+
+  if (nameMatches.length === 0) {
+    ui.notifications.error(`Spell "${spellName}" not found in compendium.`);
+    return;
+  }
+
+  // Load each matching document and pick the freeAccess one
+  let spellDoc = null;
+
+  for (const entry of nameMatches) {
+    const doc = await pack.getDocument(entry._id);
+    if (doc.system.spellType === "Spell") {
+      spellDoc = doc;
+      break;
+    }
+  }
+
+  if (!spellDoc) {
+    ui.notifications.error(`Spell "${spellName}" exists, but no Free Access version was found.`);
+    return;
+  }
+
+  // At this point spellDoc is the correct FA spell
+  return spellDoc;
 }

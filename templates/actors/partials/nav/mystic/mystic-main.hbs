@@ -207,95 +207,49 @@
 
   <div class="mystic-right">
     <section class="path-levels">
-      <h3>
-        Active Spells
-      </h3>
+      <h3>Active Spells</h3>
+
       <table class="classes-table">
         <thead>
           <tr>
-            <th>
-              Name
-            </th>
-            <th>
-              Level
-            </th>
-            <th>
-              Path
-            </th>
-            <th>
-              Maintenance
-            </th>          
-            <th>
-              Cost
-            </th>
+            <th>Name</th>
+            <th>Level</th>
+            <th>Path</th>
+            <th>Maintenance</th>
+            <th>Cost</th>
           </tr>
         </thead>
 
         <tbody>
-          {{#each system.mystic.activeSpellItems as |spell idx|}}
+          {{#each system.mystic.activeSpells as |spell idx|}}
             <tr>
               <td class="clickable spell-entry" data-item-id="{{spell.id}}" data-tooltip="Click to open spell">
                 {{spell.name}}
               </td>
 
+              {{!-- LEVEL COLUMN --}}
               <td>
-                {{spell.system.level}}
+                {{#if (eq spell.system.spellType "freeAccess")}}
+                  {{spell.system.minLevel}} / {{spell.system.maxLevel}}
+                {{else}}
+                  {{spell.system.level}}
+                {{/if}}
               </td>
 
+              {{!-- PATH COLUMN --}}
               <td>
-                {{humanize spell.system.path}}
+                {{#if (eq spell.system.spellType "freeAccess")}}
+                  —
+                {{else}}
+                  {{humanize spell.system.path}}
+                {{/if}}
               </td>
 
-              <td>
-                {{spell.system.maintenance}}
-              </td>
+              {{!-- MAINTENANCE --}}
+              <td>{{spell.system.maintenance}}</td>
 
-              <td>
-                {{spell.system.cost}}
-              </td>
-            </tr>
-          {{/each}}
-        </tbody>
-      </table>
-      <h3>
-        Active Free Access Spells
-      </h3>
-      <table class="classes-table">
-        <thead>
-          <tr>
-            <th>
-              Name
-            </th>
-            <th>
-              Level
-            </th>
-            <th>
-              Maintenance
-            </th>          
-            <th>
-              Cost
-            </th>
-          </tr>
-        </thead>
-
-        <tbody>
-          {{#each system.mystic.activeFaSpellItems as |spell idx|}}
-            <tr>
-              <td class="clickable spell-entry" data-item-id="{{spell.id}}" data-tooltip="Click to open spell">
-                {{spell.name}}
-              </td>
-
-              <td>
-                {{spell.system.minLevel}} / {{spell.system.maxLevel}}
-              </td>
-
-              <td>
-                {{spell.system.maintenance}}
-              </td>
-
-              <td>
-                {{spell.system.cost}}
-              </td>
+              {{!-- COST --}}
+              <td>{{spell.system.cost}}</td>
             </tr>
           {{/each}}
         </tbody>

@@ -22,7 +22,6 @@
                 data-max="{{this.maxLevel}}"
               >
                 {{! Display text depends on spell type }}
-                {{debug type}}
                 {{#if (eq ../../type "spell")}}
                   {{this.name}} (Lv {{this.level}} – {{humanize this.path}})
                 {{else}}

@@ -1,130 +1,146 @@
-<h3>
-  Path Spells
-</h3>
-
-<table class="classes-table">
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Level
-      </th>
-      <th>
-        Path
-      </th>
-      <th>
-        Active
-      </th>
-
+<div class="spells-grid">
+  <div class="spells-left">
+    <h3>
+      Path Spells
       {{#if @root.actor.system.lockUi}}
-        <th></th>
       {{else}}
-        <th class="class-actions-header">
-          <a class="add-spell" data-tooltip="Add Spell">
-            <i class="fas fa-plus-circle"></i>
-          </a>
-        </th>
+        <a class="add-spell" data-tooltip="Add Spell"><i class="fas fa-plus-circle"></i></a>
       {{/if}}
-    </tr>
-  </thead>
+    </h3>
 
-  <tbody>
-    {{#each system.mystic.spellItems as |spell idx|}}
-      <tr>
-        <td class="clickable spell-entry" data-item-id="{{spell.id}}" data-tooltip="Click to open spell">
-          {{spell.name}}
-        </td>
+    <table class="classes-table">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Level
+          </th>
+          <th>
+            Path
+          </th>
+          <th>
+            Active
+          </th>
 
-        <td>
-          {{spell.system.level}}
-        </td>
+          <th></th>
+        </tr>
+      </thead>
 
-        <td>
-          {{humanize spell.system.path}}
-        </td>
+      <tbody>
+        {{#each system.mystic.spellItems as |spell idx|}}
+          <tr>
+            <td class="clickable spell-entry" data-item-id="{{spell.id}}" data-tooltip="Click to open spell">
+              {{spell.name}}
+            </td>
 
-        <td class="passive-icon clickable spell-active" data-item-id="{{spell.id}}" data-tooltip="Set spell as active.">
-          {{#if spell.system.active}}
-            <i class="fas fa-check"></i>
-          {{else}}
-            <i class="fas fa-times"></i>
-          {{/if}}
-        </td>
+            <td>
+              {{spell.system.level}}
+            </td>
 
-        {{#if @root.actor.system.lockUi}}
-          <td></td>
-        {{else}}
-          <td>
-            <a class="delete-spell" data-index="{{idx}}" data-item-id="{{spell.id}}" data-tooltip="Delete Spell">
-              <i class="fas fa-trash"></i>
-            </a>
-          </td>
-        {{/if}}
-      </tr>
-    {{/each}}
-  </tbody>
-</table>
+            <td>
+              {{humanize spell.system.path}}
+            </td>
 
-<h3>
-  Free Access Spells
-</h3>
+            <td
+              class="passive-icon clickable spell-active"
+              data-item-id="{{spell.id}}"
+              data-tooltip="Set spell as active."
+            >
+              {{#if spell.system.active}}
+                <i class="fas fa-check"></i>
+              {{else}}
+                <i class="fas fa-times"></i>
+              {{/if}}
+            </td>
 
-<table class="classes-table">
-  <thead>
-    <tr>
-      <th>
-        Name
-      </th>
-      <th>
-        Level Range
-      </th>
-      <th>
-        Active
-      </th>
+            {{#if @root.actor.system.lockUi}}
+              <td></td>
+            {{else}}
+              <td>
+                <a class="delete-spell" data-index="{{idx}}" data-item-id="{{spell.id}}" data-tooltip="Delete Spell">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </td>
+            {{/if}}
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
 
+  <div class="spells-right">
+    <h3>
+      Free Access Spells
       {{#if @root.actor.system.lockUi}}
-        <th></th>
       {{else}}
-        <th class="class-actions-header">
-          <a class="add-fa-spell" data-tooltip="Add Spell">
-            <i class="fas fa-plus-circle"></i>
-          </a>
-        </th>
+        <a class="add-fa-spell" data-tooltip="Add Spell"><i class="fas fa-plus-circle"></i></a>
       {{/if}}
-    </tr>
-  </thead>
+    </h3>
 
-  <tbody>
-    {{#each system.mystic.faSpellItems as |spell idx|}}
-      <tr>
-        <td class="clickable spell-entry" data-item-id="{{spell.id}}" data-tooltip="Click to open spell">
-          {{spell.name}}
-        </td>
+    {{#each system.mystic.faSpellGroups as |group|}}
+      <h3>
+        Level Range: {{group.band}} Remaining: {{group.current}} / {{group.max}}
+      </h3>
 
-        <td>
-          {{spell.system.minLevel}} / {{spell.system.maxLevel}}
-        </td>
+      <table class="classes-table">
+        <thead>
+          <tr>
+            <th>
+              Name
+            </th>
+            <th>
+              Level Range
+            </th>
+            <th>
+              Active
+            </th>
+            <th></th>
+          </tr>
+        </thead>
 
-        <td class="passive-icon clickable spell-active" data-item-id="{{spell.id}}" data-tooltip="Set spell as active.">
-          {{#if spell.system.active}}
-            <i class="fas fa-check"></i>
-          {{else}}
-            <i class="fas fa-times"></i>
-          {{/if}}
-        </td>
+        <tbody>
+          {{#each group.spells as |spell idx|}}
+            <tr>
+              <td class="clickable spell-entry" data-item-id="{{spell.id}}" data-tooltip="Click to open spell">
+                {{spell.name}}
+              </td>
 
-        {{#if @root.actor.system.lockUi}}
-          <td></td>
-        {{else}}
-          <td>
-            <a class="delete-fa-spell" data-index="{{idx}}" data-item-id="{{spell.id}}" data-tooltip="Delete Spell">
-              <i class="fas fa-trash"></i>
-            </a>
-          </td>
-        {{/if}}
-      </tr>
+              <td>
+                {{spell.system.minLevel}} / {{spell.system.maxLevel}}
+              </td>
+
+              <td
+                class="passive-icon clickable spell-active"
+                data-item-id="{{spell.id}}"
+                data-tooltip="Set spell as active."
+              >
+                {{#if spell.system.active}}
+                  <i class="fas fa-check"></i>
+                {{else}}
+                  <i class="fas fa-times"></i>
+                {{/if}}
+              </td>
+
+              {{#if @root.actor.system.lockUi}}
+                <td></td>
+              {{else}}
+                <td>
+                  <a
+                    class="delete-fa-spell"
+                    data-index="{{idx}}"
+                    data-item-id="{{spell.id}}"
+                    data-tooltip="Delete Spell"
+                  >
+                    <i class="fas fa-trash"></i>
+                  </a>
+                </td>
+              {{/if}}
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
     {{/each}}
-  </tbody>
-</table>
+  </div>
+</div>

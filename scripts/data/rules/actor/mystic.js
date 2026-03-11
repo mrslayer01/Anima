@@ -39,6 +39,8 @@ export class MysticRule extends BaseRule {
     for (const [name, path] of Object.entries(mysticPath.freeAccessSpellSlots)) {
       if (mysticPath.freeAccessSpellSlots[name].max === undefined)
         mysticPath.freeAccessSpellSlots[name].max = 0;
+      if (mysticPath.freeAccessSpellSlots[name].path === undefined)
+        mysticPath.freeAccessSpellSlots[name].path = [];
     }
 
     // Imbalnce
@@ -66,9 +68,10 @@ export class MysticRule extends BaseRule {
     //MA
     maPath.final = lookupBaseMA(basePow) * toNum(maMultiplesPath.base);
 
-    // Reset all freeAccessSpellSlots max values
+    // Reset all freeAccessSpellSlots max values and path
     for (const level of Object.keys(mysticPath.freeAccessSpellSlots)) {
       mysticPath.freeAccessSpellSlots[level].max = 0;
+      mysticPath.freeAccessSpellSlots[level].path = [];
     }
 
     //Path
@@ -82,10 +85,22 @@ export class MysticRule extends BaseRule {
       path.spellsLearned = Math.floor(level / 2);
 
       // Free Access Spells
-      const slots = FREE_ACCESS_SLOT_TABLE[name];
-      for (const slot of slots) {
-        if (level >= slot.requiredLevel) {
-          mysticPath.freeAccessSpellSlots[slot.maxLevel].max += 1;
+      const slotBands = FREE_ACCESS_SLOT_TABLE[name];
+
+      for (const band of slotBands) {
+        let unlockedCount = 0;
+
+        for (const req of band.unlocks) {
+          if (level >= req) unlockedCount++;
+        }
+
+        if (unlockedCount > 0) {
+          mysticPath.freeAccessSpellSlots[band.maxLevel].max += unlockedCount;
+
+          // Add the path ONCE, no matter how many unlocks matched
+          if (!mysticPath.freeAccessSpellSlots[band.maxLevel].path.includes(name)) {
+            mysticPath.freeAccessSpellSlots[band.maxLevel].path.push(name);
+          }
         }
       }
     }
@@ -228,6 +243,7 @@ export class MysticRule extends BaseRule {
     // Reset all freeAccessSpellSlots max values
     for (const level of Object.keys(system.mystic.freeAccessSpellSlots)) {
       system.mystic.freeAccessSpellSlots[level].max = 0;
+      system.mystic.freeAccessSpellSlots[level].path = [];
     }
 
     //Path
@@ -241,10 +257,22 @@ export class MysticRule extends BaseRule {
       path.spellsLearned = Math.floor(level / 2);
 
       // Free Access Spells
-      const slots = FREE_ACCESS_SLOT_TABLE[name];
-      for (const slot of slots) {
-        if (level >= slot.requiredLevel) {
-          mysticPath.freeAccessSpellSlots[slot.maxLevel].max += 1;
+      const slotBands = FREE_ACCESS_SLOT_TABLE[name];
+
+      for (const band of slotBands) {
+        let unlockedCount = 0;
+
+        for (const req of band.unlocks) {
+          if (level >= req) unlockedCount++;
+        }
+
+        if (unlockedCount > 0) {
+          mysticPath.freeAccessSpellSlots[band.maxLevel].max += unlockedCount;
+
+          // Add the path ONCE, no matter how many unlocks matched
+          if (!mysticPath.freeAccessSpellSlots[band.maxLevel].path.includes(name)) {
+            mysticPath.freeAccessSpellSlots[band.maxLevel].path.push(name);
+          }
         }
       }
     }
@@ -372,57 +400,43 @@ const OPPOSED_PATHS = {
   Illusion: ""
 };
 
-// Shared by 9 Paths
-const STANDARD_FREE_ACCESS_SLOTS = [
-  { requiredLevel: 4, maxLevel: 10 },
-  { requiredLevel: 12, maxLevel: 20 },
-  { requiredLevel: 22, maxLevel: 30 },
-  { requiredLevel: 32, maxLevel: 40 },
-  { requiredLevel: 42, maxLevel: 50 },
-  { requiredLevel: 52, maxLevel: 60 },
-  { requiredLevel: 62, maxLevel: 70 },
-  { requiredLevel: 72, maxLevel: 80 },
-  { requiredLevel: 82, maxLevel: 90 },
-  { requiredLevel: 92, maxLevel: 100 }
+const HIGH_PATH_FREE_ACCESS = [
+  { maxLevel: 10, unlocks: [4] },
+  { maxLevel: 20, unlocks: [14] },
+  { maxLevel: 30, unlocks: [24] },
+  { maxLevel: 40, unlocks: [34] },
+  { maxLevel: 50, unlocks: [44] },
+  { maxLevel: 60, unlocks: [54] },
+  { maxLevel: 70, unlocks: [64] },
+  { maxLevel: 80, unlocks: [74] },
+  { maxLevel: 90, unlocks: [84] },
+  { maxLevel: 100, unlocks: [94] }
 ];
 
-// Unique
-const LIGHT_FREE_ACCESS_SLOTS = [
-  { requiredLevel: 4, maxLevel: 10 },
-  { requiredLevel: 14, maxLevel: 20 },
-  { requiredLevel: 24, maxLevel: 30 },
-  { requiredLevel: 34, maxLevel: 40 },
-  { requiredLevel: 50, maxLevel: 50 },
-  { requiredLevel: 60, maxLevel: 60 },
-  { requiredLevel: 70, maxLevel: 70 },
-  { requiredLevel: 80, maxLevel: 80 },
-  { requiredLevel: 90, maxLevel: 90 },
-  { requiredLevel: 100, maxLevel: 100 }
-];
-
-// Unique
-const ESSENCE_FREE_ACCESS_SLOTS = [
-  { requiredLevel: 4, maxLevel: 10 },
-  { requiredLevel: 12, maxLevel: 20 },
-  { requiredLevel: 22, maxLevel: 30 },
-  { requiredLevel: 32, maxLevel: 40 },
-  { requiredLevel: 40, maxLevel: 50 },
-  { requiredLevel: 60, maxLevel: 70 },
-  { requiredLevel: 72, maxLevel: 80 },
-  { requiredLevel: 82, maxLevel: 90 },
-  { requiredLevel: 92, maxLevel: 100 }
+const ELEMENTAL_FREE_ACCESS = [
+  { maxLevel: 10, unlocks: [4, 8] },
+  { maxLevel: 20, unlocks: [14, 18] },
+  { maxLevel: 30, unlocks: [24, 28] },
+  { maxLevel: 40, unlocks: [34, 38] },
+  { maxLevel: 50, unlocks: [44, 48] },
+  { maxLevel: 60, unlocks: [54, 58] },
+  { maxLevel: 70, unlocks: [64, 68] },
+  { maxLevel: 80, unlocks: [74, 78] },
+  { maxLevel: 90, unlocks: [84, 88] },
+  { maxLevel: 100, unlocks: [94, 98] }
 ];
 
 const FREE_ACCESS_SLOT_TABLE = {
-  Light: LIGHT_FREE_ACCESS_SLOTS,
-  Essence: ESSENCE_FREE_ACCESS_SLOTS,
-  Darkness: STANDARD_FREE_ACCESS_SLOTS,
-  Creation: STANDARD_FREE_ACCESS_SLOTS,
-  Destruction: STANDARD_FREE_ACCESS_SLOTS,
-  Earth: STANDARD_FREE_ACCESS_SLOTS,
-  Fire: STANDARD_FREE_ACCESS_SLOTS,
-  Water: STANDARD_FREE_ACCESS_SLOTS,
-  Air: STANDARD_FREE_ACCESS_SLOTS,
-  Illusion: STANDARD_FREE_ACCESS_SLOTS,
-  Necromancy: STANDARD_FREE_ACCESS_SLOTS
+  Light: HIGH_PATH_FREE_ACCESS,
+  Darkness: HIGH_PATH_FREE_ACCESS,
+  Creation: HIGH_PATH_FREE_ACCESS,
+  Destruction: HIGH_PATH_FREE_ACCESS,
+  Necromancy: HIGH_PATH_FREE_ACCESS,
+
+  Air: ELEMENTAL_FREE_ACCESS,
+  Water: ELEMENTAL_FREE_ACCESS,
+  Fire: ELEMENTAL_FREE_ACCESS,
+  Earth: ELEMENTAL_FREE_ACCESS,
+  Essence: ELEMENTAL_FREE_ACCESS,
+  Illusion: ELEMENTAL_FREE_ACCESS
 };

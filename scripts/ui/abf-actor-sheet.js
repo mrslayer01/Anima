@@ -1,6 +1,7 @@
 import { UpdateArmor } from "../data/rules/items/armor-calculations.js";
 import { UpdateWeapon, WeaponBaseCalculations } from "../data/rules/items/weapon-calculations.js";
 import { ARMOR_SECTIONS, DAMAGE_TYPES, TABLE_ITEM_TYPES } from "../utils/lookup.js";
+import { toNum } from "../utils/numbers.js";
 import { registerSheetListeners } from "./listeners.js";
 import { ValidateDPAbilities } from "./validators/validate-dp-abilities.js";
 import { ValidateInputs } from "./validators/validate-inputs.js";
@@ -113,6 +114,12 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
     data.expandedSecondaries = this._expandedSecondaries;
 
     // Resolve path spells
+    this.SpellData(data);
+
+    return data;
+  }
+
+  SpellData(data) {
     const spellItems = (this.actor.system.mystic.spells ?? [])
       .map((id) => this.actor.items.get(id))
       .filter((i) => i);
@@ -127,10 +134,45 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
     data.system.mystic.faSpellItems = faSpellItems;
 
     // Active lists
-    data.system.mystic.activeSpellItems = spellItems.filter((s) => s.system.active);
-    data.system.mystic.activeFaSpellItems = faSpellItems.filter((s) => s.system.active);
+    const activePath = spellItems.filter((s) => s.system.active);
+    const activeFA = faSpellItems.filter((s) => s.system.active);
 
-    return data;
+    data.system.mystic.activeSpells = [...activePath, ...activeFA];
+
+    // 1. Get the actor's FA slots
+    const slots = this.actor.system.mystic.freeAccessSpellSlots;
+
+    // 2. Only include unlocked ranges (max > 0)
+    const unlockedBands = Object.keys(slots)
+      .map((n) => Number(n))
+      .filter((band) => slots[band].max > 0)
+      .sort((a, b) => a - b);
+
+    // 3. Group spells by maxLevel band
+    const grouped = {};
+    for (const spell of faSpellItems) {
+      const band = Number(spell.system.maxLevel);
+      if (!grouped[band]) grouped[band] = [];
+      grouped[band].push(spell);
+    }
+
+    // 4. Sort spells inside each band
+    for (const band of Object.keys(grouped)) {
+      grouped[band].sort((a, b) => a.name.localeCompare(b.name));
+    }
+
+    // 5. Build final ordered list (always include unlocked bands)
+    const orderedFA = [];
+    for (const band of unlockedBands) {
+      orderedFA.push({
+        band,
+        spells: grouped[band] ?? [],
+        current: slots[band].current,
+        max: slots[band].max
+      });
+    }
+
+    data.system.mystic.faSpellGroups = orderedFA;
   }
 
   async _onChangeInput(event) {

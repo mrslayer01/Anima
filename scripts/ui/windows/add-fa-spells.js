@@ -19,8 +19,50 @@ export class AddFASpellsWindow extends Application {
 
   getData() {
     const grouped = {};
+    const actor = game.actors.get(this.actorId);
+    const slots = actor.system.mystic.freeAccessSpellSlots ?? {};
 
-    for (const spell of Object.values(ABF_FREE_ACCESS_SPELLS)) {
+    // Build a set of FA spell names the actor already knows
+    const knownNames = new Set(
+      actor.items
+        .filter((i) => i.type.toLowerCase() === "spell" && i.system.spellType === "freeAccess")
+        .map((i) => i.name.trim().toLowerCase())
+    );
+
+    // Only include bands with available slots
+    const unlockedBands = Object.entries(slots)
+      .filter(([band, data]) => Number(data.max) > 0 && Number(data.current) < Number(data.max))
+      .map(([band]) => Number(band));
+
+    // Only include spells from bands with available slots
+    let unlockedSpells = Object.values(ABF_FREE_ACCESS_SPELLS).filter((spell) =>
+      unlockedBands.includes(Number(spell.maxLevel))
+    );
+
+    // Filter out spells closed to ANY granting path
+    unlockedSpells = unlockedSpells.filter((spell) => {
+      const band = Number(spell.maxLevel);
+      const slot = slots[band];
+
+      const grantingPaths = (slot.path ?? []).map((p) => p.toLowerCase());
+      const cp = spell.closedPaths ?? {};
+      const closed = [(cp.path1 ?? "none").toLowerCase(), (cp.path2 ?? "none").toLowerCase()];
+
+      for (const g of grantingPaths) {
+        if (closed.includes(g)) return false;
+      }
+
+      return true;
+    });
+
+    // Remove duplicates (actor already knows this FA spell)
+    unlockedSpells = unlockedSpells.filter((spell) => {
+      const spellName = spell.name.trim().toLowerCase();
+      return !knownNames.has(spellName);
+    });
+
+    // Group spells by min-max range
+    for (const spell of unlockedSpells) {
       const key = `${spell.minLevel}-${spell.maxLevel}`;
       if (!grouped[key]) grouped[key] = [];
       grouped[key].push(spell);
@@ -69,21 +111,7 @@ export class AddFASpellsWindow extends Application {
   }
 
   async _addSpellToActor(actor, spellName) {
-    const pack = game.packs.get("abf-system.abf-items");
-    if (!pack) {
-      ui.notifications.error("Spell compendium not found.");
-      return;
-    }
-
-    const index = await pack.getIndex();
-
-    const entry = index.find((e) => e.name.toLowerCase() === spellName.toLowerCase());
-    if (!entry) {
-      ui.notifications.error(`Spell "${spellName}" not found in compendium.`);
-      return;
-    }
-
-    const spellDoc = await pack.getDocument(entry._id);
+    const spellDoc = await GetSpell(spellName);
 
     // 1. Add as embedded Item
     const created = await actor.createEmbeddedDocuments("Item", [spellDoc.toObject()]);
@@ -93,8 +121,59 @@ export class AddFASpellsWindow extends Application {
     const fa = foundry.utils.duplicate(actor.system.mystic.freeAccessSpells ?? []);
     fa.push(createdItem.id);
 
-    await actor.update({ "system.mystic.freeAccessSpells": fa });
+    // 3. Increment the correct slot band
+    const band = Number(spellDoc.system.maxLevel);
+    const slots = foundry.utils.duplicate(actor.system.mystic.freeAccessSpellSlots);
+
+    if (!slots[band]) {
+      console.warn(`Missing slot band ${band} in freeAccessSpellSlots`);
+    } else {
+      slots[band].current = (slots[band].current ?? 0) + 1;
+    }
+
+    // 4. Update actor
+    await actor.update({
+      "system.mystic.freeAccessSpells": fa,
+      "system.mystic.freeAccessSpellSlots": slots
+    });
 
     ui.notifications.info(`Added Free Access spell: ${spellName}`);
   }
+}
+
+async function GetSpell(spellName) {
+  const pack = game.packs.get("abf-system.abf-items");
+  if (!pack) {
+    ui.notifications.error("Spell compendium not found.");
+    return;
+  }
+
+  const index = await pack.getIndex();
+
+  // Find ALL entries with the same name
+  const nameMatches = index.filter((e) => e.name.toLowerCase() === spellName.toLowerCase());
+
+  if (nameMatches.length === 0) {
+    ui.notifications.error(`Spell "${spellName}" not found in compendium.`);
+    return;
+  }
+
+  // Load each matching document and pick the freeAccess one
+  let spellDoc = null;
+
+  for (const entry of nameMatches) {
+    const doc = await pack.getDocument(entry._id);
+    if (doc.system.spellType === "freeAccess") {
+      spellDoc = doc;
+      break;
+    }
+  }
+
+  if (!spellDoc) {
+    ui.notifications.error(`Spell "${spellName}" exists, but no Free Access version was found.`);
+    return;
+  }
+
+  // At this point spellDoc is the correct FA spell
+  return spellDoc;
 }
