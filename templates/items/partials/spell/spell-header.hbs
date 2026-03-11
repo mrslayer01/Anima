@@ -3,10 +3,6 @@
       <table class="common-table">
         <tr>
           <td>
-            <label>Level</label>
-            <input type="number" name="system.level" value="{{system.level}}" />
-          </td>
-          <td>
             <label>Action</label>
             <select name="system.action" class="action-select select">
                 <option value="active" {{#if (eq system.action "active")}}selected{{/if}}>Active</option>
@@ -14,25 +10,47 @@
             </select>
           </td>
           <td>
+            <label>Spell</label>
+            <select name="system.spellType" class="spellType-select select">
+                <option value="spell" {{#if (eq system.spellType "spell")}}selected{{/if}}>Spell</option>
+                <option value="freeAccess" {{#if (eq system.spellType "freeAccess")}}selected{{/if}}>Free Access</option>
+            </select>
+          </td>
+          <td>
             <label>Type</label>
             <input type="text" name="system.typeOfSpell" value="{{system.typeOfSpell}}" />
           </td>
-          <td>
-            <label>Path</label>
-            <select name="system.path" class="path-select select">
-                <option value="light" {{#if (eq system.path "light")}}selected{{/if}}>Light</option>
-                <option value="darkness" {{#if (eq system.path "darkness")}}selected{{/if}}>Darkness</option>
-                <option value="creation" {{#if (eq system.path "creation")}}selected{{/if}}>Creation</option>
-                <option value="destruction" {{#if (eq system.path "destruction")}}selected{{/if}}>Destruction</option>
-                <option value="fire" {{#if (eq system.path "fire")}}selected{{/if}}>Fire</option>
-                <option value="water" {{#if (eq system.path "water")}}selected{{/if}}>Water</option>
-                <option value="earth" {{#if (eq system.path "earth")}}selected{{/if}}>Earth</option>
-                <option value="air" {{#if (eq system.path "air")}}selected{{/if}}>Air</option>
-                <option value="essence" {{#if (eq system.path "essence")}}selected{{/if}}>Essence</option>
-                <option value="illusion" {{#if (eq system.path "illusion")}}selected{{/if}}>Illusion</option>
-                <option value="necromancy" {{#if (eq system.path "necromancy")}}selected{{/if}}>Necromancy</option>
-            </select>
-          </td>
+          {{#switch system.spellType}}
+            {{#case "spell"}}
+            <td>
+              <label>Level</label>
+              <input type="number" name="system.level" value="{{system.level}}" />
+            </td>
+            <td>
+              <label>Path</label>
+              <select name="system.path" class="path-select select">
+                  <option value="light" {{#if (eq system.path "light")}}selected{{/if}}>Light</option>
+                  <option value="darkness" {{#if (eq system.path "darkness")}}selected{{/if}}>Darkness</option>
+                  <option value="creation" {{#if (eq system.path "creation")}}selected{{/if}}>Creation</option>
+                  <option value="destruction" {{#if (eq system.path "destruction")}}selected{{/if}}>Destruction</option>
+                  <option value="fire" {{#if (eq system.path "fire")}}selected{{/if}}>Fire</option>
+                  <option value="water" {{#if (eq system.path "water")}}selected{{/if}}>Water</option>
+                  <option value="earth" {{#if (eq system.path "earth")}}selected{{/if}}>Earth</option>
+                  <option value="air" {{#if (eq system.path "air")}}selected{{/if}}>Air</option>
+                  <option value="essence" {{#if (eq system.path "essence")}}selected{{/if}}>Essence</option>
+                  <option value="illusion" {{#if (eq system.path "illusion")}}selected{{/if}}>Illusion</option>
+                  <option value="necromancy" {{#if (eq system.path "necromancy")}}selected{{/if}}>Necromancy</option>
+              </select>
+            </td>
+            {{/case}}
+            {{#case "freeAccess"}}
+            <td>
+              <label>Level Range</label>
+              <input type="number" name="system.minLevel" value="{{system.minLevel}}" /> /
+              <input type="number" name="system.maxLevel" value="{{system.maxLevel}}" />
+            </td>
+            {{/case}}
+          {{/switch}}
         </tr>
       </table>
   </div>

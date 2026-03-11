@@ -1,6 +1,6 @@
-import { ABF_SPELLS } from "../../config/spells.js";
+import { ABF_FREE_ACCESS_SPELLS } from "../../config/spells.js";
 
-export class AddSpellsWindow extends Application {
+export class AddFASpellsWindow extends Application {
   constructor(options = {}) {
     super(options);
     this.actorId = options.actorId;
@@ -8,9 +8,9 @@ export class AddSpellsWindow extends Application {
 
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      id: "add-spells-window",
-      title: "Add Spell",
-      classes: ["abf-character-sheet", "add-spells"],
+      id: "add-fa-spells-window",
+      title: "Add Free Access Spell",
+      classes: ["abf-character-sheet", "add-fa-spells"],
       template: "systems/abf-system/templates/actors/apps/add-spells.hbs",
       width: 650,
       height: "auto"
@@ -20,17 +20,15 @@ export class AddSpellsWindow extends Application {
   getData() {
     const grouped = {};
 
-    for (const spell of Object.values(ABF_SPELLS)) {
-      const path = spell.path ?? "Unknown";
-      if (!grouped[path]) grouped[path] = [];
-      grouped[path].push(spell);
+    for (const spell of Object.values(ABF_FREE_ACCESS_SPELLS)) {
+      const key = `${spell.minLevel}-${spell.maxLevel}`;
+      if (!grouped[key]) grouped[key] = [];
+      grouped[key].push(spell);
     }
-
-    console.log(grouped);
 
     return {
       groupedSpells: grouped,
-      type: "spell"
+      type: "freeAccess"
     };
   }
 
@@ -57,6 +55,7 @@ export class AddSpellsWindow extends Application {
       html.find("#preview-maintenance").text(opt.dataset.maintenance);
       html.find("#preview-added").text(opt.dataset.added);
       html.find("#preview-effect").html(opt.dataset.effect);
+
       this.setPosition({ height: "auto", width: this.options.width });
     });
 
@@ -90,12 +89,12 @@ export class AddSpellsWindow extends Application {
     const created = await actor.createEmbeddedDocuments("Item", [spellDoc.toObject()]);
     const createdItem = created[0];
 
-    // 2. Add reference to system.mystic.spells[]
-    const spells = foundry.utils.duplicate(actor.system.mystic.spells ?? []);
-    spells.push(createdItem.id);
+    // 2. Add reference to system.mystic.freeAccessSpells[]
+    const fa = foundry.utils.duplicate(actor.system.mystic.freeAccessSpells ?? []);
+    fa.push(createdItem.id);
 
-    await actor.update({ "system.mystic.spells": spells });
+    await actor.update({ "system.mystic.freeAccessSpells": fa });
 
-    ui.notifications.info(`Added spell: ${spellName}`);
+    ui.notifications.info(`Added Free Access spell: ${spellName}`);
   }
 }

@@ -26,6 +26,17 @@
     </tr>
   </table>
 
+  {{#switch system.spellType}}
+    {{#case "freeAccess"}}
+      <h3 class="section-header">
+        Restrictions
+      </h3>
+      {{#each system.closedPaths as |pathName pathKey|}}
+        <div class="closed-path">{{humanize pathName}}</div>
+      {{/each}}
+    {{/case}}
+  {{/switch}}
+
   <h3 class="section-header">
     Effects
   </h3>

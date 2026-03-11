@@ -1,5 +1,5 @@
 <h3>
-  Spell Book
+  Path Spells
 </h3>
 
 <table class="classes-table">
@@ -42,7 +42,7 @@
         </td>
 
         <td>
-          {{spell.system.path}}
+          {{humanize spell.system.path}}
         </td>
 
         <td class="passive-icon clickable spell-active" data-item-id="{{spell.id}}" data-tooltip="Set spell as active.">
@@ -58,6 +58,68 @@
         {{else}}
           <td>
             <a class="delete-spell" data-index="{{idx}}" data-item-id="{{spell.id}}" data-tooltip="Delete Spell">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        {{/if}}
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+
+<h3>
+  Free Access Spells
+</h3>
+
+<table class="classes-table">
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Level Range
+      </th>
+      <th>
+        Active
+      </th>
+
+      {{#if @root.actor.system.lockUi}}
+        <th></th>
+      {{else}}
+        <th class="class-actions-header">
+          <a class="add-fa-spell" data-tooltip="Add Spell">
+            <i class="fas fa-plus-circle"></i>
+          </a>
+        </th>
+      {{/if}}
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each system.mystic.faSpellItems as |spell idx|}}
+      <tr>
+        <td class="clickable spell-entry" data-item-id="{{spell.id}}" data-tooltip="Click to open spell">
+          {{spell.name}}
+        </td>
+
+        <td>
+          {{spell.system.minLevel}} / {{spell.system.maxLevel}}
+        </td>
+
+        <td class="passive-icon clickable spell-active" data-item-id="{{spell.id}}" data-tooltip="Set spell as active.">
+          {{#if spell.system.active}}
+            <i class="fas fa-check"></i>
+          {{else}}
+            <i class="fas fa-times"></i>
+          {{/if}}
+        </td>
+
+        {{#if @root.actor.system.lockUi}}
+          <td></td>
+        {{else}}
+          <td>
+            <a class="delete-fa-spell" data-index="{{idx}}" data-item-id="{{spell.id}}" data-tooltip="Delete Spell">
               <i class="fas fa-trash"></i>
             </a>
           </td>

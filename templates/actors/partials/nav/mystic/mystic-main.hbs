@@ -222,21 +222,17 @@
             <th>
               Path
             </th>
-
-            {{#if @root.actor.system.lockUi}}
-              <th></th>
-            {{else}}
-              <th class="class-actions-header">
-                <a class="add-spell" data-tooltip="Add Spell">
-                  <i class="fas fa-plus-circle"></i>
-                </a>
-              </th>
-            {{/if}}
+            <th>
+              Maintenance
+            </th>          
+            <th>
+              Cost
+            </th>
           </tr>
         </thead>
 
         <tbody>
-          {{#each system.mystic.spellItems as |spell idx|}}
+          {{#each system.mystic.activeSpellItems as |spell idx|}}
             <tr>
               <td class="clickable spell-entry" data-item-id="{{spell.id}}" data-tooltip="Click to open spell">
                 {{spell.name}}
@@ -247,18 +243,59 @@
               </td>
 
               <td>
-                {{spell.system.path}}
+                {{humanize spell.system.path}}
               </td>
 
-              {{#if @root.actor.system.lockUi}}
-                <td></td>
-              {{else}}
-                <td>
-                  <a class="delete-spell" data-index="{{idx}}" data-item-id="{{spell.id}}" data-tooltip="Delete Spell">
-                    <i class="fas fa-trash"></i>
-                  </a>
-                </td>
-              {{/if}}
+              <td>
+                {{spell.system.maintenance}}
+              </td>
+
+              <td>
+                {{spell.system.cost}}
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <h3>
+        Active Free Access Spells
+      </h3>
+      <table class="classes-table">
+        <thead>
+          <tr>
+            <th>
+              Name
+            </th>
+            <th>
+              Level
+            </th>
+            <th>
+              Maintenance
+            </th>          
+            <th>
+              Cost
+            </th>
+          </tr>
+        </thead>
+
+        <tbody>
+          {{#each system.mystic.activeFaSpellItems as |spell idx|}}
+            <tr>
+              <td class="clickable spell-entry" data-item-id="{{spell.id}}" data-tooltip="Click to open spell">
+                {{spell.name}}
+              </td>
+
+              <td>
+                {{spell.system.minLevel}} / {{spell.system.maxLevel}}
+              </td>
+
+              <td>
+                {{spell.system.maintenance}}
+              </td>
+
+              <td>
+                {{spell.system.cost}}
+              </td>
             </tr>
           {{/each}}
         </tbody>

@@ -1,3 +1,4 @@
+import { AddFASpellsWindow } from "../windows/add-fa-spells.js";
 import { AddSpellsWindow } from "../windows/add-spells.js";
 
 export function SpellsListeners(sheet, html) {
@@ -64,5 +65,43 @@ export function SpellsListeners(sheet, html) {
         "system.active": !isActive
       }
     ]);
+  });
+
+  // Free Access Spells
+
+  // OPEN THE SELECT SPELL WINDOW
+  html.find(".add-fa-spell").click(() => {
+    new AddFASpellsWindow({
+      actorId: sheet.actor.id
+    }).render(true);
+  });
+
+  // DELETE SPELL
+  html.find(".delete-fa-spell").off("click");
+  html.find(".delete-fa-spell").on("click", async (event) => {
+    event.preventDefault();
+
+    const index = Number(event.currentTarget.dataset.index);
+    const itemId = event.currentTarget.dataset.itemId;
+    const actor = sheet.actor;
+
+    // Confirm dialog (same style as your other delete dialogs)
+    const confirmed = await Dialog.confirm({
+      title: "Delete Spell",
+      content: "<p>Are you sure you want to remove this spell?</p>"
+    });
+
+    if (!confirmed) return;
+
+    // 1. Remove from system.mystic.freeAccessSpells[]
+    const spells = foundry.utils.duplicate(actor.system.mystic.freeAccessSpells ?? []);
+    spells.splice(index, 1);
+
+    await actor.update({ "system.mystic.freeAccessSpells": spells });
+
+    // 2. Remove the embedded Item
+    if (itemId) {
+      await actor.deleteEmbeddedDocuments("Item", [itemId]);
+    }
   });
 }

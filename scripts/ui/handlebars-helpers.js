@@ -22,6 +22,9 @@ export function loadAllActorHandlerbarsHelpers() {
   Handlebars.registerHelper("lower", (str) => {
     return String(str).toLowerCase();
   });
+  Handlebars.registerHelper("debug", function (data) {
+    console.log("HBS DEBUG:", data);
+  });
 
   Handlebars.registerHelper("switch", function (value, options) {
     this._switch_value_ = value;

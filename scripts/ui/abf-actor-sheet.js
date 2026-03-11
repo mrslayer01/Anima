@@ -112,9 +112,23 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
 
     data.expandedSecondaries = this._expandedSecondaries;
 
-    data.system.mystic.spellItems = (this.actor.system.mystic.spells ?? [])
+    // Resolve path spells
+    const spellItems = (this.actor.system.mystic.spells ?? [])
       .map((id) => this.actor.items.get(id))
       .filter((i) => i);
+
+    // Resolve free access spells
+    const faSpellItems = (this.actor.system.mystic.freeAccessSpells ?? [])
+      .map((id) => this.actor.items.get(id))
+      .filter((i) => i);
+
+    // Expose full lists
+    data.system.mystic.spellItems = spellItems;
+    data.system.mystic.faSpellItems = faSpellItems;
+
+    // Active lists
+    data.system.mystic.activeSpellItems = spellItems.filter((s) => s.system.active);
+    data.system.mystic.activeFaSpellItems = faSpellItems.filter((s) => s.system.active);
 
     return data;
   }

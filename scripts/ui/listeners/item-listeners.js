@@ -52,6 +52,16 @@ export function ItemListeners(sheet, html) {
     sheet.render(false);
   });
 
+  html.find(".spellType-select").on("change", async (ev) => {
+    const spellType = ev.currentTarget.value;
+
+    await sheet.item.update({
+      "system.spellType": spellType
+    });
+
+    sheet.render(false);
+  });
+
   html.find(".weapon-type").on("change", async (ev) => {
     const type = ev.currentTarget.value;
 

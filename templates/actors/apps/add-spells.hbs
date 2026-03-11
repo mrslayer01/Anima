@@ -1,23 +1,83 @@
-<form class="elan">
+<div class="elan">
   <section>
     <h3>
-      {{spellData.name}} - Available Spells
+      Available Spells
     </h3>
+
     <div class="add-spells-window">
-      <label>
-        <b>
-          Select Spell:
-        </b>
-      </label>
       <select class="select" id="spell-select" style="width: 100%;">
-        {{#each spells}}
-          <option value="{{this.name}}">{{this.name}} (Lv {{this.level}} – {{this.path}})</option>
+        {{! Grouped spell lists }}
+        {{#each groupedSpells as |spells groupName|}}
+          <optgroup class="abf-optgroup-h4" label="{{humanize groupName}}">
+            {{#each spells}}
+              <option
+                value="{{this.name}}"
+                data-effect="{{this.effect}}"
+                data-added="{{this.addedEffect}}"
+                data-cost="{{this.cost}}"
+                data-action="{{humanize this.action}}"
+                data-maintenance="{{this.maintenance}}"
+                data-path="{{humanize this.path}}"
+                data-min="{{this.minLevel}}"
+                data-max="{{this.maxLevel}}"
+              >
+                {{! Display text depends on spell type }}
+                {{debug type}}
+                {{#if (eq ../../type "spell")}}
+                  {{this.name}} (Lv {{this.level}} – {{humanize this.path}})
+                {{else}}
+                  {{this.name}} (Lv {{this.minLevel}} – {{this.maxLevel}})
+                {{/if}}
+              </option>
+            {{/each}}
+          </optgroup>
         {{/each}}
       </select>
 
-      <button type="button" class="confirm-add-spell" style="margin-top: 10px;">
+      {{! Spell Preview Panel }}
+      <div class="spell-preview">
+        <h3 id="preview-name"></h3>
+
+        <p class="abf-text">
+          <b>
+            Action:
+          </b>
+
+          <span id="preview-action"></span>
+        </p>
+        <p class="abf-text">
+          <b>
+            Cost:
+          </b>
+
+          <span id="preview-cost"></span>
+        </p>
+        <p class="abf-text">
+          <b>
+            Maintenance:
+          </b>
+
+          <span id="preview-maintenance"></span>
+        </p>
+        <p class="abf-text">
+          <b>
+            Added Effect:
+          </b>
+
+          <span id="preview-added"></span>
+        </p>
+
+        <p class="abf-text">
+          <b>
+            Effect:
+          </b>
+        </p>
+        <div class="abf-text" id="preview-effect"></div>
+      </div>
+
+      <button type="button" class="confirm-add" style="margin-top: 10px;">
         Add Spell
       </button>
     </div>
   </section>
-</form>
+</div>
