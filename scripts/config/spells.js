@@ -5147,7 +5147,7 @@ export const ABF_SPELLS = {
     addedEffect: "+5 Resistance threshold.",
     maintenance: "1 every 20 (2)",
     maxZeon: "Intelligence x20",
-    typeOfSpell: "shield"
+    typeOfSpell: "Defense"
   }),
 
   DrainLife: createSpell({
@@ -6279,7 +6279,7 @@ export const ABF_FREE_ACCESS_SPELLS = {
     addedEffect: "+5 MR Difficulty.",
     maintenance: "1 every 10 (8) Daily",
     maxZeon: "Intelligence x10",
-    typeOfSpell: "effect, spiritual",
+    typeOfSpell: "Effect, Spiritual",
     closedPaths: { path1: "destruction" }
   }),
 
@@ -6954,7 +6954,7 @@ export const ABF_FREE_ACCESS_SPELLS = {
     addedEffect: "+5 MR Difficulty.",
     maintenance: "No",
     maxZeon: "Intelligence x20",
-    typeOfSpell: "effect, defense",
+    typeOfSpell: "Effect",
     closedPaths: { path1: "fire" }
   }),
 
@@ -6984,7 +6984,7 @@ export const ABF_FREE_ACCESS_SPELLS = {
     addedEffect: "+5 maximum Presence and +5 MR Difficulty.",
     maintenance: "1 every 10 (10) Daily",
     maxZeon: "Intelligence x10",
-    typeOfSpell: "effect, spiritual",
+    typeOfSpell: "Effect, Spiritual",
     closedPaths: { path1: "darkness" }
   }),
   flight: createFASpell({

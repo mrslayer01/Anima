@@ -10,12 +10,17 @@
       <tr>
         <td>
           <input
-            class="input-expand"
+            class="relative-input"
             data-tooltip="Current Life Points"
-            type="number"
+            type="text"
+            data-min="0"
+            data-max="{{system.core.lifePoints.final}}"
+            data-field="current"
             name="system.core.lifePoints.current"
+            data-current="{{system.core.lifePoints.current}}"
             value="{{system.core.lifePoints.current}}"
           />
+
         </td>
         <td>
           <input
@@ -42,8 +47,12 @@
         <td>
           <input
             data-tooltip="Current Fatigue"
-            type="number"
+            type="text"
+            class="relative-input"
             name="system.core.fatigue.current"
+            data-min="0"
+            data-max="{{system.core.fatigue.final}}"
+            data-current="{{system.core.fatigue.current}}"
             value="{{system.core.fatigue.current}}"
           />
         </td>

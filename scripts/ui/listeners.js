@@ -82,6 +82,40 @@ export function registerSheetListeners(sheet, html) {
     sheet.render();
   });
 
+  // UNIVERSAL RELATIVE INPUT HANDLER
+  html.find(".relative-input").off("change");
+  html.find(".relative-input").on("change", (ev) => {
+    const input = ev.currentTarget;
+
+    const minValue = input.dataset.min !== undefined ? Number(input.dataset.min) : -Infinity;
+    const maxValue = input.dataset.max !== undefined ? Number(input.dataset.max) : Infinity;
+
+    const raw = String(input.value).trim();
+    const previous = Number(input.dataset.current ?? input.value) || 0;
+
+    let newValue = previous;
+
+    // Detect relative (+50, -10)
+    const isRelative = raw.startsWith("+") || raw.startsWith("-");
+
+    // Parse number
+    const numeric = Number(raw);
+    if (Number.isNaN(numeric)) {
+      input.value = previous;
+      return;
+    }
+
+    // Compute new value
+    newValue = isRelative ? previous + numeric : numeric;
+
+    // Clamp
+    newValue = Math.max(minValue, Math.min(maxValue, newValue));
+
+    // Write back
+    input.value = newValue;
+    input.dataset.current = newValue;
+  });
+
   RollListeners(sheet, html);
   ClassListeners(sheet, html);
   AdvantageDisadvantageListeners(sheet, html);
@@ -95,6 +129,39 @@ export function registerSheetListeners(sheet, html) {
 //#region Item Registers
 
 export function registerItemSheetListeners(sheet, html) {
+  // UNIVERSAL RELATIVE INPUT HANDLER
+  html.find(".relative-input").off("change");
+  html.find(".relative-input").on("change", (ev) => {
+    const input = ev.currentTarget;
+
+    const minValue = input.dataset.min !== undefined ? Number(input.dataset.min) : -Infinity;
+    const maxValue = input.dataset.max !== undefined ? Number(input.dataset.max) : Infinity;
+
+    const raw = String(input.value).trim();
+    const previous = Number(input.dataset.current ?? input.value) || 0;
+
+    let newValue = previous;
+
+    // Detect relative (+50, -10)
+    const isRelative = raw.startsWith("+") || raw.startsWith("-");
+
+    // Parse number
+    const numeric = Number(raw);
+    if (Number.isNaN(numeric)) {
+      input.value = previous;
+      return;
+    }
+
+    // Compute new value
+    newValue = isRelative ? previous + numeric : numeric;
+
+    // Clamp
+    newValue = Math.max(minValue, Math.min(maxValue, newValue));
+
+    // Write back
+    input.value = newValue;
+    input.dataset.current = newValue;
+  });
   ItemListeners(sheet, html);
 }
 

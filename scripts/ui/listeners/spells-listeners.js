@@ -1,3 +1,5 @@
+import { applyRelativeInput } from "../../utils/helpers.js";
+import { toNum } from "../../utils/numbers.js";
 import { AddFASpellsWindow } from "../windows/add-fa-spells.js";
 import { AddSpellsWindow } from "../windows/add-spells.js";
 
@@ -80,6 +82,57 @@ export function SpellsListeners(sheet, html) {
       {
         _id: itemId,
         "system.active": !isActive
+      }
+    ]);
+  });
+
+  // UPDATE SHIELD VALUES ON THE SPELL ITEM ITSELF
+  html.find(".spell-shield-input").off("change");
+  html.find(".spell-shield-input").on("change", async (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    const actor = sheet.actor;
+    const input = ev.currentTarget;
+
+    const itemId = input.dataset.itemId;
+    const field = input.dataset.field; // "current" or "maximum"
+
+    const relativeField = applyRelativeInput(input);
+    const value = toNum(relativeField) || 0;
+
+    const spell = actor.items.get(itemId);
+    if (!spell) return;
+
+    await actor.updateEmbeddedDocuments("Item", [
+      {
+        _id: itemId,
+        [`system.spellShield`]: value
+      }
+    ]);
+  });
+
+  // UPDATE DAMAGE VALUES ON THE SPELL ITEM ITSELF
+  html.find(".spell-weapon-input").off("change");
+  html.find(".spell-weapon-input").on("change", async (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    const actor = sheet.actor;
+    const input = ev.currentTarget;
+
+    const itemId = input.dataset.itemId;
+
+    const relativeField = applyRelativeInput(input);
+    const value = toNum(relativeField) || 0;
+
+    const spell = actor.items.get(itemId);
+    if (!spell) return;
+
+    await actor.updateEmbeddedDocuments("Item", [
+      {
+        _id: itemId,
+        [`system.spellDamage`]: value
       }
     ]);
   });

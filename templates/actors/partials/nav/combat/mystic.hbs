@@ -1,0 +1,161 @@
+<h3>
+  Attack Spells
+</h3>
+
+<table class="classes-table">
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Level
+      </th>
+      <th>
+        Path
+      </th>
+      <th>
+        Maintenance
+      </th>
+      <th>
+        Cost
+      </th>
+      <th>
+        Spell Damage
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each system.mystic.activeSpells as |spell idx|}}
+      {{#if (containsString system.typeOfSpell "Attack")}}
+        <tr>
+          <td class="clickable spell-entry" data-item-id="{{spell.id}}" data-tooltip="Click to open spell">
+            {{spell.name}}
+          </td>
+
+          {{! LEVEL COLUMN }}
+          <td>
+            {{#if (eq spell.system.spellType "freeAccess")}}
+              {{spell.system.minLevel}} / {{spell.system.maxLevel}}
+            {{else}}
+              {{spell.system.level}}
+            {{/if}}
+          </td>
+
+          {{! PATH COLUMN }}
+          <td>
+            {{#if (eq spell.system.spellType "freeAccess")}}
+              —
+            {{else}}
+              {{humanize spell.system.path}}
+            {{/if}}
+          </td>
+
+          {{! MAINTENANCE }}
+          <td>
+            {{spell.system.maintenance}}
+          </td>
+
+          {{! COST }}
+          <td>
+            {{spell.system.cost}}
+          </td>
+
+          {{! Spell Damage }}
+          <td>
+            <input
+              type="text"
+              class="spell-weapon-input relative-input"
+              data-item-id="{{spell.id}}"
+              data-min="0"
+              data-current="{{spell.system.spellDamage}}"
+              value="{{spell.system.spellDamage}}"
+            />
+          </td>
+        </tr>
+      {{/if}}
+    {{/each}}
+  </tbody>
+</table>
+
+<h3>
+  Mystic Shields
+</h3>
+
+<table class="classes-table">
+  <thead>
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Level
+      </th>
+      <th>
+        Path
+      </th>
+      <th>
+        Maintenance
+      </th>
+      <th>
+        Cost
+      </th>
+      <th>
+        Current Shield
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each system.mystic.activeSpells as |spell idx|}}
+      {{#if (containsString spell.system.typeOfSpell "Defense")}}
+        <tr>
+          <td class="clickable spell-entry" data-item-id="{{spell.id}}" data-tooltip="Click to open spell">
+            {{spell.name}}
+          </td>
+
+          {{! LEVEL COLUMN }}
+          <td>
+            {{#if (eq spell.system.spellType "freeAccess")}}
+              {{spell.system.minLevel}} / {{spell.system.maxLevel}}
+            {{else}}
+              {{spell.system.level}}
+            {{/if}}
+          </td>
+
+          {{! PATH COLUMN }}
+          <td>
+            {{#if (eq spell.system.spellType "freeAccess")}}
+              —
+            {{else}}
+              {{humanize spell.system.path}}
+            {{/if}}
+          </td>
+
+          {{! MAINTENANCE }}
+          <td>
+            {{spell.system.maintenance}}
+          </td>
+
+          {{! COST }}
+          <td>
+            {{spell.system.cost}}
+          </td>
+
+          {{! Spell Shield }}
+          <td>
+            <input
+              type="text"
+              class="spell-shield-input relative-input"
+              data-item-id="{{spell.id}}"
+              data-min="0"
+              data-current="{{spell.system.spellShield}}"
+              value="{{spell.system.spellShield}}"
+            />
+          </td>
+        </tr>
+      {{/if}}
+    {{/each}}
+  </tbody>
+</table>

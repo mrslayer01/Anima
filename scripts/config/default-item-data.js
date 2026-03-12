@@ -97,6 +97,9 @@ export const DEFAULT_SPELL_DATA = {
   maxZeon: "",
   typeOfSpell: "",
   closedPaths: { path1: "none" },
-  spellType: "Spell",
+  spellType: "spell",
+  combat: "-",
+  spellDamage: 0,
+  spellShield: 0,
   active: false
 };

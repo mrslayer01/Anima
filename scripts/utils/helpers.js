@@ -66,3 +66,45 @@ export function normalizeName(name) {
     .map((w) => w.charAt(0).toUpperCase() + w.slice(1))
     .join(" ");
 }
+
+/**
+ * Apply relative/absolute numeric logic to an input element.
+ * - Supports +50, -20, 120
+ * - Clamps to data-min and data-max
+ * - Stores new value in data-current
+ * - Returns the final numeric value
+ */
+export function applyRelativeInput(input) {
+  const minValue = Number(input.dataset.min ?? 0);
+  const maxValue = input.dataset.max !== undefined ? Number(input.dataset.max) : null;
+
+  const raw = input.value.trim();
+
+  // Previous committed value
+  const previous = Number(input.dataset.current ?? input.value) || 0;
+  let newValue = previous;
+
+  // COMPLETE relative: +50 / -10
+  if (/^[+-]\d+$/.test(raw)) {
+    newValue = previous + Number(raw);
+  }
+  // COMPLETE absolute: 50 / 120
+  else if (/^\d+$/.test(raw)) {
+    newValue = Number(raw);
+  }
+  // Invalid → revert
+  else {
+    input.value = previous;
+    return previous;
+  }
+
+  // Clamp
+  newValue = Math.max(minValue, newValue);
+  if (maxValue !== null) newValue = Math.min(maxValue, newValue);
+
+  // Update UI + dataset
+  input.value = newValue;
+  input.dataset.current = newValue;
+
+  return newValue;
+}

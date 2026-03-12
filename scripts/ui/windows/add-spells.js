@@ -75,6 +75,7 @@ export class AddSpellsWindow extends Application {
       const opt = ev.currentTarget.selectedOptions[0];
 
       html.find("#preview-name").text(opt.value);
+      html.find("#preview-type").text(opt.dataset.type);
       html.find("#preview-action").text(opt.dataset.action);
       html.find("#preview-cost").text(opt.dataset.cost);
       html.find("#preview-maintenance").text(opt.dataset.maintenance);
@@ -131,7 +132,7 @@ async function GetSpell(spellName) {
 
   for (const entry of nameMatches) {
     const doc = await pack.getDocument(entry._id);
-    if (doc.system.spellType === "Spell") {
+    if (doc.system.spellType === "spell") {
       spellDoc = doc;
       break;
     }
@@ -142,6 +143,6 @@ async function GetSpell(spellName) {
     return;
   }
 
-  // At this point spellDoc is the correct FA spell
+  // At this point spellDoc is the correct spell
   return spellDoc;
 }

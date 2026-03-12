@@ -156,7 +156,7 @@ export const DEFAULT_ACTOR_DATA = {
         Banish: { base: 0, bonus: 0 },
         MagicAccumulation: { base: 0, cost: 0, special: 0 },
         MAMultiples: { base: 1, cost: 0, special: 0 },
-        Zeon: { base: 0, current: 0 }
+        Zeon: { base: 0, temp: 0, reserve: 0 }
       }
     }
   },

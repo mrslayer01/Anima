@@ -100,6 +100,15 @@ export function loadAllActorHandlerbarsHelpers() {
       : '<i class="fas fa-plus-circle"></i>';
   });
 
+  Handlebars.registerHelper("containsString", function (typeString, typeToCheck, options) {
+    if (!typeString || !typeToCheck) return false;
+
+    // Normalize: split by comma, trim, and lowercase
+    const types = typeString.split(",").map((t) => t.trim().toLowerCase());
+
+    return types.includes(typeToCheck.toLowerCase());
+  });
+
   Handlebars.registerHelper("in", function (value, ...list) {
     list.pop();
     return list.includes(value);

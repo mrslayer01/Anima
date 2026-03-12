@@ -73,6 +73,13 @@
   width: 40%;
 }
 
+/* Handles keeping realtive input fields displayed as a number when they are actually a text field. Allows to +/- inputs. */
+.relative-input {
+  text-align: center !important;
+  width: 7ch !important;
+  min-width: 7ch !important;
+}
+
 .abf-item-sheet .header-top-name {
   text-align: center;
   width: 100%;
@@ -1196,6 +1203,12 @@
 .imbalance-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  gap: 10px;
+}
+
+.zeon-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
   gap: 10px;
 }
 

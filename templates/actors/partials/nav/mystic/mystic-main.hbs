@@ -60,16 +60,33 @@
       </div>
 
       <div class="imbalance-group">
-        <div class="imbalance-row">
+        <div class="zeon-row">
+          <div class="imbalance-field">
+            <label class="path-name">
+              Accumulated
+            </label>
+            <input
+              class="path-name relative-input"
+              type="text"
+              name="system.abilities.primary.Supernatural.Zeon.temp"
+              data-min="0"
+              data-max="{{system.abilities.primary.Supernatural.Zeon.reserve}}"
+              data-current="{{system.abilities.primary.Supernatural.Zeon.temp}}"
+              value="{{system.abilities.primary.Supernatural.Zeon.temp}}"
+            />
+          </div>
           <div class="imbalance-field">
             <label class="path-name">
               Reserve
             </label>
             <input
-              class="path-name"
-              type="number"
-              name="system.abilities.primary.Supernatural.Zeon.current"
-              value="{{system.abilities.primary.Supernatural.Zeon.current}}"
+              class="path-name relative-input"
+              type="text"
+              name="system.abilities.primary.Supernatural.Zeon.reserve"
+              data-min="0"
+              data-max="{{system.abilities.primary.Supernatural.Zeon.final}}"
+              data-current="{{system.abilities.primary.Supernatural.Zeon.reserve}}"
+              value="{{system.abilities.primary.Supernatural.Zeon.reserve}}"
             />
           </div>
           <div class="imbalance-field">
@@ -177,6 +194,7 @@
               name="system.mystic.paths.{{key}}.level"
               value="{{path.level}}"
               min="0"
+              {{#if @root.actor.system.lockUi}}disabled{{/if}}
             />
           </div>
         {{/each}}

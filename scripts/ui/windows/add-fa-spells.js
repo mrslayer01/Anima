@@ -92,6 +92,7 @@ export class AddFASpellsWindow extends Application {
       const opt = ev.currentTarget.selectedOptions[0];
 
       html.find("#preview-name").text(opt.value);
+      html.find("#preview-type").text(opt.dataset.type);
       html.find("#preview-action").text(opt.dataset.action);
       html.find("#preview-cost").text(opt.dataset.cost);
       html.find("#preview-maintenance").text(opt.dataset.maintenance);

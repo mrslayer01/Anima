@@ -20,6 +20,7 @@
                 data-path="{{humanize this.path}}"
                 data-min="{{this.minLevel}}"
                 data-max="{{this.maxLevel}}"
+                data-type="{{this.typeOfSpell}}"
               >
                 {{! Display text depends on spell type }}
                 {{#if (eq ../../type "spell")}}
@@ -43,6 +44,13 @@
           </b>
 
           <span id="preview-action"></span>
+        </p>
+        <p class="abf-text">
+          <b>
+            Type:
+          </b>
+
+          <span id="preview-type"></span>
         </p>
         <p class="abf-text">
           <b>
