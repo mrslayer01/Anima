@@ -1,3 +1,4 @@
+import { capitalizeFirst } from "../../utils/helpers.js";
 import {
   ARMOR_COVERAGE,
   computeCounterattack,
@@ -187,9 +188,11 @@ export function RollListeners(sheet, html) {
     const w = equippedWeapon.system;
 
     let attackValue = toNum(sheet.actor.system.abilities.primary.Combat.Attack.final);
-    let attackType = ev.currentTarget.dataset.type;
 
-    const { final, region, directed } = await promptAttackModifierWindow();
+    const { final, region, directed, attackType } = await promptAttackModifierWindow({
+      isSpellAttack: false,
+      weapon: w
+    });
     attackValue += final;
 
     let armorPen = 0;
@@ -262,6 +265,7 @@ export function RollListeners(sheet, html) {
                 label: "Attack",
                 actor: sheet.actor
               });
+              console.log(attackType);
 
               setTimeout(
                 () =>
@@ -282,7 +286,7 @@ export function RollListeners(sheet, html) {
     }
 
     // ---------------------------------------------------------
-    // CASE 2: TARGET SELECTED → BLOCK OR DODGE
+    // CASE 2: TARGET SELECTED → BLOCK, DODGE OR PROJECTION
     // ---------------------------------------------------------
     const targetActor = target.actor;
     const { type, modifier } = await promptDefenseChoice(targetActor);
@@ -296,8 +300,12 @@ export function RollListeners(sheet, html) {
 
     if (type === "block") {
       defenseValue = toNum(targetActor.system.abilities.primary.Combat.Block.final);
-    } else {
+    } else if (type === "dodge") {
       defenseValue = toNum(targetActor.system.abilities.primary.Combat.Dodge.final);
+    } else if (type === "projection") {
+      defenseValue = toNum(
+        targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
+      );
     }
 
     // If being attacked by a projectile or thrown weapon, apply penalties
@@ -325,7 +333,7 @@ export function RollListeners(sheet, html) {
 
     const defender = await animaOpenRollCapture({
       value: defenseValue,
-      label: type === "block" ? "Block" : "Dodge",
+      label: capitalizeFirst(type),
       actor: targetActor
     });
 
@@ -348,6 +356,149 @@ export function RollListeners(sheet, html) {
     const { dmg, pct } = await promptDamageCalculation(baseDamage);
 
     postDamageCard({ dmg, pct });
+  });
+
+  html.find(".spell-attack-roll").off("click");
+  html.find(".spell-attack-roll").on("click", async (ev) => {
+    // ---------------------------------------------------------
+    // SPELL ATTACK → ALWAYS USE MAGIC PROJECTION
+    // ---------------------------------------------------------
+
+    const actor = sheet.actor;
+
+    let attackValue = toNum(
+      actor.system.abilities.primary.Supernatural.MagicProjection.offensiveFinal
+    );
+
+    // promptAttackModifierWindow returns final modifier, region, directed, and attackType
+    const { final, region, directed, attackType, zeonCost } = await promptAttackModifierWindow({
+      isSpellAttack: true
+    });
+    attackValue += final;
+
+    // Check Zeon
+
+    const enoughZeon = await zeon(zeonCost, actor);
+
+    if (!enoughZeon)
+      return ui.notifications.warn("Not enough Zeon is accumulated to cast this spell.");
+
+    // Spells do not have armor penetration unless your system defines it
+    let armorPen = 0;
+
+    const targets = Array.from(game.user.targets);
+    const target = targets[0] ?? null;
+
+    // ---------------------------------------------------------
+    // CASE 1: NO TARGET → MANUAL DEFENSE ENTRY
+    // ---------------------------------------------------------
+    if (!target) {
+      return new Dialog({
+        title: "Manual Defense Entry",
+        content: `
+        <div style="margin-bottom: 1em;">
+          <label><b>Enter Defender's defence modifier:</b></label>
+          <input type="number" id="defense" value="0" style="width: 100%;" />
+        </div>
+        <div style="margin-bottom: 1em;">
+          <label><b>Attack Modifier:</b></label>
+          <input type="number" id="mod" value="0" style="width: 100%;" />
+          <label><b>AT Value:</b></label>
+          <input type="number" id="at" value="0" style="width: 100%;" />
+        </div>
+      `,
+        buttons: {
+          roll: {
+            label: "Roll",
+            callback: async (html) => {
+              const defenseFinal = toNum(html.find("#defense").val());
+              const modifier = toNum(html.find("#mod").val());
+              const manualAT = toNum(html.find("#at").val());
+
+              const finalAttack = attackValue + modifier;
+
+              const defender = await animaOpenRollCapture({
+                value: defenseFinal,
+                label: "Defense (Manual)",
+                actor: sheet.actor
+              });
+
+              const attacker = await animaOpenRollCapture({
+                value: finalAttack,
+                label: "Spell Attack",
+                actor: sheet.actor
+              });
+
+              setTimeout(
+                () =>
+                  postCombinedCombatCard(
+                    attacker,
+                    defender,
+                    manualAT,
+                    armorPen,
+                    directed,
+                    attackType
+                  ),
+                2500
+              );
+            }
+          }
+        }
+      }).render(true);
+    }
+
+    // ---------------------------------------------------------
+    // CASE 2: TARGET SELECTED → BLOCK OR DODGE
+    // ---------------------------------------------------------
+    const targetActor = target.actor;
+    const { type, modifier } = await promptDefenseChoice(targetActor);
+
+    const dodgeMastery = targetActor.system.abilities.primary.Combat.Dodge.mastery;
+
+    let defenseValue = 0;
+
+    if (type === "block") {
+      defenseValue = toNum(targetActor.system.abilities.primary.Combat.Block.final);
+    } else if (type === "dodge") {
+      defenseValue = toNum(targetActor.system.abilities.primary.Combat.Dodge.final);
+    } else if (type === "projection") {
+      defenseValue = toNum(
+        targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
+      );
+    }
+
+    // Spell attacks count as Fired projectiles
+    let defensePenalty = DefensePenalty("projectile", type, false, false, dodgeMastery);
+
+    defenseValue += modifier + defensePenalty;
+
+    let baseAT = 0;
+
+    if (directed !== "None") {
+      baseAT = getEffectiveAT(targetActor, region, attackType);
+    } else {
+      baseAT = targetActor.system.armor.total[attackType];
+    }
+
+    let defATValue = baseAT - armorPen;
+    if (defATValue < 0) defATValue = 0;
+
+    const defender = await animaOpenRollCapture({
+      value: defenseValue,
+      label: capitalizeFirst(type),
+      actor: targetActor
+    });
+
+    const attacker = await animaOpenRollCapture({
+      value: attackValue,
+      label: "Spell Attack",
+      actor: sheet.actor
+    });
+
+    setTimeout(
+      () => postCombinedCombatCard(attacker, defender, defATValue, armorPen, directed, attackType),
+      2500
+    );
   });
 }
 
@@ -411,9 +562,9 @@ async function animaOpenRollCapture(opts) {
   return await animaOpenRoll({ ...opts, capture: true });
 }
 
-export function promptAttackModifierWindow() {
+export function promptAttackModifierWindow(options = {}) {
   return new Promise((resolve) => {
-    const win = new CombatWindow(resolve);
+    const win = new CombatWindow(resolve, options);
     win.render(true);
   });
 }
@@ -445,6 +596,13 @@ async function promptDefenseChoice(targetActor) {
           callback: (html) => {
             const mod = toNum(html.find("#defMod").val()) || 0;
             resolve({ type: "dodge", modifier: mod });
+          }
+        },
+        projection: {
+          label: "Projection",
+          callback: (html) => {
+            const mod = toNum(html.find("#defMod").val()) || 0;
+            resolve({ type: "projection", modifier: mod });
           }
         }
       },
@@ -577,4 +735,28 @@ function postDamageCard({ dmg, pct }) {
     speaker: ChatMessage.getSpeaker(),
     content
   });
+}
+
+async function zeon(zeonCost, actor) {
+  if (zeonCost === 0) return;
+  // Removes the spell cost from the Accumulated pool, then adds what's left back to the reserve. Setting the accumulated to 0.
+  const zeonPath = actor.system.abilities.primary.Supernatural.Zeon;
+  let baseZeonAccumulated = zeonPath.temp;
+  let baseZeonReserve = zeonPath.reserve;
+
+  let finalZeonAccumulated = 0;
+  let finalZeonReserve = 0;
+
+  // First verify that there is even enough in the accumulated to cover the spell cost. If there is not, prompt the user, and don't remove any Zeon.
+  if (baseZeonAccumulated < zeonCost) return false;
+
+  finalZeonAccumulated = baseZeonAccumulated - zeonCost;
+  finalZeonReserve = baseZeonReserve + finalZeonAccumulated;
+
+  await actor.update({
+    "system.abilities.primary.Supernatural.Zeon.temp": 0,
+    "system.abilities.primary.Supernatural.Zeon.reserve": finalZeonReserve
+  });
+
+  return true;
 }

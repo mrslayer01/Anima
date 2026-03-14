@@ -62,6 +62,7 @@ function calculateAdvantages(system) {
   const hasExceptMR = advantages.find((l) => l.name === "Exceptional Magic Resistance");
   const hasExceptPhr = advantages.find((l) => l.name === "Exceptional Physical Resistance");
   const hasExceptPr = advantages.find((l) => l.name === "Exceptional Psychic Resistance");
+  const hasTheGift = advantages.find((l) => l.name === "The Gift");
 
   if (hasAptitudeSubject !== undefined) AptitudeInASubject(system, hasAptitudeSubject);
   if (hasAptitudeField !== undefined) AptitudeInAField(system, hasAptitudeField);
@@ -77,6 +78,8 @@ function calculateAdvantages(system) {
 
   if (hasExceptMR !== undefined || hasExceptPhr !== undefined || hasExceptPr !== undefined)
     ResistanceAdvantages(system, hasExceptMR, hasExceptPhr, hasExceptPr);
+
+  if (hasTheGift !== undefined) TheGift(system);
 }
 
 function AptitudeInASubject(system, adv) {
@@ -287,4 +290,10 @@ function NearSighted(system) {
       }
     }
   }
+}
+
+function TheGift(system) {
+  // Apply the +10 MR
+  const curSpec = toNum(system.resistances.Magic.special);
+  system.resistances.Magic.special = curSpec + 10;
 }

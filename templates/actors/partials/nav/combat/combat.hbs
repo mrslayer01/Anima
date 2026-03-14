@@ -5,39 +5,98 @@
     <h3>
       Core Stats
     </h3>
-    <div class="secondary-block">
-      <table class="ability-table">
-        <thead>
-          <tr>
-            <th class="ability-table-name">
-              Ability
-            </th>
-            <th>
-              Final
-            </th>
-          </tr>
-        </thead>
-        <tbody>
-          {{#each actor.system.abilities.primary.Combat as |ability key|}}
-          {{#if (in key "Ki" "KiAccumulation")}}
-          {{else}}
-            <tr>
-              <td>
-                {{localize (concat "ABF.Ability." key)}}
-              </td>
-              {{#if (in key "WearArmor")}}
-                <td>{{ability.final}}</td>
-              {{else}}
-              <td>
-                {{ability.final}}
-              </td>
-              {{/if}}
-            </tr>
-            {{/if}}
-          {{/each}}
-        </tbody>
-      </table>
-    </div>
+    <section class="secondary-block">
+      <div class="field-row">
+        <label class="path-name">
+          Attack
+        </label>
+        <span class="path-name attack-roll clickable"
+          data-type="{{item.system.primaryAtkType}}"
+          data-tooltip="Click to roll attack, can be used against a targeted enemy.">
+          {{system.abilities.primary.Combat.Attack.final}}
+        </span>
+      </div>
+      <div class="field-row">
+        <label class="path-name">
+          Block
+        </label>
+        <span class="path-name">
+          {{system.abilities.primary.Combat.Block.final}}
+        </span>
+      </div>
+      <div class="field-row">
+        <label class="path-name">
+          Dodge
+        </label>
+        <span class="path-name">
+          {{system.abilities.primary.Combat.Dodge.final}}
+        </span>
+      </div>
+      <div class="field-row">
+        <label class="path-name">
+          Wear Armor
+        </label>
+        <span class="path-name">
+          {{system.abilities.primary.Combat.WearArmor.final}}
+        </span>
+      </div>
+      {{#if actor.system.settings.usesMystic}}
+      <h4>Magic Projection</h4>
+      <div class="imbalance-group">
+        <div class="imbalance-row">
+          <div class="imbalance-field">
+            <label class="path-name">
+              Offensive
+            </label>
+            <span class="clickable spell-attack-roll path-name" data-tooltip="Click to make spell attack.">
+              {{system.abilities.primary.Supernatural.MagicProjection.offensiveFinal}}
+            </span>
+          </div>
+          <div class="imbalance-field">
+            <label class="path-name">
+              Defensive
+            </label>
+            <span class="path-name">
+              {{system.abilities.primary.Supernatural.MagicProjection.defensiveFinal}}
+            </span>
+          </div>
+        </div>
+      </div>
+      <h4 
+        class="clickable magic-accumulation" 
+        data-tooltip="Click to start Magic Accumulation">
+        Magic Accumulation: {{system.abilities.primary.Supernatural.MagicAccumulation.final}}
+      </h4>
+      <div class="imbalance-group">
+        <div class="zeon-row">
+          <div class="imbalance-field">
+            <label class="path-name">
+              Accumulated
+            </label>
+            <span class="path-name clickable accumulated-manual" data-tooltip="Click to manually edit">
+              {{system.abilities.primary.Supernatural.Zeon.temp}}
+            </span>
+          </div>
+          <div class="imbalance-field">
+            <label class="path-name">
+              Reserve
+            </label>
+            <span class="path-name clickable reserve-manual" data-tooltip="Click to manually edit">
+              {{system.abilities.primary.Supernatural.Zeon.reserve}}
+            </span>
+          </div>
+          <div class="imbalance-field">
+            <label class="path-name">
+              Maximum
+            </label>
+            <span class="path-name" data-tooltip="Final Zeon = 20 + (Base Power * 10) + Power Final + (Base Zeon * 5)">
+              {{system.abilities.primary.Supernatural.Zeon.final}}
+            </span>
+          </div>
+        </div>
+      </div>
+      {{/if}}
+    </section>
 
       <h3>Modules</h3>
       <div class="modules-grid">
@@ -144,6 +203,8 @@
   <div class="combat-right-core">
     <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/weapons.hbs" }}</div>
     <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/armor.hbs" }}</div>
+    {{#if actor.system.settings.usesMystic}}
     <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/mystic.hbs" }}</div>
+    {{/if}}
   </div>
 </div>

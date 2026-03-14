@@ -66,14 +66,14 @@ export const DEFAULT_ACTOR_DATA = {
     bonus: 0
   },
   characteristics: {
-    Agility: { base: 1, bonus: 0 },
-    Constitution: { base: 1, bonus: 0 },
-    Dexterity: { base: 1, bonus: 0 },
-    Strength: { base: 1, bonus: 0 },
-    Intelligence: { base: 1, bonus: 0 },
-    Perception: { base: 1, bonus: 0 },
-    Power: { base: 1, bonus: 0 },
-    Willpower: { base: 1, bonus: 0 }
+    Agility: { base: 5, bonus: 0 },
+    Constitution: { base: 5, bonus: 0 },
+    Dexterity: { base: 5, bonus: 0 },
+    Strength: { base: 5, bonus: 0 },
+    Intelligence: { base: 5, bonus: 0 },
+    Perception: { base: 5, bonus: 0 },
+    Power: { base: 5, bonus: 0 },
+    Willpower: { base: 5, bonus: 0 }
   },
   abilities: {
     secondary: {
@@ -206,5 +206,12 @@ export const DEFAULT_ACTOR_DATA = {
     },
     spells: [],
     freeAccessSpells: []
+  },
+  settings: {
+    isNPC: false,
+    usesMystic: true,
+    usesDomine: true,
+    usesPsychic: true,
+    usesSummoning: true
   }
 };

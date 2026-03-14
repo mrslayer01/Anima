@@ -6,6 +6,15 @@
     <input type="number" id="atkMod" value="{{atkMod}}" style="width: 100%;" />
   </section>
 
+  {{#if isSpellAttack}}
+    <section>
+      <h3>
+        Spell Cost
+      </h3>
+      <input type="number" id="zeonCost" value="{{zeonCost}}" style="width: 100%;" />
+    </section>
+  {{/if}}
+
   <section style="margin-top: 1em;">
     <h3>
       Directed Attack
@@ -13,6 +22,16 @@
     <select id="directedAttack" class="selector" style="width: 100%;">
       {{#each directedOptions}}
         <option value="{{this.name}}">{{this.name}} ({{this.value}})</option>
+      {{/each}}
+    </select>
+  </section>
+  <section style="margin-top: 1em;">
+    <h3>
+      Attack Type
+    </h3>
+    <select id="attackType" class="selector" style="width: 100%;">
+      {{#each attackTypes}}
+        <option value="{{this}}">{{this}}</option>
       {{/each}}
     </select>
   </section>

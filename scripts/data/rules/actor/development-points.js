@@ -21,6 +21,7 @@ export class DevelopmentPointsRule extends BaseRule {
     DerivedPrimaryAbilites(system);
     DerivedSecondaryAbilites(system);
     DerivedModules(system);
+    DerivedOthers(system);
 
     // Now recalc DP totals
     recalculateDP(system);
@@ -45,6 +46,7 @@ export class DevelopmentPointsRule extends BaseRule {
     RecalcPrimaryAbilites(system, category, ability);
     RecalcSecondaryAbilites(system, category, ability);
     DerivedModules(system);
+    DerivedOthers(system);
 
     recalculateDP(system);
   }
@@ -83,6 +85,7 @@ function recalculateDP(system) {
   CalculatePrimaryAbilities(system);
   CalculateSecondaryAbilities(system);
   DerivedModules(system);
+  DerivedOthers(system);
 }
 
 function updateAbilityRecord(system, category, ability, amount, cost) {
@@ -126,6 +129,19 @@ function updateAbilityRecord(system, category, ability, amount, cost) {
   } else {
     records.push({ category, ability, amount, cost });
   }
+}
+
+function DerivedOthers(system) {
+  // Handled misc fields, like LP multiples.
+  // LP Multiples
+  const LPMultiple = toNum(system.core.lifePoints.classMultiple);
+  const LPMultipleCost = toNum(system.core.lifePoints.classMultipleCost);
+  system.developmentPoints.spentRecords.push({
+    category: "Other",
+    ability: "LPMultiples",
+    amount: LPMultiple,
+    cost: LPMultipleCost
+  });
 }
 
 //#region Modules

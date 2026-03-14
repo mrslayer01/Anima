@@ -37,6 +37,23 @@
     {{/case}}
   {{/switch}}
 
+  {{#if (containsString system.typeOfSpell "Attack")}}
+    <h3 class="section-header">
+      Attack Spell
+    </h3>
+
+    <table class="common-table">
+      <tr>
+        <td>
+          <label>
+            Damage
+          </label>
+          <input type="number" name="system.spellDamage" value="{{system.spellDamage}}" />
+        </td>
+      </tr>
+    </table>
+  {{/if}}
+
   <h3 class="section-header">
     Effects
   </h3>

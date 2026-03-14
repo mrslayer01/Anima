@@ -111,6 +111,7 @@ export class AddModuleWindow extends Application {
 }
 
 function ValidateDPRemaining(dpCost, actor) {
+  if (actor.system.settings.isNPC) return true;
   const dp = actor.system.developmentPoints;
   return dp.remaining >= dpCost; // true = allowed
 }
@@ -124,6 +125,7 @@ const MODULE_CATEGORY_MAP = {
 };
 
 function ValidateModuleCategoryLimit(actor, moduleData) {
+  if (actor.system.settings.isNPC) return true;
   const dp = actor.system.developmentPoints;
   const limits = actor.system.abilities.primary.abilityLimits;
 

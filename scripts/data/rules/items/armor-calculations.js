@@ -20,13 +20,6 @@ export async function ArmorCalculate(actor) {
   const naturalAT = getNaturalAT(allCurrentArmor);
   const totalAT = getTotalAT(wornAT, naturalAT);
 
-  // console.log(
-  //   "Total Penalties, totalArmorReq, totalATValues",
-  //   totalPenalties,
-  //   totalWearArmorReq,
-  //   totalATValues
-  // );
-
   const updateData = {};
 
   // ------------------------------------------------------------
@@ -162,17 +155,17 @@ export async function UpdateArmor(actor) {
     const q = quality(qualityValue);
 
     // compute Final values
-    const cutFinal = a.armorType.cut.base + a.armorType.cut.bonus + q.at;
-    const impFinal = a.armorType.imp.base + a.armorType.imp.bonus + q.at;
-    const thrFinal = a.armorType.thr.base + a.armorType.thr.bonus + q.at;
-    const heaFinal = a.armorType.hea.base + a.armorType.hea.bonus + q.at;
-    const eleFinal = a.armorType.ele.base + a.armorType.ele.bonus + q.at;
-    const colFinal = a.armorType.col.base + a.armorType.col.bonus + q.at;
+    const cutFinal = Math.max(0, a.armorType.cut.base + a.armorType.cut.bonus + q.at);
+    const impFinal = Math.max(0, a.armorType.imp.base + a.armorType.imp.bonus + q.at);
+    const thrFinal = Math.max(0, a.armorType.thr.base + a.armorType.thr.bonus + q.at);
+    const heaFinal = Math.max(0, a.armorType.hea.base + a.armorType.hea.bonus + q.at);
+    const eleFinal = Math.max(0, a.armorType.ele.base + a.armorType.ele.bonus + q.at);
+    const colFinal = Math.max(0, a.armorType.col.base + a.armorType.col.bonus + q.at);
 
     let eneFinal = 0;
     if (a.isEnchanted || a.armorType.ene.base > 0) {
       // Only apply Energy AT bonus from quality if armor is magical or already an energy value.
-      eneFinal = a.armorType.ene.base + a.armorType.ene.bonus + q.at;
+      Math.max(0, (eneFinal = a.armorType.ene.base + a.armorType.ene.bonus + q.at));
     } else {
       eneFinal = a.armorType.ene.base + a.armorType.ene.bonus;
     }
@@ -252,21 +245,34 @@ export async function UpdateArmor(actor) {
 }
 
 function quality(qualityValue) {
-  // Normalize to nearest multiple of 5, clamp to [-25, 25]
-  const q = Math.max(-25, Math.min(25, Math.floor(qualityValue / 5) * 5));
+  // Normalize to nearest multiple of 5, clamp to [-5, 25]
+  const q = Math.max(-5, Math.min(25, Math.floor(qualityValue / 5) * 5));
   const steps = Math.abs(q) / 5;
   const sign = q >= 0 ? 1 : -1;
 
-  return {
-    naturalPenalty: sign * steps * -5, // -5 per +5 quality
-    armorRequirement: sign * steps * -5, // -5 per +5 quality
-    at: sign * steps * 1, // +1 AT per +5
-    fortitude: sign * steps * 10, // +10 per +5
-    movementPenalty: sign * steps * -1, // -1 per +5
+  if (qualityValue < 0) {
+    return {
+      naturalPenalty: 0,
+      armorRequirement: 0,
+      at: sign * steps * 1, // -1 AT per -5
+      fortitude: sign * steps * 10, // -10 per -5
+      movementPenalty: 0,
 
-    // Presence NEVER decreases for negative quality
-    presence: steps * 50
-  };
+      // Presence NEVER decreases for negative quality
+      presence: steps * 50
+    };
+  } else {
+    return {
+      naturalPenalty: sign * steps * -5, // -5 per +5 quality
+      armorRequirement: sign * steps * -5, // -5 per +5 quality
+      at: sign * steps * 1, // +1 AT per +5
+      fortitude: sign * steps * 10, // +10 per +5
+      movementPenalty: sign * steps * -1, // -1 per +5
+
+      // Presence NEVER decreases for negative quality
+      presence: steps * 50
+    };
+  }
 }
 
 function physicalPenalty(actor, armorReqFinal) {

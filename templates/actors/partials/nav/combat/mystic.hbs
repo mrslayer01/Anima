@@ -63,15 +63,12 @@
           </td>
 
           {{! Spell Damage }}
-          <td>
-            <input
-              type="text"
-              class="spell-weapon-input relative-input"
-              data-item-id="{{spell.id}}"
-              data-min="0"
-              data-current="{{spell.system.spellDamage}}"
-              value="{{spell.system.spellDamage}}"
-            />
+          <td
+            class="damage-roll clickable"
+            data-damage="{{spell.system.spellDamage}}"
+            data-tooltip="Click to calculate damage."
+          >
+            {{spell.system.spellDamage}}
           </td>
         </tr>
       {{/if}}

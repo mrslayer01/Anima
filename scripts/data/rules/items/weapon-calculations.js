@@ -139,23 +139,38 @@ export async function UpdateWeapon(actor) {
 }
 
 export function quality(qualityValue) {
-  // Normalize to nearest multiple of 5, clamp to [-25, 25]
-  const q = Math.max(-25, Math.min(25, Math.floor(qualityValue / 5) * 5));
+  // Normalize to nearest multiple of 5, clamp to [-5, 25]
+  const q = Math.max(-5, Math.min(25, Math.floor(qualityValue / 5) * 5));
   const steps = Math.abs(q) / 5;
   const sign = q >= 0 ? 1 : -1;
 
-  return {
-    attack: sign * steps * 5,
-    block: sign * steps * 5,
-    speed: sign * steps * 5,
-    damage: sign * steps * 10,
-    breakage: sign * steps * 5,
-    fortitude: sign * steps * 10,
-    armorReduction: sign * steps * 1,
+  if (qualityValue < 0) {
+    return {
+      attack: sign * steps * 5,
+      block: sign * steps * 5,
+      speed: sign * steps * 5,
+      damage: sign * steps * 10,
+      breakage: sign * steps * 5,
+      fortitude: sign * steps * 10,
+      armorReduction: sign * steps * 1,
 
-    // Presence only increases for positive quality
-    presence: q > 0 ? steps * 50 : 0
-  };
+      // Presence only increases for positive quality
+      presence: q > 0 ? steps * 50 : 0
+    };
+  } else {
+    return {
+      attack: sign * steps * 5,
+      block: sign * steps * 5,
+      speed: sign * steps * 5,
+      damage: sign * steps * 10,
+      breakage: sign * steps * 5,
+      fortitude: sign * steps * 10,
+      armorReduction: sign * steps * 1,
+
+      // Presence only increases for positive quality
+      presence: q > 0 ? steps * 50 : 0
+    };
+  }
 }
 
 function strength(strengthReq, handling, str) {

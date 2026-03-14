@@ -9,15 +9,6 @@
 
       <div class="field-row">
         <label class="path-name">
-          Base Magic Accumulation.
-        </label>
-        <span class="path-name">
-          {{system.abilities.primary.Supernatural.MagicAccumulation.base}}
-        </span>
-      </div>
-
-      <div class="field-row">
-        <label class="path-name">
           Multiples
         </label>
         <span class="path-name">
@@ -29,7 +20,7 @@
         <label class="path-name">
           Final Magic Accumulation.
         </label>
-        <span class="path-name">
+        <span class="path-name" data-tooltip="Base Power * multiples">
           {{system.abilities.primary.Supernatural.MagicAccumulation.final}}
         </span>
       </div>
@@ -65,7 +56,7 @@
             <label class="path-name">
               Accumulated
             </label>
-            <input
+            {{!-- <input
               class="path-name relative-input"
               type="text"
               name="system.abilities.primary.Supernatural.Zeon.temp"
@@ -73,13 +64,16 @@
               data-max="{{system.abilities.primary.Supernatural.Zeon.reserve}}"
               data-current="{{system.abilities.primary.Supernatural.Zeon.temp}}"
               value="{{system.abilities.primary.Supernatural.Zeon.temp}}"
-            />
+            /> --}}
+            <span class="path-name">
+              {{system.abilities.primary.Supernatural.Zeon.temp}}
+            </span>
           </div>
           <div class="imbalance-field">
             <label class="path-name">
               Reserve
             </label>
-            <input
+            {{!-- <input
               class="path-name relative-input"
               type="text"
               name="system.abilities.primary.Supernatural.Zeon.reserve"
@@ -87,7 +81,10 @@
               data-max="{{system.abilities.primary.Supernatural.Zeon.final}}"
               data-current="{{system.abilities.primary.Supernatural.Zeon.reserve}}"
               value="{{system.abilities.primary.Supernatural.Zeon.reserve}}"
-            />
+            /> --}}
+            <span class="path-name">
+              {{system.abilities.primary.Supernatural.Zeon.reserve}}
+            </span>
           </div>
           <div class="imbalance-field">
             <label class="path-name">
@@ -125,13 +122,26 @@
         </span>
       </div>
 
-      <div class="field-row final">
-        <label class="path-name">
-          Final
-        </label>
-        <span class="path-name">
-          {{system.abilities.primary.Supernatural.MagicProjection.final}}
-        </span>
+      <div class="imbalance-group">
+        <div class="imbalance-row">
+          <div class="imbalance-field">
+            <label class="path-name">
+              Offensive
+            </label>
+            <span class="path-name">
+              {{system.abilities.primary.Supernatural.MagicProjection.offensiveFinal}}
+            </span>
+          </div>
+
+          <div class="imbalance-field">
+            <label class="path-name">
+              Defensive
+            </label>
+            <span class="path-name">
+              {{system.abilities.primary.Supernatural.MagicProjection.defensiveFinal}}
+            </span>
+          </div>
+        </div>
       </div>
 
       <!-- IMBALANCE (side-by-side) -->

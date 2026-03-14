@@ -1,0 +1,71 @@
+<div class="spells-grid">
+  <div class="spells-left">
+    <h3>
+      Main Settings
+    </h3>
+    <section class="zeon block">
+      <div class="field-row">
+        <label class="path-name" data-tooltip="Removes the DP limit.">
+          Is an NPC
+        </label>
+        <div class="passive-icon clickable setting-isNPC">
+          {{#if system.settings.isNPC}}
+            <i class="fas fa-check"></i>
+          {{else}}
+            <i class="fas fa-times"></i>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-row">
+        <label class="path-name">
+          Mystic
+        </label>
+        <div class="passive-icon clickable setting-usesMystic">
+          {{#if system.settings.usesMystic}}
+            <i class="fas fa-check"></i>
+          {{else}}
+            <i class="fas fa-times"></i>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-row">
+        <label class="path-name">
+          Domine
+        </label>
+        <div class="passive-icon clickable setting-usesDomine">
+          {{#if system.settings.usesDomine}}
+            <i class="fas fa-check"></i>
+          {{else}}
+            <i class="fas fa-times"></i>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-row">
+        <label class="path-name">
+          Psychic
+        </label>
+        <div class="passive-icon clickable setting-usesPsychic">
+          {{#if system.settings.usesPsychic}}
+            <i class="fas fa-check"></i>
+          {{else}}
+            <i class="fas fa-times"></i>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-row">
+        <label class="path-name">
+          Summoning
+        </label>
+        <div class="passive-icon clickable setting-usesSummoning">
+          {{#if system.settings.usesSummoning}}
+            <i class="fas fa-check"></i>
+          {{else}}
+            <i class="fas fa-times"></i>
+          {{/if}}
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <div class="spells-right"></div>
+</div>

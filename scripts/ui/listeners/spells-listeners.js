@@ -201,4 +201,165 @@ export function SpellsListeners(sheet, html) {
     // 6. Delete the embedded Item
     await actor.deleteEmbeddedDocuments("Item", [itemId]);
   });
+
+  // Magic Accumulation
+  html.find(".magic-accumulation").off("click");
+  html.find(".magic-accumulation").on("click", async (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+    const actor = sheet.actor;
+    const zeonPath = actor.system.abilities.primary.Supernatural.Zeon;
+    const maFinal = actor.system.abilities.primary.Supernatural.MagicAccumulation.final;
+
+    let baseZeonAccumulated = zeonPath.temp;
+    let baseZeonReserve = zeonPath.reserve;
+
+    if (baseZeonReserve === 0)
+      return ui.notifications.warn("Did not have enough left in Zeon Reserve!");
+
+    let finalZeonAccumulated = 0;
+    let finalZeonReserve = 0;
+
+    let hasEnoughReserve = true;
+
+    //Get if doing full or half accumulation.
+    const result = await promptMagicAccumulationMode();
+    if (!result) return;
+
+    let isHalfMA = result.mode === "half" ?? false;
+
+    if (isHalfMA) {
+      // Add half of the total MA to the zeon temp field, while subtracting from reserve.
+      // First make sure reserve has enough, if it does not, remove the remaining and add that to the temp field.
+      if (halfMA(maFinal) > baseZeonReserve) {
+        // Trying to pull more than the reserve has. Pull what it can since it can't go negative.
+        hasEnoughReserve = false;
+
+        finalZeonAccumulated = baseZeonAccumulated + baseZeonReserve;
+        finalZeonReserve = 0;
+      } else {
+        // Has enough in reserve to pull.
+        finalZeonAccumulated = baseZeonAccumulated + halfMA(maFinal);
+        finalZeonReserve = baseZeonReserve - halfMA(maFinal);
+      }
+    } else {
+      // Add the total MA to the zeon temp field, while subtracting from reserve.
+      // First make sure reserve has enough, if it does not, remove the remaining and add that to the temp field.
+      if (maFinal > baseZeonReserve) {
+        // Trying to pull more than the reserve has. Pull what it can since it can't go negative.
+        hasEnoughReserve = false;
+        finalZeonAccumulated = baseZeonAccumulated + baseZeonReserve;
+        finalZeonReserve = 0;
+      } else {
+        // Has enough in reserve to pull.
+        finalZeonAccumulated = baseZeonAccumulated + maFinal;
+        finalZeonReserve = baseZeonReserve - maFinal;
+      }
+    }
+
+    await actor.update({
+      "system.abilities.primary.Supernatural.Zeon.temp": finalZeonAccumulated,
+      "system.abilities.primary.Supernatural.Zeon.reserve": finalZeonReserve
+    });
+
+    if (!hasEnoughReserve)
+      return ui.notifications.warn(
+        "Did not have enough left in Zeon Reserve! Withdrew what was left."
+      );
+  });
+
+  html.find(".reserve-manual").off("click");
+  html.find(".reserve-manual").on("click", async (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+    const actor = sheet.actor;
+    // Allow the user to manually set their Zeon Reserve
+    const value = await promptManualEdit();
+    if (value === null) return;
+
+    await actor.update({
+      "system.abilities.primary.Supernatural.Zeon.reserve": value
+    });
+  });
+
+  html.find(".accumulated-manual").off("click");
+  html.find(".accumulated-manual").on("click", async (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+    const actor = sheet.actor;
+    // Allow the user to manually set their Zeon Accumulated
+    const value = await promptManualEdit();
+    if (value === null) return;
+
+    await actor.update({
+      "system.abilities.primary.Supernatural.Zeon.temp": value
+    });
+  });
+}
+
+function promptMagicAccumulationMode() {
+  return new Promise((resolve) => {
+    new Dialog({
+      title: "Magic Accumulation",
+      content: `
+        <div style="margin-bottom: 0.75em;">
+          <p><b>Choose Accumulation Mode:</b></p>
+          <label style="display:block; margin-bottom:0.25em;">
+            <input type="radio" name="maMode" value="full" checked />
+            Full MA (normal accumulation)
+          </label>
+          <label style="display:block;">
+            <input type="radio" name="maMode" value="half" />
+            Half MA (while performing other actions)
+          </label>
+        </div>
+      `,
+      buttons: {
+        ok: {
+          label: "Confirm",
+          callback: (html) => {
+            const mode = html.find('input[name="maMode"]:checked').val();
+            resolve({ mode }); // "full" or "half"
+          }
+        },
+        cancel: {
+          label: "Cancel",
+          callback: () => resolve(null)
+        }
+      },
+      default: "ok"
+    }).render(true);
+  });
+}
+
+function halfMA(ma) {
+  return Math.ceil(ma / 2 / 5) * 5;
+}
+
+function promptManualEdit() {
+  return new Promise((resolve) => {
+    new Dialog({
+      title: "Manual Edit",
+      content: `
+        <div style="margin-bottom: 0.75em;">
+          <label><b>Enter new value:</b></label>
+          <input type="number" id="manualValue" value="0" style="width: 100%; margin-top: 0.25em;" />
+        </div>
+      `,
+      buttons: {
+        ok: {
+          label: "Confirm",
+          callback: (html) => {
+            const value = Number(html.find("#manualValue").val());
+            resolve(value);
+          }
+        },
+        cancel: {
+          label: "Cancel",
+          callback: () => resolve(null)
+        }
+      },
+      default: "ok"
+    }).render(true);
+  });
 }

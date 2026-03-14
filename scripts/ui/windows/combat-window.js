@@ -5,6 +5,8 @@ export class CombatWindow extends Application {
   constructor(resolve, options = {}) {
     super(options);
     this._resolve = resolve;
+    this.isSpellAttack = options.isSpellAttack ?? false;
+    this.weapon = options.weapon ?? null;
   }
 
   static get defaultOptions() {
@@ -20,13 +22,32 @@ export class CombatWindow extends Application {
   }
 
   getData() {
-    return {
-      modifier: 0,
-      directedOptions: Object.entries(DIRECTED_ATTACK_TABLE).map(([name, value]) => ({
-        name,
-        value
-      }))
-    };
+    if (!this.isSpellAttack) {
+      const weaponAttackTypes = [this.weapon.primaryAtkType, this.weapon.secondaryAtkType];
+      return {
+        modifier: 0,
+        atkMod: this.atkMod ?? 0,
+        zeonCost: this.zeonCost ?? 0,
+        directedOptions: Object.entries(DIRECTED_ATTACK_TABLE).map(([name, value]) => ({
+          name,
+          value
+        })),
+        isSpellAttack: this.isSpellAttack,
+        attackTypes: weaponAttackTypes
+      };
+    } else {
+      return {
+        modifier: 0,
+        atkMod: this.atkMod ?? 0,
+        zeonCost: this.zeonCost ?? 0,
+        directedOptions: Object.entries(DIRECTED_ATTACK_TABLE).map(([name, value]) => ({
+          name,
+          value
+        })),
+        isSpellAttack: this.isSpellAttack,
+        attackTypes: SPELL_ATTACK_TYPES
+      };
+    }
   }
 
   activateListeners(html) {
@@ -53,6 +74,11 @@ export class CombatWindow extends Application {
       const directed = html.find("#directedAttack").val();
       const directedPenalty = DIRECTED_ATTACK_TABLE[directed] ?? 0;
       const region = DIRECTED_TO_REGION[directed] ?? null;
+      const zeonCost = toNum(html.find("#zeonCost").val());
+
+      const attackType = html.find("#attackType").val();
+
+      console.log(attackType);
 
       const final = atkMod + directedPenalty;
 
@@ -61,7 +87,9 @@ export class CombatWindow extends Application {
         directedPenalty,
         directed,
         region,
-        final
+        attackType,
+        final,
+        zeonCost
       });
 
       this.close();
@@ -90,3 +118,5 @@ const DIRECTED_TO_REGION = {
   Calf: "Legs",
   Foot: "Legs"
 };
+
+const SPELL_ATTACK_TYPES = ["ene", "hea", "col", "imp"];

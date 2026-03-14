@@ -53,6 +53,7 @@ export class MysticRule extends BaseRule {
     const zeonPath = system.abilities.primary.Supernatural.Zeon;
     const maPath = system.abilities.primary.Supernatural.MagicAccumulation;
     const maMultiplesPath = system.abilities.primary.Supernatural.MAMultiples;
+    const magicProjectionPath = system.abilities.primary.Supernatural.MagicProjection;
     const mysticPath = system.mystic;
 
     //Zeon
@@ -161,9 +162,20 @@ export class MysticRule extends BaseRule {
     // Clamp just in case
     mysticPath.imbalance.value = Math.clamp(imbalance, -30, 30);
 
-    // Derived values
+    // Magic Projection
     mysticPath.imbalance.offensive = -imbalance;
     mysticPath.imbalance.defensive = imbalance;
+
+    magicProjectionPath.offensiveFinal =
+      magicProjectionPath.base +
+      magicProjectionPath.bonus +
+      toNum(mysticPath.imbalance.offensive) +
+      toNum(system.characteristics[magicProjectionPath.characteristic].final);
+    magicProjectionPath.defensiveFinal =
+      magicProjectionPath.base +
+      magicProjectionPath.bonus +
+      toNum(mysticPath.imbalance.defensive) +
+      toNum(system.characteristics[magicProjectionPath.characteristic].final);
   }
 
   DetectChanged(updateData, oldSystem) {
@@ -225,6 +237,7 @@ export class MysticRule extends BaseRule {
     const zeonPath = system.abilities.primary.Supernatural.Zeon;
     const maPath = system.abilities.primary.Supernatural.MagicAccumulation;
     const maMultiplesPath = system.abilities.primary.Supernatural.MAMultiples;
+    const magicProjectionPath = system.abilities.primary.Supernatural.MagicProjection;
     const mysticPath = system.mystic;
 
     //Zeon
@@ -333,9 +346,20 @@ export class MysticRule extends BaseRule {
     // Clamp just in case
     mysticPath.imbalance.value = Math.clamp(imbalance, -30, 30);
 
-    // Derived values
+    // Magic Projection
     mysticPath.imbalance.offensive = -imbalance;
     mysticPath.imbalance.defensive = imbalance;
+
+    magicProjectionPath.offensiveFinal =
+      magicProjectionPath.base +
+      magicProjectionPath.bonus +
+      toNum(mysticPath.imbalance.offensive) +
+      toNum(system.characteristics[magicProjectionPath.characteristic].final);
+    magicProjectionPath.defensiveFinal =
+      magicProjectionPath.base +
+      magicProjectionPath.bonus +
+      toNum(mysticPath.imbalance.defensive) +
+      toNum(system.characteristics[magicProjectionPath.characteristic].final);
   }
 
   Update(updateData, oldSystem, newSystem) {

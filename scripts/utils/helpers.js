@@ -108,3 +108,8 @@ export function applyRelativeInput(input) {
 
   return newValue;
 }
+
+export function capitalizeFirst(str) {
+  if (!str) return "";
+  return str[0].toUpperCase() + str.substring(1);
+}

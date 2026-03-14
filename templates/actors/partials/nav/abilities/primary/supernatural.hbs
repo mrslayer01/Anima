@@ -68,9 +68,16 @@
         {{#if (in key "Zeon" "MagicAccumulation" "MAMultiples")}}
         <td>{{ability.final}}</td>
         {{else}}
-          <td class="ability-roll clickable" data-category="Supernatural" data-ability="{{key}}">
-            {{ability.final}}
-          </td>
+          {{#if (in key "MagicProjection")}}
+            <td data-tooltip="Defensive Final: {{ability.defensiveFinal}}">
+              {{ability.offensiveFinal}}
+            </td>
+          {{else}}
+            <td class="ability-roll clickable" data-category="Supernatural" data-ability="{{key}}">
+              {{ability.final}}
+            </td>
+
+          {{/if}}
         {{/if}}
         </tr>
       {{/each}}

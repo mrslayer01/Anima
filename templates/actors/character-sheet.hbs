@@ -44,14 +44,23 @@
     <a class="item" data-tab="combat">
       Combat
     </a>
-    <a class="item" data-tab="mystic">
-      Mystic
-    </a>
-    <a class="item" data-tab="domine">
-      Domine
-    </a>
-    <a class="item" data-tab="psychic">
-      Psychic
+    {{#if actor.system.settings.usesMystic}}
+      <a class="item" data-tab="mystic">
+        Mystic
+      </a>
+    {{/if}}
+    {{#if actor.system.settings.usesDomine}}
+      <a class="item" data-tab="domine">
+        Domine
+      </a>
+    {{/if}}
+    {{#if actor.system.settings.usesPsychic}}
+      <a class="item" data-tab="psychic">
+        Psychic
+      </a>
+    {{/if}}
+    <a class="item" data-tab="settings">
+      Settings
     </a>
   </nav>
 
@@ -170,6 +179,10 @@
           Psychic spells.
         </p>
       </div>
+    </div>
+
+    <div class="tab settings" data-group="primary" data-tab="settings">
+      {{> "systems/abf-system/templates/actors/partials/nav/settings/settings.hbs" }}
     </div>
   </section>
 </form>

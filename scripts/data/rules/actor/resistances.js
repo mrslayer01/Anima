@@ -37,7 +37,7 @@ export class ResistancesRule extends BaseRule {
       let final = total;
       if (hasPhyWeakness && name === "Physical") {
         if (total > 0) {
-          final = (presence + charFinal + bonus + special) / 2;
+          final = Math.floor((presence + charFinal + bonus + special) / 2);
         }
       }
       if (hasSickly && name === "Disease") {
@@ -118,7 +118,7 @@ export class ResistancesRule extends BaseRule {
     let final = total;
     if (hasPhyWeakness && name === "Physical") {
       if (total > 0) {
-        final = (presence + charFinal + bonus + special) / 2;
+        final = Math.round((presence + charFinal + bonus + special) / 2);
       }
     }
     if (hasSickly && name === "Disease") {

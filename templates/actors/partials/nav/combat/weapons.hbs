@@ -45,14 +45,14 @@
         <td>
           {{humanize item.system.weaponType}}
         </td>
-        <td
-          class="attack-roll clickable"
-          data-type="{{item.system.primaryAtkType}}"
-          data-tooltip="Click to roll attack, can be used against a targeted enemy."
-        >
+        <td>
           {{item.system.attackBonus}}
         </td>
-        <td class="damage-roll clickable" data-damage="{{item.system.damage.final}}">
+        <td
+          class="damage-roll clickable"
+          data-damage="{{item.system.damage.final}}"
+          data-tooltip="Click to calculate damage."
+        >
           {{item.system.damage.final}}
         </td>
         <td>

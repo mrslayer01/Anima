@@ -3,7 +3,7 @@ import { UpdateWeapon, WeaponBaseCalculations } from "../data/rules/items/weapon
 import { ARMOR_SECTIONS, DAMAGE_TYPES, TABLE_ITEM_TYPES } from "../utils/lookup.js";
 import { toNum } from "../utils/numbers.js";
 import { registerSheetListeners } from "./listeners.js";
-import { ValidateDPAbilities } from "./validators/validate-dp-abilities.js";
+import { ValidateDP } from "./validators/validate-dp-abilities.js";
 import { ValidateInputs } from "./validators/validate-inputs.js";
 
 export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
@@ -191,8 +191,8 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
     // Input Validation
     value = ValidateInputs(name, value, input);
 
-    //DP Validation
-    value = ValidateDPAbilities(name, value, input, this.actor);
+    //DP Validation. Only validate for non NPCs.
+    if (!this.actor.system.settings.isNPC) value = ValidateDP(name, value, input, this.actor);
 
     // Apply update
     await this.actor.update({ [name]: value });

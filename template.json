@@ -30,7 +30,8 @@
         "notes": "",
         "currency": {},
         "globalModifier": {},
-        "mystic": {}
+        "mystic": {},
+        "settings": {}
       }
     }
   },

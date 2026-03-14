@@ -10,7 +10,10 @@ export class AbfActor extends Actor {
     const isNew = !this._id;
     if (isNew) this._needsInit = true;
 
-    mergeObject(this.system, DEFAULT_ACTOR_DATA, { insertKeys: true, overwrite: false });
+    foundry.utils.mergeObject(this.system, DEFAULT_ACTOR_DATA, {
+      insertKeys: true,
+      overwrite: false
+    });
 
     forceOrder(this.system.abilities.primary, "Primaries");
     forceOrder(this.system.abilities.secondary, "Secondaries");

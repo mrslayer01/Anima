@@ -20,7 +20,13 @@ export class AbilitiesPrimaryRule extends BaseRule {
         if (categoryName != "abilityLimits") {
           if (abil.cost === undefined) abil.cost = 0;
           if (abil.class === undefined) abil.class = 0;
-          if (abil.final === undefined) abil.final = 0;
+          if (name === "MagicProjection") {
+            // For MagicProjection specifically. It has two finals, offensive and defensive
+            if (abil.offensiveFinal === undefined) abil.offensiveFinal = 0;
+            if (abil.defensiveFinal === undefined) abil.defensiveFinal = 0;
+          } else {
+            if (abil.final === undefined) abil.final = 0;
+          }
           if (abil.special === undefined) abil.special = 0;
           if (abil.weapon === undefined) abil.weapon = 0;
           if (
@@ -53,7 +59,13 @@ export class AbilitiesPrimaryRule extends BaseRule {
     for (const [categoryName, category] of Object.entries(system.abilities.primary)) {
       for (const [name, abil] of Object.entries(category)) {
         if (categoryName != "abilityLimits") {
-          if (name === "Zeon" || name === "MagicAccumulation" || name === "MAMultiples") continue; //Skip calculation for these.
+          if (
+            name === "Zeon" ||
+            name === "MagicAccumulation" ||
+            name === "MAMultiples" ||
+            name === "MagicProjection"
+          )
+            continue; //Skip calculation for these.
           const linkedChar = abil.characteristic;
           const charFinal = toNum(system.characteristics[linkedChar]?.final);
           const base = toNum(abil.base);
@@ -167,7 +179,8 @@ export class AbilitiesPrimaryRule extends BaseRule {
         if (
           abilityName === "Zeon" ||
           abilityName === "MagicAccumulation" ||
-          abilityName === "MAMultiples"
+          abilityName === "MAMultiples" ||
+          abilityName === "MagicProjection"
         )
           continue;
 

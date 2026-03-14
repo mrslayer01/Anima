@@ -1,15 +1,17 @@
-export function ValidateDPAbilities(name, value, input, actor) {
+import { toNum } from "../../utils/numbers.js";
+
+export function ValidateDP(name, value, input, actor) {
   if (name.startsWith("system.abilities.secondary.")) {
     const parts = name.split(".");
     const category = parts[3];
     const ability = parts[4];
 
     const abil = actor.system.abilities.secondary[category][ability];
-    const oldBase = Number(abil.base) || 0;
+    const oldBase = toNum(abil.base) || 0;
     const newBase = value;
 
     if (name.endsWith(".base")) {
-      const cost = Number(abil.cost) || 0;
+      const cost = toNum(abil.cost) || 0;
 
       const delta = newBase - oldBase;
       const dpCost = delta * cost;
@@ -30,9 +32,9 @@ export function ValidateDPAbilities(name, value, input, actor) {
     const ability = parts[4]; // Attack, Block, Dodge, etc.
 
     const abil = actor.system.abilities.primary[category][ability];
-    let oldBase = Number(abil.base) || 0;
+    let oldBase = toNum(abil.base) || 0;
     const newBase = value;
-    const cost = Number(abil.cost) || 0;
+    const cost = toNum(abil.cost) || 0;
 
     const delta = newBase - oldBase;
     const dpCost = delta * cost;
@@ -51,7 +53,7 @@ export function ValidateDPAbilities(name, value, input, actor) {
 
         // --- 2. CATEGORY LIMIT CHECK (Class % Limit, Focus halves limit) ---
         const limits = actor.system.abilities.primary.abilityLimits;
-        const percent = Number(limits[category].percent) || 0;
+        const percent = toNum(limits[category].percent) || 0;
 
         let limit = (dp.final * percent) / 100;
 
@@ -71,7 +73,7 @@ export function ValidateDPAbilities(name, value, input, actor) {
 
         const currentSpent = dp.spentRecords
           .filter((r) => r.category === category)
-          .reduce((sum, r) => sum + Number(r.amount) * Number(r.cost), 0);
+          .reduce((sum, r) => sum + toNum(r.amount) * toNum(r.cost), 0);
 
         const newTotal = currentSpent + dpCost;
 
@@ -94,7 +96,7 @@ export function ValidateDPAbilities(name, value, input, actor) {
             .filter(
               (r) => r.category === "Combat" && ["Attack", "Block", "Dodge"].includes(r.ability)
             )
-            .reduce((sum, r) => sum + Number(r.amount) * Number(r.cost), 0);
+            .reduce((sum, r) => sum + toNum(r.amount) * toNum(r.cost), 0);
 
           const newABDTotal = spentABD + dpCost;
 
@@ -109,12 +111,12 @@ export function ValidateDPAbilities(name, value, input, actor) {
 
         // --- 4. PSYCHIC PROJECTION DP LIMIT (50% of Psychic DP Limit) ---
         if (category === "Psychic" && ability === "PsychicProjection") {
-          const psychicLimit = Number(limits.Psychic.final) || 0;
+          const psychicLimit = toNum(limits.Psychic.final) || 0;
           const projLimit = psychicLimit * 0.5;
 
           const projSpent = dp.spentRecords
             .filter((r) => r.category === "Psychic" && r.ability === "PsychicProjection")
-            .reduce((sum, r) => sum + Number(r.amount) * Number(r.cost), 0);
+            .reduce((sum, r) => sum + toNum(r.amount) * toNum(r.cost), 0);
 
           const newProjTotal = projSpent + dpCost;
 
@@ -127,12 +129,12 @@ export function ValidateDPAbilities(name, value, input, actor) {
 
         // --- 5. MAGIC PROJECTION DP LIMIT (50% of Supernatural DP Limit) ---
         if (category === "Supernatural" && ability === "MagicProjection") {
-          const magicLimit = Number(limits.Supernatural.final) || 0;
+          const magicLimit = toNum(limits.Supernatural.final) || 0;
           const projLimit = magicLimit * 0.5;
 
           const projSpent = dp.spentRecords
             .filter((r) => r.category === "Supernatural" && r.ability === "MagicProjection")
-            .reduce((sum, r) => sum + Number(r.amount) * Number(r.cost), 0);
+            .reduce((sum, r) => sum + toNum(r.amount) * toNum(r.cost), 0);
 
           const newProjTotal = projSpent + dpCost;
 
@@ -159,9 +161,9 @@ export function ValidateDPAbilities(name, value, input, actor) {
               : null;
 
         // Current values
-        let attackBase = Number(combat.Attack.base) || 0;
-        let blockBase = Number(combat.Block.base) || 0;
-        let dodgeBase = Number(combat.Dodge.base) || 0;
+        let attackBase = toNum(combat.Attack.base) || 0;
+        let blockBase = toNum(combat.Block.base) || 0;
+        let dodgeBase = toNum(combat.Dodge.base) || 0;
 
         // Apply the new value to the edited ability
         if (ability === "Attack") attackBase = newBase;
@@ -203,6 +205,23 @@ export function ValidateDPAbilities(name, value, input, actor) {
             return;
           }
         }
+      }
+    }
+  }
+
+  // Others
+  // LP Multiples
+  if (name.startsWith("system.core.lifePoints.classMultiple")) {
+    const LPMultipleOld = toNum(actor.system.core.lifePoints.classMultiple);
+    const LPMultipleCost = toNum(actor.system.core.lifePoints.classMultipleCost);
+    const delta = value - LPMultipleOld;
+    const dpCost = delta * LPMultipleCost;
+
+    if (dpCost) {
+      if (ValidateDPRemaining(dpCost, actor)) {
+        ui.notifications.error("Not enough Development Points.");
+        input.value = LPMultipleOld;
+        return;
       }
     }
   }
