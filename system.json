@@ -2,7 +2,7 @@
   "id": "abf-system",
   "title": "Anima Beyond Fantasy",
   "description": "A custom system for Anima Beyond Fantasy.",
-  "version": "0.1.0",
+  "version": "0.0.4",
   "compatibility": {
     "minimum": "13",
     "verified": "13"
@@ -54,6 +54,6 @@
       "path": "lang/en.json"
     }
   ],
-  "download": "https://github.com/mrslayer01/Anima/archive/refs/tags/Latest.zip",
-  "manifest": "https://github.com/mrslayer01/Anima/releases/download/Latest/system.json"
+  "download": "https://github.com/mrslayer01/Anima/archive/refs/tags/0.0.4.zip",
+  "manifest": "https://github.com/mrslayer01/Anima/releases/download/0.0.4/system.json"
 }
