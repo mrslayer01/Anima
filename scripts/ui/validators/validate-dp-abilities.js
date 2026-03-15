@@ -51,16 +51,16 @@ export function ValidateDP(name, value, input, actor) {
           return;
         }
 
-        // --- 2. CATEGORY LIMIT CHECK (Class % Limit, Focus halves limit) ---
+        // --- 2. CATEGORY LIMIT CHECK (Class % Limit, Focus halves limit only for attack, block and dodge.) ---
         const limits = actor.system.abilities.primary.abilityLimits;
         const percent = toNum(limits[category].percent) || 0;
+        const prim = actor.system.abilities.primary.Combat;
 
         let limit = (dp.final * percent) / 100;
 
         // Detect which Combat ability is focused
         let focusedAbility = null;
         if (category === "Combat") {
-          const prim = actor.system.abilities.primary.Combat;
           if (prim.Attack.focus) focusedAbility = "Attack";
           else if (prim.Block.focus) focusedAbility = "Block";
           else if (prim.Dodge.focus) focusedAbility = "Dodge";
@@ -74,17 +74,28 @@ export function ValidateDP(name, value, input, actor) {
         const currentSpent = dp.spentRecords
           .filter((r) => r.category === category)
           .reduce((sum, r) => sum + toNum(r.amount) * toNum(r.cost), 0);
+        const currentSpentFocused = dp.spentRecords
+          .filter((r) => r.category === category && r.ability !== "WearArmor")
+          .reduce((sum, r) => sum + toNum(r.amount) * toNum(r.cost), 0);
+
+        const newTotalFocused = currentSpentFocused + dpCost;
 
         const newTotal = currentSpent + dpCost;
 
-        if (newTotal > limit) {
-          ui.notifications.error(
-            focusedAbility && ability === focusedAbility
-              ? "Outside of allowed limit for this category. When focused the limit is halved specifically for Attack, Block and Dodge."
-              : "Outside of allowed limit for this category."
-          );
-          input.value = oldBase;
-          return;
+        if (focusedAbility) {
+          if (newTotalFocused > limit) {
+            ui.notifications.error(
+              "Outside of allowed limit for this category. When focused the limit is halved specifically for Attack, Block and Dodge."
+            );
+            input.value = oldBase;
+            return;
+          }
+        } else {
+          if (newTotal > limit) {
+            ui.notifications.error("Outside of allowed limit for this category.");
+            input.value = oldBase;
+            return;
+          }
         }
 
         // --- 3. ATTACK + BLOCK + DODGE DP SUB-LIMIT (50% of TOTAL DP) ---
@@ -173,36 +184,42 @@ export function ValidateDP(name, value, input, actor) {
         // Helper: check if X is within 50 of Y
         const within50 = (a, b) => Math.abs(a - b) <= 50;
 
-        // --- ATTACK CHECK ---
-        if (focused !== "Attack") {
-          const ok = within50(attackBase, blockBase) || within50(attackBase, dodgeBase);
+        if (ability === "Attack") {
+          // --- ATTACK CHECK ---
+          if (focused !== "Attack") {
+            const ok = within50(attackBase, blockBase) || within50(attackBase, dodgeBase);
 
-          if (!ok) {
-            ui.notifications.error("Attack must be within 50 points of either Block or Dodge.");
-            input.value = oldBase;
-            return;
+            if (!ok) {
+              ui.notifications.error("Attack must be within 50 points of either Block or Dodge.");
+              input.value = oldBase;
+              return;
+            }
           }
         }
 
-        // --- BLOCK CHECK ---
-        if (focused !== "Block") {
-          const ok = within50(blockBase, attackBase) || within50(blockBase, dodgeBase);
+        if (ability === "Block") {
+          // --- BLOCK CHECK ---
+          if (focused !== "Block") {
+            const ok = within50(blockBase, attackBase);
 
-          if (!ok) {
-            ui.notifications.error("Block must be within 50 points of either Attack or Dodge.");
-            input.value = oldBase;
-            return;
+            if (!ok) {
+              ui.notifications.error("Block must be within 50 points of either Attack or Dodge.");
+              input.value = oldBase;
+              return;
+            }
           }
         }
 
-        // --- DODGE CHECK ---
-        if (focused !== "Dodge") {
-          const ok = within50(dodgeBase, attackBase) || within50(dodgeBase, blockBase);
+        if (ability === "Dodge") {
+          // --- DODGE CHECK ---
+          if (focused !== "Dodge") {
+            const ok = within50(dodgeBase, attackBase);
 
-          if (!ok) {
-            ui.notifications.error("Dodge must be within 50 points of either Attack or Block.");
-            input.value = oldBase;
-            return;
+            if (!ok) {
+              ui.notifications.error("Dodge must be within 50 points of either Attack or Block.");
+              input.value = oldBase;
+              return;
+            }
           }
         }
       }

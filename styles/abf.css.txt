@@ -13,7 +13,7 @@ Instant summoning is an active action, usually done in combat. You open roll wit
 
 
 Feedback
-Focus needs to no check for armor spent.
+Focus needs to not check for armor spent.
 Paths need to be adjusted. Illusion opposed Essence. Necromancy is opposed by every path.
 Free Access path locked should only be locked for the slot gained from those paths, not every path.
 Add Zeon cost to free access table.
@@ -26,7 +26,7 @@ Add modifier to Magic Accumulation popup.
 Add magic level DP purchase, limit is 1/10 total DP.
 Add the ability to add your own weapons/armor and common goods.
 Fix strength affecting projectile damage, should only affect maximum range.
-Targetting does not popup defense screen for defender.
+Targetting does not popup defense screen for defender. - Fixed
 Ranged attacks equippedAmmo attack type not working now, great.
 Advantages cost input dont allow pressing enter.
 
