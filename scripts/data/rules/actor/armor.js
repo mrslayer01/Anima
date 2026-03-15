@@ -28,11 +28,12 @@ export class ArmorRule extends BaseRule {
 
     for (const type of DAMAGE_TYPES) {
       const naturalAT = toNum(system.armor.natural?.[type] ?? 0);
+      const helmAT = toNum(system.armor.helm?.[type] ?? 0);
 
       // Find worn AT from any worn section
       let wornAT = 0;
       for (const section of ARMOR_SECTIONS) {
-        if (section === "natural" && section === "helm") continue;
+        if (section === "natural" || section === "helm") continue;
         const val = toNum(system.armor[section]?.[type]);
         if (val > 0) {
           wornAT = val;
@@ -41,7 +42,7 @@ export class ArmorRule extends BaseRule {
       }
 
       // Final total = worn + natural
-      system.armor.total[type] = wornAT + naturalAT;
+      system.armor.total[type] = wornAT + naturalAT + helmAT;
     }
 
     // Apply combined penalties (computed in ArmorCalculate)
@@ -73,11 +74,12 @@ export class ArmorRule extends BaseRule {
     // Recompute totals when a section changes
     for (const type of DAMAGE_TYPES) {
       const naturalAT = toNum(system.armor.natural?.[type] ?? 0);
+      const helmAT = toNum(system.armor.helm?.[type] ?? 0);
 
       // Find worn AT from any worn section
       let wornAT = 0;
       for (const section of ARMOR_SECTIONS) {
-        if (section === "natural" && section === "helm") continue;
+        if (section === "natural" || section === "helm") continue;
         const val = toNum(system.armor[section]?.[type]);
         if (val > 0) {
           wornAT = val;
@@ -86,7 +88,8 @@ export class ArmorRule extends BaseRule {
       }
 
       // Final total = worn + natural
-      system.armor.total[type] = wornAT + naturalAT;
+      //console.log(wornAT, naturalAT, helmAT);
+      system.armor.total[type] = wornAT + naturalAT + helmAT;
     }
   }
 

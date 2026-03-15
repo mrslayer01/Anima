@@ -1,3 +1,5 @@
+import { toNum } from "../../utils/numbers.js";
+
 export class ActiveEffectsViewer extends Application {
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
@@ -27,10 +29,20 @@ export class ActiveEffectsViewer extends Application {
       changes: e.changes
     }));
 
+    const initPenaltyArmor = toNum(this.actor.system.initiative.armorPenalty);
+    const initPenaltyWeapon = toNum(this.actor.system.initiative.weaponPenalty);
+
+    const initPenalty = {
+      armor: initPenaltyArmor,
+      weapon: initPenaltyWeapon,
+      total: initPenaltyArmor + initPenaltyWeapon
+    };
+
     return {
       actor: this.actor,
       effects,
-      globalModifiers: this.actor.system.globalModifiers
+      globalModifiers: this.actor.system.globalModifiers,
+      initPenalty: initPenalty
     };
   }
 

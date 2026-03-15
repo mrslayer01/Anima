@@ -16,9 +16,10 @@ export async function ArmorCalculate(actor) {
   const perceptionPenalty = helm ? helm.system.perceptionPenalty : 0;
 
   const totalWearArmorReq = getTotalWearArmorRequirement(allCurrentArmor);
-  const wornAT = getWornAT(allCurrentArmor);
   const naturalAT = getNaturalAT(allCurrentArmor);
-  const totalAT = getTotalAT(wornAT, naturalAT);
+  const helmAT = getHelmAT(allCurrentArmor);
+  const wornAT = getWornAT(allCurrentArmor);
+  const totalAT = getTotalAT(wornAT, naturalAT, helmAT);
 
   const updateData = {};
 
@@ -32,12 +33,12 @@ export async function ArmorCalculate(actor) {
   }
 
   // ------------------------------------------------------------
-  // 5. Write combined AT into ONE section only (Model A)
+  // 5. Write combined AT into ONE section only
   //    We choose "complete" as the canonical combined-armor section.
   // ------------------------------------------------------------
   // 1. Clear ONLY worn-armor sections (NOT natural)
   for (const section of ARMOR_SECTIONS) {
-    if (section === "natural") continue; // preserve natural armor
+    if (section === "natural" || section === "helm") continue; // preserve natural armor and helmet
 
     for (const type of Object.keys(actor.system.armor[section])) {
       updateData[`system.armor.${section}.${type}`] = 0;
@@ -48,7 +49,7 @@ export async function ArmorCalculate(actor) {
   for (const armor of allCurrentArmor) {
     const section = armor.system.location;
 
-    if (section === "natural") continue; // never overwrite natural
+    if (section === "natural" || section === "helm") continue; // never overwrite natural or helmet
 
     for (const type of Object.keys(wornAT)) {
       updateData[`system.armor.${section}.${type}`] = wornAT[type];
@@ -58,6 +59,11 @@ export async function ArmorCalculate(actor) {
   // 3. Write natural armor values into the natural section
   for (const type of Object.keys(naturalAT)) {
     updateData[`system.armor.natural.${type}`] = naturalAT[type];
+  }
+
+  // 4. Write helm armor values into the helm section
+  for (const type of Object.keys(helmAT)) {
+    updateData[`system.armor.helm.${type}`] = helmAT[type];
   }
 
   // ------------------------------------------------------------
@@ -277,10 +283,18 @@ function quality(qualityValue) {
 
 function physicalPenalty(actor, armorReqFinal) {
   // compare final WearArmor ability to the armor's final wearArmorReq. The difference is the penalty.
-  const wearArmor = toNum(actor.system.abilities.primary.Combat.WearArmor.base);
+  const wearArmor = toNum(actor.system.abilities.primary.Combat.WearArmor.final);
+  const wearArmorBase = toNum(actor.system.abilities.primary.Combat.WearArmor.base);
   const wearArmorReq = toNum(armorReqFinal);
 
-  const diff = wearArmorReq - wearArmor;
+  let diff = 0;
+
+  if (wearArmorBase > 0) {
+    // Armor must be developed before it can be counted.
+    diff = wearArmorReq - wearArmor;
+  } else {
+    diff = wearArmorReq - wearArmorBase;
+  }
 
   if (diff > 0) {
     return diff;
@@ -322,8 +336,12 @@ function moveRestriction(actor, armorReqFinal) {
 function getPenalties(allCurrentArmor) {
   // Layer Penalty - -20 penalty per extra layer, max of -40 (2 soft, 1 hard allowed). (Affects initiative and armor effected secondaries), natural penalty and movement penalty
   // Get the count of all equipped armor excluding Natural
-  const armorTotal = allCurrentArmor.filter((i) => i.system.location !== "natural").length;
-  const allArmor = allCurrentArmor.filter((i) => i.system.location !== "natural");
+  const armorTotal = allCurrentArmor.filter(
+    (i) => i.system.location !== "natural" && i.system.location !== "helm"
+  ).length;
+  const allArmor = allCurrentArmor.filter(
+    (i) => i.system.location !== "natural" && i.system.location !== "helm"
+  );
 
   let totalLayerPenalty = 0;
   let totalNaturalPenalty = 0;
@@ -366,7 +384,9 @@ function getTotalWearArmorRequirement(allCurrentArmor) {
 function getWornAT(allCurrentArmor) {
   const DAMAGE_TYPES = ["cut", "imp", "thr", "hea", "ele", "col", "ene"];
 
-  const wornArmor = allCurrentArmor.filter((a) => a.system.location !== "natural");
+  const wornArmor = allCurrentArmor.filter(
+    (a) => a.system.location !== "natural" && a.system.location !== "helm"
+  );
 
   const finalAT = {};
 
@@ -402,10 +422,24 @@ function getNaturalAT(allCurrentArmor) {
   return finalAT;
 }
 
-function getTotalAT(wornAT, naturalAT) {
+function getHelmAT(allCurrentArmor) {
+  const DAMAGE_TYPES = ["cut", "imp", "thr", "hea", "ele", "col", "ene"];
+
+  const helmArmor = allCurrentArmor.filter((a) => a.system.location === "helm");
+
+  const finalAT = {};
+
+  for (const type of DAMAGE_TYPES) {
+    finalAT[type] = helmArmor.reduce((sum, a) => sum + a.system.armorType[type].final, 0);
+  }
+
+  return finalAT;
+}
+
+function getTotalAT(wornAT, naturalAT, helmAT) {
   const final = {};
   for (const type of Object.keys(wornAT)) {
-    final[type] = wornAT[type] + naturalAT[type];
+    final[type] = wornAT[type] + naturalAT[type] + helmAT[type];
   }
   return final;
 }
