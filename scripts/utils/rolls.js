@@ -144,7 +144,12 @@ export async function animaOpenRoll({
   if (hasGoodLuck) fumbleRange = isMastery ? [1] : [1, 2];
 
   while (keepRolling) {
-    const roll = await rollDice("1d100");
+    const roll = new Roll("1d100");
+    await roll.evaluate();
+
+    // GLOBAL dice animation without chat card
+    if (game.dice3d) game.dice3d.showForRoll(roll, game.user, true);
+
     const raw = roll.total;
 
     if (fumbleRange.includes(raw)) {
@@ -195,7 +200,7 @@ export async function animaOpenRoll({
     return resultData;
   }
 
-  setTimeout(() => sendChat(content, actor), 2000 * rawRolls.length);
+  setTimeout(() => sendChat(content, actor), 2000);
   return resultData;
 }
 

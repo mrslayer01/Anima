@@ -1,4 +1,4 @@
-import { capitalizeFirst } from "../../utils/helpers.js";
+import { capitalizeFirst, getActorOwner } from "../../utils/helpers.js";
 import {
   ARMOR_COVERAGE,
   computeCounterattack,
@@ -179,20 +179,29 @@ export function RollListeners(sheet, html) {
 
   html.find(".attack-roll").off("click");
   html.find(".attack-roll").on("click", async (ev) => {
+    // ---------------------------------------------------------
+    // WEAPON + ATTACK BASE VALUE
+    // ---------------------------------------------------------
     const equippedWeapon = sheet.actor.items.find((i) => i.type === "weapon" && i.system.equipped);
-    if (equippedWeapon === undefined) {
+    if (!equippedWeapon) {
       ui.notifications.error("No weapon equipped, unable to make the attack.");
       return;
     }
 
     const w = equippedWeapon.system;
-
     let attackValue = toNum(sheet.actor.system.abilities.primary.Combat.Attack.final);
 
-    const { final, region, directed, attackType } = await promptAttackModifierWindow({
+    const {
+      final,
+      region,
+      directed,
+      attackType: atkTypeInitial
+    } = await promptAttackModifierWindow({
       isSpellAttack: false,
       weapon: w
     });
+
+    let attackType = atkTypeInitial;
     attackValue += final;
 
     let armorPen = 0;
@@ -214,10 +223,9 @@ export function RollListeners(sheet, html) {
 
       if (!equippedAmmo) {
         ui.notifications.error("You cannot attack with a projectile weapon without equipped ammo.");
-        return; // STOP THE ATTACK
+        return;
       }
 
-      // Use the ammo’s AT
       attackType = equippedAmmo.system.primaryAtkType;
       armorPen = equippedAmmo.system.armorReduction ?? 0;
     }
@@ -253,7 +261,6 @@ export function RollListeners(sheet, html) {
 
               const finalAttack = attackValue + modifier;
 
-              console.log(finalAttack);
               const defender = await animaOpenRollCapture({
                 value: defenseFinal,
                 label: "Defense (Manual)",
@@ -265,20 +272,8 @@ export function RollListeners(sheet, html) {
                 label: "Attack",
                 actor: sheet.actor
               });
-              console.log(attackType);
 
-              setTimeout(
-                () =>
-                  postCombinedCombatCard(
-                    attacker,
-                    defender,
-                    manualAT,
-                    armorPen,
-                    directed,
-                    attackType
-                  ),
-                2500
-              );
+              postCombinedCombatCard(attacker, defender, manualAT, armorPen, directed, attackType);
             }
           }
         }
@@ -286,10 +281,56 @@ export function RollListeners(sheet, html) {
     }
 
     // ---------------------------------------------------------
-    // CASE 2: TARGET SELECTED → BLOCK, DODGE OR PROJECTION
+    // CASE 2: TARGET SELECTED → REMOTE OR LOCAL DEFENSE PROMPT
     // ---------------------------------------------------------
     const targetActor = target.actor;
-    const { type, modifier } = await promptDefenseChoice(targetActor);
+
+    // Owner detection using Foundry's permission system
+    // There are multiple owners, first check to see which is online and not the GM, if none are default to the GM.
+    // Determine defender user (owner or GM)
+    const defenderUser = getPreferredDefenderUser(targetActor);
+    //console.log("Defender user:", defenderUser?.name, "active:", defenderUser?.active);
+
+    let defense;
+
+    // ---------------------------------------------------------
+    // CASE A — Attacker and Defender are the SAME user → local prompt
+    // ---------------------------------------------------------
+    if (defenderUser.id === game.user.id) {
+      //console.log("GM is defender → showing local defense dialog.");
+      defense = await promptDefenseChoice(targetActor);
+    }
+
+    // ---------------------------------------------------------
+    // CASE B — Defender is ONLINE → send socket prompt
+    // ---------------------------------------------------------
+    else if (defenderUser.active) {
+      //console.log("Defender online → sending socket prompt.");
+
+      game.socket.emit("system.abf-system", {
+        type: "defense:prompt",
+        userId: defenderUser.id,
+        attackerId: game.user.id,
+        targetId: targetActor.id,
+        attackData: { attackValue, region, directed, attackType, armorPen }
+      });
+
+      defense = await waitForDefenseResponse(game.user.id);
+    }
+
+    // ---------------------------------------------------------
+    // CASE C — Defender is OFFLINE → GM handles locally
+    // ---------------------------------------------------------
+    else {
+      //console.log("Defender offline → GM handles defense locally.");
+      defense = await promptDefenseChoice(targetActor);
+    }
+
+    const { type, modifier } = defense;
+
+    // ---------------------------------------------------------
+    // DEFENSE CALCULATION (LOCAL TO ATTACKER)
+    // ---------------------------------------------------------
     const blockMastery = targetActor.system.abilities.primary.Combat.Block.mastery;
     const dodgeMastery = targetActor.system.abilities.primary.Combat.Dodge.mastery;
     const equippedshield = targetActor.items.find(
@@ -308,7 +349,6 @@ export function RollListeners(sheet, html) {
       );
     }
 
-    // If being attacked by a projectile or thrown weapon, apply penalties
     let defensePenalty = DefensePenalty(
       w.weaponType,
       type,
@@ -319,9 +359,11 @@ export function RollListeners(sheet, html) {
 
     defenseValue += modifier + defensePenalty;
 
+    // ---------------------------------------------------------
+    // ARMOR TYPE (AT) CALCULATION
+    // ---------------------------------------------------------
     let baseAT = 0;
 
-    console.log(directed);
     if (directed !== "None") {
       baseAT = getEffectiveAT(targetActor, region, attackType);
     } else {
@@ -331,21 +373,35 @@ export function RollListeners(sheet, html) {
     let defATValue = baseAT - armorPen;
     if (defATValue < 0) defATValue = 0;
 
-    const defender = await animaOpenRollCapture({
+    // ---------------------------------------------------------
+    // ROLLS
+    // ---------------------------------------------------------
+    const defenderRoll = await animaOpenRollCapture({
       value: defenseValue,
       label: capitalizeFirst(type),
       actor: targetActor
     });
 
-    const attacker = await animaOpenRollCapture({
+    const attackerRoll = await animaOpenRollCapture({
       value: attackValue,
       label: "Attack",
       actor: sheet.actor
     });
 
+    // ---------------------------------------------------------
+    // FINAL CARD
+    // ---------------------------------------------------------
     setTimeout(
-      () => postCombinedCombatCard(attacker, defender, defATValue, armorPen, directed, attackType),
-      2500
+      () =>
+        postCombinedCombatCard(
+          attackerRoll,
+          defenderRoll,
+          defATValue,
+          armorPen,
+          directed,
+          attackType
+        ),
+      2000
     );
   });
 
@@ -363,28 +419,26 @@ export function RollListeners(sheet, html) {
     // ---------------------------------------------------------
     // SPELL ATTACK → ALWAYS USE MAGIC PROJECTION
     // ---------------------------------------------------------
-
     const actor = sheet.actor;
 
     let attackValue = toNum(
       actor.system.abilities.primary.Supernatural.MagicProjection.offensiveFinal
     );
 
-    // promptAttackModifierWindow returns final modifier, region, directed, and attackType
     const { final, region, directed, attackType, zeonCost } = await promptAttackModifierWindow({
       isSpellAttack: true
     });
+
     attackValue += final;
 
-    // Check Zeon
-
+    // ---------------------------------------------------------
+    // CHECK ZEON
+    // ---------------------------------------------------------
     const enoughZeon = await zeon(zeonCost, actor);
-
     if (!enoughZeon)
       return ui.notifications.warn("Not enough Zeon is accumulated to cast this spell.");
 
-    // Spells do not have armor penetration unless your system defines it
-    let armorPen = 0;
+    let armorPen = 0; // spells normally have no armor penetration
 
     const targets = Array.from(game.user.targets);
     const target = targets[0] ?? null;
@@ -428,19 +482,7 @@ export function RollListeners(sheet, html) {
                 label: "Spell Attack",
                 actor: sheet.actor
               });
-
-              setTimeout(
-                () =>
-                  postCombinedCombatCard(
-                    attacker,
-                    defender,
-                    manualAT,
-                    armorPen,
-                    directed,
-                    attackType
-                  ),
-                2500
-              );
+              postCombinedCombatCard(attacker, defender, manualAT, armorPen, directed, attackType);
             }
           }
         }
@@ -448,11 +490,72 @@ export function RollListeners(sheet, html) {
     }
 
     // ---------------------------------------------------------
-    // CASE 2: TARGET SELECTED → BLOCK OR DODGE
+    // CASE 2: TARGET SELECTED → REMOTE OR LOCAL DEFENSE PROMPT
     // ---------------------------------------------------------
     const targetActor = target.actor;
-    const { type, modifier } = await promptDefenseChoice(targetActor);
 
+    // ---------------------------------------------------------
+    // OWNER SELECTION (non-GM owners first, online first)
+    // ---------------------------------------------------------
+    function getPreferredDefenderUser(actor) {
+      const owners = game.users.filter((u) => actor.ownership[u.id] === 3);
+
+      const onlinePlayers = owners.filter((u) => !u.isGM && u.active);
+      if (onlinePlayers.length > 0) return onlinePlayers[0];
+
+      const offlinePlayers = owners.filter((u) => !u.isGM && !u.active);
+      if (offlinePlayers.length > 0) return offlinePlayers[0];
+
+      const activeGM = game.users.find((u) => u.isGM && u.active);
+      if (activeGM) return activeGM;
+
+      return game.users.find((u) => u.isGM);
+    }
+
+    const defenderUser = getPreferredDefenderUser(targetActor);
+    //console.log("Defender user:", defenderUser?.name, "active:", defenderUser?.active);
+
+    let defense;
+
+    // ---------------------------------------------------------
+    // CASE A — Attacker and Defender are the SAME user → local prompt
+    // ---------------------------------------------------------
+    if (defenderUser.id === game.user.id) {
+      //console.log("GM is defender → showing local defense dialog.");
+      defense = await promptDefenseChoice(targetActor);
+    }
+
+    // ---------------------------------------------------------
+    // CASE B — Defender is ONLINE → send socket prompt
+    // ---------------------------------------------------------
+    else if (defenderUser.active) {
+      //console.log("Defender online → sending socket prompt.");
+
+      game.socket.emit("system.abf-system", {
+        type: "defense:prompt",
+        userId: defenderUser.id,
+        attackerId: game.user.id,
+        targetId: targetActor.id,
+        attackData: { attackValue, region, directed, attackType, armorPen }
+      });
+
+      defense = await waitForDefenseResponse(game.user.id);
+    }
+
+    // ---------------------------------------------------------
+    // CASE C — Defender is OFFLINE → GM handles locally
+    // ---------------------------------------------------------
+    else {
+      //console.log("Defender offline → GM handles defense locally.");
+      defense = await promptDefenseChoice(targetActor);
+    }
+
+    const { type, modifier } = defense;
+
+    // ---------------------------------------------------------
+    // DEFENSE CALCULATION (LOCAL TO ATTACKER)
+    // ---------------------------------------------------------
+    const blockMastery = targetActor.system.abilities.primary.Combat.Block.mastery;
     const dodgeMastery = targetActor.system.abilities.primary.Combat.Dodge.mastery;
 
     let defenseValue = 0;
@@ -472,6 +575,9 @@ export function RollListeners(sheet, html) {
 
     defenseValue += modifier + defensePenalty;
 
+    // ---------------------------------------------------------
+    // ARMOR TYPE (AT) CALCULATION
+    // ---------------------------------------------------------
     let baseAT = 0;
 
     if (directed !== "None") {
@@ -483,21 +589,35 @@ export function RollListeners(sheet, html) {
     let defATValue = baseAT - armorPen;
     if (defATValue < 0) defATValue = 0;
 
-    const defender = await animaOpenRollCapture({
+    // ---------------------------------------------------------
+    // ROLLS
+    // ---------------------------------------------------------
+    const defenderRoll = await animaOpenRollCapture({
       value: defenseValue,
       label: capitalizeFirst(type),
       actor: targetActor
     });
 
-    const attacker = await animaOpenRollCapture({
+    const attackerRoll = await animaOpenRollCapture({
       value: attackValue,
       label: "Spell Attack",
       actor: sheet.actor
     });
 
+    // ---------------------------------------------------------
+    // FINAL CARD
+    // ---------------------------------------------------------
     setTimeout(
-      () => postCombinedCombatCard(attacker, defender, defATValue, armorPen, directed, attackType),
-      2500
+      () =>
+        postCombinedCombatCard(
+          attackerRoll,
+          defenderRoll,
+          defATValue,
+          armorPen,
+          directed,
+          attackType
+        ),
+      2000
     );
   });
 }
@@ -569,7 +689,7 @@ export function promptAttackModifierWindow(options = {}) {
   });
 }
 
-async function promptDefenseChoice(targetActor) {
+export async function promptDefenseChoice(targetActor) {
   return new Promise((resolve) => {
     new Dialog({
       title: `Defense Roll for ${targetActor.name}`,
@@ -759,4 +879,36 @@ async function zeon(zeonCost, actor) {
   });
 
   return true;
+}
+
+function waitForDefenseResponse(attackerUserId) {
+  return new Promise((resolve) => {
+    const handler = (msg) => {
+      if (msg.type === "defense:response" && msg.attackerId === attackerUserId) {
+        game.socket.off("system.abf-system", handler);
+        resolve(msg.defense);
+      }
+    };
+    game.socket.on("system.abf-system", handler);
+  });
+}
+
+function getPreferredDefenderUser(actor) {
+  // All users with OWNER=3
+  const owners = game.users.filter((u) => actor.ownership[u.id] === 3);
+
+  // 1. Non-GM owners who are online
+  const onlinePlayers = owners.filter((u) => !u.isGM && u.active);
+  if (onlinePlayers.length > 0) return onlinePlayers[0];
+
+  // 2. Non-GM owners who are offline
+  const offlinePlayers = owners.filter((u) => !u.isGM && !u.active);
+  if (offlinePlayers.length > 0) return offlinePlayers[0];
+
+  // 3. Active GM
+  const activeGM = game.users.find((u) => u.isGM && u.active);
+  if (activeGM) return activeGM;
+
+  // 4. Any GM
+  return game.users.find((u) => u.isGM);
 }

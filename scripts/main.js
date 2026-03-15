@@ -9,6 +9,7 @@ import { WeaponBaseCalculations, WeaponEquipped } from "./data/rules/items/weapo
 import { ArmorCalculate, UpdateArmor } from "./data/rules/items/armor-calculations.js";
 import { AnimaCombat } from "./utils/combat.js";
 import { ABF_FREE_ACCESS_SPELLS, ABF_SPELLS } from "./config/spells.js";
+import { promptDefenseChoice } from "./ui/listeners/roll-listeners.js";
 
 Hooks.once("init", function () {
   console.log("ABF | Initializing Anima Beyond Fantasy system");
@@ -63,4 +64,23 @@ Hooks.on("updateCombat", async (combat, changes) => {
     combat.combatants.map((c) => c.id),
     { updateTurn: true }
   );
+});
+
+Hooks.once("ready", () => {
+  // Remove any previous listeners (hot reload safety)
+  game.socket.off("system.abf-system");
+
+  game.socket.on("system.abf-system", async (msg) => {
+    // Defender receives prompt
+    if (msg.type === "defense:prompt" && msg.userId === game.user.id) {
+      const targetActor = game.actors.get(msg.targetId);
+      const defense = await promptDefenseChoice(targetActor);
+
+      game.socket.emit("system.abf-system", {
+        type: "defense:response",
+        attackerId: msg.attackerId,
+        defense
+      });
+    }
+  });
 });

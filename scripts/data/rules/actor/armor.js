@@ -32,7 +32,7 @@ export class ArmorRule extends BaseRule {
       // Find worn AT from any worn section
       let wornAT = 0;
       for (const section of ARMOR_SECTIONS) {
-        if (section === "natural") continue;
+        if (section === "natural" && section === "helm") continue;
         const val = toNum(system.armor[section]?.[type]);
         if (val > 0) {
           wornAT = val;
@@ -77,7 +77,7 @@ export class ArmorRule extends BaseRule {
       // Find worn AT from any worn section
       let wornAT = 0;
       for (const section of ARMOR_SECTIONS) {
-        if (section === "natural") continue;
+        if (section === "natural" && section === "helm") continue;
         const val = toNum(system.armor[section]?.[type]);
         if (val > 0) {
           wornAT = val;

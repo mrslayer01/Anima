@@ -256,3 +256,166 @@ export const ARMOR_COVERAGE = {
   complete: ["Torso", "Arms", "Legs"],
   helmet: ["Head"]
 };
+
+export const SUMMONING_DIFFICULTY_TABLE = {
+  0: {
+    summon: 140,
+    summonZeon: 10,
+    control: 180,
+    controlZeon: 20,
+    bind: 160,
+    bindZeon: 5,
+    banish: 100,
+    banishZeon: 5
+  },
+  1: {
+    summon: 160,
+    summonZeon: 20,
+    control: 200,
+    controlZeon: 40,
+    bind: 180,
+    bindZeon: 10,
+    banish: 120,
+    banishZeon: 5
+  },
+  2: {
+    summon: 180,
+    summonZeon: 40,
+    control: 220,
+    controlZeon: 80,
+    bind: 200,
+    bindZeon: 20,
+    banish: 140,
+    banishZeon: 10
+  },
+  3: {
+    summon: 200,
+    summonZeon: 60,
+    control: 240,
+    controlZeon: 120,
+    bind: 220,
+    bindZeon: 30,
+    banish: 160,
+    banishZeon: 15
+  },
+  4: {
+    summon: 220,
+    summonZeon: 80,
+    control: 260,
+    controlZeon: 160,
+    bind: 240,
+    bindZeon: 40,
+    banish: 180,
+    banishZeon: 20
+  },
+  5: {
+    summon: 240,
+    summonZeon: 100,
+    control: 280,
+    controlZeon: 200,
+    bind: 260,
+    bindZeon: 50,
+    banish: 200,
+    banishZeon: 25
+  },
+  6: {
+    summon: 260,
+    summonZeon: 120,
+    control: 300,
+    controlZeon: 240,
+    bind: 280,
+    bindZeon: 60,
+    banish: 220,
+    banishZeon: 30
+  },
+  7: {
+    summon: 280,
+    summonZeon: 140,
+    control: 320,
+    controlZeon: 280,
+    bind: 300,
+    bindZeon: 70,
+    banish: 240,
+    banishZeon: 40
+  },
+  8: {
+    summon: 300,
+    summonZeon: 160,
+    control: 340,
+    controlZeon: 320,
+    bind: 320,
+    bindZeon: 80,
+    banish: 260,
+    banishZeon: 50
+  },
+  9: {
+    summon: 320,
+    summonZeon: 180,
+    control: 360,
+    controlZeon: 360,
+    bind: 340,
+    bindZeon: 90,
+    banish: 280,
+    banishZeon: 60
+  },
+  10: {
+    summon: 340,
+    summonZeon: 200,
+    control: 380,
+    controlZeon: 400,
+    bind: 360,
+    bindZeon: 100,
+    banish: 300,
+    banishZeon: 80
+  },
+  11: {
+    summon: 360,
+    summonZeon: 220,
+    control: 400,
+    controlZeon: 440,
+    bind: 380,
+    bindZeon: 120,
+    banish: 320,
+    banishZeon: 100
+  },
+  12: {
+    summon: 380,
+    summonZeon: 240,
+    control: 420,
+    controlZeon: 480,
+    bind: 400,
+    bindZeon: 140,
+    banish: 340,
+    banishZeon: 120
+  },
+  13: {
+    summon: 400,
+    summonZeon: 260,
+    control: 440,
+    controlZeon: 520,
+    bind: 420,
+    bindZeon: 160,
+    banish: 360,
+    banishZeon: 140
+  },
+  14: {
+    summon: 420,
+    summonZeon: 280,
+    control: 460,
+    controlZeon: 560,
+    bind: 440,
+    bindZeon: 180,
+    banish: 380,
+    banishZeon: 160
+  },
+  15: {
+    summon: 440,
+    summonZeon: 300,
+    control: 480,
+    controlZeon: 600,
+    bind: 460,
+    bindZeon: 200,
+    banish: 400,
+    banishZeon: 180
+  }
+};

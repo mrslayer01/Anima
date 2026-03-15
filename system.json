@@ -16,6 +16,7 @@
   "itemTypes": ["commonGood", "weapon", "armor", "ammo", "spell"],
   "esmodules": ["scripts/main.js"],
   "styles": ["styles/abf.css"],
+  "socket": true,
   "itemIcons": {
     "weapon": "icons/svg/sword.svg",
     "armor": "icons/svg/armor.svg"
@@ -53,6 +54,6 @@
       "path": "lang/en.json"
     }
   ],
-  "download": "https://github.com/mrslayer01/Anima/archive/refs/tags/0.0.1.zip",
-  "manifest": "https://github.com/mrslayer01/Anima/releases/download/0.0.1/system.json"
+  "download": "https://github.com/mrslayer01/Anima/archive/refs/tags/Latest.zip",
+  "manifest": "https://github.com/mrslayer01/Anima/releases/download/Latest/system.json"
 }
