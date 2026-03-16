@@ -1,9 +1,9 @@
 import { ABF_ADVANTAGES } from "../../config/advantages.js";
 import { ABF_DISADVANTAGES } from "../../config/disadvantages.js";
-import { normalizeName, openJournalFromUUID } from "../../utils/helpers.js";
 import { toNum } from "../../utils/numbers.js";
 import { AddADisadvantageWindow } from "../windows/add-disadvantage.js";
 import { AddAdvantageWindow } from "../windows/add-advantage.js";
+import { openJournalFromName } from "../../utils/helpers.js";
 
 export function AdvantageDisadvantageListeners(sheet, html) {
   Advanatges(sheet, html);
@@ -56,7 +56,7 @@ function Advanatges(sheet, html) {
 
     if (!advData) return ui.notifications.error("Adavantage data not found");
 
-    openJournalFromUUID(advData.journal);
+    openJournalFromName(advName);
   });
 }
 
@@ -106,6 +106,6 @@ function Disadvantages(sheet, html) {
 
     if (!advData) return ui.notifications.error("Disdisadvantage data not found");
 
-    openJournalFromUUID(advData.journal);
+    openJournalFromName(advName);
   });
 }

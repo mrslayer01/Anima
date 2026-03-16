@@ -12,19 +12,34 @@ export class FatigueRule extends BaseRule {
   Derived(system) {
     this.Initialize(system);
 
+    const disadvantages = system.disadvantages || [];
+    if (disadvantages === undefined) return;
+
+    const hasExhausted = disadvantages.find((l) => l.name === "Exhausted");
+
     system.core.fatigue.final =
       toNum(system.characteristics.Constitution.base) + toNum(system.core.fatigue.special);
     if (toNum(system.core.fatigue.final) <= 4) {
       //If has a fatigue of 4 or lower, don't start calculating until current does not match final
       if (toNum(system.core.fatigue.current) < toNum(system.core.fatigue.final)) {
         //Has spent fatigue and will start getting penalties
-        system.core.fatigue.actionPenalty = fatiguePenalty[toNum(system.core.fatigue.current)];
+        if (hasExhausted) {
+          system.core.fatigue.actionPenalty =
+            exhaustedFatiguePenalty[toNum(system.core.fatigue.current)];
+        } else {
+          system.core.fatigue.actionPenalty = fatiguePenalty[toNum(system.core.fatigue.current)];
+        }
       } else {
         system.core.fatigue.actionPenalty = 0;
       }
     } else {
       //If has a higher that 4 fatigue, calculate normally.
-      system.core.fatigue.actionPenalty = fatiguePenalty[toNum(system.core.fatigue.current)] ?? 0;
+      if (hasExhausted) {
+        system.core.fatigue.actionPenalty =
+          exhaustedFatiguePenalty[toNum(system.core.fatigue.current)] ?? 0;
+      } else {
+        system.core.fatigue.actionPenalty = fatiguePenalty[toNum(system.core.fatigue.current)] ?? 0;
+      }
     }
 
     AddModifier(system.globalModifiers.Action, {
@@ -56,19 +71,34 @@ export class FatigueRule extends BaseRule {
   }
 
   RecalcUpdated(system, name) {
+    const disadvantages = system.disadvantages || [];
+    if (disadvantages === undefined) return;
+
+    const hasExhausted = disadvantages.find((l) => l.name === "Exhausted");
+
     system.core.fatigue.final =
       toNum(system.characteristics.Constitution.base) + toNum(system.core.fatigue.special);
     if (toNum(system.core.fatigue.final) <= 4) {
       //If has a fatigue of 4 or lower, don't start calculating until current does not match final
       if (toNum(system.core.fatigue.current) < toNum(system.core.fatigue.final)) {
         //Has spent fatigue and will start getting penalties
-        system.core.fatigue.actionPenalty = fatiguePenalty[toNum(system.core.fatigue.current)];
+        if (hasExhausted) {
+          system.core.fatigue.actionPenalty =
+            exhaustedFatiguePenalty[toNum(system.core.fatigue.current)];
+        } else {
+          system.core.fatigue.actionPenalty = fatiguePenalty[toNum(system.core.fatigue.current)];
+        }
       } else {
         system.core.fatigue.actionPenalty = 0;
       }
     } else {
       //If has a higher that 4 fatigue, calculate normally.
-      system.core.fatigue.actionPenalty = fatiguePenalty[toNum(system.core.fatigue.current)] ?? 0;
+      if (hasExhausted) {
+        system.core.fatigue.actionPenalty =
+          exhaustedFatiguePenalty[toNum(system.core.fatigue.current)] ?? 0;
+      } else {
+        system.core.fatigue.actionPenalty = fatiguePenalty[toNum(system.core.fatigue.current)] ?? 0;
+      }
     }
     AddModifier(system.globalModifiers.Action, {
       id: "fatigue",
@@ -95,4 +125,12 @@ const fatiguePenalty = {
   2: -40,
   3: -20,
   4: -10
+};
+
+const exhaustedFatiguePenalty = {
+  0: -240,
+  1: -160,
+  2: -80,
+  3: -40,
+  4: -20
 };

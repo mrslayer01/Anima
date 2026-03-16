@@ -27,17 +27,12 @@ export function AddModifier(mod, entry) {
     });
   }
 }
+export async function openJournalFromName(pageName, anchor = null) {
+  const result = await getJournalPageFromCompendium(pageName);
+  if (!result) return;
 
-export async function openJournalFromUUID(rawUuid) {
-  const [uuid, anchor] = rawUuid.split("#");
+  const { entry, page } = result;
 
-  // Load the page document
-  const page = await fromUuid(uuid);
-  if (!page) return ui.notifications.warn("Journal entry not found.");
-
-  const entry = page.parent;
-
-  // Render the JournalEntry in VIEW mode
   entry.sheet.render(true, {
     editable: false,
     pageId: page.id
@@ -45,7 +40,6 @@ export async function openJournalFromUUID(rawUuid) {
 
   if (!anchor) return;
 
-  // Auto-scroll after the page sheet renders
   Hooks.once("renderJournalPageSheet", (sheet, html) => {
     setTimeout(() => {
       const el = html[0].querySelector(`#${anchor}`);
@@ -54,6 +48,42 @@ export async function openJournalFromUUID(rawUuid) {
       }
     }, 100);
   });
+}
+
+async function getJournalPageFromCompendium(rawName) {
+  const pack = game.packs.get("abf-system.abf-journals");
+  if (!pack) {
+    ui.notifications.error("Journal compendium not found.");
+    return null;
+  }
+
+  const index = await pack.getIndex();
+  const entries = Array.from(index.values());
+
+  const target = normalizeNameJournal(rawName);
+
+  for (const entryMeta of entries) {
+    const entry = await pack.getDocument(entryMeta._id);
+
+    for (const page of entry.pages) {
+      const pageKey = normalizeNameJournal(page.name);
+
+      // CONTAINS MATCH (both directions)
+      if (pageKey.includes(target) || target.includes(pageKey)) {
+        return { entry, page };
+      }
+    }
+  }
+
+  ui.notifications.warn(`Journal page matching "${rawName}" not found.`);
+  return null;
+}
+
+function normalizeNameJournal(str) {
+  return str
+    .toLowerCase()
+    .replace(/[\s\(\)\-_'’\/]/g, "") // remove spaces & punctuation
+    .replace(/[^a-z0-9]/g, ""); // remove anything else weird
 }
 
 export function normalizeName(name) {

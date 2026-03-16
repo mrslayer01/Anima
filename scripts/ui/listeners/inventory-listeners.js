@@ -1,3 +1,8 @@
+import {
+  DEFAULT_ARMOR_DATA,
+  DEFAULT_ITEM_DATA,
+  DEFAULT_WEAPON_DATA
+} from "../../config/default-item-data.js";
 import { ArmorCalculate } from "../../data/rules/items/armor-calculations.js";
 import { WeaponEquipped } from "../../data/rules/items/weapon-calculations.js";
 
@@ -56,6 +61,91 @@ function Items(sheet, html) {
     // Now recompute the section from scratch based on current flags
     await ArmorCalculate(actor);
     await sheet.render(false);
+  });
+
+  // Start add Equipment
+  html.find(".add-weapon").on("click", async (ev) => {
+    const actor = sheet.actor;
+
+    const name = await Dialog.prompt({
+      title: "Create Weapon",
+      label: "Weapon Name",
+      callback: (html) => html.find("input").val(),
+      content: `
+      <p>Enter the name of the new weapon:</p>
+      <input type="text" style="width:100%;" />
+    `
+    });
+
+    if (!name) return;
+
+    // Create a deep clone of your default weapon data
+    const weaponData = {
+      name,
+      type: "weapon",
+      system: foundry.utils.deepClone(DEFAULT_WEAPON_DATA)
+    };
+
+    await actor.createEmbeddedDocuments("Item", [weaponData]);
+    ui.notifications.info(`Added custom weapon: ${name}`);
+
+    sheet.render(false);
+  });
+
+  html.find(".add-armor").on("click", async (ev) => {
+    const actor = sheet.actor;
+
+    const name = await Dialog.prompt({
+      title: "Create Armor",
+      label: "Armor Name",
+      callback: (html) => html.find("input").val(),
+      content: `
+      <p>Enter the name of the new armor:</p>
+      <input type="text" style="width:100%;" />
+    `
+    });
+
+    if (!name) return;
+
+    // Create a deep clone of your default weapon data
+    const armorData = {
+      name,
+      type: "armor",
+      system: foundry.utils.deepClone(DEFAULT_ARMOR_DATA)
+    };
+
+    await actor.createEmbeddedDocuments("Item", [armorData]);
+    ui.notifications.info(`Added custom armor: ${name}`);
+
+    sheet.render(false);
+  });
+
+  html.find(".add-item").on("click", async (ev) => {
+    const actor = sheet.actor;
+
+    const name = await Dialog.prompt({
+      title: "Create Item",
+      label: "Item Name",
+      callback: (html) => html.find("input").val(),
+      content: `
+      <p>Enter the name of the new item:</p>
+      <input type="text" style="width:100%;" />
+    `
+    });
+
+    if (!name) return;
+
+    // Create a deep clone of your default weapon data
+    const itemData = {
+      name,
+      type: "commonGood",
+      system: foundry.utils.deepClone(DEFAULT_ITEM_DATA)
+    };
+
+    await actor.createEmbeddedDocuments("Item", [itemData]);
+    ui.notifications.info(`Added custom item: ${name}`);
+
+    sheet.render(false);
   });
 }
 

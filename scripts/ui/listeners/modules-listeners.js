@@ -1,4 +1,4 @@
-import { openJournalFromUUID } from "../../utils/helpers.js";
+import { openJournalFromName } from "../../utils/helpers.js";
 import { toNum } from "../../utils/numbers.js";
 import { AddModuleWindow } from "../windows/add-Module.js";
 
@@ -59,6 +59,6 @@ export function ModuelsListeners(sheet, html) {
 
     if (!advData) return ui.notifications.error("Module data not found");
 
-    openJournalFromUUID(advData.journal);
+    openJournalFromName(modName);
   });
 }

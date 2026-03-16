@@ -107,40 +107,64 @@ export class MysticRule extends BaseRule {
     }
 
     // Second pass: adjust opposed pairs
-    const processed = new Set();
+    const necro = mysticPath.paths["Necromancy"];
+    const necroLevel = toNum(necro.level);
 
+    // Count how many other paths have levels > 0
+    let otherPathsHaveLevels = false;
     for (const [name, path] of Object.entries(mysticPath.paths)) {
-      if (processed.has(name) || name === "Illusion") continue;
+      if (name === "Necromancy") continue;
+      if (toNum(path.level) > 0) {
+        otherPathsHaveLevels = true;
+        break;
+      }
+    }
 
-      const opposedName = mysticPath.paths[name].opposedPath;
-      if (!opposedName) continue;
+    if (necroLevel > 0 && otherPathsHaveLevels) {
+      // Necromancy doubles
+      necro.effectiveCost = necroLevel * 2;
 
-      const opposedPath = mysticPath.paths[opposedName];
-      if (!opposedPath) continue;
+      // All other paths with levels double
+      for (const [name, path] of Object.entries(mysticPath.paths)) {
+        if (name === "Necromancy") continue;
 
-      const levelA = toNum(path.level);
-      const levelB = toNum(opposedPath.level);
+        const lvl = toNum(path.level);
+        if (lvl > 0) {
+          path.effectiveCost = lvl;
+        }
+      }
+    } else {
+      const processed = new Set();
 
-      // If either has no levels, no special cost
-      if (levelA === 0 || levelB === 0) {
+      for (const [name, path] of Object.entries(mysticPath.paths)) {
+        if (processed.has(name)) continue;
+
+        const opposedName = path.opposedPath;
+        if (!opposedName) continue;
+
+        const opposedPath = mysticPath.paths[opposedName];
+        if (!opposedPath) continue;
+
+        const levelA = toNum(path.level);
+        const levelB = toNum(opposedPath.level);
+
+        if (levelA === 0 || levelB === 0) {
+          processed.add(name);
+          processed.add(opposedName);
+          continue;
+        }
+
+        if (levelA <= levelB) {
+          path.effectiveCost = levelA * 2;
+          opposedPath.effectiveCost = levelB;
+        } else {
+          path.effectiveCost = levelA;
+          opposedPath.effectiveCost = levelB * 2;
+        }
+
         processed.add(name);
         processed.add(opposedName);
-        continue;
       }
-
-      // Decide which is "second" (cheaper) and double that one
-      if (levelA <= levelB) {
-        // A is cheaper → A is opposed (double)
-        path.effectiveCost = levelA * 2;
-        opposedPath.effectiveCost = levelB;
-      } else {
-        // B is cheaper → B is opposed (double)
-        path.effectiveCost = levelA;
-        opposedPath.effectiveCost = levelB * 2;
-      }
-
-      processed.add(name);
-      processed.add(opposedName);
     }
 
     // Magic Levels used
@@ -291,40 +315,64 @@ export class MysticRule extends BaseRule {
     }
 
     // Second pass: adjust opposed pairs
-    const processed = new Set();
+    const necro = mysticPath.paths["Necromancy"];
+    const necroLevel = toNum(necro.level);
 
+    // Count how many other paths have levels > 0
+    let otherPathsHaveLevels = false;
     for (const [name, path] of Object.entries(mysticPath.paths)) {
-      if (processed.has(name) || name === "Illusion") continue;
+      if (name === "Necromancy") continue;
+      if (toNum(path.level) > 0) {
+        otherPathsHaveLevels = true;
+        break;
+      }
+    }
 
-      const opposedName = mysticPath.paths[name].opposedPath;
-      if (!opposedName) continue;
+    if (necroLevel > 0 && otherPathsHaveLevels) {
+      // Necromancy doubles
+      necro.effectiveCost = necroLevel * 2;
 
-      const opposedPath = mysticPath.paths[opposedName];
-      if (!opposedPath) continue;
+      // All other paths with levels double
+      for (const [name, path] of Object.entries(mysticPath.paths)) {
+        if (name === "Necromancy") continue;
 
-      const levelA = toNum(path.level);
-      const levelB = toNum(opposedPath.level);
+        const lvl = toNum(path.level);
+        if (lvl > 0) {
+          path.effectiveCost = lvl;
+        }
+      }
+    } else {
+      const processed = new Set();
 
-      // If either has no levels, no special cost
-      if (levelA === 0 || levelB === 0) {
+      for (const [name, path] of Object.entries(mysticPath.paths)) {
+        if (processed.has(name)) continue;
+
+        const opposedName = path.opposedPath;
+        if (!opposedName) continue;
+
+        const opposedPath = mysticPath.paths[opposedName];
+        if (!opposedPath) continue;
+
+        const levelA = toNum(path.level);
+        const levelB = toNum(opposedPath.level);
+
+        if (levelA === 0 || levelB === 0) {
+          processed.add(name);
+          processed.add(opposedName);
+          continue;
+        }
+
+        if (levelA <= levelB) {
+          path.effectiveCost = levelA * 2;
+          opposedPath.effectiveCost = levelB;
+        } else {
+          path.effectiveCost = levelA;
+          opposedPath.effectiveCost = levelB * 2;
+        }
+
         processed.add(name);
         processed.add(opposedName);
-        continue;
       }
-
-      // Decide which is "second" (cheaper) and double that one
-      if (levelA <= levelB) {
-        // A is cheaper → A is opposed (double)
-        path.effectiveCost = levelA * 2;
-        opposedPath.effectiveCost = levelB;
-      } else {
-        // B is cheaper → B is opposed (double)
-        path.effectiveCost = levelA;
-        opposedPath.effectiveCost = levelB * 2;
-      }
-
-      processed.add(name);
-      processed.add(opposedName);
     }
 
     // Magic Levels used
@@ -419,9 +467,9 @@ const OPPOSED_PATHS = {
   Water: "Fire",
   Earth: "Air",
   Air: "Earth",
-  Essence: "Necromancy",
-  Necromancy: "Essence",
-  Illusion: ""
+  Essence: "Illusion",
+  Necromancy: "All",
+  Illusion: "Essence"
 };
 
 const HIGH_PATH_FREE_ACCESS = [

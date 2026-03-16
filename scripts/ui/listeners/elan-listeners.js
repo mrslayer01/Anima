@@ -1,5 +1,5 @@
 import { ABF_LORDS } from "../../config/elans.js";
-import { openJournalFromUUID } from "../../utils/helpers.js";
+import { openJournalFromName } from "../../utils/helpers.js";
 import { toNum } from "../../utils/numbers.js";
 import { ElanInfoWindow } from "../windows/elan-info.js";
 
@@ -75,7 +75,7 @@ export function ElanListeners(sheet, html) {
             return ui.notifications.warn("No journal entry linked for this elan.");
           }
 
-          openJournalFromUUID(elanData.journalEntry);
+          openJournalFromName(selected);
         });
       }
     }).render(true);

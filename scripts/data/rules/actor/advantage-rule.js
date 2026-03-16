@@ -40,8 +40,10 @@ function calculateDisadvanatges(system) {
   const disadvantages = system.disadvantages || [];
   if (disadvantages === undefined) return;
   const hasNersighted = disadvantages.find((l) => l.name === "Nearsighted");
+  const hasExhausted = disadvantages.find((l) => l.name === "Exhausted");
 
   if (hasNersighted !== undefined) NearSighted(system);
+  if (hasExhausted !== undefined) NearSighted(system);
 }
 
 function calculateAdvantages(system) {
@@ -82,6 +84,7 @@ function calculateAdvantages(system) {
   if (hasTheGift !== undefined) TheGift(system);
 }
 
+//#region Advantages
 function AptitudeInASubject(system, adv) {
   // Handles Aptitude in a subject which reduces the chosen abilities cost by 1 or 2 depending on the cost, can't reduce below 1.
   // This will overwrite whatever the class cost is for the secondary ability.
@@ -275,6 +278,16 @@ function ResistanceAdvantages(system, exceptMR, exceptPhr, exceptPr) {
   }
 }
 
+function TheGift(system) {
+  // Apply the +10 MR
+  const curSpec = toNum(system.resistances.Magic.special);
+  system.resistances.Magic.special = curSpec + 10;
+}
+
+//#endregion
+
+//#region Disadvantages
+
 function NearSighted(system) {
   // –50 Notice/Search (vision), –3 Perception, aiming penalties. 1.
 
@@ -292,8 +305,4 @@ function NearSighted(system) {
   }
 }
 
-function TheGift(system) {
-  // Apply the +10 MR
-  const curSpec = toNum(system.resistances.Magic.special);
-  system.resistances.Magic.special = curSpec + 10;
-}
+//#endregion

@@ -1,3 +1,4 @@
+import { openJournalFromName } from "../utils/helpers.js";
 import { AdvantageDisadvantageListeners } from "./listeners/advantage-disadvantage-listeners.js";
 import { ClassListeners } from "./listeners/class-listeners.js";
 import { ElanListeners } from "./listeners/elan-listeners.js";
@@ -56,8 +57,8 @@ export function registerSheetListeners(sheet, html) {
 
     const secondaryAbility = secondaries?.[categoryName]?.[abilityName];
 
-    if (primaryAbility) openJournalFromUUID(primaryAbility.journal);
-    if (secondaryAbility) openJournalFromUUID(secondaryAbility.journal);
+    //if (primaryAbility) openJournalFromUUID(abilityName);
+    if (secondaryAbility) openJournalFromName(abilityName);
   });
 
   //Primary ability focus.
@@ -168,31 +169,3 @@ export function registerItemSheetListeners(sheet, html) {
 }
 
 //#endregion
-
-export async function openJournalFromUUID(rawUuid) {
-  const [uuid, anchor] = rawUuid.split("#");
-
-  // Load the page document
-  const page = await fromUuid(uuid);
-  if (!page) return ui.notifications.warn("Journal entry not found.");
-
-  const entry = page.parent;
-
-  // Render the JournalEntry in VIEW mode
-  entry.sheet.render(true, {
-    editable: false,
-    pageId: page.id
-  });
-
-  if (!anchor) return;
-
-  // Auto-scroll after the page sheet renders
-  Hooks.once("renderJournalPageSheet", (sheet, html) => {
-    setTimeout(() => {
-      const el = html[0].querySelector(`#${anchor}`);
-      if (el) {
-        el.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-    }, 100);
-  });
-}

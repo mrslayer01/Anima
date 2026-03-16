@@ -5,6 +5,7 @@ export class MovementRule extends BaseRule {
   Initialize(system) {
     //Init final, movePerTurn
     if (system.movement.final === undefined) system.movement.final = 0;
+    if (system.movement.moveQuarterPerTurn === undefined) system.movement.moveQuarterPerTurn = "";
     if (system.movement.movePerTurn === undefined) system.movement.movePerTurn = "";
   }
 
@@ -23,6 +24,9 @@ export class MovementRule extends BaseRule {
     const cap = movementCap(hasInhuman, hasZen);
     system.movement.final = Math.min(movement, cap);
     system.movement.movePerTurn = MOVEMENT_DISTANCES[system.movement.final];
+    system.movement.moveQuarterPerTurn = getQuarterDistance(
+      MOVEMENT_DISTANCES[system.movement.final]
+    );
   }
 
   DetectChanged(updateData, oldSystem) {
@@ -70,6 +74,9 @@ export class MovementRule extends BaseRule {
     const cap = movementCap(hasInhuman, hasZen);
     system.movement.final = Math.min(movement, cap);
     system.movement.movePerTurn = MOVEMENT_DISTANCES[system.movement.final];
+    system.movement.moveQuarterPerTurn = getQuarterDistance(
+      MOVEMENT_DISTANCES[system.movement.final]
+    );
   }
 
   Update(updateData, oldSystem, newSystem) {
@@ -111,3 +118,31 @@ const MOVEMENT_DISTANCES = {
   19: "15 miles",
   20: "Special"
 };
+
+function getQuarterDistance(distString) {
+  if (!distString) return "—";
+
+  // Handle miles
+  if (distString.includes("mile")) {
+    const num = parseFloat(distString);
+    if (isNaN(num)) return "—";
+    const feet = num * 5280;
+    return Math.floor(feet / 4) + " ft";
+  }
+
+  // Handle "<3 ft" → treat as 3 ft
+  if (distString.startsWith("<")) {
+    const num = parseFloat(distString.replace("<", ""));
+    if (isNaN(num)) return "—";
+    return Math.floor(num / 4) + " ft";
+  }
+
+  // Handle normal "115 ft"
+  const num = parseFloat(distString);
+  if (!isNaN(num)) {
+    return Math.floor(num / 4) + " ft";
+  }
+
+  // "Special" or anything else
+  return "—";
+}

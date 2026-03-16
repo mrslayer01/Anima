@@ -82,12 +82,14 @@ export async function UpdateWeapon(actor) {
     if (item.system.equipped) {
       allWeaponSpeed += weaponSpeed;
     }
+
     let finalDamage = baseDamage + strMod + q.damage;
     if (w.handling === "twoHanded" && w.strengthReq.twoHanded > 0 && w.weaponType != "projectile") {
       finalDamage = baseDamage + strMod * 2 + q.damage;
     }
 
     let finalProjectileRange = 0;
+    let attackType = w.attackType;
     // Ranged weapons add damage from equipped ammo and don't apply quality bonus to damage.
     if (w.weaponType === "projectile" || w.weaponType === "throwing") {
       //Get equipped ammo if any
@@ -97,6 +99,7 @@ export async function UpdateWeapon(actor) {
         const item = actor.items.get(ammo.id);
         if (item.system.equipped) {
           ammoStr = toNum(item.system.damage);
+          attackType = item.system.primaryAtkType;
         }
       }
       if (toNum(w.projectileWeaponStrength) > 0) {
@@ -107,8 +110,9 @@ export async function UpdateWeapon(actor) {
         finalDamage =
           baseDamage + lookupCharacteristicMod(toNum(w.projectileWeaponStrength)) + ammoStr;
       } else {
+        // Don't add strength mod to ranged damage, being stronger does not make the arrow hit harder.
         finalProjectileRange = toNum(w.projectileWeaponRange.base) + strMod;
-        finalDamage = baseDamage + strMod + ammoStr;
+        finalDamage = baseDamage + ammoStr;
       }
     }
 

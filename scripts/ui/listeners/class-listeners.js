@@ -1,4 +1,4 @@
-import { normalizeName, openJournalFromUUID } from "../../utils/helpers.js";
+import { normalizeName, openJournalFromName } from "../../utils/helpers.js";
 import { toNum } from "../../utils/numbers.js";
 import { ABF_CLASSES } from "../../config/classes.js";
 
@@ -73,7 +73,7 @@ export function ClassListeners(sheet, html) {
             return ui.notifications.warn("No journal entry linked for this class.");
           }
 
-          openJournalFromUUID(classData.journalEntry);
+          openJournalFromName(selected);
         });
       },
       default: "Add"
@@ -132,7 +132,7 @@ export function ClassListeners(sheet, html) {
 
     if (!classData) return ui.notifications.error("Class data not found");
 
-    openJournalFromUUID(classData.journalEntry);
+    openJournalFromName(className);
   });
 
   // Add natural bonuses to secondaries.

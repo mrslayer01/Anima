@@ -40,20 +40,20 @@ export class AddFASpellsWindow extends Application {
     );
 
     // Filter out spells closed to ANY granting path
-    unlockedSpells = unlockedSpells.filter((spell) => {
-      const band = Number(spell.maxLevel);
-      const slot = slots[band];
+    // unlockedSpells = unlockedSpells.filter((spell) => {
+    //   const band = Number(spell.maxLevel);
+    //   const slot = slots[band];
 
-      const grantingPaths = (slot.path ?? []).map((p) => p.toLowerCase());
-      const cp = spell.closedPaths ?? {};
-      const closed = [(cp.path1 ?? "none").toLowerCase(), (cp.path2 ?? "none").toLowerCase()];
+    //   const grantingPaths = (slot.path ?? []).map((p) => p.toLowerCase());
+    //   const cp = spell.closedPaths ?? {};
+    //   const closed = [(cp.path1 ?? "none").toLowerCase(), (cp.path2 ?? "none").toLowerCase()];
 
-      for (const g of grantingPaths) {
-        if (closed.includes(g)) return false;
-      }
+    //   for (const g of grantingPaths) {
+    //     if (closed.includes(g)) return false;
+    //   }
 
-      return true;
-    });
+    //   return true;
+    // });
 
     // Remove duplicates (actor already knows this FA spell)
     unlockedSpells = unlockedSpells.filter((spell) => {
@@ -61,11 +61,16 @@ export class AddFASpellsWindow extends Application {
       return !knownNames.has(spellName);
     });
 
-    // Group spells by min-max range
+    // Group spells ONLY by min-max range
     for (const spell of unlockedSpells) {
       const key = `${spell.minLevel}-${spell.maxLevel}`;
+
       if (!grouped[key]) grouped[key] = [];
       grouped[key].push(spell);
+    }
+
+    for (const spell of unlockedSpells) {
+      spell.closedFormatted = formatClosedPaths(spell.closedPaths);
     }
 
     return {
@@ -96,7 +101,9 @@ export class AddFASpellsWindow extends Application {
       html.find("#preview-action").text(opt.dataset.action);
       html.find("#preview-cost").text(opt.dataset.cost);
       html.find("#preview-maintenance").text(opt.dataset.maintenance);
+      html.find("#preview-maintenance").text(opt.dataset.restriction);
       html.find("#preview-added").text(opt.dataset.added);
+      html.find("#preview-closed").text(opt.dataset.closed);
       html.find("#preview-effect").html(opt.dataset.effect);
 
       this.setPosition({ height: "auto", width: this.options.width });
@@ -140,6 +147,19 @@ export class AddFASpellsWindow extends Application {
 
     ui.notifications.info(`Added Free Access spell: ${spellName}`);
   }
+}
+
+function formatClosedPaths(cp) {
+  if (!cp) return "";
+
+  const list = [];
+
+  const cap = (s) => s.charAt(0).toUpperCase() + s.slice(1).toLowerCase();
+
+  if (cp.path1) list.push(cap(cp.path1));
+  if (cp.path2) list.push(cap(cp.path2));
+
+  return list.join(", ");
 }
 
 async function GetSpell(spellName) {

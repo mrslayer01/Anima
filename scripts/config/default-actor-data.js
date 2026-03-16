@@ -33,7 +33,7 @@ export const DEFAULT_ACTOR_DATA = {
       current: 0
     },
     fatigue: {
-      current: 0
+      current: 5
     }
   },
   aspects: {

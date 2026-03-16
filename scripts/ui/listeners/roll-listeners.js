@@ -425,9 +425,10 @@ export function RollListeners(sheet, html) {
       actor.system.abilities.primary.Supernatural.MagicProjection.offensiveFinal
     );
 
-    const { final, region, directed, attackType, zeonCost } = await promptAttackModifierWindow({
-      isSpellAttack: true
-    });
+    const { final, region, directed, attackType, zeonCost, isAOE } =
+      await promptAttackModifierWindow({
+        isSpellAttack: true
+      });
 
     attackValue += final;
 
@@ -435,8 +436,14 @@ export function RollListeners(sheet, html) {
     // CHECK ZEON
     // ---------------------------------------------------------
     const enoughZeon = await zeon(zeonCost, actor);
-    if (!enoughZeon)
-      return ui.notifications.warn("Not enough Zeon is accumulated to cast this spell.");
+    if (!enoughZeon) {
+      if (zeonCost > 0) {
+        return ui.notifications.warn("Not enough Zeon is accumulated to cast this spell.");
+      } else {
+        // Do nothing but let the user know.
+        ui.notifications.warn("No Zeon cost was specified.");
+      }
+    }
 
     let armorPen = 0; // spells normally have no armor penetration
 
@@ -858,7 +865,7 @@ function postDamageCard({ dmg, pct }) {
 }
 
 async function zeon(zeonCost, actor) {
-  if (zeonCost === 0) return;
+  if (zeonCost === 0) return false;
   // Removes the spell cost from the Accumulated pool, then adds what's left back to the reserve. Setting the accumulated to 0.
   const zeonPath = actor.system.abilities.primary.Supernatural.Zeon;
   let baseZeonAccumulated = zeonPath.temp;

@@ -33,7 +33,8 @@ export class CombatWindow extends Application {
           value
         })),
         isSpellAttack: this.isSpellAttack,
-        attackTypes: weaponAttackTypes
+        attackTypes: weaponAttackTypes,
+        isAOE: this.isAOE
       };
     } else {
       return {
@@ -67,6 +68,35 @@ export class CombatWindow extends Application {
 
     updateTotal(); // initialize
 
+    html.find(".is-aoe-toggle").on("click", async (ev) => {
+      const actor = sheet.actor;
+      const itemId = ev.currentTarget.dataset.itemId;
+      const item = sheet.actor.items.get(itemId);
+
+      const current = item.system.equipped ?? false;
+
+      // Unequip any other weapon aside from a shield.
+      const otherEquipped = actor.items.find(
+        (i) =>
+          i.type === "weapon" &&
+          i.id !== itemId &&
+          i.system.equipped &&
+          i.system.weaponType !== "shield"
+      );
+
+      if (otherEquipped) {
+        await otherEquipped.update({ "system.equipped": false });
+      }
+
+      await item.update({
+        "system.equipped": !current
+      });
+
+      await WeaponEquipped(actor, item);
+
+      sheet.render(false);
+    });
+
     html.find(".confirm-add").click((ev) => {
       ev.preventDefault();
 
@@ -77,8 +107,7 @@ export class CombatWindow extends Application {
       const zeonCost = toNum(html.find("#zeonCost").val());
 
       const attackType = html.find("#attackType").val();
-
-      console.log(attackType);
+      const isAOE = console.log(attackType);
 
       const final = atkMod + directedPenalty;
 
@@ -89,7 +118,8 @@ export class CombatWindow extends Application {
         region,
         attackType,
         final,
-        zeonCost
+        zeonCost,
+        isAOE
       });
 
       this.close();
