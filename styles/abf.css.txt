@@ -10,25 +10,13 @@ Instant summoning is an active action, usually done in combat. You open roll wit
 
 
 
-
+emaining Feedback:
 
 Feedback
-Focus needs to not check for armor spent.
-Paths need to be adjusted. Illusion opposed Essence. Necromancy is opposed by every path.
-Free Access path locked should only be locked for the slot gained from those paths, not every path.
-Add Zeon cost to free access table.
-Sciences does not open journal entry.
-Add in Exhausted disadvantage functionality.
-Wear armor once developed should use the final value.
-Helm needs to be excluded from stacking armor. - done
-Add Zeon management from combat tab to mystic as well.
-Add modifier to Magic Accumulation popup.
+
+Add modifier to Magic Accumulation popup and if casting and not defining cost, show the correct warning.
+
 Add magic level DP purchase, limit is 1/10 total DP.
-Add the ability to add your own weapons/armor and common goods.
-Fix strength affecting projectile damage, should only affect maximum range.
-Targetting does not popup defense screen for defender. - Fixed
-Ranged attacks equippedAmmo attack type not working now, great.
-Advantages cost input dont allow pressing enter.
 
 
 

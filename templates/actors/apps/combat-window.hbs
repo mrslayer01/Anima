@@ -17,13 +17,13 @@
       <h3>
         AOE Spell?
       </h3>
-      <td class="weapon-equip-toggle clickable">
+      <div class="clickable aoe-toggle">
         {{#if isAOE}}
           <i class="fas fa-check"></i>
         {{else}}
           <i class="fas fa-times"></i>
         {{/if}}
-      </td>
+      </div>
     </section>
   {{/if}}
 
@@ -48,7 +48,7 @@
     </select>
   </section>
 
-  <button class="confirm-add" style="margin-top: 1em; width: 100%;">
+  <button class="confirm-add button" style="margin-top: 1em; width: 100%;">
     Roll:
     <span id="totalMod">
       0

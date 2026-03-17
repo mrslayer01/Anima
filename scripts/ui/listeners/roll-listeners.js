@@ -8,6 +8,7 @@ import {
 import { toNum } from "../../utils/numbers.js";
 import { animaOpenRoll, characteristicCheck, resistanceCheck } from "../../utils/rolls.js";
 import { CombatWindow } from "../windows/combat-window.js";
+import { DefendWindow } from "../windows/defend-window.js";
 
 export function RollListeners(sheet, html) {
   html.find(".char-roll").off("click"); //before adding new listener, remove old to avoid duplicates
@@ -237,47 +238,7 @@ export function RollListeners(sheet, html) {
     // CASE 1: NO TARGET → MANUAL DEFENSE ENTRY
     // ---------------------------------------------------------
     if (!target) {
-      return new Dialog({
-        title: "Manual Defense Entry",
-        content: `
-        <div style="margin-bottom: 1em;">
-          <label><b>Enter Defender's defence modifier:</b></label>
-          <input type="number" id="defense" value="0" style="width: 100%;" />
-        </div>
-        <div style="margin-bottom: 1em;">
-          <label><b>Attack Modifier:</b></label>
-          <input type="number" id="mod" value="0" style="width: 100%;" />
-          <label><b>AT Value:</b></label>
-          <input type="number" id="at" value="${armorPen}" style="width: 100%;" />
-        </div>
-      `,
-        buttons: {
-          roll: {
-            label: "Roll",
-            callback: async (html) => {
-              const defenseFinal = toNum(html.find("#defense").val());
-              const modifier = toNum(html.find("#mod").val());
-              const manualAT = toNum(html.find("#at").val());
-
-              const finalAttack = attackValue + modifier;
-
-              const defender = await animaOpenRollCapture({
-                value: defenseFinal,
-                label: "Defense (Manual)",
-                actor: sheet.actor
-              });
-
-              const attacker = await animaOpenRollCapture({
-                value: finalAttack,
-                label: "Attack",
-                actor: sheet.actor
-              });
-
-              postCombinedCombatCard(attacker, defender, manualAT, armorPen, directed, attackType);
-            }
-          }
-        }
-      }).render(true);
+      return await manualDefend(attackValue, armorPen, directed, attackType, sheet);
     }
 
     // ---------------------------------------------------------
@@ -432,6 +393,8 @@ export function RollListeners(sheet, html) {
 
     attackValue += final;
 
+    //console.log("Is AOE", isAOE);
+
     // ---------------------------------------------------------
     // CHECK ZEON
     // ---------------------------------------------------------
@@ -454,46 +417,7 @@ export function RollListeners(sheet, html) {
     // CASE 1: NO TARGET → MANUAL DEFENSE ENTRY
     // ---------------------------------------------------------
     if (!target) {
-      return new Dialog({
-        title: "Manual Defense Entry",
-        content: `
-        <div style="margin-bottom: 1em;">
-          <label><b>Enter Defender's defence modifier:</b></label>
-          <input type="number" id="defense" value="0" style="width: 100%;" />
-        </div>
-        <div style="margin-bottom: 1em;">
-          <label><b>Attack Modifier:</b></label>
-          <input type="number" id="mod" value="0" style="width: 100%;" />
-          <label><b>AT Value:</b></label>
-          <input type="number" id="at" value="0" style="width: 100%;" />
-        </div>
-      `,
-        buttons: {
-          roll: {
-            label: "Roll",
-            callback: async (html) => {
-              const defenseFinal = toNum(html.find("#defense").val());
-              const modifier = toNum(html.find("#mod").val());
-              const manualAT = toNum(html.find("#at").val());
-
-              const finalAttack = attackValue + modifier;
-
-              const defender = await animaOpenRollCapture({
-                value: defenseFinal,
-                label: "Defense (Manual)",
-                actor: sheet.actor
-              });
-
-              const attacker = await animaOpenRollCapture({
-                value: finalAttack,
-                label: "Spell Attack",
-                actor: sheet.actor
-              });
-              postCombinedCombatCard(attacker, defender, manualAT, armorPen, directed, attackType);
-            }
-          }
-        }
-      }).render(true);
+      return await manualDefend(attackValue, armorPen, directed, attackType, sheet);
     }
 
     // ---------------------------------------------------------
@@ -504,58 +428,19 @@ export function RollListeners(sheet, html) {
     // ---------------------------------------------------------
     // OWNER SELECTION (non-GM owners first, online first)
     // ---------------------------------------------------------
-    function getPreferredDefenderUser(actor) {
-      const owners = game.users.filter((u) => actor.ownership[u.id] === 3);
-
-      const onlinePlayers = owners.filter((u) => !u.isGM && u.active);
-      if (onlinePlayers.length > 0) return onlinePlayers[0];
-
-      const offlinePlayers = owners.filter((u) => !u.isGM && !u.active);
-      if (offlinePlayers.length > 0) return offlinePlayers[0];
-
-      const activeGM = game.users.find((u) => u.isGM && u.active);
-      if (activeGM) return activeGM;
-
-      return game.users.find((u) => u.isGM);
-    }
 
     const defenderUser = getPreferredDefenderUser(targetActor);
-    //console.log("Defender user:", defenderUser?.name, "active:", defenderUser?.active);
 
-    let defense;
-
-    // ---------------------------------------------------------
-    // CASE A — Attacker and Defender are the SAME user → local prompt
-    // ---------------------------------------------------------
-    if (defenderUser.id === game.user.id) {
-      //console.log("GM is defender → showing local defense dialog.");
-      defense = await promptDefenseChoice(targetActor);
-    }
-
-    // ---------------------------------------------------------
-    // CASE B — Defender is ONLINE → send socket prompt
-    // ---------------------------------------------------------
-    else if (defenderUser.active) {
-      //console.log("Defender online → sending socket prompt.");
-
-      game.socket.emit("system.abf-system", {
-        type: "defense:prompt",
-        userId: defenderUser.id,
-        attackerId: game.user.id,
-        targetId: targetActor.id,
-        attackData: { attackValue, region, directed, attackType, armorPen }
-      });
-
-      defense = await waitForDefenseResponse(game.user.id);
-    }
-
-    // ---------------------------------------------------------
-    // CASE C — Defender is OFFLINE → GM handles locally
-    // ---------------------------------------------------------
-    else {
-      //console.log("Defender offline → GM handles defense locally.");
-      defense = await promptDefenseChoice(targetActor);
-    }
+    let defense = await getDefense(
+      defenderUser,
+      targetActor,
+      attackValue,
+      region,
+      directed,
+      attackType,
+      armorPen,
+      isAOE
+    );
 
     const { type, modifier } = defense;
 
@@ -577,8 +462,14 @@ export function RollListeners(sheet, html) {
       );
     }
 
-    // Spell attacks count as Fired projectiles
-    let defensePenalty = DefensePenalty("projectile", type, false, false, dodgeMastery);
+    // Spell attacks count as Fired projectiles and can be an AOE attack.
+    let defensePenalty = 0;
+
+    if (!isAOE) {
+      defensePenalty = DefensePenalty("projectile", type, false, false, dodgeMastery);
+    } else {
+      defensePenalty = DefensePenalty("aoe", type, false, false, dodgeMastery);
+    }
 
     defenseValue += modifier + defensePenalty;
 
@@ -629,6 +520,88 @@ export function RollListeners(sheet, html) {
   });
 }
 
+async function manualDefend(attackValue, armorPen, directed, attackType, sheet) {
+  const result = await new Promise((resolve) => {
+    new DefendWindow(resolve, {
+      manual: true,
+      attackData: { attackValue, armorPen, directed, attackType }
+    }).render(true);
+  });
+
+  // result contains:
+  // { manual: true, type, defenseValue, modifier, manualAT }
+  const defenseFinal = result.defenseValue;
+  const modifier = result.modifier;
+  const manualAT = result.manualAT;
+
+  const finalAttack = attackValue + modifier;
+
+  const defender = await animaOpenRollCapture({
+    value: defenseFinal,
+    label: "Defense (Manual)",
+    actor: sheet.actor
+  });
+
+  const attacker = await animaOpenRollCapture({
+    value: finalAttack,
+    label: "Attack",
+    actor: sheet.actor
+  });
+
+  setTimeout(
+    () => postCombinedCombatCard(attacker, defender, manualAT, armorPen, directed, attackType),
+    2000
+  );
+
+  return;
+}
+
+async function getDefense(
+  defenderUser,
+  targetActor,
+  attackValue,
+  region,
+  directed,
+  attackType,
+  armorPen,
+  isAOE
+) {
+  let defense;
+
+  // ---------------------------------------------------------
+  // CASE A — Attacker and Defender are the SAME user → local prompt
+  // ---------------------------------------------------------
+  if (defenderUser.id === game.user.id) {
+    //console.log("GM is defender → showing local defense dialog.");
+    defense = await promptDefenseChoice(targetActor);
+  }
+
+  // ---------------------------------------------------------
+  // CASE B — Defender is ONLINE → send socket prompt
+  // ---------------------------------------------------------
+  else if (defenderUser.active) {
+    //console.log("Defender online → sending socket prompt.");
+    game.socket.emit("system.abf-system", {
+      type: "defense:prompt",
+      userId: defenderUser.id,
+      attackerId: game.user.id,
+      targetId: targetActor.id,
+      attackData: { attackValue, region, directed, attackType, armorPen, isAOE }
+    });
+
+    defense = await waitForDefenseResponse(game.user.id);
+  }
+
+  // ---------------------------------------------------------
+  // CASE C — Defender is OFFLINE → GM handles locally
+  // ---------------------------------------------------------
+  else {
+    //console.log("Defender offline → GM handles defense locally.");
+    defense = await promptDefenseChoice(targetActor);
+  }
+  return defense;
+}
+
 function DefensePenalty(weaponType, type, blockMastery, equippedshield, dodgeMastery) {
   let penalty = 0;
   if (weaponType === "projectile") {
@@ -664,6 +637,13 @@ function DefensePenalty(weaponType, type, blockMastery, equippedshield, dodgeMas
         penalty = -50;
       }
     }
+  } else if (weaponType === "aoe") {
+    // When attempoting to defend against an AOE attack, they only primary option is to try and dodge. It gives a -80 by default. If attempts to block it's -120.
+    if (type === "block") {
+      penalty = -120;
+    } else {
+      penalty = -80;
+    }
   }
   return penalty;
 }
@@ -698,43 +678,7 @@ export function promptAttackModifierWindow(options = {}) {
 
 export async function promptDefenseChoice(targetActor) {
   return new Promise((resolve) => {
-    new Dialog({
-      title: `Defense Roll for ${targetActor.name}`,
-      content: `
-        <div style="margin-bottom: 1em;">
-          <p><b>Select a defense method:</b></p>
-        </div>
-
-        <div style="margin-bottom: 1em;">
-          <label><b>Situational Modifier:</b></label>
-          <input type="number" id="defMod" value="0" style="width: 100%;" />
-        </div>
-      `,
-      buttons: {
-        block: {
-          label: "Block",
-          callback: (html) => {
-            const mod = toNum(html.find("#defMod").val()) || 0;
-            resolve({ type: "block", modifier: mod });
-          }
-        },
-        dodge: {
-          label: "Dodge",
-          callback: (html) => {
-            const mod = toNum(html.find("#defMod").val()) || 0;
-            resolve({ type: "dodge", modifier: mod });
-          }
-        },
-        projection: {
-          label: "Projection",
-          callback: (html) => {
-            const mod = toNum(html.find("#defMod").val()) || 0;
-            resolve({ type: "projection", modifier: mod });
-          }
-        }
-      },
-      default: "block"
-    }).render(true);
+    new DefendWindow(resolve, { targetActor }).render(true);
   });
 }
 

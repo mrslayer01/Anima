@@ -832,9 +832,9 @@
   background-color: #1f2225;
 }
 
-.confirm-add,
 .buy-gift,
-.remove-gift {
+.remove-gift,
+.button {
   color: white;
   background-color: #11141c;
 }

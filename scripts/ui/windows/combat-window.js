@@ -7,6 +7,7 @@ export class CombatWindow extends Application {
     this._resolve = resolve;
     this.isSpellAttack = options.isSpellAttack ?? false;
     this.weapon = options.weapon ?? null;
+    this.isAOE = options.isAOE ?? false;
   }
 
   static get defaultOptions() {
@@ -33,8 +34,7 @@ export class CombatWindow extends Application {
           value
         })),
         isSpellAttack: this.isSpellAttack,
-        attackTypes: weaponAttackTypes,
-        isAOE: this.isAOE
+        attackTypes: weaponAttackTypes
       };
     } else {
       return {
@@ -46,7 +46,8 @@ export class CombatWindow extends Application {
           value
         })),
         isSpellAttack: this.isSpellAttack,
-        attackTypes: SPELL_ATTACK_TYPES
+        attackTypes: SPELL_ATTACK_TYPES,
+        isAOE: this.isAOE
       };
     }
   }
@@ -68,33 +69,9 @@ export class CombatWindow extends Application {
 
     updateTotal(); // initialize
 
-    html.find(".is-aoe-toggle").on("click", async (ev) => {
-      const actor = sheet.actor;
-      const itemId = ev.currentTarget.dataset.itemId;
-      const item = sheet.actor.items.get(itemId);
-
-      const current = item.system.equipped ?? false;
-
-      // Unequip any other weapon aside from a shield.
-      const otherEquipped = actor.items.find(
-        (i) =>
-          i.type === "weapon" &&
-          i.id !== itemId &&
-          i.system.equipped &&
-          i.system.weaponType !== "shield"
-      );
-
-      if (otherEquipped) {
-        await otherEquipped.update({ "system.equipped": false });
-      }
-
-      await item.update({
-        "system.equipped": !current
-      });
-
-      await WeaponEquipped(actor, item);
-
-      sheet.render(false);
+    html.find(".aoe-toggle").on("click", async (ev) => {
+      this.isAOE = !this.isAOE; // toggle the value
+      this.render(); // re-render to update the icon
     });
 
     html.find(".confirm-add").click((ev) => {
@@ -107,7 +84,6 @@ export class CombatWindow extends Application {
       const zeonCost = toNum(html.find("#zeonCost").val());
 
       const attackType = html.find("#attackType").val();
-      const isAOE = console.log(attackType);
 
       const final = atkMod + directedPenalty;
 
@@ -119,7 +95,7 @@ export class CombatWindow extends Application {
         attackType,
         final,
         zeonCost,
-        isAOE
+        isAOE: this.isAOE
       });
 
       this.close();
