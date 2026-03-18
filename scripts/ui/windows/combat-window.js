@@ -9,8 +9,6 @@ export class CombatWindow extends Application {
     this.weapon = options.weapon ?? null;
     this.isAOE = options.isAOE ?? false;
     this.atkValue = options.attackValue ?? 0;
-
-    console.log(options);
   }
 
   static get defaultOptions() {
@@ -66,7 +64,7 @@ export class CombatWindow extends Application {
       const directedPenalty = DIRECTED_ATTACK_TABLE[part] ?? 0;
       const total = this.atkValue + atkMod + directedPenalty;
 
-      console.log(this.atkValue);
+      //console.log(this.atkValue);
       html.find("#totalMod").text(total);
     };
 

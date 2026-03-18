@@ -7,14 +7,15 @@ export class DefendWindow extends Application {
 
     this.manual = options.manual ?? false;
     this.attackData = options.attackData ?? null;
+    this.block = options.block ?? 0;
+    this.dodge = options.dodge ?? 0;
+    this.projection = options.projection ?? 0;
 
     this.modifier = 0;
     this.defenseValue = 0;
     this.manualAT = 0;
 
     this.hasShield = false;
-
-    console.log(this.attackData);
   }
 
   static get defaultOptions() {
@@ -35,6 +36,9 @@ export class DefendWindow extends Application {
       manual: this.manual,
       defenseValue: this.defenseValue,
       manualAT: this.manualAT,
+      block: this.block,
+      dodge: this.dodge,
+      projection: this.projection,
       attack: this.attackData,
       hasShield: this.hasShield
     };
@@ -44,8 +48,12 @@ export class DefendWindow extends Application {
     super.activateListeners(html);
 
     // Update modifier live
-    html.find("#defMod").on("input", (ev) => {
+    html.find("#defMod").on("change", (ev) => {
       this.modifier = toNum(ev.target.value);
+      this.block = this.block += this.modifier;
+      this.dodge = this.dodge += this.modifier;
+      this.projection = this.projection += this.modifier;
+      this.render();
     });
 
     // Handle defense button clicks
@@ -59,12 +67,18 @@ export class DefendWindow extends Application {
           defenseValue: this.defenseValue,
           modifier: this.modifier,
           manualAT: this.manualAT,
+          block: this.block,
+          dodge: this.dodge,
+          projection: this.projection,
           hasShield: this.hasShield
         });
       } else {
         this._resolve({
           type,
-          modifier: this.modifier
+          modifier: this.modifier,
+          block: this.block,
+          dodge: this.dodge,
+          projection: this.projection
         });
       }
 
@@ -72,23 +86,22 @@ export class DefendWindow extends Application {
     });
 
     // Manual Defend Fields
-    if (this.manual) {
-      html.find("#manualDefense").on("input", (ev) => {
-        this.defenseValue = toNum(ev.target.value);
-      });
+    html.find("#manualDefense").on("change", (ev) => {
+      this.defenseValue = toNum(ev.target.value);
+      this.block = toNum(ev.target.value);
+      this.dodge = toNum(ev.target.value);
+      this.projection = toNum(ev.target.value);
+      this.render();
+    });
 
-      html.find("#manualMod").on("input", (ev) => {
-        this.modifier = toNum(ev.target.value);
-      });
+    html.find("#manualAT").on("change", (ev) => {
+      this.manualAT = toNum(ev.target.value);
+      this.render();
+    });
 
-      html.find("#manualAT").on("input", (ev) => {
-        this.manualAT = toNum(ev.target.value);
-      });
-
-      html.find(".shield-toggle").on("click", async (ev) => {
-        this.hasShield = !this.hasShield;
-        this.render();
-      });
-    }
+    html.find(".shield-toggle").on("click", async (ev) => {
+      this.hasShield = !this.hasShield;
+      this.render();
+    });
   }
 }

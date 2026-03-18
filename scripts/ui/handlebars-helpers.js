@@ -9,7 +9,6 @@ import {
   WEAPON_TYPES
 } from "../utils/lookup.js";
 import { ABF_MODULES } from "../config/modules.js";
-import { ABF_AMMO } from "../config/ammo.js";
 
 export function loadAllActorHandlerbarsHelpers() {
   Handlebars.registerHelper("ifEquals", function (a, b, options) {
@@ -63,9 +62,6 @@ export function loadAllActorHandlerbarsHelpers() {
   });
   Handlebars.registerHelper("moduleName", function (key) {
     return ABF_MODULES[key].name;
-  });
-  Handlebars.registerHelper("ammoName", function (key) {
-    return ABF_AMMO[key].name;
   });
   Handlebars.registerHelper("armorSection", function () {
     return ARMOR_SECTIONS;

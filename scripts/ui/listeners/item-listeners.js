@@ -1,3 +1,4 @@
+import { DEFAULT_AMMO_DATA } from "../../config/default-item-data.js";
 import { UpdateWeapon } from "../../data/rules/items/weapon-calculations.js";
 import { WEAPON_SIMILARITY_MODIFIERS } from "../../utils/lookup.js";
 
@@ -158,6 +159,51 @@ export function ItemListeners(sheet, html) {
     });
 
     sheet.render(); // refresh UI
+  });
+
+  html.find(".add-ammo").on("click", async (ev) => {
+    const actor = sheet.actor;
+
+    const name = await Dialog.prompt({
+      title: "Create Ammo",
+      label: "Ammo Name",
+      callback: (html) => html.find("input").val(),
+      content: `
+      <p>Enter the name of the new ammo:</p>
+      <input type="text" style="width:100%;" />
+    `
+    });
+
+    if (!name) return;
+
+    // 1. Create the ammo item on the actor
+    const [ammo] = await actor.createEmbeddedDocuments("Item", [
+      {
+        name,
+        type: "ammo",
+        system: foundry.utils.deepClone(DEFAULT_AMMO_DATA)
+      }
+    ]);
+
+    // 2. Find the weapon this button belongs to
+    const weaponId = ev.currentTarget.closest("[data-item-id]")?.dataset.itemId;
+    const weapon = actor.items.get(weaponId);
+
+    if (!weapon) {
+      ui.notifications.error("Could not find weapon to attach ammo.");
+      return;
+    }
+
+    // 3. Append ammo ID to weapon.system.ammo[]
+    const updatedAmmo = [...(weapon.system.ammo ?? []), { id: ammo.id }];
+
+    await weapon.update({
+      "system.ammo": updatedAmmo
+    });
+
+    ui.notifications.info(`Added custom ammo: ${name}`);
+
+    sheet.render(false);
   });
 
   html.find(".ammo-edit").click((ev) => {

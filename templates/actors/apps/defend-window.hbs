@@ -30,36 +30,12 @@
     </p>
   </section>
 
-  <section style="margin-top: 1em;">
-    <h3>
-      Defense Type
-    </h3>
-    <div class="defense-buttons">
-      <button class="def-btn button" data-type="block">
-        Block
-      </button>
-      <button class="def-btn button" data-type="dodge">
-        Dodge
-      </button>
-      <button class="def-btn button" data-type="projection">
-        Projection
-      </button>
-    </div>
-  </section>
   {{#if manual}}
-    <section>
+    <section style="margin-top: 1em;">
       <h3>
         Manual Defense Value
       </h3>
       <input type="number" id="manualDefense" value="{{defenseValue}}" style="width: 100%;" />
-    </section>
-
-    <section style="margin-top: 1em;">
-      <h3>
-        Attack Modifier
-      </h3>
-      <input type="number" id="manualMod" value="{{modifier}}" style="width: 100%;" />
-
       <h3>
         AT Value
       </h3>
@@ -77,4 +53,21 @@
       </div>
     </section>
   {{/if}}
+
+  <section style="margin-top: 1em;">
+    <h3>
+      Defense Type
+    </h3>
+    <div class="defense-buttons">
+      <button class="def-btn button" data-type="block">
+        Block: {{block}}
+      </button>
+      <button class="def-btn button" data-type="dodge">
+        Dodge: {{dodge}}
+      </button>
+      <button class="def-btn button" data-type="projection">
+        Projection: {{projection}}
+      </button>
+    </div>
+  </section>
 </div>

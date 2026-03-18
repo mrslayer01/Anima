@@ -321,8 +321,8 @@ function promptMagicAccumulationMode() {
             Half MA (while performing other actions)
           </label>
           <label style="display:block;">
-            <input type="number" name="maMod" value="0" />
             Modifier
+            <input type="number" name="maMod" value="0" />
           </label>
         </div>
       `,

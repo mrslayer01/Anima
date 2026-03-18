@@ -256,42 +256,11 @@ export function RollListeners(sheet, html) {
     const defenderUser = getPreferredDefenderUser(targetActor);
     //console.log("Defender user:", defenderUser?.name, "active:", defenderUser?.active);
 
-    let defense;
-
-    // ---------------------------------------------------------
-    // CASE A — Attacker and Defender are the SAME user → local prompt
-    // ---------------------------------------------------------
-    if (defenderUser.id === game.user.id) {
-      //console.log("GM is defender → showing local defense dialog.");
-      defense = await promptDefenseChoice(targetActor, attackData);
-    }
-
-    // ---------------------------------------------------------
-    // CASE B — Defender is ONLINE → send socket prompt
-    // ---------------------------------------------------------
-    else if (defenderUser.active) {
-      //console.log("Defender online → sending socket prompt.");
-
-      game.socket.emit("system.abf-system", {
-        type: "defense:prompt",
-        userId: defenderUser.id,
-        attackerId: game.user.id,
-        targetId: targetActor.id,
-        attackData
-      });
-
-      defense = await waitForDefenseResponse(game.user.id);
-    }
-
-    // ---------------------------------------------------------
-    // CASE C — Defender is OFFLINE → GM handles locally
-    // ---------------------------------------------------------
-    else {
-      //console.log("Defender offline → GM handles defense locally.");
-      defense = await promptDefenseChoice(targetActor, attackData);
-    }
+    let defense = await getDefense(defenderUser, targetActor, attackData);
 
     const { type, modifier } = defense;
+
+    console.log(type, modifier);
 
     // ---------------------------------------------------------
     // DEFENSE CALCULATION (LOCAL TO ATTACKER)
@@ -520,7 +489,8 @@ async function manualDefend(sheet, attackData) {
   const result = await new Promise((resolve) => {
     new DefendWindow(resolve, {
       manual: true,
-      attackData
+      attackData,
+      defValue: 0
     }).render(true);
   });
 
@@ -542,7 +512,7 @@ async function manualDefend(sheet, attackData) {
     dodgeMastery
   );
 
-  console.log(result);
+  //console.log(dodgeMastery, blockMastery, defensePenalty);
 
   const defenseFinal = result.defenseValue + defensePenalty;
   const modifier = result.modifier;
@@ -580,13 +550,21 @@ async function manualDefend(sheet, attackData) {
 
 async function getDefense(defenderUser, targetActor, attackData) {
   let defense;
+  const block = toNum(targetActor.system.abilities.primary.Combat.Block.final);
+  const dodge = toNum(targetActor.system.abilities.primary.Combat.Dodge.final);
+  const projection = toNum(
+    targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
+  );
+  const options = { targetActor, attackData, block, dodge, projection };
+
+  console.log(options);
 
   // ---------------------------------------------------------
   // CASE A — Attacker and Defender are the SAME user → local prompt
   // ---------------------------------------------------------
   if (defenderUser.id === game.user.id) {
     //console.log("GM is defender → showing local defense dialog.");
-    defense = await promptDefenseChoice(targetActor, attackData);
+    defense = await promptDefenseChoice(options);
   }
 
   // ---------------------------------------------------------
@@ -610,14 +588,14 @@ async function getDefense(defenderUser, targetActor, attackData) {
   // ---------------------------------------------------------
   else {
     //console.log("Defender offline → GM handles defense locally.");
-    defense = await promptDefenseChoice(targetActor, attackData);
+    defense = await promptDefenseChoice(options);
   }
   return defense;
 }
 
 function DefensePenalty(weaponType, type, blockMastery, equippedshield, dodgeMastery) {
   let penalty = 0;
-  console.log(blockMastery, equippedshield, dodgeMastery);
+  // Projection sufferens no penalties when defending, regardless of the attack.
   if (weaponType === "projectile") {
     if (type === "block") {
       // If blocking check if has mastery or is wearing a shield.
@@ -636,7 +614,8 @@ function DefensePenalty(weaponType, type, blockMastery, equippedshield, dodgeMas
           penalty = -30;
         }
       }
-    } else {
+    }
+    if (type === "dodge") {
       // If dodging check if has mastery.
       if (!dodgeMastery) {
         // If dodging and does not have mastery it's -30
@@ -657,12 +636,8 @@ function DefensePenalty(weaponType, type, blockMastery, equippedshield, dodgeMas
       penalty = -120;
     } else if (type === "dodge") {
       penalty = -80;
-    } else {
-      // Magic Prjection suffers no penalty when defending against an AOE.
     }
   }
-
-  console.log(penalty);
   return penalty;
 }
 
@@ -689,14 +664,13 @@ async function animaOpenRollCapture(opts) {
 
 export function promptAttackModifierWindow(options = {}) {
   return new Promise((resolve) => {
-    const win = new CombatWindow(resolve, options);
-    win.render(true);
+    new CombatWindow(resolve, options).render(true);
   });
 }
 
-export async function promptDefenseChoice(targetActor, attackData) {
+export async function promptDefenseChoice(options) {
   return new Promise((resolve) => {
-    new DefendWindow(resolve, { targetActor, attackData }).render(true);
+    new DefendWindow(resolve, options).render(true);
   });
 }
 
