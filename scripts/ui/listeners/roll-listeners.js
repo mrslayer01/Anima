@@ -233,12 +233,15 @@ export function RollListeners(sheet, html) {
 
     const targets = Array.from(game.user.targets);
     const target = targets[0] ?? null;
+    const isAOE = false;
+    const weaponType = w.weaponType;
+    const attackData = { attackValue, armorPen, directed, attackType, weaponType, isAOE };
 
     // ---------------------------------------------------------
     // CASE 1: NO TARGET → MANUAL DEFENSE ENTRY
     // ---------------------------------------------------------
     if (!target) {
-      return await manualDefend(attackValue, armorPen, directed, attackType, sheet);
+      return await manualDefend(sheet, attackData);
     }
 
     // ---------------------------------------------------------
@@ -259,7 +262,7 @@ export function RollListeners(sheet, html) {
     // ---------------------------------------------------------
     if (defenderUser.id === game.user.id) {
       //console.log("GM is defender → showing local defense dialog.");
-      defense = await promptDefenseChoice(targetActor);
+      defense = await promptDefenseChoice(targetActor, attackData);
     }
 
     // ---------------------------------------------------------
@@ -273,7 +276,7 @@ export function RollListeners(sheet, html) {
         userId: defenderUser.id,
         attackerId: game.user.id,
         targetId: targetActor.id,
-        attackData: { attackValue, region, directed, attackType, armorPen }
+        attackData
       });
 
       defense = await waitForDefenseResponse(game.user.id);
@@ -284,7 +287,7 @@ export function RollListeners(sheet, html) {
     // ---------------------------------------------------------
     else {
       //console.log("Defender offline → GM handles defense locally.");
-      defense = await promptDefenseChoice(targetActor);
+      defense = await promptDefenseChoice(targetActor, attackData);
     }
 
     const { type, modifier } = defense;
@@ -331,7 +334,7 @@ export function RollListeners(sheet, html) {
       baseAT = targetActor.system.armor.total[attackType];
     }
 
-    let defATValue = baseAT - armorPen;
+    let defATValue = baseAT - attackData.armorPen;
     if (defATValue < 0) defATValue = 0;
 
     // ---------------------------------------------------------
@@ -358,9 +361,9 @@ export function RollListeners(sheet, html) {
           attackerRoll,
           defenderRoll,
           defATValue,
-          armorPen,
-          directed,
-          attackType
+          attackData.armorPen,
+          attackData.directed,
+          attackData.attackType
         ),
       2000
     );
@@ -393,7 +396,10 @@ export function RollListeners(sheet, html) {
 
     attackValue += final;
 
-    //console.log("Is AOE", isAOE);
+    let armorPen = 0; // spells normally have no armor penetration
+    const weaponType = "Spell Attack";
+
+    const attackData = { attackValue, armorPen, directed, attackType, weaponType, isAOE };
 
     // ---------------------------------------------------------
     // CHECK ZEON
@@ -408,8 +414,6 @@ export function RollListeners(sheet, html) {
       }
     }
 
-    let armorPen = 0; // spells normally have no armor penetration
-
     const targets = Array.from(game.user.targets);
     const target = targets[0] ?? null;
 
@@ -417,7 +421,7 @@ export function RollListeners(sheet, html) {
     // CASE 1: NO TARGET → MANUAL DEFENSE ENTRY
     // ---------------------------------------------------------
     if (!target) {
-      return await manualDefend(attackValue, armorPen, directed, attackType, sheet);
+      return await manualDefend(sheet, attackData);
     }
 
     // ---------------------------------------------------------
@@ -431,23 +435,13 @@ export function RollListeners(sheet, html) {
 
     const defenderUser = getPreferredDefenderUser(targetActor);
 
-    let defense = await getDefense(
-      defenderUser,
-      targetActor,
-      attackValue,
-      region,
-      directed,
-      attackType,
-      armorPen,
-      isAOE
-    );
+    let defense = await getDefense(defenderUser, targetActor, attackData);
 
     const { type, modifier } = defense;
 
     // ---------------------------------------------------------
     // DEFENSE CALCULATION (LOCAL TO ATTACKER)
     // ---------------------------------------------------------
-    const blockMastery = targetActor.system.abilities.primary.Combat.Block.mastery;
     const dodgeMastery = targetActor.system.abilities.primary.Combat.Dodge.mastery;
 
     let defenseValue = 0;
@@ -511,20 +505,20 @@ export function RollListeners(sheet, html) {
           attackerRoll,
           defenderRoll,
           defATValue,
-          armorPen,
-          directed,
-          attackType
+          attackData.armorPen,
+          attackData.directed,
+          attackData.attackType
         ),
       2000
     );
   });
 }
 
-async function manualDefend(attackValue, armorPen, directed, attackType, sheet) {
+async function manualDefend(sheet, attackData) {
   const result = await new Promise((resolve) => {
     new DefendWindow(resolve, {
       manual: true,
-      attackData: { attackValue, armorPen, directed, attackType }
+      attackData
     }).render(true);
   });
 
@@ -534,7 +528,7 @@ async function manualDefend(attackValue, armorPen, directed, attackType, sheet) 
   const modifier = result.modifier;
   const manualAT = result.manualAT;
 
-  const finalAttack = attackValue + modifier;
+  const finalAttack = attackData.attackValue + modifier;
 
   const defender = await animaOpenRollCapture({
     value: defenseFinal,
@@ -549,23 +543,22 @@ async function manualDefend(attackValue, armorPen, directed, attackType, sheet) 
   });
 
   setTimeout(
-    () => postCombinedCombatCard(attacker, defender, manualAT, armorPen, directed, attackType),
+    () =>
+      postCombinedCombatCard(
+        attacker,
+        defender,
+        manualAT,
+        attackData.armorPen,
+        attackData.directed,
+        attackData.attackType
+      ),
     2000
   );
 
   return;
 }
 
-async function getDefense(
-  defenderUser,
-  targetActor,
-  attackValue,
-  region,
-  directed,
-  attackType,
-  armorPen,
-  isAOE
-) {
+async function getDefense(defenderUser, targetActor, attackData) {
   let defense;
 
   // ---------------------------------------------------------
@@ -573,7 +566,7 @@ async function getDefense(
   // ---------------------------------------------------------
   if (defenderUser.id === game.user.id) {
     //console.log("GM is defender → showing local defense dialog.");
-    defense = await promptDefenseChoice(targetActor);
+    defense = await promptDefenseChoice(targetActor, attackData);
   }
 
   // ---------------------------------------------------------
@@ -586,7 +579,7 @@ async function getDefense(
       userId: defenderUser.id,
       attackerId: game.user.id,
       targetId: targetActor.id,
-      attackData: { attackValue, region, directed, attackType, armorPen, isAOE }
+      attackData
     });
 
     defense = await waitForDefenseResponse(game.user.id);
@@ -597,7 +590,7 @@ async function getDefense(
   // ---------------------------------------------------------
   else {
     //console.log("Defender offline → GM handles defense locally.");
-    defense = await promptDefenseChoice(targetActor);
+    defense = await promptDefenseChoice(targetActor, attackData);
   }
   return defense;
 }
@@ -641,8 +634,10 @@ function DefensePenalty(weaponType, type, blockMastery, equippedshield, dodgeMas
     // When attempoting to defend against an AOE attack, they only primary option is to try and dodge. It gives a -80 by default. If attempts to block it's -120.
     if (type === "block") {
       penalty = -120;
-    } else {
+    } else if (type === "dodge") {
       penalty = -80;
+    } else {
+      // Magic Prjection suffers no penalty when defending against an AOE.
     }
   }
   return penalty;
@@ -676,9 +671,9 @@ export function promptAttackModifierWindow(options = {}) {
   });
 }
 
-export async function promptDefenseChoice(targetActor) {
+export async function promptDefenseChoice(targetActor, attackData) {
   return new Promise((resolve) => {
-    new DefendWindow(resolve, { targetActor }).render(true);
+    new DefendWindow(resolve, { targetActor, attackData }).render(true);
   });
 }
 
@@ -699,7 +694,7 @@ function postCombinedCombatCard(attacker, defender, defenderAT, armorPen, direct
   const content = `
     <h4>Combat Exchange</h4>
 
-    <h5>Attacker: ${attacker.actor.name}</h5>
+    <h5>Attacker: ${attacker.actor.name}'s ${attacker.label}</h5>
     <b>Bonus:</b> ${attacker.bonus}<br>
     <b>Attack Type:</b> ${attackType}<br>
     ${armorPen > 0 ? `<b>Armor Pen:</b> ${armorPen}<br>` : ""}
@@ -708,7 +703,7 @@ function postCombinedCombatCard(attacker, defender, defenderAT, armorPen, direct
     <br>
     <b>Final:</b> ${attacker.final}<br>
     <hr>
-    <h5>Defender: ${defender.actor.name}</h5>
+    <h5>Defender: ${defender.actor.name}'s ${defender.label}</h5>
     <b>AT:</b> ${defenderAT}<br>
     <b>Bonus:</b> ${defender.bonus}<br>
     <b>Breakdown:</b><br>${defender.rawRolls.join("<br>")}

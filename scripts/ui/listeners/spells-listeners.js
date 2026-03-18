@@ -215,7 +215,7 @@ export function SpellsListeners(sheet, html) {
     let baseZeonReserve = zeonPath.reserve;
 
     if (baseZeonReserve === 0)
-      return ui.notifications.warn("Did not have enough left in Zeon Reserve!");
+      return ui.notifications.error("Not enough left in Zeon Reserve to pull from!");
 
     let finalZeonAccumulated = 0;
     let finalZeonReserve = 0;
@@ -228,32 +228,40 @@ export function SpellsListeners(sheet, html) {
 
     let isHalfMA = result.mode === "half" ?? false;
 
+    const finalMA = maFinal + toNum(result.modifier);
+
     if (isHalfMA) {
       // Add half of the total MA to the zeon temp field, while subtracting from reserve.
       // First make sure reserve has enough, if it does not, remove the remaining and add that to the temp field.
-      if (halfMA(maFinal) > baseZeonReserve) {
+      if (halfMA(finalMA) > baseZeonReserve) {
         // Trying to pull more than the reserve has. Pull what it can since it can't go negative.
         hasEnoughReserve = false;
 
         finalZeonAccumulated = baseZeonAccumulated + baseZeonReserve;
         finalZeonReserve = 0;
+
+        ui.notifications.info(`Accumulated ${baseZeonReserve} Zeon.`);
       } else {
         // Has enough in reserve to pull.
-        finalZeonAccumulated = baseZeonAccumulated + halfMA(maFinal);
-        finalZeonReserve = baseZeonReserve - halfMA(maFinal);
+        finalZeonAccumulated = baseZeonAccumulated + halfMA(finalMA);
+        finalZeonReserve = baseZeonReserve - halfMA(finalMA);
+
+        ui.notifications.info(`Accumulated ${halfMA(finalMA)} Zeon.`);
       }
     } else {
       // Add the total MA to the zeon temp field, while subtracting from reserve.
       // First make sure reserve has enough, if it does not, remove the remaining and add that to the temp field.
-      if (maFinal > baseZeonReserve) {
+      if (finalMA > baseZeonReserve) {
         // Trying to pull more than the reserve has. Pull what it can since it can't go negative.
         hasEnoughReserve = false;
         finalZeonAccumulated = baseZeonAccumulated + baseZeonReserve;
         finalZeonReserve = 0;
+        ui.notifications.info(`Accumulated ${baseZeonReserve} Zeon.`);
       } else {
         // Has enough in reserve to pull.
-        finalZeonAccumulated = baseZeonAccumulated + maFinal;
-        finalZeonReserve = baseZeonReserve - maFinal;
+        finalZeonAccumulated = baseZeonAccumulated + finalMA;
+        finalZeonReserve = baseZeonReserve - finalMA;
+        ui.notifications.info(`Accumulated ${finalMA} Zeon.`);
       }
     }
 
@@ -264,7 +272,7 @@ export function SpellsListeners(sheet, html) {
 
     if (!hasEnoughReserve)
       return ui.notifications.warn(
-        "Did not have enough left in Zeon Reserve! Withdrew what was left."
+        `Did not have enough left in Zeon Reserve! Withdrew what was left.`
       );
   });
 
@@ -312,6 +320,10 @@ function promptMagicAccumulationMode() {
             <input type="radio" name="maMode" value="half" />
             Half MA (while performing other actions)
           </label>
+          <label style="display:block;">
+            <input type="number" name="maMod" value="0" />
+            Modifier
+          </label>
         </div>
       `,
       buttons: {
@@ -319,7 +331,8 @@ function promptMagicAccumulationMode() {
           label: "Confirm",
           callback: (html) => {
             const mode = html.find('input[name="maMode"]:checked').val();
-            resolve({ mode }); // "full" or "half"
+            const modifier = html.find('input[name="maMod"]').val();
+            resolve({ mode, modifier }); // "full" or "half"
           }
         },
         cancel: {

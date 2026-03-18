@@ -115,7 +115,7 @@ export function ClassListeners(sheet, html) {
   html.find(".class-level-input").off("change");
   html.find(".class-level-input").on("change", async (event) => {
     const index = toNum(event.currentTarget.dataset.index);
-    const newLevel = toNum(event.currentTarget.value) || 1;
+    const newLevel = toNum(event.currentTarget.value) || 0;
 
     const classes = foundry.utils.duplicate(sheet.actor.system.classes);
     classes[index].level = newLevel;

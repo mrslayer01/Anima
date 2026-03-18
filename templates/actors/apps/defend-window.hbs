@@ -1,9 +1,36 @@
 <div class="advantage">
   <section>
     <h3>
-      Situational Modifier
+      Modifier
     </h3>
     <input type="number" id="defMod" value="{{modifier}}" style="width: 100%;" />
+  </section>
+  <section>
+    <p>
+      <b>
+        Incoming Attack:
+      </b>
+      {{attack.attackValue}}
+    </p>
+    <p>
+      Region: {{humanize attack.directed}}
+    </p>
+    <p>
+      Weapon: {{humanize attack.weaponType}}
+    </p>
+    <p>
+      Type: {{humanize attack.attackType}}
+    </p>
+    <p
+      data-tooltip="If defending against an AOE attack. It's -120 to block and -80 to dodge. Unless you have enough 1/4 movement to escape the radius, in that case there is no penalty."
+    >
+      AOE:
+      {{#if attack.isAOE}}
+        <i class="fas fa-check"></i>
+      {{else}}
+        <i class="fas fa-times"></i>
+      {{/if}}
+    </p>
   </section>
 
   <section style="margin-top: 1em;">

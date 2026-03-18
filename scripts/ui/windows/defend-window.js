@@ -11,6 +11,8 @@ export class DefendWindow extends Application {
     this.modifier = 0;
     this.defenseValue = 0;
     this.manualAT = 0;
+
+    console.log(this.attackData);
   }
 
   static get defaultOptions() {
