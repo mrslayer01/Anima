@@ -17,8 +17,15 @@ export class FatigueRule extends BaseRule {
 
     const hasExhausted = disadvantages.find((l) => l.name === "Exhausted");
 
-    system.core.fatigue.final =
-      toNum(system.characteristics.Constitution.base) + toNum(system.core.fatigue.special);
+    if (hasExhausted) {
+      // Final = base + special -1
+      system.core.fatigue.final =
+        toNum(system.characteristics.Constitution.base) + toNum(system.core.fatigue.special) - 1;
+    } else {
+      system.core.fatigue.final =
+        toNum(system.characteristics.Constitution.base) + toNum(system.core.fatigue.special);
+    }
+
     if (toNum(system.core.fatigue.final) <= 4) {
       //If has a fatigue of 4 or lower, don't start calculating until current does not match final
       if (toNum(system.core.fatigue.current) < toNum(system.core.fatigue.final)) {
@@ -76,8 +83,15 @@ export class FatigueRule extends BaseRule {
 
     const hasExhausted = disadvantages.find((l) => l.name === "Exhausted");
 
-    system.core.fatigue.final =
-      toNum(system.characteristics.Constitution.base) + toNum(system.core.fatigue.special);
+    if (hasExhausted) {
+      // Final = base + special -1
+      system.core.fatigue.final =
+        toNum(system.characteristics.Constitution.base) + toNum(system.core.fatigue.special) - 1;
+    } else {
+      system.core.fatigue.final =
+        toNum(system.characteristics.Constitution.base) + toNum(system.core.fatigue.special);
+    }
+
     if (toNum(system.core.fatigue.final) <= 4) {
       //If has a fatigue of 4 or lower, don't start calculating until current does not match final
       if (toNum(system.core.fatigue.current) < toNum(system.core.fatigue.final)) {
