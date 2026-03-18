@@ -1,5 +1,1 @@
-2026/03/18-08:00:09.826 ab24 Log #206: 0 ops saved to Table #207 OK
-2026/03/18-08:00:09.827 ab24 Archiving D:\foundry\Data\Data\systems\abf-system\packs\items/000206.log: OK
-2026/03/18-08:00:09.829 ab24 Table #204: 573 entries OK
-2026/03/18-08:00:09.867 ab24 Archiving D:\foundry\Data\Data\systems\abf-system\packs\items/MANIFEST-000216: OK
-2026/03/18-08:00:09.906 ab24 **** Repaired leveldb D:\foundry\Data\Data\systems\abf-system\packs\items; recovered 1 files; 215542 bytes. Some data may have been lost. ****
+2026/03/18-08:00:09.973 ab24 Delete type=3 #1

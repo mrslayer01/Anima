@@ -199,7 +199,8 @@ export function RollListeners(sheet, html) {
       attackType: atkTypeInitial
     } = await promptAttackModifierWindow({
       isSpellAttack: false,
-      weapon: w
+      weapon: w,
+      attackValue
     });
 
     let attackType = atkTypeInitial;
@@ -391,7 +392,8 @@ export function RollListeners(sheet, html) {
 
     const { final, region, directed, attackType, zeonCost, isAOE } =
       await promptAttackModifierWindow({
-        isSpellAttack: true
+        isSpellAttack: true,
+        attackValue
       });
 
     attackValue += final;
@@ -522,9 +524,27 @@ async function manualDefend(sheet, attackData) {
     }).render(true);
   });
 
-  // result contains:
-  // { manual: true, type, defenseValue, modifier, manualAT }
-  const defenseFinal = result.defenseValue;
+  //    const attackData = { attackValue, armorPen, directed, attackType, weaponType, isAOE };
+
+  let dodgeMastery = false;
+  let blockMastery = false;
+
+  if (result.defenseValue >= 200) {
+    if (result.type === "dodge") dodgeMastery = true;
+    if (result.type === "block") blockMastery = true;
+  }
+
+  let defensePenalty = DefensePenalty(
+    attackData.weaponType,
+    result.type,
+    blockMastery,
+    result.hasShield,
+    dodgeMastery
+  );
+
+  console.log(result);
+
+  const defenseFinal = result.defenseValue + defensePenalty;
   const modifier = result.modifier;
   const manualAT = result.manualAT;
 
@@ -597,6 +617,7 @@ async function getDefense(defenderUser, targetActor, attackData) {
 
 function DefensePenalty(weaponType, type, blockMastery, equippedshield, dodgeMastery) {
   let penalty = 0;
+  console.log(blockMastery, equippedshield, dodgeMastery);
   if (weaponType === "projectile") {
     if (type === "block") {
       // If blocking check if has mastery or is wearing a shield.
@@ -640,6 +661,8 @@ function DefensePenalty(weaponType, type, blockMastery, equippedshield, dodgeMas
       // Magic Prjection suffers no penalty when defending against an AOE.
     }
   }
+
+  console.log(penalty);
   return penalty;
 }
 

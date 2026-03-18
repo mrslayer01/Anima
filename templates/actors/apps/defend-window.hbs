@@ -13,9 +13,6 @@
       {{attack.attackValue}}
     </p>
     <p>
-      Region: {{humanize attack.directed}}
-    </p>
-    <p>
       Weapon: {{humanize attack.weaponType}}
     </p>
     <p>
@@ -67,6 +64,17 @@
         AT Value
       </h3>
       <input type="number" id="manualAT" value="{{manualAT}}" style="width: 100%;" />
+
+      <h3>
+        Has Shield
+      </h3>
+      <div class="clickable shield-toggle">
+        {{#if hasShield}}
+          <i class="fas fa-check"></i>
+        {{else}}
+          <i class="fas fa-times"></i>
+        {{/if}}
+      </div>
     </section>
   {{/if}}
 </div>

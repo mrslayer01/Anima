@@ -12,6 +12,8 @@ export class DefendWindow extends Application {
     this.defenseValue = 0;
     this.manualAT = 0;
 
+    this.hasShield = false;
+
     console.log(this.attackData);
   }
 
@@ -33,7 +35,8 @@ export class DefendWindow extends Application {
       manual: this.manual,
       defenseValue: this.defenseValue,
       manualAT: this.manualAT,
-      attack: this.attackData
+      attack: this.attackData,
+      hasShield: this.hasShield
     };
   }
 
@@ -55,7 +58,8 @@ export class DefendWindow extends Application {
           type,
           defenseValue: this.defenseValue,
           modifier: this.modifier,
-          manualAT: this.manualAT
+          manualAT: this.manualAT,
+          hasShield: this.hasShield
         });
       } else {
         this._resolve({
@@ -79,6 +83,11 @@ export class DefendWindow extends Application {
 
       html.find("#manualAT").on("input", (ev) => {
         this.manualAT = toNum(ev.target.value);
+      });
+
+      html.find(".shield-toggle").on("click", async (ev) => {
+        this.hasShield = !this.hasShield;
+        this.render();
       });
     }
   }

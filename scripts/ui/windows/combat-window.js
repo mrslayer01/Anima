@@ -8,6 +8,9 @@ export class CombatWindow extends Application {
     this.isSpellAttack = options.isSpellAttack ?? false;
     this.weapon = options.weapon ?? null;
     this.isAOE = options.isAOE ?? false;
+    this.atkValue = options.attackValue ?? 0;
+
+    console.log(options);
   }
 
   static get defaultOptions() {
@@ -34,7 +37,8 @@ export class CombatWindow extends Application {
           value
         })),
         isSpellAttack: this.isSpellAttack,
-        attackTypes: weaponAttackTypes
+        attackTypes: weaponAttackTypes,
+        atkValue: this.atkValue
       };
     } else {
       return {
@@ -47,7 +51,8 @@ export class CombatWindow extends Application {
         })),
         isSpellAttack: this.isSpellAttack,
         attackTypes: SPELL_ATTACK_TYPES,
-        isAOE: this.isAOE
+        isAOE: this.isAOE,
+        atkValue: this.atkValue
       };
     }
   }
@@ -59,8 +64,9 @@ export class CombatWindow extends Application {
       const atkMod = toNum(html.find("#atkMod").val());
       const part = html.find("#directedAttack").val();
       const directedPenalty = DIRECTED_ATTACK_TABLE[part] ?? 0;
-      const total = atkMod + directedPenalty;
+      const total = this.atkValue + atkMod + directedPenalty;
 
+      console.log(this.atkValue);
       html.find("#totalMod").text(total);
     };
 

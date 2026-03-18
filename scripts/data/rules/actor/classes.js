@@ -141,16 +141,36 @@ function PrimaryAbilities(
     }
   }
 
-  for (const innate of allPrimaryInnateBonuses) {
-    const name = normalizeAbilityName(innate.name);
-    if (name === "Zeon") {
-      system.abilities.primary.Supernatural.Zeon.class = toNum(innate.innateBonus) * level;
-    } else if (system.abilities?.primary?.Combat[name]) {
-      let finalClassBonus = toNum(innate.innateBonus) * level;
-      if (finalClassBonus > 50) finalClassBonus = 50;
-      system.abilities.primary.Combat[name].class = finalClassBonus;
-    } else if (system.abilities?.primary?.Supernatural[name]) {
-      system.abilities.primary.Supernatural[name].class = toNum(innate.innateBonus) * level;
+  if (level < 1) {
+    // Level 0 classes only get half their innate bonus.
+    for (const innate of allPrimaryInnateBonuses) {
+      const name = normalizeAbilityName(innate.name);
+      if (name === "Zeon") {
+        system.abilities.primary.Supernatural.Zeon.class = Math.round(
+          toNum(innate.innateBonus) / 2
+        );
+      } else if (system.abilities?.primary?.Combat[name]) {
+        let finalClassBonus = Math.round(toNum(innate.innateBonus) / 2);
+        if (finalClassBonus > 50) finalClassBonus = 50;
+        system.abilities.primary.Combat[name].class = finalClassBonus;
+      } else if (system.abilities?.primary?.Supernatural[name]) {
+        system.abilities.primary.Supernatural[name].class = Math.round(
+          toNum(innate.innateBonus) / 2
+        );
+      }
+    }
+  } else {
+    for (const innate of allPrimaryInnateBonuses) {
+      const name = normalizeAbilityName(innate.name);
+      if (name === "Zeon") {
+        system.abilities.primary.Supernatural.Zeon.class = toNum(innate.innateBonus) * level;
+      } else if (system.abilities?.primary?.Combat[name]) {
+        let finalClassBonus = toNum(innate.innateBonus) * level;
+        if (finalClassBonus > 50) finalClassBonus = 50;
+        system.abilities.primary.Combat[name].class = finalClassBonus;
+      } else if (system.abilities?.primary?.Supernatural[name]) {
+        system.abilities.primary.Supernatural[name].class = toNum(innate.innateBonus) * level;
+      }
     }
   }
 }
@@ -164,18 +184,37 @@ function SecondaryAbilities(system, allSecondaryInnateBonuses, allSecondaryAbili
     }
   }
 
-  for (const innate of allSecondaryInnateBonuses) {
-    const name = normalizeAbilityName(innate.name);
-    const value = toNum(innate.innateBonus) * level;
+  if (level < 1) {
+    // Level 0 classes only get half their innate bonus.
+    for (const innate of allSecondaryInnateBonuses) {
+      const name = normalizeAbilityName(innate.name);
+      const value = Math.round(toNum(innate.innateBonus) / 2);
 
-    for (const category of Object.values(system.abilities.secondary)) {
-      const ability = category[name];
-      if (ability) {
-        ability.class = value;
-        if (innate.reducedCost > 0) {
-          ability.cost = innate.reducedCost;
+      for (const category of Object.values(system.abilities.secondary)) {
+        const ability = category[name];
+        if (ability) {
+          ability.class = value;
+          if (innate.reducedCost > 0) {
+            ability.cost = innate.reducedCost;
+          }
+          break;
         }
-        break;
+      }
+    }
+  } else {
+    for (const innate of allSecondaryInnateBonuses) {
+      const name = normalizeAbilityName(innate.name);
+      const value = toNum(innate.innateBonus) * level;
+
+      for (const category of Object.values(system.abilities.secondary)) {
+        const ability = category[name];
+        if (ability) {
+          ability.class = value;
+          if (innate.reducedCost > 0) {
+            ability.cost = innate.reducedCost;
+          }
+          break;
+        }
       }
     }
   }
