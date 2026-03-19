@@ -260,8 +260,6 @@ export function RollListeners(sheet, html) {
 
     const { type, modifier } = defense;
 
-    console.log(type, modifier);
-
     // ---------------------------------------------------------
     // DEFENSE CALCULATION (LOCAL TO ATTACKER)
     // ---------------------------------------------------------
@@ -557,7 +555,7 @@ async function getDefense(defenderUser, targetActor, attackData) {
   );
   const options = { targetActor, attackData, block, dodge, projection };
 
-  console.log(options);
+  //console.log(options);
 
   // ---------------------------------------------------------
   // CASE A — Attacker and Defender are the SAME user → local prompt

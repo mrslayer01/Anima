@@ -243,6 +243,9 @@ export function ValidateDP(name, value, input, actor) {
     }
   }
 
+  // // NPC Validation
+  // ValidateNPCPowerDP;
+
   return value;
 }
 
@@ -250,4 +253,20 @@ function ValidateDPRemaining(dpCost, actor) {
   const dp = actor.system.developmentPoints;
 
   return dpCost > dp.remaining;
+}
+
+export function ValidateNPCPowerDP(dpCost, actor) {
+  // if (actor.system.settings.isNPC) return true;
+
+  const dp = actor.system.developmentPoints;
+
+  // Half DP rule
+  const maxPowerDP = Math.floor(dp.final / 2);
+
+  // Sum NPCPower spentRecords
+  const spentOnPowers = dp.spentRecords
+    .filter((r) => r.category === "NPCPower")
+    .reduce((sum, r) => sum + r.amount * r.cost, 0);
+
+  return spentOnPowers + dpCost <= maxPowerDP;
 }

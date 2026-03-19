@@ -1,0 +1,40 @@
+<div class="npc-power-browser">
+
+  <div class="browser-controls">
+    <input
+      type="text"
+      class="npc-power-search"
+      placeholder="Search powers..."
+      value="{{search}}"
+    />
+
+    <select class="npc-power-filter select">
+      {{#each types}}
+        <option value="{{this}}" {{#if (eq this ../filterType)}}selected{{/if}}>
+          {{this}}
+        </option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="effects-grid">
+    {{#each powers}}
+      <div class="gift-entry">
+        <div class="power-header">
+          <h3>{{this.name}}</h3>
+          <span class="power-type abf-text">{{this.type}}</span>
+        </div>
+
+        <p class="power-meta abf-text">
+          <strong>Effects:</strong> {{this.effects.length}}
+        </p>
+
+        <div class="power-actions">
+          <button class="open-power button" data-key="{{this.key}}">Effects</button>
+          <button class="add-power button" data-key="{{this.key}}">Add</button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+</div>

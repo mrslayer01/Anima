@@ -1,0 +1,66 @@
+<h3>
+  NPC Powers
+</h3>
+
+<table class="classes-table npc-powers-table">
+  <thead>
+    <tr>
+      <th>
+        Power
+      </th>
+      <th>
+        Type
+      </th>
+      <th>
+        Purchased Effects
+      </th>
+
+      {{#if @root.actor.system.lockUi}}
+        <th></th>
+      {{else}}
+        <th class="class-actions-header">
+          <a class="add-npc-power" data-tooltip="Add NPC Power">
+            <i class="fas fa-plus-circle"></i>
+          </a>
+        </th>
+      {{/if}}
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each system.npc.abilities as |ability idx|}}
+      <tr>
+        <td
+          class="npc-power-name clickable-npc-power clickable"
+          data-index="{{idx}}"
+          data-power="{{ability.name}}"
+          data-tooltip="Click to view and purchase effects."
+        >
+          {{ability.name}}
+        </td>
+
+        <td>
+          {{ability.type}}
+        </td>
+
+        <td>
+          {{#if ability.purchasedAbilities}}
+            {{ability.purchasedAbilities.length}}
+          {{else}}
+            0
+          {{/if}}
+        </td>
+
+        {{#if @root.actor.system.lockUi}}
+          <td></td>
+        {{else}}
+          <td>
+            <a class="delete-power" data-index="{{idx}}" data-tooltip="Delete Power">
+              <i class="fas fa-trash"></i>
+            </a>
+          </td>
+        {{/if}}
+      </tr>
+    {{/each}}
+  </tbody>
+</table>

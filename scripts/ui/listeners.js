@@ -6,6 +6,7 @@ import { InventoryListeners } from "./listeners/inventory-listeners.js";
 import { ItemListeners } from "./listeners/item-listeners.js";
 import { LanguageContactTitlesListeners } from "./listeners/lang-contact-titles-listeners.js";
 import { ModuelsListeners } from "./listeners/modules-listeners.js";
+import { NpcListeners } from "./listeners/npc-listeners.js";
 import { RollListeners } from "./listeners/roll-listeners.js";
 import { SettingsListeners } from "./listeners/settings-listeners.js";
 import { SpellsListeners } from "./listeners/spells-listeners.js";
@@ -127,6 +128,7 @@ export function registerSheetListeners(sheet, html) {
   InventoryListeners(sheet, html);
   SpellsListeners(sheet, html);
   SettingsListeners(sheet, html);
+  NpcListeners(sheet, html);
 }
 
 //#region Item Registers

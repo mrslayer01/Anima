@@ -95,7 +95,7 @@
       </div>
     </div>
 
-    {{! Secondaries Tab }}
+    {{! Abilities Tab }}
     <div class="tab abilities" data-group="primary" data-tab="abilities">
       <nav class="sub-tabs" data-group="ability-sub">
         <a class="item" data-tab="primaries">
@@ -107,6 +107,11 @@
         <a class="item" data-tab="modules">
           Modules
         </a>
+        {{#if actor.system.settings.isNPC}}
+        <a class="item" data-tab="npc">
+          NPC Details
+        </a>
+        {{/if}}
       </nav>
 
       <div class="tab" data-group="ability-sub" data-tab="primaries">
@@ -118,6 +123,9 @@
       </div>
       <div class="tab" data-group="ability-sub" data-tab="modules">
         {{> "systems/abf-system/templates/actors/partials/nav/abilities/primary/modules.hbs" }}
+      </div>
+      <div class="tab" data-group="ability-sub" data-tab="npc">
+        {{> "systems/abf-system/templates/actors/partials/nav/abilities/npc/npc.hbs" }}
       </div>
     </div>
 

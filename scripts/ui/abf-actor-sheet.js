@@ -191,8 +191,7 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
     // Input Validation
     value = ValidateInputs(name, value, input);
 
-    //DP Validation. Only validate for non NPCs.
-    if (!this.actor.system.settings.isNPC) value = ValidateDP(name, value, input, this.actor);
+    value = ValidateDP(name, value, input, this.actor);
 
     // Apply update
     await this.actor.update({ [name]: value });

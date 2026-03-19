@@ -1,0 +1,86 @@
+<div>
+  <h3 class="npc-power-title">
+    {{powerData.name}}
+  </h3>
+
+  <p class="power-description abf-text npc-power-description">
+    {{powerData.description}}
+  </p>
+
+  <div class="npc-abilities-two-col elan">
+    <section class="npc-abilities-left">
+      <h3>
+        Available Effects
+      </h3>
+      <div class="gifts-grid">
+        {{#each availableEffects}}
+          <div class="gift-entry">
+            <h4>
+              {{this.name}}
+            </h4>
+
+            {{#if this.cost}}
+              <p>
+                <strong>
+                  Cost:
+                </strong>
+                {{this.cost}}
+              </p>
+            {{/if}}
+
+            <p class="abf-text">
+              <strong>
+                Min Gnosis:
+              </strong>
+              {{this.gnosisMin}}
+            </p>
+
+            <button type="button" class="buy-ability button" data-effect="{{this.name}}">
+              Buy
+            </button>
+          </div>
+        {{/each}}
+      </div>
+    </section>
+
+    <section class="npc-abilities-right">
+      <h3>
+        Purchased Effects
+      </h3>
+
+      {{#if purchasedEffects.length}}
+        <div class="effects-grid">
+          {{#each purchasedEffects}}
+            <div class="gift-entry purchased">
+              <h4>
+                {{this.name}}
+              </h4>
+
+              {{#if this.cost}}
+                <p class="abf-text">
+                  <strong>
+                    Cost:
+                  </strong>
+                  {{this.cost}}
+                </p>
+              {{/if}}
+
+              <p class="abf-text">
+                <strong>
+                  Min Gnosis:
+                </strong>
+                {{this.gnosisMin}}
+              </p>
+
+              <button type="button" class="remove-ability button" data-effect="{{@index}}">
+                Remove
+              </button>
+            </div>
+          {{/each}}
+        </div>
+      {{else}}
+        <p class="abf-text">No effects purchased yet.</p>
+      {{/if}}
+    </section>
+  </div>
+</div>

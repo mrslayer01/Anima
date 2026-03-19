@@ -21,6 +21,7 @@ export class DevelopmentPointsRule extends BaseRule {
     DerivedPrimaryAbilites(system);
     DerivedSecondaryAbilites(system);
     DerivedModules(system);
+    DerivedNPCPowers(system);
     DerivedOthers(system);
 
     // Now recalc DP totals
@@ -28,14 +29,43 @@ export class DevelopmentPointsRule extends BaseRule {
   }
 
   DetectChanged(updateData, oldSystem) {
-    const prim = updateData.system?.abilities?.primary;
-    if (!prim) return [];
+    const sys = updateData.system;
+    if (!sys) return [];
 
-    const category = Object.keys(prim)[0];
-    const ability = Object.keys(prim[category])[0];
+    // 1. Primary abilities (your original logic)
+    if (sys.abilities?.primary) {
+      const category = Object.keys(sys.abilities.primary)[0];
+      const ability = Object.keys(sys.abilities.primary[category])[0];
+      this._change = { category, ability };
+      return ["dp"];
+    }
 
-    this._change = { category, ability };
-    return ["dp"];
+    // 2. Secondary abilities
+    if (sys.abilities?.secondary) {
+      return ["dp"];
+    }
+
+    // 3. NPC Powers
+    if (sys.npc?.abilities) {
+      return ["dp"];
+    }
+
+    // 4. Modules
+    if (sys.modules) {
+      return ["dp"];
+    }
+
+    // 5. LP Multiples (Other)
+    if (sys.core?.lifePoints) {
+      return ["dp"];
+    }
+
+    // 6. Direct spentRecords modification (rare but safe)
+    if (sys.developmentPoints?.spentRecords) {
+      return ["dp"];
+    }
+
+    return [];
   }
 
   RecalcUpdated(system, name) {
@@ -45,10 +75,6 @@ export class DevelopmentPointsRule extends BaseRule {
 
     RecalcPrimaryAbilites(system, category, ability);
     RecalcSecondaryAbilites(system, category, ability);
-    DerivedModules(system);
-    DerivedOthers(system);
-
-    recalculateDP(system);
   }
 
   Update(updateData, oldSystem, newSystem) {
@@ -84,8 +110,6 @@ function recalculateDP(system) {
 
   CalculatePrimaryAbilities(system);
   CalculateSecondaryAbilities(system);
-  DerivedModules(system);
-  DerivedOthers(system);
 }
 
 function updateAbilityRecord(system, category, ability, amount, cost) {
@@ -349,5 +373,21 @@ const MODULE_CATEGORY_MAP = {
 //#endregion
 
 //#region Misc
+// NPC
+function DerivedNPCPowers(system) {
+  const abilities = system.npc?.abilities;
+  if (!Array.isArray(abilities)) return;
 
+  for (const power of abilities) {
+    if (!Array.isArray(power.purchasedAbilities)) continue;
+    for (const effect of power.purchasedAbilities) {
+      system.developmentPoints.spentRecords.push({
+        category: "NPCPower",
+        ability: effect.name,
+        amount: 1,
+        cost: toNum(effect.cost)
+      });
+    }
+  }
+}
 //#endregion

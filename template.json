@@ -31,7 +31,8 @@
         "currency": {},
         "globalModifier": {},
         "mystic": {},
-        "settings": {}
+        "settings": {},
+        "npc": {}
       }
     }
   },

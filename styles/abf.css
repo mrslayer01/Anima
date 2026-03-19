@@ -1238,3 +1238,75 @@
   text-align: left;
   width: 100%;
 }
+
+/* NPC Abilities */
+/* Two-column layout for NPC abilities */
+.npc-abilities-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* Left and right sections */
+.npc-abilities-left,
+.npc-abilities-right {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Reuse your existing grid */
+.effects-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* 2 columns per side */
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+/* Reuse your existing entry style */
+.effect-entry {
+  padding: 0.5rem;
+  border: 1px solid var(--color-border-light, #999);
+  border-radius: 4px;
+  background: rgba(0, 0, 0, 0.05);
+}
+
+/* Purchased effect entry — matches ABF active tab theme */
+.effect-entry.purchased {
+  background: #1f2433; /* same dark background */
+  border: 1px solid #d9b56c; /* gold border */
+  color: #d9b56c; /* gold text */
+}
+
+/* Ensure inner text inherits gold */
+.effect-entry.purchased h4,
+.effect-entry.purchased p,
+.effect-entry.purchased strong {
+  color: #d9b56c;
+}
+
+/* Make the remove button match your theme */
+.effect-entry.purchased .button,
+.effect-entry.purchased button {
+  background: #2a3145; /* slightly lighter dark */
+  border: 1px solid #d9b56c;
+  color: #d9b56c;
+}
+
+.effect-entry.purchased .button:hover,
+.effect-entry.purchased button:hover {
+  background: #343c52; /* hover highlight */
+  border-color: #e6c67a; /* lighter gold hover */
+  color: #e6c67a;
+}
+
+/* Make the search/filter bar stick to the top of the window */
+.npc-power-browser .browser-controls {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+
+  background: #1f2433; /* match your theme */
+  padding: 0.75rem;
+  border-bottom: 2px solid #d9b56c;
+}

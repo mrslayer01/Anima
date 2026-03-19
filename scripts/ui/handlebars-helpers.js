@@ -44,6 +44,12 @@ export function loadAllActorHandlerbarsHelpers() {
     }
   });
 
+  Handlebars.registerHelper("truncate", function (text, length) {
+    if (!text) return "";
+    if (text.length <= length) return text;
+    return text.substring(0, length) + "...";
+  });
+
   Handlebars.registerHelper("json", function (context) {
     return JSON.stringify(context, null, 2);
   });
