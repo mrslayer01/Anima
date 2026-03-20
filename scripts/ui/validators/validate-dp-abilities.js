@@ -1,6 +1,7 @@
 import { toNum } from "../../utils/numbers.js";
 
 export function ValidateDP(name, value, input, actor) {
+  if (actor.system.settings.ignoreDPLimit) return value;
   if (name.startsWith("system.abilities.secondary.")) {
     const parts = name.split(".");
     const category = parts[3];
@@ -256,7 +257,7 @@ function ValidateDPRemaining(dpCost, actor) {
 }
 
 export function ValidateNPCPowerDP(dpCost, actor) {
-  // if (actor.system.settings.isNPC) return true;
+  if (actor.system.settings.ignoreDPLimit) return true;
 
   const dp = actor.system.developmentPoints;
 

@@ -1,6 +1,6 @@
 export function SettingsListeners(sheet, html) {
-  html.find(".passive-icon.clickable.setting-isNPC").off("click");
-  html.find(".passive-icon.clickable.setting-isNPC").on("click", async (ev) => {
+  html.find(".setting-isNPC").off("click");
+  html.find(".setting-isNPC").on("click", async (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
 
@@ -10,8 +10,8 @@ export function SettingsListeners(sheet, html) {
     await actor.update({ "system.settings.isNPC": !isActive });
   });
 
-  html.find(".passive-icon.clickable.setting-usesMystic").off("click");
-  html.find(".passive-icon.clickable.setting-usesMystic").on("click", async (ev) => {
+  html.find(".setting-usesMystic").off("click");
+  html.find(".setting-usesMystic").on("click", async (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
 
@@ -21,8 +21,8 @@ export function SettingsListeners(sheet, html) {
     await actor.update({ "system.settings.usesMystic": !isActive });
   });
 
-  html.find(".passive-icon.clickable.setting-usesDomine").off("click");
-  html.find(".passive-icon.clickable.setting-usesDomine").on("click", async (ev) => {
+  html.find(".setting-usesDomine").off("click");
+  html.find(".setting-usesDomine").on("click", async (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
 
@@ -32,8 +32,8 @@ export function SettingsListeners(sheet, html) {
     await actor.update({ "system.settings.usesDomine": !isActive });
   });
 
-  html.find(".passive-icon.clickable.setting-usesPsychic").off("click");
-  html.find(".passive-icon.clickable.setting-usesPsychic").on("click", async (ev) => {
+  html.find(".setting-usesPsychic").off("click");
+  html.find(".setting-usesPsychic").on("click", async (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
 
@@ -43,8 +43,8 @@ export function SettingsListeners(sheet, html) {
     await actor.update({ "system.settings.usesPsychic": !isActive });
   });
 
-  html.find(".passive-icon.clickable.setting-usesSummoning").off("click");
-  html.find(".passive-icon.clickable.setting-usesSummoning").on("click", async (ev) => {
+  html.find(".setting-usesSummoning").off("click");
+  html.find(".setting-usesSummoning").on("click", async (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
 
@@ -52,5 +52,16 @@ export function SettingsListeners(sheet, html) {
 
     const isActive = actor.system.settings.usesSummoning === true;
     await actor.update({ "system.settings.usesSummoning": !isActive });
+  });
+
+  html.find(".setting-ignoreDPLimit").off("click");
+  html.find(".setting-ignoreDPLimit").on("click", async (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    const actor = sheet.actor;
+
+    const isActive = actor.system.settings.ignoreDPLimit === true;
+    await actor.update({ "system.settings.ignoreDPLimit": !isActive });
   });
 }

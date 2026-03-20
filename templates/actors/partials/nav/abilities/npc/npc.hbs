@@ -1,6 +1,8 @@
+{{#unless actor.system.settings.ignoreDPLimit}}
 <h2>
-  DP Spent: {{actor.system.developmentPoints.remaining}}
+  DP Spent: {{actor.system.developmentPoints.spent}} Remaining: {{actor.system.developmentPoints.remaining}}
 </h2>
+{{/unless}}
 <div>
   <div class="secondaries-header">{{> "systems/abf-system/templates/actors/partials/nav/abilities/npc/npc-abilities.hbs" }}</div>
 </div>

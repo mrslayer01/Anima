@@ -212,7 +212,8 @@ export const DEFAULT_ACTOR_DATA = {
     usesMystic: true,
     usesDomine: true,
     usesPsychic: true,
-    usesSummoning: true
+    usesSummoning: true,
+    ignoreDPLimit: false
   },
   npc: {
     abilities: [],

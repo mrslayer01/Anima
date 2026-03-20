@@ -8,7 +8,7 @@
         Name
       </th>
       <th>
-        Descrtiption
+        Description
       </th>
       {{#if @root.actor.system.lockUi}}
         <th></th>
@@ -26,21 +26,11 @@
     {{#each system.contacts as |contact idx|}}
       <tr>
         <td>
-          <input
-            class="contacts-name-input"
-            type="text"
-            data-index="{{idx}}"
-            value="{{contact.name}}"
-          />
+          <input class="contacts-name-input" type="text" data-index="{{idx}}" value="{{contact.name}}" />
         </td>
 
         <td>
-          <input
-            class="contacts-description-input"
-            type="text"
-            data-index="{{idx}}"
-            value="{{contact.description}}"
-          />
+          <input class="contacts-description-input" type="text" data-index="{{idx}}" value="{{contact.description}}" />
         </td>
         {{#if @root.actor.system.lockUi}}
           <td></td>

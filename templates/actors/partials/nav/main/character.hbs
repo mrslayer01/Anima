@@ -5,27 +5,14 @@
     <!-- CLASS SECTION -->
     <section class="lft-block">
       {{> "systems/abf-system/templates/actors/partials/nav/main/character/classes.hbs"}}
-    </section>
-
-    {{#unless actor.system.settings.isNPC}}
-      <!-- EXPERIENCE SECTION -->
-      <div class="lft-block">
+      {{#unless actor.system.settings.isNPC}}
         {{> "systems/abf-system/templates/actors/partials/nav/main/character/experience.hbs"}}
-      </div>
-    {{/unless}}
-    <!-- PRESENCE -->
-    <div class="lft-block">
+      {{/unless}}
       {{> "systems/abf-system/templates/actors/partials/nav/main/character/presence.hbs"}}
-    </div>
 
-    {{#unless actor.system.settings.isNPC}}
-      <!-- DESTINY POINTS -->
-      <div class="lft-block">
+      {{#unless actor.system.settings.ignoreDPLimit}}
         {{> "systems/abf-system/templates/actors/partials/nav/main/character/dp.hbs"}}
-      </div>
-    {{/unless}}
-    <!-- ASPECT -->
-    <section class="lft-block">
+      {{/unless}}
       {{> "systems/abf-system/templates/actors/partials/nav/main/character/aspects.hbs"}}
     </section>
   </div>

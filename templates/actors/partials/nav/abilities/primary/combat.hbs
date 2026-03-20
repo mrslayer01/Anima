@@ -1,9 +1,11 @@
+{{#unless actor.system.settings.ignoreDPLimit}}
 <h3>
   Combat DP Limit:
   {{actor.system.abilities.primary.abilityLimits.Combat.current}}
   /
   {{actor.system.abilities.primary.abilityLimits.Combat.final}}
 </h3>
+{{/unless}}
 <div class="secondary-block">
   <table class="ability-table">
     <thead>

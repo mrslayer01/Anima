@@ -1,9 +1,11 @@
+{{#unless actor.system.settings.ignoreDPLimit}}
 <h3>
   Supernatural DP Limit:
   {{actor.system.abilities.primary.abilityLimits.Supernatural.current}}
   /
   {{actor.system.abilities.primary.abilityLimits.Supernatural.final}}
 </h3>
+{{/unless}}
 <div class="secondary-block">
   <table class="ability-table">
     <thead>

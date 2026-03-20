@@ -6,7 +6,7 @@
     <section class="zeon block">
       <div class="field-row">
         <label class="path-name" data-tooltip="Removes the DP limit.">
-          Is an NPC
+          Is an NPC?
         </label>
         <div class="passive-icon clickable setting-isNPC">
           {{#if system.settings.isNPC}}
@@ -58,6 +58,18 @@
         </label>
         <div class="passive-icon clickable setting-usesSummoning">
           {{#if system.settings.usesSummoning}}
+            <i class="fas fa-check"></i>
+          {{else}}
+            <i class="fas fa-times"></i>
+          {{/if}}
+        </div>
+      </div>
+      <div class="field-row" data-tooltip="Ignores the DP Limits for everything aside from NPC Powers.">
+        <label class="path-name">
+          Ignore DP Limit?
+        </label>
+        <div class="passive-icon clickable setting-ignoreDPLimit">
+          {{#if system.settings.ignoreDPLimit}}
             <i class="fas fa-check"></i>
           {{else}}
             <i class="fas fa-times"></i>

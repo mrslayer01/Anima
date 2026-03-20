@@ -1,4 +1,6 @@
+{{#unless actor.system.settings.ignoreDPLimit}}
 <h2>DP Spent: {{actor.system.abilities.secondary.totalDPSpent}} Remaining: {{actor.system.developmentPoints.remaining}}</h2>
+{{/unless}}
 <div class="secondaries-grid">
   <div class="secondaries-header">{{> "systems/abf-system/templates/actors/partials/nav/abilities/secondary/athletics.hbs" }}</div>
   <div class="secondaries-header">{{> "systems/abf-system/templates/actors/partials/nav/abilities/secondary/subterfuge.hbs" }}</div>
