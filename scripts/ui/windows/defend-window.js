@@ -6,9 +6,12 @@ import { toNum } from "../../utils/numbers.js";
 
 export class DefendWindow extends Application {
   constructor(resolve, options = {}) {
-    super(options);
-    this._resolve = resolve;
+    super({
+      ...options,
+      id: `defend-window-${foundry.utils.randomID()}`
+    });
 
+    this._resolve = resolve;
     this.manual = options.manual ?? false;
     this.attackData = options.attackData ?? null;
     this.block = options.block ?? 0;
@@ -18,13 +21,11 @@ export class DefendWindow extends Application {
     this.modifier = 0;
     this.defenseValue = 0;
     this.manualAT = 0;
-
     this.hasShield = false;
   }
 
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      id: "defend-window",
       title: "Defense Roll",
       classes: ["abf-character-sheet"],
       template: "systems/abf-system/templates/actors/apps/defend-window.hbs",

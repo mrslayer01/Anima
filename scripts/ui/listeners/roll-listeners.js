@@ -236,14 +236,29 @@ export function RollListeners(sheet, html) {
       return await manualDefend(sheet, attackData);
     }
 
-    return await handleSingleTargetAttack(
+    if (targets.length === 1) {
+      // existing single-target logic
+      return await handleSingleTargetAttack(
+        sheet,
+        w,
+        attackData,
+        region,
+        directed,
+        attackType,
+        targets[0],
+        false
+      );
+    }
+
+    // NEW multi-target logic
+    return await handleMultiTargetAttack(
       sheet,
       w,
       attackData,
       region,
       directed,
       attackType,
-      targets[0],
+      targets,
       false
     );
   });
@@ -291,14 +306,29 @@ export function RollListeners(sheet, html) {
       return await manualDefend(sheet, attackData);
     }
 
-    return await handleSingleTargetAttack(
+    if (targets.length === 1) {
+      // existing single-target logic
+      return await handleSingleTargetAttack(
+        sheet,
+        null,
+        attackData,
+        region,
+        directed,
+        attackType,
+        targets[0],
+        true
+      );
+    }
+
+    // NEW multi-target logic
+    return await handleMultiTargetAttack(
       sheet,
       null,
       attackData,
       region,
       directed,
       attackType,
-      targets[0],
+      targets,
       true
     );
   });
@@ -437,6 +467,38 @@ async function getDefense(defenderUser, targetActor, attackData) {
   return defense;
 }
 
+async function getDefenseMulti(defenderUser, targetActor, attackData, requestId) {
+  const block = toNum(targetActor.system.abilities.primary.Combat.Block.final);
+  const dodge = toNum(targetActor.system.abilities.primary.Combat.Dodge.final);
+  const projection = toNum(
+    targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
+  );
+
+  const options = { targetActor, attackData, block, dodge, projection };
+
+  // Local defender
+  if (defenderUser.id === game.user.id) {
+    return await promptDefenseChoice(options);
+  }
+
+  // Online defender → multi-target socket
+  if (defenderUser.active) {
+    game.socket.emit("system.abf-system", {
+      type: "defense:prompt-multi",
+      requestId,
+      userId: defenderUser.id,
+      attackerId: game.user.id,
+      targetId: targetActor.id,
+      attackData
+    });
+
+    return await waitForDefenseResponseMulti(requestId);
+  }
+
+  // Offline → GM handles
+  return await promptDefenseChoice(options);
+}
+
 function DefensePenalty(weaponType, type, blockMastery, equippedshield, dodgeMastery) {
   let penalty = 0;
   // Projection sufferens no penalties when defending, regardless of the attack.
@@ -503,7 +565,16 @@ function getEffectiveAT(actor, region, attackType) {
 }
 
 async function animaOpenRollCapture(opts) {
-  return await animaOpenRoll({ ...opts, capture: true });
+  const roll = await animaOpenRoll({
+    ...opts,
+    capture: true,
+    hideDice: opts.hideDice
+  });
+
+  // Attach token reference for chat card display
+  roll.token = opts.token ?? null;
+
+  return roll;
 }
 
 export function promptAttackModifierWindow(options = {}) {
@@ -519,38 +590,41 @@ export async function promptDefenseChoice(options) {
 }
 
 function postCombinedCombatCard(attacker, defender, defenderAT, armorPen, directed, attackType) {
-  if (attacker === undefined || defender === undefined) return; // Wehna fumble happens there is no defender.
-  const margin = attacker.final - defender.final;
+  if (!attacker || !defender) return;
 
+  const margin = attacker.final - defender.final;
   const counterBonus = computeCounterattack(margin);
 
-  // If counterattack triggers
   if (counterBonus > 0 || margin < 0) {
     return postCounterattackCard(attacker, defender, counterBonus);
   }
 
-  // Otherwise normal damage %
   const { pct } = computeDamagePercent(margin, defenderAT);
+
+  const attackerName = attacker.token?.name ?? attacker.actor.name;
+  const defenderName = defender.token?.name ?? defender.actor.name;
 
   const content = `
     <h4>Combat Exchange</h4>
 
-    <h5>Attacker: ${attacker.actor.name}'s ${attacker.label}</h5>
+    <h5>Attacker: ${attackerName}'s ${attacker.label}</h5>
     <b>Bonus:</b> ${attacker.bonus}<br>
     <b>Attack Type:</b> ${attackType}<br>
     ${armorPen > 0 ? `<b>Armor Pen:</b> ${armorPen}<br>` : ""}
-    ${directed !== "None" ? `<b>Directed Attack:</b> ${directed} <br>` : ""}
+    ${directed !== "None" ? `<b>Directed Attack:</b> ${directed}<br>` : ""}
     <b>Breakdown:</b><br>${attacker.rawRolls.join("<br>")}
     <br>
     <b>Final:</b> ${attacker.final}<br>
     <hr>
-    <h5>Defender: ${defender.actor.name}'s ${defender.label}</h5>
+
+    <h5>Defender: ${defenderName}'s ${defender.label}</h5>
     <b>AT:</b> ${defenderAT}<br>
     <b>Bonus:</b> ${defender.bonus}<br>
     <b>Breakdown:</b><br>${defender.rawRolls.join("<br>")}
     <br>
     <b>Final:</b> ${defender.final}<br>
     <hr>
+
     <h5>Result</h5>
     <b>Margin:</b> ${margin}<br>
     <b>Damage Percent:</b> ${pct}%<br>
@@ -594,10 +668,14 @@ async function promptDamageCalculation(baseDamage) {
 
 async function postCounterattackCard(attacker, defender, counterBonus) {
   const margin = attacker.final - defender.final;
+
+  const attackerName = attacker.token?.name ?? attacker.actor.name;
+  const defenderName = defender.token?.name ?? defender.actor.name;
+
   const content = `
     <h4 style="color:#b30000;">Counterattack!</h4>
 
-    <h5>Attacker: ${attacker.actor.name}</h5>
+    <h5>Attacker: ${attackerName}</h5>
     <b>Bonus:</b> ${attacker.bonus}<br>
     <b>Breakdown:</b><br>${attacker.rawRolls.join("<br>")}
     <br>
@@ -605,17 +683,17 @@ async function postCounterattackCard(attacker, defender, counterBonus) {
 
     <hr>
 
-    <h5>Defender: ${defender.actor.name}</h5>
+    <h5>Defender: ${defenderName}</h5>
     <b>Bonus:</b> ${defender.bonus}<br>
     <b>Breakdown:</b><br>${defender.rawRolls.join("<br>")}
     <br>
     <b>Final:</b> ${defender.final}<br>
-    
+
     <hr>
 
     <h5>Result</h5>
     <b>Margin:</b> ${margin}<br>
-    <b>${defender.actor.name}</b> counters.<br>
+    <b>${defenderName}</b> counters.<br>
     <b>Counterattack Bonus:</b> +${counterBonus}<br>
     <hr>
   `;
@@ -680,19 +758,51 @@ function waitForDefenseResponse(attackerUserId) {
   });
 }
 
+function waitForDefenseResponseMulti(requestId, timeoutMs = 15000) {
+  return new Promise((resolve) => {
+    let resolved = false;
+
+    const handler = (msg) => {
+      if (msg.type === "defense:response-multi" && msg.requestId === requestId) {
+        if (!resolved) {
+          resolved = true;
+          game.socket.off("system.abf-system", handler);
+          resolve(msg.defense);
+        }
+      }
+    };
+
+    game.socket.on("system.abf-system", handler);
+
+    // TIMEOUT FAILSAFE — prevents stale listeners
+    setTimeout(() => {
+      if (!resolved) {
+        resolved = true;
+        game.socket.off("system.abf-system", handler);
+        resolve({
+          type: "dodge",
+          modifier: 0
+        }); // fallback so the attack flow continues
+      }
+    }, timeoutMs);
+  });
+}
+
 function getPreferredDefenderUser(actor) {
-  // All users with OWNER=3
   const owners = game.users.filter((u) => actor.ownership[u.id] === 3);
 
-  // 1. Non-GM owners who are online
-  const onlinePlayers = owners.filter((u) => !u.isGM && u.active);
+  // Remove attacker from owner list
+  const filteredOwners = owners.filter((u) => u.id !== game.user.id);
+
+  // 1. Online non-GM owners
+  const onlinePlayers = filteredOwners.filter((u) => !u.isGM && u.active);
   if (onlinePlayers.length > 0) return onlinePlayers[0];
 
-  // 2. Non-GM owners who are offline
-  const offlinePlayers = owners.filter((u) => !u.isGM && !u.active);
+  // 2. Offline non-GM owners
+  const offlinePlayers = filteredOwners.filter((u) => !u.isGM && !u.active);
   if (offlinePlayers.length > 0) return offlinePlayers[0];
 
-  // 3. Active GM
+  // 3. Online GM
   const activeGM = game.users.find((u) => u.isGM && u.active);
   if (activeGM) return activeGM;
 
@@ -740,32 +850,17 @@ async function handleSingleTargetAttack(
   target,
   isSpellAttack
 ) {
-  // ---------------------------------------------------------
-  // CASE 1: NO TARGET → MANUAL DEFENSE ENTRY
-  // ---------------------------------------------------------
   if (!target) {
     return await manualDefend(sheet, attackData);
   }
 
-  // ---------------------------------------------------------
-  // CASE 2: TARGET SELECTED → REMOTE OR LOCAL DEFENSE PROMPT
-  // ---------------------------------------------------------
   const targetActor = target.actor;
-
-  // Owner detection using Foundry's permission system
-  // There are multiple owners, first check to see which is online and not the GM, if none are default to the GM.
-  // Determine defender user (owner or GM)
   const defenderUser = getPreferredDefenderUser(targetActor);
-  //console.log("Defender user:", defenderUser?.name, "active:", defenderUser?.active);
 
   let defense = await getDefense(defenderUser, targetActor, attackData);
-
   const { type, modifier } = defense;
 
   if (!isSpellAttack) {
-    // ---------------------------------------------------------
-    // DEFENSE CALCULATION (LOCAL TO ATTACKER)
-    // ---------------------------------------------------------
     const blockMastery = targetActor.system.abilities.primary.Combat.Block.mastery;
     const dodgeMastery = targetActor.system.abilities.primary.Combat.Dodge.mastery;
     const equippedshield = targetActor.items.find(
@@ -787,46 +882,33 @@ async function handleSingleTargetAttack(
       targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
     );
 
-    if (type === "block") {
-      defenseValue = blockFinal + modifier + defensePenalty;
-    } else if (type === "dodge") {
-      defenseValue = dodgeFinal + modifier + defensePenalty;
-    } else if (type === "projection") {
-      defenseValue = projectionFinal + modifier + defensePenalty;
-    }
+    if (type === "block") defenseValue = blockFinal + modifier + defensePenalty;
+    if (type === "dodge") defenseValue = dodgeFinal + modifier + defensePenalty;
+    if (type === "projection") defenseValue = projectionFinal + modifier + defensePenalty;
 
-    // ---------------------------------------------------------
-    // ARMOR TYPE (AT) CALCULATION
-    // ---------------------------------------------------------
-    let baseAT = 0;
+    let baseAT =
+      directed !== "None"
+        ? getEffectiveAT(targetActor, region, attackType)
+        : targetActor.system.armor.total[attackType];
 
-    if (directed !== "None") {
-      baseAT = getEffectiveAT(targetActor, region, attackType);
-    } else {
-      baseAT = targetActor.system.armor.total[attackType];
-    }
+    let defATValue = Math.max(0, baseAT - attackData.armorPen);
 
-    let defATValue = baseAT - attackData.armorPen;
-    if (defATValue < 0) defATValue = 0;
-
-    // ---------------------------------------------------------
-    // ROLLS
-    // ---------------------------------------------------------
+    // DEFENDER ROLL (token included)
     const defenderRoll = await animaOpenRollCapture({
       value: defenseValue,
       label: capitalizeFirst(type),
-      actor: targetActor
+      actor: targetActor,
+      token: target
     });
 
+    // ATTACKER ROLL (token included)
     const attackerRoll = await animaOpenRollCapture({
       value: attackData.attackValue,
       label: "Attack",
-      actor: sheet.actor
+      actor: sheet.actor,
+      token: sheet.token
     });
 
-    // ---------------------------------------------------------
-    // FINAL CARD
-    // ---------------------------------------------------------
     setTimeout(
       () =>
         postCombinedCombatCard(
@@ -841,44 +923,29 @@ async function handleSingleTargetAttack(
     );
   } else {
     const armorPen = 0;
-    // ---------------------------------------------------------
-    // DEFENSE CALCULATION (LOCAL TO ATTACKER)
-    // ---------------------------------------------------------
-
     let defenseValue = getFinalDefenseValueSpell(targetActor, defense, attackData.isAOE);
 
-    // ---------------------------------------------------------
-    // ARMOR TYPE (AT) CALCULATION
-    // ---------------------------------------------------------
-    let baseAT = 0;
+    let baseAT =
+      directed !== "None"
+        ? getEffectiveAT(targetActor, region, attackType)
+        : targetActor.system.armor.total[attackType];
 
-    if (directed !== "None") {
-      baseAT = getEffectiveAT(targetActor, region, attackType);
-    } else {
-      baseAT = targetActor.system.armor.total[attackType];
-    }
+    let defATValue = Math.max(0, baseAT - armorPen);
 
-    let defATValue = baseAT - armorPen;
-    if (defATValue < 0) defATValue = 0;
-
-    // ---------------------------------------------------------
-    // ROLLS
-    // ---------------------------------------------------------
     const defenderRoll = await animaOpenRollCapture({
       value: defenseValue,
       label: capitalizeFirst(type),
-      actor: targetActor
+      actor: targetActor,
+      token: target
     });
 
     const attackerRoll = await animaOpenRollCapture({
       value: attackData.attackValue,
       label: "Spell Attack",
-      actor: sheet.actor
+      actor: sheet.actor,
+      token: sheet.token
     });
 
-    // ---------------------------------------------------------
-    // FINAL CARD
-    // ---------------------------------------------------------
     setTimeout(
       () =>
         postCombinedCombatCard(
@@ -890,6 +957,133 @@ async function handleSingleTargetAttack(
           attackData.attackType
         ),
       2000
+    );
+  }
+}
+
+async function handleMultiTargetAttack(
+  sheet,
+  w,
+  attackData,
+  region,
+  directed,
+  attackType,
+  targets,
+  isSpellAttack
+) {
+  const attacker = sheet.actor;
+
+  // ATTACKER ROLL (token included)
+  const attackerRoll = await animaOpenRollCapture({
+    value: attackData.attackValue,
+    label: isSpellAttack ? "Spell Attack" : "Attack",
+    actor: attacker,
+    token: sheet.token,
+    hideDice: true
+  });
+
+  const defensePromises = [];
+
+  for (const target of targets) {
+    const targetActor = target.actor;
+    const defenderUser = getPreferredDefenderUser(targetActor);
+    const requestId = foundry.utils.randomID();
+
+    if (defenderUser.id === game.user.id) {
+      defensePromises.push(
+        promptDefenseChoice({
+          targetActor,
+          attackData,
+          block: toNum(targetActor.system.abilities.primary.Combat.Block.final),
+          dodge: toNum(targetActor.system.abilities.primary.Combat.Dodge.final),
+          projection: toNum(
+            targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
+          )
+        }).then((defense) => ({
+          target,
+          targetActor,
+          defense
+        }))
+      );
+    } else {
+      game.socket.emit("system.abf-system", {
+        type: "defense:prompt-multi",
+        requestId,
+        userId: defenderUser.id,
+        attackerId: game.user.id,
+        targetId: targetActor.id,
+        attackData
+      });
+
+      defensePromises.push(
+        waitForDefenseResponseMulti(requestId).then((defense) => ({
+          target,
+          targetActor,
+          defense
+        }))
+      );
+    }
+  }
+
+  const results = await Promise.all(defensePromises);
+
+  for (const { target, targetActor, defense } of results) {
+    const { type, modifier } = defense;
+
+    let defenseValue = 0;
+    let defensePenalty = 0;
+
+    if (!isSpellAttack) {
+      const blockMastery = targetActor.system.abilities.primary.Combat.Block.mastery;
+      const dodgeMastery = targetActor.system.abilities.primary.Combat.Dodge.mastery;
+      const equippedshield = targetActor.items.find(
+        (i) => i.type === "weapon" && i.system.weaponType === "shield" && i.system.equipped
+      );
+
+      defensePenalty = DefensePenalty(
+        w.weaponType,
+        type,
+        blockMastery,
+        equippedshield,
+        dodgeMastery
+      );
+
+      const blockFinal = toNum(targetActor.system.abilities.primary.Combat.Block.final);
+      const dodgeFinal = toNum(targetActor.system.abilities.primary.Combat.Dodge.final);
+      const projectionFinal = toNum(
+        targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
+      );
+
+      if (type === "block") defenseValue = blockFinal + modifier + defensePenalty;
+      if (type === "dodge") defenseValue = dodgeFinal + modifier + defensePenalty;
+      if (type === "projection") defenseValue = projectionFinal + modifier + defensePenalty;
+    } else {
+      defenseValue = getFinalDefenseValueSpell(targetActor, defense, attackData.isAOE);
+    }
+
+    let baseAT =
+      directed !== "None"
+        ? getEffectiveAT(targetActor, region, attackType)
+        : targetActor.system.armor.total[attackType];
+
+    let defATValue = Math.max(0, baseAT - attackData.armorPen);
+
+    // DEFENDER ROLL (token included)
+    const defenderRoll = await animaOpenRollCapture({
+      value: defenseValue,
+      label: capitalizeFirst(type),
+      actor: targetActor,
+      token: target,
+      hideDice: true
+    });
+
+    postCombinedCombatCard(
+      attackerRoll,
+      defenderRoll,
+      defATValue,
+      attackData.armorPen,
+      attackData.directed,
+      attackData.attackType
     );
   }
 }

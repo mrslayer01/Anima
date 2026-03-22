@@ -70,14 +70,16 @@ Hooks.on("updateCombat", async (combat, changes) => {
   await combat.updateEmbeddedDocuments("Combatant", updates);
 });
 
+let abfSocketHandler;
+
 Hooks.once("ready", () => {
-  if (window.ABF_SOCKETS_INITIALIZED) return;
-  window.ABF_SOCKETS_INITIALIZED = true;
+  // Remove only OUR handler, not all handlers
+  if (abfSocketHandler) {
+    game.socket.off("system.abf-system", abfSocketHandler);
+  }
 
-  game.socket.off("system.abf-system"); // remove ALL previous listeners
-
-  game.socket.on("system.abf-system", (msg) => {
-    // SINGLE TARGET
+  // Define handler ONCE
+  abfSocketHandler = (msg) => {
     if (msg.type === "defense:prompt" && msg.userId === game.user.id) {
       new DefendWindow(
         (defense) => {
@@ -93,19 +95,35 @@ Hooks.once("ready", () => {
         }
       ).render(true);
     }
-  });
 
-  // SHIFT + Right‑Click → Target token
+    if (msg.type === "defense:prompt-multi" && msg.userId === game.user.id) {
+      new DefendWindow(
+        (defense) => {
+          game.socket.emit("system.abf-system", {
+            type: "defense:response-multi",
+            requestId: msg.requestId,
+            defense
+          });
+        },
+        {
+          targetActor: game.actors.get(msg.targetId),
+          attackData: msg.attackData,
+          requestId: msg.requestId
+        }
+      ).render(true);
+    }
+  };
+
+  // Register OUR handler
+  game.socket.on("system.abf-system", abfSocketHandler);
+
+  // SHIFT + Right‑Click targeting...
   canvas.stage.on("rightdown", (event) => {
     const ev = event.data.originalEvent;
-
-    // Only intercept SHIFT + Right‑Click
     if (!ev.shiftKey || ev.button !== 2) return;
 
-    // Get the topmost token under the cursor
     const { x, y } = event.data.getLocalPosition(canvas.tokens);
     const token = canvas.tokens.placeables.find((t) => t.bounds.contains(x, y));
-
     if (!token) return;
 
     event.stopPropagation();
