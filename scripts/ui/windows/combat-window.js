@@ -1,4 +1,8 @@
-import { DIRECTED_ATTACK_TABLE } from "../../utils/lookup.js";
+import {
+  COMBAT_SITUATIONAL_MODIFIERS,
+  COMBAT_SITUATIONAL_MODIFIERS_SUPERNATURAL,
+  DIRECTED_ATTACK_TABLE
+} from "../../utils/lookup.js";
 import { toNum } from "../../utils/numbers.js";
 
 export class CombatWindow extends Application {
@@ -34,6 +38,10 @@ export class CombatWindow extends Application {
           name,
           value
         })),
+        combatModifiers: Object.entries(COMBAT_SITUATIONAL_MODIFIERS).map(([name, data]) => ({
+          name,
+          attack: data.attack
+        })),
         isSpellAttack: this.isSpellAttack,
         attackTypes: weaponAttackTypes,
         atkValue: this.atkValue
@@ -47,6 +55,12 @@ export class CombatWindow extends Application {
           name,
           value
         })),
+        combatModifiers: Object.entries(COMBAT_SITUATIONAL_MODIFIERS_SUPERNATURAL).map(
+          ([name, data]) => ({
+            name,
+            attack: data.attack
+          })
+        ),
         isSpellAttack: this.isSpellAttack,
         attackTypes: SPELL_ATTACK_TYPES,
         isAOE: this.isAOE,
@@ -61,15 +75,17 @@ export class CombatWindow extends Application {
     const updateTotal = () => {
       const atkMod = toNum(html.find("#atkMod").val());
       const part = html.find("#directedAttack").val();
+      const combatModPart = html.find("#combatModifier").val();
       const directedPenalty = DIRECTED_ATTACK_TABLE[part] ?? 0;
-      const total = this.atkValue + atkMod + directedPenalty;
+      const combatMod = COMBAT_SITUATIONAL_MODIFIERS[combatModPart].attack ?? 0;
+      const total = this.atkValue + atkMod + directedPenalty + combatMod;
 
-      //console.log(this.atkValue);
       html.find("#totalMod").text(total);
     };
 
-    html.find("#atkMod").on("input", updateTotal);
+    html.find("#atkMod").on("change", updateTotal);
     html.find("#directedAttack").on("change", updateTotal);
+    html.find("#combatModifier").on("change", updateTotal);
 
     updateTotal(); // initialize
 
@@ -83,13 +99,15 @@ export class CombatWindow extends Application {
 
       const atkMod = toNum(html.find("#atkMod").val());
       const directed = html.find("#directedAttack").val();
+      const combatModPart = html.find("#combatModifier").val();
       const directedPenalty = DIRECTED_ATTACK_TABLE[directed] ?? 0;
+      const combatMod = COMBAT_SITUATIONAL_MODIFIERS[combatModPart].attack ?? 0;
       const region = DIRECTED_TO_REGION[directed] ?? null;
       const zeonCost = toNum(html.find("#zeonCost").val());
 
       const attackType = html.find("#attackType").val();
 
-      const final = atkMod + directedPenalty;
+      const final = atkMod + directedPenalty + combatMod;
 
       this._resolve({
         atkMod,
@@ -130,3 +148,11 @@ const DIRECTED_TO_REGION = {
 };
 
 const SPELL_ATTACK_TYPES = ["ene", "hea", "col", "imp"];
+
+export function getSituationalModifier(situationKey, stat) {
+  const entry = COMBAT_SITUATIONAL_MODIFIERS[situationKey];
+  if (!entry) return 0;
+
+  const value = entry[stat];
+  return typeof value === "number" ? value : 0;
+}

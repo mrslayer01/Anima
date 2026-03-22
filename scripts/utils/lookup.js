@@ -419,3 +419,201 @@ export const SUMMONING_DIFFICULTY_TABLE = {
     banishZeon: 180
   }
 };
+
+export const COMBAT_SITUATIONAL_MODIFIERS = {
+  None: {
+    attack: 0,
+    block: 0,
+    dodge: 0,
+    initiative: 0,
+    physical: 0,
+    action: 0
+  },
+  flanked: {
+    attack: -10,
+    block: -30,
+    dodge: -30,
+    initiative: 0,
+    physical: 0,
+    action: 0
+  },
+  fromBehind: {
+    attack: -30,
+    block: -80,
+    dodge: -80,
+    initiative: 0,
+    physical: 0,
+    action: 0
+  },
+  surprised: {
+    attack: 0,
+    block: -90,
+    dodge: -90,
+    initiative: 0,
+    physical: 0,
+    action: -90
+  },
+  visionPartiallyObscured: {
+    attack: -30,
+    block: -30,
+    dodge: -15,
+    initiative: 0,
+    physical: 0,
+    action: -30
+  },
+  visionTotallyObscured: {
+    attack: -100,
+    block: -80,
+    dodge: -80,
+    initiative: 0,
+    physical: 0,
+    action: -90
+  },
+  higherGround: {
+    attack: +20,
+    block: 0,
+    dodge: 0,
+    initiative: 0,
+    physical: 0,
+    action: 0
+  },
+  fromGround: {
+    attack: -30,
+    block: -30,
+    dodge: -30,
+    initiative: -10,
+    physical: 0,
+    action: -30
+  },
+  partiallyImmobilized: {
+    attack: -20,
+    block: -20,
+    dodge: -40,
+    initiative: -20,
+    physical: 0,
+    action: -40
+  },
+  mostlyImmobilized: {
+    attack: -80,
+    block: -80,
+    dodge: -80,
+    initiative: -30,
+    physical: 0,
+    action: -60
+  },
+  fullyImmobilized: {
+    attack: -200,
+    block: -200,
+    dodge: -200,
+    initiative: -100,
+    physical: 0,
+    action: -200
+  },
+  putAtWeaponsPoint: {
+    attack: -20,
+    block: -120,
+    dodge: -120,
+    initiative: -50,
+    physical: 0,
+    action: -100
+  },
+  levitating: {
+    attack: -20,
+    block: -20,
+    dodge: -40,
+    initiative: 0,
+    physical: 0,
+    action: -60
+  },
+  flightType10to14: {
+    attack: +10,
+    block: +10,
+    dodge: +10,
+    initiative: +10,
+    physical: 0,
+    action: 0
+  },
+  flightType15Plus: {
+    attack: +15,
+    block: +10,
+    dodge: +20,
+    initiative: +10,
+    physical: 0,
+    action: 0
+  },
+  charging: {
+    attack: +10,
+    block: -10,
+    dodge: -20,
+    initiative: 0,
+    physical: 0,
+    action: 0
+  },
+  drawingWeapon: {
+    attack: -25,
+    block: -25,
+    dodge: 0,
+    initiative: 0,
+    physical: 0,
+    action: -25
+  },
+  smallAdversary: {
+    attack: -10,
+    block: 0,
+    dodge: 0,
+    initiative: 0,
+    physical: 0,
+    action: 0
+  },
+  tinyAdversary: {
+    attack: -20,
+    block: -10,
+    dodge: 0,
+    initiative: 0,
+    physical: 0,
+    action: 0
+  }
+};
+
+export const COMBAT_SITUATIONAL_MODIFIERS_SUPERNATURAL = {
+  None: {
+    attack: 0,
+    block: 0,
+    dodge: 0,
+    initiative: 0,
+    physical: 0,
+    action: 0
+  },
+  surprised: {
+    attack: 0,
+    block: -90,
+    dodge: -90,
+    initiative: 0,
+    physical: 0,
+    action: -90
+  },
+  visionPartiallyObscured: {
+    attack: -30,
+    block: -30,
+    dodge: -15,
+    initiative: 0,
+    physical: 0,
+    action: -30
+  },
+  visionTotallyObscured: {
+    attack: -100,
+    block: -80,
+    dodge: -80,
+    initiative: 0,
+    physical: 0,
+    action: -90
+  },
+  putAtWeaponsPoint: {
+    attack: -20,
+    block: -120,
+    dodge: -120,
+    initiative: -50,
+    physical: 0,
+    action: -100
+  }
+};

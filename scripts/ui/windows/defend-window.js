@@ -1,3 +1,7 @@
+import {
+  COMBAT_SITUATIONAL_MODIFIERS,
+  COMBAT_SITUATIONAL_MODIFIERS_SUPERNATURAL
+} from "../../utils/lookup.js";
 import { toNum } from "../../utils/numbers.js";
 
 export class DefendWindow extends Application {
@@ -40,32 +44,68 @@ export class DefendWindow extends Application {
       dodge: this.dodge,
       projection: this.projection,
       attack: this.attackData,
-      hasShield: this.hasShield
+      hasShield: this.hasShield,
+      combatModifiers: Object.entries(COMBAT_SITUATIONAL_MODIFIERS).map(([name, data]) => ({
+        name,
+        block: data.block,
+        dodge: data.dodge
+      }))
     };
   }
 
   activateListeners(html) {
     super.activateListeners(html);
 
+    const updateTotal = () => {
+      const defMod = toNum(html.find("#defMod").val());
+      const combatModPart = html.find("#combatModifier").val();
+      const combatModDodge = COMBAT_SITUATIONAL_MODIFIERS[combatModPart].dodge ?? 0;
+      const combatModBlock = COMBAT_SITUATIONAL_MODIFIERS[combatModPart].block ?? 0;
+      const combatModProjection =
+        COMBAT_SITUATIONAL_MODIFIERS_SUPERNATURAL[combatModPart]?.block ?? 0;
+
+      const dodgeTotal = this.dodge + defMod + combatModDodge + this.defenseValue;
+      const blockTotal = this.block + defMod + combatModBlock + this.defenseValue;
+      const projTotal = this.projection + defMod + combatModProjection + this.defenseValue;
+      //const total = this.atkValue + defMod + directedPenalty + combatMod;
+
+      //console.log(this.atkValue);
+      html.find("#block").text("Block: " + blockTotal);
+      html.find("#dodge").text("Dodge: " + dodgeTotal);
+      html.find("#projection").text("Projection: " + projTotal);
+    };
+
+    updateTotal(); // initialize
+
     // Update modifier live
-    html.find("#defMod").on("change", (ev) => {
-      this.modifier = toNum(ev.target.value);
-      this.block = this.block += this.modifier;
-      this.dodge = this.dodge += this.modifier;
-      this.projection = this.projection += this.modifier;
-      this.render();
-    });
+    html.find("#defMod").on("change", updateTotal);
+    html.find("#combatModifier").on("change", updateTotal);
 
     // Handle defense button clicks
     html.find(".def-btn").on("click", async (ev) => {
       const type = ev.currentTarget.dataset.type;
+      const combatModPart = html.find("#combatModifier").val();
+      const combatModDodge = COMBAT_SITUATIONAL_MODIFIERS[combatModPart].dodge ?? 0;
+      const combatModBlock = COMBAT_SITUATIONAL_MODIFIERS[combatModPart].block ?? 0;
+      const combatModProjection =
+        COMBAT_SITUATIONAL_MODIFIERS_SUPERNATURAL[combatModPart]?.block ?? 0;
+
+      let finalMod = 0;
+
+      if (type === "dodge") {
+        finalMod = this.modifier + combatModDodge;
+      } else if (type === "block") {
+        finalMod = this.modifier + combatModBlock;
+      } else if (type === "projection") {
+        finalMod = this.modifier + combatModProjection;
+      }
 
       if (this.manual) {
         this._resolve({
           manual: true,
           type,
           defenseValue: this.defenseValue,
-          modifier: this.modifier,
+          modifier: finalMod,
           manualAT: this.manualAT,
           block: this.block,
           dodge: this.dodge,
@@ -75,7 +115,7 @@ export class DefendWindow extends Application {
       } else {
         this._resolve({
           type,
-          modifier: this.modifier,
+          modifier: finalMod,
           block: this.block,
           dodge: this.dodge,
           projection: this.projection
@@ -88,15 +128,11 @@ export class DefendWindow extends Application {
     // Manual Defend Fields
     html.find("#manualDefense").on("change", (ev) => {
       this.defenseValue = toNum(ev.target.value);
-      this.block = toNum(ev.target.value);
-      this.dodge = toNum(ev.target.value);
-      this.projection = toNum(ev.target.value);
-      this.render();
+      updateTotal();
     });
 
     html.find("#manualAT").on("change", (ev) => {
       this.manualAT = toNum(ev.target.value);
-      this.render();
     });
 
     html.find(".shield-toggle").on("click", async (ev) => {

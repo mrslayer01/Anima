@@ -58,13 +58,16 @@ Hooks.on("updateItem", (item, updateData, options, userId) => {
 });
 
 Hooks.on("updateCombat", async (combat, changes) => {
-  if (!("round" in changes)) return; // only on new round
+  if (!("round" in changes)) return;
+  if (!game.user.isGM) return;
 
-  // Roll initiative for everyone
-  await combat.rollInitiative(
-    combat.combatants.map((c) => c.id),
-    { updateTurn: true }
-  );
+  // Reset initiative to null for all combatants
+  const updates = combat.combatants.map((c) => ({
+    _id: c.id,
+    initiative: null
+  }));
+
+  await combat.updateEmbeddedDocuments("Combatant", updates);
 });
 
 Hooks.once("ready", () => {
@@ -87,5 +90,27 @@ Hooks.once("ready", () => {
         }
       ).render(true);
     }
+  });
+
+  // SHIFT + Right‑Click → Target token
+  canvas.stage.on("rightdown", (event) => {
+    const ev = event.data.originalEvent;
+
+    // Only intercept SHIFT + Right‑Click
+    if (!ev.shiftKey || ev.button !== 2) return;
+
+    // Get the topmost token under the cursor
+    const { x, y } = event.data.getLocalPosition(canvas.tokens);
+    const token = canvas.tokens.placeables.find((t) => t.bounds.contains(x, y));
+
+    if (!token) return;
+
+    console.log("Shift + Right‑Click target:", token.name);
+
+    event.stopPropagation();
+    event.preventDefault();
+
+    // Foundry V11+ targeting API
+    token.setTarget(!token.isTargeted, { releaseOthers: false });
   });
 });

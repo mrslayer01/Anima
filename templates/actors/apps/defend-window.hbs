@@ -29,6 +29,16 @@
       {{/if}}
     </p>
   </section>
+  <section style="margin-top: 1em;">
+    <h3>
+      Combat Modifier
+    </h3>
+    <select id="combatModifier" class="selector" style="width: 100%;">
+      {{#each combatModifiers}}
+        <option value="{{this.name}}">{{humanize this.name}} (Block: {{this.block}}, Dodge: {{this.dodge}})</option>
+      {{/each}}
+    </select>
+  </section>
 
   {{#if manual}}
     <section style="margin-top: 1em;">
@@ -59,13 +69,13 @@
       Defense Type
     </h3>
     <div class="defense-buttons">
-      <button class="def-btn button" data-type="block">
+      <button id="block" class="def-btn button" data-type="block">
         Block: {{block}}
       </button>
-      <button class="def-btn button" data-type="dodge">
+      <button id="dodge" class="def-btn button" data-type="dodge">
         Dodge: {{dodge}}
       </button>
-      <button class="def-btn button" data-type="projection">
+      <button id="projection" class="def-btn button" data-type="projection">
         Projection: {{projection}}
       </button>
     </div>

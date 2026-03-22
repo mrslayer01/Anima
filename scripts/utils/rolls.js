@@ -20,8 +20,7 @@ export async function rollDice(formula) {
 export function sendChat(content, actor) {
   const messageData = {
     content,
-    speaker: ChatMessage.getSpeaker({ actor }),
-    ...(game.user.isGM && { whisper: ChatMessage.getWhisperRecipients("GM") })
+    speaker: ChatMessage.getSpeaker({ actor })
   };
 
   ChatMessage.create(messageData);
@@ -99,18 +98,19 @@ export async function fumbleRoll({ fumbleValue, label, mastery, actor, capture =
     <b>Final Fumble Level:</b> <span style="color:red"><b>${finalFumble}</b></span>
   `;
 
-  if (capture) {
-    return {
-      fumble: true,
-      fumbleValue: raw,
-      fumbleMod,
-      finalFumble,
-      label: name,
-      actor
-    };
+  if (!capture) {
+    setTimeout(() => sendChat(content, actor), 2000);
   }
 
-  setTimeout(() => sendChat(content, actor), 2000);
+  return {
+    fumble: true,
+    fumbleValue: f,
+    fumbleRoll: raw,
+    fumbleMod,
+    finalFumble,
+    label: name,
+    actor
+  };
 }
 
 // ============================================================
@@ -123,7 +123,9 @@ export async function animaOpenRoll({
   mastery,
   undeveloped,
   actor,
-  capture = false
+  capture = false,
+  hideDice = false,
+  timeout = 2000
 }) {
   const actionPenalty = toNum(actor.system.globalModifiers.Action.final);
   const hasBadLuck = actor.system.advantages.some((adv) => adv.name === "Bad Luck");
@@ -139,6 +141,7 @@ export async function animaOpenRoll({
   let keepRolling = true;
 
   let fumbleRange = isMastery ? [1, 2] : [1, 2, 3];
+  let fumbleNegative = 0;
 
   if (hasBadLuck) fumbleRange = isMastery ? [1, 2, 3, 4] : [1, 2, 3, 4, 5];
   if (hasGoodLuck) fumbleRange = isMastery ? [1] : [1, 2];
@@ -148,17 +151,26 @@ export async function animaOpenRoll({
     await roll.evaluate();
 
     // GLOBAL dice animation without chat card
-    if (game.dice3d) game.dice3d.showForRoll(roll, game.user, true);
+    if (!hideDice) {
+      if (game.dice3d) game.dice3d.showForRoll(roll, game.user, true);
+    }
 
     const raw = roll.total;
 
     if (fumbleRange.includes(raw)) {
-      return fumbleRoll({
+      const fumble = fumbleRoll({
         fumbleValue: raw,
         label: name,
         mastery: isMastery,
         actor
       });
+
+      console.log(fumble);
+
+      rawRolls.push(raw);
+      total = raw + toNum(fumble.fumbleValue);
+      keepRolling = false;
+      continue;
     }
 
     rawRolls.push(raw);
@@ -200,7 +212,7 @@ export async function animaOpenRoll({
     return resultData;
   }
 
-  setTimeout(() => sendChat(content, actor), 2000);
+  setTimeout(() => sendChat(content, actor), timeout);
   return resultData;
 }
 

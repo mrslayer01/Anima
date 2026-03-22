@@ -1,3 +1,4 @@
+import { promptInitiativeModifierWindow } from "../../utils/combat.js";
 import { capitalizeFirst, getActorOwner } from "../../utils/helpers.js";
 import {
   ARMOR_COVERAGE,
@@ -98,37 +99,31 @@ export function RollListeners(sheet, html) {
 
   //initiative open roll
   html.find(".init-roll").off("click");
-  html.find(".init-roll").on("click", (ev) => {
-    const initValue = toNum(ev.currentTarget.dataset.ability);
+  html.find(".init-roll").on("click", async (ev) => {
+    const actor = sheet.actor;
+    const baseInit = Number(ev.currentTarget.dataset.ability) || 0;
 
-    new Dialog({
-      title: "Open Roll Modifier",
-      content: `
-                    <div style="margin-bottom: 1em;">
-                      <label><b>Modifier:</b></label>
-                      <input type="number" id="mod" value="0" style="width: 100%;" />
-                    </div>
-                  `,
-      buttons: {
-        roll: {
-          label: "Roll",
-          callback: (html) => {
-            const modifier = toNum(html.find("#mod").val());
+    // Ask the user for modifiers (custom + situational)
+    const { final, mod, situational } = await promptInitiativeModifierWindow(actor);
 
-            const final = toNum(initValue + modifier);
+    // Perform the open roll
+    const rollResult = await animaOpenRoll({
+      value: baseInit + final,
+      label: `Initiative`,
+      actor,
+      undeveloped: false,
+      mastery: false,
+      capture: false
+    });
 
-            animaOpenRoll({
-              value: final,
-              label: `Initiative Open Roll`,
-              actor: sheet.actor,
-              undeveloped: false,
-              mastery: false
-            });
-          }
-        }
-      },
-      default: "roll"
-    }).render(true);
+    // Update initiative if in combat
+    const combat = game.combat;
+    if (combat) {
+      const combatant = combat.combatants.find((c) => c.actor?.id === actor.id);
+      if (combatant) {
+        await combat.setInitiative(combatant.id, rollResult.final);
+      }
+    }
   });
 
   //Resistance Roll
@@ -258,6 +253,8 @@ export function RollListeners(sheet, html) {
 
     let defense = await getDefense(defenderUser, targetActor, attackData);
 
+    console.log(defense);
+
     const { type, modifier } = defense;
 
     // ---------------------------------------------------------
@@ -269,18 +266,6 @@ export function RollListeners(sheet, html) {
       (i) => i.type === "weapon" && i.system.weaponType === "shield" && i.system.equipped
     );
 
-    let defenseValue = 0;
-
-    if (type === "block") {
-      defenseValue = toNum(targetActor.system.abilities.primary.Combat.Block.final);
-    } else if (type === "dodge") {
-      defenseValue = toNum(targetActor.system.abilities.primary.Combat.Dodge.final);
-    } else if (type === "projection") {
-      defenseValue = toNum(
-        targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
-      );
-    }
-
     let defensePenalty = DefensePenalty(
       w.weaponType,
       type,
@@ -289,7 +274,20 @@ export function RollListeners(sheet, html) {
       dodgeMastery
     );
 
-    defenseValue += modifier + defensePenalty;
+    let defenseValue = 0;
+    const blockFinal = toNum(targetActor.system.abilities.primary.Combat.Block.final);
+    const dodgeFinal = toNum(targetActor.system.abilities.primary.Combat.Dodge.final);
+    const projectionFinal = toNum(
+      targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
+    );
+
+    if (type === "block") {
+      defenseValue = blockFinal + modifier + defensePenalty;
+    } else if (type === "dodge") {
+      defenseValue = dodgeFinal + modifier + defensePenalty;
+    } else if (type === "projection") {
+      defenseValue = projectionFinal + modifier + defensePenalty;
+    }
 
     // ---------------------------------------------------------
     // ARMOR TYPE (AT) CALCULATION
@@ -335,15 +333,6 @@ export function RollListeners(sheet, html) {
         ),
       2000
     );
-  });
-
-  html.find(".damage-roll").off("click");
-  html.find(".damage-roll").on("click", async (ev) => {
-    const baseDamage = toNum(ev.currentTarget.dataset.damage) || 0;
-
-    const { dmg, pct } = await promptDamageCalculation(baseDamage);
-
-    postDamageCard({ dmg, pct });
   });
 
   html.find(".spell-attack-roll").off("click");
@@ -406,35 +395,13 @@ export function RollListeners(sheet, html) {
 
     let defense = await getDefense(defenderUser, targetActor, attackData);
 
-    const { type, modifier } = defense;
+    const { type } = defense;
 
     // ---------------------------------------------------------
     // DEFENSE CALCULATION (LOCAL TO ATTACKER)
     // ---------------------------------------------------------
-    const dodgeMastery = targetActor.system.abilities.primary.Combat.Dodge.mastery;
 
-    let defenseValue = 0;
-
-    if (type === "block") {
-      defenseValue = toNum(targetActor.system.abilities.primary.Combat.Block.final);
-    } else if (type === "dodge") {
-      defenseValue = toNum(targetActor.system.abilities.primary.Combat.Dodge.final);
-    } else if (type === "projection") {
-      defenseValue = toNum(
-        targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
-      );
-    }
-
-    // Spell attacks count as Fired projectiles and can be an AOE attack.
-    let defensePenalty = 0;
-
-    if (!isAOE) {
-      defensePenalty = DefensePenalty("projectile", type, false, false, dodgeMastery);
-    } else {
-      defensePenalty = DefensePenalty("aoe", type, false, false, dodgeMastery);
-    }
-
-    defenseValue += modifier + defensePenalty;
+    let defenseValue = getFinalDefenseValueSpell(targetActor, defense, isAOE);
 
     // ---------------------------------------------------------
     // ARMOR TYPE (AT) CALCULATION
@@ -481,6 +448,15 @@ export function RollListeners(sheet, html) {
       2000
     );
   });
+
+  html.find(".damage-roll").off("click");
+  html.find(".damage-roll").on("click", async (ev) => {
+    const baseDamage = toNum(ev.currentTarget.dataset.damage) || 0;
+
+    const { dmg, pct } = await promptDamageCalculation(baseDamage);
+
+    postDamageCard({ dmg, pct });
+  });
 }
 
 async function manualDefend(sheet, attackData) {
@@ -492,8 +468,6 @@ async function manualDefend(sheet, attackData) {
     }).render(true);
   });
 
-  //    const attackData = { attackValue, armorPen, directed, attackType, weaponType, isAOE };
-
   let dodgeMastery = false;
   let blockMastery = false;
 
@@ -502,21 +476,39 @@ async function manualDefend(sheet, attackData) {
     if (result.type === "block") blockMastery = true;
   }
 
-  let defensePenalty = DefensePenalty(
-    attackData.weaponType,
-    result.type,
-    blockMastery,
-    result.hasShield,
-    dodgeMastery
-  );
+  let defensePenalty = 0;
 
-  //console.log(dodgeMastery, blockMastery, defensePenalty);
+  if (attackData.weaponType === "Spell Attack") {
+    if (!attackData.isAOE) {
+      defensePenalty = DefensePenalty("projectile", result.type, false, false);
+    } else {
+      defensePenalty = DefensePenalty("aoe", result.type, false, false);
+    }
+  } else {
+    defensePenalty = DefensePenalty(
+      attackData.weaponType,
+      result.type,
+      blockMastery,
+      result.hasShield,
+      dodgeMastery
+    );
+  }
 
-  const defenseFinal = result.defenseValue + defensePenalty;
-  const modifier = result.modifier;
+  let defenseFinal = 0;
+
+  console.log(attackData);
+
+  if (result.type === "block") {
+    defenseFinal = result.defenseValue + defensePenalty + result.modifier;
+  } else if (result.type === "dodge") {
+    defenseFinal = result.defenseValue + defensePenalty + result.modifier;
+  } else if (result.type === "projection") {
+    defenseFinal = result.defenseValue + defensePenalty + result.modifier;
+  }
+
   const manualAT = result.manualAT;
 
-  const finalAttack = attackData.attackValue + modifier;
+  const finalAttack = attackData.attackValue;
 
   const defender = await animaOpenRollCapture({
     value: defenseFinal,
@@ -852,4 +844,34 @@ function getPreferredDefenderUser(actor) {
 
   // 4. Any GM
   return game.users.find((u) => u.isGM);
+}
+
+function getFinalDefenseValueSpell(targetActor, defense, isAOE) {
+  const { type, modifier } = defense;
+  let defenseValue = 0;
+
+  const blockFinal = toNum(targetActor.system.abilities.primary.Combat.Block.final);
+  const dodgeFinal = toNum(targetActor.system.abilities.primary.Combat.Dodge.final);
+  const projectionFinal = toNum(
+    targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
+  );
+
+  // Spell attacks count as Fired projectiles and can be an AOE attack.
+  let defensePenalty = 0;
+
+  if (!isAOE) {
+    defensePenalty = DefensePenalty("projectile", type, false, false);
+  } else {
+    defensePenalty = DefensePenalty("aoe", type, false, false);
+  }
+
+  if (type === "block") {
+    defenseValue = blockFinal + modifier + defensePenalty;
+  } else if (type === "dodge") {
+    defenseValue = dodgeFinal + modifier + defensePenalty;
+  } else if (type === "projection") {
+    defenseValue = projectionFinal + modifier + defensePenalty;
+  }
+
+  return defenseValue;
 }
