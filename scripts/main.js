@@ -71,10 +71,13 @@ Hooks.on("updateCombat", async (combat, changes) => {
 });
 
 Hooks.once("ready", () => {
-  // Remove any previous listeners (hot reload safety)
-  game.socket.off("system.abf-system");
+  if (window.ABF_SOCKETS_INITIALIZED) return;
+  window.ABF_SOCKETS_INITIALIZED = true;
+
+  game.socket.off("system.abf-system"); // remove ALL previous listeners
 
   game.socket.on("system.abf-system", (msg) => {
+    // SINGLE TARGET
     if (msg.type === "defense:prompt" && msg.userId === game.user.id) {
       new DefendWindow(
         (defense) => {
@@ -105,12 +108,9 @@ Hooks.once("ready", () => {
 
     if (!token) return;
 
-    console.log("Shift + Right‑Click target:", token.name);
-
     event.stopPropagation();
     event.preventDefault();
 
-    // Foundry V11+ targeting API
     token.setTarget(!token.isTargeted, { releaseOthers: false });
   });
 });

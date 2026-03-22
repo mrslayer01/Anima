@@ -228,110 +228,23 @@ export function RollListeners(sheet, html) {
     }
 
     const targets = Array.from(game.user.targets);
-    const target = targets[0] ?? null;
     const isAOE = false;
     const weaponType = w.weaponType;
     const attackData = { attackValue, armorPen, directed, attackType, weaponType, isAOE };
 
-    // ---------------------------------------------------------
-    // CASE 1: NO TARGET → MANUAL DEFENSE ENTRY
-    // ---------------------------------------------------------
-    if (!target) {
+    if (targets.length === 0) {
       return await manualDefend(sheet, attackData);
     }
 
-    // ---------------------------------------------------------
-    // CASE 2: TARGET SELECTED → REMOTE OR LOCAL DEFENSE PROMPT
-    // ---------------------------------------------------------
-    const targetActor = target.actor;
-
-    // Owner detection using Foundry's permission system
-    // There are multiple owners, first check to see which is online and not the GM, if none are default to the GM.
-    // Determine defender user (owner or GM)
-    const defenderUser = getPreferredDefenderUser(targetActor);
-    //console.log("Defender user:", defenderUser?.name, "active:", defenderUser?.active);
-
-    let defense = await getDefense(defenderUser, targetActor, attackData);
-
-    console.log(defense);
-
-    const { type, modifier } = defense;
-
-    // ---------------------------------------------------------
-    // DEFENSE CALCULATION (LOCAL TO ATTACKER)
-    // ---------------------------------------------------------
-    const blockMastery = targetActor.system.abilities.primary.Combat.Block.mastery;
-    const dodgeMastery = targetActor.system.abilities.primary.Combat.Dodge.mastery;
-    const equippedshield = targetActor.items.find(
-      (i) => i.type === "weapon" && i.system.weaponType === "shield" && i.system.equipped
-    );
-
-    let defensePenalty = DefensePenalty(
-      w.weaponType,
-      type,
-      blockMastery,
-      equippedshield,
-      dodgeMastery
-    );
-
-    let defenseValue = 0;
-    const blockFinal = toNum(targetActor.system.abilities.primary.Combat.Block.final);
-    const dodgeFinal = toNum(targetActor.system.abilities.primary.Combat.Dodge.final);
-    const projectionFinal = toNum(
-      targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
-    );
-
-    if (type === "block") {
-      defenseValue = blockFinal + modifier + defensePenalty;
-    } else if (type === "dodge") {
-      defenseValue = dodgeFinal + modifier + defensePenalty;
-    } else if (type === "projection") {
-      defenseValue = projectionFinal + modifier + defensePenalty;
-    }
-
-    // ---------------------------------------------------------
-    // ARMOR TYPE (AT) CALCULATION
-    // ---------------------------------------------------------
-    let baseAT = 0;
-
-    if (directed !== "None") {
-      baseAT = getEffectiveAT(targetActor, region, attackType);
-    } else {
-      baseAT = targetActor.system.armor.total[attackType];
-    }
-
-    let defATValue = baseAT - attackData.armorPen;
-    if (defATValue < 0) defATValue = 0;
-
-    // ---------------------------------------------------------
-    // ROLLS
-    // ---------------------------------------------------------
-    const defenderRoll = await animaOpenRollCapture({
-      value: defenseValue,
-      label: capitalizeFirst(type),
-      actor: targetActor
-    });
-
-    const attackerRoll = await animaOpenRollCapture({
-      value: attackValue,
-      label: "Attack",
-      actor: sheet.actor
-    });
-
-    // ---------------------------------------------------------
-    // FINAL CARD
-    // ---------------------------------------------------------
-    setTimeout(
-      () =>
-        postCombinedCombatCard(
-          attackerRoll,
-          defenderRoll,
-          defATValue,
-          attackData.armorPen,
-          attackData.directed,
-          attackData.attackType
-        ),
-      2000
+    return await handleSingleTargetAttack(
+      sheet,
+      w,
+      attackData,
+      region,
+      directed,
+      attackType,
+      targets[0],
+      false
     );
   });
 
@@ -373,79 +286,20 @@ export function RollListeners(sheet, html) {
     }
 
     const targets = Array.from(game.user.targets);
-    const target = targets[0] ?? null;
 
-    // ---------------------------------------------------------
-    // CASE 1: NO TARGET → MANUAL DEFENSE ENTRY
-    // ---------------------------------------------------------
-    if (!target) {
+    if (targets.length === 0) {
       return await manualDefend(sheet, attackData);
     }
 
-    // ---------------------------------------------------------
-    // CASE 2: TARGET SELECTED → REMOTE OR LOCAL DEFENSE PROMPT
-    // ---------------------------------------------------------
-    const targetActor = target.actor;
-
-    // ---------------------------------------------------------
-    // OWNER SELECTION (non-GM owners first, online first)
-    // ---------------------------------------------------------
-
-    const defenderUser = getPreferredDefenderUser(targetActor);
-
-    let defense = await getDefense(defenderUser, targetActor, attackData);
-
-    const { type } = defense;
-
-    // ---------------------------------------------------------
-    // DEFENSE CALCULATION (LOCAL TO ATTACKER)
-    // ---------------------------------------------------------
-
-    let defenseValue = getFinalDefenseValueSpell(targetActor, defense, isAOE);
-
-    // ---------------------------------------------------------
-    // ARMOR TYPE (AT) CALCULATION
-    // ---------------------------------------------------------
-    let baseAT = 0;
-
-    if (directed !== "None") {
-      baseAT = getEffectiveAT(targetActor, region, attackType);
-    } else {
-      baseAT = targetActor.system.armor.total[attackType];
-    }
-
-    let defATValue = baseAT - armorPen;
-    if (defATValue < 0) defATValue = 0;
-
-    // ---------------------------------------------------------
-    // ROLLS
-    // ---------------------------------------------------------
-    const defenderRoll = await animaOpenRollCapture({
-      value: defenseValue,
-      label: capitalizeFirst(type),
-      actor: targetActor
-    });
-
-    const attackerRoll = await animaOpenRollCapture({
-      value: attackValue,
-      label: "Spell Attack",
-      actor: sheet.actor
-    });
-
-    // ---------------------------------------------------------
-    // FINAL CARD
-    // ---------------------------------------------------------
-    setTimeout(
-      () =>
-        postCombinedCombatCard(
-          attackerRoll,
-          defenderRoll,
-          defATValue,
-          attackData.armorPen,
-          attackData.directed,
-          attackData.attackType
-        ),
-      2000
+    return await handleSingleTargetAttack(
+      sheet,
+      null,
+      attackData,
+      region,
+      directed,
+      attackType,
+      targets[0],
+      true
     );
   });
 
@@ -480,7 +334,7 @@ async function manualDefend(sheet, attackData) {
 
   if (attackData.weaponType === "Spell Attack") {
     if (!attackData.isAOE) {
-      defensePenalty = DefensePenalty("projectile", result.type, false, false);
+      defensePenalty = DefensePenalty("spell", result.type, false, false);
     } else {
       defensePenalty = DefensePenalty("aoe", result.type, false, false);
     }
@@ -620,7 +474,7 @@ function DefensePenalty(weaponType, type, blockMastery, equippedshield, dodgeMas
         penalty = -50;
       }
     }
-  } else if (weaponType === "aoe") {
+  } else if (weaponType === "aoe" || weaponType === "spell") {
     // When attempoting to defend against an AOE attack, they only primary option is to try and dodge. It gives a -80 by default. If attempts to block it's -120.
     if (type === "block") {
       penalty = -120;
@@ -860,7 +714,7 @@ function getFinalDefenseValueSpell(targetActor, defense, isAOE) {
   let defensePenalty = 0;
 
   if (!isAOE) {
-    defensePenalty = DefensePenalty("projectile", type, false, false);
+    defensePenalty = DefensePenalty("spell", type, false, false);
   } else {
     defensePenalty = DefensePenalty("aoe", type, false, false);
   }
@@ -874,4 +728,168 @@ function getFinalDefenseValueSpell(targetActor, defense, isAOE) {
   }
 
   return defenseValue;
+}
+
+async function handleSingleTargetAttack(
+  sheet,
+  w,
+  attackData,
+  region,
+  directed,
+  attackType,
+  target,
+  isSpellAttack
+) {
+  // ---------------------------------------------------------
+  // CASE 1: NO TARGET → MANUAL DEFENSE ENTRY
+  // ---------------------------------------------------------
+  if (!target) {
+    return await manualDefend(sheet, attackData);
+  }
+
+  // ---------------------------------------------------------
+  // CASE 2: TARGET SELECTED → REMOTE OR LOCAL DEFENSE PROMPT
+  // ---------------------------------------------------------
+  const targetActor = target.actor;
+
+  // Owner detection using Foundry's permission system
+  // There are multiple owners, first check to see which is online and not the GM, if none are default to the GM.
+  // Determine defender user (owner or GM)
+  const defenderUser = getPreferredDefenderUser(targetActor);
+  //console.log("Defender user:", defenderUser?.name, "active:", defenderUser?.active);
+
+  let defense = await getDefense(defenderUser, targetActor, attackData);
+
+  const { type, modifier } = defense;
+
+  if (!isSpellAttack) {
+    // ---------------------------------------------------------
+    // DEFENSE CALCULATION (LOCAL TO ATTACKER)
+    // ---------------------------------------------------------
+    const blockMastery = targetActor.system.abilities.primary.Combat.Block.mastery;
+    const dodgeMastery = targetActor.system.abilities.primary.Combat.Dodge.mastery;
+    const equippedshield = targetActor.items.find(
+      (i) => i.type === "weapon" && i.system.weaponType === "shield" && i.system.equipped
+    );
+
+    let defensePenalty = DefensePenalty(
+      w.weaponType,
+      type,
+      blockMastery,
+      equippedshield,
+      dodgeMastery
+    );
+
+    let defenseValue = 0;
+    const blockFinal = toNum(targetActor.system.abilities.primary.Combat.Block.final);
+    const dodgeFinal = toNum(targetActor.system.abilities.primary.Combat.Dodge.final);
+    const projectionFinal = toNum(
+      targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
+    );
+
+    if (type === "block") {
+      defenseValue = blockFinal + modifier + defensePenalty;
+    } else if (type === "dodge") {
+      defenseValue = dodgeFinal + modifier + defensePenalty;
+    } else if (type === "projection") {
+      defenseValue = projectionFinal + modifier + defensePenalty;
+    }
+
+    // ---------------------------------------------------------
+    // ARMOR TYPE (AT) CALCULATION
+    // ---------------------------------------------------------
+    let baseAT = 0;
+
+    if (directed !== "None") {
+      baseAT = getEffectiveAT(targetActor, region, attackType);
+    } else {
+      baseAT = targetActor.system.armor.total[attackType];
+    }
+
+    let defATValue = baseAT - attackData.armorPen;
+    if (defATValue < 0) defATValue = 0;
+
+    // ---------------------------------------------------------
+    // ROLLS
+    // ---------------------------------------------------------
+    const defenderRoll = await animaOpenRollCapture({
+      value: defenseValue,
+      label: capitalizeFirst(type),
+      actor: targetActor
+    });
+
+    const attackerRoll = await animaOpenRollCapture({
+      value: attackData.attackValue,
+      label: "Attack",
+      actor: sheet.actor
+    });
+
+    // ---------------------------------------------------------
+    // FINAL CARD
+    // ---------------------------------------------------------
+    setTimeout(
+      () =>
+        postCombinedCombatCard(
+          attackerRoll,
+          defenderRoll,
+          defATValue,
+          attackData.armorPen,
+          attackData.directed,
+          attackData.attackType
+        ),
+      2000
+    );
+  } else {
+    const armorPen = 0;
+    // ---------------------------------------------------------
+    // DEFENSE CALCULATION (LOCAL TO ATTACKER)
+    // ---------------------------------------------------------
+
+    let defenseValue = getFinalDefenseValueSpell(targetActor, defense, attackData.isAOE);
+
+    // ---------------------------------------------------------
+    // ARMOR TYPE (AT) CALCULATION
+    // ---------------------------------------------------------
+    let baseAT = 0;
+
+    if (directed !== "None") {
+      baseAT = getEffectiveAT(targetActor, region, attackType);
+    } else {
+      baseAT = targetActor.system.armor.total[attackType];
+    }
+
+    let defATValue = baseAT - armorPen;
+    if (defATValue < 0) defATValue = 0;
+
+    // ---------------------------------------------------------
+    // ROLLS
+    // ---------------------------------------------------------
+    const defenderRoll = await animaOpenRollCapture({
+      value: defenseValue,
+      label: capitalizeFirst(type),
+      actor: targetActor
+    });
+
+    const attackerRoll = await animaOpenRollCapture({
+      value: attackData.attackValue,
+      label: "Spell Attack",
+      actor: sheet.actor
+    });
+
+    // ---------------------------------------------------------
+    // FINAL CARD
+    // ---------------------------------------------------------
+    setTimeout(
+      () =>
+        postCombinedCombatCard(
+          attackerRoll,
+          defenderRoll,
+          defATValue,
+          attackData.armorPen,
+          attackData.directed,
+          attackData.attackType
+        ),
+      2000
+    );
+  }
 }

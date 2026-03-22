@@ -1,5 +1,3 @@
-2026/03/21-08:17:25.332 2c0c Log #220: 0 ops saved to Table #221 OK
-2026/03/21-08:17:25.333 2c0c Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\items/000220.log: OK
-2026/03/21-08:17:25.335 2c0c Table #204: 573 entries OK
-2026/03/21-08:17:25.337 2c0c Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\items/MANIFEST-000215: OK
-2026/03/21-08:17:25.339 2c0c **** Repaired leveldb C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\items; recovered 1 files; 215542 bytes. Some data may have been lost. ****
+2026/03/22-09:01:52.528 1541c Recovering log #225
+2026/03/22-09:01:52.533 1541c Delete type=0 #225
+2026/03/22-09:01:52.533 1541c Delete type=3 #224
