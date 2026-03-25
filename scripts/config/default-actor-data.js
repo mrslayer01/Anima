@@ -141,8 +141,19 @@ export const DEFAULT_ACTOR_DATA = {
         Block: { base: 0, bonus: 0, focus: false },
         Dodge: { base: 0, bonus: 0, focus: false },
         WearArmor: { base: 0, bonus: 0 },
-        Ki: { base: 0, current: 0 },
-        KiAccumulation: { base: 0, current: 0 }
+        Ki: {
+          currentKi: 0,
+          characteristics: {
+            Agility: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },
+            Constitution: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },
+            Dexterity: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },
+            Strength: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },
+            Intelligence: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },
+            Perception: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },
+            Power: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },
+            Willpower: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } }
+          }
+        }
       },
       Psychic: {
         PsychicProjection: { base: 0, bonus: 0 },

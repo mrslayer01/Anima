@@ -6,6 +6,7 @@
   {{actor.system.abilities.primary.abilityLimits.Combat.final}}
 </h3>
 {{/unless}}
+
 <div class="secondary-block">
   <table class="ability-table">
     <thead>
@@ -83,4 +84,72 @@
       {{/each}}
     </tbody>
   </table>
+</div>
+
+<div class="secondary-block ki-block">
+  <div class="ki-section-header" data-action="toggleKi">
+    <h3>
+      Total Ki: {{actor.system.abilities.primary.Combat.Ki.totalKi}}
+    </h3>
+  </div>
+
+  <div class="ki-section-body">
+    <table class="ability-table ki-table">
+      <thead>
+        <tr>
+          <th>Characteristic</th>
+          <th>Ki Base</th>
+          <th>Ki Bonus</th>
+          <th>Ki Final</th>
+          <th>Acc Base</th>
+          <th>Acc Bonus</th>
+          <th>Acc Final</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#with actor.system.abilities.primary.Combat.Ki.characteristics as |chars|}}
+          {{#each chars as |kiObj charName|}}
+            <tr>
+              <td>{{charName}}</td>
+
+              <td>
+                <input type="number"
+                  value="{{kiObj.base}}"
+                  name="system.abilities.primary.Combat.Ki.characteristics.{{charName}}.base"
+                  data-tooltip="<div><strong>DP Cost:</strong> {{kiObj.cost}}</div>"
+                />
+              </td>
+
+              <td>
+                <input type="number"
+                  value="{{kiObj.bonus}}"
+                  name="system.abilities.primary.Combat.Ki.characteristics.{{charName}}.bonus"
+                />
+              </td>
+
+              <td>{{kiObj.final}}</td>
+
+              <td>
+                <input type="number"
+                  value="{{kiObj.kiAccumulation.base}}"
+                  name="system.abilities.primary.Combat.Ki.characteristics.{{charName}}.kiAccumulation.base",
+                  data-tooltip="<div><strong>DP Cost:</strong> {{kiObj.kiAccumulation.cost}}</div>"
+                />
+              </td>
+
+              <td>
+                <input type="number"
+                  value="{{kiObj.kiAccumulation.bonus}}"
+                  name="system.abilities.primary.Combat.Ki.characteristics.{{charName}}.kiAccumulation.bonus"
+                />
+              </td>
+
+              <td>{{kiObj.kiAccumulation.final}}</td>
+            </tr>
+          {{/each}}
+        {{/with}}
+      </tbody>
+    </table>
+  </div>
 </div>

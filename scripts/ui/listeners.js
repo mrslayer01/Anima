@@ -62,6 +62,18 @@ export function registerSheetListeners(sheet, html) {
     if (secondaryAbility) openJournalFromName(abilityName);
   });
 
+  html.find('[data-action="toggleKi"]').click((ev) => {
+    const header = $(ev.currentTarget);
+    const body = header.next(".ki-section-body");
+    const icon = header.find(".ki-toggle-icon");
+
+    const isHidden = body.is(":hidden");
+    body.toggle(!isHidden);
+
+    icon.toggleClass("fa-chevron-down", isHidden);
+    icon.toggleClass("fa-chevron-up", !isHidden);
+  });
+
   //Primary ability focus.
   html.find(".passive-icon.clickable.primary-focus").off("click");
   html.find(".passive-icon.clickable.primary-focus").on("click", async (ev) => {

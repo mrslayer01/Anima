@@ -17,7 +17,7 @@ export class AbilitiesPrimaryRule extends BaseRule {
     // Add all the missing fields cost, class, final, special, mastery, characteristic and weapon mod
     for (const [categoryName, category] of Object.entries(system.abilities.primary)) {
       for (const [name, abil] of Object.entries(category)) {
-        if (categoryName != "abilityLimits") {
+        if (categoryName != "abilityLimits" && name != "Ki") {
           if (abil.cost === undefined) abil.cost = 0;
           if (abil.class === undefined) abil.class = 0;
           if (name === "MagicProjection") {
@@ -32,8 +32,6 @@ export class AbilitiesPrimaryRule extends BaseRule {
           if (
             name != "MagicAccumulation" &&
             name != "MAMultiples" &&
-            name != "Ki" &&
-            name != "KiAccumulation" &&
             name != "Zeon" &&
             name != "PsychicPoints"
           ) {
@@ -58,7 +56,7 @@ export class AbilitiesPrimaryRule extends BaseRule {
     // Calculate Primary Abilities
     for (const [categoryName, category] of Object.entries(system.abilities.primary)) {
       for (const [name, abil] of Object.entries(category)) {
-        if (categoryName != "abilityLimits") {
+        if (categoryName != "abilityLimits" && name != "Ki") {
           if (
             name === "Zeon" ||
             name === "MagicAccumulation" ||
@@ -180,7 +178,8 @@ export class AbilitiesPrimaryRule extends BaseRule {
           abilityName === "Zeon" ||
           abilityName === "MagicAccumulation" ||
           abilityName === "MAMultiples" ||
-          abilityName === "MagicProjection"
+          abilityName === "MagicProjection" ||
+          abilityName === "Ki"
         )
           continue;
 

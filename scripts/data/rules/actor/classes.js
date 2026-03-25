@@ -112,12 +112,23 @@ function PrimaryAbilities(
 
     target.percent = toNum(value);
   }
+  const kiPath = system.abilities.primary.Combat.Ki;
 
   // Primary Ability Combat DP Costs
   for (const combat of allCombatAbilityCosts) {
     const name = normalizeAbilityName(combat.name);
     for (const [abilityName, ability] of Object.entries(system.abilities.primary.Combat)) {
-      system.abilities.primary.Combat[name].cost = toNum(combat.cost);
+      if (name === "Ki") {
+        for (const [name, char] of Object.entries(kiPath.characteristics)) {
+          char.cost = toNum(combat.cost);
+        }
+      } else if (name === "KiAccumulation") {
+        for (const [name, char] of Object.entries(kiPath.characteristics)) {
+          char.kiAccumulation.cost = toNum(combat.cost);
+        }
+      } else {
+        system.abilities.primary.Combat[name].cost = toNum(combat.cost);
+      }
     }
   }
 

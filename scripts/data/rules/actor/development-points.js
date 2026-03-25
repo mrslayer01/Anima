@@ -205,14 +205,11 @@ function DerivedModules(system) {
 function DerivedPrimaryAbilites(system) {
   for (const [categoryName, category] of Object.entries(system.abilities.primary)) {
     if (categoryName === "abilityLimits") continue;
-
     for (const [abilityName, abil] of Object.entries(category)) {
       let base = toNum(abil.base) || 0;
       let cost = toNum(abil.cost) || 0;
 
-      // -------------------------------
       // SPECIAL CASE: MAMultiples
-      // -------------------------------
       if (abilityName === "MAMultiples") {
         // Only store DP if > 1 (baseline)
         if (base > 1 && cost > 0) {
@@ -226,9 +223,7 @@ function DerivedPrimaryAbilites(system) {
         continue;
       }
 
-      // -------------------------------
       // NORMAL ABILITIES
-      // -------------------------------
       if (base > 0 && cost > 0) {
         system.developmentPoints.spentRecords.push({
           category: categoryName,
@@ -236,6 +231,34 @@ function DerivedPrimaryAbilites(system) {
           amount: base,
           cost
         });
+      }
+
+      // KI & KI ACCUMULATION ---
+      if (categoryName === "Combat" && abilityName === "Ki") {
+        for (const [charName, kiObj] of Object.entries(abil.characteristics)) {
+          // Ki DP
+          if (kiObj.base > 0 && kiObj.cost > 0) {
+            system.developmentPoints.spentRecords.push({
+              category: "Combat",
+              ability: `Ki_${charName}`,
+              amount: kiObj.base,
+              cost: kiObj.cost
+            });
+          }
+
+          // Ki Accumulation DP
+          const acc = kiObj.kiAccumulation;
+          if (acc.base > 0 && acc.cost > 0) {
+            system.developmentPoints.spentRecords.push({
+              category: "Combat",
+              ability: `KiAcc_${charName}`,
+              amount: acc.base,
+              cost: acc.cost
+            });
+          }
+        }
+
+        continue; // prevent normal ability handling
       }
     }
   }
@@ -245,6 +268,22 @@ function RecalcPrimaryAbilites(system, category, ability) {
   if (["Combat", "Psychic", "Supernatural"].includes(category)) {
     let newBase = system.abilities.primary[category][ability].base;
     let cost = system.abilities.primary[category][ability].cost;
+
+    if (category === "Combat" && ability === "Ki") {
+      for (const [charName, kiObj] of Object.entries(
+        system.abilities.primary.Combat.Ki.characteristics
+      )) {
+        updateAbilityRecord(system, "Combat", `Ki_${charName}`, kiObj.base, kiObj.cost);
+        updateAbilityRecord(
+          system,
+          "Combat",
+          `KiAcc_${charName}`,
+          kiObj.kiAccumulation.base,
+          kiObj.kiAccumulation.cost
+        );
+      }
+      return;
+    }
 
     updateAbilityRecord(system, category, ability, newBase, cost);
   }
