@@ -48,17 +48,24 @@
             {{system.attackBonus}}
           </td>
         </tr>
-        {{#ifEquals system.weaponType "projectile"}}
-          <tr>
+        <tr>
+          <td>
+            <label>
+              Block
+            </label>
+            {{system.blockBonus.final}}
+          </td>
+          {{#ifEquals system.weaponType "projectile"}}
             <td>
               <label>
                 Weapon Range
               </label>
               {{system.projectileWeaponRange.final}}
             </td>
+          {{else}}
             <td></td>
-          </tr>
-        {{/ifEquals}}
+          {{/ifEquals}}
+        </tr>
       </table>
     </div>
   </div>

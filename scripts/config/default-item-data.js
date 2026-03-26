@@ -12,6 +12,7 @@ export const DEFAULT_WEAPON_DATA = {
   attackBonus: 0,
   blockBonus: { base: 0, final: 0 },
   dodgeBonus: 0,
+  modifiers: { attackMod: 0, blockMod: 0, speedMod: 0 },
   speed: { base: 0, bonus: 0, final: 0 },
   damage: { base: 0, bonus: 0, final: 0 },
   presence: { base: 0, bonus: 0, final: 0 },

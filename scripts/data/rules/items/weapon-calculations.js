@@ -71,14 +71,19 @@ export async function UpdateWeapon(actor) {
     // Get Strength Penalty if any
     const strPenalty = strength(w.strengthReq, w.handling, strBase);
 
-    // Compute final damage
-    const atkBonusfinal = q.attack + w.modifier.value + strPenalty;
+    // Compute finals
+    const atkBonusfinal = q.attack + w.modifier.value + strPenalty + toNum(w.modifiers.attackMod);
     let blockBonusfinal = 0;
     if (w.weaponType != "projectile" && w.weaponType != "throwing") {
       // Ranged weapons can't block
-      blockBonusfinal = q.block + w.modifier.value + strPenalty + (w.blockBonus.base ?? 0);
+      blockBonusfinal =
+        q.block +
+        w.modifier.value +
+        strPenalty +
+        (w.blockBonus.base ?? 0) +
+        toNum(w.modifiers.blockMod);
     }
-    const weaponSpeed = w.speed.base + w.speed.bonus + q.speed;
+    const weaponSpeed = w.speed.base + w.speed.bonus + q.speed + toNum(w.modifiers.speedMod);
     if (item.system.equipped) {
       allWeaponSpeed += weaponSpeed;
     }
