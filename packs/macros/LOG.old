@@ -1,5 +1,1 @@
-2026/03/26-08:13:49.576 14ba8 Log #59: 0 ops saved to Table #60 OK
-2026/03/26-08:13:49.577 14ba8 Archiving D:\foundry\Data\Data\systems\abf-system\packs\macros/000059.log: OK
-2026/03/26-08:13:49.586 14ba8 Table #47: 5 entries OK
-2026/03/26-08:13:49.621 14ba8 Archiving D:\foundry\Data\Data\systems\abf-system\packs\macros/MANIFEST-000075: OK
-2026/03/26-08:13:49.655 14ba8 **** Repaired leveldb D:\foundry\Data\Data\systems\abf-system\packs\macros; recovered 1 files; 5258 bytes. Some data may have been lost. ****
+2026/03/27-11:32:56.931 a758 Delete type=3 #1

@@ -1,0 +1,68 @@
+<div class="module-browser">
+
+  <div class="browser-controls">
+    <input
+      type="text"
+      class="module-search"
+      placeholder="Search modules..."
+      value="{{search}}"
+    />
+
+    <select class="module-filter select">
+      {{#each types}}
+        <option value="{{this}}" {{#if (eq this ../filterType)}}selected{{/if}}>
+          {{this}}
+        </option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="module-list effects-grid">
+    {{#each modules}}
+    
+      <div class="module-entry">
+        <div class="module-header">
+          <h3>{{this.name}}</h3>
+          <span class="module-type abf-text">{{this.type}}</span>
+        </div>
+
+        {{#if this.isMartialArt}}
+          <p class="module-meta abf-text">
+            <strong>MK:</strong> +{{this.mk}}
+          </p>
+          <p class="module-meta abf-text">
+            <strong>Requirements:</strong> {{this.requirements}}
+          </p>
+          <p class="module-meta abf-text">
+            <strong>Advantages:</strong> {{this.advantages}}
+          </p>
+        {{/if}}
+
+
+        <p class="module-meta abf-text">
+          <strong>Cost:</strong>
+          <input
+            type="number"
+            class="module-cost-input"
+            data-key="{{this.key}}"
+            value="{{this.cost}}"
+            min="0"
+          />
+        </p>
+
+        <p class="module-meta abf-text">
+          <strong>Effects:</strong> {{this.effects}}
+        </p>
+
+        <p class="module-meta abf-text">
+          <strong>Description:</strong> {{this.description}}
+        </p>
+
+        <div class="module-actions">
+          <button class="add-module button" data-key="{{this.key}}">Add</button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+
+</div>

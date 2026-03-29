@@ -138,4 +138,38 @@
       {{/each}}
     </ul>
   </div>
+
+  <!-- MARTIAL ARTS -->
+  <div class="module-card">
+    <div class="module-card-header">
+      <h3>
+        Martial Arts
+        {{#unless actor.system.settings.ignoreDPLimit}}
+          : {{actor.system.abilities.primary.abilityLimits.Combat.current}} /
+          {{actor.system.abilities.primary.abilityLimits.Combat.final}}
+        {{/unless}}
+      </h3>
+    </div>
+
+    <ul class="module-list">
+      {{#each system.modules.MartialArts as |mod idx|}}
+        <li class="module-row">
+          <span
+            class="clickable-module clickable"
+            data-index="{{idx}}"
+            data-module="{{mod.name}}"
+            data-type="{{mod.type}}"
+          >
+            {{mod.name}} Cost: {{mod.cost}}
+          </span>
+
+          {{#if @root.actor.system.lockUi}}
+            <td></td>
+          {{else}}
+            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}"><i class="fas fa-trash"></i></a>
+          {{/if}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
 </div>

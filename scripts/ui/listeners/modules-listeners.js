@@ -8,7 +8,7 @@ export function ModuelsListeners(sheet, html) {
     new AddModuleWindow({ actorId: sheet.actor.id }).render(true);
   });
 
-  html.find(".delete-module").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".delete-module").off("click");
   html.find(".delete-module").on("click", async (event) => {
     const index = toNum(event.currentTarget.dataset.index);
 
@@ -23,19 +23,22 @@ export function ModuelsListeners(sheet, html) {
     );
 
     if (!confirmed) return;
+
     let modType = event.currentTarget.dataset.type;
 
+    // Normalize module type → storage key
     if (modType === "Archetypical Weapons" || modType === "General Weapon")
       modType = "WeaponModules";
-    if (modType === "Style") modType = "StyleModules";
-    if (modType === "Mystical") modType = "MysticalModules";
-    if (modType === "Psychic") modType = "PsychicModules";
-    if (modType === "Martial Arts") modType = "MartialArts";
+    else if (modType === "Style") modType = "StyleModules";
+    else if (modType === "Mystical") modType = "MysticalModules";
+    else if (modType === "Psychic") modType = "PsychicModules";
+    else if (modType === "Martial Art") modType = "MartialArts";
 
     const modules = foundry.utils.duplicate(sheet.actor.system.modules[modType]);
 
     // Remove from actor
     modules.splice(index, 1);
+
     await sheet.actor.update({
       [`system.modules.${modType}`]: modules
     });

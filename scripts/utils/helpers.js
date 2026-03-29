@@ -149,21 +149,3 @@ export function getActorOwner(actor) {
   const owners = game.users.filter((u) => actor.testUserPermission(u, "OWNER"));
   return owners[0] ?? null;
 }
-
-export function waitForDiceAnimation(count) {
-  return new Promise((resolve) => {
-    if (!game.dice3d || count === 0) return resolve();
-
-    let finished = 0;
-
-    const handler = () => {
-      finished++;
-      if (finished >= count) {
-        Hooks.off("diceSoNiceRollComplete", handler);
-        resolve();
-      }
-    };
-
-    Hooks.on("diceSoNiceRollComplete", handler);
-  });
-}

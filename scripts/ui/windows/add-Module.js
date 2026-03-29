@@ -1,111 +1,146 @@
-import { ABF_MODULES } from "../../config/modules.js";
+import { ABF_MARTIAL_ARTS, ABF_MODULES } from "../../config/modules.js";
 import { toNum } from "../../utils/numbers.js";
 
 export class AddModuleWindow extends Application {
   constructor(options = {}) {
     super(options);
-    this.selectedModule = null;
-    this.moduleData = null;
+    this.actorId = options.actorId;
+    this.costOverrides = {};
+
+    this.search = "";
+    this.filterType = "All";
   }
 
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      id: "add-module-window",
-      title: "Add Module",
-      classes: ["abf-character-sheet"],
-      template: "systems/abf-system/templates/actors/apps/module.hbs",
-      width: 300,
-      height: "auto",
-      resizable: true
+      id: "module-browser",
+      title: "Module Browser",
+      classes: ["abf-character-sheet", "module-browser"],
+      template: "systems/abf-system/templates/actors/apps/module-browser.hbs",
+      width: 800,
+      height: 700,
+      resizable: true,
+      scrollY: [".module-list"]
     });
   }
 
   getData() {
-    const moduleOptions = Object.keys(ABF_MODULES).sort();
+    // Convert modules
+    let modules = Object.entries(ABF_MODULES).map(([key, data]) => ({
+      key,
+      isMartialArt: false,
+      ...data
+    }));
 
-    if (!this.selectedModule) {
-      this.selectedModule = moduleOptions[0];
+    // Convert martial arts
+    let martialArts = Object.entries(ABF_MARTIAL_ARTS).map(([key, data]) => ({
+      key,
+      isMartialArt: true,
+      ...data
+    }));
+
+    // Merge into one unified list
+    let items = [...modules, ...martialArts];
+
+    // Filter by type
+    if (this.filterType !== "All") {
+      items = items.filter((m) => m.type === this.filterType);
+    }
+
+    // Search filter
+    if (this.search.trim().length > 0) {
+      const s = this.search.toLowerCase();
+      items = items.filter((m) => m.name.toLowerCase().includes(s));
     }
 
     return {
-      moduleOptions: moduleOptions,
-      selectedModule: this.selectedModule,
-      moduleData: ABF_MODULES[this.selectedModule]
+      modules: items,
+      search: this.search,
+      filterType: this.filterType,
+      types: [
+        "All",
+        "General Weapon",
+        "Archetypical Weapons",
+        "Style",
+        "Mystical",
+        "Psychic",
+        "Martial Art"
+      ]
     };
   }
 
   activateListeners(html) {
     super.activateListeners(html);
 
-    const selector = html.find(".module-selector");
-
-    selector.on("change", (event) => {
-      this.selectedModule = event.target.value;
+    // Search
+    html.find(".module-search").on("change", (ev) => {
+      this.search = ev.currentTarget.value;
       this.render(true);
     });
 
-    html.find(".module-cost-input").off("change");
-    html.find(".module-cost-input").on("change", async (event) => {
-      const newLevel = toNum(event.currentTarget.value) || 0;
-
-      if (!this.moduleData)
-        this.moduleData = foundry.utils.duplicate(ABF_MODULES[this.selectedModule]);
-
-      this.moduleData.cost = newLevel;
-
-      //this.render(false); // refresh UI
+    // Type filter
+    html.find(".module-filter").on("change", (ev) => {
+      this.filterType = ev.currentTarget.value;
+      this.render(true);
     });
 
-    html.find(".confirm-add").click(async (ev) => {
-      ev.preventDefault();
+    // Manual cost editing
+    html.find(".module-cost-input").on("change", (ev) => {
+      const key = ev.currentTarget.dataset.key;
+      const value = toNum(ev.currentTarget.value) || 0;
 
-      if (!this.selectedModule) return ui.notifications.warn("Select an module first.");
+      this.costOverrides[key] = value;
+    });
 
-      if (!this.moduleData) this.moduleData = ABF_MODULES[this.selectedModule];
+    // Add module
+    html.find(".add-module").on("click", async (ev) => {
+      const key = ev.currentTarget.dataset.key;
 
-      const actor = game.actors.get(this.options.actorId);
+      // Pull from either registry
+      const base = ABF_MODULES[key] ?? ABF_MARTIAL_ARTS[key];
+      const moduleData = foundry.utils.duplicate(base);
 
-      if (!ValidateDPRemaining(this.moduleData.cost, actor)) {
-        return ui.notifications.error(`Not enough Development Points.`);
+      // Apply cost override
+      if (this.costOverrides[key] !== undefined) {
+        moduleData.cost = this.costOverrides[key];
       }
 
-      //Validate if new purchase does not exceed ability limit.
+      const actor = game.actors.get(this.actorId);
 
-      if (!ValidateModuleCategoryLimit(actor, this.moduleData)) {
-        return ui.notifications.error(`Not enough Development Points.`);
+      // Martial arts DO use DP
+      if (!ValidateDPRemaining(moduleData.cost, actor)) {
+        return ui.notifications.error("Not enough Development Points.");
       }
 
-      if (
-        this.moduleData.type === "General Weapon" ||
-        this.moduleData.type === "Archetypical Weapons"
-      ) {
-        const moduleArray = foundry.utils.duplicate(actor.system.modules.WeaponModules ?? []);
-        moduleArray.push(this.moduleData);
-        await actor.update({ "system.modules.WeaponModules": moduleArray });
+      if (!ValidateModuleCategoryLimit(actor, moduleData)) {
+        return ui.notifications.error("Module exceeds category limit.");
       }
 
-      if (this.moduleData.type === "Style") {
-        const moduleArray = foundry.utils.duplicate(actor.system.modules.StyleModules ?? []);
-        moduleArray.push(this.moduleData);
+      // Insert into correct array
+      let path;
 
-        await actor.update({ "system.modules.StyleModules": moduleArray });
+      if (moduleData.type === "Martial Art") {
+        path = "system.modules.MartialArts";
+      } else {
+        path = {
+          "General Weapon": "system.modules.WeaponModules",
+          "Archetypical Weapons": "system.modules.WeaponModules",
+          Style: "system.modules.StyleModules",
+          Mystical: "system.modules.MysticalModules",
+          Psychic: "system.modules.PsychicModules"
+        }[moduleData.type];
       }
 
-      if (this.moduleData.type === "Mystical") {
-        const moduleArray = foundry.utils.duplicate(actor.system.modules.MysticalModules ?? []);
-        moduleArray.push(this.moduleData);
-
-        await actor.update({ "system.modules.MysticalModules": moduleArray });
+      if (!path) {
+        return ui.notifications.error("Unknown module type.");
       }
 
-      if (this.moduleData.type === "Psychic") {
-        const moduleArray = foundry.utils.duplicate(actor.system.modules.PsychicModules ?? []);
-        moduleArray.push(this.moduleData);
+      const arr = foundry.utils.duplicate(getProperty(actor, path) ?? []);
+      arr.push(moduleData);
 
-        await actor.update({ "system.modules.PsychicModules": moduleArray });
-      }
+      await actor.update({ [path]: arr });
 
-      this.close();
+      ui.notifications.info(`Added ${moduleData.name}`);
     });
   }
 }
@@ -117,29 +152,38 @@ function ValidateDPRemaining(dpCost, actor) {
 }
 
 const MODULE_CATEGORY_MAP = {
+  // Types
   "General Weapon": "Combat",
   "Archetypical Weapons": "Combat",
   Style: "Combat",
   Mystical: "Supernatural",
-  Psychic: "Psychic"
+  Psychic: "Psychic",
+  "Martial Art": "Combat",
+
+  // Groups
+  WeaponModules: "Combat",
+  StyleModules: "Combat",
+  MysticalModules: "Supernatural",
+  PsychicModules: "Psychic",
+  MartialArts: "Combat"
 };
 
 function ValidateModuleCategoryLimit(actor, moduleData) {
   if (actor.system.settings.ignoreDPLimit) return true;
+
   const dp = actor.system.developmentPoints;
   const limits = actor.system.abilities.primary.abilityLimits;
 
-  // Determine which primary category this module belongs to
+  // Map module type → primary category
   const category = MODULE_CATEGORY_MAP[moduleData.type];
-  if (!category) return true; // Modules without a category limit
+  if (!category) return true;
 
   const percent = toNum(limits[category].percent) || 0;
-  let limit = (dp.final * percent) / 100;
+  const limit = (dp.final * percent) / 100;
 
   // Calculate current spent in this category
   const currentSpent = dp.spentRecords
     .filter((r) => {
-      // Map module groups to primary categories
       const mapped = MODULE_CATEGORY_MAP[r.category] || r.category;
       return mapped === category;
     })

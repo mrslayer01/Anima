@@ -1300,7 +1300,7 @@
 }
 
 /* Make the search/filter bar stick to the top of the window */
-.npc-power-browser .browser-controls {
+.browser-controls {
   position: sticky;
   top: 0;
   z-index: 50;

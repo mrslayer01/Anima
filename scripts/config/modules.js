@@ -11,6 +11,32 @@ export function createModule(modInput) {
   };
 }
 
+export function createMartialArt(modInput) {
+  const {
+    name = "",
+    type = "",
+    advantages = "",
+    requirements = "",
+    mk = 0,
+    bonuses = "",
+    cost = 0,
+    description = "",
+    journal = ""
+  } = modInput;
+
+  return {
+    name,
+    type,
+    advantages,
+    requirements,
+    mk,
+    bonuses,
+    cost,
+    description,
+    journal
+  };
+}
+
 export const ABF_MODULES = {
   similarWeapon: createModule({
     name: "Similar Weapon",
@@ -296,5 +322,255 @@ export const ABF_MODULES = {
       "The character uses their Combat Abilities to project mental powers as if they were actual weapons.",
     journal:
       "Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.uCBnvaE0E62wxvOt"
+  })
+};
+
+export const ABF_MARTIAL_ARTS = {
+  kempo: createMartialArt({
+    name: "Kempo",
+    type: "Martial Art",
+    advantages:
+      "The rapid flurry of blows allows a Kempo master to carry out additional attacks with a penalty of –10 to his ability instead of the usual –25. It has a Base Damage of 20, plus the character’s Strength bonus. Kempo uses the Blunt Table.",
+    requirements: "None",
+    mk: 10,
+    bonuses: "None",
+    cost: 50,
+    description:
+      "This is a freewheeling style of combat that uses combinations of strikes. The style uses rapid multiple attacks to try and find gaps in an opponent’s defenses."
+  }),
+  capoeira: createMartialArt({
+    name: "Capoeira",
+    type: "Martial Art",
+    advantages:
+      "When making an Area Attack, the user is treated as using a large weapon and can affect up to five opponents. Base Damage 20 + Strength bonus. Uses the Blunt Table.",
+    requirements: "Dance 40",
+    mk: 10,
+    bonuses: "+10 to Dodge",
+    cost: 50,
+    description:
+      "Capoeira appears chaotic and acrobatic, resembling a dance. Its sweeping leg movements allow wide, fluid attacks."
+  }),
+
+  taiChi: createMartialArt({
+    name: "Tai Chi",
+    type: "Martial Art",
+    advantages:
+      "Base Damage 20 + double the Power bonus. Attacks use the Blunt Table rather than the Energy Table.",
+    requirements: "Use of Ki",
+    mk: 30,
+    bonuses: "None",
+    cost: 50,
+    description:
+      "Tai Chi uses fluid, elegant movements and channels internal energy as a force multiplier."
+  }),
+
+  shotokan: createMartialArt({
+    name: "Shotokan",
+    type: "Martial Art",
+    advantages: "Base Damage 30 + Strength bonus. Uses the Blunt Table.",
+    requirements: "None",
+    mk: 10,
+    bonuses: "+10 to Attack (Unarmed)",
+    cost: 50,
+    description:
+      "Shotokan focuses on powerful strikes aimed at weak points, designed to end fights with a single decisive blow."
+  }),
+
+  sambo: createMartialArt({
+    name: "Sambo",
+    type: "Martial Art",
+    advantages:
+      "Reduces penalties for Trapping, Area Attack, Take-Down, and Disarm by half. Base Damage 20 + Strength bonus. Uses the Blunt Table.",
+    requirements: "None",
+    mk: 10,
+    bonuses: "+10 to Block (Unarmed)",
+    cost: 50,
+    description:
+      "A precise, defensive style developed for military training, emphasizing control and disabling techniques."
+  }),
+
+  kungFu: createMartialArt({
+    name: "Kung Fu",
+    type: "Martial Art",
+    advantages:
+      "Each turn, choose +10 to Attack, Block, Dodge, Damage, or Initiative. Base Damage 20 + Strength bonus. Uses the Blunt Table.",
+    requirements: "Acrobatics 40, Sleight of Hand 40, Style 20",
+    mk: 10,
+    bonuses: "Variable +10",
+    cost: 50,
+    description:
+      "A versatile art inspired by animal movements, allowing practitioners to adapt fluidly to any combat situation."
+  }),
+
+  taekwondo: createMartialArt({
+    name: "Taekwondo",
+    type: "Martial Art",
+    advantages:
+      "Base Damage 20 + Strength bonus. Grants an extra leg attack at –20 after all other attacks. Uses the Blunt Table.",
+    requirements: "None",
+    mk: 10,
+    bonuses: "None",
+    cost: 50,
+    description:
+      "A leg-focused martial art ideal for combining with weapons, emphasizing powerful, precise kicks."
+  }),
+
+  aikido: createMartialArt({
+    name: "Aikido",
+    type: "Martial Art",
+    advantages:
+      "Damage 10 + Strength bonus. Counterattacks add twice the opponent’s Strength bonus (min +5). No penalties to Trapping during counterattacks.",
+    requirements: "Sleight of Hand 40",
+    mk: 10,
+    bonuses: "+10 to Dodge or Block (Unarmed)",
+    cost: 50,
+    description:
+      "A defensive art using an attacker’s strength against them, enabling effortless redirection and joint control."
+  }),
+
+  muayThai: createMartialArt({
+    name: "Muay Thai",
+    type: "Martial Art",
+    advantages: "Base Damage 20 + triple Strength bonus. Uses the Blunt Table.",
+    requirements: "Feats of Strength 40",
+    mk: 10,
+    bonuses: "None",
+    cost: 50,
+    description: "A brutal striking art using elbows, knees, and targeted blows to joints and ribs."
+  }),
+
+  grappling: createMartialArt({
+    name: "Grappling",
+    type: "Martial Art",
+    advantages:
+      "No penalties for Trapping or Take-Down. Base Damage 20 + Strength bonus. Uses the Blunt Table.",
+    requirements: "Feats of Strength 40",
+    mk: 10,
+    bonuses: "None",
+    cost: 50,
+    description: "A close-quarters style focused on holds, throws, and ground control."
+  }),
+
+  melkaiah: createMartialArt({
+    name: "Melkaiah",
+    type: "Martial Art",
+    advantages: "+3 to Strength or Dexterity checks for Take-Down or Trapping maneuvers.",
+    requirements: "Grappling or Sambo, Inhumanity, 160+ Attack & Defense (Unarmed)",
+    mk: 10,
+    bonuses: "+10 to Attack (Unarmed)",
+    cost: 50,
+    description:
+      "A superhuman grappling art said to make its practitioners unbeatable as long as they remain grounded."
+  }),
+
+  seraphite: createMartialArt({
+    name: "Seraphite",
+    type: "Martial Art",
+    advantages:
+      "+10 Final Damage to the base martial art. May gain +20 Attack in exchange for –30 Defense (declared before Initiative).",
+    requirements: "Shotokan or Kempo, Presence Extrusion, 180+ Attack (Unarmed)",
+    mk: 10,
+    bonuses: "+20 to Attack (Unarmed)",
+    cost: 50,
+    description:
+      "A dangerous demon-hunting style used by certain Church factions, trading safety for overwhelming offense."
+  }),
+
+  dumah: createMartialArt({
+    name: "Dumah",
+    type: "Martial Art",
+    advantages:
+      "+10 Final Damage. May use Thrust or Cut Tables. Reduces opponent’s AT by 2 and adds +10 Breakage.",
+    requirements: "Kempo or Capoeira, Presence Extrusion",
+    mk: 10,
+    bonuses: "+20 to Attack (Unarmed)",
+    cost: 50,
+    description:
+      "A tribal art teaching practitioners to strike like blades, cutting through armor and defenses."
+  }),
+
+  emp: createMartialArt({
+    name: "Emp",
+    type: "Martial Art",
+    advantages: "No penalty to Disarm. +3 to Characteristic in Contested Checks.",
+    requirements: "Kempo or Taekwondo, Mastery of Attack (Unarmed)",
+    mk: 10,
+    bonuses: "+20 to Attack (Unarmed), +10 to Initiative when using martial arts",
+    cost: 50,
+    description:
+      "A spiraling, weapon-countering style designed to neutralize armed opponents quickly."
+  }),
+
+  enuth: createMartialArt({
+    name: "Enuth",
+    type: "Martial Art",
+    advantages:
+      "+20 to Critical Level when striking to knock out. May voluntarily reduce inflicted damage after rolling.",
+    requirements: "Sambo or Shotokan, 160+ Attack & Defense (Unarmed)",
+    mk: 10,
+    bonuses: "+20 to Dodge and Block (Unarmed)",
+    cost: 50,
+    description:
+      "A nonlethal elven martial art perfected to subdue even the resilient Duk’zarist without killing."
+  }),
+
+  shephon: createMartialArt({
+    name: "Shephon",
+    type: "Martial Art",
+    advantages: "Total Defense bonus becomes +60.",
+    requirements: "Aikido and Kung Fu, Ki Control, Mastery of Defense (Unarmed)",
+    mk: 10,
+    bonuses: "+20 to Dodge and Block (Unarmed)",
+    cost: 50,
+    description:
+      "A supreme defensive art inspired by flowing water, capable of diverting nearly any attack."
+  }),
+
+  asakusen: createMartialArt({
+    name: "Asakusen",
+    type: "Martial Art",
+    advantages:
+      "Kung Fu’s +10 applies to ALL stats (Attack, Block, Dodge, Initiative, Damage) simultaneously while using martial arts. Gains an additional +10 to one chosen stat.",
+    requirements: "Kung Fu, 160+ Attack & Defense (Unarmed)",
+    mk: 10,
+    bonuses: "As per Advantages",
+    cost: 50,
+    description: "A forbidden, lethal martial art from which many diluted Kung Fu schools descend."
+  }),
+
+  velez: createMartialArt({
+    name: "Velez",
+    type: "Martial Art",
+    advantages: "Attacks use the Energy Table but can still be blocked normally.",
+    requirements: "Tai Chi or Kung Fu, Presence Extrusion",
+    mk: 20,
+    bonuses: "+20 to Block or Dodge (Unarmed)",
+    cost: 50,
+    description:
+      "A rare art that channels spiritual power into strikes capable of penetrating matter."
+  }),
+
+  selene: createMartialArt({
+    name: "Selene",
+    type: "Martial Art",
+    advantages: "Doubles counterattack bonus when using Response Action to attack.",
+    requirements: "Aikido, Mastery of Block or Dodge (Unarmed)",
+    mk: 10,
+    bonuses: "+20 to Dodge and Block (Unarmed)",
+    cost: 50,
+    description:
+      "An ancient, subtle martial art traditionally practiced only by women, redirecting force with minimal motion."
+  }),
+
+  hakyoukuken: createMartialArt({
+    name: "Hakyoukuken",
+    type: "Martial Art",
+    advantages: "+20 Final Damage. Soft armor loses 2 AT. +20 Critical Level vs organic beings.",
+    requirements: "Shotokan or Muay Thai, Use of Necessary Energy, Mastery in Attack (Unarmed)",
+    mk: 10,
+    bonuses: "+20 to Initiative when using martial arts, +10 to Attack (Unarmed)",
+    cost: 50,
+    description:
+      "A devastating, possibly nonhuman martial art that destroys opponents from within and emphasizes striking first."
   })
 };

@@ -178,7 +178,7 @@ function DerivedModules(system) {
     "StyleModules",
     "MysticalModules",
     "PsychicModules",
-    "MartialArts"
+    "MartialArts" // ← Martial Arts included here
   ];
 
   for (const group of groups) {
@@ -402,14 +402,15 @@ function CalculateSecondaryAbilities(system) {
   system.abilities.secondary.totalDPSpent = secondaryTotal;
 }
 
+//#endregion
+
 const MODULE_CATEGORY_MAP = {
   WeaponModules: "Combat",
   StyleModules: "Combat",
   MysticalModules: "Supernatural",
-  PsychicModules: "Psychic"
+  PsychicModules: "Psychic",
+  MartialArts: "Combat"
 };
-
-//#endregion
 
 //#region Misc
 // NPC
