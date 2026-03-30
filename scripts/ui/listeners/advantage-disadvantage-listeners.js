@@ -1,22 +1,46 @@
 import { ABF_ADVANTAGES } from "../../config/advantages.js";
 import { ABF_DISADVANTAGES } from "../../config/disadvantages.js";
 import { toNum } from "../../utils/numbers.js";
-import { AddADisadvantageWindow } from "../windows/add-disadvantage.js";
-import { AddAdvantageWindow } from "../windows/add-advantage.js";
+import { AddTraitWindow } from "../windows/add-trait.js"; // NEW unified browser
 import { openJournalFromName } from "../../utils/helpers.js";
 
 export function AdvantageDisadvantageListeners(sheet, html) {
-  Advanatges(sheet, html);
-  Disadvantages(sheet, html);
+  TraitAddButtons(sheet, html);
+  AdvantageDelete(sheet, html);
+  DisadvantageDelete(sheet, html);
+  AdvantageInfo(sheet, html);
+  DisadvantageInfo(sheet, html);
 }
 
-function Advanatges(sheet, html) {
-  html.find(".add-advantage").off("click"); //before adding new listener, remove old to avoid duplicates
+/* -------------------------------------------- */
+/*  OPEN UNIFIED TRAIT BROWSER                  */
+/* -------------------------------------------- */
+
+function TraitAddButtons(sheet, html) {
+  html.find(".add-advantage").off("click");
+  html.find(".add-disadvantage").off("click");
+
   html.find(".add-advantage").on("click", () => {
-    new AddAdvantageWindow({ actorId: sheet.actor.id }).render(true);
+    new AddTraitWindow({
+      actorId: sheet.actor.id,
+      initialFilter: "Advantage"
+    }).render(true);
   });
 
-  html.find(".delete-advantage").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".add-disadvantage").on("click", () => {
+    new AddTraitWindow({
+      actorId: sheet.actor.id,
+      initialFilter: "Disadvantage"
+    }).render(true);
+  });
+}
+
+/* -------------------------------------------- */
+/*  DELETE ADVANTAGE                            */
+/* -------------------------------------------- */
+
+function AdvantageDelete(sheet, html) {
+  html.find(".delete-advantage").off("click");
   html.find(".delete-advantage").on("click", async (event) => {
     const index = toNum(event.currentTarget.dataset.index);
 
@@ -25,48 +49,29 @@ function Advanatges(sheet, html) {
         title: "Confirm Delete",
         content: "<p>Are you sure you want to remove this advantage?</p>"
       },
-      {
-        classes: ["abf-character-sheet"]
-      }
+      { classes: ["abf-character-sheet"] }
     );
 
     if (!confirmed) return;
 
     const advantages = foundry.utils.duplicate(sheet.actor.system.advantages);
+    const deletedName = advantages[index]?.name;
 
-    // Grab the advantage name BEFORE deleting it
-    const deletedAdvantageName = advantages[index]?.name;
-
-    // Remove from actor
     advantages.splice(index, 1);
     await sheet.actor.update({ "system.advantages": advantages });
 
-    // Reset the class level in the registry (so re-adding starts at level 1)
-    if (deletedAdvantageName && ABF_ADVANTAGES[deletedAdvantageName]) {
-      ABF_ADVANTAGES[deletedAdvantageName].level = 1;
+    if (deletedName && ABF_ADVANTAGES[deletedName]) {
+      ABF_ADVANTAGES[deletedName].level = 1;
     }
-  });
-
-  // Click class name for information
-  html.find(".clickable-advantage").click((ev) => {
-    ev.preventDefault();
-
-    const advName = ev.currentTarget.dataset.advantage;
-    const advData = sheet.actor.system.advantages.find((c) => c.name === advName);
-
-    if (!advData) return ui.notifications.error("Adavantage data not found");
-
-    openJournalFromName(advName);
   });
 }
 
-function Disadvantages(sheet, html) {
-  html.find(".add-disadvantage").off("click"); //before adding new listener, remove old to avoid duplicates
-  html.find(".add-disadvantage").on("click", () => {
-    new AddADisadvantageWindow({ actorId: sheet.actor.id }).render(true);
-  });
+/* -------------------------------------------- */
+/*  DELETE DISADVANTAGE                         */
+/* -------------------------------------------- */
 
-  html.find(".delete-disadvantage").off("click"); //before adding new listener, remove old to avoid duplicates
+function DisadvantageDelete(sheet, html) {
+  html.find(".delete-disadvantage").off("click");
   html.find(".delete-disadvantage").on("click", async (event) => {
     const index = Number(event.currentTarget.dataset.index);
 
@@ -75,37 +80,51 @@ function Disadvantages(sheet, html) {
         title: "Confirm Delete",
         content: "<p>Are you sure you want to remove this disadvantage?</p>"
       },
-      {
-        classes: ["abf-character-sheet"]
-      }
+      { classes: ["abf-character-sheet"] }
     );
 
     if (!confirmed) return;
 
     const disadvantages = foundry.utils.duplicate(sheet.actor.system.disadvantages);
+    const deletedName = disadvantages[index]?.name;
 
-    // Grab the disadvantage name BEFORE deleting it
-    const deletedDisadvantageName = disadvantages[index]?.name;
-
-    // Remove from actor
     disadvantages.splice(index, 1);
     await sheet.actor.update({ "system.disadvantages": disadvantages });
 
-    // Reset the class level in the registry (so re-adding starts at level 1)
-    if (deletedDisadvantageName && ABF_DISADVANTAGES[deletedDisadvantageName]) {
-      ABF_DISADVANTAGES[deletedDisadvantageName].level = 1;
+    if (deletedName && ABF_DISADVANTAGES[deletedName]) {
+      ABF_DISADVANTAGES[deletedName].level = 1;
     }
   });
+}
 
-  // Click class name for information
-  html.find(".clickable-disadvantage").click((ev) => {
+/* -------------------------------------------- */
+/*  CLICK FOR JOURNAL INFO                      */
+/* -------------------------------------------- */
+
+function AdvantageInfo(sheet, html) {
+  html.find(".clickable-advantage").off("click");
+  html.find(".clickable-advantage").on("click", (ev) => {
     ev.preventDefault();
 
-    const advName = ev.currentTarget.dataset.disadvantage;
-    const advData = sheet.actor.system.disadvantages.find((c) => c.name === advName);
+    const name = ev.currentTarget.dataset.advantage;
+    const data = sheet.actor.system.advantages.find((a) => a.name === name);
 
-    if (!advData) return ui.notifications.error("Disdisadvantage data not found");
+    if (!data) return ui.notifications.error("Advantage data not found");
 
-    openJournalFromName(advName);
+    openJournalFromName(name);
+  });
+}
+
+function DisadvantageInfo(sheet, html) {
+  html.find(".clickable-disadvantage").off("click");
+  html.find(".clickable-disadvantage").on("click", (ev) => {
+    ev.preventDefault();
+
+    const name = ev.currentTarget.dataset.disadvantage;
+    const data = sheet.actor.system.disadvantages.find((d) => d.name === name);
+
+    if (!data) return ui.notifications.error("Disadvantage data not found");
+
+    openJournalFromName(name);
   });
 }

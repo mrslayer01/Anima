@@ -1,0 +1,71 @@
+<div class="trait-browser">
+  <div class="browser-controls">
+    <input type="text" class="trait-search" placeholder="Search traits..." value="{{search}}" />
+  </div>
+
+  <div class="trait-list effects-grid">
+    {{#each traits}}
+      <div class="trait-entry">
+        <div class="trait-header">
+          <h3>
+            {{this.name}}
+          </h3>
+          <span class="trait-type abf-text">
+            {{this.type}}
+          </span>
+        </div>
+
+        {{#ifEquals this.type "Advantage"}}
+          <p class="trait-meta abf-text">
+            <strong>
+              Cost:
+            </strong>
+            <input type="number" class="trait-cost-input" data-key="{{this.key}}" value="{{this.cost}}" min="0" />
+          </p>
+        {{/ifEquals}}
+
+        {{#if this.benefit}}
+          <p class="trait-meta abf-text">
+            <strong>
+              Benefit:
+            </strong>
+            {{this.benefit}}
+          </p>
+        {{/if}}
+
+        {{#if this.effects}}
+          <p class="trait-meta abf-text">
+            <strong>
+              Effects:
+            </strong>
+            {{this.effects}}
+          </p>
+        {{/if}}
+
+        {{#if this.restriction}}
+          <p class="trait-meta abf-text">
+            <strong>
+              Restriction:
+            </strong>
+            {{this.restriction}}
+          </p>
+        {{/if}}
+
+        {{#if this.description}}
+          <p class="trait-meta abf-text">
+            <strong>
+              Description:
+            </strong>
+            {{this.description}}
+          </p>
+        {{/if}}
+
+        <div class="trait-actions">
+          <button class="add-trait button" data-key="{{this.key}}">
+            Add
+          </button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

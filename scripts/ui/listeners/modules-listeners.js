@@ -56,7 +56,7 @@ export function ModuelsListeners(sheet, html) {
     if (modType === "Style") modType = "StyleModules";
     if (modType === "Mystical") modType = "MysticalModules";
     if (modType === "Psychic") modType = "PsychicModules";
-    if (modType === "Martial Arts") modType = "MartialArts";
+    if (modType === "Martial Art") modType = "MartialArts";
 
     const advData = sheet.actor.system.modules[modType].find((c) => c.name === modName);
 
