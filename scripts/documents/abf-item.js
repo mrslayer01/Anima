@@ -3,6 +3,7 @@ import {
   DEFAULT_ARMOR_DATA,
   DEFAULT_ITEM_DATA,
   DEFAULT_SPELL_DATA,
+  DEFAULT_TECHNIQUE_DATA,
   DEFAULT_WEAPON_DATA
 } from "../config/default-item-data.js";
 
@@ -54,6 +55,12 @@ export class AbfItem extends Item {
 
     if (this.type === "spell") {
       foundry.utils.mergeObject(this.system, DEFAULT_SPELL_DATA, {
+        insertKeys: true,
+        overwrite: false
+      });
+    }
+    if (this.type === "technique") {
+      foundry.utils.mergeObject(this.system, DEFAULT_TECHNIQUE_DATA, {
         insertKeys: true,
         overwrite: false
       });

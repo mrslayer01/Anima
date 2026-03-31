@@ -278,4 +278,28 @@ export function ItemListeners(sheet, html) {
     await actor.deleteEmbeddedDocuments("Item", [ammoId]);
     sheet.render(false);
   });
+
+  //#region Ki
+  html.find(".ki-is-active").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".ki-is-active").on("click", (ev) => {
+    const item = sheet.object;
+    const active = item.system.active;
+
+    item.update({
+      "system.active": !active
+    });
+
+    sheet.render(); // refresh UI
+  });
+
+  html.find(".ki-level-select").on("change", async (ev) => {
+    const type = ev.currentTarget.value;
+
+    await sheet.item.update({
+      "system.level": type
+    });
+
+    sheet.render(false);
+  });
+  //#endregion
 }

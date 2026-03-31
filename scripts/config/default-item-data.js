@@ -104,3 +104,23 @@ export const DEFAULT_SPELL_DATA = {
   spellShield: 0,
   active: false
 };
+
+export const DEFAULT_TECHNIQUE_DATA = {
+  description: "",
+  martialKnowledge: 0,
+  ki: { total: 0, perTurn: 0 },
+  level: 1,
+  primaryCharacteristic: { char: "Agility", kiCost: 0 },
+  secondaryCharacteristics: [
+    { char: "Agility", used: false, kiCost: 0 },
+    { char: "Constitution", used: false, kiCost: 0 },
+    { char: "Dexterity", used: false, kiCost: 0 },
+    { char: "Strength", used: false, kiCost: 0 },
+    { char: "Intelligence", used: false, kiCost: 0 },
+    { char: "Perception", used: false, kiCost: 0 },
+    { char: "Power", used: false, kiCost: 0 },
+    { char: "Willpower", used: false, kiCost: 0 }
+  ],
+  effects: [],
+  active: false
+};

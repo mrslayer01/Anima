@@ -1,5 +1,5 @@
 const commonPartials = ["common", "description"];
-const partials = ["weapon", "armor", "ammo", "spell"];
+const partials = ["weapon", "armor", "ammo", "spell", "technique"];
 
 const weaponPartials = [
   "weapon-finals",
@@ -12,6 +12,8 @@ const weaponPartials = [
 const armorPartials = ["armor-finals"];
 
 const spellPartials = ["spell-header"];
+
+const techniquePartials = ["technique-header"];
 
 export function InitalizeAllItemPartials() {
   for (const p of commonPartials) {
@@ -38,6 +40,11 @@ export function InitalizeAllItemPartials() {
   for (const p of spellPartials) {
     foundry.applications.handlebars.loadTemplates([
       `systems/abf-system/templates/items/partials/spell/${p}.hbs`
+    ]);
+  }
+  for (const p of techniquePartials) {
+    foundry.applications.handlebars.loadTemplates([
+      `systems/abf-system/templates/items/partials/technique/${p}.hbs`
     ]);
   }
 }

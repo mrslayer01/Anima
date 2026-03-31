@@ -14,14 +14,20 @@
     <!-- Always render the common onto each item. -->
     {{#if (in item.type "weapon" "armor" "ammo" "commonGood")}}
       {{> "systems/abf-system/templates/items/partials/common/common.hbs"}}
-    {{else}}
+    {{/if}}
+
+    {{#if (in item.type "spell")}}
       {{> "systems/abf-system/templates/items/partials/spell/spell-header.hbs"}}
+    {{/if}}
+
+    {{#if (in item.type "technique")}}
+      {{> "systems/abf-system/templates/items/partials/technique/technique-header.hbs"}}
     {{/if}}
 
 
       <!-- TABS -->
     <nav class="sheet-tabs" data-group="primary">
-      {{#if (in item.type "weapon" "armor" "ammo" "spell")}}
+      {{#if (in item.type "weapon" "armor" "ammo" "spell" "technique")}}
         <a class="item" data-tab="main">Main</a>
           {{#if (in item.type "weapon" "armor")}}
           <a class="item" data-tab="final">Final Values</a>
@@ -30,7 +36,7 @@
           <a class="item" data-tab="ammo">Ammo</a>
         {{/if}}
       {{/if}}
-      {{#if (in item.type "weapon" "armor" "ammo" "commonGood")}}
+      {{#if (in item.type "weapon" "armor" "ammo" "commonGood" "technique")}}
       <a class="item" data-tab="description">Description</a>
       {{/if}}
     </nav>

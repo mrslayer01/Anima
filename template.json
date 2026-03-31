@@ -38,11 +38,12 @@
     }
   },
   "Item": {
-    "types": ["commonGood", "weapon", "armor", "ammo", "spell"],
+    "types": ["commonGood", "weapon", "armor", "ammo", "spell", "technique"],
     "commonGood": { "system": {} },
     "weapon": { "system": {} },
     "armor": { "system": {} },
     "ammo": { "system": {} },
-    "spell": { "system": {} }
+    "spell": { "system": {} },
+    "technique": { "system": {} }
   }
 }
