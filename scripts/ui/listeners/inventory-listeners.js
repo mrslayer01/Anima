@@ -1,6 +1,7 @@
 import {
   DEFAULT_ARMOR_DATA,
   DEFAULT_ITEM_DATA,
+  DEFAULT_TECHNIQUE_DATA,
   DEFAULT_WEAPON_DATA
 } from "../../config/default-item-data.js";
 import { ArmorCalculate } from "../../data/rules/items/armor-calculations.js";
@@ -147,6 +148,33 @@ function Items(sheet, html) {
 
     sheet.render(false);
   });
+
+  html.find(".add-technique").on("click", async (ev) => {
+    const actor = sheet.actor;
+
+    const name = await Dialog.prompt({
+      title: "Create Technique",
+      label: "Technique Name",
+      callback: (html) => html.find("input").val(),
+      content: `
+      <p>Enter the name of the new Technique:</p>
+      <input type="text" style="width:100%;" />
+    `
+    });
+
+    if (!name) return;
+
+    const itemData = {
+      name,
+      type: "technique",
+      system: foundry.utils.deepClone(DEFAULT_TECHNIQUE_DATA)
+    };
+
+    await actor.createEmbeddedDocuments("Item", [itemData]);
+
+    ui.notifications.info(`Added Technique: ${name}`);
+    sheet.render(false);
+  });
 }
 
 function EditItems(sheet, html) {
@@ -161,6 +189,8 @@ function EditItems(sheet, html) {
     const actor = sheet.actor;
     const itemId = $(ev.currentTarget).closest(".item-row").data("item-id");
     const item = sheet.actor.items.get(itemId);
+
+    console.log(item);
 
     const confirmed = await Dialog.confirm({
       title: "Confirm Delete",

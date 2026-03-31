@@ -177,6 +177,10 @@ export function ItemListeners(sheet, html) {
     if (!name) return;
 
     // 1. Create the ammo item on the actor
+    if (!actor) {
+      ui.notifications.error("Can only add ammo to a weapon belonging to a character!");
+      return;
+    }
     const [ammo] = await actor.createEmbeddedDocuments("Item", [
       {
         name,
@@ -301,5 +305,37 @@ export function ItemListeners(sheet, html) {
 
     sheet.render(false);
   });
+
+  // html.find(".second-is-active").off("click"); //before adding new listener, remove old to avoid duplicates
+  // html.find(".second-is-active").on("click", (ev) => {
+  //   const item = sheet.object;
+  //   const active = item.system.active;
+
+  //   item.update({
+  //     "system.active": !active
+  //   });
+
+  //   sheet.render(); // refresh UI
+  // });
+
+  html.find(".primary-char").on("change", async (ev) => {
+    const type = ev.currentTarget.value;
+
+    await sheet.item.update({
+      "system.primaryCharacteristic.char": type
+    });
+
+    sheet.render(false);
+  });
+
+  // html.find(".ki-level-select").on("change", async (ev) => {
+  //   const type = ev.currentTarget.value;
+
+  //   await sheet.item.update({
+  //     "system.level": type
+  //   });
+
+  //   sheet.render(false);
+  // });
   //#endregion
 }

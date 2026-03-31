@@ -56,6 +56,9 @@
         {{#if (eq item.type "spell")}}
           {{> "systems/abf-system/templates/items/partials/spell.hbs"}}
         {{/if}}
+        {{#if (eq item.type "technique")}}
+          {{> "systems/abf-system/templates/items/partials/technique.hbs"}}
+        {{/if}}
       </div>
 
       <div class="tab final" data-group="primary" data-tab="final">

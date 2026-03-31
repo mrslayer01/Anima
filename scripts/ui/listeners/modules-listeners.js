@@ -1,3 +1,4 @@
+import { DEFAULT_TECHNIQUE_DATA } from "../../config/default-item-data.js";
 import { openJournalFromName } from "../../utils/helpers.js";
 import { toNum } from "../../utils/numbers.js";
 import { AddModuleWindow } from "../windows/add-Module.js";
