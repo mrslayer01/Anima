@@ -1,6 +1,9 @@
 import { DEFAULT_AMMO_DATA } from "../../config/default-item-data.js";
 import { UpdateWeapon } from "../../data/rules/items/weapon-calculations.js";
 import { WEAPON_SIMILARITY_MODIFIERS } from "../../utils/lookup.js";
+import { toNum } from "../../utils/numbers.js";
+import { TechniqueEffectBrowser } from "../windows/technique-effect-browser.js";
+import { TechniqueEffectWindow } from "../windows/technique-effect-window.js";
 
 export function ItemListeners(sheet, html) {
   html.find(".quality-select").on("change", async (ev) => {
@@ -283,7 +286,10 @@ export function ItemListeners(sheet, html) {
     sheet.render(false);
   });
 
-  //#region Ki
+  Techniques(sheet, html);
+}
+
+function Techniques(sheet, html) {
   html.find(".ki-is-active").off("click"); //before adding new listener, remove old to avoid duplicates
   html.find(".ki-is-active").on("click", (ev) => {
     const item = sheet.object;
@@ -306,19 +312,7 @@ export function ItemListeners(sheet, html) {
     sheet.render(false);
   });
 
-  // html.find(".second-is-active").off("click"); //before adding new listener, remove old to avoid duplicates
-  // html.find(".second-is-active").on("click", (ev) => {
-  //   const item = sheet.object;
-  //   const active = item.system.active;
-
-  //   item.update({
-  //     "system.active": !active
-  //   });
-
-  //   sheet.render(); // refresh UI
-  // });
-
-  html.find(".primary-char").on("change", async (ev) => {
+  html.find(".technique-primary-char-input").on("change", async (ev) => {
     const type = ev.currentTarget.value;
 
     await sheet.item.update({
@@ -328,14 +322,103 @@ export function ItemListeners(sheet, html) {
     sheet.render(false);
   });
 
-  // html.find(".ki-level-select").on("change", async (ev) => {
-  //   const type = ev.currentTarget.value;
+  html.find(".technique-add-secondary").on("click", async (event) => {
+    const item = sheet.object;
+    const secondaries = foundry.utils.duplicate(item.system.secondaryCharacteristics);
 
-  //   await sheet.item.update({
-  //     "system.level": type
-  //   });
+    // Add a new blank entry
+    secondaries.push({ char: "Agility", kiCost: 0 });
 
-  //   sheet.render(false);
-  // });
-  //#endregion
+    await item.update({ "system.secondaryCharacteristics": secondaries });
+  });
+
+  html.find(".technique-secondary-char-input").on("change", async (event) => {
+    const item = sheet.object;
+    const index = toNum(event.currentTarget.dataset.index);
+    const value = event.currentTarget.value;
+
+    const secondaries = foundry.utils.duplicate(item.system.secondaryCharacteristics);
+    secondaries[index].char = value;
+
+    await item.update({ "system.secondaryCharacteristics": secondaries });
+  });
+
+  html.find(".technique-secondary-ki-input").on("change", async (event) => {
+    const item = sheet.object;
+    const index = toNum(event.currentTarget.dataset.index);
+    const value = toNum(event.currentTarget.value);
+
+    const secondaries = foundry.utils.duplicate(item.system.secondaryCharacteristics);
+    secondaries[index].kiCost = value;
+
+    await item.update({ "system.secondaryCharacteristics": secondaries });
+  });
+
+  html.find(".technique-secondary-delete").off("click");
+  html.find(".technique-secondary-delete").on("click", async (event) => {
+    const index = toNum(event.currentTarget.dataset.index);
+    const item = sheet.object;
+
+    const confirmed = await Dialog.confirm({
+      title: "Confirm Delete",
+      content: "<p>Are you sure you want to remove this secondary?</p>"
+    });
+
+    if (!confirmed) return;
+
+    const secondaries = foundry.utils.duplicate(item.system.secondaryCharacteristics);
+
+    secondaries.splice(index, 1);
+
+    await item.update({ "system.secondaryCharacteristics": secondaries });
+  });
+
+  html.find(".technique-add-effect").on("click", async (ev) => {
+    const item = sheet.object;
+    new TechniqueEffectBrowser({
+      actorId: sheet.actor.id,
+      itemId: item.id
+    }).render(true);
+  });
+
+  html.find(".technique-clickable-effect").on("click", (event) => {
+    const index = toNum(event.currentTarget.dataset.index);
+    const item = sheet.object;
+
+    const effect = item.system.effects[index];
+
+    new TechniqueEffectWindow(effect, item, {
+      effectIndex: index
+    }).render(true);
+  });
+
+  html.find(".technique-delete-effect").off("click");
+  html.find(".technique-delete-effect").on("click", async (event) => {
+    const index = toNum(event.currentTarget.dataset.index);
+    const item = sheet.object;
+
+    const confirmed = await Dialog.confirm(
+      {
+        title: "Confirm Delete",
+        content: "<p>Are you sure you want to remove this effect?</p>"
+      },
+      { classes: ["abf-character-sheet"] }
+    );
+
+    if (!confirmed) return;
+
+    const effects = foundry.utils.duplicate(item.system.effects);
+    const deletedEffectName = effects[index]?.name;
+
+    // Remove the effect
+    effects.splice(index, 1);
+
+    await item.update({ "system.effects": effects });
+
+    ui.notifications.info(`Removed Technique Effect: ${deletedEffectName}`);
+  });
+
+  html.find(".ammo-edit").click((ev) => {});
+
+  html.find(".ammo-delete").click(async (ev) => {});
 }

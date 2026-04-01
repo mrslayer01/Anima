@@ -1,3 +1,5 @@
-2026/03/31-13:27:34.352 72b0 Recovering log #99
-2026/03/31-13:27:34.355 72b0 Delete type=0 #99
-2026/03/31-13:27:34.355 72b0 Delete type=3 #98
+2026/04/01-07:47:43.182 19664 Log #65: 0 ops saved to Table #92 OK
+2026/04/01-07:47:43.183 19664 Archiving D:\foundry\Data\Data\systems\abf-system\packs\macros/000065.log: OK
+2026/04/01-07:47:43.183 19664 Table #91: 5 entries OK
+2026/04/01-07:47:43.206 19664 Archiving D:\foundry\Data\Data\systems\abf-system\packs\macros/MANIFEST-000102: OK
+2026/04/01-07:47:43.238 19664 **** Repaired leveldb D:\foundry\Data\Data\systems\abf-system\packs\macros; recovered 1 files; 5258 bytes. Some data may have been lost. ****

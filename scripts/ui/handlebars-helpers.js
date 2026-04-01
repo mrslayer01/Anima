@@ -21,6 +21,20 @@ export function loadAllActorHandlerbarsHelpers() {
   Handlebars.registerHelper("lower", (str) => {
     return String(str).toLowerCase();
   });
+  Handlebars.registerHelper("formatKey", function (key) {
+    if (!key) return key;
+
+    // Find the first capital letter after the first character
+    const match = key.slice(1).match(/[A-Z]/);
+
+    if (match) {
+      const index = match.index + 1; // adjust for slice
+      return key.slice(index); // return the capitalized word
+    }
+
+    // No internal capital → capitalize whole key
+    return key.charAt(0).toUpperCase() + key.slice(1);
+  });
   Handlebars.registerHelper("debug", function (data) {
     console.log("HBS DEBUG:", data);
   });

@@ -3,14 +3,11 @@
 
   <!-- PRIMARY & SECONDARY CHARACTERISTICS -->
   <div class="section-block">
-    <h3>Characteristics</h3>
+    <h3>Primary Characteristic</h3>
     <table class="common-table">
       <thead>
         <tr>
-          <th>Primary</th>
-          <th>Ki Cost</th>
-          <th>Secondary</th>
-          <th>Used</th>
+          <th>Characteristic</th>
           <th>Ki Cost</th>
         </tr>
       </thead>
@@ -19,7 +16,7 @@
         <!-- Primary Characteristic -->
         <tr>
           <td>
-            <select name="system.primaryCharacteristic.char" class="primary-char select">
+            <select name="system.primaryCharacteristic.char" class="technique-primary-char-input select">
                 <option value="Agility" {{#if (eq system.primaryCharacteristic.char "Agility")}}selected{{/if}}>Agility</option>
                 <option value="Constitution" {{#if (eq system.primaryCharacteristic.char "Constitution")}}selected{{/if}}>Constitution</option>
                 <option value="Dexterity" {{#if (eq system.primaryCharacteristic.char "Dexterity")}}selected{{/if}}>Dexterity</option>
@@ -37,46 +34,62 @@
               value="{{system.primaryCharacteristic.kiCost}}"
             />
           </td>
-
-          <!-- Empty spacer for alignment -->
-          <td></td><td></td><td></td>
         </tr>
+      </tbody>
+    </table>
 
-        <!-- Secondary Characteristics -->
-        {{#each system.secondaryCharacteristics as |sec idx|}}
+    <h3>Secondary Characteristics</h3>
+    <table class="common-table">
+      <thead>
         <tr>
-          <td></td><td></td>
+          <th>Characteristic</th>
+          <th>Ki Cost</th>
+        {{#if @root.actor.system.lockUi}}
+          <th></th>
+        {{else}}
+          <th class="class-actions-header">
+            <a class="technique-add-secondary" data-tooltip="Add Secondary">
+              <i class="fas fa-plus-circle"></i>
+            </a>
+          </th>
+        {{/if}}
+        </tr>
+      </thead>
 
+      <tbody>
+        {{#each system.secondaryCharacteristics as |secondary idx|}}
+        <tr>
           <td>
-            <select name="system.secondaryCharacteristics.{{idx}}.char" class="select">
-                <option value="Agility" {{#if (eq system.primaryCharacteristic.char "Agility")}}selected{{/if}}>Agility</option>
-                <option value="Constitution" {{#if (eq system.primaryCharacteristic.char "Constitution")}}selected{{/if}}>Constitution</option>
-                <option value="Dexterity" {{#if (eq system.primaryCharacteristic.char "Dexterity")}}selected{{/if}}>Dexterity</option>
-                <option value="Strength" {{#if (eq system.primaryCharacteristic.char "Strength")}}selected{{/if}}>Strength</option>
-                <option value="Intelligence" {{#if (eq system.primaryCharacteristic.char "Intelligence")}}selected{{/if}}>Intelligence</option>
-                <option value="Perception" {{#if (eq system.primaryCharacteristic.char "Perception")}}selected{{/if}}>Perception</option>
-                <option value="Power" {{#if (eq system.primaryCharacteristic.char "Power")}}selected{{/if}}>Power</option>
-                <option value="Willpower" {{#if (eq system.primaryCharacteristic.char "Willpower")}}selected{{/if}}>Willpower</option>
+            <select data-index="{{idx}}" name="{{secondary.char}}" class="technique-secondary-char-input select">
+                <option value="Agility" {{#if (eq secondary.char "Agility")}}selected{{/if}}>Agility</option>
+                <option value="Constitution" {{#if (eq secondary.char "Constitution")}}selected{{/if}}>Constitution</option>
+                <option value="Dexterity" {{#if (eq secondary.char "Dexterity")}}selected{{/if}}>Dexterity</option>
+                <option value="Strength" {{#if (eq secondary.char "Strength")}}selected{{/if}}>Strength</option>
+                <option value="Intelligence" {{#if (eq secondary.char "Intelligence")}}selected{{/if}}>Intelligence</option>
+                <option value="Perception" {{#if (eq secondary.char "Perception")}}selected{{/if}}>Perception</option>
+                <option value="Power" {{#if (eq secondary.char "Power")}}selected{{/if}}>Power</option>
+                <option value="Willpower" {{#if (eq secondary.char "Willpower")}}selected{{/if}}>Willpower</option>
             </select>
           </td>
 
-          <td>
-            <label>
-              Active
-            </label>
-            {{#if sec.active}}
-              <i class="fas fa-check clickable second-is-active"></i>
-            {{else}}
-              <i class="fas fa-times clickable second-is-active"></i>
+        <td>
+          <input
+            class="technique-secondary-ki-input"
+            type="number"
+            data-index="{{idx}}"
+            value="{{secondary.kiCost}}"
+            min="0"
+          />
+        </td>
+          {{#if @root.actor.system.lockUi}}
+            <td></td>
+          {{else}}
+            <td>
+              <a class="technique-secondary-delete" data-index="{{idx}}" data-tooltip="Delete Languages">
+                <i class="fas fa-trash"></i>
+              </a>
+            </td>
           {{/if}}
-          </td>
-
-          <td>
-            <input type="number"
-              name="system.secondaryCharacteristics.{{idx}}.kiCost"
-              value="{{sec.kiCost}}"
-            />
-          </td>
         </tr>
         {{/each}}
       </tbody>
@@ -106,7 +119,7 @@
             <th></th>
         {{else}}
             <th class="class-actions-header">
-            <a class="add-technique-effect" data-tooltip="Add Technique Effect">
+            <a class="technique-add-effect" data-tooltip="Add Technique Effect">
                 <i class="fas fa-plus-circle"></i>
             </a>
             </th>
@@ -118,7 +131,7 @@
         {{#each system.effects as |effect idx|}}
         <tr>
             <td
-            class="technique-effect-name clickable-technique-effect clickable"
+            class="technique-effect-name technique-clickable-effect clickable"
             data-index="{{idx}}"
             data-effect="{{effect.name}}"
             data-tooltip="Click to view and purchase levels."
@@ -142,9 +155,11 @@
             <td></td>
             {{else}}
             <td>
-                <a class="delete-technique-effect" data-index="{{idx}}" data-tooltip="Delete Technique Effect">
+              <a class="technique-delete-effect"
+                data-index="{{idx}}"
+                data-item-id="{{item.id}}">
                 <i class="fas fa-trash"></i>
-                </a>
+              </a>
             </td>
             {{/if}}
         </tr>

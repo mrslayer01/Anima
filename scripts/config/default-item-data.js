@@ -111,16 +111,7 @@ export const DEFAULT_TECHNIQUE_DATA = {
   ki: { total: 0, perTurn: 0 },
   level: 1,
   primaryCharacteristic: { char: "Agility", kiCost: 0 },
-  secondaryCharacteristics: [
-    { char: "Agility", used: false, kiCost: 0 },
-    { char: "Constitution", used: false, kiCost: 0 },
-    { char: "Dexterity", used: false, kiCost: 0 },
-    { char: "Strength", used: false, kiCost: 0 },
-    { char: "Intelligence", used: false, kiCost: 0 },
-    { char: "Perception", used: false, kiCost: 0 },
-    { char: "Power", used: false, kiCost: 0 },
-    { char: "Willpower", used: false, kiCost: 0 }
-  ],
+  secondaryCharacteristics: [],
   effects: [],
   active: false
 };

@@ -21,7 +21,9 @@ export function createKiEffect(effectInput) {
     secondaryChars = [],
     relatedElements = [],
     optionalAdvantages = [],
-    purchasedAdvantages = []
+    purchasedAdvantages = [],
+    optionalDisadvantages = [],
+    purchasedDisadvantages = []
   } = effectInput;
 
   return {
@@ -35,7 +37,9 @@ export function createKiEffect(effectInput) {
     secondaryChars,
     relatedElements,
     optionalAdvantages,
-    purchasedAdvantages
+    purchasedAdvantages,
+    optionalDisadvantages,
+    purchasedDisadvantages
   };
 }
 

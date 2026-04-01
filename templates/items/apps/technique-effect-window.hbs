@@ -1,0 +1,381 @@
+<div>
+  <h3 class="npc-power-title">
+    {{effect.name}}
+  </h3>
+
+  <p class="abf-text technique-effect-description">
+    {{effect.description}}
+  </p>
+
+  <div class="npc-abilities-two-col elan">
+    <!-- LEFT COLUMN -->
+    <section class="npc-abilities-left">
+      <h3>
+        Primary Characteristic
+      </h3>
+      <p>
+        <strong>
+          {{effect.primaryChar}}
+        </strong>
+      </p>
+
+      <h3>
+        Secondary Characteristics
+      </h3>
+      {{#if effect.secondaryChars.length}}
+        {{#each effect.secondaryChars}}
+          <p>
+            <strong>
+              {{this.char}}
+            </strong>
+            (Extra Ki Cost: {{this.extraKiCost}})
+          </p>
+        {{/each}}
+      {{else}}
+        <p>None</p>
+      {{/if}}
+
+      <h3>
+        Related Elements
+      </h3>
+      {{#if effect.relatedElements.length}}
+        {{#each effect.relatedElements}}
+          <p>{{this.element}}</p>
+        {{/each}}
+      {{else}}
+        <p>None</p>
+      {{/if}}
+    </section>
+
+    <!-- RIGHT COLUMN -->
+    <section class="npc-abilities-right">
+      <h3>
+        Effect Metadata
+      </h3>
+      <p>
+        <strong>
+          Type:
+        </strong>
+        {{effect.type}}
+      </p>
+      <p>
+        <strong>
+          Maintained:
+        </strong>
+
+        {{#if effect.maintained}}
+          Yes
+        {{else}}
+          No
+        {{/if}}
+      </p>
+    </section>
+  </div>
+
+  <!-- LEVELS / EFFECT VALUES -->
+  <div class="npc-abilities-two-col elan">
+    <!-- AVAILABLE -->
+    <section class="npc-abilities-left">
+      <h3>
+        Available Effects
+      </h3>
+
+      {{#if availableLevels.length}}
+        <div class="gifts-grid">
+          {{#each availableLevels}}
+            <div class="gift-entry">
+              <h4>
+                {{formatKey this._mainKey}}: {{this._mainValue}}
+              </h4>
+
+              <p>
+                <strong>
+                  Level:
+                </strong>
+                {{this.level}}
+              </p>
+              <p>
+                <strong>
+                  Primary Ki:
+                </strong>
+                {{this.primaryKiCost}}
+              </p>
+              <p>
+                <strong>
+                  Secondary Ki:
+                </strong>
+                {{this.secondaryKiCost}}
+              </p>
+              <p>
+                <strong>
+                  MK Cost:
+                </strong>
+                {{this.mkCost}}
+              </p>
+              <p>
+                <strong>
+                  Maintenance:
+                </strong>
+                {{this.kiMaint}}
+              </p>
+
+              <button class="buy-level button" data-index="{{this._originalIndex}}">
+                Buy
+              </button>
+            </div>
+          {{/each}}
+        </div>
+      {{else}}
+        <p>No more effects available.</p>
+      {{/if}}
+    </section>
+
+    <!-- PURCHASED -->
+    <section class="npc-abilities-right">
+      <h3>
+        Purchased Effects
+      </h3>
+
+      {{#if purchasedLevels.length}}
+        <div class="effects-grid">
+          {{#each purchasedLevels}}
+            <div class="gift-entry purchased">
+              <h4>
+                {{formatKey this._mainKey}}: {{this._mainValue}}
+              </h4>
+
+              <p>
+                <strong>
+                  Level:
+                </strong>
+                {{this.level}}
+              </p>
+              <p>
+                <strong>
+                  Primary Ki:
+                </strong>
+                {{this.primaryKiCost}}
+              </p>
+              <p>
+                <strong>
+                  Secondary Ki:
+                </strong>
+                {{this.secondaryKiCost}}
+              </p>
+              <p>
+                <strong>
+                  MK Cost:
+                </strong>
+                {{this.mkCost}}
+              </p>
+              <p>
+                <strong>
+                  Maintenance:
+                </strong>
+                {{this.kiMaint}}
+              </p>
+
+              <button class="remove-level button" data-index="{{@index}}">
+                Remove
+              </button>
+            </div>
+          {{/each}}
+        </div>
+      {{else}}
+        <p>No effects purchased yet.</p>
+      {{/if}}
+    </section>
+  </div>
+
+  <!-- ADVANTAGES / DISADVANTAGES BELOW EFFECTS -->
+  <div class="npc-abilities-two-col elan">
+    <!-- AVAILABLE ADVANTAGES -->
+    <section class="npc-abilities-left">
+        <h3>Available Advantages</h3>
+
+        {{#if effect.optionalAdvantages.length}}
+        <div class="gifts-grid">
+            {{#each effect.optionalAdvantages}}
+            <div class="gift-entry">
+                <h4>{{this.name}}</h4>
+                <p>{{this.description}}</p>
+
+                <table class="adv-table">
+                <thead>
+                    <tr>
+                    <th>Option</th>
+                    <th>MK Cost</th>
+                    <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each this.options}}
+                    <tr>
+                        <td>{{this.option}}</td>
+                        <td>
+                        {{#if this.mkCost}}
+                            {{this.mkCost}}
+                        {{else}}
+                            {{this.mkReduction}}
+                        {{/if}}
+                        </td>
+                        <td>
+                        <button class="buy-advantage-option button"
+                                data-adv-index="{{@../index}}"
+                                data-opt-index="{{@index}}">
+                            Buy
+                        </button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                </table>
+
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <p>No optional advantages.</p>
+        {{/if}}
+
+    </section>
+
+    <!-- PURCHASED ADVANTAGES -->
+    <section class="npc-abilities-right">
+        <h3>Purchased Advantages</h3>
+
+        {{#if effect.purchasedAdvantages.length}}
+        <div class="gifts-grid">
+            {{#each effect.purchasedAdvantages}}
+            <div class="gift-entry purchased purchased-adv-dis">
+
+                <div class="header-row">
+                <h4>{{this.name}}</h4>
+                <button class="remove-advantage button small" data-index="{{@index}}">
+                    Remove
+                </button>
+                </div>
+
+                <p class="description">{{this.description}}</p>
+
+                <table class="chosen-table">
+                <tr>
+                    <th>Chosen Option</th>
+                    <td>{{this.chosenOption.option}}</td>
+                </tr>
+                <tr>
+                    <th>MK Cost</th>
+                    <td>
+                    {{#if this.chosenOption.mkCost}}
+                        {{this.chosenOption.mkCost}}
+                    {{else}}
+                        {{this.chosenOption.mkReduction}}
+                    {{/if}}
+                    </td>
+                </tr>
+                </table>
+
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <p>No advantages purchased.</p>
+{{/if}}
+    </section>
+  </div>
+
+  <div class="npc-abilities-two-col elan">
+    <!-- AVAILABLE DISADVANTAGES -->
+    <section class="npc-abilities-left">
+        <h3>Available Disadvantages</h3>
+
+        {{#if effect.optionalDisadvantages.length}}
+        <div class="gifts-grid">
+            {{#each effect.optionalDisadvantages}}
+            <div class="gift-entry">
+                <h4>{{this.name}}</h4>
+                <p>{{this.description}}</p>
+
+                <table class="disadv-table">
+                <thead>
+                    <tr>
+                    <th>Option</th>
+                    <th>MK Reduction</th>
+                    <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each this.options}}
+                    <tr>
+                        <td>{{this.option}}</td>
+                        <td>
+                        {{#if this.mkReduction}}
+                            {{this.mkReduction}}
+                        {{else}}
+                            {{this.mkReductionRange}}
+                        {{/if}}
+                        </td>
+                        <td>
+                        <button class="buy-disadvantage-option button"
+                                data-dis-index="{{@../index}}"
+                                data-opt-index="{{@index}}">
+                            Buy
+                        </button>
+                        </td>
+                    </tr>
+                    {{/each}}
+                </tbody>
+                </table>
+
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <p>No optional disadvantages.</p>
+        {{/if}}
+    </section>
+
+    <!-- PURCHASED DISADVANTAGES -->
+    <section class="npc-abilities-right">
+        <h3>Purchased Disadvantages</h3>
+
+        {{#if effect.purchasedDisadvantages.length}}
+        <div class="gifts-grid">
+            {{#each effect.purchasedDisadvantages}}
+            <div class="gift-entry purchased purchased-adv-dis">
+
+                <div class="header-row">
+                <h4>{{this.name}}</h4>
+                <button class="remove-disadvantage button small" data-index="{{@index}}">
+                    Remove
+                </button>
+                </div>
+
+                <p class="description">{{this.description}}</p>
+
+                <table class="chosen-table">
+                <tr>
+                    <th>Chosen Option</th>
+                    <td>{{this.chosenOption.option}}</td>
+                </tr>
+                <tr>
+                    <th>MK Reduction</th>
+                    <td>
+                    {{#if this.chosenOption.mkReduction}}
+                        {{this.chosenOption.mkReduction}}
+                    {{else}}
+                        {{this.chosenOption.mkReductionRange}}
+                    {{/if}}
+                    </td>
+                </tr>
+                </table>
+
+            </div>
+            {{/each}}
+        </div>
+        {{else}}
+        <p>No disadvantages purchased.</p>
+        {{/if}}
+    </section>
+  </div>
+</div>
