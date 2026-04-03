@@ -302,6 +302,21 @@ function Techniques(sheet, html) {
     sheet.render(); // refresh UI
   });
 
+  html.find(".technique-toggle-maintained").off("click");
+  html.find(".technique-toggle-maintained").on("click", async (ev) => {
+    const item = sheet.object;
+    const index = Number(ev.currentTarget.dataset.index);
+
+    const effects = foundry.utils.duplicate(item.system.effects);
+    const current = effects[index].maintained;
+
+    effects[index].maintained = !current;
+
+    await item.update({ "system.effects": effects });
+
+    sheet.render(false);
+  });
+
   html.find(".ki-level-select").on("change", async (ev) => {
     const type = ev.currentTarget.value;
 

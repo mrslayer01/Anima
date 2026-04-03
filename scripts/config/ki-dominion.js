@@ -14,6 +14,8 @@ export function createKiEffect(effectInput) {
     name = "",
     type = "",
     maintained = false,
+    totalMk = 0,
+    totalKi = 0,
     description = "",
     effects = [],
     purchasedEffects = [],
@@ -30,6 +32,8 @@ export function createKiEffect(effectInput) {
     name,
     type,
     maintained,
+    totalMk,
+    totalKi,
     description,
     effects,
     purchasedEffects,
@@ -235,6 +239,8 @@ export const ABF_KI_EFFECTS = {
     name: "Attack Ability",
     type: "Offensive",
     maintained: false,
+    totalMk: 0,
+    totalKi: 0,
     description:
       "This effect adds a bonus to the Attack Ability. Upon rolling the dice, a character adds the number under “Attack Bonus” to his roll.",
     effects: [
@@ -367,6 +373,8 @@ export const ABF_KI_EFFECTS = {
     name: "Counterattack Ability",
     type: "Offensive",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect adds a bonus to a character’s Attack Ability when counterattacking. These bonuses only apply after a successful defense that grants the possibility of a Counter-attack.",
     effects: [
@@ -500,6 +508,8 @@ export const ABF_KI_EFFECTS = {
     name: "Block Ability",
     type: "Defensive",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect adds a bonus to a character’s Block Ability when using the Technique. The player rolls the dice and adds the number under “Block Bonus” to his dice roll.",
     effects: [
@@ -623,6 +633,8 @@ export const ABF_KI_EFFECTS = {
     name: "Limited Block Ability",
     type: "Defensive",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect adds a bonus to a character’s Block Ability, but it does not allow him to counterattack – even if the Result indicates that a counterattack can happen. Nothing prevents a character from attacking on his Initiative.",
     effects: [
@@ -746,6 +758,8 @@ export const ABF_KI_EFFECTS = {
     name: "Dodge Ability",
     type: "Defensive",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect adds a bonus to a character’s Dodge ability. For example, a character with a 140 Dodge Ability performing this Technique with a +40 bonus will defend himself from one attack that turn by rolling the dice, adding 40 to that roll, and then adding that number to his Dodge Ability.",
     effects: [
@@ -883,6 +897,8 @@ export const ABF_KI_EFFECTS = {
     name: "Limited Dodge Ability",
     type: "Defensive",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect adds a bonus to a character’s Dodge Ability, but it does not allow him to counterattack – even if the Result indicates that a counterattack can happen.",
     effects: [
@@ -1021,6 +1037,8 @@ export const ABF_KI_EFFECTS = {
     name: "Damage Multiplier",
     type: "Destructive",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect multiplies an attack’s final damage. For instance, a character attacking with a 60-point Final Damage sword will inflict 120 damage using a Technique that multiplies damage by two.",
     effects: [
@@ -1094,6 +1112,8 @@ export const ABF_KI_EFFECTS = {
     name: "Damage Augmentation",
     type: "Destructive",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect increases the damage caused by an attack. This bonus is not added to the result shown in the Combat Table, but rather to the attack’s Base Damage. For example, a character who wields a weapon that deals 60 damage using a Technique supplying a +50 bonus would have a 110 Base Damage.",
     effects: [
@@ -1230,6 +1250,8 @@ export const ABF_KI_EFFECTS = {
     name: "Additional Attack",
     type: "Action",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect permits a character to perform additional penalty-free attacks. For example, a character who gets one extra attack can perform two attacks in a single turn at full Ability. Any secondary effect of the technique applies to all of the attacks.",
     effects: [
@@ -1325,6 +1347,8 @@ export const ABF_KI_EFFECTS = {
     name: "Limited Additional Attack",
     type: "Action",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "Characters may use this ability to perform penalty-free additional attacks. However, additional effects from this Technique only apply to one attack and not the additional ones.",
     effects: [
@@ -1424,6 +1448,8 @@ export const ABF_KI_EFFECTS = {
     name: "Additional Defense",
     type: "Action",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect enables a character to make multiple penalty-free Block and Dodge attempts during a single turn.",
     effects: [
@@ -1502,6 +1528,8 @@ export const ABF_KI_EFFECTS = {
     name: "Additional Action",
     type: "Action",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect allows a character to perform several Active Actions in a single turn without applying penalties.",
     effects: [
@@ -1581,6 +1609,8 @@ export const ABF_KI_EFFECTS = {
     name: "Initiative Augmentation",
     type: "Reaction",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect increases a character’s Initiative for the turn. Simply add the amount under “Bonus to Initiative” to his Initiative rolls. This must be declared before calculating Initiative for that turn.",
     effects: [
@@ -1695,6 +1725,8 @@ export const ABF_KI_EFFECTS = {
     name: "States",
     type: "Esoteric",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This ability links some form of supernatural effect to a character’s offensive Technique. When receiving damage from this type of attack, however small it may be, a character must pass a Physical Resistance (PhR) Check. If the character fails the check, he suffers an esoteric effect, and the consequences of the attack automatically activate at the end of the turn.\nThe following table shows the Resistance Check difficulty of the effect. A player must choose the state to which an opponent will be subjected from the Added State Optional Advantage.",
     effects: [
@@ -1837,6 +1869,8 @@ export const ABF_KI_EFFECTS = {
     name: "Combat Maneuvers and Aiming",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect allows a character to perform aimed attacks and other combat actions, such as Disarm, while decreasing the penalty for the maneuver. The penalty reduction value appears in the first column.",
     effects: [
@@ -1933,6 +1967,8 @@ export const ABF_KI_EFFECTS = {
     name: "Armor Increase",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect allows a character to increase his Armor Type for a complete turn. It may be combined with any other armor as an additional layer, but it does not bring additional penalties to Initiative. This effect works against all kinds of attack.",
     effects: [
@@ -2010,6 +2046,8 @@ export const ABF_KI_EFFECTS = {
     name: "Armor Destruction",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect lowers the targeted victim’s Armor Type. The number by which the victim’s AT is reduced appears under the “Reduction” column.",
     effects: [
@@ -2122,6 +2160,8 @@ export const ABF_KI_EFFECTS = {
     name: "Breakage Augmentation",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description: "This effect increases the Breakage value of a character’s weapon.",
     effects: [
       {
@@ -2233,6 +2273,8 @@ export const ABF_KI_EFFECTS = {
     name: "Fortitude Augmentation",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect increases a character’s weapon or armor fortitude, rendering it more resistant to blows.",
     effects: [
@@ -2337,6 +2379,8 @@ export const ABF_KI_EFFECTS = {
     name: "Long-Distance Attack",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect allows characters to project attacks over a distance. Any ability may be used in the attack, including Magical or Psychic projection. Any Technique performed at a distance counts as a fired projectile as far as calculating defense penalties.",
     effects: [
@@ -2473,6 +2517,8 @@ export const ABF_KI_EFFECTS = {
     name: "Area Attack",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "The effect creates an attack that affects every person within its radius using a single offensive roll. A player must choose the radius and pay the costs at the time of Technique Creation.",
     effects: [
@@ -2600,6 +2646,8 @@ export const ABF_KI_EFFECTS = {
     name: "Automatic Transportation",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "The character automatically covers the distance shown in the effect’s first column. Movement is automatic but does not allow passing through solid bodies unless the character is immaterial.",
     effects: [
@@ -2728,6 +2776,8 @@ export const ABF_KI_EFFECTS = {
     name: "Critical Enhancement",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "Whenever an attack produces a Critical, this effect allows a character to add a bonus to his roll when calculating the Critical level.",
     effects: [
@@ -2871,6 +2921,8 @@ export const ABF_KI_EFFECTS = {
     name: "Physical Ki Weapons",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect allows to create a physical weapon using Ki. Its quality depends upon the invested points. Characters cannot create projectiles for Fired Weapons – although they can create Thrown projectile weapons.",
     effects: [
@@ -2945,6 +2997,8 @@ export const ABF_KI_EFFECTS = {
     name: "Trapping",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "Upon attack, a character can attempt to trap his adversary. This effect uses the same rules as the Trap combat maneuver, but without penalties.",
     effects: [
@@ -3065,6 +3119,8 @@ export const ABF_KI_EFFECTS = {
     name: "Projection",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "The character strikes his opponent with the Strength shown in the first column. If the opponent fails an Opposed Strength Check, he is knocked back.",
     effects: [
@@ -3185,6 +3241,8 @@ export const ABF_KI_EFFECTS = {
     name: "Energy Shield",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect enables a character to create an energy shield to defend himself until the end of the Combat Turn. The shield uses Block or Dodge Ability and has a Damage Barrier of 40.",
     effects: [
@@ -3250,6 +3308,8 @@ export const ABF_KI_EFFECTS = {
     name: "Intangibility",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "The character and his belongings become intangible for the duration of the Turn. He can travel through solid objects and ignore conventional attacks not based on energy.",
     effects: [
@@ -3305,6 +3365,8 @@ export const ABF_KI_EFFECTS = {
     name: "Mirage",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "The character generates illusory images of himself that he can control. These images may perform any action and even make individual attacks. Since they are not real, anyone with the ability to detect energy or see through illusions immediately grasps their true nature. The number of beings created is specified in the “Mirages” column.",
     effects: [
@@ -3406,6 +3468,8 @@ export const ABF_KI_EFFECTS = {
     name: "Attack Mirroring",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "With a successful defense, this effect confers the ability to return the attack to the aggressor. This mirrored attack uses the same Final Attack Abilities of the initiator, as well as his attack roll.",
     effects: [
@@ -3478,6 +3542,8 @@ export const ABF_KI_EFFECTS = {
     name: "Energy Damaging Attack",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "The attack is able to damage energy, regardless of the Presence required for affecting the opponent.",
     effects: [
@@ -3535,6 +3601,8 @@ export const ABF_KI_EFFECTS = {
     name: "Elemental Attack",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "The attack has elemental properties; therefore, it produces increased effects against creatures especially vulnerable to them.",
     effects: [
@@ -3592,6 +3660,8 @@ export const ABF_KI_EFFECTS = {
     name: "Supernatural Attack",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "This effect makes an attack supernatural in nature. Consequently, it uses the Energy Attack Type.",
     effects: [
@@ -3649,6 +3719,8 @@ export const ABF_KI_EFFECTS = {
     name: "Damage Resistance",
     type: "Special",
     maintained: false,
+    totalmk: 0,
+    totalki: 0,
     description:
       "When using this Technique, a character functions as a creature with Damage Resistance.",
     effects: [

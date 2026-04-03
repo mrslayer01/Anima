@@ -12,8 +12,9 @@ export class TechniqueEffectWindow extends Application {
       title: "Technique Effect Details",
       classes: ["abf-character-sheet", "technique-effect-window"],
       template: "systems/abf-system/templates/items/apps/technique-effect-window.hbs",
-      width: 1200,
-      height: "auto"
+      width: 1500,
+      height: 1200,
+      resizable: true
     });
   }
 
@@ -47,6 +48,22 @@ export class TechniqueEffectWindow extends Application {
 
   activateListeners(html) {
     super.activateListeners(html);
+
+    html.find(".effect-totalki, .effect-totalmk").on("change", async (ev) => {
+      const field = ev.currentTarget.dataset.field;
+      const value = Number(ev.currentTarget.value) || 0;
+
+      // Update local data
+      this.effectData[field] = value;
+
+      // Update item data
+      const effects = foundry.utils.duplicate(this.item.system.effects);
+      effects[this.effectIndex][field] = value;
+
+      await this.item.update({ "system.effects": effects });
+
+      this.render(true);
+    });
 
     // BUY LEVEL
     html.find(".buy-level").on("click", async (ev) => {

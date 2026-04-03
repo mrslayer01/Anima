@@ -1,84 +1,89 @@
-<h3>
-  Techniques
-</h3>
+<div class="combat-grid-core">
+  <div class="combat-left-core"></div>
+  <div class="combat-right-core">
+    <h3>
+      Techniques
+    </h3>
 
-<table class="classes-table npc-powers-table">
-  <thead>
-    <tr>
-      <th>
-        Technique
-      </th>
-      <th>
-        Level
-      </th>
-      <th>
-        MK Cost
-      </th>
-      <th>
-        Ki Cost
-      </th>
-      <th>
-        Ki Per turn
-      </th>
-      <th>
-        Active
-      </th>
-      <th>
-        Effects
-      </th>
+    <table class="classes-table npc-powers-table">
+      <thead>
+        <tr>
+          <th>
+            Technique
+          </th>
+          <th>
+            Level
+          </th>
+          <th>
+            MK Cost
+          </th>
+          <th>
+            Ki Cost
+          </th>
+          <th>
+            Ki Per turn
+          </th>
+          <th>
+            Active
+          </th>
+          <th>
+            Effects
+          </th>
 
-      {{#if @root.actor.system.lockUi}}
-        <th></th>
-      {{else}}
-        <th class="class-actions-header">
-          <a class="add-technique" data-tooltip="Add Technique">
-            <i class="fas fa-plus-circle"></i>
-          </a>
-        </th>
-      {{/if}}
-    </tr>
-  </thead>
-
-  <tbody>
-    {{#each actor.items as |item idx|}}
-      {{#if (eq item.type "technique")}}
-        <tr data-item-id="{{item.id}}" class="item-row">
-          <td class="item-name item-edit clickable" data-item-id="{{item.id}}" data-index="{{idx}}">
-            {{item.name}}
-          </td>
-
-          <td>
-            {{item.system.level}}
-          </td>
-          <td>
-            {{item.system.martialKnowledge}}
-          </td>
-          <td>
-            {{item.system.ki.total}}
-          </td>
-          <td>
-            {{item.system.ki.perTurn}}
-          </td>
-
-          <td>
-            {{#if item.system.active}}
-              <i class="fas fa-check"></i>
-            {{else}}
-              <i class="fas fa-times"></i>
-            {{/if}}
-          </td>
-
-          <td>
-            {{item.system.effects.length}}
-          </td>
-
-          <td class="item-controls">
-            <a class="item-delete">
-              <i class="fas fa-trash"></i>
-            </a>
-          </td>
+          {{#if @root.actor.system.lockUi}}
+            <th></th>
+          {{else}}
+            <th class="class-actions-header">
+              <a class="add-technique" data-tooltip="Add Technique">
+                <i class="fas fa-plus-circle"></i>
+              </a>
+            </th>
+          {{/if}}
         </tr>
-      {{/if}}
-    {{/each}}
-  </tbody>
-</table>
+      </thead>
+
+      <tbody>
+        {{#each actor.items as |item idx|}}
+          {{#if (eq item.type "technique")}}
+            <tr data-item-id="{{item.id}}" class="item-row">
+              <td class="item-name item-edit clickable" data-item-id="{{item.id}}" data-index="{{idx}}">
+                {{item.name}}
+              </td>
+
+              <td>
+                {{item.system.level}}
+              </td>
+              <td>
+                {{item.system.martialKnowledge}}
+              </td>
+              <td>
+                {{item.system.ki.total}}
+              </td>
+              <td>
+                {{item.system.ki.perTurn}}
+              </td>
+
+              <td>
+                {{#if item.system.active}}
+                  <i class="fas fa-check"></i>
+                {{else}}
+                  <i class="fas fa-times"></i>
+                {{/if}}
+              </td>
+
+              <td>
+                {{item.system.effects.length}}
+              </td>
+
+              <td class="item-controls">
+                <a class="item-delete">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </td>
+            </tr>
+          {{/if}}
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

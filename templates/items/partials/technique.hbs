@@ -112,7 +112,17 @@
             Type
         </th>
         <th>
-            Purchased Levels
+            MK
+        </th>
+        <th>
+            Ki
+        </th>
+        <th>
+            Purchased Effects
+        </th>
+
+        <th>
+          Maintained
         </th>
 
         {{#if @root.actor.system.lockUi}}
@@ -144,12 +154,30 @@
             </td>
 
             <td>
-            {{#if effect.purchasedEffects}}
-                {{effect.purchasedEffects.length}}
-            {{else}}
-                0
-            {{/if}}
+            {{effect.totalMk}}
             </td>
+
+            <td>
+            {{effect.totalKi}}
+            </td>
+
+            <td>
+              {{#if effect.purchasedEffects}}
+                  {{effect.purchasedEffects.length}}
+              {{else}}
+                  0
+              {{/if}}
+            </td>
+            <td>
+              {{#if effect.maintained}}
+                <i class="fas fa-check clickable technique-toggle-maintained"
+                  data-index="{{idx}}"></i>
+              {{else}}
+                <i class="fas fa-times clickable technique-toggle-maintained"
+                  data-index="{{idx}}"></i>
+              {{/if}}
+            </td>
+
 
             {{#if @root.actor.system.lockUi}}
             <td></td>

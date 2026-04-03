@@ -81,6 +81,8 @@ export class TechniqueEffectBrowser extends Application {
         description: source.description,
         effects: foundry.utils.duplicate(source.effects),
         purchasedEffects: [],
+        totalMk: 0,
+        totalKi: 0,
         primaryChar: source.primaryChar,
         secondaryChars: foundry.utils.duplicate(source.secondaryChars),
         relatedElements: foundry.utils.duplicate(source.relatedElements),
@@ -123,7 +125,8 @@ export class TechniqueEffectBrowser extends Application {
         Primary Ki: ${lvl.primaryKiCost},
         Secondary Ki: ${lvl.secondaryKiCost},
         MK: ${lvl.mkCost},
-        Maint: ${lvl.kiMaint}
+        Maint: ${lvl.kiMaint},
+        Level Req: ${lvl.level}
       </div>
     `;
         })
@@ -144,7 +147,7 @@ export class TechniqueEffectBrowser extends Application {
           buttons: { ok: { label: "OK" } }
         },
         {
-          width: "auto",
+          width: 800,
           height: "auto",
           resizable: true
         }

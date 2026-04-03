@@ -8,6 +8,7 @@ export class KiRule extends BaseRule {
     const kiPath = system.abilities.primary.Combat.Ki;
 
     if (kiPath.totalKi === undefined) kiPath.totalKi = 0;
+
     for (const [name, char] of Object.entries(kiPath.characteristics)) {
       if (char.cost === undefined) char.cost = 0;
       if (char.special === undefined) char.special = 0;

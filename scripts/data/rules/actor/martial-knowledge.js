@@ -17,7 +17,7 @@ export class martialKnowledgeRule {
     this.Initialize(system);
     const mk = system.martialKnowledge;
 
-    // Rebuild spentRecords from current Martial Arts
+    // Rebuild spentRecords from current Martial Arts, techniques, abilities, etc
     mk.spentRecords = [];
 
     mk.final = toNum(mk.bonus) + toNum(mk.class) + toNum(mk.special);
