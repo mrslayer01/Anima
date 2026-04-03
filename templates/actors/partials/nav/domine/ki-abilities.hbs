@@ -1,0 +1,25 @@
+<div class="ki-ability-row" data-key="{{key}}">
+  <div class="ki-ability-header">
+    <span class="ki-ability-name clickable" data-name="{{ability.name}}" data-tooltip="Click to see details.">
+      {{ability.name}} ({{ability.mkCost}})
+    </span>
+
+    {{#if ability.purchased}}
+      <i class="fas fa-check ki-toggle-ability purchased"></i>
+    {{else}}
+      <i class="fas fa-times ki-toggle-ability"></i>
+    {{/if}}
+  </div>
+
+  {{#if ability.children}}
+    <div class="ki-ability-children">
+      {{#each ability.children as |childKey|}}
+        {{> "systems/abf-system/templates/actors/partials/nav/domine/ki-abilities.hbs"
+            ability=(lookup @root.kiAbilities childKey)
+            key=childKey
+            kiAbilities=@root.kiAbilities
+        }}
+      {{/each}}
+    </div>
+  {{/if}}
+</div>

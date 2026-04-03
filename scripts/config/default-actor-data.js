@@ -153,7 +153,7 @@ export const DEFAULT_ACTOR_DATA = {
             Power: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },
             Willpower: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } }
           },
-          abilities: []
+          abilities: {}
         }
       },
       Psychic: {

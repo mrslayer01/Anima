@@ -115,6 +115,7 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
 
     // Resolve path spells
     this.SpellData(data);
+    data.kiAbilities = data.system.abilities.primary.Combat.Ki.abilities;
 
     return data;
   }

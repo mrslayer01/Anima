@@ -1,5 +1,1 @@
-2026/04/02-11:00:27.795 8884 Log #103: 0 ops saved to Table #104 OK
-2026/04/02-11:00:27.796 8884 Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\macros/000103.log: OK
-2026/04/02-11:00:27.796 8884 Table #91: 5 entries OK
-2026/04/02-11:00:27.799 8884 Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\macros/MANIFEST-000093: OK
-2026/04/02-11:00:27.801 8884 **** Repaired leveldb C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\macros; recovered 1 files; 5258 bytes. Some data may have been lost. ****
+2026/04/02-11:00:27.806 8884 Delete type=3 #1

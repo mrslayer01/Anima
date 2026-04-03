@@ -7,4 +7,4 @@ export function InitializeDominePartials() {
   }
 }
 
-const dominePartials = ["domine"];
+const dominePartials = ["domine", "ki-abilities"];

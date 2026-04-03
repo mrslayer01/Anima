@@ -195,6 +195,29 @@
             {{/each}}
           </ul>
         </div>
+
+        <div class="module-card">
+          <div>
+            <h3>
+              Martial Arts
+            </h3>
+          </div>
+
+          <ul class="module-list">
+            {{#each system.modules.MartialArts as |mod idx|}}
+              <li class="module-row">
+                <span
+                  class="clickable clickable-module"
+                  data-index="{{idx}}"
+                  data-module="{{mod.name}}"
+                  data-type="{{mod.type}}"
+                >
+                  {{mod.name}}
+                </span>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
       </div>
 
   </div>

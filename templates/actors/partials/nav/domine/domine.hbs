@@ -1,5 +1,91 @@
 <div class="combat-grid-core">
-  <div class="combat-left-core"></div>
+  <div class="combat-left-core">
+    <section class="zeon block">
+      <h3>
+        Martial Knowledge
+      </h3>
+
+      <div class="field-row">
+        <label class="path-name">
+          Bonus
+        </label>
+        
+        <span class="path-name">
+          <input
+            class="mod-input-resize-char"
+            type="number"
+            value="{{system.martialKnowledge.bonus}}"
+            name="system.martialKnowledge.bonus"
+            {{#if @root.actor.system.lockUi}}disabled{{/if}}
+          />
+        </span>
+      </div>
+
+      <div class="field-row">
+        <label class="path-name">
+          Class
+        </label>
+        <span class="path-name">
+          {{system.martialKnowledge.class}}
+        </span>
+      </div>
+
+      <div class="field-row">
+        <label class="path-name">
+          Remining
+        </label>
+        <span class="path-name">
+          {{system.martialKnowledge.remaining}} / {{system.martialKnowledge.final}}
+        </span>
+      </div>
+
+      {{!-- <div class="imbalance-group">
+        <div class="zeon-row">
+          <div class="imbalance-field">
+            <label class="path-name">
+              Accumulated
+            </label>
+            <span class="path-name clickable accumulated-manual" data-tooltip="Click to manually edit">
+              {{system.abilities.primary.Supernatural.Zeon.temp}}
+            </span>
+          </div>
+          <div class="imbalance-field">
+            <label class="path-name">
+              Reserve
+            </label>
+            <span class="path-name clickable reserve-manual" data-tooltip="Click to manually edit">
+              {{system.abilities.primary.Supernatural.Zeon.reserve}}
+            </span>
+          </div>
+          <div class="imbalance-field">
+            <label class="path-name">
+              Maximum
+            </label>
+            <span class="path-name" data-tooltip="Final Zeon = 20 + (Base Power * 10) + Power Final + (Base Zeon * 5)">
+              {{system.abilities.primary.Supernatural.Zeon.final}}
+            </span>
+          </div>
+        </div>
+      </div> --}}
+    </section>
+
+    <section>
+      <h3>Ki Abilities</h3>
+
+      <div class="ki-abilities-tree">
+        {{#each kiAbilities as |ability key|}}
+          {{#if (isRootAbility key ../kiAbilities)}}
+            {{> "systems/abf-system/templates/actors/partials/nav/domine/ki-abilities.hbs"
+              ability=ability
+              key=key
+              kiAbilities=../kiAbilities
+            }}
+          {{/if}}
+        {{/each}}
+      </div>
+    </section>
+
+  </div>
   <div class="combat-right-core">
     <h3>
       Techniques
@@ -63,7 +149,7 @@
                 {{item.system.ki.perTurn}}
               </td>
 
-              <td>
+              <td class="item-name technique-active clickable" data-item-id="{{item.id}}" data-index="{{idx}}">
                 {{#if item.system.active}}
                   <i class="fas fa-check"></i>
                 {{else}}
@@ -75,11 +161,15 @@
                 {{item.system.effects.length}}
               </td>
 
+            {{#if @root.actor.system.lockUi}}
+            <td></td>
+            {{else}}
               <td class="item-controls">
                 <a class="item-delete">
                   <i class="fas fa-trash"></i>
                 </a>
               </td>
+            {{/if}}
             </tr>
           {{/if}}
         {{/each}}

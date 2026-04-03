@@ -1,6 +1,7 @@
 import { openJournalFromName } from "../utils/helpers.js";
 import { AdvantageDisadvantageListeners } from "./listeners/advantage-disadvantage-listeners.js";
 import { ClassListeners } from "./listeners/class-listeners.js";
+import { DomineListeners } from "./listeners/domine-listeners.js";
 import { ElanListeners } from "./listeners/elan-listeners.js";
 import { InventoryListeners } from "./listeners/inventory-listeners.js";
 import { ItemListeners } from "./listeners/item-listeners.js";
@@ -141,6 +142,7 @@ export function registerSheetListeners(sheet, html) {
   SpellsListeners(sheet, html);
   SettingsListeners(sheet, html);
   NpcListeners(sheet, html);
+  DomineListeners(sheet, html);
 }
 
 //#region Item Registers

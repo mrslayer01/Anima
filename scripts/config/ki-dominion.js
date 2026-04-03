@@ -1,11 +1,12 @@
 export function createKiAbility(abilInput) {
-  const { name = "", requirements = "", mkCost = 0, description = "" } = abilInput;
+  const { name = "", requirements = "", mkCost = 0, description = "", children = [] } = abilInput;
 
   return {
     name,
     requirements,
     mkCost,
-    description
+    description,
+    children
   };
 }
 
@@ -53,7 +54,15 @@ export const ABF_KI_ABILITIES = {
     requirements: "None",
     mkCost: 40,
     description:
-      "This is the foundational Ki Ability upon which all others are based. It allows a character to awaken his inner energy and use it subconsciously."
+      "This is the foundational Ki Ability upon which all others are based. It allows a character to awaken his inner energy and use it subconsciously.",
+    children: [
+      "kiControl",
+      "weightElimination",
+      "presenceExtrusion",
+      "kiTransmission",
+      "useOfNecessaryEnergy",
+      "inhumanity"
+    ]
   }),
 
   kiControl: createKiAbility({
@@ -61,13 +70,15 @@ export const ABF_KI_ABILITIES = {
     requirements: "Use of Ki",
     mkCost: 30,
     description:
-      "This ability allows total control of inner energy. A character with this ability is fully aware of his supernatural power and can Accumulate Ki. Once acquired, Ki Control allows characters to learn Dominion Techniques.\nRequirements:�Use of Ki\nMartial�Knowledge:�30"
+      "This ability allows total control of inner energy. A character with this ability is fully aware of his supernatural power and can Accumulate Ki. Once acquired, Ki Control allows characters to learn Dominion Techniques.Requirements: Use of Ki Martial Knowledge:30",
+    children: ["kiDetection"]
   }),
 
   kiDetection: createKiAbility({
     name: "Ki Detection",
     requirements: "Ki Control",
     mkCost: 20,
+    children: ["erudition"],
     description:
       "This ability allows a character to detect a being’s energy. Thus, a character with this ability is aware of any source of energy present in an area, but he cannot determine its form, size, or intensity. Ki Detection effortlessly overcomes obstacles such as solid objects and closed spaces, but it can not penetrate sealed energy fields. The GM should treat this power as a special Secondary Ability and can calculate its score by averaging the character’s total MK and his Notice score. To learn about the extent of its reach, see Box VIII.\nRequirements:�Ki Control\nMartial�Knowledge: 20\nCelia has 120 MK and a Notice score of 60. To calculate Celia’s Ki Detection, add up both numbers and divide them by two, which should give a Final Ability score of 90."
   }),
@@ -83,7 +94,8 @@ export const ABF_KI_ABILITIES = {
   weightElimination: createKiAbility({
     name: "Weight Elimination",
     requirements: "Use of Ki",
-    cost: 10,
+    mkCost: 10,
+    children: ["levitation"],
     description:
       "Through control of energy, a character may affect his own body mass and partially ignore the effects of gravity. By using this ability, a character can temporarily perform actions otherwise virtually impossible – such as running up walls or even running on water. A character using this ability can run along any type of surface at his full Movement Value in a single turn.\nFor example, a character with a Movement Value of 70 feet per round who attempts to cross to the other side of a river using this ability will successfully cover the first 70 feet, but he will inevitably sink if the river stretches beyond that point. The effects of this ability may be extended by investing 1 generic Ki Point in every round.\nRequirements: Use of Ki\nMartial�Knowledge: 10"
   }),
@@ -92,6 +104,7 @@ export const ABF_KI_ABILITIES = {
     name: "Levitation",
     requirements: "Weight Elimination",
     mkCost: 20,
+    children: ["objectMotion", "flight"],
     description:
       "This ability allows a character to glide through the air and move freely. Each Flight Value achieved costs a character 1 generic Ki point. A character using Levitation may only achieve a maximum Flight Value equal to one-quarter of his Movement Value, rounded up. To maintain this ability and remain levitating, the user must spend 1 extra Ki Point per minute.\nRequirements: Weight Elimination\nMartial�Knowledge: 20\nFor example, a character with an Agility of 8 can Levitate up to a Flight Value of 2 if he spends 2 Ki Points from any Characteristic. He will subsequently have to spend another Ki Point for every additional minute he wishes to remain in the air."
   }),
@@ -116,6 +129,7 @@ export const ABF_KI_ABILITIES = {
     name: "Presence Extrusion",
     requirements: "Use of Ki",
     mkCost: 10,
+    children: ["energyArmor", "auraExtension", "destructionByKi"],
     description:
       "This ability allows a character to create an invisible aura of Ki around himself. In this way, he can physically touch pure energy and intangible elements – such as fire, spectral beings, or even magic. In physical combat, a character using Presence Extrusion may injure beings normally only vulnerable to supernatural attacks, up to a value of twice his Presence. In other words, someone with a Presence of 50 could potentially damage a creature as if he used a mystical weapon of Presence value 100. This ability also allows characters to repel supernatural effects with the Block Ability or even slash a fireball in half.\nRequirements:�Use of Ki\nMartial�Knowledge: 10"
   }),
@@ -148,6 +162,7 @@ export const ABF_KI_ABILITIES = {
     name: "Ki Transmission",
     requirements: "Use of Ki",
     mkCost: 10,
+    children: ["kiHealing"],
     description:
       "This ability allows a character to transmit or absorb Ki from another subject. When two individuals with this ability meet, they can exchange their points freely. Naturally, the Ki exchanged occurs between the same Characteristics from which they stem. The transmission index per round is equal to a character’s Accumulation.\nRequirements:�Use of Ki\nMartial�Knowledge:�10"
   }),
@@ -164,6 +179,13 @@ export const ABF_KI_ABILITIES = {
     name: "Use of Necessary Energy",
     requirements: "Use of Ki",
     mkCost: 10,
+    children: [
+      "kiConcealment",
+      "eliminationOfNecessities",
+      "penaltyReduction",
+      "recovery",
+      "characteristicAugmentation"
+    ],
     description:
       "A character with this ability can control his energy in such a way that he employs only the required amount for each one of his actions. This allows him to run or carry out sustained efforts for days without suffering the effects of exhaustion. Use of Necessary Energy multiplies the amount of time a character can spend on physical labor, running, or performing heavy tasks without losing Fatigue points by a factor of 10. For example, a character using this ability and running at his maximum Movement Value would lose 1 Fatigue Point every 50 turns, not every 5 turns as the rules state for characters without this power.\nThis ability also makes it possible for characters to go beyond the normal limits of exertion by increasing the maximum number of Fatigue Points allowed per turn. Instead of 2 Fatigue points per round, this ability raises a character’s spending limit to 5, thus adding a +75 bonus to a single Action, or several bonuses of +15 to several at a time.\nRequirements:�Use of Ki\nMartial�Knowledge:�10"
   }),
@@ -172,6 +194,7 @@ export const ABF_KI_ABILITIES = {
     name: "Ki Concealment",
     requirements: "Use of Necessary Energy",
     mkCost: 10,
+    children: ["falseDeath"],
     description:
       "A character with this ability hides the traces of his energy, rendering it invisible to Ki Detection and Erudition. Technically, it creates a spiritual void that hinders tracking. Like Ki Detection, Ki Concealment is calculated as a Special Secondary Ability. Simply find the average between a character’s total MK and his Hide score. When someone with Ki Detection tries to locate a character using Ki Concealment, they must make an Opposed check – the hiding character’s Concealment score is deducted from the searching character’s Detection score. An individual Accumulating Ki while using this ability must subtract 10 from his Concealment score for every 1 Ki Point in use.\nKi Concealment also distorts energy information gathered with Erudition. By succeeding at an Opposed Check, individuals may send out false information to those using Erudition.\nFinally, this ability also grants certain advantages against supernatural detection. If a character using Ki Concealment is being tracked down by a spell or psychic ability, he can add half his Ki Concealment score to the Resistance Check he needs to pass in order to avoid detection.\nRequirements:�Use of Necessary Energy\nMartial�Knowledge: 10 MK"
   }),
@@ -220,6 +243,7 @@ export const ABF_KI_ABILITIES = {
     name: "Inhumanity",
     requirements: "Use of Ki",
     mkCost: 30,
+    children: ["zen"],
     description:
       "This ability allows a character to perform physical tasks otherwise impossible to human beings. Inhumanity allows its user to count any Inhuman-level results they achieve on the Difficulty Table and get the most out of the capabilities their Characteristics allow.\nRequirements:�Use of Ki\nMartial�Knowledge: 30"
   }),

@@ -256,4 +256,12 @@ export function loadAllActorHandlerbarsHelpers() {
 
     return value ?? "";
   });
+
+  Handlebars.registerHelper("isRootAbility", function (key, abilities) {
+    // If any ability lists this key as a child, it's NOT a root
+    for (const a of Object.values(abilities)) {
+      if (a.children && a.children.includes(key)) return false;
+    }
+    return true;
+  });
 }

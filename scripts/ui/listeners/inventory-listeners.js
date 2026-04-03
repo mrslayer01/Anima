@@ -190,8 +190,6 @@ function EditItems(sheet, html) {
     const itemId = $(ev.currentTarget).closest(".item-row").data("item-id");
     const item = sheet.actor.items.get(itemId);
 
-    console.log(item);
-
     const confirmed = await Dialog.confirm({
       title: "Confirm Delete",
       content: "<p>Are you sure you want to remove this item?</p>"

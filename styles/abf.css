@@ -1309,3 +1309,66 @@
   padding: 0.75rem;
   border-bottom: 2px solid #d9b56c;
 }
+
+/* Tree container */
+.ki-abilities-tree {
+  padding-left: 6px;
+  font-size: 14px;
+  line-height: 1.35;
+  color: #f5f5f5; /* bright white for dark backgrounds */
+}
+
+/* Each ability row */
+.ki-ability-row {
+  margin: 4px 0;
+  padding-left: 4px;
+  position: relative;
+}
+
+/* Header row */
+.ki-ability-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 3px 6px;
+  border-radius: 4px;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+
+/* Ability name */
+.ki-ability-name {
+  color: #ffffff;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+}
+
+/* Toggle icon */
+.ki-toggle-ability {
+  cursor: pointer;
+  opacity: 0.85;
+  color: #d9b56c; /* gold accent */
+  transition:
+    opacity 0.15s ease,
+    transform 0.15s ease;
+}
+
+.ki-toggle-ability:hover {
+  color: #d9b56c !important;
+  text-shadow:
+    0 0 8px #d9b56c,
+    0 0 12px #d9b56c;
+}
+
+/* Children container */
+.ki-ability-children {
+  margin-left: 18px;
+  padding-left: 12px;
+  border-left: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+/* Remove dot for root abilities */
+.ki-abilities-tree > .ki-ability-row::before {
+  display: none;
+}

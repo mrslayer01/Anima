@@ -1,5 +1,6 @@
 import { BaseRule } from "../base-rule.js";
 import { toNum } from "../../../utils/numbers.js";
+import { ABF_KI_ABILITIES } from "../../../config/ki-dominion.js";
 
 export class KiRule extends BaseRule {
   Initialize(system) {
@@ -7,6 +8,7 @@ export class KiRule extends BaseRule {
     // Ki
     const kiPath = system.abilities.primary.Combat.Ki;
 
+    if (!kiPath.totalMk) kiPath.totalMk = 0;
     if (kiPath.totalKi === undefined) kiPath.totalKi = 0;
 
     for (const [name, char] of Object.entries(kiPath.characteristics)) {
@@ -17,6 +19,22 @@ export class KiRule extends BaseRule {
       if (char.kiAccumulation.cost === undefined) char.kiAccumulation.cost = 0;
       if (char.kiAccumulation.special === undefined) char.kiAccumulation.special = 0;
       if (char.kiAccumulation.final === undefined) char.kiAccumulation.final = 0;
+    }
+
+    // Create Ki Abilities Object
+    if (!kiPath.abilities) kiPath.abilities = {};
+
+    for (const [key, ability] of Object.entries(ABF_KI_ABILITIES)) {
+      if (!kiPath.abilities[key]) {
+        kiPath.abilities[key] = {
+          name: ability.name,
+          requirements: ability.requirements,
+          mkCost: ability.mkCost,
+          description: ability.description,
+          purchased: false,
+          children: ability.children || []
+        };
+      }
     }
   }
 
@@ -141,3 +159,10 @@ const BASE_KI_ACCUMULATION_TABLE = [
   { min: 13, max: 15, accumulation: 3 },
   { min: 16, max: Infinity, accumulation: 4 }
 ];
+
+function abilityRequirementsMet(ability, abilities) {
+  if (!ability.requirements || ability.requirements === "None") return true;
+
+  const req = ability.requirements;
+  return Object.values(abilities).some((a) => a.name === req && a.purchased);
+}
