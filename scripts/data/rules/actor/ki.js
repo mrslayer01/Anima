@@ -9,7 +9,9 @@ export class KiRule extends BaseRule {
     const kiPath = system.abilities.primary.Combat.Ki;
 
     if (!kiPath.totalMk) kiPath.totalMk = 0;
-    if (kiPath.totalKi === undefined) kiPath.totalKi = 0;
+    if (!kiPath.totalKi) kiPath.totalKi = 0;
+    if (!kiPath.totalKiAccumulation) kiPath.totalKiAccumulation = 0;
+    if (!kiPath.reserve) kiPath.reserve = 0;
 
     for (const [name, char] of Object.entries(kiPath.characteristics)) {
       if (char.cost === undefined) char.cost = 0;
@@ -43,6 +45,7 @@ export class KiRule extends BaseRule {
     const kiPath = system.abilities.primary.Combat.Ki;
     //ki
     let totalKi = 0;
+    let kiAccuTotal = 0;
     for (const [name, char] of Object.entries(kiPath.characteristics)) {
       // Set the base ki per characterstic based on it's base value. 1 - 10 is 1 for 1 ki, > 10 is 1 for 2 ki.
       const derrivedKi = lookupBaseKi(name, system);
@@ -59,12 +62,15 @@ export class KiRule extends BaseRule {
       const baseAccu = toNum(char.kiAccumulation.base);
       const bonusAccu = toNum(char.kiAccumulation.bonus);
       const specialAccu = toNum(char.kiAccumulation.special);
+      const final = derrivedKiAccu + bonusAccu + baseAccu + specialAccu;
 
-      char.kiAccumulation.final = derrivedKiAccu + bonusAccu + baseAccu + specialAccu;
+      char.kiAccumulation.final = final;
+      kiAccuTotal += final;
     }
 
     // Finally get the total amount of ki across all characterstics.
     kiPath.totalKi = totalKi;
+    kiPath.totalKiAccumulation = kiAccuTotal;
   }
 
   DetectChanged(updateData, oldSystem) {
@@ -106,6 +112,7 @@ export class KiRule extends BaseRule {
   RecalcUpdated(system, name) {
     const kiPath = system.abilities.primary.Combat.Ki;
     //ki
+    let kiAccuTotal = 0;
     for (const [name, char] of Object.entries(kiPath.characteristics)) {
       // Set the base ki per characterstic based on it's base value. 1 - 10 is 1 for 1 ki, > 10 is 1 for 2 ki.
       const derrivedKi = lookupBaseKi(name, system);
@@ -120,12 +127,15 @@ export class KiRule extends BaseRule {
       const baseAccu = toNum(char.kiAccumulation.base);
       const bonusAccu = toNum(char.kiAccumulation.bonus);
       const specialAccu = toNum(char.kiAccumulation.special);
+      const final = derrivedKiAccu + bonusAccu + baseAccu + specialAccu;
 
-      char.kiAccumulation.final = derrivedKiAccu + bonusAccu + baseAccu + specialAccu;
+      char.kiAccumulation.final = final;
+      kiAccuTotal += final;
     }
 
     // Finally get the total amount of ki across all characterstics.
     kiPath.totalKi = totalKi;
+    kiPath.totalKiAccumulation = kiAccuTotal;
   }
 
   Update(updateData, oldSystem, newSystem) {

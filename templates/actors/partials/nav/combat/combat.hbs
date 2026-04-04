@@ -40,6 +40,7 @@
           {{system.abilities.primary.Combat.WearArmor.final}}
         </span>
       </div>
+
       {{#if actor.system.settings.usesMystic}}
       <h4>Magic Projection</h4>
       <div class="imbalance-group">
@@ -95,6 +96,39 @@
           </div>
         </div>
       </div>
+      {{/if}}
+      {{#if actor.system.settings.usesDomine}}
+        <h4 
+          class="clickable ki-accumulation" 
+          data-tooltip="Click to start Ki Accumulation">
+          Ki Accumulation: {{system.abilities.primary.Combat.Ki.totalKiAccumulation}}
+        </h4>
+        <div class="zeon-row">
+          <div class="imbalance-field">
+            <label class="path-name">
+              Accumulated
+            </label>
+            <span class="path-name clickable ki-accumulated-manual" data-tooltip="Click to manually edit">
+              {{system.abilities.primary.Combat.Ki.current}}
+            </span>
+          </div>
+          <div class="imbalance-field">
+            <label class="path-name">
+              Reserve
+            </label>
+            <span class="path-name clickable ki-reserve-manual" data-tooltip="Click to manually edit">
+              {{system.abilities.primary.Combat.Ki.reserve}}
+            </span>
+          </div>
+          <div class="imbalance-field">
+            <label class="path-name">
+              Maximum
+            </label>
+            <span class="path-name">
+              {{system.abilities.primary.Combat.Ki.totalKi}}
+            </span>
+          </div>
+        </div>
       {{/if}}
     </section>
 

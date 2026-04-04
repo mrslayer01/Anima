@@ -374,5 +374,12 @@ function promptManualEdit() {
       },
       default: "ok"
     }).render(true);
+    setTimeout(() => {
+      const input = document.getElementById("manualValue");
+      if (input) {
+        input.focus();
+        input.select();
+      }
+    }, 10);
   });
 }

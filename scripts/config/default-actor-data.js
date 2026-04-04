@@ -142,7 +142,8 @@ export const DEFAULT_ACTOR_DATA = {
         Dodge: { base: 0, bonus: 0, focus: false },
         WearArmor: { base: 0, bonus: 0 },
         Ki: {
-          currentKi: 0,
+          current: 0,
+          reserve: 0,
           characteristics: {
             Agility: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },
             Constitution: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },

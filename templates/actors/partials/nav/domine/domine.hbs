@@ -38,35 +38,45 @@
           {{system.martialKnowledge.remaining}} / {{system.martialKnowledge.final}}
         </span>
       </div>
+    </section>
 
-      {{!-- <div class="imbalance-group">
+    <section>
+      <h3>
+        Ki
+      </h3>
+      <div class="imbalance-group">
+        <h4 
+          class="clickable ki-accumulation" 
+          data-tooltip="Click to start Ki Accumulation">
+          Ki Accumulation: {{system.abilities.primary.Combat.Ki.totalKiAccumulation}}
+        </h4>
         <div class="zeon-row">
           <div class="imbalance-field">
             <label class="path-name">
               Accumulated
             </label>
-            <span class="path-name clickable accumulated-manual" data-tooltip="Click to manually edit">
-              {{system.abilities.primary.Supernatural.Zeon.temp}}
+            <span class="path-name clickable ki-accumulated-manual" data-tooltip="Click to manually edit">
+              {{system.abilities.primary.Combat.Ki.current}}
             </span>
           </div>
           <div class="imbalance-field">
             <label class="path-name">
               Reserve
             </label>
-            <span class="path-name clickable reserve-manual" data-tooltip="Click to manually edit">
-              {{system.abilities.primary.Supernatural.Zeon.reserve}}
+            <span class="path-name clickable ki-reserve-manual" data-tooltip="Click to manually edit">
+              {{system.abilities.primary.Combat.Ki.reserve}}
             </span>
           </div>
           <div class="imbalance-field">
             <label class="path-name">
               Maximum
             </label>
-            <span class="path-name" data-tooltip="Final Zeon = 20 + (Base Power * 10) + Power Final + (Base Zeon * 5)">
-              {{system.abilities.primary.Supernatural.Zeon.final}}
+            <span class="path-name">
+              {{system.abilities.primary.Combat.Ki.totalKi}}
             </span>
           </div>
         </div>
-      </div> --}}
+      </div>
     </section>
 
     <section>
