@@ -77,6 +77,7 @@ export class CombatWindow extends Application {
       const part = html.find("#directedAttack").val();
       const combatModPart = html.find("#combatModifier").val();
       const directedPenalty = DIRECTED_ATTACK_TABLE[part] ?? 0;
+
       const combatMod = COMBAT_SITUATIONAL_MODIFIERS[combatModPart].attack ?? 0;
       const total = this.atkValue + atkMod + directedPenalty + combatMod;
 

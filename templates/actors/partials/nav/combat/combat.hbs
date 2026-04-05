@@ -263,5 +263,8 @@
     {{#if actor.system.settings.usesMystic}}
     <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/mystic.hbs" }}</div>
     {{/if}}
+    {{#if actor.system.settings.usesDomine}}
+    <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/techniques.hbs" }}</div>
+    {{/if}}
   </div>
 </div>

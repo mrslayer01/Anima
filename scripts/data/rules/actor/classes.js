@@ -33,9 +33,8 @@ export class ClassesRule extends BaseRule {
 
       system.martialKnowledge.class += toNum(cls.martialKnowledgePerLevel) * level;
 
-      system.abilities.primary.Psychic.PsychicPoints.ppPerLevel += toNum(cls.psychicPointsPerLevel);
-      system.abilities.primary.Psychic.PsychicPoints.levelInterval = toNum(
-        cls.psychicPointsInterval
+      system.abilities.primary.Psychic.PsychicPoints.class = Math.floor(
+        level / toNum(cls.psychicPointsInterval)
       );
 
       PrimaryAbilities(

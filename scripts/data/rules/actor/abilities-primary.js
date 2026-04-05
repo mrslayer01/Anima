@@ -28,13 +28,13 @@ export class AbilitiesPrimaryRule extends BaseRule {
             if (abil.final === undefined) abil.final = 0;
           }
           if (abil.special === undefined) abil.special = 0;
-          if (abil.weapon === undefined) abil.weapon = 0;
           if (
             name != "MagicAccumulation" &&
             name != "MAMultiples" &&
             name != "Zeon" &&
-            name != "PsychicPoints"
+            categoryName != "Psychic"
           ) {
+            if (abil.weapon === undefined) abil.weapon = 0;
             if (abil.characteristic === undefined)
               abil.characteristic = ABILITIES_PRIMARIES_SCHEMA[name].characteristic || null;
             if (abil.physicalPenalty === undefined) {

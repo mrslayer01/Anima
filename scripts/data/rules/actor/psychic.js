@@ -5,20 +5,36 @@ export class PsychicPointsRule extends BaseRule {
   Initialize(system) {
     //Init cost/ppPerLevel,levelInterval
     const psychicPointsPath = system.abilities.primary.Psychic.PsychicPoints;
-    if (psychicPointsPath.class === undefined) psychicPointsPath.class = 0;
-    if (psychicPointsPath.cost === undefined) psychicPointsPath.cost = 0;
-    if (psychicPointsPath.ppPerLevel === undefined) psychicPointsPath.ppPerLevel = 0;
-    if (psychicPointsPath.levelInterval === undefined) psychicPointsPath.levelInterval = 0;
-    if (psychicPointsPath.final === undefined) psychicPointsPath.final = 0;
+    const psychicPotentialPath = system.abilities.primary.Psychic.PsychicPotential;
+    if (!psychicPointsPath.class) psychicPointsPath.class = 0;
+    if (!psychicPointsPath.cost) psychicPointsPath.cost = 0;
+    if (!psychicPointsPath.final) psychicPointsPath.final = 0;
+
+    if (!psychicPotentialPath.base) psychicPotentialPath.base = 0;
+    if (!psychicPotentialPath.special) psychicPotentialPath.special = 0;
+    if (!psychicPotentialPath.final) psychicPotentialPath.final = 0;
   }
 
   Derived(system) {
     this.Initialize(system);
     const psychicPointsPath = system.abilities.primary.Psychic.PsychicPoints;
     const ppBase = toNum(psychicPointsPath.base);
+    const ppBonus = toNum(psychicPointsPath.bonus);
+
     const ppClass = toNum(psychicPointsPath.class);
 
-    psychicPointsPath.final = ppBase + ppClass;
+    psychicPointsPath.final = ppBase + ppClass + ppBonus;
+
+    const psychicPotentialPath = system.abilities.primary.Psychic.PsychicPotential;
+    const willpower = toNum(system.characteristics.Willpower.base);
+    const basePotential = getPsychicPotential(willpower);
+    psychicPotentialPath.base = basePotential;
+
+    const pPotBase = toNum(psychicPotentialPath.base);
+    const pPotSpecial = toNum(psychicPotentialPath.special);
+    const pPotBonus = toNum(psychicPotentialPath.bonus);
+
+    psychicPotentialPath.final = pPotBase + pPotBonus + pPotSpecial;
   }
 
   DetectChanged(updateData, oldSystem) {
@@ -74,6 +90,16 @@ export class PsychicPointsRule extends BaseRule {
     const ppClass = toNum(psychicPointsPath.class);
 
     psychicPointsPath.final = ppBase + ppClass;
+    const psychicPotentialPath = system.abilities.primary.Psychic.PsychicPotential;
+    const willpower = toNum(system.characteristics.Willpower.base);
+    const basePotential = getPsychicPotential(willpower);
+    psychicPotentialPath.base = basePotential;
+
+    const pPotBase = toNum(psychicPotentialPath.base);
+    const pPotSpecial = toNum(psychicPotentialPath.special);
+    const pPotBonus = toNum(psychicPotentialPath.bonus);
+
+    psychicPotentialPath.final = pPotBase + pPotBonus + pPotSpecial;
   }
 
   Update(updateData, oldSystem, newSystem) {
@@ -85,4 +111,31 @@ export class PsychicPointsRule extends BaseRule {
 
     return changed;
   }
+}
+
+const PSYCHIC_POTENTIAL_TABLE = {
+  1: 0,
+  2: 0,
+  3: 0,
+  4: 0,
+  5: 10,
+  6: 20,
+  7: 30,
+  8: 40,
+  9: 50,
+  10: 60,
+  11: 70,
+  12: 80,
+  13: 90,
+  14: 100,
+  15: 120,
+  16: 140,
+  17: 160,
+  18: 180,
+  19: 200,
+  20: 220
+};
+
+function getPsychicPotential(willpower) {
+  return PSYCHIC_POTENTIAL_TABLE[willpower] ?? 0;
 }

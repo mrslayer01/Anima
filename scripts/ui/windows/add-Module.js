@@ -135,7 +135,7 @@ export class AddModuleWindow extends Application {
         return ui.notifications.error("Unknown module type.");
       }
 
-      const arr = foundry.utils.duplicate(getProperty(actor, path) ?? []);
+      const arr = foundry.utils.duplicate(foundry.utils.getProperty(actor, path) ?? []);
       arr.push(moduleData);
 
       await actor.update({ [path]: arr });

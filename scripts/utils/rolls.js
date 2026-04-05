@@ -252,3 +252,42 @@ export async function resistanceCheck({ value, difficulty, label, actor }) {
 
   setTimeout(() => sendChat(content, actor), 2000);
 }
+
+export async function castCheck({ value, difficulty, label, actor, capture = false }) {
+  const bonus = toNum(value) || 0;
+  const diff = toNum(difficulty);
+  const name = label ?? "Projection Check";
+
+  const roll = await rollDice("1d100");
+  const raw = roll.total;
+
+  const total = raw + bonus;
+  const margin = total - diff;
+  let success = total >= diff;
+
+  const content = `
+    <b>${name}</b><br>
+    <hr>
+    <b>Roll:</b> ${raw}<br>
+    <b>Bonus:</b> ${bonus}<br>
+    <b>Total:</b> ${total}<br>
+    ${difficulty > 0 ? `<b>Difficulty:</b> ${diff}<br>` : ""}
+    <hr>
+    ${
+      difficulty > 0
+        ? `${
+            success
+              ? `<span style="color:green"><b>Success</b></span>`
+              : `<span style="color:red"><b>Failure - Margin ${margin}</b></span>`
+          }`
+        : ""
+    }
+  `;
+
+  if (capture) {
+    setTimeout(() => sendChat(content, actor), 2000);
+    return success;
+  }
+
+  setTimeout(() => sendChat(content, actor), 2000);
+}

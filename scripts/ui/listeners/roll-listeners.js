@@ -7,7 +7,12 @@ import {
   difficultyMap
 } from "../../utils/lookup.js";
 import { toNum } from "../../utils/numbers.js";
-import { animaOpenRoll, characteristicCheck, resistanceCheck } from "../../utils/rolls.js";
+import {
+  animaOpenRoll,
+  castCheck,
+  characteristicCheck,
+  resistanceCheck
+} from "../../utils/rolls.js";
 import { CombatWindow } from "../windows/combat-window.js";
 import { DefendWindow } from "../windows/defend-window.js";
 
@@ -265,14 +270,24 @@ export function RollListeners(sheet, html) {
 
   html.find(".spell-attack-roll").off("click");
   html.find(".spell-attack-roll").on("click", async (ev) => {
-    // ---------------------------------------------------------
-    // SPELL ATTACK → ALWAYS USE MAGIC PROJECTION
-    // ---------------------------------------------------------
     const actor = sheet.actor;
+
+    const targets = Array.from(game.user.targets);
 
     let attackValue = toNum(
       actor.system.abilities.primary.Supernatural.MagicProjection.offensiveFinal
     );
+
+    // If there is no target, prompt the choice between manual attack, or non combat porjection.
+    if (targets.length === 0) {
+      const isSpellAttack = await checkMagicProjectionType({
+        value: attackValue,
+        label: "Magic Projection check",
+        actor: sheet.actor
+      });
+
+      if (!isSpellAttack) return;
+    }
 
     const { final, region, directed, attackType, zeonCost, isAOE } =
       await promptAttackModifierWindow({
@@ -281,6 +296,20 @@ export function RollListeners(sheet, html) {
       });
 
     attackValue += final;
+
+    // Before continuing, make sure spell was cast successfully.
+    // const castCheck = await animaCastCheckCapture({
+    //   value: attackValue,
+    //   difficulty: castDifficulty,
+    //   label: "Magic Projection check",
+    //   actor: sheet.actor,
+    //   capture: true
+    // });
+
+    // if (!castCheck) {
+    //   console.log("Magic Projection check failed!");
+    //   return;
+    // }
 
     let armorPen = 0; // spells normally have no armor penetration
     const weaponType = "Spell Attack";
@@ -300,14 +329,12 @@ export function RollListeners(sheet, html) {
       }
     }
 
-    const targets = Array.from(game.user.targets);
-
     if (targets.length === 0) {
       return await manualDefend(sheet, attackData);
     }
 
     if (targets.length === 1) {
-      // existing single-target logic
+      // single-target logic
       return await handleSingleTargetAttack(
         sheet,
         null,
@@ -320,7 +347,7 @@ export function RollListeners(sheet, html) {
       );
     }
 
-    // NEW multi-target logic
+    // multi-target logic
     return await handleMultiTargetAttack(
       sheet,
       null,
@@ -575,6 +602,44 @@ async function animaOpenRollCapture(opts) {
   roll.token = opts.token ?? null;
 
   return roll;
+}
+
+async function checkMagicProjectionType(opts) {
+  console.log(opts);
+  return new Promise((resolve) => {
+    new Dialog({
+      title: "Spell Projection",
+      content: `
+        <div style="margin-bottom: 0.75em;">
+          <p><b>Type of Magic Projection</b></p>
+        </div>
+      `,
+      buttons: {
+        attack: {
+          label: "Attack",
+          callback: () => resolve(true)
+        },
+        general: {
+          label: "General",
+          callback: () => resolve(false)
+        },
+        cancel: {
+          label: "Cancel",
+          callback: () => resolve(false)
+        }
+      },
+      default: "attack"
+    }).render(true);
+  });
+}
+
+async function animaCastCheckCapture(opts) {
+  const success = await castCheck({
+    ...opts,
+    capture: true
+  });
+
+  return success;
 }
 
 export function promptAttackModifierWindow(options = {}) {

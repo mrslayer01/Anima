@@ -214,7 +214,11 @@ export function loadAllActorHandlerbarsHelpers() {
     "MagicAccumulation"
   ]);
 
-  Handlebars.registerHelper("orderPsychic", () => ["PsychicProjection", "PsychicPoints"]);
+  Handlebars.registerHelper("orderPsychic", () => [
+    "PsychicProjection",
+    "PsychicPoints",
+    "PsychicPotential"
+  ]);
 
   Handlebars.registerHelper("orderPaths", () => [
     "Essence",

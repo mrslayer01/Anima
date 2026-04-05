@@ -4,6 +4,7 @@
 export function ValidateInputs(name, value, input) {
   const isCharacteristic = name.startsWith("system.characteristics.");
   const isMaMultiple = name.startsWith("system.abilities.primary.Supernatural.MAMultiples.");
+  const isPsychicPoints = name.startsWith("system.abilities.primary.Psychic.PsychicPoints.");
   const isResistance = name.startsWith("system.resistances.");
   const isAbility =
     name.startsWith("system.abilities.secondary.") || name.startsWith("system.abilities.primary.");
@@ -25,7 +26,7 @@ export function ValidateInputs(name, value, input) {
     }
   }
 
-  if (isMaMultiple) {
+  if (isMaMultiple || isPsychicPoints) {
     if (name.endsWith(".base") && value < 1) {
       value = 1;
       input.value = 1;

@@ -1,0 +1,59 @@
+<h3>
+  Techniques
+</h3>
+
+<table class="classes-table npc-powers-table">
+  <thead>
+    <tr>
+      <th>
+        Technique
+      </th>
+      <th>
+        Level
+      </th>
+      <th>
+        MK Cost
+      </th>
+      <th>
+        Ki Cost
+      </th>
+      <th>
+        Ki Per turn
+      </th>
+      <th>
+        Effects
+      </th>
+    </tr>
+  </thead>
+
+  <tbody>
+    {{#each actor.items as |item idx|}}
+      {{#if (eq item.type "technique")}}
+        {{#if item.system.active}}
+          <tr data-item-id="{{item.id}}" class="item-row">
+            <td class="item-name item-edit clickable" data-item-id="{{item.id}}" data-index="{{idx}}">
+              {{item.name}}
+            </td>
+
+            <td>
+              {{item.system.level}}
+            </td>
+            <td>
+              {{item.system.martialKnowledge}}
+            </td>
+            <td>
+              {{item.system.ki.total}}
+            </td>
+            <td>
+              {{item.system.ki.perTurn}}
+            </td>
+
+            <td>
+              {{item.system.effects.length}}
+            </td>
+          </tr>
+        {{/if}}
+      {{/if}}
+    {{/each}}
+  </tbody>
+</table>

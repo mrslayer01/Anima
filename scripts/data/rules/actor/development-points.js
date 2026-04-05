@@ -32,7 +32,6 @@ export class DevelopmentPointsRule extends BaseRule {
     const sys = updateData.system;
     if (!sys) return [];
 
-    // 1. Primary abilities (your original logic)
     if (sys.abilities?.primary) {
       const category = Object.keys(sys.abilities.primary)[0];
       const ability = Object.keys(sys.abilities.primary[category])[0];
@@ -117,9 +116,9 @@ function updateAbilityRecord(system, category, ability, amount, cost) {
   const idx = records.findIndex((r) => r.category === category && r.ability === ability);
 
   // ---------------------------------------
-  // SPECIAL CASE: MAMultiples
+  // SPECIAL CASE: MAMultiples and PsychicPoints
   // ---------------------------------------
-  if (ability === "MAMultiples") {
+  if (ability === "MAMultiples" || ability === "PsychicPoints") {
     // Baseline (1) → no DP record
     if (amount <= 1) {
       if (idx !== -1) records.splice(idx, 1);
@@ -210,7 +209,7 @@ function DerivedPrimaryAbilites(system) {
       let cost = toNum(abil.cost) || 0;
 
       // SPECIAL CASE: MAMultiples
-      if (abilityName === "MAMultiples") {
+      if (abilityName === "MAMultiples" || abilityName === "PsychicPoints") {
         // Only store DP if > 1 (baseline)
         if (base > 1 && cost > 0) {
           system.developmentPoints.spentRecords.push({

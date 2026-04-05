@@ -11,7 +11,7 @@ import { MovementRule } from "./actor/movement.js";
 import { PresenceRule } from "./actor/presence.js";
 import { ResistancesRule } from "./actor/resistances.js";
 import { TotalLevelRule } from "./actor/total-level.js";
-import { PsychicPointsRule } from "./actor/psychic-points.js";
+import { PsychicPointsRule } from "./actor/psychic.js";
 import { ClassesRule } from "./actor/classes.js";
 import { ExperienceRule } from "./actor/experience.js";
 import { DevelopmentPointsRule } from "./actor/development-points.js";

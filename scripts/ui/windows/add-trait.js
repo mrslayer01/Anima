@@ -108,7 +108,7 @@ export class AddTraitWindow extends Application {
       // Determine path
       const path = ABF_ADVANTAGES[key] ? "system.advantages" : "system.disadvantages";
 
-      const arr = foundry.utils.duplicate(getProperty(actor, path) ?? []);
+      const arr = foundry.utils.duplicate(foundry.utils.getProperty(actor, path) ?? []);
       arr.push(traitData);
 
       await actor.update({ [path]: arr });

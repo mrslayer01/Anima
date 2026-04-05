@@ -32,6 +32,111 @@ export const difficultyMap = {
   440: "Zen"
 };
 
+export const CAST_DIFFICULTY = {
+  20: "Routine",
+  40: "Easy",
+  80: "Moderate",
+  120: "Difficult",
+  140: "Very Difficult",
+  180: "Absurd",
+  240: "Almost Impossible",
+  280: "Impossible",
+  320: "Inhuman",
+  440: "Zen"
+};
+
+export const MAGIC_PROJECTION_DIFFICULTY = {
+  routine: {
+    value: 20,
+    label: "Routine",
+    description:
+      "Spell effects may be used on the spellcaster himself or on a person or object the spellcaster is contact with."
+  },
+  easy: {
+    value: 40,
+    label: "Easy",
+    description: "Projecting spells up to a maximum of 15 feet."
+  },
+  medium: {
+    value: 80,
+    label: "Medium",
+    description: "Projecting spells up to a maximum of 80 feet."
+  },
+  difficult: {
+    value: 120,
+    label: "Difficult",
+    description: "Projecting spells up to a maximum of 300 feet."
+  },
+  veryDifficult: {
+    value: 140,
+    label: "Very Difficult",
+    description: "Projecting spells up to a maximum of 800 feet."
+  },
+  absurd: {
+    value: 180,
+    label: "Absurd",
+    description: "Projecting spells up to a maximum of 1,500 feet."
+  },
+  almostImpossible: {
+    value: 240,
+    label: "Almost Impossible",
+    description:
+      "This allows the spellcaster to hit targets out of direct eyesight if he has perfectly determined their exact location. Some sort of supernatural detection that will reveal the exact location is needed (e.g., a Spy of Light spell). Coverage is 3,000 feet."
+  },
+  impossible: {
+    value: 280,
+    label: "Impossible",
+    description:
+      "This allows the caster to affect targets not within sight of the sorcerer with only an approximate notion of their location. For instance, if the spellcaster knows that his target is located in a house, he would be able to target the spell even though he may not know the precise address. Distance should not exceed three miles."
+  }
+};
+
+export const PSYCHIC_PROJECTION_DIFFICULTY = {
+  routine: {
+    value: 20,
+    label: "Routine",
+    description:
+      "The ability may be used on the psychic himself or on a person or object with which he is in contact."
+  },
+  easy: {
+    value: 40,
+    label: "Easy",
+    description: "Affects targets less than 15 feet away from the psychic."
+  },
+  moderate: {
+    value: 80,
+    label: "Moderate",
+    description: "Affects targets up to 60 feet away from the psychic."
+  },
+  difficult: {
+    value: 120,
+    label: "Difficult",
+    description: "Affects targets up to 300 feet away from the psychic."
+  },
+  veryDifficult: {
+    value: 140,
+    label: "Very Difficult",
+    description: "Affects targets up to 800 feet away from the psychic."
+  },
+  absurd: {
+    value: 180,
+    label: "Absurd",
+    description: "Affects targets up to 1,500 feet away from the psychic."
+  },
+  almostImpossible: {
+    value: 240,
+    label: "Almost Impossible",
+    description:
+      "Achieving this difficulty allows the psychic to hit a target whose exact location is known but not necessarily within direct eyesight. It covers up to one mile."
+  },
+  impossible: {
+    value: 280,
+    label: "Impossible",
+    description:
+      "Achieving this difficulty allows the psychic to affect targets out of his sight and with only an approximate location up to 10 miles away."
+  }
+};
+
 export const PRICE_MODIFIERS = {
   mediocre: 0.5,
   decent: 1,
@@ -429,6 +534,14 @@ export const COMBAT_SITUATIONAL_MODIFIERS = {
     physical: 0,
     action: 0
   },
+  physicalContactSpell: {
+    attack: 40,
+    block: 0,
+    dodge: 0,
+    initiative: 0,
+    physical: 0,
+    action: 0
+  },
   flanked: {
     attack: -10,
     block: -30,
@@ -578,6 +691,14 @@ export const COMBAT_SITUATIONAL_MODIFIERS = {
 export const COMBAT_SITUATIONAL_MODIFIERS_SUPERNATURAL = {
   None: {
     attack: 0,
+    block: 0,
+    dodge: 0,
+    initiative: 0,
+    physical: 0,
+    action: 0
+  },
+  physicalContactSpell: {
+    attack: 40,
     block: 0,
     dodge: 0,
     initiative: 0,

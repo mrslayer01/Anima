@@ -29,13 +29,14 @@
     </thead>
     <tbody>
       {{#each actor.system.abilities.primary.Psychic as |ability key|}}
-      {{#if (in key "PsychicPoints")}}
-      {{else}}
         <tr>
           <td>
             {{localize (concat "ABF.Ability." key)}}
           </td>
           <td>
+            {{#if (in key "PsychicPotential")}}
+            {{ability.base}}
+            {{else}}
             <input
               class="mod-input-resize-char primary-input"
               data-name="{{key}}"
@@ -44,10 +45,9 @@
               value="{{ability.base}}"
               name="system.abilities.primary.Psychic.{{key}}.base"
               {{#if @root.actor.system.lockUi}}disabled{{/if}}
-              data-tooltip="
-              <div><strong>DP Cost:</strong> {{ability.cost}}</div>
-            "
+              data-tooltip="<div><strong>DP Cost:</strong> {{ability.cost}}</div>"
             />
+            {{/if}}
           </td>
           <td>
             <input
@@ -65,7 +65,6 @@
             {{ability.final}}
           </td>
         </tr>
-        {{/if}}
       {{/each}}
     </tbody>
   </table>

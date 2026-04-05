@@ -4,7 +4,6 @@ import { AddFASpellsWindow } from "../windows/add-fa-spells.js";
 import { AddSpellsWindow } from "../windows/add-spells.js";
 
 export function SpellsListeners(sheet, html) {
-  // OPEN THE SELECT SPELL WINDOW
   html.find(".add-spell").click(() => {
     const win = new AddSpellsWindow({ actorId: sheet.actor.id });
     const data = win.getData();
