@@ -92,8 +92,8 @@ function resetAllClassDerivedFields(system) {
   system.initiative.class = 0;
   system.martialKnowledge.class = 0;
 
-  system.abilities.primary.Psychic.PsychicPoints.ppPerLevel = 0;
-  system.abilities.primary.Psychic.PsychicPoints.levelInterval = 0;
+  // system.abilities.primary.Psychic.PsychicPoints.ppPerLevel = 0;
+  // system.abilities.primary.Psychic.PsychicPoints.levelInterval = 0;
 }
 
 function PrimaryAbilities(

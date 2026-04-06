@@ -26,6 +26,7 @@ export class DefendWindow extends Application {
 
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
+      id: `defend-window-${foundry.utils.randomID()}`,
       title: "Defense Roll",
       classes: ["abf-character-sheet"],
       template: "systems/abf-system/templates/actors/apps/defend-window.hbs",

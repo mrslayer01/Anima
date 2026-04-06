@@ -94,8 +94,6 @@ export class TechniqueEffectBrowser extends Application {
         purchasedDisadvantages: []
       };
 
-      console.log(newEffect);
-
       effects.push(newEffect);
 
       await item.update({ "system.effects": effects });

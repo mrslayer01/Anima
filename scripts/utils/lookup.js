@@ -183,7 +183,6 @@ const BREAKAGE_BY_STRENGTH = [
   { min: 15, max: Infinity, bonus: 8 }
 ];
 
-//export const ARMOR_SECTIONS = ["body", "helm", "natural"];
 export const ARMOR_SECTIONS = ["breastplate", "shirt", "complete", "helm", "natural"];
 export const DAMAGE_TYPES = ["cut", "imp", "thr", "hea", "ele", "col", "ene"];
 export const SECONDARY_DAMAGE_TYPES = ["none", "cut", "imp", "thr", "hea", "ele", "col", "ene"];
@@ -704,14 +703,6 @@ export const COMBAT_SITUATIONAL_MODIFIERS_SUPERNATURAL = {
     initiative: 0,
     physical: 0,
     action: 0
-  },
-  surprised: {
-    attack: 0,
-    block: -90,
-    dodge: -90,
-    initiative: 0,
-    physical: 0,
-    action: -90
   },
   visionPartiallyObscured: {
     attack: -30,

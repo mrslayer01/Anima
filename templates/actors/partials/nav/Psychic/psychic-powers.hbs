@@ -1,0 +1,51 @@
+<div class="spells-grid">
+  <div class="spells-left"></div>
+
+  <div class="spells-right">
+    <h3>
+      Psychic Disciplines
+      {{#if @root.actor.system.lockUi}}
+      {{else}}
+        <a class="add-psychic-discipline" data-tooltip="Add Discipline"><i class="fas fa-plus-circle"></i></a>
+      {{/if}}
+    </h3>
+
+    <table class="classes-table">
+      <thead>
+        <tr>
+          <th>
+            Name
+          </th>
+          <th>
+            Learned Powers
+          </th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        {{#each system.psychic.disciplines as |discipline idx|}}
+          <tr>
+            <td class="clickable open-discipline" data-index="{{idx}}">
+              {{discipline.name}}
+            </td>
+
+            <td>
+              {{discipline.mentalPowers.length}}
+            </td>
+
+            {{#if @root.actor.system.lockUi}}
+              <td></td>
+            {{else}}
+              <td>
+                <a class="delete-psychic-discipline" data-index="{{idx}}" data-tooltip="Delete Discipline">
+                  <i class="fas fa-trash"></i>
+                </a>
+              </td>
+            {{/if}}
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

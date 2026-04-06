@@ -4,6 +4,7 @@ import { InitializeDominePartials } from "./actor-partials/domine-partials.js";
 import { InitializeHeaderPartials } from "./actor-partials/header-partials.js";
 import { InitializeMysticPartials } from "./actor-partials/mystic-partials.js";
 import { InitializeNavMainPartials } from "./actor-partials/nav-main-partials.js";
+import { InitializePsychicPartials } from "./actor-partials/psychic-partials.js";
 import { InitializeSettingsPartials } from "./actor-partials/settings-partials.js";
 
 export function InitalizeAllActorPartials() {
@@ -14,4 +15,5 @@ export function InitalizeAllActorPartials() {
   InitializeMysticPartials();
   InitializeSettingsPartials();
   InitializeDominePartials();
+  InitializePsychicPartials();
 }

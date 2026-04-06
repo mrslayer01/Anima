@@ -4,7 +4,8 @@ import {
   ARMOR_COVERAGE,
   computeCounterattack,
   computeDamagePercent,
-  difficultyMap
+  difficultyMap,
+  MAGIC_PROJECTION_DIFFICULTY
 } from "../../utils/lookup.js";
 import { toNum } from "../../utils/numbers.js";
 import {
@@ -297,20 +298,6 @@ export function RollListeners(sheet, html) {
 
     attackValue += final;
 
-    // Before continuing, make sure spell was cast successfully.
-    // const castCheck = await animaCastCheckCapture({
-    //   value: attackValue,
-    //   difficulty: castDifficulty,
-    //   label: "Magic Projection check",
-    //   actor: sheet.actor,
-    //   capture: true
-    // });
-
-    // if (!castCheck) {
-    //   console.log("Magic Projection check failed!");
-    //   return;
-    // }
-
     let armorPen = 0; // spells normally have no armor penetration
     const weaponType = "Spell Attack";
 
@@ -406,8 +393,6 @@ async function manualDefend(sheet, attackData) {
   }
 
   let defenseFinal = 0;
-
-  console.log(attackData);
 
   if (result.type === "block") {
     defenseFinal = result.defenseValue + defensePenalty + result.modifier;
@@ -604,8 +589,7 @@ async function animaOpenRollCapture(opts) {
   return roll;
 }
 
-async function checkMagicProjectionType(opts) {
-  console.log(opts);
+async function checkMagicProjectionType(opt) {
   return new Promise((resolve) => {
     new Dialog({
       title: "Spell Projection",
@@ -621,7 +605,69 @@ async function checkMagicProjectionType(opts) {
         },
         general: {
           label: "General",
-          callback: () => resolve(false)
+          callback: () => {
+            resolve(false);
+
+            const dlg = new Dialog({
+              title: "Magic Projection Difficulty",
+              content: `
+                <div>
+                  <label><b>Difficulty:</b></label>
+                  <select id="mpDiff">
+                    ${Object.entries(MAGIC_PROJECTION_DIFFICULTY)
+                      .map(([key, entry]) => {
+                        return `
+                          <option 
+                            value="${key}"
+                            data-description="${entry.description}"
+                          >
+                            ${entry.label}
+                          </option>
+                        `;
+                      })
+                      .join("")}
+                  </select>
+
+                  <div id="mpDescription">
+                    ${MAGIC_PROJECTION_DIFFICULTY.routine.description}
+                  </div>
+                </div>
+              `,
+              buttons: {
+                confirm: {
+                  label: "Confirm",
+                  callback: async (html) => {
+                    const key = html.find("#mpDiff").val();
+                    const entry = MAGIC_PROJECTION_DIFFICULTY[key].value;
+
+                    await animaCastCheckCapture({
+                      value: opt.value,
+                      difficulty: entry,
+                      label: "Magic Projection check",
+                      actor: opt.actor,
+                      capture: true
+                    });
+                  }
+                }
+              },
+              default: "confirm",
+
+              render: (html) => {
+                const select = html.find("#mpDiff")[0];
+                const descBox = html.find("#mpDescription")[0];
+
+                select.addEventListener("change", () => {
+                  const selected = select.options[select.selectedIndex];
+                  descBox.textContent = selected.dataset.description;
+                  dlg.setPosition({ height: "auto" });
+                });
+
+                dlg.setPosition({ height: "auto" });
+              }
+            });
+
+            dlg.render(true);
+          }
         },
         cancel: {
           label: "Cancel",

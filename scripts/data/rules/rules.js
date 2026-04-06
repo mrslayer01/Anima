@@ -19,6 +19,7 @@ import { ElanRule } from "./actor/elan.js";
 import { GlobalModsRule } from "./actor/global-modifiers.js";
 import { AdvantageRule } from "./actor/advantage-rule.js";
 import { MartialKnowledgeRule } from "./actor/martial-knowledge.js";
+import { PsychicPPRule } from "./actor/psychic-points.js";
 
 export const INIT_RULES = [
   new CharactersiticsRule(),
@@ -38,6 +39,7 @@ export const INIT_RULES = [
   new ExperienceRule(),
   new DevelopmentPointsRule(),
   new MartialKnowledgeRule(),
+  new PsychicPPRule(),
   new ElanRule()
 ];
 
@@ -60,5 +62,6 @@ export const FINAL_RULES = [
   new ExperienceRule(),
   new DevelopmentPointsRule(),
   new MartialKnowledgeRule(),
+  new PsychicPPRule(),
   new ElanRule()
 ];

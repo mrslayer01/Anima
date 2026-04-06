@@ -17,7 +17,7 @@ export class CombatWindow extends Application {
 
   static get defaultOptions() {
     return foundry.utils.mergeObject(super.defaultOptions, {
-      id: "combat-window",
+      id: `combat-window-${foundry.utils.randomID()}`,
       title: "Combat",
       classes: ["abf-character-sheet"],
       template: "systems/abf-system/templates/actors/apps/combat-window.hbs",
@@ -106,7 +106,12 @@ export class CombatWindow extends Application {
       const region = DIRECTED_TO_REGION[directed] ?? null;
       const zeonCost = toNum(html.find("#zeonCost").val());
 
+      //let attackType = "";
       const attackType = html.find("#attackType").val();
+
+      // if (this.isSpellAttack) {
+      //   attackType = SPELL_ATTACK_TYPES
+      // }
 
       const final = atkMod + directedPenalty + combatMod;
 
@@ -148,7 +153,14 @@ const DIRECTED_TO_REGION = {
   Foot: "Legs"
 };
 
-const SPELL_ATTACK_TYPES = ["ene", "hea", "col", "imp"];
+const SPELL_ATTACK_TYPES = ["ene", "hea", "col", "ele", "imp"];
+// const SPELL_ATTACK_TYPES = {
+//   eneregy: { value: "ene" },
+//   heat: { value: "hea" },
+//   cold: { value: "col" },
+//   electricity: { value: "ele" },
+//   impact: { value: "imp" }
+// };
 
 export function getSituationalModifier(situationKey, stat) {
   const entry = COMBAT_SITUATIONAL_MODIFIERS[situationKey];

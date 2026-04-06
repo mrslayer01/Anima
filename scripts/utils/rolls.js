@@ -165,8 +165,6 @@ export async function animaOpenRoll({
         actor
       });
 
-      console.log(fumble);
-
       rawRolls.push(raw);
       total = raw + toNum(fumble.fumbleValue);
       keepRolling = false;

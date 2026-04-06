@@ -1372,3 +1372,46 @@
 .ki-abilities-tree > .ki-ability-row::before {
   display: none;
 }
+
+.tabs {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.tab-button {
+  padding: 6px 12px;
+  background: #333;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+.tab-button.active {
+  background: #555;
+}
+
+.tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+.power-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.power-content {
+  flex: 1 1 auto;
+}
+
+.power-actions-bottom {
+  margin-top: auto;
+  padding-top: 0.5rem;
+  text-align: right;
+}

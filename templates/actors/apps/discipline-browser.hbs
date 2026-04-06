@@ -1,0 +1,37 @@
+<div class="npc-power-browser">
+  <div class="browser-controls">
+    <input type="text" class="discipline-search" placeholder="Search disciplines..." value="{{search}}" />
+  </div>
+
+  <div class="effects-grid">
+    {{#each disciplines}}
+      <div class="gift-entry">
+        <div class="power-header">
+          <h3>
+            {{this.name}}
+          </h3>
+        </div>
+
+        <p class="power-meta abf-text">
+          <strong>
+            Description:
+          </strong>
+          {{this.description}}
+        </p>
+
+        <p class="power-meta abf-text">
+          <strong>
+            Modifiers:
+          </strong>
+          {{{this.modifiers}}}
+        </p>
+
+        <div class="power-actions-bottom">
+          <button class="buy-discipline button" data-key="{{this.key}}">
+            Learn
+          </button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

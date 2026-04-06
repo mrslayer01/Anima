@@ -9,9 +9,11 @@ export class PsychicPointsRule extends BaseRule {
     if (!psychicPointsPath.class) psychicPointsPath.class = 0;
     if (!psychicPointsPath.cost) psychicPointsPath.cost = 0;
     if (!psychicPointsPath.final) psychicPointsPath.final = 0;
+    if (!psychicPointsPath.innateSlots) psychicPointsPath.innateSlots = 0;
 
     if (!psychicPotentialPath.base) psychicPotentialPath.base = 0;
     if (!psychicPotentialPath.special) psychicPotentialPath.special = 0;
+    if (!psychicPotentialPath.permanentBonus) psychicPotentialPath.permanentBonus = 0;
     if (!psychicPotentialPath.final) psychicPotentialPath.final = 0;
   }
 
@@ -33,8 +35,9 @@ export class PsychicPointsRule extends BaseRule {
     const pPotBase = toNum(psychicPotentialPath.base);
     const pPotSpecial = toNum(psychicPotentialPath.special);
     const pPotBonus = toNum(psychicPotentialPath.bonus);
+    const pPotPermBonus = toNum(psychicPotentialPath.permanentBonus);
 
-    psychicPotentialPath.final = pPotBase + pPotBonus + pPotSpecial;
+    psychicPotentialPath.final = pPotBase + pPotBonus + pPotSpecial + pPotPermBonus;
   }
 
   DetectChanged(updateData, oldSystem) {
