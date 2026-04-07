@@ -1,11 +1,10 @@
 export function createDiscipline(input) {
-  const { name = "", description = "", modifiers = "", mentalPowers = [] } = input;
+  const { name = "", description = "", modifiers = "" } = input;
 
   return {
     name,
     description,
-    modifiers,
-    mentalPowers
+    modifiers
   };
 }
 
@@ -255,7 +254,7 @@ export const ABF_MENTAL_POWERS = {
 
   MentalResearch: createMentalPower({
     name: "Mental Research",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Telepathy",
     maintenance: true,
@@ -279,7 +278,7 @@ export const ABF_MENTAL_POWERS = {
 
   PsychicAssault: createMentalPower({
     name: "Psychic Assault",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Telepathy",
     maintenance: false,
@@ -303,7 +302,7 @@ export const ABF_MENTAL_POWERS = {
 
   PsychicConnection: createMentalPower({
     name: "Psychic Connection",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Telepathy",
     maintenance: true,
@@ -327,7 +326,7 @@ export const ABF_MENTAL_POWERS = {
 
   AlterMemory: createMentalPower({
     name: "Alter Memory",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Telepathy",
     maintenance: false,
@@ -351,7 +350,7 @@ export const ABF_MENTAL_POWERS = {
 
   AstralShape: createMentalPower({
     name: "Astral Shape",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Telepathy",
     maintenance: true,
@@ -375,7 +374,7 @@ export const ABF_MENTAL_POWERS = {
 
   PsychicTracking: createMentalPower({
     name: "Psychic Tracking",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Telepathy",
     maintenance: true,
@@ -588,7 +587,7 @@ export const ABF_MENTAL_POWERS = {
 
   MotionDetection: createMentalPower({
     name: "Motion Detection",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Psychokinesis",
     maintenance: true,
@@ -611,7 +610,7 @@ export const ABF_MENTAL_POWERS = {
 
   Repulsion: createMentalPower({
     name: "Repulsion",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Psychokinesis",
     maintenance: true,
@@ -634,7 +633,7 @@ export const ABF_MENTAL_POWERS = {
 
   Ballistics: createMentalPower({
     name: "Ballistics",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Psychokinesis",
     maintenance: false,
@@ -657,7 +656,7 @@ export const ABF_MENTAL_POWERS = {
 
   Shatter: createMentalPower({
     name: "Shatter",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Psychokinesis",
     maintenance: false,
@@ -680,7 +679,7 @@ export const ABF_MENTAL_POWERS = {
 
   PsychokineticFlight: createMentalPower({
     name: "Psychokinetic Flight",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Psychokinesis",
     maintenance: true,
@@ -702,7 +701,7 @@ export const ABF_MENTAL_POWERS = {
   }),
   OrganicPsychokinesis: createMentalPower({
     name: "Organic Psychokinesis",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Psychokinesis",
     maintenance: true,
@@ -1166,7 +1165,7 @@ export const ABF_MENTAL_POWERS = {
 
   Crystallize: createMentalPower({
     name: "Crystallize",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Cryokinesis",
     maintenance: true,
@@ -1189,7 +1188,7 @@ export const ABF_MENTAL_POWERS = {
 
   IceSplinters: createMentalPower({
     name: "Ice Splinters",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Cryokinesis",
     maintenance: false,
@@ -1212,7 +1211,7 @@ export const ABF_MENTAL_POWERS = {
 
   DecreaseAmbientTemperature: createMentalPower({
     name: "Decrease Ambient Temperature",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Cryokinesis",
     maintenance: true,
@@ -1234,7 +1233,7 @@ export const ABF_MENTAL_POWERS = {
 
   IceShield: createMentalPower({
     name: "Ice Shield",
-    level: 1,
+    level: 2,
     action: "Passive",
     discipline: "Cryokinesis",
     maintenance: true,
@@ -1458,7 +1457,7 @@ export const ABF_MENTAL_POWERS = {
 
   IncreaseReaction: createMentalPower({
     name: "Increase Reaction",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Physical Increase",
     maintenance: true,
@@ -1480,7 +1479,7 @@ export const ABF_MENTAL_POWERS = {
 
   PerceptionIncrease: createMentalPower({
     name: "Perception Increase",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Physical Increase",
     maintenance: true,
@@ -1502,7 +1501,7 @@ export const ABF_MENTAL_POWERS = {
 
   IncreaseEndurance: createMentalPower({
     name: "Increase Endurance",
-    level: 1,
+    level: 2,
     action: "Passive",
     discipline: "Physical Increase",
     maintenance: true,
@@ -1524,7 +1523,7 @@ export const ABF_MENTAL_POWERS = {
 
   Regeneration: createMentalPower({
     name: "Regeneration",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Physical Increase",
     maintenance: true,
@@ -1724,7 +1723,7 @@ export const ABF_MENTAL_POWERS = {
 
   ModifyNature: createMentalPower({
     name: "Modify Nature",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Energy",
     maintenance: false,
@@ -1746,7 +1745,7 @@ export const ABF_MENTAL_POWERS = {
 
   UndoEnergy: createMentalPower({
     name: "Undo Energy",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Energy",
     maintenance: false,
@@ -1768,7 +1767,7 @@ export const ABF_MENTAL_POWERS = {
 
   Immunity: createMentalPower({
     name: "Immunity",
-    level: 1,
+    level: 2,
     action: "Passive",
     discipline: "Energy",
     maintenance: true,
@@ -1790,7 +1789,7 @@ export const ABF_MENTAL_POWERS = {
 
   ControlEnergy: createMentalPower({
     name: "Control Energy",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Energy",
     maintenance: true,
@@ -1949,7 +1948,7 @@ export const ABF_MENTAL_POWERS = {
 
   ProjectSenses: createMentalPower({
     name: "Project Senses",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Sentience",
     maintenance: true,
@@ -1971,7 +1970,7 @@ export const ABF_MENTAL_POWERS = {
 
   EliminateSenses: createMentalPower({
     name: "Eliminate Senses",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Sentience",
     maintenance: true,
@@ -1993,7 +1992,7 @@ export const ABF_MENTAL_POWERS = {
 
   CreateFeelings: createMentalPower({
     name: "Create Feelings",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Sentience",
     maintenance: true,
@@ -2015,7 +2014,7 @@ export const ABF_MENTAL_POWERS = {
 
   InfuseFeelings: createMentalPower({
     name: "Infuse Feelings",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Sentience",
     maintenance: true,
@@ -2105,7 +2104,7 @@ export const ABF_MENTAL_POWERS = {
 
   ReadThePast: createMentalPower({
     name: "Read The Past",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Telemetry",
     maintenance: false,
@@ -2127,7 +2126,7 @@ export const ABF_MENTAL_POWERS = {
 
   HumanErudition: createMentalPower({
     name: "Human Erudition",
-    level: 1,
+    level: 2,
     action: "Active",
     discipline: "Telemetry",
     maintenance: false,

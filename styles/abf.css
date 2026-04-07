@@ -1415,3 +1415,94 @@
   padding-top: 0.5rem;
   text-align: right;
 }
+
+/* Powers Tab */
+/* 3‑column grid for power cards */
+.mental-powers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0.75rem;
+}
+
+/* Each accordion card */
+.power-item {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  overflow: hidden;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Discipline header bar */
+.power-discipline-bar {
+  padding: 4px 8px;
+  font-weight: bold;
+  font-size: 12px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* Header row */
+.power-header {
+  padding: 8px 10px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.power-header-top {
+  display: flex;
+  align-items: center;
+}
+
+.power-header-top .power-name {
+  flex: 1;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+/* Chevron */
+.power-header-top .toggle-power {
+  flex: 0 0 auto;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+/* Chevron icon */
+.power-header-top .toggle-power i {
+  color: #fff;
+  font-size: 14px;
+  transition: transform 0.25s ease;
+}
+
+/* Rotate chevron when open */
+.power-item.open .toggle-power i {
+  transform: rotate(180deg);
+}
+
+/* Second row: Level | Action */
+.power-header-info {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+/* Collapsible body */
+.power-body {
+  display: none;
+  padding: 10px;
+}
+
+.power-item.open .power-body {
+  display: block;
+}

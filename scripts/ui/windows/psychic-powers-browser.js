@@ -1,10 +1,9 @@
-import { ABF_MENTAL_POWERS, ABF_PSYCHIC_DISCIPLINES } from "../../config/psychic-diciplines.js";
+import { ABF_MENTAL_POWERS } from "../../config/psychic-diciplines.js";
 
 export class MentalPowerPurchaseWindow extends Application {
   constructor(options = {}) {
     super(options);
     this.actorId = options.actorId;
-    this.disciplineKey = options.disciplineKey;
     this.activeTab = "available-tab";
   }
 
@@ -22,105 +21,66 @@ export class MentalPowerPurchaseWindow extends Application {
 
   getData() {
     const actor = game.actors.get(this.actorId);
-    const discipline = actor.system.psychic.disciplines[this.disciplineKey];
 
-    const owned = discipline?.mentalPowers || [];
+    const actorDisciplines = Object.values(actor.system.psychic.disciplines)
+      .map((d) => d.name)
+      .filter((n) => !!n);
 
-    const available = Object.entries(ABF_MENTAL_POWERS)
-      .map(([key, data]) => ({ key, ...data }))
-      .filter((p) => p.discipline === discipline.name)
-      .filter((p) => !owned.some((o) => o.name === p.name));
+    const owned = actor.system.psychic.mentalPowers;
+
+    const allRegistryPowers = Object.entries(ABF_MENTAL_POWERS).map(([key, data]) => ({
+      key,
+      ...data
+    }));
+
+    const eligible = allRegistryPowers.filter((p) => actorDisciplines.includes(p.discipline));
+
+    const available = eligible.filter((p) => !owned.some((o) => o.name === p.name));
 
     return {
-      discipline,
       available,
-      owned
+      disciplines: actorDisciplines
     };
   }
 
   activateListeners(html) {
     super.activateListeners(html);
 
-    // -----------------------------------------
-    // TAB SWITCHING (single handler)
-    // -----------------------------------------
-    html.find(".sheet-tabs .item").on("click", (ev) => {
-      const tab = ev.currentTarget.dataset.tab;
+    // SEARCH + FILTER
+    html.find(".power-search, .power-filter-discipline").on("input change", (ev) => {
+      const search = html.find(".power-search").val().toLowerCase();
+      const filterDisc = html.find(".power-filter-discipline").val();
 
-      // Save active tab
-      this.activeTab = tab;
+      html.find(".power-card").each((i, el) => {
+        const card = $(el);
+        const name = card.find("h4").text().toLowerCase();
+        const disc = card.find(".power-discipline").text().replace("Discipline:", "").trim();
 
-      // Switch active button
-      html.find(".sheet-tabs .item").removeClass("active");
-      ev.currentTarget.classList.add("active");
+        const matchesSearch = name.includes(search);
+        const matchesDisc = !filterDisc || disc === filterDisc;
 
-      // Switch active content
-      html.find(".tab-content").removeClass("active");
-      html.find(`#${tab}`).addClass("active");
+        card.toggle(matchesSearch && matchesDisc);
+      });
     });
 
-    // -----------------------------------------
-    // RESTORE ACTIVE TAB AFTER RENDER
-    // -----------------------------------------
-    if (this.activeTab) {
-      html.find(".sheet-tabs .item").removeClass("active");
-      html.find(`.sheet-tabs .item[data-tab="${this.activeTab}"]`).addClass("active");
-
-      html.find(".tab-content").removeClass("active");
-      html.find(`#${this.activeTab}`).addClass("active");
-    }
-
-    // -----------------------------------------
     // BUY POWER
-    // -----------------------------------------
     html.find(".buy-power").on("click", async (ev) => {
-      // Save active tab BEFORE render
-      this.activeTab = html.find(".sheet-tabs .item.active").data("tab");
-
       const key = ev.currentTarget.dataset.key;
       const source = ABF_MENTAL_POWERS[key];
 
       const actor = game.actors.get(this.actorId);
-      const disciplines = foundry.utils.duplicate(actor.system.psychic.disciplines);
-      const discipline = disciplines[this.disciplineKey];
+      const powers = foundry.utils.duplicate(actor.system.psychic.mentalPowers);
 
-      const newPower = foundry.utils.duplicate(source);
-      newPower.mastered = false;
-      newPower.innate = false;
-      newPower.strengthen = 0;
+      powers.push({
+        ...source,
+        mastered: false,
+        innate: false,
+        strengthen: 0
+      });
 
-      discipline.mentalPowers.push(newPower);
-
-      await actor.update({ "system.psychic.disciplines": disciplines });
+      await actor.update({ "system.psychic.mentalPowers": powers });
 
       ui.notifications.info(`Learned Mental Power: ${source.name}`);
-
-      this.render(true);
-    });
-
-    // -----------------------------------------
-    // REMOVE POWER
-    // -----------------------------------------
-    html.find(".remove-power").on("click", async (ev) => {
-      // Save active tab BEFORE render
-      this.activeTab = html.find(".sheet-tabs .item.active").data("tab");
-
-      const index = Number(ev.currentTarget.dataset.index);
-
-      const actor = game.actors.get(this.actorId);
-      const disciplines = foundry.utils.duplicate(actor.system.psychic.disciplines);
-      const discipline = disciplines[this.disciplineKey];
-
-      if (!discipline) {
-        ui.notifications.error("Discipline not found.");
-        return;
-      }
-
-      const removed = discipline.mentalPowers.splice(index, 1)[0];
-
-      await actor.update({ "system.psychic.disciplines": disciplines });
-
-      ui.notifications.info(`Removed Mental Power: ${removed.name}`);
 
       this.render(true);
     });

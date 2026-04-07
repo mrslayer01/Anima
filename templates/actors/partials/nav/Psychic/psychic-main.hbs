@@ -1,1 +1,63 @@
-<h3>Main</h3>
+<div class="spells-grid">
+  <div class="spells-left">
+    <div class="spells-grid">
+      <div class="spells-left">
+        <h3>
+          Inner Left
+        </h3>
+      </div>
+      <div class="spells-right">
+        <section>
+          <h3>
+            Psychic Disciplines
+            {{#if @root.actor.system.lockUi}}
+            {{else}}
+              <a class="add-psychic-discipline" data-tooltip="Add Discipline"><i class="fas fa-plus-circle"></i></a>
+            {{/if}}
+          </h3>
+
+          <table class="classes-table">
+            <thead>
+              <tr>
+                <th>
+                  Name
+                </th>
+                <th></th>
+              </tr>
+            </thead>
+
+            <tbody>
+              {{#each system.psychic.disciplines as |discipline idx|}}
+                <tr>
+                  <td
+                    class="clickable discipline-name"
+                    data-name="{{discipline.name}}"
+                    data-tooltip="Click to open journal entry"
+                  >
+                    {{discipline.name}}
+                  </td>
+
+                  {{#if @root.actor.system.lockUi}}
+                    <td></td>
+                  {{else}}
+                    <td>
+                      <a class="delete-psychic-discipline" data-index="{{idx}}" data-tooltip="Delete Discipline">
+                        <i class="fas fa-trash"></i>
+                      </a>
+                    </td>
+                  {{/if}}
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="spells-right">
+    <h3>
+      Outer Right
+    </h3>
+  </div>
+</div>

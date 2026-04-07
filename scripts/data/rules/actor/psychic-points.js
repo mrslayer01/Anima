@@ -6,6 +6,7 @@ export class PsychicPPRule extends BaseRule {
     if (!system.psychic) system.psychic = {};
     if (!system.psychic.pp) system.psychic.pp = {};
     if (!Array.isArray(system.psychic.disciplines)) system.psychic.disciplines = [];
+    if (!Array.isArray(system.psychic.mentalPowers)) system.psychic.mentalPowers = [];
 
     const pp = system.psychic.pp;
 
@@ -100,7 +101,7 @@ function DerivedAffinities(system) {
       category: "Affinity",
       name: d.name,
       amount: 1,
-      cost: 1
+      cost: 4
     });
   }
 }
@@ -110,19 +111,16 @@ function DerivedAffinities(system) {
 // ------------------------------------------------------------
 
 function DerivedMasteredPowers(system) {
-  const items = system._items || [];
+  const mentalPowers = system.psychic?.mentalPowers;
+  if (!Array.isArray(mentalPowers)) return;
 
-  for (const item of items) {
-    if (item.type !== "psychicPower") continue;
-
-    if (item.system?.mastered) {
-      system.psychic.pp.spentRecords.push({
-        category: "Power",
-        name: item.name,
-        amount: 1,
-        cost: 1
-      });
-    }
+  for (const m of mentalPowers) {
+    system.psychic.pp.spentRecords.push({
+      category: "Power",
+      name: m.name,
+      amount: 1,
+      cost: 1
+    });
   }
 }
 
@@ -163,19 +161,18 @@ function potentialBonusToPPCost(bonus) {
 // ------------------------------------------------------------
 
 function DerivedStrengthenedPowers(system) {
-  const items = system._items || [];
+  const mentalPowers = system.psychic?.mentalPowers;
+  if (!Array.isArray(mentalPowers)) return;
 
-  for (const item of items) {
-    if (item.type !== "psychicPower") continue;
-
-    const strengthen = toNum(item.system?.strengthen || 0);
+  for (const m of mentalPowers) {
+    const strengthen = toNum(mentalPowers.system?.strengthen || 0);
     if (strengthen <= 0) continue;
 
     const cost = strengthen / 10;
 
     system.psychic.pp.spentRecords.push({
       category: "Strengthen",
-      name: item.name,
+      name: m.name,
       amount: 1,
       cost
     });

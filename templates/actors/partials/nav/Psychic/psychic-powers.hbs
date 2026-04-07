@@ -1,51 +1,109 @@
-<div class="spells-grid">
-  <div class="spells-left"></div>
+<h3>
+  Mental Powers
+  {{#if @root.actor.system.lockUi}}
+  {{else}}
+    <a class="add-psychic-power" data-tooltip="Add Mental Power"><i class="fas fa-plus-circle"></i></a>
+  {{/if}}
+</h3>
 
-  <div class="spells-right">
-    <h3>
-      Psychic Disciplines
-      {{#if @root.actor.system.lockUi}}
-      {{else}}
-        <a class="add-psychic-discipline" data-tooltip="Add Discipline"><i class="fas fa-plus-circle"></i></a>
-      {{/if}}
-    </h3>
+<div class="mental-powers-grid">
+  {{#each system.psychic.mentalPowers as |power idx|}}
+    <div class="power-item" data-index="{{idx}}">
+      <!-- DISCIPLINE HEADER BAR -->
+      <div class="power-discipline-bar">
+        <h4>
+          {{power.discipline}}
+        </h4>
+      </div>
 
-    <table class="classes-table">
-      <thead>
-        <tr>
-          <th>
-            Name
-          </th>
-          <th>
-            Learned Powers
-          </th>
-          <th></th>
-        </tr>
-      </thead>
+      <!-- HEADER -->
+      <div class="power-header">
+        <!-- FIRST ROW: NAME + CHEVRON -->
+        <div class="power-header-top">
+          <span class="power-name abf-text">
+            {{power.name}}
+          </span>
 
-      <tbody>
-        {{#each system.psychic.disciplines as |discipline idx|}}
-          <tr>
-            <td class="clickable open-discipline" data-index="{{idx}}">
-              {{discipline.name}}
-            </td>
+          <button class="toggle-power">
+            <i class="fas fa-chevron-down"></i>
+          </button>
+        </div>
 
-            <td>
-              {{discipline.mentalPowers.length}}
-            </td>
-
-            {{#if @root.actor.system.lockUi}}
-              <td></td>
+        <!-- SECOND ROW: LEVEL | ACTION -->
+        <div class="power-header-info abf-text">
+          <span>
+            <strong>
+              Level:
+            </strong>
+            {{#ifEquals power.discipline "Matrix Powers"}}
+              -
             {{else}}
-              <td>
-                <a class="delete-psychic-discipline" data-index="{{idx}}" data-tooltip="Delete Discipline">
-                  <i class="fas fa-trash"></i>
-                </a>
-              </td>
-            {{/if}}
-          </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  </div>
+              {{power.level}}
+            {{/ifEquals}}
+          </span>
+
+          <span>
+            <strong>
+              Action:
+            </strong>
+            {{power.action}}
+          </span>
+        </div>
+      </div>
+
+      <!-- BODY -->
+      <div class="power-body">
+        <p class="abf-text">
+          <strong>
+            Description:
+          </strong>
+          {{power.description}}
+        </p>
+
+        {{#if power.modifiers}}
+          <h4>
+            Modifiers
+          </h4>
+          <div class="abf-text modifiers">
+            {{{power.modifiers}}}
+          </div>
+        {{/if}}
+
+        <h4>
+          Effects
+        </h4>
+        <table class="classes-table">
+          <thead>
+            <tr>
+              <th>
+                Difficulty
+              </th>
+              <th>
+                Effect
+              </th>
+            </tr>
+          </thead>
+          <tbody>
+            {{#each power.effects}}
+              <tr>
+                <td class="abf-text">
+                  <strong>
+                    {{this.difficulty}}
+                  </strong>
+                </td>
+                <td class="abf-text">
+                  {{this.effect}}
+                </td>
+              </tr>
+            {{/each}}
+          </tbody>
+        </table>
+        <div class="power-actions-bottom">
+          <button class="delete-mental-power button" data-key="{{this.key}}">
+            Remove
+          </button>
+        </div>
+      </div>
+    </div>
+  {{/each}}
 </div>

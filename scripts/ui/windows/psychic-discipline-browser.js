@@ -72,8 +72,7 @@ export class DisciplineBrowser extends Application {
       const newDiscipline = {
         name: source.name,
         description: source.description,
-        modifiers: source.modifiers,
-        mentalPowers: []
+        modifiers: source.modifiers
       };
 
       owned.push(newDiscipline);

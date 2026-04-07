@@ -1,180 +1,103 @@
 <div class="npc-power-browser">
-  <!-- TAB HEADERS -->
-  <div class="sheet-tabs browser-controls">
-    <button class="item" data-tab="available-tab">
-      Available Powers
-    </button>
-    <button class="item" data-tab="owned-tab">
-      Learned Powers
-    </button>
+  <!-- FILTER BAR -->
+  <div class="browser-filters">
+    <input type="text" class="power-search" placeholder="Search powers..." />
+
+    <select class="power-filter-discipline select">
+      <option value="">
+        All Disciplines
+      </option>
+      {{#each disciplines}}
+        <option value="{{this}}">{{this}}</option>
+      {{/each}}
+    </select>
   </div>
 
-  <!-- AVAILABLE TAB -->
-  <div id="available-tab" class="tab-content">
-    {{#if available.length}}
-      <div class="effects-grid">
-        {{#each available}}
-          <div class="gift-entry power-card">
-            <div class="power-content">
-              <h4>
-                {{this.name}}
-              </h4>
+  <!-- AVAILABLE POWERS -->
+  {{#if available.length}}
+    <div class="effects-grid">
+      {{#each available}}
+        <div class="gift-entry power-card">
+          <div class="power-content">
+            <h4>
+              {{this.name}}
+            </h4>
 
-              {{#ifEquals this.discipline "Matrix Powers"}}
-              {{else}}
-                <p class="abf-text">
-                  <strong>
-                    Level:
-                  </strong>
-                  {{this.level}}
-                </p>
-              {{/ifEquals}}
-              <p class="abf-text">
-                <strong>
-                  Discipline:
-                </strong>
-                {{this.discipline}}
-              </p>
-              <p class="abf-text">
-                <strong>
-                  Action:
-                </strong>
-                {{this.action}}
-              </p>
-              <p class="abf-text">
-                <strong>
-                  Maintenance:
-                </strong>
-
-                {{#if this.maintenance}}
-                  Yes
-                {{else}}
-                  No
-                {{/if}}
-              </p>
-
-              <p class="description abf-text">
-                {{this.description}}
-              </p>
-
-              <table class="classes-table">
-                <thead>
-                  <tr>
-                    <th>
-                      Difficulty
-                    </th>
-                    <th>
-                      Effect
-                    </th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {{#each this.effects}}
-                    <tr>
-                      <td class="abf-text">
-                        <strong>
-                          {{this.difficulty}}
-                        </strong>
-                      </td>
-                      <td class="abf-text">
-                        {{this.effect}}
-                      </td>
-                    </tr>
-                  {{/each}}
-                </tbody>
-              </table>
-            </div>
-
-            <div class="power-actions-bottom">
-              <button class="buy-power button" data-key="{{this.key}}">
-                Learn
-              </button>
-            </div>
-          </div>
-        {{/each}}
-      </div>
-    {{else}}
-      <p class="abf-text">No more powers available.</p>
-    {{/if}}
-  </div>
-
-  <!-- OWNED TAB -->
-  <div id="owned-tab" class="tab-content">
-    {{#if owned.length}}
-      <div class="effects-grid">
-        {{#each owned}}
-          <div class="gift-entry purchased power-card">
-            <div class="power-content">
-              <h4>
-                {{this.name}}
-              </h4>
-
+            {{#ifEquals this.discipline "Matrix Powers"}}
+            {{else}}
               <p class="abf-text">
                 <strong>
                   Level:
                 </strong>
                 {{this.level}}
               </p>
-              <p class="abf-text">
-                <strong>
-                  Action:
-                </strong>
-                {{this.action}}
-              </p>
-              <p class="abf-text">
-                <strong>
-                  Maintenance:
-                </strong>
+            {{/ifEquals}}
 
-                {{#if this.maintenance}}
-                  Yes
-                {{else}}
-                  No
-                {{/if}}
-              </p>
+            <p class="abf-text power-discipline">
+              <strong>
+                Discipline:
+              </strong>
+              {{this.discipline}}
+            </p>
+            <p class="abf-text">
+              <strong>
+                Action:
+              </strong>
+              {{this.action}}
+            </p>
 
-              <p class="description abf-text">
-                {{this.description}}
-              </p>
+            <p class="abf-text">
+              <strong>
+                Maintenance:
+              </strong>
+              {{#if this.maintenance}}
+                Yes
+              {{else}}
+                No
+              {{/if}}
+            </p>
 
-              <table class="classes-table">
-                <thead>
+            <p class="description abf-text">
+              {{this.description}}
+            </p>
+
+            <table class="classes-table">
+              <thead>
+                <tr>
+                  <th>
+                    Difficulty
+                  </th>
+                  <th>
+                    Effect
+                  </th>
+                </tr>
+              </thead>
+              <tbody>
+                {{#each this.effects}}
                   <tr>
-                    <th>
-                      Difficulty
-                    </th>
-                    <th>
-                      Effect
-                    </th>
+                    <td class="abf-text">
+                      <strong>
+                        {{this.difficulty}}
+                      </strong>
+                    </td>
+                    <td class="abf-text">
+                      {{this.effect}}
+                    </td>
                   </tr>
-                </thead>
-                <tbody>
-                  {{#each this.effects}}
-                    <tr>
-                      <td class="abf-text">
-                        <strong>
-                          {{this.difficulty}}
-                        </strong>
-                      </td>
-                      <td class="abf-text">
-                        {{this.effect}}
-                      </td>
-                    </tr>
-                  {{/each}}
-                </tbody>
-              </table>
-            </div>
-
-            <div class="power-actions-bottom">
-              <button class="remove-power button" data-index="{{@index}}">
-                Remove
-              </button>
-            </div>
+                {{/each}}
+              </tbody>
+            </table>
           </div>
-        {{/each}}
-      </div>
-    {{else}}
-      <p class="abf-text">No powers learned yet.</p>
-    {{/if}}
-  </div>
+
+          <div class="power-actions-bottom">
+            <button class="buy-power button" data-key="{{this.key}}">
+              Learn
+            </button>
+          </div>
+        </div>
+      {{/each}}
+    </div>
+  {{else}}
+    <p class="abf-text">No more powers available.</p>
+  {{/if}}
 </div>
