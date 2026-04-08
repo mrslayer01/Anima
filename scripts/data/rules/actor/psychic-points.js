@@ -7,10 +7,10 @@ export class PsychicPPRule extends BaseRule {
     if (!system.psychic.pp) system.psychic.pp = {};
     if (!Array.isArray(system.psychic.disciplines)) system.psychic.disciplines = [];
     if (!Array.isArray(system.psychic.mentalPowers)) system.psychic.mentalPowers = [];
+    if (!Array.isArray(system.psychic.innatePowers)) system.psychic.innatePowers = [];
 
     const pp = system.psychic.pp;
 
-    if (pp.total === undefined) pp.total = 0;
     if (pp.permanentSpent === undefined) pp.permanentSpent = 0;
     if (pp.remaining === undefined) pp.remaining = 0;
 
@@ -40,6 +40,12 @@ export class PsychicPPRule extends BaseRule {
 
     // Disciplines changed
     if (sys.psychic?.disciplines) return ["pp"];
+
+    // Mental Powers changed
+    if (sys.psychic?.mentalPowers) return ["pp"];
+
+    // Innate Powers changed
+    if (sys.psychic?.innatePowers) return ["pp"];
 
     // Psychic powers changed (items)
     if (updateData.items) return ["pp"];
@@ -78,6 +84,7 @@ export class PsychicPPRule extends BaseRule {
 
 function recalcPP(system) {
   const pp = system.psychic.pp;
+  const ppFinal = system.abilities.primary.Psychic?.PsychicPoints?.final;
 
   let spent = 0;
   for (const rec of pp.spentRecords) {
@@ -85,7 +92,7 @@ function recalcPP(system) {
   }
 
   pp.permanentSpent = spent;
-  pp.remaining = toNum(pp.total) - spent;
+  pp.remaining = toNum(ppFinal) - spent;
 }
 
 // ------------------------------------------------------------
@@ -135,25 +142,19 @@ function DerivedPotentialUpgrades(system) {
   const bonus = toNum(potential.permanentBonus || 0);
   if (!bonus) return;
 
-  const cost = potentialBonusToPPCost(bonus);
+  const steps = bonus / 10;
+  let totalCost = 0;
+
+  for (let i = 1; i <= steps; i++) {
+    totalCost += i;
+  }
 
   system.psychic.pp.spentRecords.push({
     category: "Potential",
     name: `+${bonus} Potential`,
     amount: 1,
-    cost
+    cost: totalCost
   });
-}
-
-function potentialBonusToPPCost(bonus) {
-  const steps = bonus / 10;
-  let total = 0;
-
-  for (let i = 1; i <= steps; i++) {
-    total += i;
-  }
-
-  return total;
 }
 
 // ------------------------------------------------------------
@@ -165,7 +166,7 @@ function DerivedStrengthenedPowers(system) {
   if (!Array.isArray(mentalPowers)) return;
 
   for (const m of mentalPowers) {
-    const strengthen = toNum(mentalPowers.system?.strengthen || 0);
+    const strengthen = toNum(m.system?.strengthen || 0);
     if (strengthen <= 0) continue;
 
     const cost = strengthen / 10;

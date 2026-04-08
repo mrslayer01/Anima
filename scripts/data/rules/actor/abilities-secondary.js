@@ -1,6 +1,6 @@
+import { ABILITIES_SECONDARIES_SCHEMA } from "../../../utils/lookup.js";
 import { toNum } from "../../../utils/numbers.js";
 import { BaseRule } from "../base-rule.js";
-import { ABILITIES_SECONDARIES_SCHEMA } from "./schema.js";
 
 export class AbilitiesSecondaryRule extends BaseRule {
   Initialize(system) {

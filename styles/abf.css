@@ -45,7 +45,7 @@
   padding: 4px 6px;
   color: #f5f5f5;
   font-size: 0.85rem;
-  height: auto;
+  height: 1.2;
   line-height: 1.2;
 }
 
@@ -958,6 +958,7 @@
 .path-name {
   color: white;
   padding: 4px;
+  text-align: center;
 }
 
 .modules-grid {
@@ -1445,7 +1446,6 @@
 /* Header row */
 .power-header {
   padding: 8px 10px;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -1474,7 +1474,6 @@
   background: none;
   border: none;
   padding: 0;
-  cursor: pointer;
 }
 
 /* Chevron icon */

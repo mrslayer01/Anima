@@ -133,6 +133,10 @@ export function loadAllActorHandlerbarsHelpers() {
     return list.includes(value);
   });
 
+  Handlebars.registerHelper("abs", function (value) {
+    return Math.abs(Number(value));
+  });
+
   //#region Secondaries
   // Athletics
   Handlebars.registerHelper("orderAthletics", () => [

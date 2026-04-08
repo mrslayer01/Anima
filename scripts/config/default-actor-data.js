@@ -29,9 +29,6 @@ export const DEFAULT_ACTOR_DATA = {
         bonus: 0
       }
     },
-    psychicPoints: {
-      current: 0
-    },
     fatigue: {
       current: 5
     }

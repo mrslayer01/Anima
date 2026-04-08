@@ -22,6 +22,7 @@ export class MentalPowerPurchaseWindow extends Application {
   getData() {
     const actor = game.actors.get(this.actorId);
 
+    // Actor’s learned disciplines
     const actorDisciplines = Object.values(actor.system.psychic.disciplines)
       .map((d) => d.name)
       .filter((n) => !!n);
@@ -33,13 +34,18 @@ export class MentalPowerPurchaseWindow extends Application {
       ...data
     }));
 
-    const eligible = allRegistryPowers.filter((p) => actorDisciplines.includes(p.discipline));
+    // Matrix Powers are always eligible
+    const eligible = allRegistryPowers.filter(
+      (p) => p.discipline === "Matrix Powers" || actorDisciplines.includes(p.discipline)
+    );
 
     const available = eligible.filter((p) => !owned.some((o) => o.name === p.name));
 
+    const disciplinesForFilter = [...new Set([...actorDisciplines, "Matrix Powers"])];
+
     return {
       available,
-      disciplines: actorDisciplines
+      disciplines: disciplinesForFilter
     };
   }
 
@@ -75,7 +81,9 @@ export class MentalPowerPurchaseWindow extends Application {
         ...source,
         mastered: false,
         innate: false,
-        strengthen: 0
+        strengthen: 0,
+        isActive: false,
+        maintenance: false
       });
 
       await actor.update({ "system.psychic.mentalPowers": powers });

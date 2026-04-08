@@ -32,8 +32,10 @@ export class DisciplineBrowser extends Application {
       ...data
     }));
 
-    // Filter out already-owned disciplines
+    // Filter out already-owned disciplines and Matrix Powers
     disciplines = disciplines.filter((d) => !owned.includes(d.name));
+
+    console.log(disciplines);
 
     // Apply search filter
     if (this.search.trim().length > 0) {

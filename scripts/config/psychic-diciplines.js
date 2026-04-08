@@ -17,6 +17,7 @@ export function createMentalPower(input) {
     maintenance = false,
     mastered = false,
     innate = false,
+    isActive = false,
     strengthen = 0,
     description = "",
     modifiers = "",
@@ -31,6 +32,7 @@ export function createMentalPower(input) {
     maintenance,
     mastered,
     innate,
+    isActive,
     strengthen,
     description,
     modifiers,
@@ -97,14 +99,14 @@ export const ABF_PSYCHIC_DISCIPLINES = {
       "Telemetry is the mental ability of sensing psychic residue present in an environment. All Psychic Matrices leave certain energy behind, depending on their mood and thoughts. Characters mastering this Discipline are able to notice such residues and sense the past.",
     modifiers:
       "Psychics in physical contact with the object they are applying Telemetric Powers to may add a +10 bonus to their Psychic Potential."
-  }),
-
-  MatrixPowers: createDiscipline({
-    name: "Matrix Powers",
-    description:
-      "In addition to the mental abilities we have seen, there are four generic Powers to which all psychics have equal access. They do not belong to any Discipline, which means they can be obtained by investing only 1 PP, or simply by spending one temporarily for limited access. These Powers are not organized into levels.",
-    modifiers: "There are no modifiers for this discipline."
   })
+
+  // MatrixPowers: createDiscipline({
+  //   name: "Matrix Powers",
+  //   description:
+  //     "In addition to the mental abilities we have seen, there are four generic Powers to which all psychics have equal access. They do not belong to any Discipline, which means they can be obtained by investing only 1 PP, or simply by spending one temporarily for limited access. These Powers are not organized into levels.",
+  //   modifiers: "There are no modifiers for this discipline."
+  // })
 };
 
 export const ABF_MENTAL_POWERS = {

@@ -1,0 +1,61 @@
+<div class="pp-spend-container">
+  <h2>
+    Increase Psychic Potential
+  </h2>
+
+  <p class="abf-text">
+    <strong>
+      Current Bonus:
+    </strong>
+    +{{currentBonus}}
+  </p>
+
+  <p class="abf-text">
+    <strong>
+      New Bonus:
+    </strong>
+    +{{nextBonus}}
+  </p>
+
+  <div class="pp-controls">
+    <button class="potential-add button">
+      Increase
+    </button>
+    <button class="potential-remove button">
+      Decrease
+    </button>
+  </div>
+
+  <hr />
+
+  <p class="abf-text">
+    <strong>
+      Total PP Change:
+    </strong>
+    {{#if (lt totalCost 0)}}
+      <span>+{{abs totalCost}} PP</span>
+    {{else}}
+      {{totalCost}} PP
+    {{/if}}
+  </p>
+
+  <p class="abf-text">
+    <strong>
+      Free PP:
+    </strong>
+    {{freePP}}
+  </p>
+
+  <p class="abf-text">
+    <strong>
+      Remaining PP:
+    </strong>
+    {{remainingPP}}
+  </p>
+
+  {{#if (gte remainingPP 0)}}
+    <button class="pp-confirm button">Confirm</button>
+  {{else}}
+    <p class="abf-text" style="color: red;">Not enough PP.</p>
+  {{/if}}
+</div>

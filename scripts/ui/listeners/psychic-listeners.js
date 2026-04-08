@@ -2,6 +2,7 @@ import { openJournalFromName } from "../../utils/helpers.js";
 import { toNum } from "../../utils/numbers.js";
 import { DisciplineBrowser } from "../windows/psychic-discipline-browser.js";
 import { MentalPowerPurchaseWindow } from "../windows/psychic-powers-browser.js";
+import { PsychicPPSpendWindow } from "../windows/purchase-windows/psychic-points-purchase.js";
 
 export function PsychicListeners(sheet, html) {
   html.find(".discipline-name").off("click");
@@ -26,8 +27,12 @@ export function PsychicListeners(sheet, html) {
     }).render(true);
   });
 
+  html.find(".spend-psychic-points").on("click", (ev) => {
+    new PsychicPPSpendWindow(sheet.actor).render(true);
+  });
+
   html.find(".delete-psychic-discipline").on("click", async (ev) => {
-    const index = Number(ev.currentTarget.dataset.index);
+    const index = toNum(ev.currentTarget.dataset.index);
     const actor = sheet.actor;
 
     const confirmed = await Dialog.confirm(
@@ -68,7 +73,7 @@ export function PsychicListeners(sheet, html) {
   });
 
   html.find(".delete-mental-power").on("click", async (ev) => {
-    const index = Number(ev.currentTarget.dataset.index);
+    const index = toNum(ev.currentTarget.dataset.index);
     const actor = sheet.actor;
 
     const confirmed = await Dialog.confirm(
@@ -91,13 +96,8 @@ export function PsychicListeners(sheet, html) {
 
   // CHEVRON CLICK — stop it from bubbling into the header
   html.find(".toggle-power").on("click", (ev) => {
-    ev.stopPropagation(); // <-- this is the key
-    const item = $(ev.currentTarget).closest(".power-item");
-    item.toggleClass("open");
-  });
-
-  // HEADER CLICK — normal toggle
-  html.find(".power-header").on("click", (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
     const item = $(ev.currentTarget).closest(".power-item");
     item.toggleClass("open");
   });

@@ -1,6 +1,6 @@
+import { ABILITIES_PRIMARIES_SCHEMA } from "../../../utils/lookup.js";
 import { toNum } from "../../../utils/numbers.js";
 import { BaseRule } from "../base-rule.js";
-import { ABILITIES_PRIMARIES_SCHEMA } from "./schema.js";
 
 export class AbilitiesPrimaryRule extends BaseRule {
   Initialize(system) {
@@ -27,6 +27,16 @@ export class AbilitiesPrimaryRule extends BaseRule {
           } else {
             if (abil.final === undefined) abil.final = 0;
           }
+          if (
+            name != "MagicAccumulation" &&
+            name != "MAMultiples" &&
+            name != "Zeon" &&
+            name != "PsychicPoints" &&
+            name != "PsychicPotential"
+          ) {
+            if (abil.characteristic === undefined)
+              abil.characteristic = ABILITIES_PRIMARIES_SCHEMA[name].characteristic || null;
+          }
           if (abil.special === undefined) abil.special = 0;
           if (
             name != "MagicAccumulation" &&
@@ -35,8 +45,6 @@ export class AbilitiesPrimaryRule extends BaseRule {
             categoryName != "Psychic"
           ) {
             if (abil.weapon === undefined) abil.weapon = 0;
-            if (abil.characteristic === undefined)
-              abil.characteristic = ABILITIES_PRIMARIES_SCHEMA[name].characteristic || null;
             if (abil.physicalPenalty === undefined) {
               abil.physicalPenalty = ABILITIES_PRIMARIES_SCHEMA[name].physicalPenalty;
             }
