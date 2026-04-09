@@ -1,175 +1,177 @@
-<h2>
-  Modules
-  {{#if @root.actor.system.lockUi}}
-  {{else}}
-    <a class="add-module-weapon" data-module="{{system.modules}}" data-tooltip="Add Module">
-      <i class="fas fa-plus-circle"></i>
-    </a>
-  {{/if}}
-</h2>
+<section>
+  <h2>
+    Modules
+    {{#if @root.actor.system.lockUi}}
+    {{else}}
+      <a class="add-module-weapon" data-module="{{system.modules}}" data-tooltip="Add Module">
+        <i class="fas fa-plus-circle"></i>
+      </a>
+    {{/if}}
+  </h2>
 
-<div class="modules-grid">
-  <!-- WEAPON MODULES -->
-  <div class="module-card">
-    <div class="module-card-header">
-      <h3>
-        Weapon Modules
-        {{#unless actor.system.settings.ignoreDPLimit}}
-          : {{actor.system.abilities.primary.abilityLimits.Combat.current}} /
-          {{actor.system.abilities.primary.abilityLimits.Combat.final}}
-        {{/unless}}
-      </h3>
+  <div class="modules-grid">
+    <!-- WEAPON MODULES -->
+    <div class="module-card">
+      <div class="module-card-header">
+        <h3>
+          Weapon Modules
+          {{#unless actor.system.settings.ignoreDPLimit}}
+            : {{actor.system.abilities.primary.abilityLimits.Combat.current}} /
+            {{actor.system.abilities.primary.abilityLimits.Combat.final}}
+          {{/unless}}
+        </h3>
+      </div>
+
+      <ul class="module-list">
+        {{#each system.modules.WeaponModules as |mod idx|}}
+          <li class="module-row">
+            <span
+              class="clickable-module clickable"
+              data-index="{{idx}}"
+              data-module="{{mod.name}}"
+              data-type="{{mod.type}}"
+            >
+              {{mod.name}} Cost: {{mod.cost}}
+            </span>
+            {{#if @root.actor.system.lockUi}}
+              <td></td>
+            {{else}}
+              <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}"><i class="fas fa-trash"></i></a>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
     </div>
 
-    <ul class="module-list">
-      {{#each system.modules.WeaponModules as |mod idx|}}
-        <li class="module-row">
-          <span
-            class="clickable-module clickable"
-            data-index="{{idx}}"
-            data-module="{{mod.name}}"
-            data-type="{{mod.type}}"
-          >
-            {{mod.name}} Cost: {{mod.cost}}
-          </span>
-          {{#if @root.actor.system.lockUi}}
-            <td></td>
-          {{else}}
-            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}"><i class="fas fa-trash"></i></a>
-          {{/if}}
-        </li>
-      {{/each}}
-    </ul>
-  </div>
+    <!-- MYSTICAL MODULES -->
+    <div class="module-card">
+      <div class="module-card-header">
+        <h3>
+          Mystical Modules
+          {{#unless actor.system.settings.ignoreDPLimit}}
+            : {{actor.system.abilities.primary.abilityLimits.Supernatural.current}} / {{actor.system.abilities.primary.abilityLimits.Supernatural.final}}
+          {{/unless}}
+        </h3>
+      </div>
 
-  <!-- MYSTICAL MODULES -->
-  <div class="module-card">
-    <div class="module-card-header">
-      <h3>
-        Mystical Modules
-        {{#unless actor.system.settings.ignoreDPLimit}}
-          : {{actor.system.abilities.primary.abilityLimits.Supernatural.current}} / {{actor.system.abilities.primary.abilityLimits.Supernatural.final}}
-        {{/unless}}
-      </h3>
+      <ul class="module-list">
+        {{#each system.modules.MysticalModules as |mod idx|}}
+          <li class="module-row">
+            <span
+              class="clickable-module clickable"
+              data-index="{{idx}}"
+              data-module="{{mod.name}}"
+              data-type="{{mod.type}}"
+            >
+              {{mod.name}} Cost: {{mod.cost}}
+            </span>
+            {{#if @root.actor.system.lockUi}}
+              <td></td>
+            {{else}}
+              <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}"><i class="fas fa-trash"></i></a>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
     </div>
 
-    <ul class="module-list">
-      {{#each system.modules.MysticalModules as |mod idx|}}
-        <li class="module-row">
-          <span
-            class="clickable-module clickable"
-            data-index="{{idx}}"
-            data-module="{{mod.name}}"
-            data-type="{{mod.type}}"
-          >
-            {{mod.name}} Cost: {{mod.cost}}
-          </span>
-          {{#if @root.actor.system.lockUi}}
-            <td></td>
-          {{else}}
-            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}"><i class="fas fa-trash"></i></a>
-          {{/if}}
-        </li>
-      {{/each}}
-    </ul>
-  </div>
+    <!-- STYLE MODULES -->
+    <div class="module-card">
+      <div class="module-card-header">
+        <h3>
+          Style Modules
+          {{#unless actor.system.settings.ignoreDPLimit}}
+            : {{actor.system.abilities.primary.abilityLimits.Combat.current}} /
+            {{actor.system.abilities.primary.abilityLimits.Combat.final}}
+          {{/unless}}
+        </h3>
+      </div>
 
-  <!-- STYLE MODULES -->
-  <div class="module-card">
-    <div class="module-card-header">
-      <h3>
-        Style Modules
-        {{#unless actor.system.settings.ignoreDPLimit}}
-          : {{actor.system.abilities.primary.abilityLimits.Combat.current}} /
-          {{actor.system.abilities.primary.abilityLimits.Combat.final}}
-        {{/unless}}
-      </h3>
+      <ul class="module-list">
+        {{#each system.modules.StyleModules as |mod idx|}}
+          <li class="module-row">
+            <span
+              class="clickable-module clickable"
+              data-index="{{idx}}"
+              data-module="{{mod.name}}"
+              data-type="{{mod.type}}"
+            >
+              {{mod.name}} Cost: {{mod.cost}}
+            </span>
+            {{#if @root.actor.system.lockUi}}
+              <td></td>
+            {{else}}
+              <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}"><i class="fas fa-trash"></i></a>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
     </div>
 
-    <ul class="module-list">
-      {{#each system.modules.StyleModules as |mod idx|}}
-        <li class="module-row">
-          <span
-            class="clickable-module clickable"
-            data-index="{{idx}}"
-            data-module="{{mod.name}}"
-            data-type="{{mod.type}}"
-          >
-            {{mod.name}} Cost: {{mod.cost}}
-          </span>
-          {{#if @root.actor.system.lockUi}}
-            <td></td>
-          {{else}}
-            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}"><i class="fas fa-trash"></i></a>
-          {{/if}}
-        </li>
-      {{/each}}
-    </ul>
-  </div>
+    <!-- PSYCHIC MODULES -->
+    <div class="module-card">
+      <div class="module-card-header">
+        <h3>
+          Psychic Modules
+          {{#unless actor.system.settings.ignoreDPLimit}}
+            : {{actor.system.abilities.primary.abilityLimits.Psychic.current}} / {{actor.system.abilities.primary.abilityLimits.Psychic.final}}
+          {{/unless}}
+        </h3>
+      </div>
 
-  <!-- PSYCHIC MODULES -->
-  <div class="module-card">
-    <div class="module-card-header">
-      <h3>
-        Psychic Modules
-        {{#unless actor.system.settings.ignoreDPLimit}}
-          : {{actor.system.abilities.primary.abilityLimits.Psychic.current}} / {{actor.system.abilities.primary.abilityLimits.Psychic.final}}
-        {{/unless}}
-      </h3>
+      <ul class="module-list">
+        {{#each system.modules.PsychicModules as |mod idx|}}
+          <li class="module-row">
+            <span
+              class="clickable-module clickable"
+              data-index="{{idx}}"
+              data-module="{{mod.name}}"
+              data-type="{{mod.type}}"
+            >
+              {{mod.name}} Cost: {{mod.cost}}
+            </span>
+            {{#if @root.actor.system.lockUi}}
+              <td></td>
+            {{else}}
+              <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}"><i class="fas fa-trash"></i></a>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
     </div>
 
-    <ul class="module-list">
-      {{#each system.modules.PsychicModules as |mod idx|}}
-        <li class="module-row">
-          <span
-            class="clickable-module clickable"
-            data-index="{{idx}}"
-            data-module="{{mod.name}}"
-            data-type="{{mod.type}}"
-          >
-            {{mod.name}} Cost: {{mod.cost}}
-          </span>
-          {{#if @root.actor.system.lockUi}}
-            <td></td>
-          {{else}}
-            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}"><i class="fas fa-trash"></i></a>
-          {{/if}}
-        </li>
-      {{/each}}
-    </ul>
-  </div>
+    <!-- MARTIAL ARTS -->
+    <div class="module-card">
+      <div class="module-card-header">
+        <h3>
+          Martial Arts
+          {{#unless actor.system.settings.ignoreDPLimit}}
+            : {{actor.system.abilities.primary.abilityLimits.Combat.current}} /
+            {{actor.system.abilities.primary.abilityLimits.Combat.final}}
+          {{/unless}}
+        </h3>
+      </div>
 
-  <!-- MARTIAL ARTS -->
-  <div class="module-card">
-    <div class="module-card-header">
-      <h3>
-        Martial Arts
-        {{#unless actor.system.settings.ignoreDPLimit}}
-          : {{actor.system.abilities.primary.abilityLimits.Combat.current}} /
-          {{actor.system.abilities.primary.abilityLimits.Combat.final}}
-        {{/unless}}
-      </h3>
+      <ul class="module-list">
+        {{#each system.modules.MartialArts as |mod idx|}}
+          <li class="module-row">
+            <span
+              class="clickable-module clickable"
+              data-index="{{idx}}"
+              data-module="{{mod.name}}"
+              data-type="{{mod.type}}"
+            >
+              {{mod.name}} Cost: {{mod.cost}}
+            </span>
+
+            {{#if @root.actor.system.lockUi}}
+              <td></td>
+            {{else}}
+              <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}"><i class="fas fa-trash"></i></a>
+            {{/if}}
+          </li>
+        {{/each}}
+      </ul>
     </div>
-
-    <ul class="module-list">
-      {{#each system.modules.MartialArts as |mod idx|}}
-        <li class="module-row">
-          <span
-            class="clickable-module clickable"
-            data-index="{{idx}}"
-            data-module="{{mod.name}}"
-            data-type="{{mod.type}}"
-          >
-            {{mod.name}} Cost: {{mod.cost}}
-          </span>
-
-          {{#if @root.actor.system.lockUi}}
-            <td></td>
-          {{else}}
-            <a class="delete-module" data-index="{{idx}}" data-type="{{mod.type}}"><i class="fas fa-trash"></i></a>
-          {{/if}}
-        </li>
-      {{/each}}
-    </ul>
   </div>
-</div>
+</section>

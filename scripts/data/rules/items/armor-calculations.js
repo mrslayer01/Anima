@@ -157,7 +157,7 @@ export async function UpdateArmor(actor) {
   for (const item of actor.items) {
     if (item.type !== "armor") continue;
     const a = item.system;
-    const qualityValue = Number(a.specialValue ?? 0);
+    const qualityValue = toNum(a.specialValue ?? 0);
     const q = quality(qualityValue);
 
     // compute Final values

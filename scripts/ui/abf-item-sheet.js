@@ -1,3 +1,4 @@
+import { toNum } from "../utils/numbers.js";
 import { registerItemSheetListeners } from "./listeners.js";
 
 export class AbfItemSheet extends foundry.appv1.sheets.ItemSheet {
@@ -94,7 +95,7 @@ export class AbfItemSheet extends foundry.appv1.sheets.ItemSheet {
 
     if (input.tagName === "SELECT") return;
 
-    let value = Number(input.value);
+    let value = toNum(input.value);
 
     const isCurrency = name.startsWith("system.cost.value");
 

@@ -1,3 +1,5 @@
+import { toNum } from "../../utils/numbers.js";
+
 export class TechniqueEffectWindow extends Application {
   constructor(effectData, item, options = {}) {
     super(options);
@@ -51,7 +53,7 @@ export class TechniqueEffectWindow extends Application {
 
     html.find(".effect-totalki, .effect-totalmk").on("change", async (ev) => {
       const field = ev.currentTarget.dataset.field;
-      const value = Number(ev.currentTarget.value) || 0;
+      const value = toNum(ev.currentTarget.value) || 0;
 
       // Update local data
       this.effectData[field] = value;
@@ -67,7 +69,7 @@ export class TechniqueEffectWindow extends Application {
 
     // BUY LEVEL
     html.find(".buy-level").on("click", async (ev) => {
-      const idx = Number(ev.currentTarget.dataset.index);
+      const idx = toNum(ev.currentTarget.dataset.index);
 
       const purchased = foundry.utils.duplicate(this.effectData.purchasedEffects || []);
       const lvlData = foundry.utils.duplicate(this.effectData.effects[idx]);
@@ -91,7 +93,7 @@ export class TechniqueEffectWindow extends Application {
 
     // REMOVE LEVEL
     html.find(".remove-level").on("click", async (ev) => {
-      const index = Number(ev.currentTarget.dataset.index);
+      const index = toNum(ev.currentTarget.dataset.index);
 
       const purchased = foundry.utils.duplicate(this.effectData.purchasedEffects || []);
       purchased.splice(index, 1);
@@ -107,8 +109,8 @@ export class TechniqueEffectWindow extends Application {
 
     // BUY ADVANTAGE
     html.find(".buy-advantage-option").on("click", async (ev) => {
-      const advIndex = Number(ev.currentTarget.dataset.advIndex);
-      const optIndex = Number(ev.currentTarget.dataset.optIndex);
+      const advIndex = toNum(ev.currentTarget.dataset.advIndex);
+      const optIndex = toNum(ev.currentTarget.dataset.optIndex);
 
       const optional = foundry.utils.duplicate(this.effectData.optionalAdvantages || []);
       const purchased = foundry.utils.duplicate(this.effectData.purchasedAdvantages || []);
@@ -141,7 +143,7 @@ export class TechniqueEffectWindow extends Application {
 
     // REMOVE ADVANTAGE
     html.find(".remove-advantage").on("click", async (ev) => {
-      const idx = Number(ev.currentTarget.dataset.index);
+      const idx = toNum(ev.currentTarget.dataset.index);
 
       const optional = foundry.utils.duplicate(this.effectData.optionalAdvantages || []);
       const purchased = foundry.utils.duplicate(this.effectData.purchasedAdvantages || []);
@@ -171,8 +173,8 @@ export class TechniqueEffectWindow extends Application {
 
     // BUY DISADVANTAGE OPTION
     html.find(".buy-disadvantage-option").on("click", async (ev) => {
-      const disIndex = Number(ev.currentTarget.dataset.disIndex);
-      const optIndex = Number(ev.currentTarget.dataset.optIndex);
+      const disIndex = toNum(ev.currentTarget.dataset.disIndex);
+      const optIndex = toNum(ev.currentTarget.dataset.optIndex);
 
       const optional = foundry.utils.duplicate(this.effectData.optionalDisadvantages || []);
       const purchased = foundry.utils.duplicate(this.effectData.purchasedDisadvantages || []);
@@ -202,7 +204,7 @@ export class TechniqueEffectWindow extends Application {
 
     // REMOVE DISADVANTAGE
     html.find(".remove-disadvantage").on("click", async (ev) => {
-      const idx = Number(ev.currentTarget.dataset.index);
+      const idx = toNum(ev.currentTarget.dataset.index);
 
       const optional = foundry.utils.duplicate(this.effectData.optionalDisadvantages || []);
       const purchased = foundry.utils.duplicate(this.effectData.purchasedDisadvantages || []);

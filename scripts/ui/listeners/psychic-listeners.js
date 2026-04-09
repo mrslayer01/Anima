@@ -1,4 +1,4 @@
-import { openJournalFromName } from "../../utils/helpers.js";
+import { openJournalFromName, promptManualEdit } from "../../utils/helpers.js";
 import { toNum } from "../../utils/numbers.js";
 import { DisciplineBrowser } from "../windows/psychic-discipline-browser.js";
 import { MentalPowerPurchaseWindow } from "../windows/psychic-powers-browser.js";
@@ -94,11 +94,82 @@ export function PsychicListeners(sheet, html) {
     ui.notifications.info(`Removed Mental Power: ${removed.name}`);
   });
 
-  // CHEVRON CLICK — stop it from bubbling into the header
   html.find(".toggle-power").on("click", (ev) => {
     ev.preventDefault();
     ev.stopPropagation();
     const item = $(ev.currentTarget).closest(".power-item");
     item.toggleClass("open");
+  });
+
+  html.find(".pp-current-manual").off("click");
+  html.find(".pp-current-manual").on("click", async (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+    const actor = sheet.actor;
+    // Allow the user to manually set their temporary pp used
+    const value = await promptManualEdit();
+    if (value === null) return;
+
+    await actor.update({
+      "system.abilities.primary.Psychic.PsychicPoints.current": value
+    });
+  });
+
+  html.find(".innate-slot-manual").off("click");
+  html.find(".innate-slot-manual").on("click", async (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+    const actor = sheet.actor;
+    // Allow the user to manually set their Innate power slots
+    const value = await promptManualEdit();
+    if (value === null) return;
+
+    await actor.update({
+      "system.abilities.primary.Psychic.PsychicPoints.innateSlots": value
+    });
+  });
+
+  html.find(".mental-power-active").off("click");
+  html.find(".mental-power-active").on("click", async (ev) => {
+    ev.preventDefault();
+
+    const index = toNum(ev.currentTarget.dataset.index);
+    const actor = sheet.actor;
+
+    // Clone array
+    const powers = foundry.utils.duplicate(actor.system.psychic.mentalPowers);
+
+    const power = powers[index];
+    if (!power) return;
+
+    // Toggle
+    power.isActive = !power.isActive;
+
+    // Update actor
+    await actor.update({
+      "system.psychic.mentalPowers": powers
+    });
+  });
+
+  html.find(".mental-power-innate").off("click");
+  html.find(".mental-power-innate").on("click", async (ev) => {
+    ev.preventDefault();
+
+    const index = toNum(ev.currentTarget.dataset.index);
+    const actor = sheet.actor;
+
+    // Clone array
+    const powers = foundry.utils.duplicate(actor.system.psychic.mentalPowers);
+
+    const power = powers[index];
+    if (!power) return;
+
+    // Toggle
+    power.innate = !power.innate;
+
+    // Update actor
+    await actor.update({
+      "system.psychic.mentalPowers": powers
+    });
   });
 }

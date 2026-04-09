@@ -7,7 +7,7 @@ export class PsychicPPRule extends BaseRule {
     if (!system.psychic.pp) system.psychic.pp = {};
     if (!Array.isArray(system.psychic.disciplines)) system.psychic.disciplines = [];
     if (!Array.isArray(system.psychic.mentalPowers)) system.psychic.mentalPowers = [];
-    if (!Array.isArray(system.psychic.innatePowers)) system.psychic.innatePowers = [];
+    if (!system.psychic.innateSlotsUsed) system.psychic.innateSlotsAvailable = 0;
 
     const pp = system.psychic.pp;
 
@@ -185,7 +185,7 @@ function DerivedStrengthenedPowers(system) {
 // ------------------------------------------------------------
 
 function DerivedInnateSlots(system) {
-  const slots = toNum(system.abilities?.primary?.Psychic?.innateSlots || 0);
+  const slots = toNum(system.abilities?.primary?.Psychic?.PsychicPoints?.innateSlots || 0);
   if (slots <= 0) return;
 
   system.psychic.pp.spentRecords.push({
@@ -194,4 +194,10 @@ function DerivedInnateSlots(system) {
     amount: slots,
     cost: 2
   });
+
+  // Calculate Available Innate Slots
+  const ppPath = system.psychic;
+
+  const innateSlotsLength = toNum(ppPath.mentalPowers.filter((p) => p.innate).length);
+  ppPath.innateSlotsAvailable = slots - innateSlotsLength;
 }

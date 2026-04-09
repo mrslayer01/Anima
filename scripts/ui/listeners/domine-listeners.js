@@ -165,7 +165,7 @@ function promptManualEdit() {
         ok: {
           label: "Confirm",
           callback: (html) => {
-            const value = Number(html.find("#manualValue").val());
+            const value = toNum(html.find("#manualValue").val());
             resolve(value);
           }
         },

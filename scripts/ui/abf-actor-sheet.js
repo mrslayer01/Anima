@@ -145,14 +145,14 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
 
     // 2. Only include unlocked ranges (max > 0)
     const unlockedBands = Object.keys(slots)
-      .map((n) => Number(n))
+      .map((n) => toNum(n))
       .filter((band) => slots[band].max > 0)
       .sort((a, b) => a - b);
 
     // 3. Group spells by maxLevel band
     const grouped = {};
     for (const spell of faSpellItems) {
-      const band = Number(spell.system.maxLevel);
+      const band = toNum(spell.system.maxLevel);
       if (!grouped[band]) grouped[band] = [];
       grouped[band].push(spell);
     }
@@ -187,7 +187,7 @@ export class AbfActorSheet extends foundry.appv1.sheets.ActorSheet {
       return;
     }
 
-    let value = Number(input.value);
+    let value = toNum(input.value);
 
     // Input Validation
     value = ValidateInputs(name, value, input);

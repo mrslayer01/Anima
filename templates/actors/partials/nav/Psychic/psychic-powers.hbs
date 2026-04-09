@@ -34,25 +34,56 @@
             </button>
           </div>
 
-          <!-- SECOND ROW: LEVEL | ACTION -->
-          <div class="power-header-info abf-text">
-            <span>
-              <strong>
-                Level:
-              </strong>
-              {{#ifEquals power.discipline "Matrix Powers"}}
-                -
-              {{else}}
-                {{power.level}}
-              {{/ifEquals}}
-            </span>
-
-            <span>
-              <strong>
-                Action:
-              </strong>
-              {{power.action}}
-            </span>
+          <!-- SECOND ROW: TABLE-LIKE HEADER -->
+          <div class="power-header-table abf-text">
+            <div class="power-header-row power-header-row--labels">
+              <span>
+                Level
+              </span>
+              <span>
+                Action
+              </span>
+              <span>
+                Innate
+              </span>
+              <span>
+                Active
+              </span>
+            </div>
+            <div class="power-header-row power-header-row--values">
+              <span>
+                {{#ifEquals power.discipline "Matrix Powers"}}
+                  -
+                {{else}}
+                  {{power.level}}
+                {{/ifEquals}}
+              </span>
+              <span>
+                {{power.action}}
+              </span>
+              <span
+                class="clickable mental-power-innate"
+                data-index="{{idx}}"
+                data-tooltip="Set mental power as innate"
+              >
+                {{#if power.innate}}
+                  <i class="fas fa-check"></i>
+                {{else}}
+                  <i class="fas fa-times"></i>
+                {{/if}}
+              </span>
+              <span
+                class="clickable mental-power-active"
+                data-index="{{idx}}"
+                data-tooltip="Set mental power as active"
+              >
+                {{#if power.isActive}}
+                  <i class="fas fa-check"></i>
+                {{else}}
+                  <i class="fas fa-times"></i>
+                {{/if}}
+              </span>
+            </div>
           </div>
         </div>
 
@@ -104,6 +135,9 @@
             </tbody>
           </table>
           <div class="power-actions-bottom">
+            <button class="psychic-attack-roll button" data-index="{{idx}}">
+              Cast
+            </button>
             <button class="delete-mental-power button" data-index="{{idx}}">
               Remove
             </button>

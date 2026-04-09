@@ -35,7 +35,7 @@ export function SpellsListeners(sheet, html) {
   html.find(".delete-spell").on("click", async (event) => {
     event.preventDefault();
 
-    const index = Number(event.currentTarget.dataset.index);
+    const index = toNum(event.currentTarget.dataset.index);
     const itemId = event.currentTarget.dataset.itemId;
     const actor = sheet.actor;
 
@@ -174,7 +174,7 @@ export function SpellsListeners(sheet, html) {
 
     // 1. Get the spell BEFORE deleting it
     const spell = actor.items.get(itemId);
-    const band = Number(spell.system.maxLevel);
+    const band = toNum(spell.system.maxLevel);
 
     // 2. Decrement slot usage
     const slots = foundry.utils.duplicate(actor.system.mystic.freeAccessSpellSlots);
@@ -362,7 +362,7 @@ function promptManualEdit() {
         ok: {
           label: "Confirm",
           callback: (html) => {
-            const value = Number(html.find("#manualValue").val());
+            const value = toNum(html.find("#manualValue").val());
             resolve(value);
           }
         },

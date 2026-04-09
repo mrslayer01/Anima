@@ -1,10 +1,12 @@
 <div class="combat-grid-core">
   <!-- LEFT COLUMN -->
   <div class="combat-left-core">
-    <h3>Number of actions: {{actor.system.combat.maxActions}}</h3>
-    <h3>
-      Core Stats
-    </h3>
+    <section>
+      <h3>Number of actions: {{actor.system.combat.maxActions}}</h3>
+      <h3>
+        Core Stats
+      </h3>
+    </section>
     <section class="secondary-block">
       <div class="field-row">
         <label class="path-name">
@@ -132,6 +134,7 @@
       {{/if}}
     </section>
 
+<section>
       <h3>Modules</h3>
       <div class="modules-grid">
         <!-- WEAPON MODULES -->
@@ -253,18 +256,24 @@
           </ul>
         </div>
       </div>
-
+</section>
   </div>
 
   <!-- RIGHT COLUMN -->
   <div class="combat-right-core">
-    <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/weapons.hbs" }}</div>
-    <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/armor.hbs" }}</div>
+    <section>
+      <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/weapons.hbs" }}</div>
+    </section>
+    <section>
+      <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/armor.hbs" }}</div>
+    </section>
     {{#if actor.system.settings.usesMystic}}
     <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/mystic.hbs" }}</div>
     {{/if}}
     {{#if actor.system.settings.usesDomine}}
-    <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/techniques.hbs" }}</div>
+    <section>
+      <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/techniques.hbs" }}</div>
+    </section>
     {{/if}}
   </div>
 </div>

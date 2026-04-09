@@ -289,3 +289,88 @@ export async function castCheck({ value, difficulty, label, actor, capture = fal
 
   setTimeout(() => sendChat(content, actor), 2000);
 }
+
+export async function castPsychicPower(actor, index) {
+  const powers = actor.system.psychic.mentalPowers;
+  const power = powers[index];
+  if (!power) return;
+
+  // 1. Roll Psychic Potential
+  const rollTotal = await psychicPotentialRoll(actor);
+
+  // 2. Determine effect tier
+  const effect = getTriggeredEffect(power, rollTotal.total);
+
+  if (!effect) {
+    sendChat(`<b>${power.name}</b>: No effect triggered.`, actor);
+    return;
+  }
+
+  // 3. Send result to chat
+  sendPowerEffectToChat(actor, power, effect, rollTotal);
+
+  return effect;
+}
+
+async function psychicPotentialRoll(actor, { capture = true, hideDice = false } = {}) {
+  const potential = actor.system.abilities.primary.Psychic.PsychicPotential;
+  const bonus = toNum(potential.final) || 0;
+
+  // Use your existing open roll system
+  const result = await animaOpenRoll({
+    value: bonus,
+    label: "Psychic Potential",
+    mastery: false,
+    undeveloped: false,
+    actor,
+    capture, // return data instead of sending chat
+    hideDice, // optional
+    timeout: 2000 // faster than attacks
+  });
+
+  // result = { total, bonus, final, rawRolls, breakdown, label, actor }
+
+  return {
+    total: result.final, // <-- this is the final Psychic Potential result
+    bonus: result.bonus,
+    rawTotal: result.total,
+    rolls: result.rawRolls
+  };
+}
+
+function getTriggeredEffect(power, rollTotal) {
+  if (!power.effects || !power.effects.length) return null;
+
+  // Sort by difficulty ascending
+  const sorted = [...power.effects].sort((a, b) => a.difficulty - b.difficulty);
+
+  // Find highest difficulty <= rollTotal
+  let triggered = null;
+  for (const e of sorted) {
+    if (rollTotal >= e.difficulty) triggered = e;
+  }
+
+  return triggered;
+}
+
+function sendPowerEffectToChat(actor, power, effect, rollTotal) {
+  const breakdown = rollTotal.rolls.join("<br>");
+
+  const content = `
+    <b>${power.name}</b> — <i>${power.discipline}</i><br>
+    <hr>
+
+    <b>Psychic Potential Roll</b><br>
+    <b>Breakdown:</b> <br> ${breakdown}<br>
+    <b>Raw Total:</b> ${rollTotal.rawTotal}<br>
+    <b>Psychic Potential:</b> ${rollTotal.bonus}<br>
+    <b>Final Total:</b> ${rollTotal.total}<br>
+
+    <hr>
+    <b>Triggered Effect:</b><br>
+    <span>${effect.effect}</span><br>
+    <b>Difficulty:</b> ${effect.difficulty}
+  `;
+
+  setTimeout(() => sendChat(content, actor), 2000);
+}

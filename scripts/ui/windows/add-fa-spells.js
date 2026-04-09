@@ -1,4 +1,5 @@
 import { ABF_FREE_ACCESS_SPELLS } from "../../config/spells.js";
+import { toNum } from "../../utils/numbers.js";
 
 export class AddFASpellsWindow extends Application {
   constructor(options = {}) {
@@ -31,17 +32,17 @@ export class AddFASpellsWindow extends Application {
 
     // Only include bands with available slots
     const unlockedBands = Object.entries(slots)
-      .filter(([band, data]) => Number(data.max) > 0 && Number(data.current) < Number(data.max))
-      .map(([band]) => Number(band));
+      .filter(([band, data]) => toNum(data.max) > 0 && toNum(data.current) < toNum(data.max))
+      .map(([band]) => toNum(band));
 
     // Only include spells from bands with available slots
     let unlockedSpells = Object.values(ABF_FREE_ACCESS_SPELLS).filter((spell) =>
-      unlockedBands.includes(Number(spell.maxLevel))
+      unlockedBands.includes(toNum(spell.maxLevel))
     );
 
     // Filter out spells closed to ANY granting path
     // unlockedSpells = unlockedSpells.filter((spell) => {
-    //   const band = Number(spell.maxLevel);
+    //   const band = toNum(spell.maxLevel);
     //   const slot = slots[band];
 
     //   const grantingPaths = (slot.path ?? []).map((p) => p.toLowerCase());
@@ -130,7 +131,7 @@ export class AddFASpellsWindow extends Application {
     fa.push(createdItem.id);
 
     // 3. Increment the correct slot band
-    const band = Number(spellDoc.system.maxLevel);
+    const band = toNum(spellDoc.system.maxLevel);
     const slots = foundry.utils.duplicate(actor.system.mystic.freeAccessSpellSlots);
 
     if (!slots[band]) {

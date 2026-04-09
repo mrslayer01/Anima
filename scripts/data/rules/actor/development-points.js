@@ -394,7 +394,7 @@ function CalculateSecondaryAbilities(system) {
         "Creative"
       ].includes(rec.category)
     ) {
-      secondaryTotal += Number(rec.amount) * Number(rec.cost);
+      secondaryTotal += toNum(rec.amount) * toNum(rec.cost);
     }
   }
 

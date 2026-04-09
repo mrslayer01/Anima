@@ -1,50 +1,48 @@
-<h3>
-  Disadvantages
-</h3>
-<table class="classes-table">
-  <thead>
-    <tr>
-      <th>
-        Disadvantage
-      </th>
-      <th>
-        Benefit
-      </th>
-      {{#if @root.actor.system.lockUi}}
-        <th></th>
-      {{else}}
-        <th class="class-actions-header">
-          <a class="add-disadvantage" data-tooltip="Add Disadvantage">
-            <i class="fas fa-plus-circle"></i>
-          </a>
-        </th>
-      {{/if}}
-    </tr>
-  </thead>
-
-  <tbody>
-    {{#each system.disadvantages as |disadv idx|}}
+<section>
+  <h3>
+    Disadvantages
+  </h3>
+  <table class="classes-table">
+    <thead>
       <tr>
-        <td
-          class="disadvantage-name clickable-disadvantage"
-          data-index="{{idx}}"
-          data-disadvantage="{{disadv.name}}"
-        >
-          {{disadv.name}}
-        </td>
-        <td>
-          {{disadv.benefit}}
-        </td>
+        <th>
+          Disadvantage
+        </th>
+        <th>
+          Benefit
+        </th>
         {{#if @root.actor.system.lockUi}}
-          <td></td>
+          <th></th>
         {{else}}
-          <td>
-            <a class="delete-disadvantage" data-index="{{idx}}" data-tooltip="Delete Disadvantage">
-              <i class="fas fa-trash"></i>
+          <th class="class-actions-header">
+            <a class="add-disadvantage" data-tooltip="Add Disadvantage">
+              <i class="fas fa-plus-circle"></i>
             </a>
-          </td>
+          </th>
         {{/if}}
       </tr>
-    {{/each}}
-  </tbody>
-</table>
+    </thead>
+
+    <tbody>
+      {{#each system.disadvantages as |disadv idx|}}
+        <tr>
+          <td class="disadvantage-name clickable-disadvantage" data-index="{{idx}}" data-disadvantage="{{disadv.name}}">
+            {{disadv.name}}
+          </td>
+          <td>
+            {{disadv.benefit}}
+          </td>
+          {{#if @root.actor.system.lockUi}}
+            <td></td>
+          {{else}}
+            <td>
+              <a class="delete-disadvantage" data-index="{{idx}}" data-tooltip="Delete Disadvantage">
+                <i class="fas fa-trash"></i>
+              </a>
+            </td>
+          {{/if}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>

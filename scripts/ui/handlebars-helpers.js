@@ -9,6 +9,7 @@ import {
   WEAPON_TYPES
 } from "../utils/lookup.js";
 import { ABF_MARTIAL_ARTS, ABF_MODULES } from "../config/modules.js";
+import { toNum } from "../utils/numbers.js";
 
 export function loadAllActorHandlerbarsHelpers() {
   Handlebars.registerHelper("ifEquals", function (a, b, options) {
@@ -134,7 +135,7 @@ export function loadAllActorHandlerbarsHelpers() {
   });
 
   Handlebars.registerHelper("abs", function (value) {
-    return Math.abs(Number(value));
+    return Math.abs(toNum(value));
   });
 
   //#region Secondaries

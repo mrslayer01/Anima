@@ -5,12 +5,14 @@ import {
   computeCounterattack,
   computeDamagePercent,
   difficultyMap,
-  MAGIC_PROJECTION_DIFFICULTY
+  MAGIC_PROJECTION_DIFFICULTY,
+  PSYCHIC_PROJECTION_DIFFICULTY
 } from "../../utils/lookup.js";
 import { toNum } from "../../utils/numbers.js";
 import {
   animaOpenRoll,
   castCheck,
+  castPsychicPower,
   characteristicCheck,
   resistanceCheck
 } from "../../utils/rolls.js";
@@ -107,7 +109,7 @@ export function RollListeners(sheet, html) {
   html.find(".init-roll").off("click");
   html.find(".init-roll").on("click", async (ev) => {
     const actor = sheet.actor;
-    const baseInit = Number(ev.currentTarget.dataset.ability) || 0;
+    const baseInit = toNum(ev.currentTarget.dataset.ability) || 0;
 
     // Ask the user for modifiers (custom + situational)
     const { final, mod, situational } = await promptInitiativeModifierWindow(actor);
@@ -315,6 +317,83 @@ export function RollListeners(sheet, html) {
         ui.notifications.warn("No Zeon cost was specified.");
       }
     }
+
+    if (targets.length === 0) {
+      return await manualDefend(sheet, attackData);
+    }
+
+    if (targets.length === 1) {
+      // single-target logic
+      return await handleSingleTargetAttack(
+        sheet,
+        null,
+        attackData,
+        region,
+        directed,
+        attackType,
+        targets[0],
+        true
+      );
+    }
+
+    // multi-target logic
+    return await handleMultiTargetAttack(
+      sheet,
+      null,
+      attackData,
+      region,
+      directed,
+      attackType,
+      targets,
+      true
+    );
+  });
+
+  html.find(".psychic-attack-roll").off("click");
+  html.find(".psychic-attack-roll").on("click", async (ev) => {
+    const index = toNum(ev.currentTarget.dataset.index);
+    const actor = sheet.actor;
+
+    const targets = Array.from(game.user.targets);
+
+    const psychicPotential = actor.system.abilities.primary.Psychic.PsychicPotential;
+    const psychicProjection = actor.system.abilities.primary.Psychic.PsychicProjection;
+
+    let attackValue = toNum(psychicProjection.final);
+    let psychicPotentialFinal = toNum(psychicPotential.final);
+
+    // Before doing anything, first make a psychicProjection check and rescord the results.
+
+    const powers = actor.system.psychic.mentalPowers;
+    const power = powers[index];
+    if (!power) return;
+
+    const castPower = await castPsychicPower(actor, index);
+
+    console.log(castPower);
+
+    // If there is no target, prompt the choice between manual attack, or non combat porjection.
+    if (targets.length === 0) {
+      const isSpellAttack = await checkPsychicProjectionType({
+        value: attackValue,
+        label: "Psychic Projection check",
+        actor: sheet.actor
+      });
+
+      if (!isSpellAttack) return;
+    }
+
+    const { final, region, directed, attackType, isAOE } = await promptAttackModifierWindow({
+      isSpellAttack: true,
+      attackValue
+    });
+
+    attackValue += final;
+
+    let armorPen = 0; // spells normally have no armor penetration
+    const weaponType = "Psychic Attack";
+
+    const attackData = { attackValue, armorPen, directed, attackType, weaponType, isAOE };
 
     if (targets.length === 0) {
       return await manualDefend(sheet, attackData);
@@ -644,6 +723,96 @@ async function checkMagicProjectionType(opt) {
                       value: opt.value,
                       difficulty: entry,
                       label: "Magic Projection check",
+                      actor: opt.actor,
+                      capture: true
+                    });
+                  }
+                }
+              },
+              default: "confirm",
+
+              render: (html) => {
+                const select = html.find("#mpDiff")[0];
+                const descBox = html.find("#mpDescription")[0];
+
+                select.addEventListener("change", () => {
+                  const selected = select.options[select.selectedIndex];
+                  descBox.textContent = selected.dataset.description;
+                  dlg.setPosition({ height: "auto" });
+                });
+
+                dlg.setPosition({ height: "auto" });
+              }
+            });
+
+            dlg.render(true);
+          }
+        },
+        cancel: {
+          label: "Cancel",
+          callback: () => resolve(false)
+        }
+      },
+      default: "attack"
+    }).render(true);
+  });
+}
+
+async function checkPsychicProjectionType(opt) {
+  return new Promise((resolve) => {
+    new Dialog({
+      title: "Spell Projection",
+      content: `
+        <div style="margin-bottom: 0.75em;">
+          <p><b>Type of Psychic Projection</b></p>
+        </div>
+      `,
+      buttons: {
+        attack: {
+          label: "Attack",
+          callback: () => resolve(true)
+        },
+        general: {
+          label: "General",
+          callback: () => {
+            resolve(false);
+
+            const dlg = new Dialog({
+              title: "Psychic Projection Difficulty",
+              content: `
+                <div>
+                  <label><b>Difficulty:</b></label>
+                  <select id="mpDiff">
+                    ${Object.entries(PSYCHIC_PROJECTION_DIFFICULTY)
+                      .map(([key, entry]) => {
+                        return `
+                          <option 
+                            value="${key}"
+                            data-description="${entry.description}"
+                          >
+                            ${entry.label}
+                          </option>
+                        `;
+                      })
+                      .join("")}
+                  </select>
+
+                  <div id="mpDescription">
+                    ${PSYCHIC_PROJECTION_DIFFICULTY.routine.description}
+                  </div>
+                </div>
+              `,
+              buttons: {
+                confirm: {
+                  label: "Confirm",
+                  callback: async (html) => {
+                    const key = html.find("#mpDiff").val();
+                    const entry = PSYCHIC_PROJECTION_DIFFICULTY[key].value;
+
+                    await animaCastCheckCapture({
+                      value: opt.value,
+                      difficulty: entry,
+                      label: "Psychic Projection check",
                       actor: opt.actor,
                       capture: true
                     });

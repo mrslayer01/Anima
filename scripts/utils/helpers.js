@@ -105,22 +105,22 @@ export function normalizeName(name) {
  * - Returns the final numeric value
  */
 export function applyRelativeInput(input) {
-  const minValue = Number(input.dataset.min ?? 0);
-  const maxValue = input.dataset.max !== undefined ? Number(input.dataset.max) : null;
+  const minValue = toNum(input.dataset.min ?? 0);
+  const maxValue = input.dataset.max !== undefined ? toNum(input.dataset.max) : null;
 
   const raw = input.value.trim();
 
   // Previous committed value
-  const previous = Number(input.dataset.current ?? input.value) || 0;
+  const previous = toNum(input.dataset.current ?? input.value) || 0;
   let newValue = previous;
 
   // COMPLETE relative: +50 / -10
   if (/^[+-]\d+$/.test(raw)) {
-    newValue = previous + Number(raw);
+    newValue = previous + toNum(raw);
   }
   // COMPLETE absolute: 50 / 120
   else if (/^\d+$/.test(raw)) {
-    newValue = Number(raw);
+    newValue = toNum(raw);
   }
   // Invalid → revert
   else {
@@ -148,4 +148,39 @@ export function getActorOwner(actor) {
   // Find all users with OWNER or higher
   const owners = game.users.filter((u) => actor.testUserPermission(u, "OWNER"));
   return owners[0] ?? null;
+}
+
+export function promptManualEdit() {
+  return new Promise((resolve) => {
+    new Dialog({
+      title: "Manual Edit",
+      content: `
+        <div style="margin-bottom: 0.75em;">
+          <label><b>Enter new value:</b></label>
+          <input type="number" id="manualValue" value="0" style="width: 100%; margin-top: 0.25em;" />
+        </div>
+      `,
+      buttons: {
+        ok: {
+          label: "Confirm",
+          callback: (html) => {
+            const value = toNum(html.find("#manualValue").val());
+            resolve(value);
+          }
+        },
+        cancel: {
+          label: "Cancel",
+          callback: () => resolve(null)
+        }
+      },
+      default: "ok"
+    }).render(true);
+    setTimeout(() => {
+      const input = document.getElementById("manualValue");
+      if (input) {
+        input.focus();
+        input.select();
+      }
+    }, 10);
+  });
 }

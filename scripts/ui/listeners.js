@@ -1,4 +1,5 @@
 import { openJournalFromName } from "../utils/helpers.js";
+import { toNum } from "../utils/numbers.js";
 import { AdvantageDisadvantageListeners } from "./listeners/advantage-disadvantage-listeners.js";
 import { ClassListeners } from "./listeners/class-listeners.js";
 import { DomineListeners } from "./listeners/domine-listeners.js";
@@ -104,11 +105,11 @@ export function registerSheetListeners(sheet, html) {
   html.find(".relative-input").on("change", (ev) => {
     const input = ev.currentTarget;
 
-    const minValue = input.dataset.min !== undefined ? Number(input.dataset.min) : -Infinity;
-    const maxValue = input.dataset.max !== undefined ? Number(input.dataset.max) : Infinity;
+    const minValue = input.dataset.min !== undefined ? toNum(input.dataset.min) : -Infinity;
+    const maxValue = input.dataset.max !== undefined ? toNum(input.dataset.max) : Infinity;
 
     const raw = String(input.value).trim();
-    const previous = Number(input.dataset.current ?? input.value) || 0;
+    const previous = toNum(input.dataset.current ?? input.value) || 0;
 
     let newValue = previous;
 
@@ -116,8 +117,8 @@ export function registerSheetListeners(sheet, html) {
     const isRelative = raw.startsWith("+") || raw.startsWith("-");
 
     // Parse number
-    const numeric = Number(raw);
-    if (Number.isNaN(numeric)) {
+    const numeric = toNum(raw);
+    if (toNum.isNaN(numeric)) {
       input.value = previous;
       return;
     }
@@ -155,11 +156,11 @@ export function registerItemSheetListeners(sheet, html) {
   html.find(".relative-input").on("change", (ev) => {
     const input = ev.currentTarget;
 
-    const minValue = input.dataset.min !== undefined ? Number(input.dataset.min) : -Infinity;
-    const maxValue = input.dataset.max !== undefined ? Number(input.dataset.max) : Infinity;
+    const minValue = input.dataset.min !== undefined ? toNum(input.dataset.min) : -Infinity;
+    const maxValue = input.dataset.max !== undefined ? toNum(input.dataset.max) : Infinity;
 
     const raw = String(input.value).trim();
-    const previous = Number(input.dataset.current ?? input.value) || 0;
+    const previous = toNum(input.dataset.current ?? input.value) || 0;
 
     let newValue = previous;
 
@@ -167,7 +168,7 @@ export function registerItemSheetListeners(sheet, html) {
     const isRelative = raw.startsWith("+") || raw.startsWith("-");
 
     // Parse number
-    const numeric = Number(raw);
+    const numeric = toNum(raw);
     if (Number.isNaN(numeric)) {
       input.value = previous;
       return;

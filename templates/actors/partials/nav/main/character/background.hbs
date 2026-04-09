@@ -1,23 +1,25 @@
-<h3>
-  Description
-</h3>
+<section>
+  <h3>
+    Description
+  </h3>
 
-<div class="description-editor">
-  {{#if system.aspects.background}}
-    {{editor
-      system.aspects.background
-      target="system.aspects.background"
-      button=true
-      editable=true
-      engine="prosemirror"
-    }}
-  {{else}}
-    {{editor
-      "<p class='placeholder'>Write your background here…</p>"
-      target="system.aspects.background"
-      button=true
-      editable=true
-      engine="prosemirror"
-    }}
-  {{/if}}
-</div>
+  <div class="description-editor">
+    {{#if system.aspects.background}}
+      {{editor
+        system.aspects.background
+        target="system.aspects.background"
+        button=true
+        editable=true
+        engine="prosemirror"
+      }}
+    {{else}}
+      {{editor
+        "<p class='placeholder'>Write your background here…</p>"
+        target="system.aspects.background"
+        button=true
+        editable=true
+        engine="prosemirror"
+      }}
+    {{/if}}
+  </div>
+</section>

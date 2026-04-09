@@ -73,7 +73,7 @@ function AdvantageDelete(sheet, html) {
 function DisadvantageDelete(sheet, html) {
   html.find(".delete-disadvantage").off("click");
   html.find(".delete-disadvantage").on("click", async (event) => {
-    const index = Number(event.currentTarget.dataset.index);
+    const index = toNum(event.currentTarget.dataset.index);
 
     const confirmed = await Dialog.confirm(
       {

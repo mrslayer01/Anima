@@ -1,3 +1,5 @@
+import { toNum } from "../../../utils/numbers.js";
+
 export class PsychicPPSpendWindow extends Application {
   constructor(actor, options = {}) {
     super(options);
@@ -28,7 +30,7 @@ export class PsychicPPSpendWindow extends Application {
     const freePP = actor.system.psychic.pp.remaining;
 
     const potential = actor.system.abilities.primary.Psychic.PsychicPotential;
-    const currentBonus = Number(potential.permanentBonus || 0);
+    const currentBonus = toNum(potential.permanentBonus || 0);
 
     const steps = this.state.potentialSteps;
 
@@ -78,7 +80,7 @@ export class PsychicPPSpendWindow extends Application {
     // Remove a +10 step (undo)
     html.find(".potential-remove").on("click", () => {
       const potential = this.actor.system.abilities.primary.Psychic.PsychicPotential;
-      const currentBonus = Number(potential.permanentBonus || 0);
+      const currentBonus = toNum(potential.permanentBonus || 0);
 
       // Prevent undoing below 0
       if (currentBonus + this.state.potentialSteps * 10 <= 0) return;
@@ -101,7 +103,7 @@ export class PsychicPPSpendWindow extends Application {
     }
 
     const potential = actor.system.abilities.primary.Psychic.PsychicPotential;
-    const currentBonus = Number(potential.permanentBonus || 0);
+    const currentBonus = toNum(potential.permanentBonus || 0);
 
     const cost = this.calculatePotentialCost(currentBonus, steps);
     const freePP = actor.system.psychic.pp.remaining;

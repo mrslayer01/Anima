@@ -305,7 +305,7 @@ function Techniques(sheet, html) {
   html.find(".technique-toggle-maintained").off("click");
   html.find(".technique-toggle-maintained").on("click", async (ev) => {
     const item = sheet.object;
-    const index = Number(ev.currentTarget.dataset.index);
+    const index = toNum(ev.currentTarget.dataset.index);
 
     const effects = foundry.utils.duplicate(item.system.effects);
     const current = effects[index].maintained;

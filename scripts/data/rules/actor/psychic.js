@@ -90,9 +90,12 @@ export class PsychicPointsRule extends BaseRule {
   RecalcUpdated(system, name) {
     const psychicPointsPath = system.abilities.primary.Psychic.PsychicPoints;
     const ppBase = toNum(psychicPointsPath.base);
+    const ppBonus = toNum(psychicPointsPath.bonus);
+
     const ppClass = toNum(psychicPointsPath.class);
 
-    psychicPointsPath.final = ppBase + ppClass;
+    psychicPointsPath.final = ppBase + ppClass + ppBonus;
+
     const psychicPotentialPath = system.abilities.primary.Psychic.PsychicPotential;
     const willpower = toNum(system.characteristics.Willpower.base);
     const basePotential = getPsychicPotential(willpower);
@@ -101,8 +104,9 @@ export class PsychicPointsRule extends BaseRule {
     const pPotBase = toNum(psychicPotentialPath.base);
     const pPotSpecial = toNum(psychicPotentialPath.special);
     const pPotBonus = toNum(psychicPotentialPath.bonus);
+    const pPotPermBonus = toNum(psychicPotentialPath.permanentBonus);
 
-    psychicPotentialPath.final = pPotBase + pPotBonus + pPotSpecial;
+    psychicPotentialPath.final = pPotBase + pPotBonus + pPotSpecial + pPotPermBonus;
   }
 
   Update(updateData, oldSystem, newSystem) {

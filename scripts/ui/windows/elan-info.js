@@ -31,7 +31,7 @@ export class ElanInfoWindow extends Application {
 
     // BUY GIFT
     html.find(".buy-gift").on("click", (event) => {
-      const giftIndex = Number(event.currentTarget.dataset.gift);
+      const giftIndex = toNum(event.currentTarget.dataset.gift);
       const gift = this.elanData.gifts[giftIndex];
 
       new Dialog({
@@ -49,7 +49,7 @@ export class ElanInfoWindow extends Application {
 
     // REMOVE GIFT
     html.find(".remove-gift").on("click", (event) => {
-      const giftIndex = Number(event.currentTarget.dataset.index);
+      const giftIndex = toNum(event.currentTarget.dataset.index);
       const gift = this.elanData.purchasedGifts[giftIndex];
 
       new Dialog({

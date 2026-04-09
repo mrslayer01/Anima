@@ -157,18 +157,18 @@ export class LifePointsRule extends BaseRule {
 
 //#region Regeneration
 function getRegenerationLevel(con) {
-  const c = Number(con);
+  const c = toNum(con);
   const row = REGEN_TABLE.find((r) => c >= r.min && c <= r.max);
   return row ? row.regen : 0;
 }
 
 function getRegenerationDetails(level) {
-  const lvl = Number(level);
+  const lvl = toNum(level);
   return REGEN_DETAILS[lvl] || null;
 }
 
 function getRegenerationSpecial(level) {
-  const lvl = Number(level);
+  const lvl = toNum(level);
   if (lvl < 1) return "";
 
   const categories = {

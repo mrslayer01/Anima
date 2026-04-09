@@ -1,1 +1,5 @@
-2026/04/07-19:33:59.052 c9cc Delete type=3 #1
+2026/04/09-08:26:43.019 230d8 Log #258: 0 ops saved to Table #272 OK
+2026/04/09-08:26:43.029 230d8 Archiving D:\foundry\Data\Data\systems\abf-system\packs\journals/000258.log: OK
+2026/04/09-08:26:43.035 230d8 Table #271: 306 entries OK
+2026/04/09-08:26:43.129 230d8 Archiving D:\foundry\Data\Data\systems\abf-system\packs\journals/MANIFEST-000269: OK
+2026/04/09-08:26:43.179 230d8 **** Repaired leveldb D:\foundry\Data\Data\systems\abf-system\packs\journals; recovered 1 files; 225120 bytes. Some data may have been lost. ****

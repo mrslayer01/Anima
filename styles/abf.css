@@ -1425,6 +1425,12 @@
   gap: 0.75rem;
 }
 
+.innate-mental-powers-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0.2rem;
+}
+
 /* Each accordion card */
 .power-item {
   border: 1px solid rgba(255, 255, 255, 0.2);
@@ -1488,12 +1494,49 @@
   transform: rotate(180deg);
 }
 
-/* Second row: Level | Action */
-.power-header-info {
+/* Second row: */
+.power-header-table {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
+  gap: 2px;
   font-size: 12px;
-  opacity: 0.9;
+  opacity: 0.95;
+  margin-top: 2px;
+}
+
+/* Two-row grid: labels + values */
+.power-header-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr; /* Level | Action | Innate | Active */
+  padding: 0 2px;
+}
+
+/* Label row */
+.power-header-row--labels {
+  font-weight: bold;
+  text-align: center;
+  opacity: 0.75;
+}
+
+/* Value row */
+.power-header-row--values span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+}
+
+/* Icons for innate/active */
+.power-header-row--values i {
+  font-size: 12px;
+}
+
+/* Fix spacing so header looks clean */
+.power-header {
+  padding: 8px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px; /* slightly larger gap for table layout */
 }
 
 /* Collapsible body */
