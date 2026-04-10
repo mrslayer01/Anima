@@ -19,6 +19,10 @@ export function loadAllActorHandlerbarsHelpers() {
     if (a === b || a === c) return options.fn(this);
     return options.inverse(this);
   });
+  Handlebars.registerHelper("ifEither", function (a, b, options) {
+    return a || b ? options.fn(this) : options.inverse(this);
+  });
+
   Handlebars.registerHelper("lower", (str) => {
     return String(str).toLowerCase();
   });
@@ -72,6 +76,8 @@ export function loadAllActorHandlerbarsHelpers() {
     if (!max || max === 0) return 0;
     return Math.min(100, Math.floor((current / max) * 100));
   });
+  Handlebars.registerHelper("multiply", (a, b) => a * b);
+
   Handlebars.registerHelper("clsName", function (key) {
     return ABF_CLASSES[key].name;
   });

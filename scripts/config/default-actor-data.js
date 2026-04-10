@@ -156,7 +156,7 @@ export const DEFAULT_ACTOR_DATA = {
       },
       Psychic: {
         PsychicProjection: { base: 0, bonus: 0 },
-        PsychicPoints: { base: 1, bonus: 0, current: 0 },
+        PsychicPoints: { base: 1, bonus: 0, temp: 0 },
         PsychicPotential: { bonus: 0 }
       },
       Supernatural: {
@@ -223,7 +223,6 @@ export const DEFAULT_ACTOR_DATA = {
     usesMystic: true,
     usesDomine: true,
     usesPsychic: true,
-    usesSummoning: true,
     ignoreDPLimit: false
   },
   npc: {

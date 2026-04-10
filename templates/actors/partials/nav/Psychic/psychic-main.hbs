@@ -46,7 +46,7 @@
               <label class="path-name">
                 Final
               </label>
-              <span class="clickable psychic-attack-roll path-name" data-tooltip="Click to make psychic attack.">
+              <span class="path-name">
                 {{system.abilities.primary.Psychic.PsychicProjection.final}}
               </span>
             </div>
@@ -129,10 +129,10 @@
               <div class="imbalance-row">
                 <div class="imbalance-field">
                   <label class="path-name">
-                    Temp
+                    Free PP Used
                   </label>
                   <span class="path-name clickable pp-current-manual" data-tooltip="Click to manually edit">
-                    {{system.abilities.primary.Psychic.PsychicPoints.current}}
+                    {{system.abilities.primary.Psychic.PsychicPoints.temp}}
                   </span>
                 </div>
 
@@ -332,6 +332,9 @@
                     </tbody>
                   </table>
                   <div class="power-actions-bottom">
+                    <button class="psychic-attack-roll button" data-index="{{idx}}">
+                      Cast
+                    </button>
                     <button class="delete-mental-power button" data-index="{{idx}}">
                       Remove
                     </button>

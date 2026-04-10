@@ -5,18 +5,6 @@
     </h3>
     <section class="zeon block">
       <div class="field-row">
-        <label class="path-name" data-tooltip="Removes the DP limit.">
-          Is an NPC?
-        </label>
-        <div class="passive-icon clickable setting-isNPC">
-          {{#if system.settings.isNPC}}
-            <i class="fas fa-check"></i>
-          {{else}}
-            <i class="fas fa-times"></i>
-          {{/if}}
-        </div>
-      </div>
-      <div class="field-row">
         <label class="path-name">
           Mystic
         </label>
@@ -53,11 +41,11 @@
         </div>
       </div>
       <div class="field-row">
-        <label class="path-name">
-          Summoning
+        <label class="path-name" data-tooltip="Removes the DP limit.">
+          Is an NPC?
         </label>
-        <div class="passive-icon clickable setting-usesSummoning">
-          {{#if system.settings.usesSummoning}}
+        <div class="passive-icon clickable setting-isNPC">
+          {{#if system.settings.isNPC}}
             <i class="fas fa-check"></i>
           {{else}}
             <i class="fas fa-times"></i>

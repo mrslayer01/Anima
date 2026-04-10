@@ -75,6 +75,15 @@ export class MentalPowerPurchaseWindow extends Application {
       const source = ABF_MENTAL_POWERS[key];
 
       const actor = game.actors.get(this.actorId);
+
+      // VALIDATION
+      const error = this.validatePowerPurchase(actor, source);
+      if (error) {
+        ui.notifications.warn(error);
+        return;
+      }
+
+      // If valid, proceed
       const powers = foundry.utils.duplicate(actor.system.psychic.mentalPowers);
 
       powers.push({
@@ -92,5 +101,25 @@ export class MentalPowerPurchaseWindow extends Application {
 
       this.render(true);
     });
+  }
+
+  validatePowerPurchase(actor, power) {
+    const system = actor.system;
+
+    // 1. Already owned
+    const owned = system.psychic.mentalPowers?.map((p) => p.name) || [];
+    if (owned.includes(power.name)) {
+      return "You already know this Mental Power.";
+    }
+
+    // 2. PP availability
+    const ppRemaining = Number(system.psychic.pp.remaining) || 0;
+    const cost = 1; // cost per mental power
+
+    if (ppRemaining < cost) {
+      return `Not enough PP. Requires ${cost} PP, but you only have ${ppRemaining}.`;
+    }
+
+    return null; // ✔ valid
   }
 }

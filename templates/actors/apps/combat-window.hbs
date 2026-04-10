@@ -13,9 +13,26 @@
       </h3>
       <input type="number" id="zeonCost" value="{{zeonCost}}" style="width: 100%;" />
     </section>
+  {{/if}}
+
+  {{#if isPsychicAttack}}
+    <section style="margin-top: 1em;">
+      <h3>
+        Spend Free PP (Max: 5)
+      </h3>
+      <select id="ppProjectionSpend" class="selector" data-edit="false" style="width: 100%;">
+        {{#each ppProjectionOptions}}
+          <option value="{{this}}" {{#ifEquals this ../ppSpent}}selected{{/ifEquals}}>
+            {{this}} PP (+{{multiply this 10}})
+          </option>
+        {{/each}}
+      </select>
+  {{/if}}
+
+  {{#ifEither isSpellAttack isPsychicAttack}}
     <section>
       <h3>
-        AOE Spell?
+        AOE?
       </h3>
       <div class="clickable aoe-toggle">
         {{#if isAOE}}
@@ -25,7 +42,7 @@
         {{/if}}
       </div>
     </section>
-  {{/if}}
+  {{/ifEither}}
 
   <section style="margin-top: 1em;">
     <h3>

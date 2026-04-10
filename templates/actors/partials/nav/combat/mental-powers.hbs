@@ -1,0 +1,145 @@
+<h3>
+  Innate Mental Powers
+</h3>
+
+<div class="innate-mental-powers-grid">
+  {{#each system.psychic.mentalPowers as |power idx|}}
+    {{#if power.isActive}}
+      <div class="power-item" data-index="{{idx}}">
+        <!-- DISCIPLINE HEADER BAR -->
+        <div class="power-discipline-bar">
+          <h4
+            class="clickable discipline-name"
+            data-name="{{power.discipline}}"
+            data-tooltip="Click to open journal entry"
+          >
+            {{power.discipline}}
+          </h4>
+        </div>
+
+        <!-- HEADER -->
+        <div class="power-header">
+          <!-- FIRST ROW: NAME + CHEVRON -->
+          <div class="power-header-top">
+            <span class="power-name abf-text">
+              {{power.name}}
+            </span>
+
+            <button class="toggle-power clickable">
+              <i class="fas fa-chevron-down"></i>
+            </button>
+          </div>
+
+          <!-- SECOND ROW: TABLE-LIKE HEADER -->
+          <div class="power-header-table abf-text">
+            <div class="power-header-row power-header-row--labels">
+              <span>
+                Level
+              </span>
+              <span>
+                Action
+              </span>
+              <span>
+                Innate
+              </span>
+              <span>
+                Active
+              </span>
+            </div>
+            <div class="power-header-row power-header-row--values">
+              <span>
+                {{#ifEquals power.discipline "Matrix Powers"}}
+                  -
+                {{else}}
+                  {{power.level}}
+                {{/ifEquals}}
+              </span>
+              <span>
+                {{power.action}}
+              </span>
+              <span
+                class="clickable mental-power-innate"
+                data-index="{{idx}}"
+                data-tooltip="Set mental power as innate"
+              >
+                {{#if power.innate}}
+                  <i class="fas fa-check"></i>
+                {{else}}
+                  <i class="fas fa-times"></i>
+                {{/if}}
+              </span>
+              <span
+                class="clickable mental-power-active"
+                data-index="{{idx}}"
+                data-tooltip="Set mental power as active"
+              >
+                {{#if power.isActive}}
+                  <i class="fas fa-check"></i>
+                {{else}}
+                  <i class="fas fa-times"></i>
+                {{/if}}
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- BODY -->
+        <div class="power-body">
+          <p class="abf-text">
+            <strong>
+              Description:
+            </strong>
+            {{power.description}}
+          </p>
+
+          {{#if power.modifiers}}
+            <h4>
+              Modifiers
+            </h4>
+            <div class="abf-text modifiers">
+              {{{power.modifiers}}}
+            </div>
+          {{/if}}
+
+          <h4>
+            Effects
+          </h4>
+          <table class="classes-table">
+            <thead>
+              <tr>
+                <th>
+                  Difficulty
+                </th>
+                <th>
+                  Effect
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {{#each power.effects}}
+                <tr>
+                  <td class="abf-text">
+                    <strong>
+                      {{this.difficulty}}
+                    </strong>
+                  </td>
+                  <td class="abf-text">
+                    {{this.effect}}
+                  </td>
+                </tr>
+              {{/each}}
+            </tbody>
+          </table>
+          <div class="power-actions-bottom">
+            <button class="psychic-attack-roll button" data-index="{{idx}}">
+              Cast
+            </button>
+            <button class="delete-mental-power button" data-index="{{idx}}">
+              Remove
+            </button>
+          </div>
+        </div>
+      </div>
+    {{/if}}
+  {{/each}}
+</div>

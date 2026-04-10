@@ -290,26 +290,47 @@ export async function castCheck({ value, difficulty, label, actor, capture = fal
   setTimeout(() => sendChat(content, actor), 2000);
 }
 
+//#region Psychic
+
 export async function castPsychicPower(actor, index) {
   const powers = actor.system.psychic.mentalPowers;
   const power = powers[index];
-  if (!power) return;
+  if (!power) return false;
+
+  // 0. Ask user for custom modifier + PP spend
+  const { mod, spentPP, roll } = await promptPsychicModifierAndPP(actor);
+
+  if (!roll) return false;
+
+  // PP bonus = 20 per PP spent
+  const ppBonus = spentPP * 20;
 
   // 1. Roll Psychic Potential
   const rollTotal = await psychicPotentialRoll(actor);
 
+  // Apply modifiers
+  const finalPotential = rollTotal.total + mod + ppBonus;
+
   // 2. Determine effect tier
-  const effect = getTriggeredEffect(power, rollTotal.total);
+  const effect = getTriggeredEffect(power, finalPotential);
 
   if (!effect) {
     sendChat(`<b>${power.name}</b>: No effect triggered.`, actor);
-    return;
+    return false;
   }
 
-  // 3. Send result to chat
-  sendPowerEffectToChat(actor, power, effect, rollTotal);
+  // 3. Deduct PP spent
+  if (spentPP > 0) {
+    await actor.update({
+      "system.abilities.primary.Psychic.PsychicPoints.temp":
+        actor.system.abilities.primary.Psychic.PsychicPoints.temp + spentPP
+    });
+  }
 
-  return effect;
+  // 4. Send result to chat
+  sendPowerEffectToChat(actor, power, effect, rollTotal, mod, spentPP, ppBonus, finalPotential);
+
+  return true;
 }
 
 async function psychicPotentialRoll(actor, { capture = true, hideDice = false } = {}) {
@@ -323,15 +344,13 @@ async function psychicPotentialRoll(actor, { capture = true, hideDice = false } 
     mastery: false,
     undeveloped: false,
     actor,
-    capture, // return data instead of sending chat
-    hideDice, // optional
-    timeout: 2000 // faster than attacks
+    capture,
+    hideDice,
+    timeout: 2000
   });
 
-  // result = { total, bonus, final, rawRolls, breakdown, label, actor }
-
   return {
-    total: result.final, // <-- this is the final Psychic Potential result
+    total: result.final,
     bonus: result.bonus,
     rawTotal: result.total,
     rolls: result.rawRolls
@@ -353,7 +372,16 @@ function getTriggeredEffect(power, rollTotal) {
   return triggered;
 }
 
-function sendPowerEffectToChat(actor, power, effect, rollTotal) {
+function sendPowerEffectToChat(
+  actor,
+  power,
+  effect,
+  rollTotal,
+  mod,
+  spentPP,
+  ppBonus,
+  finalPotential
+) {
   const breakdown = rollTotal.rolls.join("<br>");
 
   const content = `
@@ -361,10 +389,12 @@ function sendPowerEffectToChat(actor, power, effect, rollTotal) {
     <hr>
 
     <b>Psychic Potential Roll</b><br>
-    <b>Breakdown:</b> <br> ${breakdown}<br>
+    <b>Breakdown:</b><br>${breakdown}<br>
     <b>Raw Total:</b> ${rollTotal.rawTotal}<br>
-    <b>Psychic Potential:</b> ${rollTotal.bonus}<br>
-    <b>Final Total:</b> ${rollTotal.total}<br>
+    <b>Base Potential Bonus:</b> ${rollTotal.bonus}<br>
+    <b>Custom Modifier:</b> ${mod}<br>
+    <b>PP Spent:</b> ${spentPP} ( +${ppBonus} )<br>
+    <b>Final Total:</b> ${finalPotential}<br>
 
     <hr>
     <b>Triggered Effect:</b><br>
@@ -374,3 +404,64 @@ function sendPowerEffectToChat(actor, power, effect, rollTotal) {
 
   setTimeout(() => sendChat(content, actor), 2000);
 }
+
+export function promptPsychicModifierAndPP(actor) {
+  const freePP =
+    toNum(actor.system.psychic.pp.remaining) -
+    toNum(actor.system.abilities.primary.Psychic.PsychicPoints.temp);
+  const maxSpend = Math.min(5, freePP);
+
+  return new Promise((resolve) => {
+    const dlg = new Dialog({
+      title: "Psychic Potential Roll",
+      content: `
+        <div style="margin-bottom: 0.75em;">
+          <label><b>Custom Modifier:</b></label>
+          <input type="number" id="psychicModifierInput" data-edit="false" data-dtype="none"
+                 value="0" style="width: 100%; margin-top: 0.25em;" />
+        </div>
+
+        <div style="margin-bottom: 0.75em;">
+          <label><b>Spend Free PP (max ${maxSpend}):</b></label>
+          <select id="psychicPPSpend" data-edit="false" data-dtype="none"
+                  style="width: 100%; margin-top: 0.25em;">
+            ${[...Array(maxSpend + 1).keys()]
+              .map((i) => `<option value="${i}">${i} PP (+${i * 20})</option>`)
+              .join("")}
+          </select>
+        </div>
+      `,
+      buttons: {
+        ok: {
+          label: "Confirm",
+          callback: (html) => {
+            const mod = Number(html.find("#psychicModifierInput").val()) || 0;
+            const spentPP = Number(html.find("#psychicPPSpend").val()) || 0;
+            resolve({ mod, spentPP, roll: true });
+          }
+        },
+        cancel: {
+          label: "Cancel",
+          callback: () => resolve({ mod: 0, spentPP: 0, roll: false })
+        }
+      },
+      default: "ok",
+      render: (html) => {
+        html.find("#psychicPPSpend").on("change", (ev) => ev.stopPropagation());
+        html.find("#psychicModifierInput").on("change", (ev) => ev.stopPropagation());
+      }
+    });
+
+    dlg.render(true);
+
+    setTimeout(() => {
+      const input = document.getElementById("psychicModifierInput");
+      if (input) {
+        input.focus();
+        input.select();
+      }
+    }, 10);
+  });
+}
+
+//#endregion

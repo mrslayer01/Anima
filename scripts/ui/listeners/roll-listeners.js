@@ -203,7 +203,8 @@ export function RollListeners(sheet, html) {
     } = await promptAttackModifierWindow({
       isSpellAttack: false,
       weapon: w,
-      attackValue
+      attackValue,
+      actor: sheet.actor
     });
 
     let attackType = atkTypeInitial;
@@ -295,7 +296,8 @@ export function RollListeners(sheet, html) {
     const { final, region, directed, attackType, zeonCost, isAOE } =
       await promptAttackModifierWindow({
         isSpellAttack: true,
-        attackValue
+        attackValue,
+        actor: sheet.actor
       });
 
     attackValue += final;
@@ -356,21 +358,18 @@ export function RollListeners(sheet, html) {
 
     const targets = Array.from(game.user.targets);
 
-    const psychicPotential = actor.system.abilities.primary.Psychic.PsychicPotential;
     const psychicProjection = actor.system.abilities.primary.Psychic.PsychicProjection;
 
     let attackValue = toNum(psychicProjection.final);
-    let psychicPotentialFinal = toNum(psychicPotential.final);
 
-    // Before doing anything, first make a psychicProjection check and rescord the results.
+    // Before doing anything, first make a Psychic Potential check and record the results.
 
     const powers = actor.system.psychic.mentalPowers;
     const power = powers[index];
     if (!power) return;
 
     const castPower = await castPsychicPower(actor, index);
-
-    console.log(castPower);
+    if (!castPower) return;
 
     // If there is no target, prompt the choice between manual attack, or non combat porjection.
     if (targets.length === 0) {
@@ -383,12 +382,21 @@ export function RollListeners(sheet, html) {
       if (!isSpellAttack) return;
     }
 
-    const { final, region, directed, attackType, isAOE } = await promptAttackModifierWindow({
-      isSpellAttack: true,
-      attackValue
-    });
+    const { final, region, directed, attackType, isAOE, ppSpent, ppBonus } =
+      await promptAttackModifierWindow({
+        isPsychicAttack: true,
+        attackValue,
+        actor: sheet.actor
+      });
 
-    attackValue += final;
+    attackValue += final + (ppBonus ?? 0);
+
+    if (ppSpent > 0) {
+      await actor.update({
+        "system.abilities.primary.Psychic.PsychicPoints.temp":
+          (actor.system.abilities.primary.Psychic.PsychicPoints.temp || 0) + ppSpent
+      });
+    }
 
     let armorPen = 0; // spells normally have no armor penetration
     const weaponType = "Psychic Attack";
@@ -556,38 +564,6 @@ async function getDefense(defenderUser, targetActor, attackData) {
     defense = await promptDefenseChoice(options);
   }
   return defense;
-}
-
-async function getDefenseMulti(defenderUser, targetActor, attackData, requestId) {
-  const block = toNum(targetActor.system.abilities.primary.Combat.Block.final);
-  const dodge = toNum(targetActor.system.abilities.primary.Combat.Dodge.final);
-  const projection = toNum(
-    targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
-  );
-
-  const options = { targetActor, attackData, block, dodge, projection };
-
-  // Local defender
-  if (defenderUser.id === game.user.id) {
-    return await promptDefenseChoice(options);
-  }
-
-  // Online defender → multi-target socket
-  if (defenderUser.active) {
-    game.socket.emit("system.abf-system", {
-      type: "defense:prompt-multi",
-      requestId,
-      userId: defenderUser.id,
-      attackerId: game.user.id,
-      targetId: targetActor.id,
-      attackData
-    });
-
-    return await waitForDefenseResponseMulti(requestId);
-  }
-
-  // Offline → GM handles
-  return await promptDefenseChoice(options);
 }
 
 function DefensePenalty(weaponType, type, blockMastery, equippedshield, dodgeMastery) {

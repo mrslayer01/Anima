@@ -132,6 +132,49 @@
           </div>
         </div>
       {{/if}}
+
+      {{#if actor.system.settings.usesPsychic}}
+        <h4>Psychic Projection</h4>
+          <div class="field-row">
+            <label class="path-name">
+              Bonus
+            </label>
+            <span class="path-name">
+              {{system.abilities.primary.Psychic.PsychicProjection.bonus}}
+            </span>
+          </div>
+
+          <div class="field-row">
+            <label class="path-name">
+              Final
+            </label>
+            <span class="path-name">
+              {{system.abilities.primary.Psychic.PsychicProjection.final}}
+            </span>
+          </div>
+          <h4>Psychic Points</h4>
+          <div class="imbalance-group">
+            <div class="imbalance-row">
+              <div class="imbalance-field">
+                <label class="path-name">
+                  Free PP Used
+                </label>
+                <span class="path-name clickable pp-current-manual" data-tooltip="Click to manually edit">
+                  {{system.abilities.primary.Psychic.PsychicPoints.temp}}
+                </span>
+              </div>
+
+              <div class="imbalance-field">
+                <label class="path-name">
+                  Remaining
+                </label>
+                <span class="path-name">
+                  {{system.psychic.pp.remaining}}
+                </span>
+              </div>
+            </div>
+          </div>
+      {{/if}}
     </section>
 
 <section>
@@ -147,30 +190,6 @@
 
           <ul class="module-list">
             {{#each system.modules.WeaponModules as |mod idx|}}
-              <li class="module-row">
-                <span
-                  class="clickable clickable-module"
-                  data-index="{{idx}}"
-                  data-module="{{mod.name}}"
-                  data-type="{{mod.type}}"
-                >
-                  {{mod.name}}
-                </span>
-              </li>
-            {{/each}}
-          </ul>
-        </div>
-
-        <!-- MYSTICAL MODULES -->
-        <div class="module-card">
-          <div>
-            <h3>
-              Mystical Modules
-            </h3>
-          </div>
-
-          <ul class="module-list">
-            {{#each system.modules.MysticalModules as |mod idx|}}
               <li class="module-row">
                 <span
                   class="clickable clickable-module"
@@ -209,6 +228,33 @@
           </ul>
         </div>
 
+        {{#if actor.system.settings.usesMystic}}
+        <!-- MYSTICAL MODULES -->
+        <div class="module-card">
+          <div>
+            <h3>
+              Mystical Modules
+            </h3>
+          </div>
+
+          <ul class="module-list">
+            {{#each system.modules.MysticalModules as |mod idx|}}
+              <li class="module-row">
+                <span
+                  class="clickable clickable-module"
+                  data-index="{{idx}}"
+                  data-module="{{mod.name}}"
+                  data-type="{{mod.type}}"
+                >
+                  {{mod.name}}
+                </span>
+              </li>
+            {{/each}}
+          </ul>
+        </div>
+        {{/if}}
+
+        {{#if actor.system.settings.usesPsychic}}
         <!-- PSYCHIC MODULES -->
         <div class="module-card">
           <div>
@@ -232,7 +278,9 @@
             {{/each}}
           </ul>
         </div>
+        {{/if}}
 
+        {{#if actor.system.settings.usesDomine}}
         <div class="module-card">
           <div>
             <h3>
@@ -255,6 +303,7 @@
             {{/each}}
           </ul>
         </div>
+        {{/if}}
       </div>
 </section>
   </div>
@@ -273,6 +322,11 @@
     {{#if actor.system.settings.usesDomine}}
     <section>
       <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/techniques.hbs" }}</div>
+    </section>
+    {{/if}}
+    {{#if actor.system.settings.usesPsychic}}
+    <section>
+      <div class="secondary-header">{{> "systems/abf-system/templates/actors/partials/nav/combat/mental-powers.hbs" }}</div>
     </section>
     {{/if}}
   </div>

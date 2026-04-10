@@ -111,7 +111,7 @@ export function PsychicListeners(sheet, html) {
     if (value === null) return;
 
     await actor.update({
-      "system.abilities.primary.Psychic.PsychicPoints.current": value
+      "system.abilities.primary.Psychic.PsychicPoints.temp": value
     });
   });
 
@@ -155,16 +155,29 @@ export function PsychicListeners(sheet, html) {
   html.find(".mental-power-innate").on("click", async (ev) => {
     ev.preventDefault();
 
-    const index = toNum(ev.currentTarget.dataset.index);
+    const index = Number(ev.currentTarget.dataset.index);
     const actor = sheet.actor;
 
-    // Clone array
     const powers = foundry.utils.duplicate(actor.system.psychic.mentalPowers);
-
     const power = powers[index];
     if (!power) return;
 
-    // Toggle
+    const maxSlots = Number(actor.system.abilities.primary.Psychic.PsychicPoints.innateSlots) || 0;
+
+    // Count how many are already innate
+    const currentInnate = powers.filter((p) => p.innate).length;
+
+    // If trying to turn ON innate
+    if (!power.innate) {
+      if (currentInnate >= maxSlots) {
+        ui.notifications.warn(
+          `No innate slots available. You have ${currentInnate}/${maxSlots} innate powers.`
+        );
+        return;
+      }
+    }
+
+    // Toggle innate
     power.innate = !power.innate;
 
     // Update actor

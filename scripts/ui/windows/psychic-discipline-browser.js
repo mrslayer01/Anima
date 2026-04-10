@@ -63,13 +63,16 @@ export class DisciplineBrowser extends Application {
       const source = ABF_PSYCHIC_DISCIPLINES[key];
 
       const actor = game.actors.get(this.actorId);
-      const owned = foundry.utils.duplicate(actor.system.psychic.disciplines || []);
 
-      // Prevent duplicates
-      if (owned.some((d) => d.name === source.name)) {
-        ui.notifications.warn("You already have this Discipline.");
+      // VALIDATION
+      const error = this.validateDisciplinePurchase(actor, source);
+      if (error) {
+        ui.notifications.warn(error);
         return;
       }
+
+      // If valid, proceed
+      const owned = foundry.utils.duplicate(actor.system.psychic.disciplines || []);
 
       const newDiscipline = {
         name: source.name,
@@ -85,5 +88,24 @@ export class DisciplineBrowser extends Application {
 
       this.close();
     });
+  }
+  validateDisciplinePurchase(actor, discipline) {
+    const system = actor.system;
+
+    // 1. Already owned
+    const owned = system.psychic.disciplines?.map((d) => d.name) || [];
+    if (owned.includes(discipline.name)) {
+      return "You already have this Discipline.";
+    }
+
+    // 2. PP availability
+    const ppRemaining = Number(system.psychic.pp.remaining) || 0;
+    const cost = 4; // Affinity cost per discipline (from your PP rules)
+
+    if (ppRemaining < cost) {
+      return `Not enough PP. Requires ${cost} PP, but you only have ${ppRemaining}.`;
+    }
+
+    return null;
   }
 }

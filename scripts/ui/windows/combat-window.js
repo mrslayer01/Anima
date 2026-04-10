@@ -10,9 +10,12 @@ export class CombatWindow extends Application {
     super(options);
     this._resolve = resolve;
     this.isSpellAttack = options.isSpellAttack ?? false;
+    this.isPsychicAttack = options.isPsychicAttack ?? false;
     this.weapon = options.weapon ?? null;
     this.isAOE = options.isAOE ?? false;
     this.atkValue = options.attackValue ?? 0;
+    this.actor = options.actor;
+    this.ppSpent = 0;
   }
 
   static get defaultOptions() {
@@ -28,7 +31,7 @@ export class CombatWindow extends Application {
   }
 
   getData() {
-    if (!this.isSpellAttack) {
+    if (!this.isSpellAttack && !this.isPsychicAttack) {
       const weaponAttackTypes = [this.weapon.primaryAtkType, this.weapon.secondaryAtkType];
       return {
         modifier: 0,
@@ -46,7 +49,7 @@ export class CombatWindow extends Application {
         attackTypes: weaponAttackTypes,
         atkValue: this.atkValue
       };
-    } else {
+    } else if (this.isSpellAttack) {
       return {
         modifier: 0,
         atkMod: this.atkMod ?? 0,
@@ -65,6 +68,30 @@ export class CombatWindow extends Application {
         attackTypes: SPELL_ATTACK_TYPES,
         isAOE: this.isAOE,
         atkValue: this.atkValue
+      };
+    } else {
+      const freePP = this.actor.system.psychic.pp.remaining ?? 0;
+      const maxSpend = Math.min(5, freePP);
+
+      return {
+        modifier: 0,
+        atkMod: this.atkMod ?? 0,
+        directedOptions: Object.entries(DIRECTED_ATTACK_TABLE).map(([name, value]) => ({
+          name,
+          value
+        })),
+        combatModifiers: Object.entries(COMBAT_SITUATIONAL_MODIFIERS_SUPERNATURAL).map(
+          ([name, data]) => ({
+            name,
+            attack: data.attack
+          })
+        ),
+        isPsychicAttack: this.isPsychicAttack,
+        attackTypes: SPELL_ATTACK_TYPES,
+        isAOE: this.isAOE,
+        atkValue: this.atkValue,
+        ppProjectionOptions: [...Array(maxSpend + 1).keys()], // 0..maxSpend
+        ppSpent: this.ppSpen
       };
     }
   }
@@ -88,6 +115,10 @@ export class CombatWindow extends Application {
     html.find("#directedAttack").on("change", updateTotal);
     html.find("#combatModifier").on("change", updateTotal);
 
+    html.find("#ppProjectionSpend").on("change", (ev) => {
+      this.ppSpent = toNum(ev.currentTarget.value) || 0;
+    });
+
     updateTotal(); // initialize
 
     html.find(".aoe-toggle").on("click", async (ev) => {
@@ -105,15 +136,17 @@ export class CombatWindow extends Application {
       const combatMod = COMBAT_SITUATIONAL_MODIFIERS[combatModPart].attack ?? 0;
       const region = DIRECTED_TO_REGION[directed] ?? null;
       const zeonCost = toNum(html.find("#zeonCost").val());
-
-      //let attackType = "";
       const attackType = html.find("#attackType").val();
 
-      // if (this.isSpellAttack) {
-      //   attackType = SPELL_ATTACK_TYPES
-      // }
+      let ppSpent = 0;
+      let ppBonus = 0;
 
-      const final = atkMod + directedPenalty + combatMod;
+      if (this.isPsychicAttack) {
+        ppSpent = this.ppSpent || 0;
+        ppBonus = ppSpent * 10;
+      }
+
+      const final = atkMod + directedPenalty + combatMod + ppBonus;
 
       this._resolve({
         atkMod,
@@ -123,7 +156,9 @@ export class CombatWindow extends Application {
         attackType,
         final,
         zeonCost,
-        isAOE: this.isAOE
+        isAOE: this.isAOE,
+        ppSpent,
+        ppBonus
       });
 
       this.close();
@@ -154,13 +189,6 @@ const DIRECTED_TO_REGION = {
 };
 
 const SPELL_ATTACK_TYPES = ["ene", "hea", "col", "ele", "imp"];
-// const SPELL_ATTACK_TYPES = {
-//   eneregy: { value: "ene" },
-//   heat: { value: "hea" },
-//   cold: { value: "col" },
-//   electricity: { value: "ele" },
-//   impact: { value: "imp" }
-// };
 
 export function getSituationalModifier(situationKey, stat) {
   const entry = COMBAT_SITUATIONAL_MODIFIERS[situationKey];
