@@ -220,9 +220,9 @@ export const DEFAULT_ACTOR_DATA = {
   },
   settings: {
     isNPC: false,
-    usesMystic: true,
-    usesDomine: true,
-    usesPsychic: true,
+    usesMystic: false,
+    usesDomine: false,
+    usesPsychic: false,
     ignoreDPLimit: false
   },
   npc: {
