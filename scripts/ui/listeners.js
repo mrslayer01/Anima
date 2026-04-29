@@ -48,6 +48,17 @@ export function registerSheetListeners(sheet, html) {
     sheet.render(); // refresh UI
   });
 
+  html.find(".custom-open-roll").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".custom-open-roll").on("click", (ev) => {
+    const actor = sheet.actor;
+
+    actor.update({
+      "system.lockUi": !locked
+    });
+
+    sheet.render(); // refresh UI
+  });
+
   // Click class name for information
   html.find(".clickable-ability").click((ev) => {
     ev.preventDefault();

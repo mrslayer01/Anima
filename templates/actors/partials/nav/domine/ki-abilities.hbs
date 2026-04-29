@@ -4,10 +4,18 @@
       {{ability.name}} ({{ability.mkCost}})
     </span>
 
-    {{#if ability.purchased}}
-      <i class="fas fa-check ki-toggle-ability purchased"></i>
+    {{#if @root.actor.system.lockUi}}
+      {{#if ability.purchased}}
+        <i class="fas fa-check purchased"></i>
+      {{else}}
+        <i class="fas fa-times"></i>
+      {{/if}}
     {{else}}
-      <i class="fas fa-times ki-toggle-ability"></i>
+      {{#if ability.purchased}}
+        <i class="fas fa-check ki-toggle-ability purchased"></i>
+      {{else}}
+        <i class="fas fa-times ki-toggle-ability"></i>
+      {{/if}}
     {{/if}}
   </div>
 

@@ -37,11 +37,59 @@ export function RollListeners(sheet, html) {
   html.find(".open-roll").on("click", (ev) => {
     const char = ev.currentTarget.dataset.char;
 
-    animaOpenRoll({
-      value: sheet.actor.system.characteristics[char].final,
-      label: `${char} Open Roll`,
-      actor: sheet.actor
-    });
+    new Dialog({
+      title: "Open Roll Modifier",
+      content: `
+                    <div style="margin-bottom: 1em;">
+                      <label><b>Modifier:</b></label>
+                      <input type="number" id="mod" value="0" style="width: 100%;" />
+                    </div>
+                  `,
+      buttons: {
+        roll: {
+          label: "Roll",
+          callback: (html) => {
+            const modifier = toNum(html.find("#mod").val());
+
+            animaOpenRoll({
+              value: sheet.actor.system.characteristics[char].final + modifier,
+              label: `${char} Open Roll`,
+              actor: sheet.actor
+            });
+          }
+        }
+      },
+      default: "roll"
+    }).render(true);
+  });
+
+  //Custom Open Roll
+  html.find(".custom-open-roll").off("click"); //before adding new listener, remove old to avoid duplicates
+  html.find(".custom-open-roll").on("click", (ev) => {
+    new Dialog({
+      title: "Open Roll Modifier",
+      content: `
+                    <div style="margin-bottom: 1em;">
+                      <label><b>Modifier:</b></label>
+                      <input type="number" id="mod" value="0" style="width: 100%;" />
+                    </div>
+                  `,
+      buttons: {
+        roll: {
+          label: "Roll",
+          callback: (html) => {
+            const modifier = toNum(html.find("#mod").val());
+
+            animaOpenRoll({
+              value: modifier,
+              label: "Custom Open Roll",
+              actor: sheet.actor
+            });
+          }
+        }
+      },
+      default: "roll"
+    }).render(true);
   });
 
   //Ability Open Roll
