@@ -515,7 +515,7 @@ export const ABILITIES_PRIMARIES_SCHEMA = {
     physicalPenalty: true
   },
   WearArmor: {
-    characteristic: "Agility",
+    characteristic: "Strength",
     naturalPenalty: false,
     physicalPenalty: false
   },
