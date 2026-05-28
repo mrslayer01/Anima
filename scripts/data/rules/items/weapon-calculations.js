@@ -1,4 +1,8 @@
-import { getBreakageBonus, lookupCharacteristicMod } from "../../../utils/lookup.js";
+import {
+  getBreakageBonus,
+  lookupCharacteristicMod,
+  RANGED_DISTANCE_BY_STRENGTH_IN_FEET
+} from "../../../utils/lookup.js";
 import { toNum } from "../../../utils/numbers.js";
 
 export async function WeaponBaseCalculations(actor) {
@@ -108,15 +112,16 @@ export async function UpdateWeapon(actor) {
         }
       }
       if (toNum(w.projectileWeaponStrength) > 0) {
-        // If projectile weapon has a listed strength, (crossbows, etc) use that instead of base strength.
-        finalProjectileRange =
-          toNum(w.projectileWeaponRange.base) +
-          lookupCharacteristicMod(toNum(w.projectileWeaponStrength));
+        // If projectile weapon has a listed strength, (crossbows, etc) use that instead of base strength, same for when calculating range
+        finalProjectileRange = metersToFeet(toNum(w.projectileWeaponRange.base));
         finalDamage =
           baseDamage + lookupCharacteristicMod(toNum(w.projectileWeaponStrength)) + ammoStr;
       } else {
-        // Don't add strength mod to ranged damage, being stronger does not make the arrow hit harder.
-        finalProjectileRange = toNum(w.projectileWeaponRange.base) + strMod;
+        // Don't add strength mod to ranged damage, being stronger does not make the arrow hit harder, but it does make the arrow fly further.
+        const baseFeet = metersToFeet(toNum(w.projectileWeaponRange.base));
+        const bonusFeet = getRangedDistance(strBase);
+
+        finalProjectileRange = roundToNearest5(baseFeet + bonusFeet);
         finalDamage = baseDamage + ammoStr;
       }
     }
@@ -200,3 +205,12 @@ function strength(strengthReq, handling, str) {
   }
   return penalty;
 }
+
+function getRangedDistance(str) {
+  if (str >= 16) return RANGED_DISTANCE_BY_STRENGTH_IN_FEET[16];
+  return RANGED_DISTANCE_BY_STRENGTH_IN_FEET[str] ?? 0;
+}
+
+const roundToNearest5 = (value) => Math.round(value / 5) * 5;
+
+const metersToFeet = (m) => Math.floor(m * 3.28084);

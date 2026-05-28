@@ -501,6 +501,8 @@ async function manualDefend(sheet, attackData) {
     }).render(true);
   });
 
+  console.log(result);
+
   let dodgeMastery = false;
   let blockMastery = false;
 

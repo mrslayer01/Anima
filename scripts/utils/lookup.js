@@ -18,6 +18,23 @@ export function lookupCharacteristicMod(base) {
   return 45;
 }
 
+export const RANGED_DISTANCE_BY_STRENGTH_IN_FEET = {
+  3: -100,
+  4: -30,
+  5: 0,
+  6: 0,
+  7: 30,
+  8: 60,
+  9: 100,
+  10: 150,
+  11: 300,
+  12: 800,
+  13: 1500,
+  14: 5280, // 1 mile
+  15: 15840, // 3 miles
+  16: 26400 // 5 miles (used for 16+)
+};
+
 export const difficultyMap = {
   0: "None",
   20: "Routine",

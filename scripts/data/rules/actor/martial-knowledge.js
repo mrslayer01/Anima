@@ -75,15 +75,28 @@ export class MartialKnowledgeRule extends BaseRule {
 function recalcMK(system) {
   const mk = system.martialKnowledge;
 
-  mk.final = toNum(mk.class) + toNum(mk.bonus) + toNum(mk.special);
+  const baseFinal = toNum(mk.class) + toNum(mk.bonus) + toNum(mk.special);
 
   let spent = 0;
+  let martialArtBonus = 0;
+
   for (const rec of mk.spentRecords) {
-    spent += toNum(rec.amount) * toNum(rec.cost);
+    const cost = toNum(rec.cost);
+    const amount = toNum(rec.amount);
+
+    // Martial Arts: cost is negative, they ADD to final MK, not to spent
+    if (rec.category === "MartialArt" && cost < 0) {
+      martialArtBonus += amount * -cost; // invert sign, e.g. -30 → +30
+      continue;
+    }
+
+    // Everything else: normal MK expenditures (positive cost)
+    spent += amount * cost;
   }
 
+  mk.final = baseFinal + martialArtBonus;
   mk.spent = spent;
-  mk.remaining = mk.final - spent;
+  mk.remaining = mk.final - mk.spent;
 }
 
 // ------------------------------------------------------------

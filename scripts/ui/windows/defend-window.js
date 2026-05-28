@@ -60,15 +60,16 @@ export class DefendWindow extends Application {
 
     const updateTotal = () => {
       const defMod = toNum(html.find("#defMod").val());
+      this.modifier = defMod;
       const combatModPart = html.find("#combatModifier").val();
       const combatModDodge = COMBAT_SITUATIONAL_MODIFIERS[combatModPart].dodge ?? 0;
       const combatModBlock = COMBAT_SITUATIONAL_MODIFIERS[combatModPart].block ?? 0;
       const combatModProjection =
         COMBAT_SITUATIONAL_MODIFIERS_SUPERNATURAL[combatModPart]?.block ?? 0;
 
-      const dodgeTotal = this.dodge + defMod + combatModDodge + this.defenseValue;
-      const blockTotal = this.block + defMod + combatModBlock + this.defenseValue;
-      const projTotal = this.projection + defMod + combatModProjection + this.defenseValue;
+      const dodgeTotal = this.dodge + this.modifier + combatModDodge + this.defenseValue;
+      const blockTotal = this.block + this.modifier + combatModBlock + this.defenseValue;
+      const projTotal = this.projection + this.modifier + combatModProjection + this.defenseValue;
       //const total = this.atkValue + defMod + directedPenalty + combatMod;
 
       //console.log(this.atkValue);

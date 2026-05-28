@@ -1,5 +1,5 @@
-2026/04/29-10:30:56.260 16c8 Log #104: 0 ops saved to Table #105 OK
-2026/04/29-10:30:56.261 16c8 Archiving D:\foundry\Data\Data\systems\abf-system\packs\macros/000104.log: OK
-2026/04/29-10:30:56.270 16c8 Table #91: 5 entries OK
-2026/04/29-10:30:56.321 16c8 Archiving D:\foundry\Data\Data\systems\abf-system\packs\macros/MANIFEST-000136: OK
-2026/04/29-10:30:56.368 16c8 **** Repaired leveldb D:\foundry\Data\Data\systems\abf-system\packs\macros; recovered 1 files; 5258 bytes. Some data may have been lost. ****
+2026/05/28-13:13:31.000 a50c Log #137: 0 ops saved to Table #138 OK
+2026/05/28-13:13:31.000 a50c Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\macros/000137.log: OK
+2026/05/28-13:13:31.000 a50c Table #91: 5 entries OK
+2026/05/28-13:13:31.002 a50c Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\macros/MANIFEST-000106: OK
+2026/05/28-13:13:31.004 a50c **** Repaired leveldb C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\macros; recovered 1 files; 5258 bytes. Some data may have been lost. ****
