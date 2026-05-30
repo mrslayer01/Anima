@@ -64,4 +64,26 @@ export function SettingsListeners(sheet, html) {
     const isActive = actor.system.settings.ignoreDPLimit === true;
     await actor.update({ "system.settings.ignoreDPLimit": !isActive });
   });
+
+  html.find(".setting-isInhuman").off("click");
+  html.find(".setting-isInhuman").on("click", async (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    const actor = sheet.actor;
+
+    const isActive = actor.system.settings.isInhuman === true;
+    await actor.update({ "system.settings.isInhuman": !isActive });
+  });
+
+  html.find(".setting-isZen").off("click");
+  html.find(".setting-isZen").on("click", async (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    const actor = sheet.actor;
+
+    const isActive = actor.system.settings.isZen === true;
+    await actor.update({ "system.settings.isZen": !isActive });
+  });
 }

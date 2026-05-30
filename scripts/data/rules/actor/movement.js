@@ -18,8 +18,8 @@ export class MovementRule extends BaseRule {
     let movement = agility + moveBonus + armorPenalty;
 
     if (movement <= 0) movement = 1;
-    const hasInhuman = system.movement.inhuman;
-    const hasZen = system.movement.zen;
+    const hasInhuman = system.settings.isInhuman;
+    const hasZen = system.settings.isZen;
 
     const cap = movementCap(hasInhuman, hasZen);
     system.movement.final = Math.min(movement, cap);
@@ -68,8 +68,8 @@ export class MovementRule extends BaseRule {
     let movement = agility + moveBonus + armorPenalty;
 
     if (movement <= 0) movement = 1;
-    const hasInhuman = system.movement.inhuman;
-    const hasZen = system.movement.zen;
+    const hasInhuman = system.settings.isInhuman;
+    const hasZen = system.settings.isZen;
 
     const cap = movementCap(hasInhuman, hasZen);
     system.movement.final = Math.min(movement, cap);
