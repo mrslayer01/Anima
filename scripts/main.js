@@ -116,19 +116,4 @@ Hooks.once("ready", () => {
 
   // Register OUR handler
   game.socket.on("system.abf-system", abfSocketHandler);
-
-  // SHIFT + Right‑Click targeting...
-  canvas.stage.on("rightdown", (event) => {
-    const ev = event.data.originalEvent;
-    if (!ev.shiftKey || ev.button !== 2) return;
-
-    const { x, y } = event.data.getLocalPosition(canvas.tokens);
-    const token = canvas.tokens.placeables.find((t) => t.bounds.contains(x, y));
-    if (!token) return;
-
-    event.stopPropagation();
-    event.preventDefault();
-
-    token.setTarget(!token.isTargeted, { releaseOthers: false });
-  });
 });

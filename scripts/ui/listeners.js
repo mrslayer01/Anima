@@ -120,7 +120,8 @@ export function registerSheetListeners(sheet, html) {
     const maxValue = input.dataset.max !== undefined ? toNum(input.dataset.max) : Infinity;
 
     const raw = String(input.value).trim();
-    const previous = toNum(input.dataset.current ?? input.value) || 0;
+    let previous = toNum(input.dataset.current ?? input.value);
+    if (Number.isNaN(previous)) previous = 0;
 
     let newValue = previous;
 
@@ -129,7 +130,7 @@ export function registerSheetListeners(sheet, html) {
 
     // Parse number
     const numeric = toNum(raw);
-    if (toNum.isNaN(numeric)) {
+    if (Number.isNaN(numeric)) {
       input.value = previous;
       return;
     }

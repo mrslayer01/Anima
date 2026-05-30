@@ -16,6 +16,9 @@ export class CombatWindow extends Application {
     this.atkValue = options.attackValue ?? 0;
     this.actor = options.actor;
     this.ppSpent = 0;
+    this.directed = options.directed ?? null;
+    this.combatModPart = options.combatModPart ?? null;
+    this.attackType = options.attackType ?? null;
   }
 
   static get defaultOptions() {
@@ -111,6 +114,15 @@ export class CombatWindow extends Application {
       html.find("#totalMod").text(total);
     };
 
+    const persistFields = () => {
+      this.atkMod = toNum(html.find("#atkMod").val());
+      this.zeonCost = toNum(html.find("#zeonCost").val());
+      this.directed = html.find("#directedAttack").val();
+      this.combatModPart = html.find("#combatModifier").val();
+      this.attackType = html.find("#attackType").val();
+      this.ppSpent = toNum(html.find("#ppProjectionSpend").val()) || 0;
+    };
+
     html.find("#atkMod").on("change", updateTotal);
     html.find("#directedAttack").on("change", updateTotal);
     html.find("#combatModifier").on("change", updateTotal);
@@ -122,6 +134,7 @@ export class CombatWindow extends Application {
     updateTotal(); // initialize
 
     html.find(".aoe-toggle").on("click", async (ev) => {
+      persistFields();
       this.isAOE = !this.isAOE; // toggle the value
       this.render(); // re-render to update the icon
     });

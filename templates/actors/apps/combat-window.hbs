@@ -50,7 +50,9 @@
     </h3>
     <select id="directedAttack" class="selector" style="width: 100%;">
       {{#each directedOptions}}
-        <option value="{{this.name}}">{{humanize this.name}} ({{this.value}})</option>
+        <option value="{{this.name}}" {{#ifEquals this.name ../directed}}selected{{/ifEquals}}>
+          {{humanize this.name}} ({{this.value}})
+        </option>
       {{/each}}
     </select>
   </section>
@@ -60,7 +62,9 @@
     </h3>
     <select id="combatModifier" class="selector" style="width: 100%;">
       {{#each combatModifiers}}
-        <option value="{{this.name}}">{{humanize this.name}} ({{this.attack}})</option>
+        <option value="{{this.name}}" {{#ifEquals this.name ../combatModPart}}selected{{/ifEquals}}>
+          {{humanize this.name}} ({{this.attack}})
+        </option>
       {{/each}}
     </select>
   </section>
@@ -70,7 +74,9 @@
     </h3>
     <select id="attackType" class="selector" style="width: 100%;">
       {{#each attackTypes}}
-        <option value="{{this}}">{{humanize this}}</option>
+        <option value="{{this}}" {{#ifEquals this ../attackType}}selected{{/ifEquals}}>
+          {{humanize this}}
+        </option>
       {{/each}}
     </select>
   </section>
