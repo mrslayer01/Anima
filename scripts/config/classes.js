@@ -875,9 +875,10 @@ export const ABF_CLASSES = {
         { name: "Notice", innateBonus: 10, reducedCost: 0 },
         { name: "Search", innateBonus: 10, reducedCost: 0 },
         { name: "Track", innateBonus: 10, reducedCost: 0 },
-        { name: "Trap Lore", innateBonus: 5, reducedCost: 0 },
-        { name: "Animals", innateBonus: 5, reducedCost: 0 },
-        { name: "Herbal Lore", innateBonus: 5, reducedCost: 0 }
+        { name: "Trap Lore", innateBonus: 5, reducedCost: 1 },
+        { name: "Animals", innateBonus: 5, reducedCost: 1 },
+        { name: "Herbal Lore", innateBonus: 5, reducedCost: 2 },
+        { name: "Medicine", innateBonus: 0, reducedCost: 2 }
       ]
     },
 
