@@ -824,7 +824,7 @@ export const ABF_CLASSES = {
 
     initiativePerLevel: 5,
 
-    martialKnowledgePerLevel: 30,
+    martialKnowledgePerLevel: 20,
 
     psychicPointsPerLevel: 1,
     psychicPointsInterval: 3,
@@ -841,7 +841,7 @@ export const ABF_CLASSES = {
       Dodge: 2,
       WearArmor: 2,
       Ki: 2,
-      KiAccumulation: 15
+      KiAccumulation: 25
     },
 
     supernaturalAbilityCosts: {
@@ -862,19 +862,26 @@ export const ABF_CLASSES = {
     secondaryAbilityCosts: {
       Athletics: 2,
       Social: 2,
-      Perception: 2,
+      Perception: 1,
       Intellectual: 3,
-      Vigor: 2,
+      Vigor: 3,
       Subterfuge: 2,
       Creative: 2
     },
 
     innateBonuses: {
-      primaryAbilities: [],
-      secondaryAbilities: [{ name: "Style", innateBonus: 5, reducedCost: 0 }]
+      primaryAbilities: [{ name: "Attack", innateBonus: 5 }],
+      secondaryAbilities: [
+        { name: "Notice", innateBonus: 10, reducedCost: 0 },
+        { name: "Search", innateBonus: 10, reducedCost: 0 },
+        { name: "Track", innateBonus: 10, reducedCost: 0 },
+        { name: "Trap Lore", innateBonus: 5, reducedCost: 0 },
+        { name: "Animals", innateBonus: 5, reducedCost: 0 },
+        { name: "Herbal Lore", innateBonus: 5, reducedCost: 0 }
+      ]
     },
 
-    specialRules: "Martial arts cost only 20 DP (10 for the first martial art learned).",
+    specialRules: "+10 per level to Detect Ki (only if developed).",
     journalEntry:
       "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM.JournalEntryPage.cqaw9g7WpSNofzJB"
   }),
