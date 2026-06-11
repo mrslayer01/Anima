@@ -62,18 +62,32 @@ async function getJournalPageFromCompendium(rawName) {
 
   const target = normalizeNameJournal(rawName);
 
+  let bestMatch = null;
+  let bestScore = 0;
+
   for (const entryMeta of entries) {
     const entry = await pack.getDocument(entryMeta._id);
 
     for (const page of entry.pages) {
       const pageKey = normalizeNameJournal(page.name);
 
-      // CONTAINS MATCH (both directions)
-      if (pageKey.includes(target) || target.includes(pageKey)) {
-        return { entry, page };
+      let score = 0;
+
+      // 1. Exact match (highest priority)
+      if (pageKey === target) score = 100;
+      // 2. Whole-word match (medium priority)
+      else if (target.includes(pageKey) && pageKey.length > 4) score = 50;
+      // 3. Contains match (fallback)
+      else if (pageKey.includes(target) || target.includes(pageKey)) score = 10;
+
+      if (score > bestScore) {
+        bestScore = score;
+        bestMatch = { entry, page };
       }
     }
   }
+
+  if (bestMatch) return bestMatch;
 
   ui.notifications.warn(`Journal page matching "${rawName}" not found.`);
   return null;

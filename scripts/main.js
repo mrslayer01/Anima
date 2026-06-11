@@ -79,8 +79,21 @@ Hooks.once("ready", () => {
   }
 
   // Define handler ONCE
+
   abfSocketHandler = (msg) => {
-    if (msg.type === "defense:prompt" && msg.userId === game.user.id) {
+    // Only the intended user opens the window
+    if (msg.userId !== game.user.id) return;
+
+    const actor = game.actors.get(msg.targetId);
+    if (!actor) return;
+
+    // Compute stats LOCALLY on the defender's client
+    const block = actor.system.abilities.primary.Combat.Block.final;
+    const dodge = actor.system.abilities.primary.Combat.Dodge.final;
+    const projection = actor.system.abilities.primary.Supernatural.MagicProjection.final;
+
+    // Single-target
+    if (msg.type === "defense:prompt") {
       new DefendWindow(
         (defense) => {
           game.socket.emit("system.abf-system", {
@@ -90,13 +103,16 @@ Hooks.once("ready", () => {
           });
         },
         {
-          targetActor: game.actors.get(msg.targetId),
-          attackData: msg.attackData
+          attackData: msg.attackData,
+          block,
+          dodge,
+          projection
         }
       ).render(true);
     }
 
-    if (msg.type === "defense:prompt-multi" && msg.userId === game.user.id) {
+    // Multi-target
+    if (msg.type === "defense:prompt-multi") {
       new DefendWindow(
         (defense) => {
           game.socket.emit("system.abf-system", {
@@ -106,9 +122,11 @@ Hooks.once("ready", () => {
           });
         },
         {
-          targetActor: game.actors.get(msg.targetId),
           attackData: msg.attackData,
-          requestId: msg.requestId
+          requestId: msg.requestId,
+          block,
+          dodge,
+          projection
         }
       ).render(true);
     }
