@@ -39,6 +39,16 @@
       {{/each}}
     </select>
   </section>
+  <section style="margin-top: 1em;">
+    <h3>
+      Multiple Defends
+    </h3>
+    <select id="defendModifier" class="selector" style="width: 100%;">
+      {{#each defendModifiers}}
+        <option value="{{this.name}}">{{humanize this.name}} (Block: {{this.block}}, Dodge: {{this.dodge}})</option>
+      {{/each}}
+    </select>
+  </section>
 
   {{#if manual}}
     <section style="margin-top: 1em;">

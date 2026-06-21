@@ -1093,3 +1093,26 @@ export const COMBAT_SITUATIONAL_MODIFIERS_SUPERNATURAL = {
     action: -100
   }
 };
+
+export const COMBAT_MULTIPLE_DEFENSE = {
+  None: {
+    block: 0,
+    dodge: 0
+  },
+  SecondAttack: {
+    block: -30,
+    dodge: -30
+  },
+  ThirdAttack: {
+    block: -50,
+    dodge: -50
+  },
+  FourthAttack: {
+    block: -70,
+    dodge: -70
+  },
+  FifthAttack: {
+    block: -90,
+    dodge: -90
+  }
+};

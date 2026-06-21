@@ -1,4 +1,5 @@
 import {
+  COMBAT_MULTIPLE_DEFENSE,
   COMBAT_SITUATIONAL_MODIFIERS,
   COMBAT_SITUATIONAL_MODIFIERS_SUPERNATURAL
 } from "../../utils/lookup.js";
@@ -51,6 +52,11 @@ export class DefendWindow extends Application {
         name,
         block: data.block,
         dodge: data.dodge
+      })),
+      defendModifiers: Object.entries(COMBAT_MULTIPLE_DEFENSE).map(([name, data]) => ({
+        name,
+        block: data.block,
+        dodge: data.dodge
       }))
     };
   }
@@ -67,8 +73,14 @@ export class DefendWindow extends Application {
       const combatModProjection =
         COMBAT_SITUATIONAL_MODIFIERS_SUPERNATURAL[combatModPart]?.block ?? 0;
 
-      const dodgeTotal = this.dodge + this.modifier + combatModDodge + this.defenseValue;
-      const blockTotal = this.block + this.modifier + combatModBlock + this.defenseValue;
+      const defendModPart = html.find("#defendModifier").val();
+      const defendModDodge = COMBAT_MULTIPLE_DEFENSE[defendModPart].dodge ?? 0;
+      const defendModBlock = COMBAT_MULTIPLE_DEFENSE[defendModPart].block ?? 0;
+
+      const dodgeTotal =
+        this.dodge + this.modifier + combatModDodge + this.defenseValue + defendModDodge;
+      const blockTotal =
+        this.block + this.modifier + combatModBlock + this.defenseValue + defendModBlock;
       const projTotal = this.projection + this.modifier + combatModProjection + this.defenseValue;
       //const total = this.atkValue + defMod + directedPenalty + combatMod;
 
@@ -83,6 +95,7 @@ export class DefendWindow extends Application {
     // Update modifier live
     html.find("#defMod").on("change", updateTotal);
     html.find("#combatModifier").on("change", updateTotal);
+    html.find("#defendModifier").on("change", updateTotal);
 
     // Handle defense button clicks
     html.find(".def-btn").on("click", async (ev) => {
@@ -93,12 +106,16 @@ export class DefendWindow extends Application {
       const combatModProjection =
         COMBAT_SITUATIONAL_MODIFIERS_SUPERNATURAL[combatModPart]?.block ?? 0;
 
+      const defendModPart = html.find("#defendModifier").val();
+      const defendModDodge = COMBAT_MULTIPLE_DEFENSE[defendModPart].dodge ?? 0;
+      const defendModBlock = COMBAT_MULTIPLE_DEFENSE[defendModPart].block ?? 0;
+
       let finalMod = 0;
 
       if (type === "dodge") {
-        finalMod = this.modifier + combatModDodge;
+        finalMod = this.modifier + combatModDodge + defendModDodge;
       } else if (type === "block") {
-        finalMod = this.modifier + combatModBlock;
+        finalMod = this.modifier + combatModBlock + defendModBlock;
       } else if (type === "projection") {
         finalMod = this.modifier + combatModProjection;
       }
