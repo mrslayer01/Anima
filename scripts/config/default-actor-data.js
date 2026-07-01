@@ -20,6 +20,8 @@ export const DEFAULT_ACTOR_DATA = {
   contacts: [],
   xp: { current: 0 },
   armor: {},
+  armorRequirement: {},
+  notes: "",
   core: {
     lifePoints: {
       current: 0,
@@ -146,8 +148,6 @@ export const DEFAULT_ACTOR_DATA = {
             Constitution: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },
             Dexterity: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },
             Strength: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },
-            Intelligence: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },
-            Perception: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },
             Power: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } },
             Willpower: { base: 0, bonus: 0, kiAccumulation: { base: 0, bonus: 0 } }
           },
@@ -216,7 +216,11 @@ export const DEFAULT_ACTOR_DATA = {
       100: { current: 0 }
     },
     spells: [],
-    freeAccessSpells: []
+    freeAccessSpells: [],
+    activeSpells: [],
+    spellItems: [],
+    faSpellItems: [],
+    faSpellGroups: []
   },
   settings: {
     isNPC: false,

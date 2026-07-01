@@ -30,8 +30,10 @@
           class="advantage-name clickable-advantage"
           data-index="{{idx}}"
           data-advantage="{{adv.name}}"
-          {{#orEquals adv.name "Aptitude in a Subject" "Natural Learner"}} data-tooltip="Secondary: {{adv.special}}"{{/orEquals}}
-          {{#orEquals adv.name "Aptitude in a Field" "Natural Learner (Field)"}} data-tooltip="Secondary Category: {{adv.special}}"{{/orEquals}}
+          {{#ifEquals adv.name "Add One Point To A Characteristic"}} data-tooltip="Characteristic: {{adv.selection.characteristic}}"{{/ifEquals}}
+          {{#orEquals adv.name "Aptitude in a Subject" "Natural Learner"}} data-tooltip="Secondary Ability: {{adv.selection.secondaryAbility}}"{{/orEquals}}
+          {{#orEquals adv.name "Aptitude in a Field" "Natural Learner (Field)"}} data-tooltip="Secondary Category: {{adv.selection.secondaryCategory}}"{{/orEquals}}
+          {{#ifEquals adv.name "Natural Knowledge of a Path"}} data-tooltip="Path: {{adv.selection.mysticPath}}"{{/ifEquals}}
         >
           {{adv.name}}
         </td>

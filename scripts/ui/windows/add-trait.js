@@ -1,5 +1,11 @@
 import { ABF_ADVANTAGES } from "../../config/advantages.js";
 import { ABF_DISADVANTAGES } from "../../config/disadvantages.js";
+import {
+  ABILITIES_SECONDARIES_CATEGORIES_SCHEMA,
+  ABILITIES_SECONDARIES_SCHEMA,
+  CHARACTERISTIC_SCHEMA,
+  MYSTIC_PATHS
+} from "../../utils/lookup.js";
 import { toNum } from "../../utils/numbers.js";
 
 export class AddTraitWindow extends Application {
@@ -8,8 +14,8 @@ export class AddTraitWindow extends Application {
     this.actorId = options.actorId;
 
     this.search = "";
-    this.filterType = options.initialFilter ?? "All";
-    this.initialFilter = options.initialFilter ?? null;
+    this.filterType = "All"; // Common / Magic / Psychic
+    this.traitCategory = options.traitCategory ?? "Advantage"; // Advantage / Disadvantage
     this.costOverrides = {};
   }
 
@@ -27,22 +33,26 @@ export class AddTraitWindow extends Application {
   }
 
   getData() {
-    // Convert advantages
     let advantages = Object.entries(ABF_ADVANTAGES).map(([key, data]) => ({
       key,
       ...data,
-      type: "Advantage"
+      traitType: "Advantage",
+      type: data.type ?? "Common"
     }));
 
-    // Convert disadvantages
     let disadvantages = Object.entries(ABF_DISADVANTAGES).map(([key, data]) => ({
       key,
       ...data,
-      type: "Disadvantage"
+      traitType: "Disadvantage",
+      type: data.type ?? "Common"
     }));
 
-    // Merge
     let items = [...advantages, ...disadvantages];
+
+    // Filter by Advantage / Disadvantage
+    if (this.traitCategory !== "All") {
+      items = items.filter((i) => i.traitType === this.traitCategory);
+    }
 
     // Filter by type
     if (this.filterType !== "All") {
@@ -60,11 +70,39 @@ export class AddTraitWindow extends Application {
       );
     }
 
+    for (const trait of items) {
+      if (!trait.choices) continue;
+
+      trait.choiceOptions = {};
+
+      for (const choice of trait.choices) {
+        // Characteristic
+        if (choice.type === "characteristic") {
+          trait.choiceOptions[choice.id] = Object.keys(CHARACTERISTIC_SCHEMA);
+        }
+
+        // Secondary Ability
+        if (choice.type === "secondaryAbility") {
+          trait.choiceOptions[choice.id] = Object.keys(ABILITIES_SECONDARIES_SCHEMA);
+        }
+
+        // Secondary Category
+        if (choice.type === "secondaryCategory") {
+          trait.choiceOptions[choice.id] = Object.keys(ABILITIES_SECONDARIES_CATEGORIES_SCHEMA);
+        }
+
+        // Mystic Path
+        if (choice.type === "mysticPath") {
+          trait.choiceOptions[choice.id] = Object.keys(MYSTIC_PATHS);
+        }
+      }
+    }
+
     return {
       traits: items,
       search: this.search,
       filterType: this.filterType,
-      types: this.initialFilter ? [this.initialFilter] : ["All", "Advantage", "Disadvantage"]
+      types: ["All", "Common", "Magic", "Psychic"]
     };
   }
 
@@ -90,12 +128,23 @@ export class AddTraitWindow extends Application {
       this.costOverrides[key] = value;
     });
 
+    // Choice selection
+    html.find(".trait-choice-select").on("change", (ev) => {
+      const key = ev.currentTarget.dataset.key;
+      const choiceId = ev.currentTarget.dataset.choiceId;
+      const value = ev.currentTarget.value;
+
+      if (!this.selectedChoices) this.selectedChoices = {};
+      if (!this.selectedChoices[key]) this.selectedChoices[key] = {};
+
+      this.selectedChoices[key][choiceId] = value;
+    });
+
     // Add trait
     html.find(".add-trait").on("click", async (ev) => {
       const key = ev.currentTarget.dataset.key;
 
       const base = ABF_ADVANTAGES[key] ?? ABF_DISADVANTAGES[key];
-
       const traitData = foundry.utils.duplicate(base);
 
       // Apply cost override
@@ -103,11 +152,14 @@ export class AddTraitWindow extends Application {
         traitData.cost = this.costOverrides[key];
       }
 
+      // Apply choice selections
+      if (this.selectedChoices?.[key]) {
+        traitData.selection = this.selectedChoices[key];
+      }
+
       const actor = game.actors.get(this.actorId);
 
-      // Determine path
       const path = ABF_ADVANTAGES[key] ? "system.advantages" : "system.disadvantages";
-
       const arr = foundry.utils.duplicate(foundry.utils.getProperty(actor, path) ?? []);
       arr.push(traitData);
 

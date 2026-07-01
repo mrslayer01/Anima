@@ -1,6 +1,13 @@
 <div class="trait-browser">
   <div class="browser-controls">
     <input type="text" class="trait-search" placeholder="Search traits..." value="{{search}}" />
+    <select class="trait-filter select">
+      {{#each types}}
+        <option value="{{this}}" {{#if (eq this ../filterType)}}selected{{/if}}>
+          {{this}}
+        </option>
+      {{/each}}
+    </select>
   </div>
 
   <div class="trait-list effects-grid">
@@ -11,11 +18,11 @@
             {{this.name}}
           </h3>
           <span class="trait-type abf-text">
-            {{this.type}}
+            Type: {{this.type}}
           </span>
         </div>
 
-        {{#ifEquals this.type "Advantage"}}
+        {{#ifEquals this.traitType "Advantage"}}
           <p class="trait-meta abf-text">
             <strong>
               Cost:
@@ -59,6 +66,27 @@
             {{this.description}}
           </p>
         {{/if}}
+
+        {{#if this.choices}}
+        <div class="trait-choice-block">
+          {{#each this.choices}}
+            <p class="trait-meta abf-text select">
+              <strong>{{this.label}}:</strong>
+
+              <select class="trait-choice-select"
+                      data-key="{{../key}}"
+                      data-choice-id="{{this.id}}">
+                <option value="">-- Select --</option>
+
+                {{#each (lookup ../choiceOptions this.id)}}
+                  <option value="{{this}}">{{this}}</option>
+                {{/each}}
+              </select>
+            </p>
+          {{/each}}
+        </div>
+      {{/if}}
+
 
         <div class="trait-actions">
           <button class="add-trait button" data-key="{{this.key}}">

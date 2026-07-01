@@ -230,6 +230,17 @@ export const SECONDARY_WEAPON_TYPES = [
 ];
 
 //#region Schema
+export const CHARACTERISTIC_SCHEMA = {
+  Agility: "Agility",
+  Constitution: "Constitution",
+  Dexterity: "Dexterity",
+  Strength: "Strength",
+  Intelligence: "Intelligence",
+  Perception: "Perception",
+  Power: "Power",
+  Willpower: "Willpower"
+};
+
 export const RESISTANCE_SCHEMA = {
   Physical: "Constitution",
   Disease: "Constitution",
@@ -514,6 +525,16 @@ export const ABILITIES_SECONDARIES_SCHEMA = {
   }
 };
 
+export const ABILITIES_SECONDARIES_CATEGORIES_SCHEMA = {
+  Athletics: "Athletics",
+  Subterfuge: "Subterfuge",
+  Intellectual: "Intellectual",
+  Creative: "Creative",
+  Social: "Social",
+  Vigor: "Vigor",
+  Perception: "Perception"
+};
+
 export const ABILITIES_PRIMARIES_SCHEMA = {
   // Combat
   Attack: {
@@ -572,6 +593,20 @@ export const ABILITIES_PRIMARIES_SCHEMA = {
     naturalPenalty: false,
     physicalPenalty: false
   }
+};
+
+export const MYSTIC_PATHS = {
+  Essence: "Essence",
+  Water: "Water",
+  Earth: "Earth",
+  Creation: "Creation",
+  Darkness: "Darkness",
+  Necromancy: "Necromancy",
+  Light: "Light",
+  Destruction: "Destruction",
+  Air: "Air",
+  Fire: "Fire",
+  Illusion: "Illucion"
 };
 
 //#endregion

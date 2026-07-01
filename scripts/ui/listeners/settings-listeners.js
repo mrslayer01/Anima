@@ -43,17 +43,6 @@ export function SettingsListeners(sheet, html) {
     await actor.update({ "system.settings.usesPsychic": !isActive });
   });
 
-  html.find(".setting-usesSummoning").off("click");
-  html.find(".setting-usesSummoning").on("click", async (ev) => {
-    ev.preventDefault();
-    ev.stopPropagation();
-
-    const actor = sheet.actor;
-
-    const isActive = actor.system.settings.usesSummoning === true;
-    await actor.update({ "system.settings.usesSummoning": !isActive });
-  });
-
   html.find(".setting-ignoreDPLimit").off("click");
   html.find(".setting-ignoreDPLimit").on("click", async (ev) => {
     ev.preventDefault();

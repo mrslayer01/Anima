@@ -25,15 +25,11 @@ export class AbfActor extends Actor {
   prepareData() {
     super.prepareData();
 
-    // Skip until system.core exists
     if (!this.system?.core) return;
 
-    if (this._needsInit) {
-      for (const rule of INIT_RULES) rule.Derived(this.system, this);
-      for (const rule of MOD_RULES) rule.Derived(this.system);
-      for (const rule of FINAL_RULES) rule.Derived(this.system, this);
-
-      this._needsInit = false;
+    // Mark that we need initialization
+    if (!this._initialized) {
+      this._needsInit = true;
     }
   }
 
@@ -57,18 +53,40 @@ export class AbfActor extends Actor {
   prepareDerivedData() {
     super.prepareDerivedData();
 
-    if (this._needsInit) return;
     if (!this.system?.core) return;
 
     const system = this.system;
 
-    // Phase 1
-    for (const rule of INIT_RULES) rule.Derived(system, this);
+    // Run initialization rules ONCE
+    if (this._needsInit) {
+      for (const rule of INIT_RULES) {
+        rule.Initialize?.(system, this);
+        rule.Derived(system, this);
+      }
 
-    // Phase 2
-    for (const rule of MOD_RULES) rule.Derived(system);
+      for (const rule of MOD_RULES) {
+        rule.Derived(system);
+      }
 
-    // Phase 3 — Apply Active Effects
+      for (const rule of FINAL_RULES) {
+        rule.Derived(system, this);
+      }
+
+      this._needsInit = false;
+      this._initialized = true;
+      return; // Initialization complete
+    }
+
+    // Normal derived pass
+    for (const rule of INIT_RULES) {
+      rule.Derived(system, this);
+    }
+
+    for (const rule of MOD_RULES) {
+      rule.Derived(system);
+    }
+
+    // Active effects
     for (const effect of this.effects) {
       const mods = effect.flags?.abf?.modifiers;
       if (!mods) continue;
@@ -79,13 +97,12 @@ export class AbfActor extends Actor {
       }
     }
 
-    // recompute totals after effects
     calculateModifiers(system);
 
-    // Phase 4 — Final rules
-    for (const rule of FINAL_RULES) rule.Derived(system, this);
+    for (const rule of FINAL_RULES) {
+      rule.Derived(system, this);
+    }
 
-    // Finalize
     for (const mod of Object.values(system.globalModifiers)) {
       mod.final = mod.base + mod.special + mod.armor;
     }

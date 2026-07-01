@@ -21,6 +21,9 @@ export class ArmorRule extends BaseRule {
     for (const type of DAMAGE_TYPES) {
       total[type] ??= 0;
     }
+
+    if (system.armor.combinedPenalties === undefined) system.armor.combinedPenalties = [];
+    if (system.armorRequirement.total === undefined) system.armorRequirement.total = 0;
   }
 
   Derived(system, actor) {

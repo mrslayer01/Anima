@@ -7,7 +7,9 @@ export function createAdvantage(advInput) {
     special = "",
     cost = 0,
     description = "",
-    journal = ""
+    journal = "",
+    choices = null,
+    selection = null
   } = advInput;
 
   return {
@@ -18,7 +20,9 @@ export function createAdvantage(advInput) {
     special,
     cost,
     description,
-    journal
+    journal,
+    choices,
+    selection
   };
 }
 
@@ -34,7 +38,15 @@ export const ABF_ADVANTAGES = {
     cost: 1,
     description: "One of the character's attributes is greater than before. Cost: 1",
     journal:
-      "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.UgeRpnAbbdvgZzYS"
+      "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.UgeRpnAbbdvgZzYS",
+    choices: [
+      {
+        id: "characteristic",
+        type: "characteristic",
+        label: "Choose a Characteristic",
+        multiple: false
+      }
+    ]
   }),
 
   acuteSenses: createAdvantage({
@@ -85,7 +97,15 @@ export const ABF_ADVANTAGES = {
     cost: 2,
     description: "One of the character’s attributes is significantly enhanced. Cost: 2",
     journal:
-      "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.MaFHAx7KG9X2Wcjv"
+      "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.MaFHAx7KG9X2Wcjv",
+    choices: [
+      {
+        id: "characteristic",
+        type: "characteristic",
+        label: "Choose a Characteristic",
+        multiple: false
+      }
+    ]
   }),
 
   accessToOnePsychicDiscipline: createAdvantage({
@@ -175,7 +195,15 @@ export const ABF_ADVANTAGES = {
     cost: 1,
     description: "The character excels naturally in one specific Secondary Ability. Cost: 1, 2",
     journal:
-      "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.P8vxEabfG9gt03JB"
+      "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.P8vxEabfG9gt03JB",
+    choices: [
+      {
+        id: "secondaryAbility",
+        type: "secondaryAbility",
+        label: "Choose a Secondary Ability",
+        multiple: false
+      }
+    ]
   }),
 
   accessToNaturalPsychicPowers: createAdvantage({
@@ -201,7 +229,15 @@ export const ABF_ADVANTAGES = {
     description:
       "The character learns an entire category of abilities with exceptional ease. Cost: 2",
     journal:
-      "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.iIV5swnbFVVDBYSL"
+      "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.iIV5swnbFVVDBYSL",
+    choices: [
+      {
+        id: "secondaryCategory",
+        type: "secondaryCategory",
+        label: "Choose a Secondary Category",
+        multiple: false
+      }
+    ]
   }),
 
   repeatACharacteristicsRoll: createAdvantage({
@@ -478,7 +514,15 @@ export const ABF_ADVANTAGES = {
     cost: 1,
     description: "The character naturally improves in a specific Secondary Ability. Cost: 1, 2, 3",
     journal:
-      "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.97sqnOIivuB6klZE"
+      "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.97sqnOIivuB6klZE",
+    choices: [
+      {
+        id: "secondaryAbility",
+        type: "secondaryAbility",
+        label: "Choose a Secondary Ability",
+        multiple: false
+      }
+    ]
   }),
 
   naturalLearnerField: createAdvantage({
@@ -492,7 +536,15 @@ export const ABF_ADVANTAGES = {
     description:
       "The character improves naturally in all Secondary Abilities within a chosen field. Cost: 2, 3",
     journal:
-      "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.ZQkRWwjvjn3wcZxh"
+      "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.ZQkRWwjvjn3wcZxh",
+    choices: [
+      {
+        id: "secondaryCategory",
+        type: "secondaryCategory",
+        label: "Choose a Secondary Category",
+        multiple: false
+      }
+    ]
   }),
 
   exceptionalMagicResistance: createAdvantage({
@@ -575,7 +627,15 @@ export const ABF_ADVANTAGES = {
     description:
       "The character can cast certain spells naturally, without study, as if the Path responds instinctively to him. Cost: 1",
     journal:
-      "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.7IYLuwlpvaHC0mt1"
+      "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.7IYLuwlpvaHC0mt1",
+    choices: [
+      {
+        id: "mysticPath",
+        type: "mysticPath",
+        label: "Choose a Path",
+        multiple: false
+      }
+    ]
   }),
 
   contestedSpellMastery: createAdvantage({

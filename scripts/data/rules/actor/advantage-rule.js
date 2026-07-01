@@ -65,6 +65,7 @@ function calculateAdvantages(system) {
   const hasExceptPhr = advantages.find((l) => l.name === "Exceptional Physical Resistance");
   const hasExceptPr = advantages.find((l) => l.name === "Exceptional Psychic Resistance");
   const hasTheGift = advantages.find((l) => l.name === "The Gift");
+  const hasAddPointToChar = advantages.find((l) => l.name === "Add One Point To A Characteristic");
 
   if (hasAptitudeSubject !== undefined) AptitudeInASubject(system, hasAptitudeSubject);
   if (hasAptitudeField !== undefined) AptitudeInAField(system, hasAptitudeField);
@@ -82,16 +83,40 @@ function calculateAdvantages(system) {
     ResistanceAdvantages(system, hasExceptMR, hasExceptPhr, hasExceptPr);
 
   if (hasTheGift !== undefined) TheGift(system);
+  if (hasAddPointToChar !== undefined) AddOnePointToACharacteristic(system, hasAddPointToChar);
 }
 
 //#region Advantages
+
+function AddOnePointToACharacteristic(system, adv) {
+  const chosen = adv.selection?.characteristic;
+  if (!chosen) return;
+
+  const current = system.characteristics[chosen].base;
+
+  // Apply restriction caps
+  const physicalCaps = ["Strength", "Dexterity", "Agility", "Constitution"];
+  const mentalCaps = ["Intelligence", "Power", "Willpower", "Perception"];
+
+  let cap = 99; // default fallback
+
+  if (physicalCaps.includes(chosen)) cap = 11;
+  if (mentalCaps.includes(chosen)) cap = 13;
+
+  const newValue = Math.min(current + 1, cap);
+
+  system.characteristics[chosen].base = newValue;
+}
+
 function AptitudeInASubject(system, adv) {
   // Handles Aptitude in a subject which reduces the chosen abilities cost by 1 or 2 depending on the cost, can't reduce below 1.
   // This will overwrite whatever the class cost is for the secondary ability.
-  // Ability name is stored in the special field.
+  const chosen = adv.selection?.secondaryAbility;
+  if (!chosen) return;
+
   for (const [categoryName, category] of Object.entries(system.abilities.secondary)) {
     for (const [abilityName, ability] of Object.entries(category)) {
-      if (abilityName === adv.special) {
+      if (abilityName === chosen) {
         const oldCost = toNum(system.abilities.secondary[categoryName][abilityName].cost);
         if (oldCost === 0) return; // Means a class has not been selected.
 
@@ -108,9 +133,11 @@ function AptitudeInASubject(system, adv) {
 function AptitudeInAField(system, adv) {
   // Handles Aptitude in a Field which reduces the chosen abilities cost by 1, can't reduce below 1.
   // This will overwrite whatever the class cost is for the secondary ability.
-  // Category name is stored in the special field.
+  const chosen = adv.selection?.secondaryCategory;
+  if (!chosen) return;
+
   for (const [categoryName, category] of Object.entries(system.abilities.secondary)) {
-    if (categoryName === adv.special) {
+    if (categoryName === chosen) {
       for (const [abilityName, ability] of Object.entries(category)) {
         const oldCost = toNum(system.abilities.secondary[categoryName][abilityName].cost);
         if (oldCost === 0) return; // Means a class has not been selected.
@@ -126,9 +153,12 @@ function AptitudeInAField(system, adv) {
 
 function NaturalLearner(system, adv) {
   // +10 / +20 / +30 per level in one Secondary Ability. 1, 2, 3
+  const chosen = adv.selection?.secondaryAbility;
+  if (!chosen) return;
+
   for (const [categoryName, category] of Object.entries(system.abilities.secondary)) {
     for (const [abilityName, ability] of Object.entries(category)) {
-      if (abilityName === adv.special) {
+      if (abilityName === chosen) {
         const oldSpecial = toNum(system.abilities.secondary[categoryName][abilityName].special);
         let cost = toNum(adv.cost);
 
@@ -140,8 +170,11 @@ function NaturalLearner(system, adv) {
 
 function NaturalLearnerField(system, adv) {
   // +5 / +10 per level to all abilities in a field. 2, 3
+  const chosen = adv.selection?.secondaryCategory;
+  if (!chosen) return;
+
   for (const [categoryName, category] of Object.entries(system.abilities.secondary)) {
-    if (categoryName === adv.special) {
+    if (categoryName === chosen) {
       for (const [abilityName, ability] of Object.entries(category)) {
         const oldSpecial = toNum(system.abilities.secondary[categoryName][abilityName].special);
         let cost = toNum(adv.cost);

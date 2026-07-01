@@ -14,6 +14,7 @@ export class KiRule extends BaseRule {
     if (!kiPath.reserve) kiPath.reserve = 0;
 
     for (const [name, char] of Object.entries(kiPath.characteristics)) {
+      if (char === "Intelligence" || char === "Perception") return;
       if (char.cost === undefined) char.cost = 0;
       if (char.special === undefined) char.special = 0;
       if (char.final === undefined) char.final = 0;

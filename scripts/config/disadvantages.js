@@ -5,7 +5,9 @@ export function createDisadvantage(disAdvInput) {
     effects = "",
     benefit = "",
     description = "",
-    journal = ""
+    journal = "",
+    choices = null,
+    selection = null
   } = disAdvInput;
 
   return {
@@ -14,7 +16,9 @@ export function createDisadvantage(disAdvInput) {
     effects,
     benefit,
     description,
-    journal
+    journal,
+    choices,
+    selection
   };
 }
 
@@ -167,7 +171,15 @@ export const ABF_DISADVANTAGES = {
     benefit: "1",
     description: "One of the character’s Characteristics is less developed than it should be.",
     journal:
-      "Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.CIWB1agNEZD7ag9v"
+      "Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.CIWB1agNEZD7ag9v",
+    choices: [
+      {
+        id: "characteristic",
+        type: "characteristic",
+        label: "Choose a Characteristic",
+        multiple: false
+      }
+    ]
   }),
 
   unfortunate: createDisadvantage({

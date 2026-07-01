@@ -23,14 +23,14 @@ function TraitAddButtons(sheet, html) {
   html.find(".add-advantage").on("click", () => {
     new AddTraitWindow({
       actorId: sheet.actor.id,
-      initialFilter: "Advantage"
+      traitCategory: "Advantage"
     }).render(true);
   });
 
   html.find(".add-disadvantage").on("click", () => {
     new AddTraitWindow({
       actorId: sheet.actor.id,
-      initialFilter: "Disadvantage"
+      traitCategory: "Disadvantage"
     }).render(true);
   });
 }

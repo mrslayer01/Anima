@@ -3,11 +3,10 @@
     "types": ["character"],
     "character": {
       "system": {
+        "armorRequirement": {},
         "classes": [],
         "core": {},
-        "level": 0,
         "aspects": {},
-        "lifePoints": {},
         "initiative": {},
         "titles": [],
         "fatigue": {},
@@ -15,7 +14,7 @@
         "globalModifiers": {},
         "developmentPoints": {},
         "martialKnowledge": {},
-        "finalArmor": {},
+        "armor": {},
         "xp": {},
         "elans": [],
         "characteristics": {},
@@ -23,17 +22,14 @@
         "resistances": {},
         "advantages": [],
         "disadvantages": [],
-        "background": "",
         "languages": [],
         "contacts": [],
         "presence": {},
         "notes": "",
         "currency": {},
-        "globalModifier": {},
         "mystic": {},
         "settings": {},
-        "npc": {},
-        "psychic": {}
+        "npc": {}
       }
     }
   },
