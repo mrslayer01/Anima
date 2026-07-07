@@ -757,7 +757,7 @@ export const ARMOR_COVERAGE = {
   breastplate: ["Torso"],
   shirt: ["Torso", "Arms"],
   complete: ["Torso", "Arms", "Legs"],
-  helmet: ["Head"]
+  helm: ["Head"]
 };
 
 export const SUMMONING_DIFFICULTY_TABLE = {

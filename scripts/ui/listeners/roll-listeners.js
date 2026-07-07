@@ -307,7 +307,7 @@ export function RollListeners(sheet, html) {
       );
     }
 
-    // NEW multi-target logic
+    // multi-target logic
     return await handleMultiTargetAttack(
       sheet,
       w,
@@ -537,6 +537,8 @@ async function manualDefend(sheet, attackData) {
     defenseFinal = result.defenseValue + defensePenalty + result.modifier;
   } else if (result.type === "projection") {
     defenseFinal = result.defenseValue + defensePenalty + result.modifier;
+  } else if (result.type === "psyProjection") {
+    defenseFinal = result.defenseValue + defensePenalty + result.modifier;
   }
 
   const manualAT = result.manualAT;
@@ -578,7 +580,8 @@ async function getDefense(defenderUser, targetActor, attackData) {
   const projection = toNum(
     targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
   );
-  const options = { targetActor, attackData, block, dodge, projection };
+  const psyProjection = toNum(targetActor.system.abilities.primary.Psychic.PsychicProjection.final);
+  const options = { targetActor, attackData, block, dodge, projection, psyProjection };
 
   //console.log(options);
 
@@ -671,10 +674,19 @@ function getEffectiveAT(actor, region, attackType) {
   const armors = actor.items.filter((i) => i.type === "armor" && i.system.equipped);
 
   for (const armor of armors) {
-    const coverage = ARMOR_COVERAGE[armor.system.location] ?? [];
+    if (armor.system.location === "natural") {
+      // Natural armor covers everything
+      total += actor.system.armor.natural[attackType] ?? 0;
+    } else {
+      const coverage = ARMOR_COVERAGE[armor.system.location] ?? [];
 
-    if (coverage.includes(region)) {
-      total += actor.system.armor.total[attackType] ?? 0;
+      if (coverage.includes(region)) {
+        if (region === "Head") {
+          total += actor.system.armor.helm[attackType] ?? 0;
+        } else {
+          total += actor.system.armor.total[attackType] ?? 0;
+        }
+      }
     }
   }
 
@@ -1125,6 +1137,9 @@ function getFinalDefenseValueSpell(targetActor, defense, isAOE) {
   const projectionFinal = toNum(
     targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
   );
+  const psyProjectionFinal = toNum(
+    targetActor.system.abilities.primary.Psychic.PsychicProjection.final
+  );
 
   // Spell attacks count as Fired projectiles and can be an AOE attack.
   let defensePenalty = 0;
@@ -1141,6 +1156,8 @@ function getFinalDefenseValueSpell(targetActor, defense, isAOE) {
     defenseValue = dodgeFinal + modifier + defensePenalty;
   } else if (type === "projection") {
     defenseValue = projectionFinal + modifier + defensePenalty;
+  } else if (type === "psyProjection") {
+    defenseValue = psyProjectionFinal + modifier + defensePenalty;
   }
 
   return defenseValue;
@@ -1187,10 +1204,14 @@ async function handleSingleTargetAttack(
     const projectionFinal = toNum(
       targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
     );
+    const psyProjectionFinal = toNum(
+      targetActor.system.abilities.primary.Psychic.PsychicProjection.final
+    );
 
     if (type === "block") defenseValue = blockFinal + modifier + defensePenalty;
     if (type === "dodge") defenseValue = dodgeFinal + modifier + defensePenalty;
     if (type === "projection") defenseValue = projectionFinal + modifier + defensePenalty;
+    if (type === "psyProjection") defenseValue = psyProjectionFinal + modifier + defensePenalty;
 
     let baseAT =
       directed !== "None"
@@ -1359,10 +1380,14 @@ async function handleMultiTargetAttack(
       const projectionFinal = toNum(
         targetActor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal
       );
+      const psyProjectionFinal = toNum(
+        targetActor.system.abilities.primary.Psychic.PsychicProjection.final
+      );
 
       if (type === "block") defenseValue = blockFinal + modifier + defensePenalty;
       if (type === "dodge") defenseValue = dodgeFinal + modifier + defensePenalty;
       if (type === "projection") defenseValue = projectionFinal + modifier + defensePenalty;
+      if (type === "psyProjection") defenseValue = psyProjectionFinal + modifier + defensePenalty;
     } else {
       defenseValue = getFinalDefenseValueSpell(targetActor, defense, attackData.isAOE);
     }

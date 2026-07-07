@@ -88,6 +88,18 @@
           {{/if}}
         </div>
       </div>
+      <div class="field-row" data-tooltip="Is unable to defend in combat.">
+        <label class="path-name">
+          Damage Resistance?
+        </label>
+        <div class="passive-icon clickable setting-hasDamageResistance">
+          {{#if system.settings.hasDamageResistance}}
+            <i class="fas fa-check"></i>
+          {{else}}
+            <i class="fas fa-times"></i>
+          {{/if}}
+        </div>
+      </div>
     </section>
   </div>
 

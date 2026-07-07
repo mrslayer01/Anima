@@ -414,9 +414,9 @@
 
 .secondaries-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(2, auto);
-  gap: 0rem;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, auto);
+  row-gap: 0.7rem;
   padding: 0.25rem;
   align-items: start;
 }
@@ -638,7 +638,7 @@
 }
 
 .ability-table td:first-child {
-  width: 38%;
+  width: 28%;
   text-align: left;
   padding-left: 0.2rem;
 }

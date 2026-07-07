@@ -25,7 +25,7 @@ export class PsychicPPRule extends BaseRule {
     // Rebuild PP spent records
     pp.spentRecords = [];
 
-    DerivedAffinities(system);
+    DerivedDisciplines(system);
     DerivedMasteredPowers(system);
     DerivedPotentialUpgrades(system);
     DerivedStrengthenedPowers(system);
@@ -99,7 +99,7 @@ function recalcPP(system) {
 // Affinities
 // ------------------------------------------------------------
 
-function DerivedAffinities(system) {
+function DerivedDisciplines(system) {
   const disciplines = system.psychic?.disciplines;
   if (!Array.isArray(disciplines)) return;
 
@@ -108,7 +108,7 @@ function DerivedAffinities(system) {
       category: "Affinity",
       name: d.name,
       amount: 1,
-      cost: 4
+      cost: 1
     });
   }
 }

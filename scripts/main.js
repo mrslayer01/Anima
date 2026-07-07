@@ -97,7 +97,8 @@ Hooks.once("ready", async () => {
     // Compute stats LOCALLY on the defender's client
     const block = actor.system.abilities.primary.Combat.Block.final;
     const dodge = actor.system.abilities.primary.Combat.Dodge.final;
-    const projection = actor.system.abilities.primary.Supernatural.MagicProjection.final;
+    const projection = actor.system.abilities.primary.Supernatural.MagicProjection.defensiveFinal;
+    const psyProjection = actor.system.abilities.primary.Psychic.PsychicProjection.final;
 
     // Single-target
     if (msg.type === "defense:prompt") {
@@ -113,7 +114,8 @@ Hooks.once("ready", async () => {
           attackData: msg.attackData,
           block,
           dodge,
-          projection
+          projection,
+          psyProjection
         }
       ).render(true);
     }
@@ -133,7 +135,8 @@ Hooks.once("ready", async () => {
           requestId: msg.requestId,
           block,
           dodge,
-          projection
+          projection,
+          psyProjection
         }
       ).render(true);
     }

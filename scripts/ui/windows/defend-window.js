@@ -12,12 +12,15 @@ export class DefendWindow extends Application {
       id: `defend-window-${foundry.utils.randomID()}`
     });
 
+    console.log(options);
+
     this._resolve = resolve;
     this.manual = options.manual ?? false;
     this.attackData = options.attackData ?? null;
     this.block = options.block ?? 0;
     this.dodge = options.dodge ?? 0;
     this.projection = options.projection ?? 0;
+    this.psyProjection = options.psyProjection ?? 0;
 
     this.modifier = 0;
     this.defenseValue = 0;
@@ -46,6 +49,7 @@ export class DefendWindow extends Application {
       block: this.block,
       dodge: this.dodge,
       projection: this.projection,
+      psyProjection: this.psyProjection,
       attack: this.attackData,
       hasShield: this.hasShield,
       combatModifiers: Object.entries(COMBAT_SITUATIONAL_MODIFIERS).map(([name, data]) => ({
@@ -82,12 +86,15 @@ export class DefendWindow extends Application {
       const blockTotal =
         this.block + this.modifier + combatModBlock + this.defenseValue + defendModBlock;
       const projTotal = this.projection + this.modifier + combatModProjection + this.defenseValue;
+      const psyProjTotal =
+        this.psyProjection + this.modifier + combatModProjection + this.defenseValue;
       //const total = this.atkValue + defMod + directedPenalty + combatMod;
 
       //console.log(this.atkValue);
       html.find("#block").text("Block: " + blockTotal);
       html.find("#dodge").text("Dodge: " + dodgeTotal);
       html.find("#projection").text("Projection: " + projTotal);
+      html.find("#psyProjection").text("Psychic Projection: " + psyProjTotal);
     };
 
     updateTotal(); // initialize
@@ -118,6 +125,8 @@ export class DefendWindow extends Application {
         finalMod = this.modifier + combatModBlock + defendModBlock;
       } else if (type === "projection") {
         finalMod = this.modifier + combatModProjection;
+      } else if (type === "psyProjection") {
+        finalMod = this.modifier + combatModProjection;
       }
 
       if (this.manual) {
@@ -130,6 +139,7 @@ export class DefendWindow extends Application {
           block: this.block,
           dodge: this.dodge,
           projection: this.projection,
+          psyProjtion: this.psyProjection,
           hasShield: this.hasShield
         });
       } else {
@@ -138,7 +148,8 @@ export class DefendWindow extends Application {
           modifier: finalMod,
           block: this.block,
           dodge: this.dodge,
-          projection: this.projection
+          projection: this.projection,
+          psyProjtion: this.psyProjection
         });
       }
 

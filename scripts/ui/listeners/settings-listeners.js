@@ -75,4 +75,15 @@ export function SettingsListeners(sheet, html) {
     const isActive = actor.system.settings.isZen === true;
     await actor.update({ "system.settings.isZen": !isActive });
   });
+
+  html.find(".setting-hasDamageResistance").off("click");
+  html.find(".setting-hasDamageResistance").on("click", async (ev) => {
+    ev.preventDefault();
+    ev.stopPropagation();
+
+    const actor = sheet.actor;
+
+    const isActive = actor.system.settings.hasDamageResistance === true;
+    await actor.update({ "system.settings.hasDamageResistance": !isActive });
+  });
 }

@@ -45,7 +45,7 @@ export class ArmorRule extends BaseRule {
       }
 
       // Final total = worn + natural
-      system.armor.total[type] = wornAT + naturalAT + helmAT;
+      system.armor.total[type] = wornAT + naturalAT;
     }
 
     // Apply combined penalties (computed in ArmorCalculate)
@@ -92,7 +92,7 @@ export class ArmorRule extends BaseRule {
 
       // Final total = worn + natural
       //console.log(wornAT, naturalAT, helmAT);
-      system.armor.total[type] = wornAT + naturalAT + helmAT;
+      system.armor.total[type] = wornAT + naturalAT;
     }
   }
 

@@ -100,7 +100,7 @@ export class DisciplineBrowser extends Application {
 
     // 2. PP availability
     const ppRemaining = Number(system.psychic.pp.remaining) || 0;
-    const cost = 4; // Affinity cost per discipline (from your PP rules)
+    const cost = 1; // Affinity cost per discipline
 
     if (ppRemaining < cost) {
       return `Not enough PP. Requires ${cost} PP, but you only have ${ppRemaining}.`;
