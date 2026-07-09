@@ -1,6 +1,7 @@
-2026/07/08-18:59:07.425 7200 Log #304: 0 ops saved to Table #305 OK
-2026/07/08-18:59:07.425 7200 Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\journals/000304.log: OK
-2026/07/08-18:59:07.427 7200 Table #271: 306 entries OK
-2026/07/08-18:59:07.428 7200 Table #291: 250 entries OK
-2026/07/08-18:59:07.431 7200 Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\journals/MANIFEST-000290: OK
-2026/07/08-18:59:07.434 7200 **** Repaired leveldb C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\journals; recovered 2 files; 462745 bytes. Some data may have been lost. ****
+2026/07/08-18:59:07.444 7200 Delete type=3 #1
+2026/07/08-19:27:55.226 e024 Compacting 2@0 + 0@1 files
+2026/07/08-19:27:55.234 e024 Generated table #308@0: 306 keys, 225477 bytes
+2026/07/08-19:27:55.234 e024 Compacted 2@0 + 0@1 files => 225477 bytes
+2026/07/08-19:27:55.235 e024 compacted to: files[ 0 1 0 0 0 0 0 ]
+2026/07/08-19:27:55.236 e024 Delete type=2 #271
+2026/07/08-19:27:55.236 e024 Delete type=2 #291

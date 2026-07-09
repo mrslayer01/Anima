@@ -1,6 +1,1 @@
-2026/07/08-18:59:07.482 3ffc Log #163: 0 ops saved to Table #164 OK
-2026/07/08-18:59:07.482 3ffc Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\macros/000163.log: OK
-2026/07/08-18:59:07.483 3ffc Table #91: 5 entries OK
-2026/07/08-18:59:07.484 3ffc Table #144: 7 entries OK
-2026/07/08-18:59:07.486 3ffc Archiving C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\macros/MANIFEST-000150: OK
-2026/07/08-18:59:07.488 3ffc **** Repaired leveldb C:\Users\demur\AppData\Local\FoundryVTT\Data\systems\abf-system\packs\macros; recovered 2 files; 24574 bytes. Some data may have been lost. ****
+2026/07/08-18:59:07.494 3ffc Delete type=3 #1
