@@ -141,5 +141,4 @@ vite.config.ts.timestamp-*
 # VS Code workspace settings
 .vscode/
 
-
-systems/abf-system/packs/*/*
+packs/*/*
