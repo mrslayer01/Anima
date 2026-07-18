@@ -243,9 +243,8 @@ export function ValidateDP(name, value, input, actor) {
       }
     }
   }
-
-  // // NPC Validation
-  // ValidateNPCPowerDP;
+  // NPC Validation
+  ValidateNPCPowerDP;
 
   return value;
 }
@@ -254,6 +253,12 @@ function ValidateDPRemaining(dpCost, actor) {
   const dp = actor.system.developmentPoints;
 
   return dpCost > dp.remaining;
+}
+
+export function ValidateNPCEssentialAbilitiesDP(dpCost, actor) {
+  if (actor.system.settings.ignoreDPLimit) return true;
+
+  const dp = actor.system.developmentPoints;
 }
 
 export function ValidateNPCPowerDP(dpCost, actor) {

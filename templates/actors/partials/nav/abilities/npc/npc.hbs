@@ -1,8 +1,15 @@
-{{#unless actor.system.settings.ignoreDPLimit}}
-<h2>
-  DP Spent: {{actor.system.developmentPoints.spent}} Remaining: {{actor.system.developmentPoints.remaining}}
-</h2>
-{{/unless}}
-<div>
-  <div class="secondaries-header">{{> "systems/abf-system/templates/actors/partials/nav/abilities/npc/npc-abilities.hbs" }}</div>
+  {{#unless actor.system.settings.ignoreDPLimit}}
+  <h2>
+    DP Spent: {{actor.system.developmentPoints.spent}} Remaining: {{actor.system.developmentPoints.remaining}}
+  </h2>
+  {{/unless}}
+<div class="details-grid">
+  <div class="details-left">
+    {{> "systems/abf-system/templates/actors/partials/nav/abilities/npc/npc-advantages.hbs" }}
+    {{> "systems/abf-system/templates/actors/partials/nav/abilities/npc/npc-disadvantages.hbs" }}
+  </div>
+
+  <div class="details-right">
+    {{> "systems/abf-system/templates/actors/partials/nav/abilities/npc/npc-abilities.hbs" }}
+  </div>
 </div>

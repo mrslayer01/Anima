@@ -12,7 +12,7 @@ export function InitializeAbilitiesPartials() {
     "creative"
   ];
 
-  const npcPartials = ["npc", "npc-abilities"];
+  const npcPartials = ["npc", "npc-abilities", "npc-advantages", "npc-disadvantages"];
 
   //register partials
   for (const p of primaryPartials) {

@@ -1,0 +1,48 @@
+<section>
+  <h3>
+    Advantages
+  </h3>
+  <table class="classes-table">
+    <thead>
+      <tr>
+        <th>
+          Advantage
+        </th>
+        <th>
+          Cost
+        </th>
+        {{#if @root.actor.system.lockUi}}
+          <th></th>
+        {{else}}
+          <th class="class-actions-header">
+            <a class="add-npc-advantage" data-tooltip="Add Advantage">
+              <i class="fas fa-plus-circle"></i>
+            </a>
+          </th>
+        {{/if}}
+      </tr>
+    </thead>
+
+    <tbody>
+      {{#each system.npc.advantages as |adv idx|}}
+        <tr>
+          <td class="clickable-advantage" data-index="{{idx}}" data-advantage="{{adv.name}}">
+            {{adv.name}}
+          </td>
+          <td>
+            {{adv.cost}}
+          </td>
+          {{#if @root.actor.system.lockUi}}
+            <td></td>
+          {{else}}
+            <td>
+              <a class="delete-npc-advantage" data-index="{{idx}}" data-tooltip="Delete Advantage">
+                <i class="fas fa-trash"></i>
+              </a>
+            </td>
+          {{/if}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</section>

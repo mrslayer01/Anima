@@ -1,0 +1,70 @@
+<div class="trait-browser">
+  <div class="browser-controls">
+    <input type="text" class="trait-search" placeholder="Search traits..." value="{{search}}" />
+    <select class="trait-filter select">
+      {{#each types}}
+        <option value="{{this}}" {{#if (eq this ../filterType)}}selected{{/if}}>
+          {{this}}
+        </option>
+      {{/each}}
+    </select>
+  </div>
+
+  <div class="trait-list effects-grid">
+    {{#each traits}}
+      <div class="trait-entry">
+        <div class="trait-header">
+          <h3>
+            {{this.name}}
+          </h3>
+          <span class="trait-type abf-text">
+            Type: {{this.type}}
+          </span>
+        </div>
+
+        {{#if this.cost}}
+          <p class="trait-meta abf-text">
+            <strong>
+              Cost:
+            </strong>
+            {{this.cost}}
+          </p>
+        {{/if}}
+
+        {{#if this.bonus}}
+          <p class="trait-meta abf-text">
+            <strong>
+              Bonus:
+            </strong>
+            {{this.bonus}}
+          </p>
+        {{/if}}
+
+        {{#if this.gnosisMin}}
+          <p class="trait-meta abf-text">
+            <strong>
+              Min Gnosis:
+            </strong>
+            {{this.gnosisMin}}
+          </p>
+        {{/if}}
+
+        {{#if this.description}}
+          <p class="trait-meta abf-text">
+            <strong>
+              Description:
+            </strong>
+            {{this.description}}
+          </p>
+        {{/if}}
+
+
+        <div class="npc-trait-actions">
+          <button class="npc-add-trait button" data-key="{{this.key}}">
+            Add
+          </button>
+        </div>
+      </div>
+    {{/each}}
+  </div>
+</div>

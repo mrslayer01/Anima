@@ -5,7 +5,8 @@ export function createNPCAdvantage(NPCAdvInput) {
     gnosisMin = "0",
     description = "",
     notes = "",
-    purchased = false
+    purchased = false,
+    type = ""
   } = NPCAdvInput;
 
   return {
@@ -14,7 +15,8 @@ export function createNPCAdvantage(NPCAdvInput) {
     gnosisMin,
     description,
     notes,
-    purchased
+    purchased,
+    type
   };
 }
 
@@ -25,7 +27,8 @@ export function createNPCDisadvantage(NPCDisInput) {
     gnosisMin = "0",
     description = "",
     notes = "",
-    purchased = false
+    purchased = false,
+    type = ""
   } = NPCDisInput;
 
   return {
@@ -34,7 +37,8 @@ export function createNPCDisadvantage(NPCDisInput) {
     gnosisMin,
     description,
     notes,
-    purchased
+    purchased,
+    type
   };
 }
 
@@ -72,6 +76,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "0",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "This Advantage grants two additional points to Fatigue. It can be acquired several times to gain greater benefits."
   }),
@@ -82,6 +87,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "5",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The being is able to use magic. If we are dealing with an elemental, he possesses a bonus of +20 to his MA on the path that he is attuned to, and a –20 on the opposite one."
   }),
@@ -92,6 +98,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "5",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The being can use its PP to acquire an affinity to a single psychic discipline and use its powers. Fire elementals cannot use cryokinetic powers, and vice versa."
   }),
@@ -102,6 +109,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "5",
     notes: "",
     purchased: false,
+    type: "Essental",
     description: "Same as the one before, except that it grants access to several disciplines."
   }),
 
@@ -111,6 +119,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "0",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "One of its five senses is especially developed. Therefore, apply a bonus of +30 to any perception-based Secondary Ability Check that implies its use."
   }),
@@ -121,6 +130,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "5",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The being is attuned to something specifically, from a type of being to an element. If it is an element, it receives a bonus of +20 to any Resistance that is rolled against effects caused by it. If, on the other hand, it is a class of creature, any member of said species will feel some kind of tie towards it, as if it belonged to the same race."
   }),
@@ -131,6 +141,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "0",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "It extends the maximum limit you can choose for physical Characteristics (STR, DEX, AGI, CON and PER) to a maximum of 13."
   }),
@@ -141,6 +152,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "5",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "It extends the maximum limit you can choose for spiritual Characteristics (STR, DEX, AGI, CON and PER) to a maximum of 13."
   }),
@@ -151,6 +163,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "20",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The same as the previous ones, except that the maximum limit of the physical Characteristics is increased to 15."
   }),
@@ -161,6 +174,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "20",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The same as the previous ones, except that it affects the spiritual Characteristics."
   }),
@@ -171,6 +185,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "30",
     notes: "",
     purchased: false,
+    type: "Essental",
     description: "The GM can grant any value to the physical Characteristic of the being."
   }),
 
@@ -180,6 +195,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "35",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The same as the previous ones, except that it affects the spiritual Characteristics."
   }),
@@ -190,6 +206,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "0",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "This ability only can be acquired through the use of spells that grant monster abilities or to create racial modifiers of a natural ethnicity. In these cases, they grant a +1 to a Characteristic and it can be acquired again to increase a different one. It cannot be chosen twice for the same Characteristic."
   }),
@@ -200,6 +217,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "5",
     notes: "",
     purchased: false,
+    type: "Essental",
     description: "The same as the previous ones, except that it grants a +2 to the Characteristic."
   }),
 
@@ -209,6 +227,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "Variable",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The same as the previous ones, except that it grants a +3 to the Characteristic. This ability can be chosen again to increase even further the same Characteristic, and in which case it grants a cumulative +1 to the previous bonus. That is to say, it provides a +4 if acquired twice, a +5 if it is chosen three times, etc. The base Gnosis of this ability is 15 but every time it is selected again it increases its value by 5 points."
   }),
@@ -219,6 +238,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "0",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The GM can increase or decrease the base Size of the being by a maximum of 5 points."
   }),
@@ -229,6 +249,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "0",
     notes: "",
     purchased: false,
+    type: "Essental",
     description: "It works the same way as the creation Advantage of the same name."
   }),
 
@@ -238,6 +259,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "0",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "For all intents and purposes, it works the same way as the Ki Ability that has the same name."
   }),
@@ -248,6 +270,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "25",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The being can carry out naturally physical actions that have a difficulty of Zen and have the full benefits of its Characteristics. It works like the Ki Ability with the same name."
   }),
@@ -258,6 +281,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "0",
     notes: "",
     purchased: false,
+    type: "Essental",
     description: "The creature can breathe underwater without difficulty."
   }),
   WithoutUnconsciousness: createNPCAdvantage({
@@ -266,6 +290,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "5",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The creature cannot become unconscious, regardless of what critical results or supernatural effects indicate."
   }),
@@ -276,6 +301,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "15",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The creature does not get tired regardless of the amount of physical or mental effort exerted. However, because of that, the being cannot use Fatigue points to increase its physical abilities."
   }),
@@ -286,6 +312,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "15",
     notes: "",
     purchased: false,
+    type: "Essental",
     description: "The creature does not require air to live."
   }),
 
@@ -295,6 +322,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "15",
     notes: "",
     purchased: false,
+    type: "Essental",
     description: "The creature does not require food to live."
   }),
 
@@ -304,6 +332,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "15",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The creature does not possess the physical need to sleep. It can become unconscious as normal."
   }),
@@ -314,6 +343,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "20",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "No natural poison can affect the creature. However, any harmful substance that comes from a being with a Gnosis greater than 10, or that has been created through mystic means, will continue to affect it normally."
   }),
@@ -324,6 +354,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "20",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "Just like the one before, only that in this case it’s immune to any natural disease."
   }),
@@ -334,6 +365,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "15",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "No matter how extreme the climate is, the being does not suffer any type of problem from being exposed to it."
   }),
@@ -344,6 +376,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "20",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "This ability represents all of the other reduction of physical needs that have been explained. A being that possesses it can have any of the following advantages: Without Unconsciousness, Tireless, Does Not breath, Does Not Eat, Does Not Sleep, Immune to Natural Poisons, Immune to Natural Diseases, Immune to Climactic Phenomena."
   }),
@@ -354,6 +387,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "20",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The being is partially immune to the effects caused by a specific element. Therefore, if it takes damage from this type, it is reduced to half. This ability is not effective if the element comes from, or is generated by, a being that possesses a Gnosis greater than that of the creature. Nor will it work against damages that are produced by Resistance Checks (although in this case, it can apply a +40 to its rolls). Regarding elementals, the chosen one must be the element that it is attuned to."
   }),
@@ -364,6 +398,7 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "25",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The same as the one before, except that the damage caused by the element is completely nullified."
   }),
@@ -374,157 +409,174 @@ export const ABF_NPC_ADVANTAGES = {
     gnosisMin: "10",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The mind of the being is not able to feel any type of psychological State. Therefore, it is completely immune to psychic effects, like Pain, Fear, Terror, or Rage."
   }),
   //Magic & Psychic
   SuperiorMagicRecovery: createNPCAdvantage({
-    name: "Superior magic recovery (magical)",
+    name: "Superior magic recovery",
     cost: 30,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Superior magic recovery (magical)"
+    type: "Magical",
+    description: "Superior magic recovery"
   }),
 
   NaturalKnowledgePath20: createNPCAdvantage({
-    name: "Natural knowledge of a path 20 (magical)",
+    name: "Natural knowledge of a path 20",
     cost: 10,
     gnosisMin: "10",
     notes: "",
     purchased: false,
+    type: "Magical",
     description:
       "Natural knowledge of a path: In elemental beings, the natural knowledge has to be on that which they are attuned to. This advantage cannot be chosen through spells that allow the acquisition of abilities."
   }),
 
   NaturalKnowledgePath40: createNPCAdvantage({
-    name: "Natural knowledge of a path 40 (magical)",
+    name: "Natural knowledge of a path 40",
     cost: 20,
     gnosisMin: "15",
     notes: "",
     purchased: false,
+    type: "Magical",
     description:
       "Natural knowledge of a path: In elemental beings, the natural knowledge has to be on that which they are attuned to. This advantage cannot be chosen through spells that allow the acquisition of abilities."
   }),
 
   NaturalKnowledgePath60: createNPCAdvantage({
-    name: "Natural knowledge of a path 60 (magical)",
+    name: "Natural knowledge of a path 60",
     cost: 30,
     gnosisMin: "20",
     notes: "",
     purchased: false,
+    type: "Magical",
     description:
       "Natural knowledge of a path: In elemental beings, the natural knowledge has to be on that which they are attuned to. This advantage cannot be chosen through spells that allow the acquisition of abilities."
   }),
 
   NaturalKnowledgePath80: createNPCAdvantage({
-    name: "Natural knowledge of a path 80 (magical)",
+    name: "Natural knowledge of a path 80",
     cost: 40,
     gnosisMin: "25",
     notes: "",
     purchased: false,
+    type: "Magical",
     description:
       "Natural knowledge of a path: In elemental beings, the natural knowledge has to be on that which they are attuned to. This advantage cannot be chosen through spells that allow the acquisition of abilities."
   }),
 
   NaturalKnowledgePath90: createNPCAdvantage({
-    name: "Natural knowledge of a path 90 (magical)",
+    name: "Natural knowledge of a path 90",
     cost: 50,
     gnosisMin: "30",
     notes: "",
     purchased: false,
+    type: "Magical",
     description:
       "Natural knowledge of a path: In elemental beings, the natural knowledge has to be on that which they are attuned to. This advantage cannot be chosen through spells that allow the acquisition of abilities."
   }),
 
   GesturelessCasting: createNPCAdvantage({
-    name: "Gestureless casting (magical)",
+    name: "Gestureless casting",
     cost: 20,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Gestureless casting (magical)"
+    type: "Magical",
+    description: "Gestureless casting"
   }),
 
   UnspokenCasting: createNPCAdvantage({
-    name: "Unspoken casting (magical)",
+    name: "Unspoken casting",
     cost: 20,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Unspoken casting (magical)"
+    type: "Magical",
+    description: "Unspoken casting"
   }),
 
   ImprovedInnateMagic: createNPCAdvantage({
-    name: "Improved innate magic (magical)",
+    name: "Improved innate magic",
     cost: 20,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Improved innate magic (magical)"
+    type: "Magical",
+    description: "Improved innate magic"
   }),
 
   AmplifySustainedPower: createNPCAdvantage({
-    name: "Amplify sustained power (psychic)",
+    name: "Amplify sustained power",
     cost: 30,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Amplify sustained power (psychic)"
+    type: "Psychic",
+    description: "Amplify sustained power"
   }),
 
   PsychicFatigueResistance: createNPCAdvantage({
-    name: "Psychic Fatigue resistance (psychic)",
+    name: "Psychic Fatigue resistance",
     cost: 30,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Psychic Fatigue resistance (psychic)"
+    type: "Psychic",
+    description: "Psychic Fatigue resistance"
   }),
 
   PsychicPointRecovery: createNPCAdvantage({
-    name: "Psychic Point Recovery (psychic)",
+    name: "Psychic Point Recovery",
     cost: 20,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Psychic Point Recovery (psychic)"
+    type: "Psychic",
+    description: "Psychic Point Recovery"
   }),
 
   ExtremeConcentration: createNPCAdvantage({
-    name: "Extreme concentration (psychic)",
+    name: "Extreme concentration",
     cost: 30,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Extreme concentration (psychic)"
+    type: "Psychic",
+    description: "Extreme concentration"
   }),
 
   FocusPsychic: createNPCAdvantage({
-    name: "Focus (psychic)",
+    name: "Focus",
     cost: 20,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Focus (psychic)"
+    type: "Psychic",
+    description: "Focus"
   }),
 
   PsychicInclination: createNPCAdvantage({
-    name: "Psychic inclination (psychic)",
+    name: "Psychic inclination",
     cost: 20,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Psychic inclination (psychic)"
+    type: "Psychic",
+    description: "Psychic inclination"
   }),
 
   PassiveConcentration: createNPCAdvantage({
-    name: "Passive concentration (psychic)",
+    name: "Passive concentration",
     cost: 30,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Passive concentration (psychic)"
+    type: "Psychic",
+    description: "Passive concentration"
   })
 };
 
@@ -535,6 +587,7 @@ export const ABF_NPC_DISADVANTAGES = {
     gnosisMin: "0",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The creature has some form of natural vice that it cannot overcome by any means. Anytime that he has the opportunity to quench it and it does not, causes the being to suffer a –20 All Action Penalty."
   }),
@@ -545,6 +598,7 @@ export const ABF_NPC_DISADVANTAGES = {
     gnosisMin: "0",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The being lacks useable extremities or the ones that he possesses cannot be used correctly, applying a penalty of –60 to any physical check that requires it. If the members are its legs, apply a –6 penalty to its Movement Value. It can’t be selected by souls."
   }),
@@ -555,6 +609,7 @@ export const ABF_NPC_DISADVANTAGES = {
     gnosisMin: "10",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The creature has an unsurpassable fear to something specific, for which he suffers said state when found in its presence."
   }),
@@ -565,6 +620,7 @@ export const ABF_NPC_DISADVANTAGES = {
     gnosisMin: "10",
     notes: "",
     purchased: false,
+    type: "Essental",
     description: "Same as the one before, except apply the State of Terror."
   }),
 
@@ -574,6 +630,7 @@ export const ABF_NPC_DISADVANTAGES = {
     gnosisMin: "0",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The creature lacks a sense other than sight, and he cannot make perception rolls that require it."
   }),
@@ -584,6 +641,7 @@ export const ABF_NPC_DISADVANTAGES = {
     gnosisMin: "0",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "It does not possess a sense of sight, and it does not have some supernatural way to see. It will always apply the penalty of Blindness."
   }),
@@ -594,6 +652,7 @@ export const ABF_NPC_DISADVANTAGES = {
     gnosisMin: "0",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "The being has a need of a physical nature to survive. For example, it requires something specific, like consuming iron, within a determined time period or it suffers a cumulative All Action Penalty of –10. If the need isn’t satisfied over a long period of time, it can even die."
   }),
@@ -604,6 +663,7 @@ export const ABF_NPC_DISADVANTAGES = {
     gnosisMin: "10",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "Same as the one before, except that if the being does not carry it out on time, it will die automatically."
   }),
@@ -614,6 +674,7 @@ export const ABF_NPC_DISADVANTAGES = {
     gnosisMin: "20",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "It is naturally vulnerable to the damage produced by an element, that increases its damage by 50%. Regarding elemental beings, the chosen element has to be the opposite of what its attuned to."
   }),
@@ -624,6 +685,7 @@ export const ABF_NPC_DISADVANTAGES = {
     gnosisMin: "20",
     notes: "",
     purchased: false,
+    type: "Essental",
     description: "Same as the one before, except that it doubles the damage taken."
   }),
 
@@ -633,89 +695,99 @@ export const ABF_NPC_DISADVANTAGES = {
     gnosisMin: "10",
     notes: "",
     purchased: false,
+    type: "Essental",
     description:
       "This means that a specific type of attack produces double damage to the being, like for example, projectile or Impact weapons."
   }),
   // Psychic & Magic
   OralRequirement: createNPCDisadvantage({
-    name: "Oral requirement (magical)",
+    name: "Oral requirement",
     bonus: 10,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Oral requirement (magical)"
+    type: "Magical",
+    description: "Oral requirement"
   }),
 
   RequireGestures: createNPCDisadvantage({
-    name: "Require gestures (magical)",
+    name: "Require gestures",
     bonus: 10,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Require gestures (magical)"
+    type: "Magical",
+    description: "Require gestures"
   }),
 
   SlowRecoveryOfMagic: createNPCDisadvantage({
-    name: "Slow recovery of magic (magical)",
+    name: "Slow recovery of magic",
     bonus: 10,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Slow recovery of magic (magical)"
+    type: "Magical",
+    description: "Slow recovery of magic"
   }),
 
   MagicBlockage: createNPCDisadvantage({
-    name: "Magic blockage (magical)",
+    name: "Magic blockage",
     bonus: 30,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Magic blockage (magical)"
+    type: "Magical",
+    description: "Magic blockage"
   }),
 
   MagicalExhaustion: createNPCDisadvantage({
-    name: "Magical exhaustion (magical)",
+    name: "Magical exhaustion",
     bonus: 10,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Magical exhaustion (magical)"
+    type: "Magical",
+    description: "Magical exhaustion"
   }),
 
   ActionRequirement: createNPCDisadvantage({
-    name: "Action Requirement (magical)",
+    name: "Action Requirement",
     bonus: 20,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Action Requirement (magical)"
+    type: "Magical",
+    description: "Action Requirement"
   }),
 
   NoConcentration: createNPCDisadvantage({
-    name: "No concentration (psychic)",
+    name: "No concentration",
     bonus: 10,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "No concentration (psychic)"
+    type: "Psychic",
+    description: "No concentration"
   }),
 
   PsychicExhaustion: createNPCDisadvantage({
-    name: "Psychic exhaustion (psychic)",
+    name: "Psychic exhaustion",
     bonus: 10,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Psychic exhaustion (psychic)"
+    type: "Psychic",
+    description: "Psychic exhaustion"
   }),
 
   PsychicConsumption: createNPCDisadvantage({
-    name: "Psychic consumption (psychic)",
+    name: "Psychic consumption",
     bonus: 20,
     gnosisMin: "5",
     notes: "",
     purchased: false,
-    description: "Psychic consumption (psychic)"
+    type: "Psychic",
+    description: "Psychic consumption"
   })
 };
 //#endregion

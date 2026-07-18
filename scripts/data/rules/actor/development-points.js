@@ -22,6 +22,7 @@ export class DevelopmentPointsRule extends BaseRule {
     DerivedSecondaryAbilites(system);
     DerivedModules(system);
     DerivedNPCPowers(system);
+    DerivedNPCAdvantages(system);
     DerivedOthers(system);
 
     // Now recalc DP totals
@@ -92,12 +93,23 @@ function recalculateDP(system) {
   const bonus = toNum(system.developmentPoints.bonus) || 0;
   const special = toNum(system.developmentPoints.special) || 0;
 
+  // sum NPC disadvantage bonuses
+  let npcDisadvBonus = 0;
+  const npcDisadvantages = system.npc?.disadvantages;
+  if (Array.isArray(npcDisadvantages)) {
+    for (const adv of npcDisadvantages) {
+      npcDisadvBonus += toNum(adv.bonus) || 0;
+    }
+  }
+
   const dpTable = [
     400, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000
   ];
 
   const base = lvl <= 15 ? dpTable[lvl] : dpTable[15] + (lvl - 15) * 100;
-  system.developmentPoints.final = base + bonus + special;
+
+  // NPC disadvantages now increase the total pool
+  system.developmentPoints.final = base + bonus + special + npcDisadvBonus;
 
   let spent = 0;
   for (const rec of system.developmentPoints.spentRecords) {
@@ -427,6 +439,20 @@ function DerivedNPCPowers(system) {
         cost: toNum(effect.cost)
       });
     }
+  }
+}
+
+function DerivedNPCAdvantages(system) {
+  const npcAdvantages = system.npc?.advantages;
+  if (!Array.isArray(npcAdvantages)) return;
+
+  for (const adv of npcAdvantages) {
+    system.developmentPoints.spentRecords.push({
+      category: "NPCAdvantage",
+      ability: adv.name,
+      amount: 1,
+      cost: toNum(adv.cost)
+    });
   }
 }
 //#endregion

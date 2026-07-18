@@ -1,7 +1,7 @@
 import { ABF_ADVANTAGES } from "../../config/advantages.js";
 import { ABF_DISADVANTAGES } from "../../config/disadvantages.js";
 import { toNum } from "../../utils/numbers.js";
-import { AddTraitWindow } from "../windows/add-trait.js"; // NEW unified browser
+import { AddTraitWindow } from "../windows/add-trait.js";
 import { openJournalFromName } from "../../utils/helpers.js";
 
 export function AdvantageDisadvantageListeners(sheet, html) {
