@@ -1,0 +1,39 @@
+{
+  "name": "Royal Shield",
+  "type": "spell",
+  "folder": "4Gsne2eJZ5qJHCjh",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "creation",
+    "level": 18,
+    "action": "passive",
+    "cost": 40,
+    "effect": "Forms an energy barrier that absorbs 500 damage before breaking.",
+    "addedEffect": "+150 Resistance Points.",
+    "maintenance": "1 every 20 (2)",
+    "maxZeon": "Intelligence x30",
+    "typeOfSpell": "Defense"
+  },
+  "_id": "kb3ypNg6aW20Hnl0",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!kb3ypNg6aW20Hnl0"
+}

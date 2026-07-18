@@ -1,0 +1,108 @@
+{
+  "name": "Fur",
+  "type": "armor",
+  "system": {
+    "system": {},
+    "armorType": {
+      "cut": {
+        "base": 2,
+        "bonus": 0,
+        "final": 0
+      },
+      "imp": {
+        "base": 1,
+        "bonus": 0,
+        "final": 0
+      },
+      "thr": {
+        "base": 2,
+        "bonus": 0,
+        "final": 0
+      },
+      "hea": {
+        "base": 1,
+        "bonus": 0,
+        "final": 0
+      },
+      "ele": {
+        "base": 2,
+        "bonus": 0,
+        "final": 0
+      },
+      "col": {
+        "base": 2,
+        "bonus": 0,
+        "final": 0
+      },
+      "ene": {
+        "base": 0,
+        "bonus": 0,
+        "final": 0
+      }
+    },
+    "fortitude": {
+      "base": 10,
+      "bonus": 0,
+      "final": 0
+    },
+    "presence": {
+      "base": 25,
+      "bonus": 0,
+      "final": 0
+    },
+    "wearArmorReq": {
+      "base": 10,
+      "bonus": 0,
+      "final": 0
+    },
+    "moveRestriction": {
+      "base": 0,
+      "bonus": 0,
+      "final": 0
+    },
+    "naturalPenalty": {
+      "base": 10,
+      "bonus": 0,
+      "final": 0
+    },
+    "physicalPenalty": 0,
+    "perceptionPenalty": 0,
+    "isEnchanted": false,
+    "armorClass": "soft",
+    "location": "shirt",
+    "equipped": false,
+    "specialValue": 0,
+    "weight": 4,
+    "availability": "common",
+    "quality": {
+      "value": "decent"
+    },
+    "cost": {
+      "value": 5,
+      "type": "gold"
+    },
+    "quantity": 1
+  },
+  "_id": "aaNt1ykQf38DU0ei",
+  "img": "icons/svg/shield.svg",
+  "effects": [],
+  "folder": "DHydMMEJIKrftEe7",
+  "sort": 101563,
+  "ownership": {
+    "default": 0,
+    "8tB4N7JyuUUH1l8H": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Item.aaNt1ykQf38DU0ei",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1771202042548,
+    "modifiedTime": 1772995451152,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "_key": "!items!aaNt1ykQf38DU0ei"
+}

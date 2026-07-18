@@ -1,0 +1,39 @@
+{
+  "name": "Solid Body",
+  "type": "spell",
+  "folder": "IFdncsADpUjKHOtw",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "earth",
+    "level": 52,
+    "action": "active",
+    "cost": 100,
+    "effect": "Turns the body stone‑solid: natural AT 6 (non‑energy), Damage Barrier 100, Strength +2, Movement –2. Affects Presence ≤100.",
+    "addedEffect": "+10 maximum Presence, +1 AT, +10 Damage Barrier.",
+    "maintenance": "1 every 10 (10)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "ksxvGZC78vExEeYs",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!ksxvGZC78vExEeYs"
+}

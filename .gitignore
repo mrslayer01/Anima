@@ -141,4 +141,17 @@ vite.config.ts.timestamp-*
 # VS Code workspace settings
 .vscode/
 
-packs/*/*
+# Ignore LevelDB runtime files
+packs/*/*.ldb
+packs/*/CURRENT
+packs/*/LOCK
+packs/*/LOG
+packs/*/LOG.old
+packs/*/MANIFEST-*
+
+# Ignore LevelDB recovery folders
+packs/*/lost/
+packs/*/lost/*
+
+# Track unpacked compendium source
+!packs/*/_source/**

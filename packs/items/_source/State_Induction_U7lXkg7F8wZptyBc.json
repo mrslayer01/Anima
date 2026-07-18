@@ -1,0 +1,39 @@
+{
+  "name": "State Induction",
+  "type": "spell",
+  "folder": "Txiitqd71IXVZs1v",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "essence",
+    "level": 60,
+    "action": "active",
+    "cost": 100,
+    "effect": "Induces any generic State except death (e.g., paralysis, fear). MR 80 to resist. +40 bonus if inducing Coma or Complete Paralysis.",
+    "addedEffect": "+5 MR Difficulty.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Spiritual"
+  },
+  "_id": "U7lXkg7F8wZptyBc",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!U7lXkg7F8wZptyBc"
+}

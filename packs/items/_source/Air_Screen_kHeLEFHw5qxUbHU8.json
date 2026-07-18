@@ -1,0 +1,39 @@
+{
+  "name": "Air Screen",
+  "type": "spell",
+  "folder": "80PIYD2pUKkVAK2d",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "air",
+    "level": 22,
+    "action": "passive",
+    "cost": 50,
+    "effect": "Creates an air barrier protecting against all attacks except Electricity or Energy. Imposes –50 to projectile attacks. Absorbs 300 damage.",
+    "addedEffect": "+100 Resistance Points.",
+    "maintenance": "1 every 10 (5)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Defense"
+  },
+  "_id": "kHeLEFHw5qxUbHU8",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!kHeLEFHw5qxUbHU8"
+}

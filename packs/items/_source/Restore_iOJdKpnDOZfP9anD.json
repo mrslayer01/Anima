@@ -1,0 +1,39 @@
+{
+  "name": "Restore",
+  "type": "spell",
+  "folder": "AxuVWz5XwsiEfv6z",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "light",
+    "level": 68,
+    "action": "active",
+    "cost": 160,
+    "effect": "Allows the target to recover from penalties caused by fatigue, hunger, physical damage, and spells. Automatically restores any Fatigue points lost. Does not restore lost limbs. Maximum Presence affected is 100.",
+    "addedEffect": "+10 to the maximum Presence affected.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "iOJdKpnDOZfP9anD",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!iOJdKpnDOZfP9anD"
+}

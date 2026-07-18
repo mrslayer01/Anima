@@ -1,0 +1,75 @@
+{
+  "folder": "to8GsWYs0vmPB0Sv",
+  "name": "Big Boi",
+  "type": "weapon",
+  "_id": "HbiuAPlJzWLsx8wE",
+  "img": "icons/svg/sword.svg",
+  "system": {
+    "system": {},
+    "weight": 0,
+    "quantity": 1,
+    "availability": "common",
+    "quality": {
+      "value": "decent"
+    },
+    "cost": {
+      "value": 0,
+      "type": "copper"
+    },
+    "damage": {
+      "base": 0
+    },
+    "speed": {
+      "base": 0
+    },
+    "fortitude": {
+      "base": 0
+    },
+    "breakage": {
+      "base": 0
+    },
+    "presence": {
+      "base": 0
+    },
+    "specialValue": 0,
+    "strengthReq": {
+      "oneHanded": 0,
+      "twoHanded": 0
+    },
+    "handling": "oneHanded",
+    "size": "M",
+    "weaponType": "shortArm",
+    "secondaryWeaponType": "none",
+    "reach": 0,
+    "fumble": 0,
+    "modifiers": {
+      "attackMod": 0,
+      "blockMod": 0
+    },
+    "modifier": {
+      "name": "none"
+    },
+    "primaryAtkType": "cut",
+    "secondaryAtkType": "none",
+    "special": ""
+  },
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "cvaXLNt0ipl2zLRV": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.2.1",
+    "createdTime": 1784394528149,
+    "modifiedTime": 1784394529732,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "_key": "!items!HbiuAPlJzWLsx8wE"
+}

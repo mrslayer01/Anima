@@ -1,0 +1,39 @@
+{
+  "name": "Magnetic Shield",
+  "type": "spell",
+  "folder": "IFdncsADpUjKHOtw",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "earth",
+    "level": 30,
+    "action": "passive",
+    "cost": 50,
+    "effect": "Repels metallic attacks (arrows, bullets, blades). Attackers suffer –50 to offense. Shield has 300 HP and only energy can damage it.",
+    "addedEffect": "+100 Resistance Points.",
+    "maintenance": "1 every 10 (5)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Defense"
+  },
+  "_id": "dgsEVZDqxaBkSeGa",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!dgsEVZDqxaBkSeGa"
+}

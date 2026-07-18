@@ -1,0 +1,39 @@
+{
+  "name": "Petrify",
+  "type": "spell",
+  "folder": "IFdncsADpUjKHOtw",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "earth",
+    "level": 60,
+    "action": "active",
+    "cost": 140,
+    "effect": "Turns the target into stone. MR 120 to resist. Target is unconscious and immobile. Damage to statue harms the real body. Reroll allowed after 1 day, then weekly.",
+    "addedEffect": "+5 MR Difficulty.",
+    "maintenance": "1 every 20 (7) Daily",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Spiritual"
+  },
+  "_id": "YXeYxVcxMhO0YKZi",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!YXeYxVcxMhO0YKZi"
+}

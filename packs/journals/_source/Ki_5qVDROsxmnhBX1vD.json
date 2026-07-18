@@ -1,0 +1,923 @@
+{
+  "name": "Ki",
+  "pages": [
+    {
+      "sort": 300000,
+      "name": "Overview",
+      "type": "text",
+      "_id": "2LO2Q8eJrDNO6Wtt",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Ki is a force present in all forms of life. When the soul penetrates a living organism at the time of its birth, it impregnates all of its being and becomes one with it. Even though all things possess a spirit, only those beings truly alive completely blend their body and soul. If a stone breaks in half, its soul divides in two. When a living creature dies, the spirit is separated from the body.</p><p>When souls cling to their earthly abode, they impregnate it with their essence, thus creating the physical energy we call Ki. Such force depends exclusively on the fusion of body and spirit, and so it flows internally through all human beings. This is not to say only organic beings can use Ki; elemental creatures without a physical form can develop these abilities as well. A soul’s true fusion with a material abode is all it takes to make use of Ki Abilities.</p><p>Some people explain physical energy as a source of living heat. That is why the undead – those who have lost their souls but remain in this world – exude an intense spiritual chill.</p><p>Even though Ki is present in all living organisms, not everyone is fully aware of it. Only those able to sense their own energy and awaken it can control these unbelievable abilities. By doing so, they are breaking the fine line between flesh and soul in order to employ spiritual powers while still inhabiting their bodies. The term “Dominion” derives from the ability these individuals possess to control their energy and utilize it to perform physical actions no other mortal could accomplish.</p><p></p><h2>Martial Knowledge</h2><p>Martial knowledge (MK) indicates a character’s ability to awaken Ki Dominion. MK points differ from Development Points in that a player can use them only toward acquiring Dominion knowledge – such as acquiring Ki Abilities and special Techniques. A player cannot buy additional Ki Points or Ki Accumulation with MK.</p><p>Characters acquire MK points as they move up in level, according to the MK progression listed under each class summary found in Chapter 3. Characters can also obtain MK with the Martial Mastery Advantage, or by mastering some martial arts.</p><p></p><h2>Ki Points and Accumulation</h2><p>Ki Points measure a character’s internal energy. The more Ki Points the character has, the greater the power he will have awakened. The amount of Ki Points a character possesses depends upon his Strength, Dexterity, Agility, Constitution, Power, and Will Characteristic scores.</p><p>In order to calculate a character’s Ki Points, analyze the score for each Characteristic. A character receives 1 Ki Point for each Characteristic point up to 10, and 2 Ki Points for each Characteristic point over 10. For example, a character with a Strength of 7 would receive 7 Ki points (1 for each point of Strength), while a character with a Dexterity of 13 would receive 16 Ki Points (1 Ki Point for each point of Dexterity up to 10, and 2 Ki Points for each point of Dexterity over 10). Generic Ki points are those not linked to any specific Characteristic. This means that players can choose which Characteristic to take the Ki Points from.</p><p>Ki Accumulation represents a subject’s capacity for concentrating and using Ki Points at a higher speed. Its base value is also determined by Characteristics, as shown in Table 50.</p><p>A player can give his character more Ki Points and Ki Accumulation by spending DP (as opposed to MK). The cost for increasing these abilities varies according to character class. Each time a player spends the DP to obtain Ki Points, he need to choose which Characteristic he will add them to. Once assigned, a player can not change this distribution. A character recovers spent Ki at a rate of 1 point per hour for each Characteristic, or twice as much if the character is concentrating or meditating.</p><p>Let’s take a look at Celia’s Ki points and Ki Accumulation. According to her Characteristics, her Ki points should be: Strength (Ki 5), Dexterity (Ki 9), Agility (Ki 10), Constitution (Ki 5), Power (Ki 6), and Will (Ki 4). As for her initial Accumulation, it should be: Strength (1), Dexterity (1) Agility (2), Constitution (1), Power (1), and Will (1).</p><p>Characters can use as many Ki Points per turn as their Accumulation allows. They may concentrate Ki from all their Characteristics or only from specific ones. However, if a single turn’s Accumulation is not enough to perform the intended action, the character may keep the Ki Points he has gained and continue to gather points throughout the following turns. For example, if a character’s Accumulation for any given characteristic is 2, he may either use those 2 Ki Points in a turn or save them for the next one (2 in the first, 4 in the second, 6 in the third, etc.).</p><p>Accumulating Ki is a Passive Action. When characters perform other Actions in the same round, they must reduce their Accumulation to half, rounding the number up. Characters may continue to Accumulate Ki over as many Combat Turns as they wish. However, if a character concentrating his Ki stops for one Turn, he must immediately use what he Accumulated or those points will instantly dissipate, returning to his Ki Point total, and he will have to start over if he wishes to Accumulate those points again.</p><p>A total Accumulation of over 20 Ki Points will render a character’s aura visible and cause slight alterations in his surroundings (breezes, tiny earthquakes, and similar phenomena). According to legend, every living creature’s aura has a different color, reflecting the uniqueness of its soul.</p><p><em>Lemures has the following Accumulation: Strength (1), Dexterity (3), Agility (4), Constitution (1), Power (2), and Will (1). If he concentrates for two turns, he will have Accumulated 2 points for Strength, 6 for Dexterity, 8 for Agility, 2 for Constitution, 4 for Power and 2 for Will. Unfortunately, performing any other Action in that turn would cause his Accumulation to drop by half (rounding the number up), as shown below: Strength (1), Dexterity (2), Agility (2), Constitution (1), Power (1), and Will (1).</em></p><p></p><h2>Ki Abilities</h2><p>Ki Abilities are a set of special powers that a character can develop by using Martial Knowledge points. Mastery of these abilities allows characters to perform special actions that no other human being could possibly execute. Each ability costs a different number of MK points that a character must pay in order to acquire it. Since there is a logic to the development of Ki Ability, some powers may require previous mastery of others.</p><p></p><h3>Learning Ki Abilities</h3><p>Just because a character possesses the necessary Martial Knowledge to develop a particular Ki Ability does not automatically imply he can learn it and use it immediately. These abilities demand a huge amount of dedication and practice from the character developing them. It isn’t possible for someone to suddenly master several abilities for no reason. Most of the times, characters require an instructor to help in the process.</p><p>Thus, the Game Master may not allow characters to develop Ki Abilities on their own. The recommended course of action is to have a character spend some time on his training in order to acquire these abilities.</p><p>As a general rule, a character without an instructor and only a few hours a day to practice could spend 1 MK point a week toward the development of a new Ki Ability once he had somehow gained Use of Ki. At this rate, it would take him 20 weeks to master a Ki Ability that cost 20 MK. If a character exclusively spends his time training, or has an instructor, he can spend 1 point per day toward the development of a new ability. These figures are merely illustrations. It is up to the GM to modify the time span required to master Ki. He may even decide not to endow characters with Inhuman abilities at all, or limit certain abilities (like Inhumanity) to characters of certain levels.</p><p></p><h2>Dominion Techniques</h2><p>Characters who can control their internal energy have more than Ki Abilities at their disposal. By investing MK points players can develop other special capabilities for their characters. These arts have diverse functions, ranging from upgrading Attack and Defense Abilities to transporting characters over long distances. These Techniques make it possible for individuals to employ their internal energy to perform amazing actions. For example, a certain Technique could project an attack over a distance or increase a character’s speed so he can perform several penalty-free actions in a single round.</p><p>Please note that every Technique is visually different from the rest – even when it might have the same effects. A long-distance attack might take the form of a simple rippling in the air, or the hurling of a weapon might manifest as an energy whirlwind. It’s up to the players themselves or the Game Master to flesh out the visual signature of each Technique.</p><p>Using a Technique is a Passive Action when linked to another Action with the purpose of enhancing it. If the Technique is used as an attack, it must be the character’s turn to attack. If it is meant for defensive purposes, a simple Block or Dodge check will do. Those Techniques endowing special abilities, such as Teleportation or Energy Weapons, always require an Active Action from the character. A player wishing to use a Technique must declare it before rolling the dice. When modifying an Opposed Ability such as Defense or Attack, it should be declared before any opponents roll their dice. When modifying Initiative, it should be declared before calculating Initiative. Techniques use Ki Points. Each time a character uses a Technique, he must spend the corresponding Ki required by the Technique in question.</p><p></p><h3>Technique Execution</h3><p>In order to use a Technique, a character needs enough concentrated Ki. An individual may start Accumulating Ki until he reaches the required amount. However, as soon as a character starts executing a Technique or stops Accumulating Ki, any excess Ki Points will return to the pool, and he will have to start Accumulating again to use another Technique.</p><p>If a player declares his intention to use a particular Technique before his character starts Accumulating Ki, he will not be compelled to use it immediately. He can put the Technique on hold until the right moment arrives. Each turn spent holding the Technique costs a number of generic Ki Points equal to the Technique’s level (first-level Techniques cost 1 point per turn, second-level Techniques cost 2, and third-level Techniques cost 3). There is no penalty against Accumulating Ki for other Techniques after one has been prepared; a character may prepare more than one Technique at any particular time.</p><p>Normally, characters performing any other actions in a turn other than concentrating Ki reduce their Accumulation by half. However, characters do not halve their Accumulation by performing the Action to which they have linked the Technique in its execution. Characters may also still perform a Technique if their Accumulation is high enough to allow them use the Technique in a single turn. Therefore, if it’s an offensive Technique, attacking with it results in no penalty.</p><p>For example, Lemures has an Accumulation of 3 for Dexterity and an Accumulation of 4 for Agility. He can perform any Technique with a cost of Dexterity (3) and Agility (4) to enhance his attack in a single turn, regardless of other simultaneous actions, because he has enough Accumulation to allow for it. He could Dodge a blow first and then attack another opponent with that Technique.</p><p>There is no limit to the number of Techniques a character can perform – other than the availability of Accumulated Ki. However, multiple Techniques linked to a single Action do not overlap. A character who links two Techniques to a single Attack can not add their effects together, only choose which of the two he wants to occur. This does not mean that a character couldn’t employ two different offensive Techniques in a single turn. He most certainly could do so, provided they linked to separate actions. A fighter could, for example, declare two attacks in the same turn (with the corresponding penalty to Ability) and set off a different Technique in each of them.</p><p></p><h3>Technique Creation</h3><p>A GM must take several elements into account when players create Techniques – including their level, effects and Disadvantages. Given the complex nature of creation, this book includes several samples Techniques at the end of this chapter to make the choosing process easier. Players and Game Masters should use these tables until they have become familiar with the creation process.</p><p></p><h3>Technique Levels</h3><p>The power of a Technique is limited by its level. There are three levels: Basic (level 1), Major (level 2) and Arcane (level 3). Each level allows a player to spend a maximum number of MK, access a certain set of abilities, and a certain number of Disadvantages. These limitations are shown in Table 51. A second-level Technique requires mastery of 2 first-level techniques, whereas an Arcane Technique requires mastery of 2 second- level Techniques.</p><table><thead><tr><th>Level</th><th>Maximum MK</th><th>Minimum MK</th><th>Disadvantages</th></tr></thead><tbody><tr><td>1</td><td>50</td><td>20</td><td>1</td></tr><tr><td>2</td><td>100</td><td>40</td><td>2</td></tr><tr><td>3</td><td>200</td><td>60</td><td>3</td></tr></tbody></table><p></p><h3>BOX IX: Creation Technique Step by Step</h3><p><strong>Step 1: Choose Technique Level</strong><br />Simply choose the level of the Technique to determine how many MK points you can spend on it.</p><p><strong>Step 2: Choose Main Effect</strong><br />Choose the main effect of the Technique (remember the cost in Ki Points is under Primary).</p><p><strong>Step 3: Choose Secondary Effects</strong><br />Choosing secondary effects is not compulsory. Still, a player can choose as many as his MK will allow. The cost of secondary effects in Ki Points is reflected in the Secondary box.</p><p><strong>Step 4: Calculate Technique MK</strong><br />Once a player has chosen the effects of the Technique, he must add up their cost in order to arrive at the final MK necessary to develop it. If the cost exceeds the points allowed by the Technique Level, he must modify the effects or choose Disadvantages to lower the MK cost.</p><p><strong>Step 5: Calculate Accumulation Cost</strong><br />Check the Ki Point cost of the effects and the Characteristics on which they are based. If a player has chosen four effects, he will have four different costs potentially tied to four different Characteristics. If two effects are based on the same ones, the player should add their Ki Point cost together.</p><p><strong>Step 6: Modify Accumulation Costs Between Attributes</strong><br />Now that the player knows the exact Ki Point cost of each effect, he can distribute that cost among optional Characteristics. A player can take all (or just a portion) of the Ki Point cost it takes to power the Technique and share it among as many optional Characteristics as he wishes. However, each optional Characteristic possesses an additional Accumulation cost which a player must add to the Technique’s total cost if he chooses to distribute the Ki Point cost among those Characteristics.</p><p><em>For example, if the Ki Point cost of a certain Technique’s effect is 10 Dexterity points, but the effect has +1 Agility and +2 Power listed as optional characteristics, a player can distribute those 10 points among Dexterity, Agility, and Power. If he does so, however, he must add 3 (+1 from Agility and +2 from Power) to the total Ki Point cost, raising it to 13. Then, he can distribute the new total cost among the three Characteristics. For instance: Dexterity 5, Agility 6 and Power 2.</em></p><p><em>Here is an example of a Technique creation: A player wants to generate a first-level Technique with the following effects: 300-foot distance attack and +50 to damage, where the main effect is the distance attack and the damage bonus is the secondary effect. The MK cost for those two effects is 35 (20 for the long-distance attack and 15 for the damage bonus). The player then looks at the Ki Point cost of the effects. He determines that the cost of the 300-foot attack (5 Ki Points) is too high and decides to distribute 3 points of the Ki cost to his character’s Will. Because the effect lists Will as an optional Characteristic with a +1 Ki Point cost, the total cost of the effect becomes 6, and the player’s distribution for this effect looks like this: 2 Power and 4 Will.</em></p><p><em>The player then determines the cost of the secondary effect (the +50 damage bonus), which happens to be 6 Strength. He decides not to distribute these points to any optional Characteristics. Thus, the total Ki Point cost for this effect is 2 Power, 4 Will, and 6 Strength.</em></p><p></p><h3>Creation of Dominion Techniques</h3><p>The first step in creating a Technique is choosing its level. As seen earlier, level indicates the number of MK points a player can spend, which is a fundamental aspect in Technique creation. Once a player knows the MK spending limit, he can decide what the effects will be.</p><p>Every Technique has a single main effect, which may or may not be accompanied by several secondary effects. The main effect represents the core purpose of the Technique, while secondary effects are added abilities of a more diverse nature and lesser importance. Every effect has a specific MK and Ki cost. There is no change in MK points for main or secondary effect, but the Ki Point cost does follow different rules. Main effects have Ki Point costs lower than that of secondary effects, since they are the true essence of the Technique.</p><p>This Ki Point cost is always based on a specific related Characteristic. In other words, if a player wants to enhance his character’s Attack Ability, the Ki Point cost will come from Dexterity. If he wants to improve damage, the Ki Point cost will come from Strength. However, it might not be convenient for a player to base a Technique on an effect’s original Characteristics. He has the option, therefore, of basing the effect on different optional Characteristics – although in doing so, the player incurs an additional Ki Point cost for the effect. Each Technique description lists the additional Ki Point cost incurred next to the optional Characteristic (see Box IX for more details).</p><p>Finally, a player decides on whether to take Disadvantages, which reduces the MK cost for learning a Technique, or extend their duration, which increases the MK cost.</p><p></p><h3>Technique Maintenance</h3><p>Even though many Techniques occur instantaneously, some can have a prolonged duration. In fact, some Techniques can even remain active through many turns. A player wishing to extend the duration of a Technique’s effect must declare his wish at the time of development. Doing so increases the Technique’s MK cost according to its level – by 10 MK at first level, 20 MK at second level, and 30 MK at third level.</p><p>In addition to the MK increase, extending the duration of a Technique requires the character to pay a Maintenance Ki Point cost each turn and adding that same value to the Ki Point cost of the Technique. A player may choose to retain only certain effects of a Technique and let the others die out.</p><p>The number of Ki points necessary for the abilities to remain active through the subsequent rounds is equal to the value added as maintenance cost. Therefore, if maintenance costs 8 extra points, every subsequent round will cost another 8 points. This amount should be paid using the Characteristics involved in the effect, although this is done innately regardless of the character’s Accumulation.</p><p>We intend to maintain a 60-foot attack Technique. Since this is the main effect, the cost is only 3 Ki and 10 MK points. Next, we add the extra 10 MK points, and we get a final value of 20 points. After that, we add the maintenance cost to the Ki point cost, which since it’s only 2, makes the effect’s final value 5 Ki points. In subsequent rounds, the 60-foot attack effect will cost 2 Ki points.</p><p>An extended technique only allows a character to reuse that technique once per turn, but it doesn’t add special properties to all his actions. For example, a technique which adds a +50 to the Attack Ability would apply the bonus to only one of the character’s attacks, even if he declares more than one attack per turn or he uses an additional weapon.</p><p></p><h3>Options</h3><p>Some of the effects listed below introduce different optional Advantages from which to choose. While a player is not required to adopt any of these Advantages, the possibility to do so comes with the acquisition of the effect. However, the adoption of optional Advantages will increase the Technique’s MK and Ki Point cost. There is no restriction to the number of Advantages a character can choose. Maintaining these optional Advantages entails an additional cost, just like maintaining Techniques.</p><p>For example, a player wishes to obtain two additional attack worth 30 MK and 12 Ki Points – for a certain Technique. He also plans on developing one of the optional Advantages of that effect, Continuous Attack, worth +30 MK and +10 to Ki. By developing this Advantage, the final cost of the effect goes up to 60 MK and 22 Ki.</p><p></p><h3>Effects</h3><p>The following is a list of possible Technique effects. But first, let us consider the elements taken into account during their creation:</p><p><strong>Effects:</strong> The abilities granted by the Technique.<br /><strong>Primary:</strong> The Ki cost as the Technique’s primary effect.<br /><strong>Secondary:</strong> The Ki cost as the Technique’s secondary effect(s).<br /><strong>MK:</strong> The number of MK points required for learning or developing the Technique.<br /><strong>Level:</strong> The power level of the effect. There are three levels: Basic, Major and Arcane. Basic Techniques have no indication, Major techniques are marked with a 2, and Arcane Techniques are marked with a 3. Players can only choose effects that are not higher level as their Technique. In other words, a player can only choose an effect marked 2 for Major or Arcane Techniques.<br /><strong>Primary Characteristic:</strong> The base Characteristic of the effect.<br /><strong>Optional Characteristics:</strong> The Characteristics among which a player can distribute the Ki Point cost of the effect. Each optional Characteristic possesses an added value, indicating the extra Ki Points a player must pay for distributing Ki Points to that specific Characteristic.<br /><strong>Element:</strong> The related elements of the effect.<br /><strong>Maintenance:</strong> The cost of maintaining the Technique through several rounds. This figure’s use is twofold. It shows both how much the effect increases the cost, and the amount to be paid per turn.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "dyJl0mhTzGrRJ4WB",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.2LO2Q8eJrDNO6Wtt"
+    },
+    {
+      "sort": 200000,
+      "name": "Use of Ki",
+      "type": "text",
+      "_id": "KiPFpYESghdK1nRc",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>This is the foundational Ki Ability upon which all others are based. It allows a character to awaken his inner energy and use it subconsciously.</p><p><strong>Requirements:</strong> None</p><p><strong>Martial Knowledge:</strong> 40</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.KiPFpYESghdK1nRc"
+    },
+    {
+      "sort": 200000,
+      "name": "Ki Control",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>This ability allows total control of inner energy. A character with this ability is fully aware of his supernatural power and can Accumulate Ki. Once acquired, Ki Control allows characters to learn Dominion Techniques.</p><p><strong>Requirements:</strong> Use of Ki</p><p><strong>Martial Knowledge:</strong> 30</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "XlfDNrb0VdHnAJ3W",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.XlfDNrb0VdHnAJ3W"
+    },
+    {
+      "sort": 200000,
+      "name": "Ki Detection",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>This ability allows a character to detect a being’s energy. Thus, a character with this ability is aware of any source of energy present in an area, but he cannot determine its form, size, or intensity. Ki Detection effortlessly overcomes obstacles such as solid objects and closed spaces, but it can not penetrate sealed energy fields. The GM should treat this power as a special Secondary Ability and can calculate its score by averaging the character’s total MK and his Notice score. To learn about the extent of its reach, see Box VIII.</p><p>Celia has 120 MK and a Notice score of 60. To calculate Celia’s Ki Detection, add up both numbers and divide them by two, which should give a Final Ability score of 90.</p><p><strong>Requirements:</strong> Ki Control</p><p><strong>Martial Knowledge:</strong> 20</p><hr /></div><h3>BOX VIII: Ki Detection</h3><p>This box details the effectiveness of the ability in relation to the Difficulty Level attained.</p><p><strong>Routine:</strong> The character can only detect the energy of those in physical contact with him.</p><p><strong>Easy:</strong> The character can detect the energies of those within a few feet of him.</p><p><strong>Moderate:</strong> The character can detect energy up to 15 feet away.</p><p><strong>Difficult:</strong> The character can detect energy up to 30 feet away.</p><p><strong>Very Difficult:</strong> The character can detect energy up to 60 feet away.</p><p><strong>Absurd:</strong> The character can detect energy up to 150 feet away.</p><p><strong>Almost Impossible:</strong> The character can detect energy up to 300 feet away.</p><p><strong>Impossible:</strong> The character can detect energy up to 800 feet away.</p><p><strong>Inhuman:</strong> The character can detect energy up to half a mile away. It requires Inhumanity.</p><p><strong>Zen:</strong> The character can detect energy hundreds of miles away. It Requires Zen.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "YcfYpvFefnowsAkF",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.YcfYpvFefnowsAkF"
+    },
+    {
+      "sort": 200000,
+      "name": "Erudition",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>Erudition allows characters to determine the strength and form of any energy perceived. The use of this ability makes it possible to tell if someone is Accumulating Ki or if an opponent is particularly strong. It can also provide information as to a particular individual’s energy type when specifically sought. For instance, a character might find the exact cell in which his friends are captive without the need of opening the door.</p><p><strong>Requirements:</strong> Ki Detection</p><p><strong>Martial Knowledge:</strong> 10</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "DzrCYRIR8dagymGr",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.DzrCYRIR8dagymGr"
+    },
+    {
+      "sort": 200000,
+      "name": "Weight Elimination",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>Through control of energy, a character may affect his own body mass and partially ignore the effects of gravity. By using this ability, a character can temporarily perform actions otherwise virtually impossible – such as running up walls or even running on water. A character using this ability can run along any type of surface at his full Movement Value in a single turn.</p><p>For example, a character with a Movement Value of 70 feet per round who attempts to cross to the other side of a river using this ability will successfully cover the first 70 feet, but he will inevitably sink if the river stretches beyond that point. The effects of this ability may be extended by investing 1 generic Ki Point in every round.</p><p><strong>Requirements:</strong> Use of Ki</p><p><strong>Martial Knowledge:</strong> 10</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "yJROHjFiEny1Qm4t",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.yJROHjFiEny1Qm4t"
+    },
+    {
+      "sort": 200000,
+      "name": "Levitation",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>This ability allows a character to glide through the air and move freely. Each Flight Value achieved costs a character 1 generic Ki point. A character using Levitation may only achieve a maximum Flight Value equal to one- quarter of his Movement Value, rounded up. To maintain this ability and remain levitating, the user must spend 1 extra Ki Point per minute.</p><p>For example, a character with an Agility of 8 can Levitate up to a Flight Value of 2 if he spends 2 Ki Points from any Characteristic. He will subsequently have to spend another Ki Point for every additional minute he wishes to remain in the air.</p><p><strong>Requirements:</strong> Weight Elimination</p><p><strong>Martial Knowledge:</strong> 20</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "9pmqgoWx3qci3eem",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.9pmqgoWx3qci3eem"
+    },
+    {
+      "sort": 200000,
+      "name": "Object Motion",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>Armed with this ability, a character can project his energy, using it as an extension of his own body, to touch and move objects over a distance. An object so moved must be within sight of the character, or the character must have a very definite notion of its location. The use of this ability costs 1 Ki point per turn for every 10 pounds the object weighs.</p><p><strong>Requirements:</strong> Levitation</p><p><strong>Martial Knowledge:</strong> 10</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "RLkVKXiBzbzZT5el",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.RLkVKXiBzbzZT5el"
+    },
+    {
+      "sort": 200000,
+      "name": "Flight",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>This ability provides a character with complete control of his body mass, enabling him to move in the air as freely as he would on the ground. This ability releases the Movement Value restriction present in Levitation, allowing for a Flight Value equivalent to that of a character’s Movement Value. A character must spend 1 generic Ki Point for every Flight Value achieved. Maintaining this ability costs 1 Ki Point per minute.</p><p><strong>Requirements:</strong> Levitation</p><p><strong>Martial Knowledge:</strong> 20</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "E6t6i90hmKHAEQE9",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.E6t6i90hmKHAEQE9"
+    },
+    {
+      "sort": 200000,
+      "name": "Presence Extrusion",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>This ability allows a character to create an invisible aura of Ki around himself. In this way, he can physically touch pure energy and intangible elements – such as fire, spectral beings, or even magic. In physical combat, a character using Presence Extrusion may injure beings normally only vulnerable to supernatural attacks, up to a value of twice his Presence. In other words, someone with a Presence of 50 could potentially damage a creature as if he used a mystical weapon of Presence value 100. This ability also allows characters to repel supernatural effects with the Block Ability or even slash a fireball in half.</p><p><strong>Requirements:</strong> Use of Ki</p><p><strong>Martial Knowledge:</strong> 10</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "NdfnyTg3iNJWfj99",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.NdfnyTg3iNJWfj99"
+    },
+    {
+      "sort": 200000,
+      "name": "Energy Armor",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>This ability allows a character to use his aura as a spiritual shield against esoteric effects and pure energy based attacks. Energy Armor grants a natural AT of 2 against Energy. Even though this ability counts as a armor, a character does not suffer any penalties for using additional layers of protection.</p><p><strong>Requirements:</strong> Presence Extrusion</p><p><strong>Martial Knowledge:</strong> 10</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "IhKvW1Z4y5bCmjqR",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.IhKvW1Z4y5bCmjqR"
+    },
+    {
+      "sort": 200000,
+      "name": "Aura Extension",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>This ability allows a character to extend his aura and convey energy to any hand-held device as if it were a natural extension of the individual. Aura Extension channels a character’s essence through a weapon, for example, making it more powerful and difficult to break. This ability also allows a character to extend the powers bestowed by Presence Extrusion to his weapon, granting it the possibility of damaging Energy as if it were a mystical device. These aura-powered weapons objects can also stop supernatural attacks and similar effects. Consequently, Aura Extension increases a weapon’s Base Damage by 10 points and adds 10 points to its Fortitude and 5 points to its Breakage. The latter ability may also be applied to armor.</p><p><strong>Requirements:</strong> Presence Extrusion</p><p><strong>Martial Knowledge:</strong> 10</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "YfuHxTb3MCJg4PJ0",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.YfuHxTb3MCJg4PJ0"
+    },
+    {
+      "sort": 200000,
+      "name": "Destruction By Ki",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>Using this ability, an individual may project his energy to destroy targets encountered in his path. Characters using this ability must touch or be in physical contact with the object they wish to destroy. Using this ability requires a character to spend 1 generic Ki Point, which forces a targeted body to pass a Physical Resistance Check against the base Presence of the character using this ability. When used against a living creature, Destruction By Ki causes damage equal to the target’s Resistance Failure Level. Unless inorganic objects pass their Resistance Check by 40 or more, they are immediately destroyed or decrease in quality by one degree. Each extra Ki Point that a character spends on the ability adds 5 points to a character’s Presence for purposes of the Resistance Check, up to a maximum of twice his Presence. A fighter may use his Attack Ability to attempt physical contact with the enemy. Since Destruction By Ki is regarded as an attack, it can not be maintained. A character must spend new Ki Points every turn he wishes to make this kind of attack.</p><p></p></div><div class=\"ki-box\"><p><em>Lemures, a level 5 character (presence 50), wishes to use this ability to destroy an enemy standing before him. He spends 1 Ki Point to set off the attack, which forces his opponent to pass an PhR of 50. However, Lemures uses 5 extra Ki Points to raise the difficulty of the Check by 25 (for a difficulty of 75). Fortunately, Lemures hits his adversary, who fails the Resistance Check by 35 points, thereby suffering 35 LP of damage.</em></p><p><strong>Requirements:</strong> Presence Extrusion</p><p><strong>Martial Knowledge:</strong> 20</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "JJ2xdgWfHbL35g1V",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.JJ2xdgWfHbL35g1V"
+    },
+    {
+      "sort": 200000,
+      "name": "Ki Transmission",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>This ability allows a character to transmit or absorb Ki from another subject. When two individuals with this ability meet, they can exchange their points freely. Naturally, the Ki exchanged occurs between the same Characteristics from which they stem. The transmission index per round is equal to a character’s Accumulation.</p><p><strong>Requirements:</strong> Use of Ki</p><p><strong>Martial Knowledge:</strong> 10</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "uds8XWrv7yf5A1oH",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.uds8XWrv7yf5A1oH"
+    },
+    {
+      "sort": 200000,
+      "name": "Ki Healing",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>This ability allows a character to restore 2 Life Points to a wounded creature for every 1 generic Ki Point spent. A character with this ability can heal himself or any other individual with which he comes into contact. This ability can not restore health completely; it can only repair up to half the damage.</p><p><strong>Requirements:</strong> Ki Transmission</p><p><strong>Martial Knowledge:</strong> 10</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "oS0n4YAinO2seiir",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.oS0n4YAinO2seiir"
+    },
+    {
+      "sort": 200000,
+      "name": "Use of Necessary Energy",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>A character with this ability can control his energy in such a way that he employs only the required amount for each one of his actions. This allows him to run or carry out sustained efforts for days without suffering the effects of exhaustion. Use of Necessary Energy multiplies the amount of time a character can spend on physical labor, running, or performing heavy tasks without losing Fatigue points by a factor of 10. For example, a character using this ability and running at his maximum Movement Value would lose 1 Fatigue Point every 50 turns, not every 5 turns as the rules state for characters without this power.</p></div><p>This ability also makes it possible for characters to go beyond the normal limits of exertion by increasing the maximum number of Fatigue Points allowed per turn. Instead of 2 Fatigue points per round, this ability raises a character’s spending limit to 5, thus adding a +75 bonus to a single Action, or several bonuses of +15 to several at a time.</p><div class=\"ki-box\"><p><strong>Requirements:</strong> Use of Ki</p><p><strong>Martial Knowledge:</strong> 10</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "lbY0CV2VwmhbEVsk",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.lbY0CV2VwmhbEVsk"
+    },
+    {
+      "sort": 200000,
+      "name": "Ki Concealment",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>A character with this ability hides the traces of his energy, rendering it invisible to Ki Detection and Erudition. Technically, it creates a spiritual void that hinders tracking. Like Ki Detection, Ki Concealment is calculated as a Special Secondary Ability. Simply find the average between a character’s total MK and his Hide score. When someone with Ki Detection tries to locate a character using Ki Concealment, they must make an Opposed check – the hiding character’s Concealment score is deducted from the searching character’s Detection score. An individual Accumulating Ki while using this ability must subtract 10 from his Concealment score for every 1 Ki Point in use.</p><p>Ki Concealment also distorts energy information gathered with Erudition. By succeeding at an Opposed Check, individuals may send out false information to those using Erudition.</p><p>Finally, this ability also grants certain advantages against supernatural detection. If a character using Ki Concealment is being tracked down by a spell or psychic ability, he can add half his Ki Concealment score to the Resistance Check he needs to pass in order to avoid detection.</p></div><p></p><p><em>For example, Lemures is trying to hide from an enemy who’s attempting to detect his energy. They are 30 feet away and both roll their dice. Lemures calculates his Final Score (130) in Ki Concealment. His adversary, on the other hand, receives a score of 175 for Detection. The difference between the two scores is 45, indicating a Difficulty Level of Easy. A quick look at Box VIII reveals that had Lemures been less than 15 feet away from his adversary, he would have been detected. Since he is standing 30 feet away from his opponent, Lemures remains hidden. Furthermore, with a Ki Concealment ability of 100, he gets a +50 bonus to any Resistance against supernatural detection.</em></p><div class=\"ki-box\"><p><strong>Requirements:</strong> Use of Necessary Energy</p><p><strong>Martial Knowledge:</strong> 10 MK</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "CFpOsXxVcvn4d0ba",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.CFpOsXxVcvn4d0ba"
+    },
+    {
+      "sort": 200000,
+      "name": "False Death",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>This ability enables a character to slip into a comatose state very much like death. Someone in this state can not move but will be aware of any event taking place around him. Anyone examining his body will conclude the subject is actually dead. The “corpse” possesses no breath, heartbeat, or energy. The only way to assess the character’s true condition is by passing a Medicine Check against an Impossible difficulty. Regaining control of the body after use of False Death takes a whole turn. During this time, the recovering character still can not move – though his body’s functions are returning to normal.</p><p><strong>Requirements:</strong> Ki Concealment</p><p><strong>Martial Knowledge:</strong> 10</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "JR1S803rDDMpT3zT",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.JR1S803rDDMpT3zT"
+    },
+    {
+      "sort": 200000,
+      "name": "Elimination of Necessities",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>A character with this ability has virtually eliminated his physical needs, requiring only one-tenth the food, water, and sleep of a normal person.</p><p><strong>Requirements:</strong> Use of Necessary Energy</p><p><strong>Cost:</strong> 10 MK</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "rgb5HLfSxo0BYYUP",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.rgb5HLfSxo0BYYUP"
+    },
+    {
+      "sort": 200000,
+      "name": "Penalty Reduction",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>A character with this ability can reduce penalties applied to him from Fatigue or Criticals by half (rounding down). Penalty Reduction does not act upon penalties applied due to amputation or similar damage, nor penalties caused by magic or psychic powers.</p><p><strong>Requirements:</strong> Use of Necessary Energy</p><p><strong>Martial Knowledge:</strong> 20</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "BZ2CVCdSWlcoWKoA",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.BZ2CVCdSWlcoWKoA"
+    },
+    {
+      "sort": 200000,
+      "name": "Recovery",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>This ability allows a character to use Ki to recover from physical exertion. Recovery allows a character to recover 1 Fatigue point for every 5 generic Ki Points spent. Only 1 point may be recovered per turn.</p><p><strong>Requirements:</strong> Penalty Reduction</p><p><strong>Martial Knowledge:</strong> 20</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "e01lG7g9sUh5ftui",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.e01lG7g9sUh5ftui"
+    },
+    {
+      "sort": 200000,
+      "name": "Characteristic Augmentation",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>By using internal energy, individuals with this ability can increase their physical Characteristics up to three points higher than their original values. The number of Ki Points a character must spend equals the target number they want to reach in the particular Characteristic. Furthermore, the Ki points spent must come from the Characteristic the character wants to improve. In addition to the initial Ki investment, this ability costs 1 Ki point per turn to maintain.</p></div><p></p><p><em>Celia has an Agility score of 10. Using this ability, she can increase her Characteristic up to 13. To do this, however, she must spend 13 Ki Points (derived from Agility), and then spend one extra point per turn to maintain her augmented Agility.</em></p><div class=\"ki-box\"><p><strong>Requirements:</strong> Use of Necessary Energy</p><p><strong>Martial Knowledge:</strong> 20 MK</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "xEJVniz53RLcXTbl",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.xEJVniz53RLcXTbl"
+    },
+    {
+      "sort": 200000,
+      "name": "Inhumanity",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>This ability allows a character to perform physical tasks otherwise impossible to human beings. Inhumanity allows its user to count any Inhuman-level results they achieve on the Difficulty Table and get the most out of the capabilities their Characteristics allow.</p><p><strong>Requirements:</strong> Use of Ki</p><p><strong>Martial Knowledge:</strong> 30</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "lokonvRPqtNxGKVE",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.lokonvRPqtNxGKVE"
+    },
+    {
+      "sort": 200000,
+      "name": "Zen",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<div class=\"ki-box\"><p>Zen is the state of ultimate perfection in body and soul. It works exactly like Inhumanity, except for the fact that it enables characters to reach Zen Difficulty in their Checks and Abilities.</p><p><strong>Requirements:</strong> Inhumanity</p><p><strong>Martial Knowledge:</strong> 50</p></div>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "UtxuzoKm1KU89Cit",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5qVDROsxmnhBX1vD.UtxuzoKm1KU89Cit"
+    }
+  ],
+  "folder": "R8wCHwnoz9eURbGA",
+  "categories": [
+    {
+      "name": "Abilities",
+      "sort": 200000,
+      "_id": "CoAvupc6MtRwguPJ",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!5qVDROsxmnhBX1vD.CoAvupc6MtRwguPJ"
+    },
+    {
+      "name": "Overview",
+      "sort": 100000,
+      "_id": "dyJl0mhTzGrRJ4WB",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!5qVDROsxmnhBX1vD.dyJl0mhTzGrRJ4WB"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.mMQMef9nv1f0NI68",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.2.1",
+    "createdTime": 1784386341361,
+    "modifiedTime": 1784386341361,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "ownership": {
+    "default": 0,
+    "cvaXLNt0ipl2zLRV": 3
+  },
+  "_id": "5qVDROsxmnhBX1vD",
+  "sort": 0,
+  "_key": "!journal!5qVDROsxmnhBX1vD"
+}

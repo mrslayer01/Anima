@@ -1,0 +1,39 @@
+{
+  "name": "Shadow Armor",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 49,
+    "action": "active",
+    "cost": 90,
+    "effect": "Forms a living armor of darkness around the caster, granting AT 6 against physical attacks and reducing energy damage by 30. The armor absorbs the first 80 points of damage before dissipating.",
+    "addedEffect": "+20 absorbed damage and +1 AT.",
+    "maintenance": "1 every 10 (8)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "L1Gycs2U7jmvdhhr",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!L1Gycs2U7jmvdhhr"
+}

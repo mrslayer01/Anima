@@ -1,0 +1,39 @@
+{
+  "name": "Rain of Destruction",
+  "type": "spell",
+  "folder": "Z8spjTtxxbGftej8",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "destruction",
+    "level": 82,
+    "action": "active",
+    "cost": 250,
+    "effect": "Unleashes a storm of selective destructive blasts within a 150-foot radius, affecting only designated targets. Energy Attack with Base Damage 200. Targets damaged must pass MR 140 or lose additional LP equal to the failure margin.",
+    "addedEffect": "+30-foot radius, +5 Base Damage, +5 MR Difficulty.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x30",
+    "typeOfSpell": "Attack"
+  },
+  "_id": "GnNiXHA3bvevIyKd",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!GnNiXHA3bvevIyKd"
+}

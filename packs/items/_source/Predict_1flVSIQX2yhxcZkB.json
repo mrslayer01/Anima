@@ -1,0 +1,39 @@
+{
+  "name": "Predict",
+  "type": "spell",
+  "folder": "AxuVWz5XwsiEfv6z",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "light",
+    "level": 90,
+    "action": "active",
+    "cost": 200,
+    "effect": "Allows the caster to foresee future events around a person, place, or thing. Shows the most probable destiny within up to one year. Predictions may change due to higher powers or individuals with elevated Gnosis.",
+    "addedEffect": "Doubles the period of time covered.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Spiritual"
+  },
+  "_id": "1flVSIQX2yhxcZkB",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!1flVSIQX2yhxcZkB"
+}

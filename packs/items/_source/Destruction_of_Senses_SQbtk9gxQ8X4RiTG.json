@@ -1,0 +1,39 @@
+{
+  "name": "Destruction of Senses",
+  "type": "spell",
+  "folder": "Z8spjTtxxbGftej8",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "destruction",
+    "level": 32,
+    "action": "active",
+    "cost": 100,
+    "effect": "Removes chosen senses from the target. MR 100 to resist.",
+    "addedEffect": "+5 MR Difficulty.",
+    "maintenance": "1 every 20 (5)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Spiritual"
+  },
+  "_id": "SQbtk9gxQ8X4RiTG",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!SQbtk9gxQ8X4RiTG"
+}

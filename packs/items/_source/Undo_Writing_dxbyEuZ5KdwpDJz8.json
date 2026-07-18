@@ -1,0 +1,42 @@
+{
+  "name": "Undo Writing",
+  "type": "spell",
+  "folder": "4CMdRqw0sbJaT8oX",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 1,
+    "maxLevel": 10,
+    "action": "active",
+    "cost": 40,
+    "effect": "Erases up to 500 characters of text without damaging the material. Affects objects with Presence less than 30.",
+    "addedEffect": "+5 maximum Presence and +100 characters.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect",
+    "closedPaths": {
+      "path1": "creation"
+    }
+  },
+  "_id": "dxbyEuZ5KdwpDJz8",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!dxbyEuZ5KdwpDJz8"
+}

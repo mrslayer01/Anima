@@ -1,0 +1,39 @@
+{
+  "name": "Zone of Concealment",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 48,
+    "action": "active",
+    "cost": 100,
+    "effect": "Creates a 100-foot-radius area where all forms of detection—mundane, magical, psychic, or supernatural—suffer a –80 penalty. Inside the zone, individuals appear blurred and indistinct, making identification nearly impossible.",
+    "addedEffect": "+50-foot radius and +10 to the detection penalty.",
+    "maintenance": "1 every 10 (10)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "12kaAHU2Ka0pAbU5",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!12kaAHU2Ka0pAbU5"
+}

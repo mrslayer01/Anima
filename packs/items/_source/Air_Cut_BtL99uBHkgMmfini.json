@@ -1,0 +1,39 @@
+{
+  "name": "Air Cut",
+  "type": "spell",
+  "folder": "80PIYD2pUKkVAK2d",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "air",
+    "level": 40,
+    "action": "active",
+    "cost": 60,
+    "effect": "Creates a 10-foot line of cutting wind. Base Damage 80 using Cut Attack Type. Reduces enemy AT by 2.",
+    "addedEffect": "+5 feet to line.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Attack"
+  },
+  "_id": "BtL99uBHkgMmfini",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!BtL99uBHkgMmfini"
+}

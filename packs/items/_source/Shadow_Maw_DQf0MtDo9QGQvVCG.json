@@ -1,0 +1,39 @@
+{
+  "name": "Shadow Maw",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 66,
+    "action": "active",
+    "cost": 170,
+    "effect": "Summons a massive spectral maw of darkness that erupts from the ground to bite a single target. Deals 130 Base Damage and inflicts a –40 penalty to Dodge for one round. On a failed MR 180 check, the target is partially immobilized.",
+    "addedEffect": "+10 Base Damage and –5 additional Dodge penalty.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Attack"
+  },
+  "_id": "DQf0MtDo9QGQvVCG",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!DQf0MtDo9QGQvVCG"
+}

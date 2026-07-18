@@ -1,0 +1,39 @@
+{
+  "name": "Concealment",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 32,
+    "action": "passive",
+    "cost": 60,
+    "effect": "Conceals the presence of the caster or a designated target from all forms of detection. Grants +40 resistance to mystical or psychic detection and +40 to Ki Concealment, even if the target lacks the ability.",
+    "addedEffect": "+10 to Resistances against detections and +10 to Ki Concealment.",
+    "maintenance": "1 every 10 (6) Daily",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "aRqd4obfeayU3tVC",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!aRqd4obfeayU3tVC"
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Stop Breathing",
+  "type": "spell",
+  "folder": "80PIYD2pUKkVAK2d",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "air",
+    "level": 12,
+    "action": "passive",
+    "cost": 40,
+    "effect": "Target no longer needs to breathe and is immune to suffocation. Affects multiple targets up to 80 total Presence.",
+    "addedEffect": "+10 maximum Presence.",
+    "maintenance": "1 every 10 (4) Daily",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "hziYCgHLXqjCY6Uw",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!hziYCgHLXqjCY6Uw"
+}

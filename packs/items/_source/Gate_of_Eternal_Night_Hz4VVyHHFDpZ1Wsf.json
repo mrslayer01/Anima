@@ -1,0 +1,39 @@
+{
+  "name": "Gate of Eternal Night",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 75,
+    "action": "active",
+    "cost": 260,
+    "effect": "Opens a colossal rift to the deepest shadow realms. The area within 300 feet becomes pitch black, enemies suffer –80 to all actions, and shadow entities may emerge to assist or attack depending on caster control.",
+    "addedEffect": "+20-foot radius and –5 additional penalty to enemies.",
+    "maintenance": "3 every 10 (18)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Ritual"
+  },
+  "_id": "Hz4VVyHHFDpZ1Wsf",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!Hz4VVyHHFDpZ1Wsf"
+}

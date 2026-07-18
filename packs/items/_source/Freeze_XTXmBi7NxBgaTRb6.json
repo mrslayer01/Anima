@@ -1,0 +1,39 @@
+{
+  "name": "Freeze",
+  "type": "spell",
+  "folder": "hDivpkoYQDkXlqVI",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "water",
+    "level": 32,
+    "action": "active",
+    "cost": 60,
+    "effect": "Freezes targets in a 15-foot radius. MR 120 (or 140 if focused). Failure <20 = Minor Paralysis; <80 = Partial Paralysis; ≥80 = Total Paralysis.",
+    "addedEffect": "+15-foot radius and +5 MR Difficulty.",
+    "maintenance": "1 every 10 (6) Daily",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Spiritual"
+  },
+  "_id": "XTXmBi7NxBgaTRb6",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!XTXmBi7NxBgaTRb6"
+}

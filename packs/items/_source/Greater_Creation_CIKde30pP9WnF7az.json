@@ -1,0 +1,39 @@
+{
+  "name": "Greater Creation",
+  "type": "spell",
+  "folder": "4Gsne2eJZ5qJHCjh",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "creation",
+    "level": 90,
+    "action": "active",
+    "cost": 400,
+    "effect": "Grants 500 Presence Points to create any number of inanimate objects, each with Presence ≤180.",
+    "addedEffect": "+50 additional Presence Points to share out.",
+    "maintenance": "1 every 20 (20) Daily",
+    "maxZeon": "Intelligence x40",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "CIKde30pP9WnF7az",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!CIKde30pP9WnF7az"
+}

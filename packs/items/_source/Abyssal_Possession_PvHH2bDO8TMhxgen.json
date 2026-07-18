@@ -1,0 +1,39 @@
+{
+  "name": "Abyssal Possession",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 92,
+    "action": "active",
+    "cost": 280,
+    "effect": "Attempts to overwhelm a target’s mind with void influence. On failed MR 190, the caster controls the target for 1 turn.",
+    "addedEffect": "+5 to MR Difficulty.",
+    "maintenance": "2 every 10 (16)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Spiritual"
+  },
+  "_id": "PvHH2bDO8TMhxgen",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!PvHH2bDO8TMhxgen"
+}

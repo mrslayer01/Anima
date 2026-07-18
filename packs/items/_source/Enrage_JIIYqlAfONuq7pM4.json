@@ -1,0 +1,39 @@
+{
+  "name": "Enrage",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 38,
+    "action": "active",
+    "cost": 60,
+    "effect": "Provokes a Rage State in those affected, making them lose control and attack the closest person. Victims gain +10 to offensive abilities and suffer –30 to all other checks. Radius 15 feet. Resisted with MR Difficulty 80.",
+    "addedEffect": "+15-foot radius and +5 to the MR Difficulty.",
+    "maintenance": "1 every 10 (6)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Spiritual"
+  },
+  "_id": "JIIYqlAfONuq7pM4",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!JIIYqlAfONuq7pM4"
+}

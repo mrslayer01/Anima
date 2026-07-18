@@ -1,0 +1,674 @@
+{
+  "folder": "R8wCHwnoz9eURbGA",
+  "name": "Tables",
+  "pages": [
+    {
+      "sort": 100000,
+      "name": "Table 1: Fumble Table",
+      "type": "text",
+      "_id": "n81IndmPxWmCrBKq",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:4px\">Fumble Roll</th><th style=\"border:1px solid #666;padding:4px\">Result Modifier</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:4px\">1</td><td style=\"border:1px solid #666;padding:4px\">+15</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">2</td><td style=\"border:1px solid #666;padding:4px\">0</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">3</td><td style=\"border:1px solid #666;padding:4px\">-15</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.n81IndmPxWmCrBKq"
+    },
+    {
+      "sort": 200000,
+      "name": "Table 2: Characteristics Modifiers",
+      "type": "text",
+      "_id": "AvP3DEyBqTwX9P73",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:4px\">Characteristic Value</th><th style=\"border:1px solid #666;padding:4px\">Modifier</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:4px\">1</td><td style=\"border:1px solid #666;padding:4px\">-30</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">2</td><td style=\"border:1px solid #666;padding:4px\">-20</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">3</td><td style=\"border:1px solid #666;padding:4px\">-10</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">4</td><td style=\"border:1px solid #666;padding:4px\">-5</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">5</td><td style=\"border:1px solid #666;padding:4px\">0</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">6–7</td><td style=\"border:1px solid #666;padding:4px\">+5</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">8–9</td><td style=\"border:1px solid #666;padding:4px\">+10</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">10</td><td style=\"border:1px solid #666;padding:4px\">+15</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">11–12</td><td style=\"border:1px solid #666;padding:4px\">+20</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">13–14</td><td style=\"border:1px solid #666;padding:4px\">+25</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">15</td><td style=\"border:1px solid #666;padding:4px\">+30</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">16–17</td><td style=\"border:1px solid #666;padding:4px\">+35</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">18–19</td><td style=\"border:1px solid #666;padding:4px\">+40</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">20</td><td style=\"border:1px solid #666;padding:4px\">+45</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.AvP3DEyBqTwX9P73"
+    },
+    {
+      "sort": 300000,
+      "name": "Table 3: Size & Weight",
+      "type": "text",
+      "_id": "kuz3sxeYvGHfIGEK",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:4px\">Size</th><th style=\"border:1px solid #666;padding:4px\">Height</th><th style=\"border:1px solid #666;padding:4px\">Weight</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:4px\">2</td><td style=\"border:1px solid #666;padding:4px\">8” to 2’</td><td style=\"border:1px solid #666;padding:4px\">10 to 35 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">3</td><td style=\"border:1px solid #666;padding:4px\">1’6” to 2’</td><td style=\"border:1px solid #666;padding:4px\">20 to 45 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">4</td><td style=\"border:1px solid #666;padding:4px\">2’ to 3’4”</td><td style=\"border:1px solid #666;padding:4px\">45 to 65 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">5</td><td style=\"border:1px solid #666;padding:4px\">2’8” to 4’</td><td style=\"border:1px solid #666;padding:4px\">45 to 110 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">6</td><td style=\"border:1px solid #666;padding:4px\">3’4” to 4’6”</td><td style=\"border:1px solid #666;padding:4px\">65 to 110 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">7</td><td style=\"border:1px solid #666;padding:4px\">3’6” to 4’10”</td><td style=\"border:1px solid #666;padding:4px\">65 to 135 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">8</td><td style=\"border:1px solid #666;padding:4px\">4’ to 5’4”</td><td style=\"border:1px solid #666;padding:4px\">75 to 155 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">9</td><td style=\"border:1px solid #666;padding:4px\">4’4” to 5’4”</td><td style=\"border:1px solid #666;padding:4px\">90 to 175 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">10</td><td style=\"border:1px solid #666;padding:4px\">4’8” to 5’8”</td><td style=\"border:1px solid #666;padding:4px\">90 to 200 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">11</td><td style=\"border:1px solid #666;padding:4px\">4’8” to 6’</td><td style=\"border:1px solid #666;padding:4px\">110 to 220 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">12</td><td style=\"border:1px solid #666;padding:4px\">5’ to 6’</td><td style=\"border:1px solid #666;padding:4px\">110 to 220 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">13</td><td style=\"border:1px solid #666;padding:4px\">5’ to 6’</td><td style=\"border:1px solid #666;padding:4px\">110 to 310 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">14</td><td style=\"border:1px solid #666;padding:4px\">5’4” to 6’3”</td><td style=\"border:1px solid #666;padding:4px\">110 to 330 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">15</td><td style=\"border:1px solid #666;padding:4px\">5’4” to 6’6”</td><td style=\"border:1px solid #666;padding:4px\">135 to 395 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">16</td><td style=\"border:1px solid #666;padding:4px\">5’8” to 6’10”</td><td style=\"border:1px solid #666;padding:4px\">155 to 485 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">17</td><td style=\"border:1px solid #666;padding:4px\">5’8” to 6’10”</td><td style=\"border:1px solid #666;padding:4px\">175 to 530 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">18</td><td style=\"border:1px solid #666;padding:4px\">5’11” to 7’2”</td><td style=\"border:1px solid #666;padding:4px\">200 to 615 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">19</td><td style=\"border:1px solid #666;padding:4px\">6’3” to 7’6”</td><td style=\"border:1px solid #666;padding:4px\">220 to 615 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">20</td><td style=\"border:1px solid #666;padding:4px\">6’6” to 7’9”</td><td style=\"border:1px solid #666;padding:4px\">245 to 705 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">21</td><td style=\"border:1px solid #666;padding:4px\">6’10” to 8’6”</td><td style=\"border:1px solid #666;padding:4px\">265 to 990 lbs.</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">22</td><td style=\"border:1px solid #666;padding:4px\">+8’</td><td style=\"border:1px solid #666;padding:4px\">+800 lbs.</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.kuz3sxeYvGHfIGEK"
+    },
+    {
+      "sort": 400000,
+      "name": "Table 4: Base Life Points",
+      "type": "text",
+      "_id": "RunFYKrmbb1NenDa",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:4px\">Constitution</th><th style=\"border:1px solid #666;padding:4px\">Base Life Points</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:4px\">1</td><td style=\"border:1px solid #666;padding:4px\">5</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">2</td><td style=\"border:1px solid #666;padding:4px\">20</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">3</td><td style=\"border:1px solid #666;padding:4px\">40</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">4</td><td style=\"border:1px solid #666;padding:4px\">55</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">5</td><td style=\"border:1px solid #666;padding:4px\">70</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">6</td><td style=\"border:1px solid #666;padding:4px\">85</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">7</td><td style=\"border:1px solid #666;padding:4px\">95</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">8</td><td style=\"border:1px solid #666;padding:4px\">110</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">9</td><td style=\"border:1px solid #666;padding:4px\">120</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">10</td><td style=\"border:1px solid #666;padding:4px\">135</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">11</td><td style=\"border:1px solid #666;padding:4px\">150</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">12</td><td style=\"border:1px solid #666;padding:4px\">160</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">13</td><td style=\"border:1px solid #666;padding:4px\">175</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">14</td><td style=\"border:1px solid #666;padding:4px\">185</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">15</td><td style=\"border:1px solid #666;padding:4px\">200</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">16</td><td style=\"border:1px solid #666;padding:4px\">215</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">17</td><td style=\"border:1px solid #666;padding:4px\">225</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">18</td><td style=\"border:1px solid #666;padding:4px\">240</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">19</td><td style=\"border:1px solid #666;padding:4px\">250</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">20</td><td style=\"border:1px solid #666;padding:4px\">265</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.RunFYKrmbb1NenDa"
+    },
+    {
+      "sort": 500000,
+      "name": "Table 5: Base Presence",
+      "type": "text",
+      "_id": "lfHgH2cbpCFxHrC8",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:4px\">Level</th><th style=\"border:1px solid #666;padding:4px\">Presence</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:4px\">1</td><td style=\"border:1px solid #666;padding:4px\">30</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">2</td><td style=\"border:1px solid #666;padding:4px\">35</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">3</td><td style=\"border:1px solid #666;padding:4px\">40</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">4</td><td style=\"border:1px solid #666;padding:4px\">45</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">5</td><td style=\"border:1px solid #666;padding:4px\">50</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">6</td><td style=\"border:1px solid #666;padding:4px\">55</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">7</td><td style=\"border:1px solid #666;padding:4px\">60</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">8</td><td style=\"border:1px solid #666;padding:4px\">65</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">9</td><td style=\"border:1px solid #666;padding:4px\">70</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">10</td><td style=\"border:1px solid #666;padding:4px\">75</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">11</td><td style=\"border:1px solid #666;padding:4px\">80</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">12</td><td style=\"border:1px solid #666;padding:4px\">85</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">13</td><td style=\"border:1px solid #666;padding:4px\">90</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">14</td><td style=\"border:1px solid #666;padding:4px\">95</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">15</td><td style=\"border:1px solid #666;padding:4px\">100</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">+1 level</td><td style=\"border:1px solid #666;padding:4px\">+5</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.lfHgH2cbpCFxHrC8"
+    },
+    {
+      "sort": 600000,
+      "name": "Table 6: Progression by Level",
+      "type": "text",
+      "_id": "OueAsagUMayKIGRS",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:4px\">Level</th><th style=\"border:1px solid #666;padding:4px\">DP</th><th style=\"border:1px solid #666;padding:4px\">+ Characteristics per Level</th><th style=\"border:1px solid #666;padding:4px\">Experience Needed</th><th style=\"border:1px solid #666;padding:4px\">Base Presence</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:4px\">0</td><td style=\"border:1px solid #666;padding:4px\">400</td><td style=\"border:1px solid #666;padding:4px\">N/A</td><td style=\"border:1px solid #666;padding:4px\">20</td><td style=\"border:1px solid #666;padding:4px\">20</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">1</td><td style=\"border:1px solid #666;padding:4px\">600</td><td style=\"border:1px solid #666;padding:4px\">0</td><td style=\"border:1px solid #666;padding:4px\">30</td><td style=\"border:1px solid #666;padding:4px\">30</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">2</td><td style=\"border:1px solid #666;padding:4px\">700</td><td style=\"border:1px solid #666;padding:4px\">+1</td><td style=\"border:1px solid #666;padding:4px\">100</td><td style=\"border:1px solid #666;padding:4px\">35</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">3</td><td style=\"border:1px solid #666;padding:4px\">800</td><td style=\"border:1px solid #666;padding:4px\">0</td><td style=\"border:1px solid #666;padding:4px\">225</td><td style=\"border:1px solid #666;padding:4px\">40</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">4</td><td style=\"border:1px solid #666;padding:4px\">900</td><td style=\"border:1px solid #666;padding:4px\">+1</td><td style=\"border:1px solid #666;padding:4px\">375</td><td style=\"border:1px solid #666;padding:4px\">45</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">5</td><td style=\"border:1px solid #666;padding:4px\">1000</td><td style=\"border:1px solid #666;padding:4px\">0</td><td style=\"border:1px solid #666;padding:4px\">550</td><td style=\"border:1px solid #666;padding:4px\">50</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">6</td><td style=\"border:1px solid #666;padding:4px\">1100</td><td style=\"border:1px solid #666;padding:4px\">+1</td><td style=\"border:1px solid #666;padding:4px\">750</td><td style=\"border:1px solid #666;padding:4px\">55</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">7</td><td style=\"border:1px solid #666;padding:4px\">1200</td><td style=\"border:1px solid #666;padding:4px\">0</td><td style=\"border:1px solid #666;padding:4px\">975</td><td style=\"border:1px solid #666;padding:4px\">60</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">8</td><td style=\"border:1px solid #666;padding:4px\">1300</td><td style=\"border:1px solid #666;padding:4px\">+1</td><td style=\"border:1px solid #666;padding:4px\">1225</td><td style=\"border:1px solid #666;padding:4px\">65</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">9</td><td style=\"border:1px solid #666;padding:4px\">1400</td><td style=\"border:1px solid #666;padding:4px\">0</td><td style=\"border:1px solid #666;padding:4px\">1500</td><td style=\"border:1px solid #666;padding:4px\">70</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">10</td><td style=\"border:1px solid #666;padding:4px\">1500</td><td style=\"border:1px solid #666;padding:4px\">+1</td><td style=\"border:1px solid #666;padding:4px\">1800</td><td style=\"border:1px solid #666;padding:4px\">75</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">11</td><td style=\"border:1px solid #666;padding:4px\">1600</td><td style=\"border:1px solid #666;padding:4px\">0</td><td style=\"border:1px solid #666;padding:4px\">2125</td><td style=\"border:1px solid #666;padding:4px\">80</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">12</td><td style=\"border:1px solid #666;padding:4px\">1700</td><td style=\"border:1px solid #666;padding:4px\">+1</td><td style=\"border:1px solid #666;padding:4px\">2475</td><td style=\"border:1px solid #666;padding:4px\">85</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">13</td><td style=\"border:1px solid #666;padding:4px\">1800</td><td style=\"border:1px solid #666;padding:4px\">0</td><td style=\"border:1px solid #666;padding:4px\">2850</td><td style=\"border:1px solid #666;padding:4px\">90</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">14</td><td style=\"border:1px solid #666;padding:4px\">1900</td><td style=\"border:1px solid #666;padding:4px\">+1</td><td style=\"border:1px solid #666;padding:4px\">3250</td><td style=\"border:1px solid #666;padding:4px\">95</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">15</td><td style=\"border:1px solid #666;padding:4px\">2000</td><td style=\"border:1px solid #666;padding:4px\">0</td><td style=\"border:1px solid #666;padding:4px\">3675</td><td style=\"border:1px solid #666;padding:4px\">100</td></tr><tr><td style=\"border:1px solid #666;padding:4px\">+1 level</td><td style=\"border:1px solid #666;padding:4px\">+100</td><td style=\"border:1px solid #666;padding:4px\">+1 (every even level)</td><td style=\"border:1px solid #666;padding:4px\">+450</td><td style=\"border:1px solid #666;padding:4px\">+5</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.OueAsagUMayKIGRS"
+    },
+    {
+      "sort": 700000,
+      "name": "Table 7: Difficulty Ratings",
+      "type": "text",
+      "_id": "KQoC8jOuHwXsRIVB",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:6px\">Difficulty</th><th style=\"border:1px solid #666;padding:6px\">Number to Beat</th><th style=\"border:1px solid #666;padding:6px\">Explanation</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:6px\">Routine</td><td style=\"border:1px solid #666;padding:6px\">20</td><td style=\"border:1px solid #666;padding:6px\">Normal actions almost anyone can do without thinking, such as going up stairs two at a time or hearing a loud noise. Usually no check is required unless circumstances are unusual.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Easy</td><td style=\"border:1px solid #666;padding:6px\">40</td><td style=\"border:1px solid #666;padding:6px\">Common tasks most people can do, like remembering a song. Even someone inexperienced can usually succeed within a few attempts.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Moderate</td><td style=\"border:1px solid #666;padding:6px\">80</td><td style=\"border:1px solid #666;padding:6px\">Tasks requiring some knowledge or experience, such as picking a simple lock or curing a mild illness.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Difficult</td><td style=\"border:1px solid #666;padding:6px\">120</td><td style=\"border:1px solid #666;padding:6px\">Challenging tasks for an ordinary person, requiring significant skill or luck, such as scaling a wall unaided or performing advanced juggling.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Very Difficult</td><td style=\"border:1px solid #666;padding:6px\">140</td><td style=\"border:1px solid #666;padding:6px\">The upper limit of what a normal person can achieve, such as walking a high-wire or performing dangerous trapeze stunts.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Absurd</td><td style=\"border:1px solid #666;padding:6px\">180</td><td style=\"border:1px solid #666;padding:6px\">Only the exceptionally gifted or elite can perform these tasks reliably, such as analyzing every possible chess move instantly.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Almost Impossible</td><td style=\"border:1px solid #666;padding:6px\">240</td><td style=\"border:1px solid #666;padding:6px\">Even the best in the world usually fail at these tasks. An example might be catching a fly with chopsticks while blindfolded.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Impossible</td><td style=\"border:1px solid #666;padding:6px\">280</td><td style=\"border:1px solid #666;padding:6px\">Actions at the edge of physical reality—miraculous but still theoretically possible, such as dodging a bullet by calculating its trajectory.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Inhuman</td><td style=\"border:1px solid #666;padding:6px\">320</td><td style=\"border:1px solid #666;padding:6px\">Feats beyond logic, such as running 100 yards in two seconds or scoring a 17 on 18 holes of golf. Requires access to Inhuman Actions.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Zen</td><td style=\"border:1px solid #666;padding:6px\">440</td><td style=\"border:1px solid #666;padding:6px\">Completely beyond reality, such as riding a beam of light. Requires supernatural capability; ability alone is insufficient.</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.KQoC8jOuHwXsRIVB"
+    },
+    {
+      "sort": 800000,
+      "name": "Table 8: Perception Skills Modifiers",
+      "type": "text",
+      "_id": "HgvqrvtcBENJgMSF",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:6px\">Sense</th><th style=\"border:1px solid #666;padding:6px\">Condition</th><th style=\"border:1px solid #666;padding:6px\">Modifier</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:6px\">Sight</td><td style=\"border:1px solid #666;padding:6px\">Dimly lit area</td><td style=\"border:1px solid #666;padding:6px\">-30</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Sight</td><td style=\"border:1px solid #666;padding:6px\">Complete darkness</td><td style=\"border:1px solid #666;padding:6px\">-60</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Sight</td><td style=\"border:1px solid #666;padding:6px\">Rain</td><td style=\"border:1px solid #666;padding:6px\">-20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Sight</td><td style=\"border:1px solid #666;padding:6px\">Target only partially visible</td><td style=\"border:1px solid #666;padding:6px\">-30</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Sight</td><td style=\"border:1px solid #666;padding:6px\">Target appropriately camouflaged for the environment</td><td style=\"border:1px solid #666;padding:6px\">-30</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Sight</td><td style=\"border:1px solid #666;padding:6px\">Target color contrasting with the environment</td><td style=\"border:1px solid #666;padding:6px\">+40</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Sight</td><td style=\"border:1px solid #666;padding:6px\">Observing character is alerted</td><td style=\"border:1px solid #666;padding:6px\">+20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Sight</td><td style=\"border:1px solid #666;padding:6px\">Observer with height advantage</td><td style=\"border:1px solid #666;padding:6px\">+30</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Hearing</td><td style=\"border:1px solid #666;padding:6px\">Slight background noise</td><td style=\"border:1px solid #666;padding:6px\">-20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Hearing</td><td style=\"border:1px solid #666;padding:6px\">People speaking</td><td style=\"border:1px solid #666;padding:6px\">-40</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Hearing</td><td style=\"border:1px solid #666;padding:6px\">Loud noises</td><td style=\"border:1px solid #666;padding:6px\">-80</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Smell</td><td style=\"border:1px solid #666;padding:6px\">Obvious odor</td><td style=\"border:1px solid #666;padding:6px\">+30</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Smell</td><td style=\"border:1px solid #666;padding:6px\">Various smells present</td><td style=\"border:1px solid #666;padding:6px\">-30</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Touch</td><td style=\"border:1px solid #666;padding:6px\">Wearing gloves</td><td style=\"border:1px solid #666;padding:6px\">-40</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Taste</td><td style=\"border:1px solid #666;padding:6px\">Previously known taste</td><td style=\"border:1px solid #666;padding:6px\">+40</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Taste</td><td style=\"border:1px solid #666;padding:6px\">Inactive palate</td><td style=\"border:1px solid #666;padding:6px\">-40</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.HgvqrvtcBENJgMSF"
+    },
+    {
+      "sort": 900000,
+      "name": "Table 9: Treatment of Wounds",
+      "type": "text",
+      "_id": "jQBwdQm32BXKg5yv",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:6px\">Final Ability</th><th style=\"border:1px solid #666;padding:6px\">Difficulty</th><th style=\"border:1px solid #666;padding:6px\">Recovery</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:6px\">40</td><td style=\"border:1px solid #666;padding:6px\">Easy</td><td style=\"border:1px solid #666;padding:6px\">Stops Bleeding</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">80</td><td style=\"border:1px solid #666;padding:6px\">Moderate</td><td style=\"border:1px solid #666;padding:6px\">Stabilized</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">120</td><td style=\"border:1px solid #666;padding:6px\">Difficult</td><td style=\"border:1px solid #666;padding:6px\">+10% of Damage</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">140</td><td style=\"border:1px solid #666;padding:6px\">Very Difficult</td><td style=\"border:1px solid #666;padding:6px\">+20% of Damage</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">180</td><td style=\"border:1px solid #666;padding:6px\">Absurd</td><td style=\"border:1px solid #666;padding:6px\">+30% of Damage</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">240</td><td style=\"border:1px solid #666;padding:6px\">Almost Impossible</td><td style=\"border:1px solid #666;padding:6px\">+40% of Damage</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">280</td><td style=\"border:1px solid #666;padding:6px\">Impossible</td><td style=\"border:1px solid #666;padding:6px\">+50% of Damage</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">320</td><td style=\"border:1px solid #666;padding:6px\">Inhuman</td><td style=\"border:1px solid #666;padding:6px\">+70% of Damage</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.jQBwdQm32BXKg5yv"
+    },
+    {
+      "sort": 1000000,
+      "name": "Table 10: Composure",
+      "type": "text",
+      "_id": "6OVMDaNctkbPi6KQ",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:6px\">Final Ability</th><th style=\"border:1px solid #666;padding:6px\">Difficulty</th><th style=\"border:1px solid #666;padding:6px\">Resistance Bonus</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:6px\">40</td><td style=\"border:1px solid #666;padding:6px\">Easy</td><td style=\"border:1px solid #666;padding:6px\">+5</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">80</td><td style=\"border:1px solid #666;padding:6px\">Moderate</td><td style=\"border:1px solid #666;padding:6px\">+10</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">120</td><td style=\"border:1px solid #666;padding:6px\">Difficult</td><td style=\"border:1px solid #666;padding:6px\">+15</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">140</td><td style=\"border:1px solid #666;padding:6px\">Very Difficult</td><td style=\"border:1px solid #666;padding:6px\">+20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">180</td><td style=\"border:1px solid #666;padding:6px\">Absurd</td><td style=\"border:1px solid #666;padding:6px\">+25</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">240</td><td style=\"border:1px solid #666;padding:6px\">Almost Impossible</td><td style=\"border:1px solid #666;padding:6px\">+30</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">280</td><td style=\"border:1px solid #666;padding:6px\">Impossible</td><td style=\"border:1px solid #666;padding:6px\">+35</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">320</td><td style=\"border:1px solid #666;padding:6px\">Inhuman</td><td style=\"border:1px solid #666;padding:6px\">+40</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.6OVMDaNctkbPi6KQ"
+    },
+    {
+      "sort": 1100000,
+      "name": "Table 11: Withstand Pain",
+      "type": "text",
+      "_id": "DAbQmZ1SeiCIv2gc",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:6px\">Final Ability</th><th style=\"border:1px solid #666;padding:6px\">Difficulty</th><th style=\"border:1px solid #666;padding:6px\">Reduction to Penalties</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:6px\">80</td><td style=\"border:1px solid #666;padding:6px\">Moderate</td><td style=\"border:1px solid #666;padding:6px\">-10</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">120</td><td style=\"border:1px solid #666;padding:6px\">Difficult</td><td style=\"border:1px solid #666;padding:6px\">-20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">140</td><td style=\"border:1px solid #666;padding:6px\">Very Difficult</td><td style=\"border:1px solid #666;padding:6px\">-30</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">180</td><td style=\"border:1px solid #666;padding:6px\">Absurd</td><td style=\"border:1px solid #666;padding:6px\">-40</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">240</td><td style=\"border:1px solid #666;padding:6px\">Almost Impossible</td><td style=\"border:1px solid #666;padding:6px\">-50</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">280</td><td style=\"border:1px solid #666;padding:6px\">Impossible</td><td style=\"border:1px solid #666;padding:6px\">-60</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">320</td><td style=\"border:1px solid #666;padding:6px\">Inhuman</td><td style=\"border:1px solid #666;padding:6px\">-70</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">440</td><td style=\"border:1px solid #666;padding:6px\">Zen</td><td style=\"border:1px solid #666;padding:6px\">-80</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.DAbQmZ1SeiCIv2gc"
+    },
+    {
+      "sort": 1200000,
+      "name": "Table 12: Disguise",
+      "type": "text",
+      "_id": "tLnB3Cj8NdYjW7Ie",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:6px\">Situation</th><th style=\"border:1px solid #666;padding:6px\">Modifier</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:6px\">Less than one minute preparation</td><td style=\"border:1px solid #666;padding:6px\">-20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Over one hour preparation</td><td style=\"border:1px solid #666;padding:6px\">+20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Several hours preparation</td><td style=\"border:1px solid #666;padding:6px\">+40</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Without material for disguise</td><td style=\"border:1px solid #666;padding:6px\">-40</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Improvised disguise material</td><td style=\"border:1px solid #666;padding:6px\">-20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Appropriate materials</td><td style=\"border:1px solid #666;padding:6px\">+20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Prepared makeup and materials</td><td style=\"border:1px solid #666;padding:6px\">+40</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.tLnB3Cj8NdYjW7Ie"
+    },
+    {
+      "sort": 1300000,
+      "name": "Table 13: Hiding",
+      "type": "text",
+      "_id": "XIRHzRmRB2W7f8QQ",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:6px\">Situation</th><th style=\"border:1px solid #666;padding:6px\">Modifier</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:6px\">Large Size (size 18 or larger)</td><td style=\"border:1px solid #666;padding:6px\">-20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Small Size (size 9 or smaller)</td><td style=\"border:1px solid #666;padding:6px\">+20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Done in front of someone</td><td style=\"border:1px solid #666;padding:6px\">-200</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Appropriate hiding place</td><td style=\"border:1px solid #666;padding:6px\">+40</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Shadowy area</td><td style=\"border:1px solid #666;padding:6px\">+20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Well-lit area</td><td style=\"border:1px solid #666;padding:6px\">-20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Empty room or featureless area</td><td style=\"border:1px solid #666;padding:6px\">-80</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.XIRHzRmRB2W7f8QQ"
+    },
+    {
+      "sort": 1400000,
+      "name": "Table 14: Traps",
+      "type": "text",
+      "_id": "rhnBVLPBBHwdEHa1",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:6px\">Final Ability</th><th style=\"border:1px solid #666;padding:6px\">Difficulty</th><th style=\"border:1px solid #666;padding:6px\">Trap Level</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:6px\">20</td><td style=\"border:1px solid #666;padding:6px\">Routine</td><td style=\"border:1px solid #666;padding:6px\">Level 10</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">40</td><td style=\"border:1px solid #666;padding:6px\">Easy</td><td style=\"border:1px solid #666;padding:6px\">Level 20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">80</td><td style=\"border:1px solid #666;padding:6px\">Moderate</td><td style=\"border:1px solid #666;padding:6px\">Level 30</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">120</td><td style=\"border:1px solid #666;padding:6px\">Difficult</td><td style=\"border:1px solid #666;padding:6px\">Level 40</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">140</td><td style=\"border:1px solid #666;padding:6px\">Very Difficult</td><td style=\"border:1px solid #666;padding:6px\">Level 50</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">180</td><td style=\"border:1px solid #666;padding:6px\">Absurd</td><td style=\"border:1px solid #666;padding:6px\">Level 60</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">240</td><td style=\"border:1px solid #666;padding:6px\">Almost Impossible</td><td style=\"border:1px solid #666;padding:6px\">Level 70</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">280</td><td style=\"border:1px solid #666;padding:6px\">Impossible</td><td style=\"border:1px solid #666;padding:6px\">Level 80</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">320</td><td style=\"border:1px solid #666;padding:6px\">Inhuman</td><td style=\"border:1px solid #666;padding:6px\">Level 90</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">440</td><td style=\"border:1px solid #666;padding:6px\">Zen</td><td style=\"border:1px solid #666;padding:6px\">Level 100</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.rhnBVLPBBHwdEHa1"
+    },
+    {
+      "sort": 1500000,
+      "name": "Table 15: Trap Preparation",
+      "type": "text",
+      "_id": "pf5h3C9f24DfhUjA",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:6px\">Situation</th><th style=\"border:1px solid #666;padding:6px\">Modifier</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:6px\">Less than one minute preparation</td><td style=\"border:1px solid #666;padding:6px\">-60</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Over one hour preparation</td><td style=\"border:1px solid #666;padding:6px\">+0</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">One day of preparation</td><td style=\"border:1px solid #666;padding:6px\">+40</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Weeks of preparation</td><td style=\"border:1px solid #666;padding:6px\">+80</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Improvised materials</td><td style=\"border:1px solid #666;padding:6px\">-40</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Especially prepared materials</td><td style=\"border:1px solid #666;padding:6px\">+40</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.pf5h3C9f24DfhUjA"
+    },
+    {
+      "sort": 1600000,
+      "name": "Table 16: Poisons",
+      "type": "text",
+      "_id": "gGLOqHtqQdE24xeF",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:6px\">Final Ability</th><th style=\"border:1px solid #666;padding:6px\">Difficulty</th><th style=\"border:1px solid #666;padding:6px\">Poison Level</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:6px\">40</td><td style=\"border:1px solid #666;padding:6px\">Easy</td><td style=\"border:1px solid #666;padding:6px\">Level 10</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">80</td><td style=\"border:1px solid #666;padding:6px\">Moderate</td><td style=\"border:1px solid #666;padding:6px\">Level 20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">120</td><td style=\"border:1px solid #666;padding:6px\">Difficult</td><td style=\"border:1px solid #666;padding:6px\">Level 30</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">140</td><td style=\"border:1px solid #666;padding:6px\">Very Difficult</td><td style=\"border:1px solid #666;padding:6px\">Level 40</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">180</td><td style=\"border:1px solid #666;padding:6px\">Absurd</td><td style=\"border:1px solid #666;padding:6px\">Level 50</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">240</td><td style=\"border:1px solid #666;padding:6px\">Almost Impossible</td><td style=\"border:1px solid #666;padding:6px\">Level 60</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">280</td><td style=\"border:1px solid #666;padding:6px\">Impossible</td><td style=\"border:1px solid #666;padding:6px\">Level 70</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">320</td><td style=\"border:1px solid #666;padding:6px\">Inhuman</td><td style=\"border:1px solid #666;padding:6px\">Level 80</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">440</td><td style=\"border:1px solid #666;padding:6px\">Zen</td><td style=\"border:1px solid #666;padding:6px\">Level 90</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.gGLOqHtqQdE24xeF"
+    },
+    {
+      "sort": 1700000,
+      "name": "Table 17: Time Employed",
+      "type": "text",
+      "_id": "8wnPm4ZkFlJ7dVe1",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:6px\">Time Employed in Manufacture</th><th style=\"border:1px solid #666;padding:6px\">Modifier</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:6px\">One hour</td><td style=\"border:1px solid #666;padding:6px\">-60</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Two to four hours</td><td style=\"border:1px solid #666;padding:6px\">-40</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">One day</td><td style=\"border:1px solid #666;padding:6px\">-20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Two or three days</td><td style=\"border:1px solid #666;padding:6px\">-10</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">A week</td><td style=\"border:1px solid #666;padding:6px\">0</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Two weeks</td><td style=\"border:1px solid #666;padding:6px\">+10</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">One month</td><td style=\"border:1px solid #666;padding:6px\">+20</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Two or three months</td><td style=\"border:1px solid #666;padding:6px\">+40</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Six months</td><td style=\"border:1px solid #666;padding:6px\">+60</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">One year</td><td style=\"border:1px solid #666;padding:6px\">+80</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Three or four years</td><td style=\"border:1px solid #666;padding:6px\">+100</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">About ten years</td><td style=\"border:1px solid #666;padding:6px\">+120</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.8wnPm4ZkFlJ7dVe1"
+    },
+    {
+      "sort": 1900000,
+      "name": "Table 38: The Combat Table",
+      "type": "text",
+      "_id": "I2BUyn5u500z7sRY",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<img src=\"worlds/ddd/assets/pages/m4wEKaoSGANxScZH-pages-I2BUyn5u500z7sRY-image-1GJL0Kjj9jZSQ6RU.png\" />"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!PVvYz1346b2iPqUk.I2BUyn5u500z7sRY"
+    }
+  ],
+  "categories": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.m4wEKaoSGANxScZH",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.2.1",
+    "createdTime": 1784386341361,
+    "modifiedTime": 1784386341361,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "ownership": {
+    "default": 0,
+    "cvaXLNt0ipl2zLRV": 3
+  },
+  "_id": "PVvYz1346b2iPqUk",
+  "sort": 0,
+  "_key": "!journal!PVvYz1346b2iPqUk"
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Shield of Light",
+  "type": "spell",
+  "folder": "AxuVWz5XwsiEfv6z",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "light",
+    "level": 10,
+    "action": "passive",
+    "cost": 50,
+    "effect": "Forms a barrier of Energy that protects the caster from any source of attack. The shield can absorb up to 300 points before breaking, but is only damaged by supernatural attacks. Impacts based on Darkness cause double damage.",
+    "addedEffect": "+100 Resistance Points.",
+    "maintenance": "1 every 10 (5)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Defense"
+  },
+  "_id": "ClMhUwxdStQIg2hK",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!ClMhUwxdStQIg2hK"
+}

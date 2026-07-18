@@ -1,0 +1,39 @@
+{
+  "name": "Fragility",
+  "type": "spell",
+  "folder": "Z8spjTtxxbGftej8",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "destruction",
+    "level": 2,
+    "action": "active",
+    "cost": 30,
+    "effect": "Reduces the solidity of an object. The target automatically loses its Damage Barrier; arms or armor suffer –2 Fortitude. Affects objects with Presence ≤30.",
+    "addedEffect": "+5 maximum Presence and –1 Fortitude.",
+    "maintenance": "1 every 10 (3)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "aS4CPBtcJKpFLQVZ",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!aS4CPBtcJKpFLQVZ"
+}

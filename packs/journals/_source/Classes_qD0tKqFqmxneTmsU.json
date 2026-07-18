@@ -1,0 +1,782 @@
+{
+  "folder": "R8wCHwnoz9eURbGA",
+  "name": "Classes",
+  "pages": [
+    {
+      "sort": 0,
+      "name": "Warrior",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "_id": "knnY8J4MdoHon4g9",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Fighter</p><p>The Warrior is the virtual embodiment of the Fighter Archetype. This class covers those who have completely dedicated their lives to combat, and it includes those who are best able to fully exploit their warlike talents. This inclination leads them not only to master the use of weapons, but also to use their spiritual energy in a fight. Warriors find it easy to develop great knowledge in the field of military tactics and become leaders of armies. Traditionally, Warriors can end up in a wide variety of occupations, from mere mercenaries to sworn knights.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 15</li><li><strong>Life Points per Level:</strong> 15</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 25</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 60%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 2</li><li>Block: 2</li><li>Dodge: 2</li><li>Wear Armor: 2</li><li>Ki: 2</li><li>Ki Accumulation: 20</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 3</li><li>Magic Projection: 3</li><li>Summon: 3</li><li>Control: 3</li><li>Bind: 3</li><li>Banish: 3</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 3</li><li>Vigor: 2</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Attack +5</li><li>Block +5</li><li>Wear Armor +5</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Feats of Strength +5 (Reduced Cost: 1)</li></ul>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.knnY8J4MdoHon4g9"
+    },
+    {
+      "sort": 100000,
+      "name": "Acrobatic Warrior",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Fighter</p><p>Acrobatic Warriors are Fighters who have specialized in getting the biggest advantage out of their speed and agility. Their greatest benefit lies in being a step ahead of their adversaries and trying to finish them off before they can react. They also prefer to dodge attacks, often standing as far as possible from where their enemy’s blows actually land. They possess excellent mobility, and they can jump, fall, or run with a fleetness that few can match. Acrobatic Warriors can play almost any role in society, but they generally gravitate toward professions associated with combat – such as duelists or swordsmen.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 10</li><li><strong>Initiative per Level:</strong> 10</li><li><strong>Martial Knowledge per Level:</strong> 25</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 60%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 2</li><li>Block: 3</li><li>Dodge: 2</li><li>Wear Armor: 2</li><li>Ki: 2</li><li>Ki Accumulation: 20</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 3</li><li>Magic Projection: 3</li><li>Summon: 3</li><li>Control: 3</li><li>Bind: 3</li><li>Banish: 3</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 3</li><li>Vigor: 2</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Attack +5</li><li>Dodge +5</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Acrobatics +10</li><li>Jump +10</li><li>Athleticism +10</li><li>Sleight of Hand +10</li><li>Style +10</li></ul>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.hkcWN4lc3AQZQsvN",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "hkcWN4lc3AQZQsvN",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.hkcWN4lc3AQZQsvN"
+    },
+    {
+      "sort": 200000,
+      "name": "Paladin",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Fighter</p><p>Paladins are Fighters who are very oriented toward defensive fighting, and also make use of certain mystical capabilities. One of their specialties is that of banishing supernatural beings using their own natural powers. Generally, they guide themselves by codes of conduct based on a religious belief or their own sense of honor—though this is not obligatory. They are natural leaders, capable of using their charisma to mobilize a great number of people who may even be willing to give their lives in their service.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 15</li><li><strong>Life Points per Level:</strong> 15</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 20</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 60%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 2</li><li>Block: 2</li><li>Dodge: 2</li><li>Wear Armor: 2</li><li>Ki: 2</li><li>Ki Accumulation: 20</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 2</li><li>Magic Projection: 3</li><li>Summon: 3</li><li>Control: 3</li><li>Bind: 3</li><li>Banish: 1</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 1</li><li>Perception: 2</li><li>Intellectual: 2</li><li>Vigor: 2</li><li>Subterfuge: 3</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Block +5</li><li>Wear Armor +10</li><li>Banish +10</li><li>Zeon +20</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Leadership +10</li><li>Withstand Pain +10 (Reduced Cost: 1)</li><li>Style +5</li></ul><h3>Special Rules</h3><p>If the Paladin chooses not to develop supernatural abilities, they may exchange the +10 Banish and +20 Zeon bonuses for +10 Composure per level.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.ihbxBD0PiK7HHtac",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "ihbxBD0PiK7HHtac",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.ihbxBD0PiK7HHtac"
+    },
+    {
+      "sort": 300000,
+      "name": "Dark Paladin",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Fighter</p><p>In some ways, this class is the polar opposite of the Paladin. Dark Paladins are Fighters who specialize in offense, but who also use some limited mystical abilities. A Dark Paladin’s most important power is the control of supernatural beings who, once they submit to his will, are used to his own benefit. Dark Paladins have a real gift for command, but they employ intimidation and fear to bend others to their wishes. If that doesn’t work, they will use persuasion to get what they want.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 15</li><li><strong>Life Points per Level:</strong> 15</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 20</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 60%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 2</li><li>Block: 2</li><li>Dodge: 2</li><li>Wear Armor: 2</li><li>Ki: 2</li><li>Ki Accumulation: 20</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 2</li><li>Magic Projection: 3</li><li>Summon: 3</li><li>Control: 1</li><li>Bind: 3</li><li>Banish: 3</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 1</li><li>Perception: 2</li><li>Intellectual: 2</li><li>Vigor: 2</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Attack +5</li><li>Wear Armor +5</li><li>Control +10</li><li>Zeon +20</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Intimidate +10</li><li>Composure +10 (Reduced Cost: 1)</li><li>Style +5</li><li>Persuasion +5</li></ul><h3>Special Rules</h3><p>If the Dark Paladin chooses not to develop supernatural abilities, they may exchange the +10 Control and +20 Zeon bonuses for +10 Withstand Pain per level.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.AgT4p02U4NofkUZJ",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "AgT4p02U4NofkUZJ",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.AgT4p02U4NofkUZJ"
+    },
+    {
+      "sort": 400000,
+      "name": "Weaponsmaster",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Fighter</p><p>These are Fighters who have dedicated themselves to perfecting their skill in armed combat. They are born warriors who have taken their combat skills to limits not reached by any other class. Unlike many other Fighters, they disdain the use of anything but their abilities with weapons in combat. In a fight, they ignore physical energies and everything else except pure weapons skill. This does nothing to detract from their status as the most able of all Fighters and the most strictly devoted to true martial expertise. The great majority of knights and mercenaries are of this class.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 10</li><li><strong>Life Points per Level:</strong> 20</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 10</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 60%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 2</li><li>Block: 2</li><li>Dodge: 2</li><li>Wear Armor: 1</li><li>Ki: 3</li><li>Ki Accumulation: 30</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 3</li><li>Magic Projection: 3</li><li>Summon: 3</li><li>Control: 3</li><li>Bind: 3</li><li>Banish: 3</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 3</li><li>Vigor: 1</li><li>Subterfuge: 3</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Attack +5</li><li>Block +5</li><li>Wear Armor +10</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Feats of Strength +5 (Reduced Cost: 1)</li></ul><h3>Special Rules</h3><p>General Weapon Modules, Archetypical Weapon Modules, and Style Modules cost half DP.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.AuAxRohri2AbkpMi",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "AuAxRohri2AbkpMi",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.AuAxRohri2AbkpMi"
+    },
+    {
+      "sort": 500000,
+      "name": "Technician",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Domine</p><p>A Technician is an expert at using Ki abilities. He has deeply explored the secrets of the body and soul, developing abilities that would be impossible for the normal person. Technicians can sometimes take years to realize the full potential of their abilities, but when they do, they become persons of formidable power. Though they do not have great gifts for combat, when they use their Ki control against an adversary, they can unleash inhuman techniques easily.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 5</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 50</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 60%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 2</li><li>Block: 2</li><li>Dodge: 2</li><li>Wear Armor: 2</li><li>Ki: 1</li><li>Ki Accumulation: 10</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 3</li><li>Magic Projection: 3</li><li>Summon: 3</li><li>Control: 3</li><li>Bind: 3</li><li>Banish: 3</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 3</li><li>Vigor: 2</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Attack +5</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>(None)</li></ul><h3>Special Rules</h3><p>(None)</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.2dPCnpwOvsiqeOXs",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "2dPCnpwOvsiqeOXs",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.2dPCnpwOvsiqeOXs"
+    },
+    {
+      "sort": 600000,
+      "name": "Tao",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Fighter, Domine</p><p>Tao are martial artists who specialize in unarmed combat, though nothing prevents Tao from employing any type of weapon. Dedicated to gathering all the martial knowledge they can, these characters always seek to develop new and unique fighting techniques. Their training permits them to quickly learn any martial arts style they choose, taking from them the elements that help them become better fighters. When the moment comes, Tao also use their internal energies to maximum advantage to overcome heavily armed enemies.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 10</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 30</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 60%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 2</li><li>Block: 2</li><li>Dodge: 2</li><li>Wear Armor: 2</li><li>Ki: 2</li><li>Ki Accumulation: 15</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 3</li><li>Magic Projection: 3</li><li>Summon: 3</li><li>Control: 3</li><li>Bind: 3</li><li>Banish: 3</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 3</li><li>Vigor: 2</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>(None)</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Style +5</li></ul><h3>Special Rules</h3><p>Martial arts cost only 20 DP (10 for the first martial art learned).</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.bfm8UwrMpshMD03Z",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "bfm8UwrMpshMD03Z",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.bfm8UwrMpshMD03Z"
+    },
+    {
+      "sort": 700000,
+      "name": "Ranger",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Fighter, Prowler</p><p>A Ranger is the virtual embodiment of the traditional adventurer – a person who has made the most of his ability to perceive what is around him and venture where others fear to tread. A Ranger usually has his senses well attuned to the environment, so it isn’t easy to take him by surprise. He is also a tracker and a born survivalist, possessing incredible knowledge of forest and wilderness environments. In society, Rangers often work as hunters, scouts, or even archaelogists, but most of them are simply people who have learned these skills from living in remote areas where such skills are necessary for survival.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 10</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 20</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 60%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 2</li><li>Block: 2</li><li>Dodge: 2</li><li>Wear Armor: 2</li><li>Ki: 2</li><li>Ki Accumulation: 25</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 3</li><li>MA Multiple: 70</li><li>Magic Projection: 3</li><li>Summon: 3</li><li>Control: 3</li><li>Bind: 3</li><li>Banish: 3</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 1</li><li>Intellectual: 3</li><li>Vigor: 3</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li><p>+5 Attack per Level (Maximum +50)</p></li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>+10 Notice per Level</li><li>+10 Search per level</li><li>+10 Track per level</li><li>+5 Trap Lore per level (Reduced cost: 1)</li><li>+5 Animals per level (Reduced cost: 1)</li><li>+5 Herbal Lore per level (Reduced cost: 2)</li><li>Medicine (Reduced cost: 2)</li></ul><h3>Special Rules</h3><p>+10 per level to Detect Ki (only if developed)..</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.cqaw9g7WpSNofzJB",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "cqaw9g7WpSNofzJB",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.cqaw9g7WpSNofzJB"
+    },
+    {
+      "sort": 800000,
+      "name": "Shadow",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Fighter, Prowler</p><p>Shadows are Fighters who move in darkness and take advantage of their surroundings. Although their Combat Abilities are excellent, they prefer to defeat enemies without giving them a chance to fight back. They employ Subterfuge and complex tricks or tactics to gain the advantage of surprise. Even when detected, a Shadow is able to battle his enemies on even footing, but his resistance tends to be weaker than other Fighters’ in such situations. Generally fast and agile, Shadows prefer to dodge rather than meet attacks.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 5</li><li><strong>Initiative per Level:</strong> 10</li><li><strong>Martial Knowledge per Level:</strong> 25</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 60%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 2</li><li>Block: 3</li><li>Dodge: 2</li><li>Wear Armor: 2</li><li>Ki: 2</li><li>Ki Accumulation: 20</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 3</li><li>Magic Projection: 3</li><li>Summon: 3</li><li>Control: 3</li><li>Bind: 3</li><li>Banish: 3</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 3</li><li>Vigor: 2</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Attack +5</li><li>Dodge +5</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Notice +10</li><li>Search +10</li><li>Hide +10</li><li>Stealth +10</li></ul><h3>Special Rules</h3><p>+5 per level to Ki Concealment (only if developed).</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.gyXs9KgckzHocrKz",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "gyXs9KgckzHocrKz",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.gyXs9KgckzHocrKz"
+    },
+    {
+      "sort": 900000,
+      "name": "Thieft",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Prowler</p><p>As the name suggests, a Thief is someone specialized in skills related to stealth, theft, and hiding. They flee direct confrontation, trusting in their skills and subterfuge to get what they are after. Since their Physical Resistance is usually not very high, Thieves become adept at fleeing or dodging when discovered. They can play diverse roles in society, although they usually dedicate themselves to the profession that gives this class its name.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 5</li><li><strong>Initiative per Level:</strong> 10</li><li><strong>Martial Knowledge per Level:</strong> 20</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 50%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 2</li><li>Block: 3</li><li>Dodge: 2</li><li>Wear Armor: 3</li><li>Ki: 2</li><li>Ki Accumulation: 25</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 3</li><li>Magic Projection: 3</li><li>Summon: 3</li><li>Control: 3</li><li>Bind: 3</li><li>Banish: 3</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 1</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 3</li><li>Vigor: 3</li><li>Subterfuge: 1</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Dodge +5</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Notice +5</li><li>Search +5</li><li>Hide +5</li><li>Stealth +5</li><li>Trap Lore +5</li><li>Sleight of Hand +5</li><li>Theft +10</li><li>Appraisal (Reduced Cost: 1)</li></ul><h3>Special Rules</h3><p>+5 per level to Ki Concealment (only if developed).</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.WQRZPCon3aogFY04",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "WQRZPCon3aogFY04",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.WQRZPCon3aogFY04"
+    },
+    {
+      "sort": 900000,
+      "name": "Assassin",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Prowler</p><p>Assassins are characters who specialize in subterfuge and intrigue. They move in anonymity and prefer that their victims die not knowing who killed them. They use very refined techniques that help them avoid open combat, as they are very vulnerable in direct confrontations. When their work is done, they fade once again into the shadows. Of course, characters from this class are not necessarily obligated to perform the role of hitmen within a society. There are many other ways that their special abilities can be useful – such as in espionage.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 5</li><li><strong>Initiative per Level:</strong> 10</li><li><strong>Martial Knowledge per Level:</strong> 20</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 50%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 2</li><li>Block: 3</li><li>Dodge: 2</li><li>Wear Armor: 3</li><li>Ki: 2</li><li>Ki Accumulation: 25</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 3</li><li>Magic Projection: 3</li><li>Summon: 3</li><li>Control: 3</li><li>Bind: 3</li><li>Banish: 3</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 1</li><li>Intellectual: 3</li><li>Vigor: 3</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Attack +5</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Notice +10</li><li>Search +10</li><li>Hide +10</li><li>Stealth +10 (Reduced Cost: 1)</li><li>Poisons +10</li><li>Composure +10 (Reduced Cost: 2)</li><li>Trap Lore +10</li><li>Memorize (Reduced Cost: 2)</li></ul><h3>Special Rules</h3><p>(None)</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.azjDf1IhKfE2n506",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "azjDf1IhKfE2n506",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.azjDf1IhKfE2n506"
+    },
+    {
+      "sort": 1000000,
+      "name": "Wizard",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Mystic</p><p>Wizards have the incredible ability to manipulate mystical energy. They have dedicated themselves, body and soul, to understanding and mastering magic. They specialize in the purest aspects of magic – using spells that are capable of bending reality to their will, focusing and controlling its powers with complete precision. Wizards are also interested in every field of intellect, though, unfortunately, this makes their physical development somewhat inferior to that of others.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 5</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 10</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 50%</li><li>Supernatural: 60%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 3</li><li>Block: 3</li><li>Dodge: 2</li><li>Wear Armor: 3</li><li>Ki: 3</li><li>Ki Accumulation: 30</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 1</li><li>Magic Projection: 2</li><li>Summon: 2</li><li>Control: 2</li><li>Bind: 2</li><li>Banish: 2</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 2</li><li>Vigor: 3</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Zeon +100</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Magic Appraisal +10 (Reduced Cost: 1)</li><li>Occult +5</li></ul><h3>Special Rules</h3><p>(None)</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.JsGDMlnxeLdzLg2d",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "JsGDMlnxeLdzLg2d",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.JsGDMlnxeLdzLg2d"
+    },
+    {
+      "sort": 900000,
+      "name": "Warlock",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Fighter, Mystic</p><p>A Warlock is a magical warrior who develops both his martial and magical abilities. Like Wizards, Warlocks control the purest of supernatural abilities – the ability to cast spells to modify reality itself. Although they can concentrate on just one area, a Warlock is perfectly capable of becoming a master who controls both combat arms and supernatural arts equally well. Of course, doing this can leave other important abilities neglected.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 10</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 20</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 50%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 2</li><li>Block: 2</li><li>Dodge: 2</li><li>Wear Armor: 2</li><li>Ki: 2</li><li>Ki Accumulation: 25</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 1</li><li>Magic Projection: 2</li><li>Summon: 2</li><li>Control: 2</li><li>Bind: 1</li><li>Banish: 2</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 2</li><li>Vigor: 2</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Attack +5</li><li>Block +5</li><li>Dodge +5</li><li>Zeon +20</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Magic Appraisal +5</li></ul><h3>Special Rules</h3><p>(None)</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.kN7KPzmcV9luso1C",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "kN7KPzmcV9luso1C",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.kN7KPzmcV9luso1C"
+    },
+    {
+      "sort": 1000000,
+      "name": "Illusionist",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Mystic, Prowler</p><p>Illusionists combine their notable skills at subterfuge with the control of magic. A good Illusionist makes it impossible for those who witness his feats to tell if he has done them using supernatural powers or mere natural skill. His mystical powers are nearly as great as those of other spellcasters, but he normally lacks the ability to cast spells quickly. In spite of being called Illusionists, these magic users master not only the power of illusion, but many other types of magic as well. They are very vulnerable physically, however, and usually reject the idea of direct combat in favor of more ingenious stratagems.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 5</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 20</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 50%</li><li>Supernatural: 60%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 3</li><li>Block: 3</li><li>Dodge: 2</li><li>Wear Armor: 3</li><li>Ki: 2</li><li>Ki Accumulation: 25</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 1</li><li>Magic Projection: 2</li><li>Summon: 3</li><li>Control: 3</li><li>Bind: 3</li><li>Banish: 3</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 2</li><li>Vigor: 3</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Zeon +75</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Magic Appraisal +5</li><li>Stealth +10 (Reduced Cost: 1)</li><li>Hide +10</li><li>Sleight of Hand +10 (Reduced Cost: 1)</li><li>Disguise +5</li><li>Theft +5</li><li>Persuasion +5 (Reduced Cost: 1)</li></ul><h3>Special Rules</h3><p>(None)</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.NDe2o2r9dqd0aPgS",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "NDe2o2r9dqd0aPgS",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.NDe2o2r9dqd0aPgS"
+    },
+    {
+      "sort": 700000,
+      "name": "Wizard Mentalist",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Mystic, Psychic</p><p>The potential for Wizard Mentalists is enormous. Persons in this category are dedicated to controlling the combination of exceptional abilities with which they are endowed – namely, magic and the psychic matrixes. Although their resistance and Secondary Abilities may be weak due to their extreme dedication, their ability to launch spells and support those spells with psychic disciplines make them exceptionally formidable characters.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 5</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 10</li><li><strong>Psychic Points per Level:</strong> 1 (every level)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 50%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 3</li><li>Block: 3</li><li>Dodge: 2</li><li>Wear Armor: 3</li><li>Ki: 3</li><li>Ki Accumulation: 30</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 1</li><li>Magic Projection: 2</li><li>Summon: 2</li><li>Control: 2</li><li>Bind: 2</li><li>Banish: 2</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 10</li><li>Psychic Projection: 2</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 2</li><li>Vigor: 3</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Zeon +100</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Magic Appraisal +10</li><li>Occult +5</li></ul><h3>Special Rules</h3><p>(None)</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.RuoQHFWk5vNkNG7w",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "RuoQHFWk5vNkNG7w",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.RuoQHFWk5vNkNG7w"
+    },
+    {
+      "sort": 1000000,
+      "name": "Wizard Mentalist",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Mystic, Psychic</p><p>The potential for Wizard Mentalists is enormous. Persons in this category are dedicated to controlling the combination of exceptional abilities with which they are endowed – namely, magic and the psychic matrixes. Although their resistance and Secondary Abilities may be weak due to their extreme dedication, their ability to launch spells and support those spells with psychic disciplines make them exceptionally formidable characters.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 5</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 10</li><li><strong>Psychic Points per Level:</strong> 1 (every level)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 50%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 3</li><li>Block: 3</li><li>Dodge: 2</li><li>Wear Armor: 3</li><li>Ki: 3</li><li>Ki Accumulation: 30</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 1</li><li>Magic Projection: 2</li><li>Summon: 2</li><li>Control: 2</li><li>Bind: 2</li><li>Banish: 2</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 10</li><li>Psychic Projection: 2</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 2</li><li>Vigor: 3</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Zeon +100</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Magic Appraisal +10</li><li>Occult +5</li></ul><h3>Special Rules</h3><p>(None)</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.RuoQHFWk5vNkNG7w",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "xJFTJVNeAd8C3FFR",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.xJFTJVNeAd8C3FFR"
+    },
+    {
+      "sort": 800000,
+      "name": "Summoner",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Mystic</p><p>Summoners are mystics endowed with the ability to summon supernatural creatures and force them into submission. Although, in and of themselves, neither their magical powers nor their physical abilities are especially notable, the beings they summon may be capable of almost anything. Summoners can also perform invocations, calling on help from great supernatural Powers for a limited time.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 5</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 10</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 50%</li><li>Supernatural: 60%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 3</li><li>Block: 3</li><li>Dodge: 2</li><li>Wear Armor: 3</li><li>Ki: 3</li><li>Ki Accumulation: 30</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 1</li><li>Magic Projection: 3</li><li>Summon: 1</li><li>Control: 1</li><li>Bind: 1</li><li>Banish: 1</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 2</li><li>Vigor: 3</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Zeon +50</li><li>Summon +10</li><li>Control +10</li><li>Bind +10</li><li>Banish +10</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Magic Appraisal +5</li><li>Occult +10 (Reduced Cost: 1)</li></ul><h3>Special Rules</h3><p>(None)</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.sm8SaeYsoZ4n1rU1",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "sm8SaeYsoZ4n1rU1",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.sm8SaeYsoZ4n1rU1"
+    },
+    {
+      "sort": 800000,
+      "name": "Warrior Summoner",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h2>Warrior Summoner</h2><p><strong>Archetype:</strong> Fighter, Mystic</p><p>Warrior Summoners bring together the combat abilities of Fighters and the Summoner’s powers of invocation and control, calling upon great Powers or supernatural creatures to aid them in battle, though their focus on mastering both arts often leaves other abilities underdeveloped.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 10</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 20</li><li><strong>Psychic Points per Level:</strong> 1 (every 3 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 50%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 2</li><li>Block: 2</li><li>Dodge: 2</li><li>Wear Armor: 2</li><li>Ki: 2</li><li>Ki Accumulation: 20</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 1</li><li>Magic Projection: 3</li><li>Summon: 1</li><li>Control: 1</li><li>Bind: 1</li><li>Banish: 1</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 20</li><li>Psychic Projection: 3</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 2</li><li>Vigor: 2</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Attack +5</li><li>Block +5</li><li>Dodge +5</li><li>Zeon +20</li><li>Summon +5</li><li>Control +5</li><li>Bind +5</li><li>Banish +5</li></ul><p><strong>Secondary Abilities:</strong></p><ul><li>Occult +5</li></ul><h3>Special Rules</h3><p>(None)</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.hTM4BXxPr1uhCoFQ",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "hTM4BXxPr1uhCoFQ",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.hTM4BXxPr1uhCoFQ"
+    },
+    {
+      "sort": 900000,
+      "name": "Mentalist",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Psychic</p><p>Mentalists are characters who have dedicated themselves to the maximum development of their psychic powers. They are not satisfied with merely possessing mental disciplines; they also wish to discover how they work and how to master new abilities. Like Wizards, Mentalists have wide knowledge in the intellectual fields – though that dedication leads their physical development and resistance to be less than those of other classes.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 5</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 10</li><li><strong>Psychic Points per Level:</strong> 1 (every level)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 50%</li><li>Supernatural: 50%</li><li>Psychic: 60%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 3</li><li>Block: 3</li><li>Dodge: 2</li><li>Wear Armor: 3</li><li>Ki: 3</li><li>Ki Accumulation: 30</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 3</li><li>Magic Projection: 3</li><li>Summon: 3</li><li>Control: 3</li><li>Bind: 3</li><li>Banish: 3</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 10</li><li>Psychic Projection: 2</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 2</li><li>Vigor: 3</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong> (None)</p><p><strong>Secondary Abilities:</strong> (None)</p><h3>Special Rules</h3><p>(None)</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.IfEQbQc2WgDUPkGY",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "IfEQbQc2WgDUPkGY",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.IfEQbQc2WgDUPkGY"
+    },
+    {
+      "sort": 700000,
+      "name": "Warrior Mentalist",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Fighter, Psychic</p><p>Warrior Mentalists are fighters endowed with Psychic Abilities who have developed complete control of those powers to gain an edge in combat. Their mental and martial prowess can rival that of dedicated warriors, though such intense focus often leaves other abilities less refined. Typically, a Warrior Mentalist leans toward one side of their dual nature—either a warrior who augments his combat skill with psychic techniques, or a psychic who reinforces his mental disciplines with martial training.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 10</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 20</li><li><strong>Psychic Points per Level:</strong> 1 (every level)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 50%</li><li>Supernatural: 50%</li><li>Psychic: 50%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 2</li><li>Block: 2</li><li>Dodge: 2</li><li>Wear Armor: 2</li><li>Ki: 2</li><li>Ki Accumulation: 25</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 3</li><li>Magic Projection: 3</li><li>Summon: 3</li><li>Control: 3</li><li>Bind: 3</li><li>Banish: 3</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 1</li><li>Psychic Projection: 2</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 3</li><li>Vigor: 2</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Attack +5</li><li>Block +5</li><li>Dodge +5</li></ul><p><strong>Secondary Abilities:</strong> (None)</p><h3>Special Rules</h3><p>(None)</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.BsVMCjF6K6Jnb0EJ",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "BsVMCjF6K6Jnb0EJ",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.BsVMCjF6K6Jnb0EJ"
+    },
+    {
+      "sort": 700000,
+      "name": "Freelancer",
+      "type": "text",
+      "category": "eJZZEEwYXzALig7i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p><strong>Archetype:</strong> Novel</p><p>The Freelancer class represents someone who does not fit any of the other Archetypes. A Freelancer has no true specialization; instead, they possess balanced, versatile abilities across every field—from combat to magic to psychic disciplines—without excelling in any single one. Farmers, bards, nobles, jesters, and countless others fall naturally into this category. Because their development is so flexible, Freelancers can easily transition into any other class later on. For players unsure of their long‑term direction, beginning as a Freelancer offers a safe, adaptable foundation that can evolve into whatever path they ultimately choose.</p><h3>Core Progression</h3><ul><li><strong>Life Point Multiple:</strong> 20</li><li><strong>Life Points per Level:</strong> 5</li><li><strong>Initiative per Level:</strong> 5</li><li><strong>Martial Knowledge per Level:</strong> 20</li><li><strong>Psychic Points per Level:</strong> 1 (every 2 levels)</li></ul><h3>Ability Limits</h3><ul><li>Combat: 60%</li><li>Supernatural: 60%</li><li>Psychic: 60%</li></ul><h3>Primary Ability Costs</h3><ul><li>Attack: 2</li><li>Block: 2</li><li>Dodge: 2</li><li>Wear Armor: 2</li><li>Ki: 2</li><li>Ki Accumulation: 20</li></ul><h3>Supernatural Ability Costs</h3><ul><li>Zeon: 2</li><li>Magic Projection: 2</li><li>Summon: 2</li><li>Control: 2</li><li>Bind: 2</li><li>Banish: 2</li></ul><h3>Psychic Ability Costs</h3><ul><li>Psychic Points: 2</li><li>Psychic Projection: 2</li></ul><h3>Secondary Ability Costs</h3><ul><li>Athletics: 2</li><li>Social: 2</li><li>Perception: 2</li><li>Intellectual: 2</li><li>Vigor: 2</li><li>Subterfuge: 2</li><li>Creative: 2</li></ul><h3>Innate Bonuses</h3><p><strong>Primary Abilities:</strong></p><ul><li>Zeon +10</li></ul><p><strong>Secondary Abilities:</strong> (None)</p><h3>Special Rules</h3><p>+10 per level to five different secondary abilities (chosen by the player). Changing class to or from Freelancer costs only 20 DP.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.3Dqbqt58xRV5npn3",
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.CSF1Y1wHrRBZUj6e.JournalEntryPage.knnY8J4MdoHon4g9",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "3Dqbqt58xRV5npn3",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!qD0tKqFqmxneTmsU.3Dqbqt58xRV5npn3"
+    }
+  ],
+  "categories": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.2RR9NFAmNjMA9rMM",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.2.1",
+    "createdTime": 1784386341361,
+    "modifiedTime": 1784386341361,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "ownership": {
+    "default": 0,
+    "cvaXLNt0ipl2zLRV": 3
+  },
+  "_id": "qD0tKqFqmxneTmsU",
+  "sort": 0,
+  "_key": "!journal!qD0tKqFqmxneTmsU"
+}

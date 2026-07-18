@@ -1,0 +1,39 @@
+{
+  "name": "Liquid Body",
+  "type": "spell",
+  "folder": "hDivpkoYQDkXlqVI",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "water",
+    "level": 52,
+    "action": "active",
+    "cost": 100,
+    "effect": "Transforms the body into liquid. Grants immunity to non-energy Thrust/Cut, halves Impact damage unless energy-based. Can pass through cracks. Vulnerable to cold (–20 to Resist). Affects Presence ≤100.",
+    "addedEffect": "+10 maximum Presence.",
+    "maintenance": "1 every 10 (10)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "gEG7rz32DwbSs7ew",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!gEG7rz32DwbSs7ew"
+}

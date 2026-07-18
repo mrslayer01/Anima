@@ -1,0 +1,39 @@
+{
+  "name": "Create Being of Light",
+  "type": "spell",
+  "folder": "AxuVWz5XwsiEfv6z",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "light",
+    "level": 82,
+    "action": "active",
+    "cost": 250,
+    "effect": "Creates a luminous being under the caster’s control, developed as a Being Between Worlds using Light Elemental rules. The creature has 600 DP and its maximum level is calculated using the same rules as Create Being from the Path of Creation.",
+    "addedEffect": "+50 DP.",
+    "maintenance": "1 every 5 (50) Daily",
+    "maxZeon": "Intelligence x30",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "ZSHFoEMjbNXOwBF2",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!ZSHFoEMjbNXOwBF2"
+}

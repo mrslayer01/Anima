@@ -1,0 +1,39 @@
+{
+  "name": "Armor of Darkness",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 16,
+    "action": "active",
+    "cost": 60,
+    "effect": "Forms a mystical armor with AT 2 against Energy-based Attacks, and AT 1 against all others. Does not count as an additional armor layer for Initiative penalties.",
+    "addedEffect": "+1 to AT",
+    "maintenance": "1 every 20 (3)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "QfMrDryOZFW9lQ8l",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!QfMrDryOZFW9lQ8l"
+}

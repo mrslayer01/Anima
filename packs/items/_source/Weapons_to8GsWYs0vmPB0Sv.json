@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": null,
+  "name": "Weapons",
+  "color": null,
+  "sorting": "a",
+  "_id": "to8GsWYs0vmPB0Sv",
+  "description": "",
+  "sort": 0,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1772995004432,
+    "modifiedTime": 1772995004432,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "_key": "!folders!to8GsWYs0vmPB0Sv"
+}

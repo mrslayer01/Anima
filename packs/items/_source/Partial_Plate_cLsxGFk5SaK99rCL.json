@@ -1,0 +1,108 @@
+{
+  "name": "Partial Plate",
+  "type": "armor",
+  "system": {
+    "system": {},
+    "armorType": {
+      "cut": {
+        "base": 4,
+        "bonus": 0,
+        "final": 0
+      },
+      "imp": {
+        "base": 3,
+        "bonus": 0,
+        "final": 0
+      },
+      "thr": {
+        "base": 2,
+        "bonus": 0,
+        "final": 0
+      },
+      "hea": {
+        "base": 3,
+        "bonus": 0,
+        "final": 0
+      },
+      "ele": {
+        "base": 2,
+        "bonus": 0,
+        "final": 0
+      },
+      "col": {
+        "base": 2,
+        "bonus": 0,
+        "final": 0
+      },
+      "ene": {
+        "base": 0,
+        "bonus": 0,
+        "final": 0
+      }
+    },
+    "fortitude": {
+      "base": 15,
+      "bonus": 0,
+      "final": 0
+    },
+    "presence": {
+      "base": 30,
+      "bonus": 0,
+      "final": 0
+    },
+    "wearArmorReq": {
+      "base": 50,
+      "bonus": 0,
+      "final": 0
+    },
+    "moveRestriction": {
+      "base": 2,
+      "bonus": 0,
+      "final": 0
+    },
+    "naturalPenalty": {
+      "base": 20,
+      "bonus": 0,
+      "final": 0
+    },
+    "physicalPenalty": 0,
+    "perceptionPenalty": 0,
+    "isEnchanted": false,
+    "armorClass": "hard",
+    "location": "complete",
+    "equipped": false,
+    "specialValue": 0,
+    "weight": 13,
+    "cost": {
+      "value": 40,
+      "type": "gold"
+    },
+    "availability": "uncommon",
+    "quantity": 1,
+    "quality": {
+      "value": "decent"
+    }
+  },
+  "_id": "cLsxGFk5SaK99rCL",
+  "img": "icons/svg/shield.svg",
+  "effects": [],
+  "folder": "DHydMMEJIKrftEe7",
+  "sort": 100049,
+  "ownership": {
+    "default": 0,
+    "8tB4N7JyuUUH1l8H": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Item.cLsxGFk5SaK99rCL",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1771202042548,
+    "modifiedTime": 1772995786314,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "_key": "!items!cLsxGFk5SaK99rCL"
+}

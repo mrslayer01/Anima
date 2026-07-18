@@ -1,0 +1,39 @@
+{
+  "name": "Water Confinement",
+  "type": "spell",
+  "folder": "hDivpkoYQDkXlqVI",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "water",
+    "level": 66,
+    "action": "active",
+    "cost": 140,
+    "effect": "Creates a 30×30×30-foot cube of water that engulfs targets. Victims move as if diving and may drown. Escape requires Strength 14 opposed check, with bonuses for Swim skill.",
+    "addedEffect": "+30-foot length.",
+    "maintenance": "1 every 20 (7)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Automatic"
+  },
+  "_id": "jJxWVj0yndB7IAJB",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!jJxWVj0yndB7IAJB"
+}

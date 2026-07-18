@@ -1,0 +1,1559 @@
+{
+  "folder": "R8wCHwnoz9eURbGA",
+  "name": "Secondary Abilities",
+  "pages": [
+    {
+      "sort": 100000,
+      "name": "Secondary Abilities",
+      "type": "text",
+      "category": "G21f7oI2R6ci3B1X",
+      "_id": "7hPsBKRjcJL5MzwD",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Secondary Abilities</h1><p>Secondary Abilities represent a wide array of skills and knowledge that every character may choose to develop – such as performing acrobatics, knowing the uses of medicinal plants, or leading others. This chapter defines those abilities and establishes their advantages and limitations.</p><p></p><h2>Different Types of Abilities</h2><p>Secondary Abilities are divided into seven fields: <strong>Athletics</strong>, <strong>Creative</strong>, <strong>Intellectual</strong>, <strong>Perceptive</strong>, <strong>Social</strong>, <strong>Subterfuge</strong>, and <strong>Vigor</strong>. Each Secondary Ability is tied directly to one of a character’s Primary Characteristics, which add their respective modifiers to the base ability score.</p><p></p><h2>Ability Checks</h2><p>When a player wishes to perform a particular action, he may need to make an Ability Check. The Game Master determines which Secondary Ability is appropriate in a given situation and assigns a Difficulty Level. Anima uses ten Difficulty Levels, each requiring a different target number (see Table 7: Difficulty Ratings).</p><p>To perform the Ability Check, roll <strong>1d100</strong> and add the result to the relevant Ability score. Open Rolls and Fumbles are possible. If the total exceeds the Difficulty Level, the character succeeds. If it is lower, the attempt fails. Characters who have not invested DP in a Secondary Ability suffer a <strong>–30 penalty</strong> when attempting checks with that undeveloped ability.</p><p></p><h2>Success and Failure</h2><p>Meeting the Difficulty Level means the character succeeds. Exceeding it by <strong>40+</strong> indicates great success, and exceeding it by <strong>80+</strong> indicates absolute success.</p><p>Failure simply means the attempt did not work, but the degree of failure depends on how far below the Difficulty Level the result falls.</p><p></p><h2>Passive Abilities</h2><p>Some Secondary Abilities function automatically without the player declaring their use. The Game Master rolls these checks secretly when appropriate. For example, a Notice check may be rolled to determine whether a character realizes someone is attempting to pick his pocket.</p><p></p><h2>Opposed Checks</h2><p>Sometimes Secondary Abilities directly oppose those of another character. In these cases, both sides roll an Ability Check, and the higher total wins. The greater the margin, the stronger the effect of the victory.</p><p>Some abilities require beating an opponent’s result by a specific margin. For example, detecting a hidden character requires exceeding their Hide result by <strong>80</strong> when using Notice, or <strong>20</strong> when using Search.</p><p><em>Example:</em> Lemures attempts to hide with a Hide score of 80 and rolls a 24, totaling 104. A guard with Notice 50 rolls an 85, totaling 135 – 31 points higher. However, detecting a hiding character requires beating the Hide result by 80, so Lemures remains undetected.</p><p></p><h2>Fumbles</h2><p>Secondary Ability checks can be fumbled. In Opposed Checks, the fumble penalty is subtracted from the fumbling character’s final score. For direct actions, the severity of the fumble determines the consequences:</p><ul><li><strong>1–50:</strong> The attempt simply fails.</li><li><strong>51–100:</strong> The attempt fails badly and harms the character.</li><li><strong>101+:</strong> A catastrophic failure with severe consequences.</li></ul><h2>Specialization</h2><p>Some Secondary Abilities allow specialization. A character may choose a specific subfield and gain a bonus to that specialty at the cost of penalties to other areas within the same ability. Only abilities that explicitly allow specialization may be used this way.</p><p></p><h2>Knowledge-Related Abilities</h2><p>Certain Secondary Abilities require academic study. If a character has not invested DP in such an ability, they cannot attempt checks with it, even at a penalty.</p><p></p><h2>Penalty for Wearing Armor</h2><p>Some Secondary Abilities suffer penalties when the character is wearing armor, such as Acrobatics, Swimming, or Stealth. These penalties may be reduced using the Wear Armor ability, as described in Chapter 8.</p><p></p><h2>Natural Bonus</h2><p>When a player has spent his DP on a character’s Secondary Abilities, he may then add another single Characteristic bonus to any single Secondary Ability. This reflects a character’s natural skill in a particular area. The increase is made directly on your characteristics bonus, and not the class bonuses discussed above. Each time you gain a level you may do this again with any Secondary Ability you choose (the same or a different one), and again add the characteristics bonus. Naturally, you can use this only for a positive bonus.</p><p><em>Returning to our earlier example, Celia has a final score of 75 in Acrobatics (50 base score, 15 for her characteristic, and 10 for class bonus). If she chose this ability to add her natural bonus to, she would again add her Agility bonus and obtain a final ability of 90 (50 base score, 30 for her characteristic, and 10 for class bonus).</em></p><p></p><h2>Athletics</h2><p>These abilities depend on a character’s mobility, balance, and agility.</p><h3></h3><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.MY510372A22d3JZR]{Acrobatics}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.u0m1pw9SvzHCTQ13]{Athleticism}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.tHU1Sy3dECuOm5Yd]{Climb}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.tMbowaxg3moap2GN]{Jump}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.cmoLvO8bokz1Goo4]{Ride}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.nmkXv5Da3A4qSz1E]{Swim}</p><p></p><h2>Social</h2><p>These abilities reflect a character’s skill at interacting with and influencing others.</p><h3></h3><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.ASkM6TlV7grJXawg]{Intimidate}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.4zacNUG9hotGyEes]{Leadership (Passive)}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.G188zt90jhHGYIXm]{Persuasion}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.GWbdUwcsWDANxcIS]{Style (Passive)}</p><p></p><h2>Perception</h2><p>These abilities allow a character to use their senses effectively and interpret sensory information.</p><p></p><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.jhbUo9VzXLg3wmZB]{Notice (Passive)}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.RZGhWAWp9QRfL4Nv]{Search}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.xA81TuSVMIFnzmLS]{Track}</p><p></p><h2>Intellectual</h2><p>Intellectual abilities depend on knowledge, wisdom, and the character’s reasoning power.</p><h3></h3><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.F40O0dGUWe8SS75i]{Animals (Knowledge)}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.c9e4HqVapp9Yvepz]{Appraisal (Knowledge)}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.IgFKAYfgdFO8i6Zb]{Herbal Lore (Knowledge)}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.RMKzEzr3TzIDgkSb]{History (Knowledge)}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.cpT8KkSTlw7KLZe5]{Magic Appraisal (Passive, Knowledge)}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.TUixTdLd0PXDeTsg]{Medicine (Knowledge)}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.nMp4mH73NQSqnT8S]{Memorize}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.PgsG7Zie0GHyzt8u]{Navigation (Knowledge)}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.x0teoetgOIrvahjU]{Occult (Knowledge)}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.ilEuj8At6aFrX4jD]{Science (Knowledge)}</p><p></p><h2>Vigor</h2><p>These abilities are based on physical strength, endurance, and mental resistance.</p><h3></h3><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.8SzAsQABkNro17Hx]{Composure (Passive)}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.JnvWJUfo9LtpA33B]{Withstand Pain}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.oAf0IWrOdMJfJoR6]{Feats of Strength}</p><p></p><h2>Subterfuge</h2><p>These abilities are based on deception and acting without being detected.</p><h3></h3><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.X634pdRrQyW7BU08]{Theft}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.7gktntO25nCqiaAu]{Disguise}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.cbtLvz61ZjDNJExH]{Hide}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.Hj9WBVRnNedMJOvj]{Stealth}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.f6m1iAowOBdJJ8X8]{Trap Lore}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.vxXroK8tCzrCq5mL]{Lock Picking}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.7rjn4Tklskks6cqC]{Poisons (Knowledge)}</p><p></p><h2>Creative</h2><p>These abilities relate to a character’s artistic talent, craftsmanship, and inventive capacity.</p><h3></h3><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.vsEq6zU8NAP9vpz4]{Art}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.EUKGrUcllOmRWea0]{Dance (Knowledge)}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.awGkjAuCA0YrX91P]{Music (Knowledge)}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.B8itelptEhHOHvLl]{Sleight of Hand}@UUID[Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.CZq6d9vixluxesck]{Forging (Knowledge)}</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.7hPsBKRjcJL5MzwD"
+    },
+    {
+      "sort": 200000,
+      "name": "Acrobatics",
+      "type": "text",
+      "category": "i56oxQH3vlef5OCp",
+      "_id": "MY510372A22d3JZR",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Acrobatics helps a character perform physical tasks that require balance, coordination, and mobility, such as tumbling or walking a tightrope. It is also used to fall from heights without injury. A character who falls may make an Acrobatics Ability Check to try to land safely, as explained in Chapter 14. Characters wearing armor suffer a penalty to this Secondary Ability.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.MY510372A22d3JZR"
+    },
+    {
+      "sort": 200000,
+      "name": "Athleticism",
+      "type": "text",
+      "category": "i56oxQH3vlef5OCp",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This indicates a person’s capability to push themselves to their physical limits, perform athletic feats in extreme conditions, and distribute their energy efficiently to endure longer without fatigue. Characters wearing armor suffer a penalty to this Secondary Ability.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.MY510372A22d3JZR",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "u0m1pw9SvzHCTQ13",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.u0m1pw9SvzHCTQ13"
+    },
+    {
+      "sort": 200000,
+      "name": "Climb",
+      "type": "text",
+      "category": "i56oxQH3vlef5OCp",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This ability is used to climb vertical surfaces such as walls or trees. With proper climbing equipment, the character may gain up to a +40 bonus. Normally, climbing speed is one-quarter of the character’s Movement Value, but it increases by one point for each Difficulty Level exceeded (see Chapter 6). Characters wearing armor suffer a penalty to this Secondary Ability.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.MY510372A22d3JZR",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "tHU1Sy3dECuOm5Yd",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.tHU1Sy3dECuOm5Yd"
+    },
+    {
+      "sort": 200000,
+      "name": "Jump",
+      "type": "text",
+      "category": "i56oxQH3vlef5OCp",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This ability allows a character to jump vertically or horizontally. The higher the Difficulty Level achieved, the farther the character can jump, based on Movement Value (see Chapter 6). Characters wearing armor suffer a penalty to this Secondary Ability.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.MY510372A22d3JZR",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "tMbowaxg3moap2GN",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.tMbowaxg3moap2GN"
+    },
+    {
+      "sort": 200000,
+      "name": "Ride",
+      "type": "text",
+      "category": "i56oxQH3vlef5OCp",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This measures a character’s ability to ride animals. Riding a tame horse under normal conditions usually requires no check, but difficult terrain, high speed, or stressful situations may require one. Ride also allows acrobatic actions from the saddle, controlling mounts under stress, and riding other animals such as camels or elephants.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.MY510372A22d3JZR",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "cmoLvO8bokz1Goo4",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.cmoLvO8bokz1Goo4"
+    },
+    {
+      "sort": 200000,
+      "name": "Swim",
+      "type": "text",
+      "category": "i56oxQH3vlef5OCp",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This represents how well a character moves in water and, at higher levels, how quickly they can swim or dive. Characters wearing armor suffer a penalty to this Secondary Ability, and unlike other penalties, this one cannot be reduced by Wear Armor.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.MY510372A22d3JZR",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "nmkXv5Da3A4qSz1E",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.nmkXv5Da3A4qSz1E"
+    },
+    {
+      "sort": 200000,
+      "name": "Intimidate",
+      "type": "text",
+      "category": "2rWiapzpcJgQYgOL",
+      "_id": "ASkM6TlV7grJXawg",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Intimidation involves frightening others through attitude, words, or presence. A character does not need to appear physically threatening; knowing how to project fear is enough.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.ASkM6TlV7grJXawg"
+    },
+    {
+      "sort": 200000,
+      "name": "Leadership (Passive)",
+      "type": "text",
+      "category": "2rWiapzpcJgQYgOL",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Leadership represents charisma and the ability to inspire confidence, even in difficult circumstances. It is essential for commanders, nobles, and anyone who must lead others. A strong leader can raise morale, win over skeptics, and maintain unity in dire situations.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.ASkM6TlV7grJXawg",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "4zacNUG9hotGyEes",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.4zacNUG9hotGyEes"
+    },
+    {
+      "sort": 200000,
+      "name": "Persuasion",
+      "type": "text",
+      "category": "2rWiapzpcJgQYgOL",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Persuasion allows a character to influence and convince others. It is distinct from the player’s personal speaking ability; even a well-spoken player may fail if the character’s Persuasion is undeveloped. A successful Persuasion Check may allow the Game Master to guide the player toward effective dialogue.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.ASkM6TlV7grJXawg",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "G188zt90jhHGYIXm",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.G188zt90jhHGYIXm"
+    },
+    {
+      "sort": 200000,
+      "name": "Style (Passive)",
+      "type": "text",
+      "category": "2rWiapzpcJgQYgOL",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Style is the ability to look good in any situation—whether at a party or in battle. A character with high Style can maintain elegance even when injured, ensuring scars appear attractive rather than disfiguring. At very high levels, dramatic environmental effects (like thunder or wind) may seem to enhance the character’s presence.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.ASkM6TlV7grJXawg",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "GWbdUwcsWDANxcIS",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.GWbdUwcsWDANxcIS"
+    },
+    {
+      "sort": 200000,
+      "name": "Notice (Passive)",
+      "type": "text",
+      "category": "xnBAd3xhUpDOSrIY",
+      "_id": "jhbUo9VzXLg3wmZB",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Notice represents awareness of surroundings, from spotting unusual details to detecting danger. It uses all five senses, though sight and hearing are most common. Losing sight or hearing halves the character’s Notice score unless only specific senses apply.  @UUID[Compendium.abf-system.abf-journals.JournalEntry.m4wEKaoSGANxScZH.JournalEntryPage.HgvqrvtcBENJgMSF]{Table 8: Perception Skills Modifiers} lists modifiers for each sense. Distracted characters suffer an additional –20 to –40 penalty.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.jhbUo9VzXLg3wmZB"
+    },
+    {
+      "sort": 200000,
+      "name": "Search",
+      "type": "text",
+      "category": "xnBAd3xhUpDOSrIY",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Search is a deliberate attempt to find something specific, such as hidden objects, trap doors, or concealed individuals. It is more precise than Notice. Searching for traps requires beating a Difficulty one level lower than the trap’s own Difficulty. Search uses the same modifiers as Notice.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.jhbUo9VzXLg3wmZB",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "RZGhWAWp9QRfL4Nv",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.RZGhWAWp9QRfL4Nv"
+    },
+    {
+      "sort": 200000,
+      "name": "Track",
+      "type": "text",
+      "category": "xnBAd3xhUpDOSrIY",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Track enables a character to follow footprints or other signs, determining details such as the number of individuals and how long ago they passed. It also includes the ability to orient oneself, follow trails, and recognize landmarks.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.jhbUo9VzXLg3wmZB",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "xA81TuSVMIFnzmLS",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.xA81TuSVMIFnzmLS"
+    },
+    {
+      "sort": 200000,
+      "name": "Animals (Knowledge)",
+      "type": "text",
+      "category": "QEDNUWpB9USbmygz",
+      "_id": "F40O0dGUWe8SS75i",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This includes all knowledge related to the animal world. It enables a character to identify the characteristics and habits of animals, as well as become skilled in raising and training them. A character may specialize in a particular species, gaining a <strong>+40 bonus</strong> to related checks.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.F40O0dGUWe8SS75i"
+    },
+    {
+      "sort": 200000,
+      "name": "Appraisal (Knowledge)",
+      "type": "text",
+      "category": "QEDNUWpB9USbmygz",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This ability allows a character to evaluate the approximate monetary value of items. Even without expertise in art or antiquities, a character can determine which object in a group is most valuable and estimate its market price.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.F40O0dGUWe8SS75i",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "c9e4HqVapp9Yvepz",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.c9e4HqVapp9Yvepz"
+    },
+    {
+      "sort": 200000,
+      "name": "Herbal Lore (Knowledge)",
+      "type": "text",
+      "category": "QEDNUWpB9USbmygz",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This ability covers knowledge of plants, including their nature, uses, and habitats. It allows recognition of edible plants, poisonous plants, and those with medicinal properties. At advanced levels, a character can create complex compounds.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.F40O0dGUWe8SS75i",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "IgFKAYfgdFO8i6Zb",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.IgFKAYfgdFO8i6Zb"
+    },
+    {
+      "sort": 200000,
+      "name": "History (Knowledge)",
+      "type": "text",
+      "category": "QEDNUWpB9USbmygz",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This ability represents knowledge of both current and past events. It includes recognizing insignias, understanding political situations, and knowing legends. A character may specialize in a specific field—such as Biographies, Fables, or Economics—gaining a <strong>+40 bonus</strong> to related checks.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.F40O0dGUWe8SS75i",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "RMKzEzr3TzIDgkSb",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.RMKzEzr3TzIDgkSb"
+    },
+    {
+      "sort": 200000,
+      "name": "Magic Appraisal (Passive, Knowledge)",
+      "type": "text",
+      "category": "QEDNUWpB9USbmygz",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This ability allows characters to judge and evaluate magical forces. It enables detection of magical beings, supernatural objects, and spells. Only individuals with the <strong>Gift</strong> or the ability to perceive magic may develop this ability. More details appear in Chapter 11.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.F40O0dGUWe8SS75i",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "cpT8KkSTlw7KLZe5",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.cpT8KkSTlw7KLZe5"
+    },
+    {
+      "sort": 200000,
+      "name": "Medicine (Knowledge)",
+      "type": "text",
+      "category": "QEDNUWpB9USbmygz",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Medicine provides knowledge of anatomy, diagnosis, treatment, and healing. A character may diagnose illnesses by passing a Medicine Check equal to <strong>three times the disease level</strong>. Success allows the patient to make a new Disease Resistance Check with a bonus equal to the healer’s margin of success.</p><p>Medicine can also treat physical wounds. Proper materials (such as gauze or bandages) are required; otherwise, the healer suffers a <strong>–40 penalty</strong>. Only one Medicine Check may be made per wound or illness, and it must occur within a few hours of injury. Self-treatment is possible but incurs a <strong>–20 penalty</strong>.</p><p>Medicine may also stabilize dying characters. A successful Moderate Difficulty check restores the character to 0 Life Points. Stopping bleeding requires an Easy Difficulty check.</p><p><em>Example:</em><br />Celia suffers pneumonia (Level 40). Kasius, with Medicine 80, rolls 65 for a total of 145. The required Difficulty is 120, so he succeeds by 25. Celia gains <strong>+25</strong> to her Disease Resistance Check if she follows treatment.</p><p><em>Example:</em><br />Lemures suffers wounds totaling 90 damage. Kasius rolls 70, giving 150—Very Difficult. Lemures recovers <strong>20% of lost Life Points</strong>, restoring 18.</p><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.m4wEKaoSGANxScZH.JournalEntryPage.jQBwdQm32BXKg5yv]{Table 9: Treatment of Wounds}</p><p></p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.F40O0dGUWe8SS75i",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "TUixTdLd0PXDeTsg",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.TUixTdLd0PXDeTsg"
+    },
+    {
+      "sort": 200000,
+      "name": "Memorize",
+      "type": "text",
+      "category": "QEDNUWpB9USbmygz",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This ability measures a character’s capacity to retain information. It allows memorization of facts, details, texts, melodies, or faces with precision.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.F40O0dGUWe8SS75i",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "nMp4mH73NQSqnT8S",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.nMp4mH73NQSqnT8S"
+    },
+    {
+      "sort": 200000,
+      "name": "Navigation (Knowledge)",
+      "type": "text",
+      "category": "QEDNUWpB9USbmygz",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This ability governs navigating ships and reading maritime maps. It includes handling the helm, using currents to increase speed, and avoiding hazards.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.F40O0dGUWe8SS75i",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "PgsG7Zie0GHyzt8u",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.PgsG7Zie0GHyzt8u"
+    },
+    {
+      "sort": 200000,
+      "name": "Occult (Knowledge)",
+      "type": "text",
+      "category": "QEDNUWpB9USbmygz",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This represents academic knowledge of supernatural subjects. It allows recognition of ritual tools, traditional methods for dealing with supernatural threats, and—at the GM’s discretion—identification of supernatural creatures.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.F40O0dGUWe8SS75i",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "x0teoetgOIrvahjU",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.x0teoetgOIrvahjU"
+    },
+    {
+      "sort": 200000,
+      "name": "Sciences (Knowledge)",
+      "type": "text",
+      "category": "QEDNUWpB9USbmygz",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Science covers systematic fields of study such as mathematics, mechanics, astronomy, and philosophy. Knowledge is less advanced than modern real-world science due to the lack of unified disciplines.</p><p>A character may specialize in a particular scientific field, gaining a <strong>+40 bonus</strong> to related checks.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.F40O0dGUWe8SS75i",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "ilEuj8At6aFrX4jD",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.ilEuj8At6aFrX4jD"
+    },
+    {
+      "sort": 200000,
+      "name": "Composure (Passive)",
+      "type": "text",
+      "category": "AV86hEGvRg5xlOdd",
+      "_id": "8SzAsQABkNro17Hx",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Composure is the ability to remain calm and unshaken in the most critical situations. A character with high Composure can stay coolheaded even in the face of death. When targeted by supernatural effects that influence emotions or moods, the character may add a bonus to the appropriate Resistance, as shown in @UUID[Compendium.abf-system.abf-journals.JournalEntry.m4wEKaoSGANxScZH.JournalEntryPage.6OVMDaNctkbPi6KQ]{Table 10: Composure}.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.8SzAsQABkNro17Hx"
+    },
+    {
+      "sort": 200000,
+      "name": "Withstand Pain",
+      "type": "text",
+      "category": "AV86hEGvRg5xlOdd",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This ability allows a character to endure physical or psychological pain. Willpower enables the character to ignore suffering and continue acting even when pushed to their limits. At low levels, it helps a character tolerate injury without complaint; at high levels, it allows enduring torture without breaking.</p><p>Withstand Pain reduces penalties from pain or Fatigue. The player makes a Withstand Pain Check (@UUID[Compendium.abf-system.abf-journals.JournalEntry.m4wEKaoSGANxScZH.JournalEntryPage.DAbQmZ1SeiCIv2gc]{Table 11: Withstand Pain}) and subtracts the indicated amount from the penalties. This ability does <strong>not</strong> reduce penalties caused by grave injuries (such as severed limbs) or supernatural effects.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.8SzAsQABkNro17Hx",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "JnvWJUfo9LtpA33B",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.JnvWJUfo9LtpA33B"
+    },
+    {
+      "sort": 200000,
+      "name": "Feats of Strength",
+      "type": "text",
+      "category": "AV86hEGvRg5xlOdd",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This ability teaches a character how to apply their physical strength efficiently. It does not increase raw strength, but improves technique to maximize force. Characters wearing armor suffer a penalty to this Secondary Ability.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.8SzAsQABkNro17Hx",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "oAf0IWrOdMJfJoR6",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.oAf0IWrOdMJfJoR6"
+    },
+    {
+      "sort": 200000,
+      "name": "Theft",
+      "type": "text",
+      "category": "L0FJhVpXKDvLVOMA",
+      "_id": "X634pdRrQyW7BU08",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Theft allows a character to steal small objects without the victim noticing. It is Opposed by the target’s Notice. If the thief’s final score is higher, the victim remains unaware. Stealing items in contact with the victim’s skin or in difficult locations may impose penalties.</p><p>A third party may notice the theft only by making a Notice Check with a <strong>–40 penalty</strong>, Opposed by the thief’s Theft score.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.X634pdRrQyW7BU08"
+    },
+    {
+      "sort": 200000,
+      "name": "Disguise",
+      "type": "text",
+      "category": "L0FJhVpXKDvLVOMA",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Disguise allows a character to alter appearance using clothing, makeup, and mannerisms. It also covers imitating a specific type of person, including their speech and movement.</p><p>Detecting a disguise requires beating the Disguise result by <strong>80</strong> using Notice or <strong>20</strong> using Search. If the observer has met the disguised character before, these margins are halved.</p><p>Time and materials affect the quality of the disguise, as shown in @UUID[Compendium.abf-system.abf-journals.JournalEntry.m4wEKaoSGANxScZH.JournalEntryPage.tLnB3Cj8NdYjW7Ie]{Table 12: Disguise}.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.X634pdRrQyW7BU08",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "7gktntO25nCqiaAu",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.7gktntO25nCqiaAu"
+    },
+    {
+      "sort": 200000,
+      "name": "Hide",
+      "type": "text",
+      "category": "L0FJhVpXKDvLVOMA",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Hide allows a character to remain unseen or conceal objects. The GM may apply modifiers based on environment and circumstances. Hide is Opposed by Notice and Search.</p><p>A motionless hidden character requires an observer using Notice to beat their result by <strong>80</strong>, or by <strong>20</strong> if using Search.</p><p></p><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.m4wEKaoSGANxScZH.JournalEntryPage.XIRHzRmRB2W7f8QQ]{Table 13: Hiding}</p><p></p><p>Characters wearing armor suffer penalties to Hide. Environmental modifiers include:</p><ul><li><strong>Large Size:</strong> Size 18 or larger</li><li><strong>Small Size:</strong> Size 9 or smaller</li><li><strong>Done in Front of Someone:</strong> Penalty applies only to that observer</li><li><strong>Appropriate Hiding Place:</strong> Forests, storerooms, cluttered areas</li><li><strong>Shadowy Area:</strong> Many shadows available</li><li><strong>Well-lit Area:</strong> Few shadows</li><li><strong>Empty Area:</strong> Open spaces with no cover</li></ul>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.X634pdRrQyW7BU08",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "cbtLvz61ZjDNJExH",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.cbtLvz61ZjDNJExH"
+    },
+    {
+      "sort": 200000,
+      "name": "Stealth",
+      "type": "text",
+      "category": "L0FJhVpXKDvLVOMA",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Stealth allows silent movement and unnoticed actions such as climbing or drawing weapons. It is Opposed by Notice. If the character’s Stealth exceeds an unaware observer’s Notice, the character surprises them.</p><p>Moving silently reduces Movement Value by 4 or imposes a <strong>–80 penalty</strong>. Stealth can also prevent leaving tracks, Opposed by Tracking without modifiers.</p><p>Armor imposes penalties to Stealth, which can only be reduced by half using Wear Armor.</p><p></p><p></p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.X634pdRrQyW7BU08",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "Hj9WBVRnNedMJOvj",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.Hj9WBVRnNedMJOvj"
+    },
+    {
+      "sort": 200000,
+      "name": "Trap Lore",
+      "type": "text",
+      "category": "L0FJhVpXKDvLVOMA",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Trap Lore allows a character to create, detect, and deactivate traps. Each trap has a level (10–100) representing complexity and effectiveness. Higher checks allow crafting higher-level traps. Preparation time and materials further modify trap complexity ( @UUID[Compendium.abf-system.abf-journals.JournalEntry.m4wEKaoSGANxScZH.JournalEntryPage.rhnBVLPBBHwdEHa1]{Table 14: Traps}, @UUID[Compendium.abf-system.abf-journals.JournalEntry.m4wEKaoSGANxScZH.JournalEntryPage.pf5h3C9f24DfhUjA]{Table 15: Trap Preperation}).</p><p>Detecting or disarming a trap requires beating a Difficulty one level lower than the trap’s creation Difficulty. Failing a disarm attempt by <strong>40 or more</strong> triggers the trap.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.X634pdRrQyW7BU08",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "f6m1iAowOBdJJ8X8",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.f6m1iAowOBdJJ8X8"
+    },
+    {
+      "sort": 200000,
+      "name": "Lock Picking",
+      "type": "text",
+      "category": "L0FJhVpXKDvLVOMA",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Lock Picking allows opening or securing locks without a key. Attempting to open keyed or traditional padlocks without proper lockpicks imposes a <strong>–40 penalty</strong>.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.X634pdRrQyW7BU08",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "vxXroK8tCzrCq5mL",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.vxXroK8tCzrCq5mL"
+    },
+    {
+      "sort": 200000,
+      "name": "Poisons (Knowledge)",
+      "type": "text",
+      "category": "L0FJhVpXKDvLVOMA",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>This ability grants knowledge of poisons, including identification, preparation, and antidotes. Poisons may be recognized by appearance, taste, smell, or symptoms. With proper ingredients, a character may mix toxins or antidotes following Table (see Chapter 14).</p><p></p><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.m4wEKaoSGANxScZH.JournalEntryPage.gGLOqHtqQdE24xeF]{Table 16: Poisons}</p><p></p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.X634pdRrQyW7BU08",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "7rjn4Tklskks6cqC",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.7rjn4Tklskks6cqC"
+    },
+    {
+      "sort": 200000,
+      "name": "Art",
+      "type": "text",
+      "category": "2nZQvQlg2eHJONx3",
+      "_id": "vsEq6zU8NAP9vpz4",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Art measures a character’s skill in artistic disciplines such as painting, sculpture, or similar creative fields. A character may specialize in a specific artistic discipline, gaining a <strong>+40 bonus</strong> to related Ability Checks.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.vsEq6zU8NAP9vpz4"
+    },
+    {
+      "sort": 200000,
+      "name": "Dance (Knowledge)",
+      "type": "text",
+      "category": "2nZQvQlg2eHJONx3",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Dance represents the ability to perform and learn dances. Higher levels allow mastery of more complex styles. Dance can also serve as a profession, as skilled dancers can earn money through performance. A character may specialize in a particular dance style (such as ballroom), gaining a <strong>+40 bonus</strong> to related checks. Characters wearing armor suffer a penalty to this Secondary Ability.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.vsEq6zU8NAP9vpz4",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "EUKGrUcllOmRWea0",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.EUKGrUcllOmRWea0"
+    },
+    {
+      "sort": 200000,
+      "name": "Music (Knowledge)",
+      "type": "text",
+      "category": "2nZQvQlg2eHJONx3",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Music allows a character to play instruments, compose music, and read musical notation. Specializing in a single instrument grants a <strong>+40 bonus</strong> to checks involving that instrument.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.vsEq6zU8NAP9vpz4",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "awGkjAuCA0YrX91P",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.awGkjAuCA0YrX91P"
+    },
+    {
+      "sort": 200000,
+      "name": "Sleight of Hand",
+      "type": "text",
+      "category": "2nZQvQlg2eHJONx3",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Sleight of Hand covers manual dexterity used for juggling, tricks, and prestidigitation. It includes actions such as pulling hidden cards, performing stage tricks, or manipulating small objects with precision. A character may specialize in a specific art (such as juggling), gaining a <strong>+40 bonus</strong> to related checks. Sleight of Hand may be Opposed by another character’s Notice.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.vsEq6zU8NAP9vpz4",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "B8itelptEhHOHvLl",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.B8itelptEhHOHvLl"
+    },
+    {
+      "sort": 200000,
+      "name": "Forging (Knowledge)",
+      "type": "text",
+      "category": "2nZQvQlg2eHJONx3",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Forging reflects the ability to work metal and craft tools, weapons, armor, and other objects from materials such as steel, wood, or leather. It also includes repairing damaged items and maintaining equipment.</p><p>Each object has a Difficulty Level. Beating the Difficulty produces a normal-quality item. For every two Difficulty Levels exceeded, the item gains <strong>+5 quality</strong>. For each level below the requirement, the item suffers <strong>–5 quality</strong>. The maximum bonus from forging alone is <strong>+15</strong>; higher bonuses require supernatural means.</p><p>Forging requires significant time and resources. Time modifiers are listed in Table 17. A workday equals 12 hours in a properly equipped workshop or smithy.</p><p>A character may specialize in a specific type of item—such as swords, heavy armor, or tools—gaining a <strong>+40 bonus</strong> to checks for that category.</p><p><em>Example:</em><br />Basilius, a master blacksmith with Forging 110, is commissioned to craft a Bastard Sword (Difficulty 120). He spends one month forging it (+20), uses Black Steel, and achieves a final score of 240. This exceeds the required Difficulty by two grades, granting the sword <strong>+5 quality</strong>. The general who ordered it will be very pleased.</p><p></p><h1>Table 18: Forging</h1><table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:6px\">Difficulty</th><th style=\"border:1px solid #666;padding:6px\">Final Ability</th><th style=\"border:1px solid #666;padding:6px\">Weapons</th><th style=\"border:1px solid #666;padding:6px\">Armor</th><th style=\"border:1px solid #666;padding:6px\">Helmets</th><th style=\"border:1px solid #666;padding:6px\">Other</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:6px\">Easy</td><td style=\"border:1px solid #666;padding:6px\">40</td><td style=\"border:1px solid #666;padding:6px\">Standard Arrow, Flight Arrow, Club, Staff</td><td style=\"border:1px solid #666;padding:6px\">Circlet, Leather Hood, Forehead Plate</td><td style=\"border:1px solid #666;padding:6px\">—</td><td style=\"border:1px solid #666;padding:6px\">Horseshoes, Buckles, Hooks, Sheets of Metal, Bowls or Plates, Saucepan, Frying Pans</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Moderate</td><td style=\"border:1px solid #666;padding:6px\">80</td><td style=\"border:1px solid #666;padding:6px\">Harpoon, Bullets (Sling), Spiked Ball, Chain, Dagger, Blowgun Darts (Hand), Hook, Scythe, Great Warhammer, Handaxe, Sling, Javelin, Lance, Lasso, Large Multi-Headed Flail, Warhammer, Flail, Mace, Heavy Battle Mace, Tonfa</td><td style=\"border:1px solid #666;padding:6px\">Padded Armor, Complete Leather, Leather, Hardened Leather, Fur</td><td style=\"border:1px solid #666;padding:6px\">Casque</td><td style=\"border:1px solid #666;padding:6px\">Imitation Jewelry, Candelabras</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Difficult</td><td style=\"border:1px solid #666;padding:6px\">120</td><td style=\"border:1px solid #666;padding:6px\">Fighting Fan, Halberd, Short Bow, Long Bow, Bolas, Blowgun, Scimitar, Raven, Parrying Dagger, Shield, Full Shield, Broad Sword, Bastard Sword, Short Sword, Long Sword, Stiletto, Armor-Piercing Arrow, Claws, Two-Handed Axe, Battle Axe, Kusari-Gama, Cavalry Lance, Whip, Nunchakus, Gladiator’s Net, Buckler, Shuriken, Trident</td><td style=\"border:1px solid #666;padding:6px\">Byrnie, Studded Leather, Armored Longcoat, Chainmail, Breastplate, Partial Plate</td><td style=\"border:1px solid #666;padding:6px\">Mail Coif, Open Helm</td><td style=\"border:1px solid #666;padding:6px\">Elaborate Imitation Jewelry, Light Barding</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Very Difficult</td><td style=\"border:1px solid #666;padding:6px\">140</td><td style=\"border:1px solid #666;padding:6px\">Composite Longbow, Crossbow, Heavy Crossbow, Boomerang, Cestus, Rapier, Foil, Katana, Katar, Two-Handed Sword, No-Dachi, Swordbreaker, Saber, Sai, Shuko, Tanto</td><td style=\"border:1px solid #666;padding:6px\">Scale Mail, Light Plate, Half Plate</td><td style=\"border:1px solid #666;padding:6px\">Great Helm</td><td style=\"border:1px solid #666;padding:6px\">Fine artesany, Chandelier</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Absurd</td><td style=\"border:1px solid #666;padding:6px\">180</td><td style=\"border:1px solid #666;padding:6px\">Haru No Okina, Two-Bladed Katana, Chakram, Arquebus, Miniature Crossbow, Repeating Crossbow, Matchlock Pistol</td><td style=\"border:1px solid #666;padding:6px\">Full Plate, Heavy Full Plate, Full Field Plate</td><td style=\"border:1px solid #666;padding:6px\">—</td><td style=\"border:1px solid #666;padding:6px\">Eyeglasses, Watches, Spyglass, Compass</td></tr></tbody></table><p></p><h2>Materials</h2><p>The material used by the character is a fundamental factor in determining the quality of the result and how easy it is to achieve. Below is a list of materials present in Gaïa, and how they modify Forging ability.</p><p><strong>Difficulty:</strong> This measures how complex it is to obtain a good result working with the mentioned material. Naturally, obtaining a better result with materials with a negative modifier is more difficult. This modifier should be applied to the character’s Forging Check.</p><p>Our blacksmith has selected a material often used for making high-quality weapons, Black Steel, for which reason the ability check is done at a +20.</p><p><strong>Quality:</strong> All materials, no matter how well worked, have a limit to their improvement. The quality indicates where that limit is, as well as the maximum bonus the object can receive.</p><p>Even if Basilius rolls high enough to beat the required Difficulty of the weapon forged by four levels, it will still have a maximum quality of +5, because it is made of Black Steel.</p><p><strong>Availability:</strong> As with equipment, every type of material has its corresponding availability according to its abundance in the world. Materials classified as inaccessible should be treated by the Game Master with great caution, since they are so rare that most forgers might never have heard of them.</p><hr /><table style=\"width:100%;border-collapse:collapse;text-align:center\"><thead><tr><th style=\"border:1px solid #666;padding:6px\">Material</th><th style=\"border:1px solid #666;padding:6px\">Difficulty</th><th style=\"border:1px solid #666;padding:6px\">Maximum Quality</th><th style=\"border:1px solid #666;padding:6px\">Availability</th><th style=\"border:1px solid #666;padding:6px\">Description</th></tr></thead><tbody><tr><td style=\"border:1px solid #666;padding:6px\">Stone</td><td style=\"border:1px solid #666;padding:6px\">–80</td><td style=\"border:1px solid #666;padding:6px\">+0</td><td style=\"border:1px solid #666;padding:6px\">Common</td><td style=\"border:1px solid #666;padding:6px\">One of the oldest and most widely used materials due to its availability and simplicity.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Bone</td><td style=\"border:1px solid #666;padding:6px\">–60</td><td style=\"border:1px solid #666;padding:6px\">+0</td><td style=\"border:1px solid #666;padding:6px\">Common</td><td style=\"border:1px solid #666;padding:6px\">Used since ancient times for many tools; taken from common animals.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Bronze</td><td style=\"border:1px solid #666;padding:6px\">–20</td><td style=\"border:1px solid #666;padding:6px\">+0</td><td style=\"border:1px solid #666;padding:6px\">Common</td><td style=\"border:1px solid #666;padding:6px\">Early alloy valued for malleability and ease of production, though not very tough.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Iron</td><td style=\"border:1px solid #666;padding:6px\">+10</td><td style=\"border:1px solid #666;padding:6px\">+0</td><td style=\"border:1px solid #666;padding:6px\">Common</td><td style=\"border:1px solid #666;padding:6px\">A favored material for weapons and armor due to its resistance and accessibility.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Steel</td><td style=\"border:1px solid #666;padding:6px\">–20</td><td style=\"border:1px solid #666;padding:6px\">+5</td><td style=\"border:1px solid #666;padding:6px\">Common</td><td style=\"border:1px solid #666;padding:6px\">The best of the common metals, known for quality and resistance.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Black Steel</td><td style=\"border:1px solid #666;padding:6px\">+20</td><td style=\"border:1px solid #666;padding:6px\">+5</td><td style=\"border:1px solid #666;padding:6px\">Uncommon</td><td style=\"border:1px solid #666;padding:6px\">A rare dark alloy known for exceptional hardness.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Illuminatum</td><td style=\"border:1px solid #666;padding:6px\">+80</td><td style=\"border:1px solid #666;padding:6px\">+5</td><td style=\"border:1px solid #666;padding:6px\">Inaccessible</td><td style=\"border:1px solid #666;padding:6px\">A mystic silvery metal, easily molded when hot and extremely resistant when cooled.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">White Steel of Shivat</td><td style=\"border:1px solid #666;padding:6px\">–40</td><td style=\"border:1px solid #666;padding:6px\">+10</td><td style=\"border:1px solid #666;padding:6px\">Uncommon</td><td style=\"border:1px solid #666;padding:6px\">A rare whitish metal from Shivat, difficult to work but yielding excellent results.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Elektra</td><td style=\"border:1px solid #666;padding:6px\">+20</td><td style=\"border:1px solid #666;padding:6px\">+10</td><td style=\"border:1px solid #666;padding:6px\">Rare</td><td style=\"border:1px solid #666;padding:6px\">A rare alloy of black and white steel, its formula jealously guarded by master artisans.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Ghestal Wood</td><td style=\"border:1px solid #666;padding:6px\">–40</td><td style=\"border:1px solid #666;padding:6px\">+10</td><td style=\"border:1px solid #666;padding:6px\">Inaccessible</td><td style=\"border:1px solid #666;padding:6px\">Wood from the Ramalen trees of the Duk’zarist, extremely rare and difficult to work; specialization changes difficulty to +40.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Malebolgium</td><td style=\"border:1px solid #666;padding:6px\">+20</td><td style=\"border:1px solid #666;padding:6px\">+15</td><td style=\"border:1px solid #666;padding:6px\">Inaccessible</td><td style=\"border:1px solid #666;padding:6px\">Metal forged from the bones of ancient dragons; capable of cutting solid materials like paper.</td></tr><tr><td style=\"border:1px solid #666;padding:6px\">Star Metal</td><td style=\"border:1px solid #666;padding:6px\">+80</td><td style=\"border:1px solid #666;padding:6px\">+15</td><td style=\"border:1px solid #666;padding:6px\">Inaccessible</td><td style=\"border:1px solid #666;padding:6px\">A legendary metal of unknown origin, believed to possess supernatural properties.</td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT.JournalEntryPage.vsEq6zU8NAP9vpz4",
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "CZq6d9vixluxesck",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lH7iAIy5PtHepS7T.CZq6d9vixluxesck"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Athletics",
+      "sort": 200000,
+      "_id": "i56oxQH3vlef5OCp",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!lH7iAIy5PtHepS7T.i56oxQH3vlef5OCp"
+    },
+    {
+      "name": "Social",
+      "sort": 300000,
+      "_id": "2rWiapzpcJgQYgOL",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!lH7iAIy5PtHepS7T.2rWiapzpcJgQYgOL"
+    },
+    {
+      "name": "Perception",
+      "sort": 400000,
+      "_id": "xnBAd3xhUpDOSrIY",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!lH7iAIy5PtHepS7T.xnBAd3xhUpDOSrIY"
+    },
+    {
+      "name": "Intellectual",
+      "sort": 500000,
+      "_id": "QEDNUWpB9USbmygz",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!lH7iAIy5PtHepS7T.QEDNUWpB9USbmygz"
+    },
+    {
+      "name": "Vigor",
+      "sort": 600000,
+      "_id": "AV86hEGvRg5xlOdd",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!lH7iAIy5PtHepS7T.AV86hEGvRg5xlOdd"
+    },
+    {
+      "name": "Subterfuge",
+      "sort": 700000,
+      "_id": "L0FJhVpXKDvLVOMA",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!lH7iAIy5PtHepS7T.L0FJhVpXKDvLVOMA"
+    },
+    {
+      "name": "Creative",
+      "sort": 800000,
+      "_id": "2nZQvQlg2eHJONx3",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!lH7iAIy5PtHepS7T.2nZQvQlg2eHJONx3"
+    },
+    {
+      "name": "Overview",
+      "sort": 100000,
+      "_id": "G21f7oI2R6ci3B1X",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!lH7iAIy5PtHepS7T.G21f7oI2R6ci3B1X"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.ozittc759e8nqTuT",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.2.1",
+    "createdTime": 1784386341361,
+    "modifiedTime": 1784386341361,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "ownership": {
+    "default": 0,
+    "cvaXLNt0ipl2zLRV": 3
+  },
+  "_id": "lH7iAIy5PtHepS7T",
+  "sort": 0,
+  "_key": "!journal!lH7iAIy5PtHepS7T"
+}

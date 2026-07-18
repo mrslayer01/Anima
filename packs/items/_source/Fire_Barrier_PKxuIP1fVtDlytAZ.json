@@ -1,0 +1,39 @@
+{
+  "name": "Fire Barrier",
+  "type": "spell",
+  "folder": "gyeUeT6Wmx3p7hOx",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "fire",
+    "level": 22,
+    "action": "active",
+    "cost": 50,
+    "effect": "Creates a 10×10‑foot wall of fire. Crossing it triggers an automatic attack (Final Attack 240, Base Damage 80, Heat AT). Can block water, cold, or fire attacks with 300 HP.",
+    "addedEffect": "+5 Base Damage, +5 feet size, +50 Resistance Points.",
+    "maintenance": "1 every 10 (5)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Automatic"
+  },
+  "_id": "PKxuIP1fVtDlytAZ",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!PKxuIP1fVtDlytAZ"
+}

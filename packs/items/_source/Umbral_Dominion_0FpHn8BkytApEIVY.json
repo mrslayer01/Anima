@@ -1,0 +1,39 @@
+{
+  "name": "Umbral Dominion",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 76,
+    "action": "active",
+    "cost": 220,
+    "effect": "The caster asserts absolute control over shadows within 300 feet. All enemies suffer –60 to Attack, Defense, and Magic Projection, while the caster gains +30 to all actions involving darkness.",
+    "addedEffect": "+10-foot radius and +5 to the caster’s bonuses.",
+    "maintenance": "2 every 10 (16)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "0FpHn8BkytApEIVY",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!0FpHn8BkytApEIVY"
+}

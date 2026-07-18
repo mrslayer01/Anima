@@ -1,0 +1,39 @@
+{
+  "name": "Seeking Sphere",
+  "type": "spell",
+  "folder": "AxuVWz5XwsiEfv6z",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "light",
+    "level": 46,
+    "action": "active",
+    "cost": 120,
+    "effect": "Unleashes a sphere of luminous energy with Base Damage 100. The caster controls it with Magic Projection until it hits. If dodged, it continues attacking next turn. When it deals damage or is blocked, it explodes. If abandoned, it acts independently with Magic Projection 150.",
+    "addedEffect": "+5 to Base Damage and +5 to the Magic Projection of the Seeking Sphere.",
+    "maintenance": "1 every 10 (12)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Attack"
+  },
+  "_id": "zyHMUrA5RKwtu4pm",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!zyHMUrA5RKwtu4pm"
+}

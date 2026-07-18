@@ -1,0 +1,42 @@
+{
+  "name": "Acid Cloud",
+  "type": "spell",
+  "folder": "wXBfSMWCghYcXuKR",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 50,
+    "maxLevel": 60,
+    "action": "active",
+    "cost": 100,
+    "effect": "Creates a corrosive cloud (15-foot radius) that melts substances. Targets must pass PhR 120 or lose LP equal to Failure Level.",
+    "addedEffect": "+5 feet radius, +1 cloud MV, +5 PhR Difficulty.",
+    "maintenance": "1 every 10 (10)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Automatic",
+    "closedPaths": {
+      "path1": "earth"
+    }
+  },
+  "_id": "cyCCdU7cB7GJV6D1",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!cyCCdU7cB7GJV6D1"
+}

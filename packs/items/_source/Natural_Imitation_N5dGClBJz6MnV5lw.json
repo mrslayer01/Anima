@@ -1,0 +1,39 @@
+{
+  "name": "Natural Imitation",
+  "type": "spell",
+  "folder": "Txiitqd71IXVZs1v",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "essence",
+    "level": 50,
+    "action": "active",
+    "cost": 60,
+    "effect": "Creates natural animals under the caster’s control. Creates up to 2 creature levels (one level‑2 or two level‑1 animals).",
+    "addedEffect": "+1 creature level.",
+    "maintenance": "1 every 20 (3)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "N5dGClBJz6MnV5lw",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!N5dGClBJz6MnV5lw"
+}

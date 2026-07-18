@@ -1,0 +1,1447 @@
+{
+  "name": "Disadvantages",
+  "pages": [
+    {
+      "sort": 100000,
+      "name": "Bad Luck",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Bad Luck</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Fumble range increases by 2.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "5yVVGU0nLNZUy64T",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.5yVVGU0nLNZUy64T"
+    },
+    {
+      "sort": 110000,
+      "name": "Blind",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Blind</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Cannot use abilities requiring sight; always blinded.</p><p><strong>Benefit:</strong> 2</p>"
+      },
+      "_id": "eU0UepqaGts8zHmY",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.eU0UepqaGts8zHmY"
+    },
+    {
+      "sort": 120000,
+      "name": "Deafness",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Deafness</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Cannot use abilities requiring hearing.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "APdvy7c8bfZOTJVq",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.APdvy7c8bfZOTJVq"
+    },
+    {
+      "sort": 130000,
+      "name": "Mute",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Mute</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Cannot speak.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "RoytnWOVDbO9v8OS",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.RoytnWOVDbO9v8OS"
+    },
+    {
+      "sort": 140000,
+      "name": "Nearsighted",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Nearsighted</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> –50 Notice/Search (vision), –3 Perception, aiming penalties.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "tZkJNkRFlEsO2VtJ",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.tZkJNkRFlEsO2VtJ"
+    },
+    {
+      "sort": 150000,
+      "name": "Exclusive Weapon",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Exclusive Weapon</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> –30 to combat with any non‑preferred weapon.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "vx6rPYrzsZy3ICez",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.vx6rPYrzsZy3ICez"
+    },
+    {
+      "sort": 160000,
+      "name": "Severe Allergy",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Severe Allergy</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> –40 to –80 penalties when exposed to allergen.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "joZbmUTgZlxXUxoG",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.joZbmUTgZlxXUxoG"
+    },
+    {
+      "sort": 170000,
+      "name": "Addiction or Serious Vice",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Addiction or Serious Vice</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> –10 per day without satisfying addiction (up to –100).</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "ZCnPGztX8CJh9yGw",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.ZCnPGztX8CJh9yGw"
+    },
+    {
+      "sort": 180000,
+      "name": "Atrophied Limb",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Atrophied Limb</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> –80 to actions requiring the limb.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "4DzAvb06CZNpyPkH",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.4DzAvb06CZNpyPkH"
+    },
+    {
+      "sort": 190000,
+      "name": "Serious Illness",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Serious Illness</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> –10 to all actions per month; GM determines death date.</p><p><strong>Benefit:</strong> 2</p>"
+      },
+      "_id": "oi093TZArtN5zEjF",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.oi093TZArtN5zEjF"
+    },
+    {
+      "sort": 200000,
+      "name": "Physical Weakness",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Physical Weakness</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Physical Resistance is halved.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "aSGX7n8XgJle9NyW",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.aSGX7n8XgJle9NyW"
+    },
+    {
+      "sort": 210000,
+      "name": "Deep Sleeper",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Deep Sleeper</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> –200 Notice while sleeping; –40 to all actions for 10 turns after waking.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "De1OX1WWU802o8Cs",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.De1OX1WWU802o8Cs"
+    },
+    {
+      "sort": 220000,
+      "name": "Deduct Two Points From a Characteristic",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Deduct Two Points From a Characteristic</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Reduce one Primary Characteristic by 2.</p><p><strong>Restriction:</strong> Cannot reduce below 3; may only take once.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "CIWB1agNEZD7ag9v",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.CIWB1agNEZD7ag9v"
+    },
+    {
+      "sort": 230000,
+      "name": "Unfortunate",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Unfortunate</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> GM determines limits; character is always the unlucky one.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "MrM4GSmdQcNrZ5Zd",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.MrM4GSmdQcNrZ5Zd"
+    },
+    {
+      "sort": 240000,
+      "name": "Easily Possessed",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Easily Possessed</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> –50 to PhR and MR vs domination or possession.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "yE6YWGS6dhZIO55w",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.yE6YWGS6dhZIO55w"
+    },
+    {
+      "sort": 250000,
+      "name": "Exhausted",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Exhausted</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Fatigue penalties doubled; base Fatigue –1.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "TAkUzuDpGLL2Nqo8",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.TAkUzuDpGLL2Nqo8"
+    },
+    {
+      "sort": 260000,
+      "name": "Severe Phobia",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Severe Phobia</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Character suffers Fear State when encountering phobia.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "6yJxnkZjQW3NHNc3",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.6yJxnkZjQW3NHNc3"
+    },
+    {
+      "sort": 270000,
+      "name": "Vulnerable to Pain",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Vulnerable to Pain</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Pain penalties doubled.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "famB3Gh1bk4ZI7AX",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.famB3Gh1bk4ZI7AX"
+    },
+    {
+      "sort": 280000,
+      "name": "Sickly",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Sickly</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Disease Resistance (DR) is halved.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "dBa9Lk19ktljuM6Z",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.dBa9Lk19ktljuM6Z"
+    },
+    {
+      "sort": 290000,
+      "name": "Slow Healer",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Slow Healer</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Recovers only half Life Points from any source.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "mal6nESxv59lRVym",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.mal6nESxv59lRVym"
+    },
+    {
+      "sort": 300000,
+      "name": "Slow Learner",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Slow Learner</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> –4 XP per session; –8 with an additional point.</p><p><strong>Benefit:</strong> 1, 2</p>"
+      },
+      "_id": "7Qeew5wdaGGfcGru",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.7Qeew5wdaGGfcGru"
+    },
+    {
+      "sort": 310000,
+      "name": "Slow Reactions",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Slow Reactions</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> –30 Initiative; –60 with an additional point.</p><p><strong>Benefit:</strong> 1, 2</p>"
+      },
+      "_id": "7RQmJG78KsoFHXJT",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.7RQmJG78KsoFHXJT"
+    },
+    {
+      "sort": 320000,
+      "name": "Susceptible to Magic",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Susceptible to Magic</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Magic Resistance (MR) is halved.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "Q6P6tq24yF3fMRWa",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.Q6P6tq24yF3fMRWa"
+    },
+    {
+      "sort": 330000,
+      "name": "Susceptible to Poisons",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Susceptible to Poisons</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Venom Resistance (VR) is halved.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "hJkQqMgryqlLqVNl",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.hJkQqMgryqlLqVNl"
+    },
+    {
+      "sort": 340000,
+      "name": "Unattractive",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Unattractive</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Appearance becomes 2.</p><p><strong>Restriction:</strong> Must have rolled Appearance 7+.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "ygmJbvRjCvVtK4m8",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.ygmJbvRjCvVtK4m8"
+    },
+    {
+      "sort": 350000,
+      "name": "Vulnerable to Heat/Cold",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Vulnerable to Heat/Cold</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> –80 Resistance vs chosen element; –30 to all actions in extreme climates.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "ClGEmltoVvsbeuOJ",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.ClGEmltoVvsbeuOJ"
+    },
+    {
+      "sort": 360000,
+      "name": "Oral Requirement",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Oral Requirement</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> Must speak to accumulate magic and cast spells.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "Sqi8TwAi5Rs4mHQ3",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.Sqi8TwAi5Rs4mHQ3"
+    },
+    {
+      "sort": 370000,
+      "name": "Require Gestures",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Require Gestures</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> Must move freely to accumulate magic and cast spells.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "akYsHAVvCarLSlUK",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.akYsHAVvCarLSlUK"
+    },
+    {
+      "sort": 380000,
+      "name": "Magical Exhaustion",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Magical Exhaustion</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> Lose 1/2/3 Fatigue when casting spells over 100/200/300 potential.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "83XPv5iCx0T9TyvY",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.83XPv5iCx0T9TyvY"
+    },
+    {
+      "sort": 390000,
+      "name": "Shamanism",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Shamanism</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> Requires material components for spells.</p><p><strong>Benefit:</strong> 2</p>"
+      },
+      "_id": "KS6BYzSx1EAEDpiG",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.KS6BYzSx1EAEDpiG"
+    },
+    {
+      "sort": 400000,
+      "name": "Magical Ties",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Magical Ties</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> Cannot choose free spells or freely access chosen spells.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "t5NBovxFnK4C2JpI",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.t5NBovxFnK4C2JpI"
+    },
+    {
+      "sort": 410000,
+      "name": "Slow Recovery of Magic",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Slow Recovery of Magic</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> Zeon regeneration is halved.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "ekbhNQm3JIqYoZ4U",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.ekbhNQm3JIqYoZ4U"
+    },
+    {
+      "sort": 420000,
+      "name": "Magic Blockage",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Magic Blockage</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> No natural Zeon regeneration; must drain objects or beings.</p><p><strong>Restriction:</strong> Cannot combine with Slow Recovery of Magic.</p><p><strong>Benefit:</strong> 2</p>"
+      },
+      "_id": "QRvGGQQCl2bgTnqx",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.QRvGGQQCl2bgTnqx"
+    },
+    {
+      "sort": 430000,
+      "name": "Action Requirement",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Action Requirement</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> Must perform a specific action or meet conditions to cast spells; may require a DIF check.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "byB7adEXqSb4DCCL",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.byB7adEXqSb4DCCL"
+    },
+    {
+      "sort": 440000,
+      "name": "Psychic Exhaustion",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Psychic Exhaustion</h1><p><strong>Type:</strong> Psychic</p><p><strong>Effects:</strong> Fatigue costs from psychic powers are doubled.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "twe91GmU1v0E4ARh",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.twe91GmU1v0E4ARh"
+    },
+    {
+      "sort": 450000,
+      "name": "Psychic Consumption",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Psychic Consumption</h1><p><strong>Type:</strong> Psychic</p><p><strong>Effects:</strong> On psychic failure, lose LP equal to failure margin.</p><p><strong>Benefit:</strong> 2</p>"
+      },
+      "_id": "aZYrnHhICy2SV2eV",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.aZYrnHhICy2SV2eV"
+    },
+    {
+      "sort": 460000,
+      "name": "One Power at a Time",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>One Power at a Time</h1><p><strong>Type:</strong> Psychic</p><p><strong>Effects:</strong> Can only use one psychic power per turn; maintained powers allowed.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "1yiR2MypJ2C2byOy",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.1yiR2MypJ2C2byOy"
+    },
+    {
+      "sort": 470000,
+      "name": "No Concentration",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>No Concentration</h1><p><strong>Type:</strong> Psychic</p><p><strong>Effects:</strong> Cannot gain bonuses from concentrating.</p><p><strong>Benefit:</strong> 1</p>"
+      },
+      "_id": "SPK1J4ppIgTqmwZr",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.SPK1J4ppIgTqmwZr"
+    },
+    {
+      "sort": 570000,
+      "name": "Overview",
+      "type": "text",
+      "_id": "DJlEN7occprqJujB",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>The final step before a player begins to spend DP and complete a character is to allocate Creation Points on Advantages and Disadvantages. As with each creature that populates the world, Anima characters have several idiosyncrasies not solely reflected in their Characteristics and Abilities. These idiosyncrasies are inherently tied to an individual’s essence or nature. They are not learned and do not improve; characters are either born with them, or they never have them.</p><p></p><p>Is my character ambidextrous, or does he have magical abilities? Was she born with psychic gifts, or does she heal slowly? The answers to these questions cannot rest solely on chance, nor on the whim of each player’s desires.</p><p></p><p>Each character can acquire Advantages and Disadvantages from the following lists. Each Advantage or Disadvantage grants benefits or inconveniences as described below. Players can spend up to 3 Creation Points (CP) on the Advantages that he chooses and believes most appropriate. The cost of the Advantage indicates how many CP a player must spend to gain it. Some Advantages have variable costs, which mean that they grant greater benefits according to the number of CP spent on them.</p><p></p><p>Disadvantages function in a similar manner, but instead of costing a player CP, each Disadvantage gives a player Creation Points he can spend on other Advantages. In this way the benefits and inconveniences balance out: The more advantages you have, the greater your problems will be. Players can choose up to three Disadvantages for a character – although they don’t have to choose any.</p><p></p><p>Unless specifically stated otherwise, players may choose each Advantage or Disadvantage only once.</p><p></p><h2>Common Disadvantages</h2><p>These are the available Disadvantages a player may choose for his character. The Benefit indicates the number of Creation Points you gain for acquiring the Disadvantage. Remember that you may not choose more than three Disadvantages.</p><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.5yVVGU0nLNZUy64T]{Bad Luck}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.eU0UepqaGts8zHmY]{Blind}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.APdvy7c8bfZOTJVq]{Deafness}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.RoytnWOVDbO9v8OS]{Mute}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.tZkJNkRFlEsO2VtJ]{Nearsighted}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.vx6rPYrzsZy3ICez]{Exclusive Weapon}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.joZbmUTgZlxXUxoG]{Severe Allergy}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.ZCnPGztX8CJh9yGw]{Addiction or Serious Vice}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.4DzAvb06CZNpyPkH]{Atrophied Limb}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.oi093TZArtN5zEjF]{Serious Illness}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.aSGX7n8XgJle9NyW]{Physical Weakness}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.De1OX1WWU802o8Cs]{Deep Sleeper}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.CIWB1agNEZD7ag9v]{Deduct Two Points From a Characteristic}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.MrM4GSmdQcNrZ5Zd]{Unfortunate}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.yE6YWGS6dhZIO55w]{Easily Possessed}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.TAkUzuDpGLL2Nqo8]{Exhausted}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.6yJxnkZjQW3NHNc3]{Severe Phobia}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.famB3Gh1bk4ZI7AX]{Vulnerable to Pain}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.dBa9Lk19ktljuM6Z]{Sickly}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.mal6nESxv59lRVym]{Slow Healer}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.7Qeew5wdaGGfcGru]{Slow Learner}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.7RQmJG78KsoFHXJT]{Slow Reactions}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.Q6P6tq24yF3fMRWa]{Susceptible to Magic}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.hJkQqMgryqlLqVNl]{Susceptible to Poisons}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.ygmJbvRjCvVtK4m8]{Unattractive}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.ClGEmltoVvsbeuOJ]{Vulnerable to Heat/Cold}</p><p></p><h2>Magic Disadvantages</h2><p>Only characters with the Gift of magic may choose Disadvantages from this list. Creation Points obtained with these Disadvantages may be used only to buy magic Advantages. Remember that the maximum number of Disadvantages is three; if a player chooses three general Disadvantages, he will not be able to select one of these.</p><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.Sqi8TwAi5Rs4mHQ3]{Oral Requirement}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.akYsHAVvCarLSlUK]{Require Gestures}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.83XPv5iCx0T9TyvY]{Magical Exhaustion}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.KS6BYzSx1EAEDpiG]{Shamanism}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.t5NBovxFnK4C2JpI]{Magical Ties}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.ekbhNQm3JIqYoZ4U]{Slow Recovery of Magic}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.QRvGGQQCl2bgTnqx]{Magic Blockage}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.byB7adEXqSb4DCCL]{Action Requirement}</p><p></p><h2>Psychic Disadvantages</h2><p>Only characters with psychic capacities may choose Disadvantages from this list. Creation Points obtained with them may be used solely to buy psychic mental Advantages. Remember that the maximum number of Disadvantages is three; if a character chooses three general Disadvantages, you will not be able to select one of these.</p><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.twe91GmU1v0E4ARh]{Psychic Exhaustion}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.aZYrnHhICy2SV2eV]{Psychic Consumption}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.1yiR2MypJ2C2byOy]{One Power at a Time}@UUID[Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n.JournalEntryPage.SPK1J4ppIgTqmwZr]{No Concentration}</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "KpIUfbbbqLgRUiOX",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!xT0j0GNys8KE7S6H.DJlEN7occprqJujB"
+    }
+  ],
+  "folder": "R8wCHwnoz9eURbGA",
+  "categories": [
+    {
+      "name": "Overview",
+      "sort": 100000,
+      "_id": "KpIUfbbbqLgRUiOX",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!xT0j0GNys8KE7S6H.KpIUfbbbqLgRUiOX"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.p0G0QAWWyEhFCR7n",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.2.1",
+    "createdTime": 1784386341361,
+    "modifiedTime": 1784386341361,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "ownership": {
+    "default": 0,
+    "cvaXLNt0ipl2zLRV": 3
+  },
+  "_id": "xT0j0GNys8KE7S6H",
+  "sort": 0,
+  "_key": "!journal!xT0j0GNys8KE7S6H"
+}

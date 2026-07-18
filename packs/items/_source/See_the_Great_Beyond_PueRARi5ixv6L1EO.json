@@ -1,0 +1,39 @@
+{
+  "name": "See the Great Beyond",
+  "type": "spell",
+  "folder": "nnTMGhW2sOBrT7lh",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "necromancy",
+    "level": 6,
+    "action": "active",
+    "cost": 30,
+    "effect": "Allows seeing specters and spiritual beings. Can affect multiple targets up to 80 total Presence.",
+    "addedEffect": "+10 maximum Presence.",
+    "maintenance": "1 every 10 (3)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "PueRARi5ixv6L1EO",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!PueRARi5ixv6L1EO"
+}

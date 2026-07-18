@@ -1,0 +1,23 @@
+{
+  "name": "Earth",
+  "type": "Item",
+  "_id": "IFdncsADpUjKHOtw",
+  "description": "",
+  "folder": "0ON3hHHL6EqLOp0U",
+  "sorting": "a",
+  "sort": 700000,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671622,
+    "modifiedTime": 1773325671622,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!folders!IFdncsADpUjKHOtw"
+}

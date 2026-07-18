@@ -1,0 +1,39 @@
+{
+  "name": "Defensive Movement",
+  "type": "spell",
+  "folder": "80PIYD2pUKkVAK2d",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "air",
+    "level": 62,
+    "action": "passive",
+    "cost": 120,
+    "effect": "Allows the caster to evade attacks using Magic Projection instead of Dodge, up to 3 times per turn. Grants Movement Value 8 for area-attack penalties.",
+    "addedEffect": "+1 Dodge per turn and +1 Movement Value.",
+    "maintenance": "1 every 10 (12)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Defense"
+  },
+  "_id": "2chW1mGwnqrLnl2m",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!2chW1mGwnqrLnl2m"
+}

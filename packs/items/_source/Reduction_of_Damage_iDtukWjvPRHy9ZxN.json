@@ -1,0 +1,39 @@
+{
+  "name": "Reduction of Damage",
+  "type": "spell",
+  "folder": "4Gsne2eJZ5qJHCjh",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "creation",
+    "level": 36,
+    "action": "passive",
+    "cost": 80,
+    "effect": "Reduces the Base Damage of an incoming attack by 40. Must be cast before rolling.",
+    "addedEffect": "–5 to the Base Damage of the attack.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Automatic"
+  },
+  "_id": "iDtukWjvPRHy9ZxN",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!iDtukWjvPRHy9ZxN"
+}

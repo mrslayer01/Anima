@@ -1,0 +1,23 @@
+{
+  "type": "Item",
+  "folder": null,
+  "name": "Armor",
+  "color": null,
+  "sorting": "a",
+  "_id": "DHydMMEJIKrftEe7",
+  "description": "",
+  "sort": 100000,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1771202042536,
+    "modifiedTime": 1771202042561,
+    "lastModifiedBy": "8tB4N7JyuUUH1l8H"
+  },
+  "_key": "!folders!DHydMMEJIKrftEe7"
+}

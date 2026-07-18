@@ -1,0 +1,39 @@
+{
+  "name": "Sweet Talk",
+  "type": "spell",
+  "folder": "n5Io2zXOYwnIrjqN",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "illusion",
+    "level": 20,
+    "action": "active",
+    "cost": 50,
+    "effect": "Enhances charisma. Grants +50 to Leadership and Persuasion.",
+    "addedEffect": "+10 to Leadership and Persuasion.",
+    "maintenance": "1 every 10 (5)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "bvLATnktDVjUPmXk",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!bvLATnktDVjUPmXk"
+}

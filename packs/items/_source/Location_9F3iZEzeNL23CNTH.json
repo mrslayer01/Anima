@@ -1,0 +1,42 @@
+{
+  "name": "Location",
+  "type": "spell",
+  "folder": "YCRTx7esJIwienzC",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 80,
+    "maxLevel": 90,
+    "action": "active",
+    "cost": 300,
+    "effect": "Finds the exact position of a person, place, or object within 100 miles. Target may resist with MR 120.",
+    "addedEffect": "+5 MR Difficulty and +100 miles range.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x30",
+    "typeOfSpell": "Detection",
+    "closedPaths": {
+      "path1": "darkness"
+    }
+  },
+  "_id": "9F3iZEzeNL23CNTH",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!9F3iZEzeNL23CNTH"
+}

@@ -1,0 +1,386 @@
+{
+  "name": "Psychic",
+  "pages": [
+    {
+      "sort": 100000,
+      "name": "Overview",
+      "type": "text",
+      "_id": "w6kADzYEB1WcVOK6",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>Not everything can be explained through powers of the soul. Some people can use their mind to alter their surroundings merely through willpower. A person’s psyche produces an enormous amount of energy – called a matrix – that can be used for controlling matter and modifying the laws of physics. Psychics are capable of moving objects at a distance; they can also set them on fire, or control their own adrenaline levels to boost their Abilities. However, psychic matrices do not affect matter exclusively. This energy also has the capability to enter into the minds of others, making it possible for psychics to read thoughts or control a person’s will. On certain occasions, matrices can even intercept environmental residues and reveal events that have occurred in the past.</p><p>Matrix control is not homogeneous. The energy it produces is organized into different Disciplines, each of which grants the psychic access to very different abilities. Thus, it is possible that a character who can read people’s minds and control their will may be unable to use Powers of a different area – such as those related to temperature control. His power is simply not able to tune into that particular Psychic Discipline.</p><p>Few people develop a mastery of their Psychic Powers. Only a very small number of individuals have access to the part of the mind that remains asleep for the rest of us. The reason why only some are able to accomplish such feats is unknown. Some argue this ability is entirely physical, and that psychics possess more evolved brains. Others attribute it completely to psychological reasons. They claim that mastery of the mind is the only requirement to awaken and control these abilities. Be that as it may, one thing is for sure – Willpower allows them to use their abilities to the fullest.</p><p></p><h2>The use of Psychic Powers</h2><p>Characters endowed with Psychic Powers can make use of them anytime they want. Once a character gains access to a specific Power, there is no limit to the number of times he can use it. Each Psychic Power has a Difficulty Level, which is an indicator of the complexity of its use. In order to execute their Powers, characters must roll 1d100 and add the result to their Psychic Potential. If the Final Score exceeds the Power’s Difficulty Level, that Power functions. This is called the Potential Calculation roll (PC), and it utilizes both Open Rolls and Fumbles. A Psychic Power’s effects will vary according to a character’s Final Score on the PC roll.</p><p>Let us say Pazusu would like to use Minor Psychokinesis in order to move a 10 pound stone. Even though this Power will work if he passes a PC roll with an Easy Difficulty, such a result will only allow him to move an object no heavier than two poounds, leaving an object as heavy as the rock in question off limits. Pazusu has a Psychic Potential of +60. He rolls the dice and gets an 85, which he then adds to his Psychic Potential, for a Final Score of 145. By looking in the Power chart, we discover that this result is enough to move up to 40 pounds – more than enough for Pazusu to lift the rock.</p><p>Some Psychic Powers are Active; they require a character to have the Initiative in order to execute them. Others, on the contrary, are Passive and can be used whenever needed. The Passive or Active nature of each Power appears in its description.</p><p>Characters can use more than one Psychic Power per turn, depending on their Psychic Potential score. When it comes to using their mental abilities, characters may employ as many Powers as they wish during the course of any given turn. These multiple Powers will all be regarded as a single action, incurring in no multiple-action penalties.</p><p>However, if a character engages in any other Active action in the same turn that he uses his Psychic Powers, he suffers a –25 penalty to his Psychic Potential per additional action. In the same way as magic, the use of Psychic Powers is equivalent to unarmed combat; it has a Weapon Initiative score of +20.</p><p>It takes a minimum of 10% damage on the Combat Table to affect an opponent with a Psychic Power using the character’s Psychic Projection. So, after using the character’s Potential to calculate the effects of the Power, a character must make a Psychic Projection Check to hit the target and know the reach of his power. In most cases, unless the description states otherwise, no Armor Type protects against Psychic Powers. A character can Dodge Psychic Matrix energies, but he can only Block them if he is somehow capable of stopping energy. Even if a character attempts to Dodge a Psychic Power, he still suffers a penalty as if he were Blinded – unless he can see Psychic Matrices.</p><p>All Psychic Powers count as Fired Projectiles when calculating Defense scores.</p><p></p><h2>Psychic Potential</h2><p>Psychic Potential is the basis for all mental Powers. It is a measure of an individual’s capacity for using his Disciplines and amplifying their effects. It takes the form of a bonus that a player adds to his character’s Potential Calculation roll each time he intends to use a Psychic Power. Psychic Potential depends directly on a character’s Willpower Characteristic. To find out a character’s Psychic Potential, turn to Table 65. Characters wanting to use more than one Power per turn divide their Psychic Potential the Powers they want to use. They are free to allocate more points to those Powers they wish to enhance the most. For instance, a character with a +50 Psychic Potential using two mental abilities may choose to apply +15 to the first Power and save the remaining +35 for the second. It is not possible to apply less than +10 to any given Power. Therefore, a character with a +40 Potential can use only 4 Psychic Powers per turn by splitting his potential into four +10 bonuses.</p><p></p><h3>Table 65: Base Psychic Potential</h3><table><thead><tr><th>Willpower</th><th>Psychic Potential</th></tr></thead><tbody><tr><td>4 or below</td><td>+0</td></tr><tr><td>5</td><td>+10</td></tr><tr><td>6</td><td>+20</td></tr><tr><td>7</td><td>+30</td></tr><tr><td>8</td><td>+40</td></tr><tr><td>9</td><td>+50</td></tr><tr><td>10</td><td>+60</td></tr><tr><td>11</td><td>+70</td></tr><tr><td>12</td><td>+80</td></tr><tr><td>13</td><td>+90</td></tr><tr><td>14</td><td>+100</td></tr><tr><td>15</td><td>+120</td></tr><tr><td>16</td><td>+140</td></tr><tr><td>17</td><td>+160</td></tr><tr><td>18</td><td>+180</td></tr><tr><td>19</td><td>+200</td></tr><tr><td>20</td><td>+220</td></tr></tbody></table><p><em>Some time later Pazusu has increased his Psychic Potential up to +80, so he can now use up to 8 Psychic Powers per turn with a +10 bonus to each. If he should wish to use three Powers in any given turn, he may distribute his Psychic Potential points freely. For instance, he may apply +20 to the first two rolls and +40 to the third. Each Power shall be individually rolled, adding the corresponding bonus.</em></p><h2>Concentration</h2><p>Even though Psychic Powers take immediate effect, it is possible for a character to amplify them through Concentration. By these means, psychics can invest some time in the preparation of a mental ability, thus improving the result. Upon initiating Concentration, the character must state the intended Power and its objective. Depending on the Concentration level reached, a character receives a bonus to his Psychic Potential – as shown in Table 66.</p><p>Concentration is considered to be a complete Active action. Therefore, if a character engages in other actions or receives damage, he will be unable to continue to Concentrate, thereby losing any accumulated bonuses.</p><h3>Table 66: Concentration</h3><table><thead><tr><th>Concentration</th><th>Available Bonus</th></tr></thead><tbody><tr><td>One Turn</td><td>+10</td></tr><tr><td>Three Turns</td><td>+20</td></tr><tr><td>Five Turns</td><td>+30</td></tr><tr><td>One Minute</td><td>+40</td></tr><tr><td>One Hour</td><td>+50</td></tr></tbody></table><p></p><h2>Psychic Failure and Fatigue</h2><p>Every time a psychic takes a chance on using a Power with a base Difficulty Level higher than his Potential, he is exposed to possible Failure. If you look closely at the effect description for any Power, you will find that occasionally the words are in italics, and instead of the description, the word “Fatigue” appears, followed by a number. If the end result, after adding a character’s Potential to the roll, should fall within the Fatigue range, the character is unsuccessful in using the Power.</p><p>Psychic failure exerts great pressure on the mind, since the psyche is unable to use the energy it has generated. Therefore, the number next to Fatigue represents the consequences characters have to face when they fail. In other words, it is the number of free Psychic Points the psychic loses when he fails. He subtracts this number from any unused points. Once a character depletes his free PP, he starts consuming Fatigue Points – until he is either unconscious or able to rest. PP lost on account of Fatigue is recovered at the regular rate of points spent on acquiring temporary Psychic Abilities. Psychic Fatigue affects even physically tireless beings.</p><p>Bear in mind that if a character Fumbles on his Potential Calculation roll, his player must subtract the Fumble level from the Final Score, thus worsening the consequences.</p><p>Pazusu, who possesses a +80 Psychic Potential, intends to use Shatter, a Power with a Difficulty Level of Very Difficult. He has no time to Concentrate, so he rolls directly and gets a 15. He then adds his Psychic Potential to the roll, for a Final Score of 95. This result only achieves a Medium difficulty, two levels below his objective. When checking this result on the Shatter Effect Table, we find that he has suffered Fatigue 4. Therefore, he loses 4 of his free Psychic Points. However, since he only has 3 left, he also loses 1 Fatigue point.</p><p>If a character’s Fatigue drops to 0 or below on account of Psychic Fatigue, he immediately lapses into a shock of possible fatal consequences. In this situation, all Innate Powers cease to be Maintained, and the character must make a PsR Check with a difficulty of 100 in order to avoid falling into a coma that lasts for a number of days equal to his Failure level. Every negative Fatigue Point will increase the difficulty of this Check by +10. For example, a character with –6 Fatigue Points must pass a PsR Check with a difficulty of 160. If a character fails this Check by more than 80 points, his mind shatters and he dies immediately.</p><p>Even tireless characters and creatures, who can’t lose Fatigue Points, are not exempted of Psychic Fatigue Checks.</p><p></p><h2>Psychic Points</h2><p>Psychic Points – otherwise known as PP – constitutes yet another fundamental element of using mental Powers. PP shows how characters spend their psychic energies, along with the aspects of their Powers they seek to enhance. In a way, it may be thought of as a set of wild cards allowing the psychic a wide array of advantages – such as developing new Disciplines or temporarily increasing his Potential. All characters start off at 1st level with one PP; this amount can increase by investing DP or moving up in levels.</p><p>With some of the advantages brought by PP they are consumed permanently; once the PP disappear, they can not be used again. Other advantages, however, provide temporary benefits that do not consume the PP forever. Characters can recover them after a while. The following is a list of the abilities PP provide, starting with the permanent ones.</p><p></p><h3>Affinity with a Psychic Discipline</h3><p>Characters do not initially have any Psychic Discipline. In order to access the Powers pertaining to any one Discipline, they need to permanently invest 1 PP point. By doing so, they develop a certain affinity to that specific Discipline, and from then on they are capable of mastering any of the Powers within that Discipline by investing new PP points. There is no limit to the number of Disciplines that can be mastered. For instance, a character spending 4 PP points may have access to 4 different Psychic Disciplines – such as Psychokinesis, Pyrokinesis, Telepathy and Physical Increase.</p><p></p><h3>Mastering a New Mental Power</h3><p>Once a character has developed an affinity to a Psychic Discipline, he is ready to master its Powers. If he seeks to use a specific Power of a Discipline with which he has an affinity, he must first master it by investing 1 PP point permanently. Characters may acquire as many Powers as they desire, provided only that they master a first-level Power before moving on to a second-level one, and so on. Thus, a character with a Pyrokinesis affinity and 3 unspent PP points, may master the Create Fire (first level), Fire Immunity (second level) and Nova (third level) Powers by spending all of his PP points.</p><p></p><h3>Increasing Psychic Potential</h3><p>PP are also helpful in increasing Psychic Potential, thus significantly enlarging mental capability. Characters will get a bonus proportionate to the amount of PP points they invest. They add this bonus to their Psychic Potential when using any of their Powers. Table 67 details what bonuses a character receives according to the PP he spends. The first row shows the amount of PP points required for getting the bonus to the right. These bonuses build off of each other. Therefore, if a character wants a +40 bonus, he must first spend all the points necessary to achieve a +10, +20, and +30 bonus, as well. The figure in parenthesis represents the total sum of PP that it would take to reach that final bonus.</p><p></p><h3>Table 67: Increase Psychic Potential</h3><table><thead><tr><th>Required PP</th><th>Psychic Potential</th></tr></thead><tbody><tr><td>1 (1)</td><td>+10</td></tr><tr><td>2 (3)</td><td>+20</td></tr><tr><td>3 (6)</td><td>+30</td></tr><tr><td>4 (10)</td><td>+40</td></tr><tr><td>5 (15)</td><td>+50</td></tr><tr><td>6 (21)</td><td>+60</td></tr><tr><td>7 (28)</td><td>+70</td></tr><tr><td>8 (36)</td><td>+80</td></tr><tr><td>9 (45)</td><td>+90</td></tr><tr><td>10 (55)</td><td>+100</td></tr></tbody></table><p><em>For example, Pazusu spends 1 PP in order to get a +10 bonus to his Psychic Potential. If he later wished to increase it up to +20, he should spend 2 more PP, (which makes a total of 3).</em></p><p></p><h2>Box XII: Uses of PP</h2><h3>Permanent Uses (With PP Consumption)</h3><p>Affinity to a Psychic Discipline<br />Master a New Mental Power<br />Increase Psychic Potential<br />Strengthen an Power<br />Acquire Innate Slot (Consumes 2 PP)</p><h3>Temporary Uses (Hourly Rate Recovery)</h3><p>Improve Psychic Projection<br />Increase Psychic Potential<br />Eliminate Fatigue<br />Temporary Access to a Power<br />Improve Innate Power</p><p></p><h2>Strengthening a Power</h2><p>Characters may choose to spend their PP on strengthening the natural potential of a Power they already possess. In this way, they become experts at certain abilities and are able to employ them with superior strength. Every PP spent on one of their Powers will give them +10 to their Potential Calculation rolls. A character can not increase a Power beyond a +50 bonus. Therefore, the maximum amount of PP a character can spend on a single ability is 10.</p><p>Pazusu has Psychokinetic Flight, and he would like to strengthen it by spending 4 PP points. Consequently, he receives a +40 bonus which he adds to his PC roll every time he uses Flight. This bonus does not affect any of his other Powers.</p><p></p><h2>Acquiring an Innate Slot</h2><p>Some Psychic Powers can be Maintained, allowing characters to use these abilities continually – like flying or establishing mental bonds with their friends, for example. In order to Maintain a Power through several Combat Turns without rolling, it is necessary to have an Innate Slot. Innate Slots allow the psychic to subconsciously tie one of their Powers to their will, so that it can be used effortlessly in every turn. In this case, acquiring an Innate Slot requires that a character spends 2 PP points. There is no limit to the amount of Innate Slot a character can have.</p><p>The maintenance of an Innate Power is a Passive action; a character can use these abilities even if he is asleep or unconscious. Bear in mind, Innate Slots are not tied to a single Power: A character with only one Innate Slot may choose to maintain any one Power, according to his needs. He may use it to remain suspended in flight and soon after apply it to raise a mental barrier, for example.</p><p>It is necessary for characters to use a Power once before they can keep it active. Once they successfully activate the Power, they must declare that they want to keep it as an Innate Power. Starting on the next turn, they will not need to roll any dice to use it. Innate Powers function in the natural Difficulty that their user’s Psychic Potential allows without rolling or applying any penalties. No additional Potential achieved through a roll or any bonus may be applied to a Maintained Power. So, if the character has a +60 Potential, his Maintained Powers will function with an Easy Difficulty.</p><p>If any given Power possesses an operative Base Difficulty higher than a character’s Psychic Potential, the character can Maintain it innately with the minimal Difficulty required.</p><p>Pazusu’s psychic potential is +80, which allows him to Maintain his Innate Powers at a Medium Difficulty. If he successfully employs a Psychic Shield and allows it to remain active in subsequent turns, it will have a Medium effect regardless of what his original Final Potential Calculation was.</p><p>He then wishes to Maintain Psychokinetic Flight, which requires a level of Difficult as an operative minimum. Even though naturally he could only Maintain Medium-Difficulty Powers, he can Maintain Psychokinetic Flight on a Difficult level, since it is the minimum Difficulty required for activation.</p><p></p><h2>Free Psychic Points</h2><p>PP not invested permanently on any of the Powers listed before will be referred to as Free PP. Free PP have several functions, ranging from keeping characters from losing Fatigue points, to bestowing special abilities on psychics. These uses do not consume Free PP completely, as in the cases described above. They cost only temporary PP. Free PP used in this manner recover at a rate of 1 per hour. For instance, a character using 3 free PP to temporarily enhance his Powers, will take 3 hours to recover them.</p><p>Spending PP is a Passive action. Their many functions are described below:</p><h3>Improve Psychic Projection</h3><p>No Fatigue points may be invested on improving Psychic Projection; however, those characters using mental Powers can spend PP in order to increase their ability on any given round. Every PP spent to this effect will provide a +10 bonus to the character’s Psychic Projection when using a specific Power. Not more than 5 PP may be spent in improving Psychic Projection, so the maximum bonus that can be applied to the roll by these means is +50. As is the case with Fatigue Points, the expenditure must be declared prior to rolling the dice.</p><h3>Increase Psychic Potential</h3><p>Characters may spend their PP in the improvement of a specific Power’s Potential. Every PP spent to this effect will provide a +20 bonus to the selected Power’s Potential during that turn. For instance, if a character spends 3 PP in the improvement of any given mental ability, he would add +60 to its Potential. Once more, the use of PP must be announced before the roll. Characters may spend up to 5 free PP in the improvement of a specific Power.</p><h3>Eliminate Fatigue</h3><p>Characters declaring the use of a PP in Fatigue elimination prior to calculating an ability’s Psychic Potential will not lose Fatigue Points in that turn. This mental activity will not tire the character regardless of his Failure level.</p><h3>Temporary Access to a Power</h3><p>It is possible that characters find themselves in need of a Psychic Power they have not yet mastered. Psychics can use a mental ability they have not mastered, but which belongs to a Discipline with which they have affinity, by investing a PP temporarily. This allows them to use the Power during that turn. Temporarily acquired Powers can not be Maintained as an Innate Power.</p><p>Pazusu does not have access to Psychokinetic Shield. However, he finds himself the subject of an attack, and he is unable to respond. Since he has 1 Free PP and Psychokinesis affinity, he spends it temporarily on Shield access during that turn.</p><h3>Improve Innate Power</h3><p>Characters may use their Free PP to increase the strength of an Innate Power. In order to do this, they must spend the PP they want to use at the time they set the Power as an Innate. Every PP point invested in this way increases their Psychic Potential by 20 points for purposes of determining its Maintained Difficulty Level. In this way, a character with a psychic potential of +60, who would normally Maintain an Innate Power with an Easy Difficulty, would be able to raise his Innate Power Difficulty to Medium level if he spent 1 PP (thereby receiving a +20 bonus to his Psychic Potential). Psychics may spend up to 5 PP to this end.</p><p>Note that characters do not recover PP spent in this way while they Maintain an amplified Innate Power. Natural recovery rate will take effect once they stop Maintaining that Power.</p><p>Pazusu has created a Psychic Shield he keeps as an Innate Power with an 80-point Potential (Medium level). If he decides to spend 2 PP points to amplify his Innate Power, he could Maintain it at a 120-point Potential (at a Difficult level). If he spent 3 PP instead, he could Maintain it at 140, or a Very Difficult level.</p><p>On the other hand, if Pazusu keeps the Total Increase Power active with a + 80 Potential and a minimum difficulty of Absurd, he will not be able to raise maintenance any more using PP – since even if he spent 5 PP (taking his Potential to 100), he would only reach a 180 Difficulty level, which would still be Absurd.</p><p></p><h2>Box XIII: Example of PP Spending</h2><p>Now that we are familiar with the different functions of PP, let us see an example of how it could be spent. <em>Pazusu has 10 free PP to start acquiring Psychic Powers. The first thing he does is invest 2 PP points in developing an affinity to Telepathy and Psychokinesis. After gaining access to both Disciplines, he spends 1 PP on the Telepathic Power Area Scanning and masters it. Since he would also like to have the second-level Power Psychokinetic Flight, he spends his next 2 PP points on Psychokinesis. He spends the first of these on Minor Psychokinesis, a first-level Power that grants him access to Psychokinetic Flight. Then, he spends his second PP on acquiring Psychokinetic Flight. He has already invested 5 of his 10 PP points. The following 2 he chooses to spend on an Innate Slot to Maintain any one of his Powers. He also spends 1 PP on enhancing his Area Scanning PC Checks by +10. Finally, he decides to keep his last 2 points as Free PP to enhance his Powers and eliminate Fatigue whenever necessary.</em></p><p></p><h2>Psychic Projection</h2><p>Psychic Projection is the ability to focus and control Psychic Powers upon a single target. In a way, it is analogous to a wizard’s Magic Projection. Psychic Projection is not a measure of how sharp a character’s aiming abilities are. Rather, it represents instead the level of control he has over his Powers so as to use them successfully. Psychics use their Projection to attack and repel attacks – although only the penalties explained in the Psychic Abilities in Combat section in Chapter 9 will apply.</p><p>Remember Psychic Abilities are invisible to the human eye, unless explicitly stated otherwise. Therefore, the Blinded penalty will be applied to the victim if he can not see a psychic attack. Although this ability is typically used in combat only, the GM may request characters to overcome certain Difficulties in order to affect inanimate targets. See Box XIV: Psychic Projection Difficulties for an approximate notion. They function in a way very similar to that of Magical Abilities. The GM will be the judge when it comes to calculating the Difficulty of high-precision actions – such as threading a needle using Psychokinesis.</p><p></p><h2>Box XIV: Psychic Projection Difficulties</h2><p><strong>Routine:</strong> The ability may be used on the psychic himself or on a person or object with which he is in contact.<br /><strong>Easy:</strong> Affects targets less than 15 feet away from the psychic.<br /><strong>Moderate:</strong> Affects targets up to 60 feet away from the psychic.<br /><strong>Difficult:</strong> Affects targets up to 300 feet away from the psychic.<br /><strong>Very Difficult:</strong> Affects targets up to 800 feet away from the psychic.<br /><strong>Absurd:</strong> Affects targets up to 1,500 feet away from the psychic.<br /><strong>Almost Impossible:</strong> Achieving this difficulty allows the psychic to hit a target whose exact location is known but not necessarily within direct eyesight. It covers up to one mile.<br /><strong>Impossible:</strong> Achieving this difficulty allows the psychic to affect targets out of his sight and with only an approximate location up to 10 miles away.</p><p></p><h2>Psychic Disciplines</h2><p>Mental abilities are organized into levels, each touching on a particular sphere and featuring Powers completely different from the rest. These spheres are called Psychic Disciplines. Each Discipline has a different number of Powers organized in three levels.</p><p>In certain cases, a Discipline will have some kind of modifier that will apply according to the situation in which its Powers are used. For instance, Telepathic Abilities are more easily performed upon subjects in physical contact with the psychic. Discipline modifiers will affect all the Powers comprised within that Discipline.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!W0wu56eB322EKAjo.w6kADzYEB1WcVOK6"
+    },
+    {
+      "sort": 200000,
+      "name": "Telepathy",
+      "type": "text",
+      "_id": "YgY3PvptWw1Dva3S",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h2>Telepathy</h2><p>Telepathy is one of the most fascinating Disciplines psychics have at their disposal. It synchronizes the energies of two Psychic Matrices, allowing the user to access the minds of others. Some examples of Telepathic abilities are mind reading, altering a subject’s perception, or even subduing their will. Telepathy has no effect upon mindless beings – such as golems or similar creatures. Unlike with other Disciplines, no Psychic Projection is required for setting the target (the check is still needed to determine the range of the Power), but if the Psychic is not able to obtain a minimum of 10% damage on the Combat Table, the affected target can add +60 to his PsR roll.</p><p><strong>Modifiers:</strong> Psychics in physical contact with the subject against whom they are using their Telepathic Powers may add a +20 bonus to their Potential.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!W0wu56eB322EKAjo.YgY3PvptWw1Dva3S"
+    },
+    {
+      "sort": 200000,
+      "name": "Psychokinesis",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h2>Psychokinesis</h2><p>Psychokinesis is the psychic ability to move distant objects by the sole action of mental force. As levels progress, characters may even be able to destroy objects or modify their atomic structure from a distance.</p><p><strong>Modifiers:</strong> There are no modifiers for this discipline.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "lGurRztjsUKnGQs1",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!W0wu56eB322EKAjo.lGurRztjsUKnGQs1"
+    },
+    {
+      "sort": 200000,
+      "name": "Pyrokinesis",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h2>Pyrokinesis</h2><p>This discipline allows dominion over high temperatures and fire. The psychic can control its shape or become immune to the effects of heat.</p><p><strong>Modifiers:</strong> The surroundings of the psychic will increase or diminish his potential in the following way:</p><table><tbody><tr><td><p>Glacial Area or Arctic Zone</p></td><td><p>–30</p></td></tr><tr><td><p>Intense Cold</p></td><td><p>–10</p></td></tr><tr><td><p>Before a Big Bonfire</p></td><td><p>+10</p></td></tr><tr><td><p>Fire of Immense Proportions</p></td><td><p>+20</p></td></tr><tr><td><p>Volcano</p></td><td><p>+30</p></td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "FQKlxFQxARUaMKRK",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!W0wu56eB322EKAjo.FQKlxFQxARUaMKRK"
+    },
+    {
+      "sort": 200000,
+      "name": "Cryokinesis",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h2>Cryokinesis</h2><p>Just like Pyrokinesis refers to the control of fire, this Discipline focuses on low temperatures and ice control. These Powers may go as far as freezing people or decreasing temperature across very long distances.</p><p><strong>Modifiers:</strong> As in Pyrokinesis, the surrounding area will increase or decrease a character’s Psychic Potential in the following way:</p><table><tbody><tr><td><p>Volcano</p></td><td><p>–30</p></td></tr><tr><td><p>Fire of Immense Proportions</p></td><td><p>–10</p></td></tr><tr><td><p>Cold and Rainy Ground</p></td><td><p>+10</p></td></tr><tr><td><p>Intense Cold</p></td><td><p>+20</p></td></tr><tr><td><p>Glacial Area or Arctic Zone</p></td><td><p>+30</p></td></tr></tbody></table>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "KYbwDYQOTr50PIkq",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!W0wu56eB322EKAjo.KYbwDYQOTr50PIkq"
+    },
+    {
+      "sort": 200000,
+      "name": "Physical Increase",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h2>Physical Increase</h2><p>This Discipline endows psychics with a complete dominion of their body and the cells which comprise it. In this way, they control every inch of their anatomy. Powers can be applied to the same individual only once.</p><p><strong>Modifiers:</strong> There are no modifiers for this Discipline.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "P4xPUOejqvIfwxQw",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!W0wu56eB322EKAjo.P4xPUOejqvIfwxQw"
+    },
+    {
+      "sort": 200000,
+      "name": "Energy",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h2>Energy</h2><p>This Discipline allows psychics to use their Powers to generate pure energy and, to a lesser extent, influence Heat, Cold and Electricity.</p><p><strong>Modifiers:</strong> There are no modifiers for this discipline.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "0p1QDFpXDwd2wBTM",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!W0wu56eB322EKAjo.0p1QDFpXDwd2wBTM"
+    },
+    {
+      "sort": 200000,
+      "name": "Sentience",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h2>Sentience</h2><p>This Discipline allows the psychic to perceive and control other people’s feelings and senses. As is the case with Telepathy, it has no effect upon mindless beings. No Psychic Projection is required for setting the target, but if the Psychic is not able to obtain a minimum of 10% damage on the Combat Table, the affected target can add +50 to his PsR roll.</p><p><strong>Modifiers:</strong> Psychics in physical contact with a subject against which they are using their Sentience Powers may add a +20 bonus to their Psychic Potential.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "R1VTOfkXkJJjySNH",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!W0wu56eB322EKAjo.R1VTOfkXkJJjySNH"
+    },
+    {
+      "sort": 200000,
+      "name": "Telemetry",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h2>Telemetry</h2><p>Telemetry is the mental ability of sensing psychic residue present in an environment. All Psychic Matrices leave certain energy behind, depending on their mood and thoughts. Characters mastering this Discipline are able to notice such residues and sense the past.</p><p><strong>Modifiers:</strong> Psychics in physical contact with the object they are applying Telemetric Powers to may add a +10 bonus to their Psychic Potential.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "qncfwPVeUi31eUVV",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!W0wu56eB322EKAjo.qncfwPVeUi31eUVV"
+    },
+    {
+      "sort": 200000,
+      "name": "Matrix Powers",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h2>Matrix Powers</h2><p>In addition to the mental abilities we have seen, there are four generic Powers to which all psychics have equal access. They do not belong to any Discipline, which means they can be obtained by investing only 1 PP, or simply by spending one temporarily for limited access. These Powers are not organized into levels.</p><p><strong>Modifiers:</strong> There are no modifiers for this discipline.</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "PR7RGEuO5KvkpZg0",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!W0wu56eB322EKAjo.PR7RGEuO5KvkpZg0"
+    }
+  ],
+  "folder": "R8wCHwnoz9eURbGA",
+  "categories": [],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.43RljvnryESVa4kz",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.2.1",
+    "createdTime": 1784386341361,
+    "modifiedTime": 1784386341361,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "ownership": {
+    "default": 0,
+    "cvaXLNt0ipl2zLRV": 3
+  },
+  "_id": "W0wu56eB322EKAjo",
+  "sort": 0,
+  "_key": "!journal!W0wu56eB322EKAjo"
+}

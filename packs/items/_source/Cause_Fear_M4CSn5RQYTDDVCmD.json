@@ -1,0 +1,42 @@
+{
+  "name": "Cause Fear",
+  "type": "spell",
+  "folder": "PH7VIVfyo7VjJzsk",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 20,
+    "maxLevel": 30,
+    "action": "active",
+    "cost": 100,
+    "effect": "All creatures within 15 feet fall prey to magical fear unless they pass MR 100.",
+    "addedEffect": "+5 meters radius and +5 MR Difficulty.",
+    "maintenance": "1 every 10 (10)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Spiritual",
+    "closedPaths": {
+      "path1": "light"
+    }
+  },
+  "_id": "M4CSn5RQYTDDVCmD",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!M4CSn5RQYTDDVCmD"
+}

@@ -1,0 +1,2096 @@
+{
+  "name": "Advantages",
+  "pages": [
+    {
+      "sort": 100000,
+      "name": "Add One Point To A Characteristic",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Add One Point To A Characteristic</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Add a point to the value of a single Characteristic.</p><p><strong>Restriction:</strong> STR/DEX/AGI/CON max 11; INT/POW/WP/PER max 13.</p><p><strong>Special:</strong> May be taken multiple times.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "UgeRpnAbbdvgZzYS",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": "cvaXLNt0ipl2zLRV",
+        "modifiedTime": 1784393898403
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.UgeRpnAbbdvgZzYS"
+    },
+    {
+      "sort": 110000,
+      "name": "Acute Senses",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Acute Senses</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> +1 Perception for Characteristic Checks; +30 Notice and Search.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "4l792pocJEes65DG",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.4l792pocJEes65DG"
+    },
+    {
+      "sort": 120000,
+      "name": "Artifact",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Artifact</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Possesses a mystical device of significant power.</p><p><strong>Special:</strong> Additional points increase capabilities.</p><p><strong>Cost:</strong> 1, 2, 3</p>"
+      },
+      "_id": "ryROWltDOM5xmfio",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.ryROWltDOM5xmfio"
+    },
+    {
+      "sort": 130000,
+      "name": "Ambidextrous",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Ambidextrous</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Uses both hands equally well; only –10 penalty with an additional weapon.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "E6Ryy95bVkp1H55j",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.E6Ryy95bVkp1H55j"
+    },
+    {
+      "sort": 140000,
+      "name": "Increase One Characteristic to Nine",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Increase One Characteristic to Nine</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Sets one Primary Characteristic to 9.</p><p><strong>Special:</strong> May be taken multiple times.</p><p><strong>Cost:</strong> 2</p>"
+      },
+      "_id": "MaFHAx7KG9X2Wcjv",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.MaFHAx7KG9X2Wcjv"
+    },
+    {
+      "sort": 150000,
+      "name": "Access to One Psychic Discipline",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Access to One Psychic Discipline</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Grants affinity to one psychic discipline and matrix powers.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "I7wA2lEY3d9eRtTx",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.I7wA2lEY3d9eRtTx"
+    },
+    {
+      "sort": 160000,
+      "name": "Charm",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Charm</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Receives positive reactions from strangers.</p><p><strong>Special:</strong> Limits set by GM.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "7YFHZurYy0kZeG98",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.7YFHZurYy0kZeG98"
+    },
+    {
+      "sort": 170000,
+      "name": "Disquieting",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Disquieting</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Can make others uneasy at will.</p><p><strong>Special:</strong> Limits set by GM.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "8GMoqJhd4I6KGTmc",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.8GMoqJhd4I6KGTmc"
+    },
+    {
+      "sort": 180000,
+      "name": "Animal Affinity",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Animal Affinity</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Gains positive reactions from animals; can communicate basic intentions.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "FHYiqZ3GFHxwjD3T",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.FHYiqZ3GFHxwjD3T"
+    },
+    {
+      "sort": 190000,
+      "name": "Danger Sense",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Danger Sense</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Cannot be surprised unless attacker’s Initiative exceeds his by 150.</p><p><strong>Cost:</strong> 2</p>"
+      },
+      "_id": "yLg2vHtmzIVuZAB0",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.yLg2vHtmzIVuZAB0"
+    },
+    {
+      "sort": 200000,
+      "name": "Been Around",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Been Around</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Begins with 50 / 100 / 150 extra XP.</p><p><strong>Cost:</strong> 1, 2, 3</p>"
+      },
+      "_id": "v24rx76txKSn42iA",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.v24rx76txKSn42iA"
+    },
+    {
+      "sort": 210000,
+      "name": "Aptitude in a Subject",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Aptitude in a Subject</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Reduces DP cost of one Secondary Ability by 1.</p><p><strong>Restriction:</strong> Cannot reduce below 1.</p><p><strong>Cost:</strong> 1, 2</p>"
+      },
+      "_id": "P8vxEabfG9gt03JB",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.P8vxEabfG9gt03JB"
+    },
+    {
+      "sort": 220000,
+      "name": "Access to Natural Psychic Powers",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Access to Natural Psychic Powers</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Use one Psychic Ability instinctively once per minute.</p><p><strong>Cost:</strong> 1, 2, 3</p>"
+      },
+      "_id": "ueRaEAO8m9wUkEkT",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.ueRaEAO8m9wUkEkT"
+    },
+    {
+      "sort": 230000,
+      "name": "Aptitude in a Field",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Aptitude in a Field</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Reduces DP cost of an entire field by 1.</p><p><strong>Restriction:</strong> Cannot reduce below 1.</p><p><strong>Cost:</strong> 2</p>"
+      },
+      "_id": "iIV5swnbFVVDBYSL",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.iIV5swnbFVVDBYSL"
+    },
+    {
+      "sort": 240000,
+      "name": "Repeat a Characteristics Roll",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Repeat a Characteristics Roll</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Roll one extra die during Characteristic generation and replace one result.</p><p><strong>Restriction:</strong> Not compatible with method 4.</p><p><strong>Special:</strong> May be taken multiple times.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "AnjL0XtvRwu4X4lB",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.AnjL0XtvRwu4X4lB"
+    },
+    {
+      "sort": 250000,
+      "name": "Martial Mastery",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Martial Mastery</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> +40 / +80 / +120 Martial Knowledge.</p><p><strong>Cost:</strong> 1, 2, 3</p>"
+      },
+      "_id": "MUbExbetWy2RmvPZ",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.MUbExbetWy2RmvPZ"
+    },
+    {
+      "sort": 260000,
+      "name": "Good Luck",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Good Luck</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Reduces fumble range by 1.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "QZDKfaKgQrorLfgF",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.QZDKfaKgQrorLfgF"
+    },
+    {
+      "sort": 270000,
+      "name": "Ki Recovery",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Ki Recovery</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Recovers 1 Ki every 10 minutes; faster with more points.</p><p><strong>Cost:</strong> 1, 2, 3</p>"
+      },
+      "_id": "NbFr733m5kVCJXjj",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.NbFr733m5kVCJXjj"
+    },
+    {
+      "sort": 280000,
+      "name": "Jack of All Trades",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Jack of All Trades</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> No –30 penalty for untrained abilities; +10 to all Secondary Abilities.</p><p><strong>Cost:</strong> 2</p>"
+      },
+      "_id": "tne2opm4c30g8VcT",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.tne2opm4c30g8VcT"
+    },
+    {
+      "sort": 290000,
+      "name": "Natural Armor",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Natural Armor</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Natural Armor 2 vs non‑energy attacks.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "iRpi0zFnJwQpo05Q",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.iRpi0zFnJwQpo05Q"
+    },
+    {
+      "sort": 300000,
+      "name": "Mystical Armor",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Mystical Armor</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Natural Armor 4 vs energy attacks.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "bZrbLpqCEhHLuOZW",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.bZrbLpqCEhHLuOZW"
+    },
+    {
+      "sort": 310000,
+      "name": "Untiring",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Untiring</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> +3 Fatigue; +6 or +9 with more points.</p><p><strong>Cost:</strong> 1, 2, 3</p>"
+      },
+      "_id": "kQ0byssV12oLpL6b",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.kQ0byssV12oLpL6b"
+    },
+    {
+      "sort": 320000,
+      "name": "Uncommon Size",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Uncommon Size</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Increase or decrease Size by up to 5.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "imB9lpa7279H0N7f",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.imB9lpa7279H0N7f"
+    },
+    {
+      "sort": 330000,
+      "name": "Starting Wealth",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Starting Wealth</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Gain 2,000 / 5,000 / 10,000 GC in starting wealth.</p><p><strong>Cost:</strong> 1, 2, 3</p>"
+      },
+      "_id": "XV3By8c7d88bNhfv",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.XV3By8c7d88bNhfv"
+    },
+    {
+      "sort": 340000,
+      "name": "Regeneration",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Regeneration</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Increase Regeneration by 2 / 4 / 6 levels.</p><p><strong>Cost:</strong> 1, 2, 3</p>"
+      },
+      "_id": "IdbCsGGl4QSguuwc",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.IdbCsGGl4QSguuwc"
+    },
+    {
+      "sort": 350000,
+      "name": "Elan",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Elan</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Gain Elan 25 / 45 / 60 with a chosen entity.</p><p><strong>Cost:</strong> 1, 2, 3</p>"
+      },
+      "_id": "oSmI9IgMSyBF8BYv",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.oSmI9IgMSyBF8BYv"
+    },
+    {
+      "sort": 360000,
+      "name": "Immunity to Pain and Fatigue",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Immunity to Pain and Fatigue</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Penalties from pain and Fatigue are halved.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "mD9PyyafX7g73TZy",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.mD9PyyafX7g73TZy"
+    },
+    {
+      "sort": 370000,
+      "name": "The Gift",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>The Gift</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Can see and use magic; +10 MR.</p><p><strong>Cost:</strong> 2</p>"
+      },
+      "_id": "AzQVmccKpRhnQf5M",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.AzQVmccKpRhnQf5M"
+    },
+    {
+      "sort": 380000,
+      "name": "See Supernatural",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>See Supernatural</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Can see supernatural things; ignores blinded penalty in such cases.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "rwtuqeTeFJFEJnaK",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.rwtuqeTeFJFEJnaK"
+    },
+    {
+      "sort": 390000,
+      "name": "Night Vision",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Night Vision</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Ignores penalties from darkness (except magical/absolute).</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "nVSQ9QzKPPakH0cH",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.nVSQ9QzKPPakH0cH"
+    },
+    {
+      "sort": 400000,
+      "name": "Fortunate",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Fortunate</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Never suffers negative effects determined solely by chance.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "LKTvx42MRNNtLKri",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.LKTvx42MRNNtLKri"
+    },
+    {
+      "sort": 410000,
+      "name": "Free Access to Any Psychic Discipline",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Free Access to Any Psychic Discipline</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> May use any psychic discipline with PP.</p><p><strong>Cost:</strong> 2</p>"
+      },
+      "_id": "5YtoqLd30EhAndSK",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.5YtoqLd30EhAndSK"
+    },
+    {
+      "sort": 420000,
+      "name": "Quick Reflexes",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Quick Reflexes</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> +25 / +45 / +60 Initiative.</p><p><strong>Cost:</strong> 1, 2, 3</p>"
+      },
+      "_id": "MUQRY3JU2L8Kw8dn",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.MUQRY3JU2L8Kw8dn"
+    },
+    {
+      "sort": 430000,
+      "name": "Learning",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Learning</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Gain +3 / +6 / +9 XP per session.</p><p><strong>Cost:</strong> 1, 2, 3</p>"
+      },
+      "_id": "v2RBOTVodq4CkyiX",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.v2RBOTVodq4CkyiX"
+    },
+    {
+      "sort": 440000,
+      "name": "Natural Learner",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Natural Learner</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> +10 / +20 / +30 per level in one Secondary Ability.</p><p><strong>Cost:</strong> 1, 2, 3</p>"
+      },
+      "_id": "97sqnOIivuB6klZE",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.97sqnOIivuB6klZE"
+    },
+    {
+      "sort": 450000,
+      "name": "Natural Learner (Field)",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Natural Learner (Field)</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> +5 / +10 per level to all abilities in a field.</p><p><strong>Cost:</strong> 2, 3</p>"
+      },
+      "_id": "ZQkRWwjvjn3wcZxh",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.ZQkRWwjvjn3wcZxh"
+    },
+    {
+      "sort": 460000,
+      "name": "Exceptional Magic Resistance",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Exceptional Magic Resistance</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> +25 / +50 MR.</p><p><strong>Cost:</strong> 1, 2</p>"
+      },
+      "_id": "PlhTo5UYOm1SR4h4",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.PlhTo5UYOm1SR4h4"
+    },
+    {
+      "sort": 470000,
+      "name": "Exceptional Physical Resistance",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Exceptional Physical Resistance</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> +25 / +50 PhR, VR, DR.</p><p><strong>Cost:</strong> 1, 2</p>"
+      },
+      "_id": "gGaiz4oKossuZrZH",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.gGaiz4oKossuZrZH"
+    },
+    {
+      "sort": 480000,
+      "name": "Exceptional Psychic Resistance",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Exceptional Psychic Resistance</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> +25 / +50 PsR.</p><p><strong>Cost:</strong> 1, 2</p>"
+      },
+      "_id": "BtytsDeY9MvnmhuS",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.BtytsDeY9MvnmhuS"
+    },
+    {
+      "sort": 490000,
+      "name": "Light Sleeper",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Light Sleeper</h1><p><strong>Type:</strong> Common</p><p><strong>Effects:</strong> Only –20 Notice penalty while sleeping.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "9OzPcoZ4M5mS659n",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.9OzPcoZ4M5mS659n"
+    },
+    {
+      "sort": 500000,
+      "name": "Elemental Compatibility",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Elemental Compatibility</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> +20 MA and MR in one magical path; –20 in the opposed path.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "eVz2stUcanjg1MuA",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.eVz2stUcanjg1MuA"
+    },
+    {
+      "sort": 510000,
+      "name": "Natural Knowledge of a Path",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Natural Knowledge of a Path</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> Grants innate knowledge of a Path at level 40 without spending Magic Levels.</p><p><strong>Special:</strong> May be taken multiple times.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "7IYLuwlpvaHC0mt1",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.7IYLuwlpvaHC0mt1"
+    },
+    {
+      "sort": 520000,
+      "name": "Contested Spell Mastery",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Contested Spell Mastery</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> +50 to Collision rolls against another beam.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "ooEnIx88tcnsHUqN",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.ooEnIx88tcnsHUqN"
+    },
+    {
+      "sort": 530000,
+      "name": "Aptitude for Magic Development",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Aptitude for Magic Development</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> +3 INT for determining spell potential only.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "k0AWfa4pWYFNld2N",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.k0AWfa4pWYFNld2N"
+    },
+    {
+      "sort": 540000,
+      "name": "Half-Attuned to the Tree",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Half-Attuned to the Tree</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> +20 MA/MR in five Paths of a Tree segment; –20 in the rest.</p><p><strong>Restriction:</strong> Necromancy excluded.</p><p><strong>Cost:</strong> 2</p>"
+      },
+      "_id": "xuNMraWMzRxuiOZK",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.xuNMraWMzRxuiOZK"
+    },
+    {
+      "sort": 550000,
+      "name": "Improved Innate Magic",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Improved Innate Magic</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> Innate spells gain +10 / +20 / +30 potential.</p><p><strong>Cost:</strong> 1, 2, 3</p>"
+      },
+      "_id": "yWsswGSqFIk9KYu5",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.yWsswGSqFIk9KYu5"
+    },
+    {
+      "sort": 560000,
+      "name": "Unspoken Casting",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Unspoken Casting</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> Cast spells silently without MA penalty.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "JiPhv9aS6Cjdepr3",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.JiPhv9aS6Cjdepr3"
+    },
+    {
+      "sort": 570000,
+      "name": "Gestureless Casting",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Gestureless Casting</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> No MA penalty when unable to gesture.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "tOGOpPcxaanUhMXI",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.tOGOpPcxaanUhMXI"
+    },
+    {
+      "sort": 580000,
+      "name": "Superior Magic Recovery",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Superior Magic Recovery</h1><p><strong>Type:</strong> Magic</p><p><strong>Effects:</strong> Regenerates Zeon at 2× / 3× / 4× normal rate.</p><p><strong>Cost:</strong> 1, 2, 3</p>"
+      },
+      "_id": "KPlqr6I3heGoIPk0",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.KPlqr6I3heGoIPk0"
+    },
+    {
+      "sort": 590000,
+      "name": "Amplify Sustained Power",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Amplify Sustained Power</h1><p><strong>Type:</strong> Psychic</p><p><strong>Effects:</strong> Maintained powers count as one difficulty level higher.</p><p><strong>Cost:</strong> 2</p>"
+      },
+      "_id": "RgSRV1Jj6WkVDKjw",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.RgSRV1Jj6WkVDKjw"
+    },
+    {
+      "sort": 600000,
+      "name": "Psychic Point Recovery",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Psychic Point Recovery</h1><p><strong>Type:</strong> Psychic</p><p><strong>Effects:</strong> Recover 1 PP every 10 / 5 / 1 minute.</p><p><strong>Cost:</strong> 1, 2, 3</p>"
+      },
+      "_id": "ObMrhkKhv5uw3hCO",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.ObMrhkKhv5uw3hCO"
+    },
+    {
+      "sort": 610000,
+      "name": "Psychic Fatigue Resistance",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Psychic Fatigue Resistance</h1><p><strong>Type:</strong> Psychic</p><p><strong>Effects:</strong> Does not lose Fatigue when failing powers after PP is depleted (except 3rd level).</p><p><strong>Cost:</strong> 2</p>"
+      },
+      "_id": "9UMleJ0jEh44wqcR",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.9UMleJ0jEh44wqcR"
+    },
+    {
+      "sort": 620000,
+      "name": "Passive Concentration",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Passive Concentration</h1><p><strong>Type:</strong> Psychic</p><p><strong>Effects:</strong> Can concentrate while performing active actions.</p><p><strong>Cost:</strong> 2</p>"
+      },
+      "_id": "9l3kK9vwadMEdXfX",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.9l3kK9vwadMEdXfX"
+    },
+    {
+      "sort": 630000,
+      "name": "Psychic Inclination",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Psychic Inclination</h1><p><strong>Type:</strong> Psychic</p><p><strong>Effects:</strong> Gains +1 difficulty level when using powers of one discipline.</p><p><strong>Cost:</strong> 2</p>"
+      },
+      "_id": "zqDfYYsplL65Grob",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.zqDfYYsplL65Grob"
+    },
+    {
+      "sort": 640000,
+      "name": "Focus",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Focus</h1><p><strong>Type:</strong> Psychic</p><p><strong>Effects:</strong> PP spent to improve Psychic Projection give +20 instead of +10.</p><p><strong>Cost:</strong> 1</p>"
+      },
+      "_id": "prb13Vop1aF7cBOj",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.prb13Vop1aF7cBOj"
+    },
+    {
+      "sort": 650000,
+      "name": "Extreme Concentration",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h1>Extreme Concentration</h1><p><strong>Type:</strong> Psychic</p><p><strong>Effects:</strong> Doubles concentration bonuses (e.g., +20 instead of +10).</p><p><strong>Cost:</strong> 2</p>"
+      },
+      "_id": "WrEyuN14clI61fRs",
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.WrEyuN14clI61fRs"
+    },
+    {
+      "sort": 820000,
+      "name": "Advantages",
+      "type": "text",
+      "_id": "gisH6SM6SCCu7ir8",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<p>The final step before a player begins to spend DP and complete a character is to allocate Creation Points on Advantages and Disadvantages. As with each creature that populates the world, Anima characters have several idiosyncrasies not solely reflected in their Characteristics and Abilities. These idiosyncrasies are inherently tied to an individual’s essence or nature. They are not learned and do not improve; characters are either born with them, or they never have them.</p><p></p><p>Is my character ambidextrous, or does he have magical abilities? Was she born with psychic gifts, or does she heal slowly? The answers to these questions cannot rest solely on chance, nor on the whim of each player’s desires.</p><p></p><p>Each character can acquire Advantages and Disadvantages from the following lists. Each Advantage or Disadvantage grants benefits or inconveniences as described below. Players can spend up to 3 Creation Points (CP) on the Advantages that he chooses and believes most appropriate. The cost of the Advantage indicates how many CP a player must spend to gain it. Some Advantages have variable costs, which mean that they grant greater benefits according to the number of CP spent on them.</p><p></p><p>Disadvantages function in a similar manner, but instead of costing a player CP, each Disadvantage gives a player Creation Points he can spend on other Advantages. In this way the benefits and inconveniences balance out: The more advantages you have, the greater your problems will be. Players can choose up to three Disadvantages for a character – although they don’t have to choose any.</p><p></p><p>Unless specifically stated otherwise, players may choose each Advantage or Disadvantage only once.</p><p></p><h2>Common Advantages</h2><p>Players may choose the following Advantages regardless of a character’s class or race. Cost indicates the number of Creation Points needed to purchase each Advantage.</p><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.UgeRpnAbbdvgZzYS]{Add One Point To A Characteristic}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.4l792pocJEes65DG]{Acute Senses}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.ryROWltDOM5xmfio]{Artifact}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.E6Ryy95bVkp1H55j]{Ambidextrous}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.MaFHAx7KG9X2Wcjv]{Increase One Characteristic to Nine}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.I7wA2lEY3d9eRtTx]{Access to One Psychic Discipline}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.7YFHZurYy0kZeG98]{Charm}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.8GMoqJhd4I6KGTmc]{Disquieting}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.FHYiqZ3GFHxwjD3T]{Animal Affinity}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.yLg2vHtmzIVuZAB0]{Danger Sense}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.v24rx76txKSn42iA]{Been Around}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.P8vxEabfG9gt03JB]{Aptitude in a Subject}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.ueRaEAO8m9wUkEkT]{Access to Natural Psychic Powers}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.iIV5swnbFVVDBYSL]{Aptitude in a Field}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.AnjL0XtvRwu4X4lB]{Repeat a Characteristics Roll}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.MUbExbetWy2RmvPZ]{Martial Mastery}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.QZDKfaKgQrorLfgF]{Good Luck}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.NbFr733m5kVCJXjj]{Ki Recovery}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.tne2opm4c30g8VcT]{Jack of All Trades}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.iRpi0zFnJwQpo05Q]{Natural Armor}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.bZrbLpqCEhHLuOZW]{Mystical Armor}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.kQ0byssV12oLpL6b]{Untiring}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.imB9lpa7279H0N7f]{Uncommon Size}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.XV3By8c7d88bNhfv]{Starting Wealth}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.IdbCsGGl4QSguuwc]{Regeneration}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.oSmI9IgMSyBF8BYv]{Elan}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.mD9PyyafX7g73TZy]{Immunity to Pain and Fatigue}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.AzQVmccKpRhnQf5M]{The Gift}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.rwtuqeTeFJFEJnaK]{See Supernatural}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.nVSQ9QzKPPakH0cH]{Night Vision}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.LKTvx42MRNNtLKri]{Fortunate}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.5YtoqLd30EhAndSK]{Free Access to Any Psychic Discipline}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.MUQRY3JU2L8Kw8dn]{Quick Reflexes}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.v2RBOTVodq4CkyiX]{Learning}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.97sqnOIivuB6klZE]{Natural Learner}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.ZQkRWwjvjn3wcZxh]{Natural Learner (Field)}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.PlhTo5UYOm1SR4h4]{Exceptional Magic Resistance}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.gGaiz4oKossuZrZH]{Exceptional Physical Resistance}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.BtytsDeY9MvnmhuS]{Exceptional Psychic Resistance}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.9OzPcoZ4M5mS659n]{Light Sleeper}</p><p></p><h2>Magic Advantages</h2><p>The following Advantages can be acquired only if the character has the Gift of magic. It is not necessary that the character be a member of a class within the Mystic Archetype; anyone with the capacity to weave spells can acquire these benefits.</p><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.eVz2stUcanjg1MuA]{Elemental Compatibility}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.7IYLuwlpvaHC0mt1]{Natural Knowledge of a Path}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.ooEnIx88tcnsHUqN]{Contested Spell Mastery}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.k0AWfa4pWYFNld2N]{Aptitude for Magic Development}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.xuNMraWMzRxuiOZK]{Half-Attuned to the Tree}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.yWsswGSqFIk9KYu5]{Improved Innate Magic}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.JiPhv9aS6Cjdepr3]{Unspoken Casting}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.tOGOpPcxaanUhMXI]{Gestureless Casting}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.KPlqr6I3heGoIPk0]{Superior Magic Recovery}</p><p></p><h2>Psychic Adavantages</h2><p>A character who has previously acquired an Advantage that gives him access to psychic disciplines may choose from the following list:</p><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.RgSRV1Jj6WkVDKjw]{Amplify Sustained Power}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.ObMrhkKhv5uw3hCO]{Psychic Point Recovery}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.9UMleJ0jEh44wqcR]{Psychic Fatigue Resistance}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.9l3kK9vwadMEdXfX]{Passive Concentration}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.zqDfYYsplL65Grob]{Psychic Inclination}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.prb13Vop1aF7cBOj]{Focus}@UUID[Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3.JournalEntryPage.WrEyuN14clI61fRs]{Extreme Concentration}</p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "tNl8BVluBRbPZjxg",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!lJHRQPj5Dov8zZ5c.gisH6SM6SCCu7ir8"
+    }
+  ],
+  "folder": "R8wCHwnoz9eURbGA",
+  "categories": [
+    {
+      "name": "Overview",
+      "sort": 100000,
+      "_id": "tNl8BVluBRbPZjxg",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!lJHRQPj5Dov8zZ5c.tNl8BVluBRbPZjxg"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.hw9DMaWeFLfiifJ3",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.2.1",
+    "createdTime": 1784386341361,
+    "modifiedTime": 1784386341361,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "ownership": {
+    "default": 0,
+    "cvaXLNt0ipl2zLRV": 3
+  },
+  "_id": "lJHRQPj5Dov8zZ5c",
+  "sort": 0,
+  "_key": "!journal!lJHRQPj5Dov8zZ5c"
+}

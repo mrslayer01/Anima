@@ -1,0 +1,109 @@
+{
+  "name": "Leather Coat",
+  "type": "armor",
+  "system": {
+    "system": {},
+    "armorType": {
+      "cut": {
+        "base": 1,
+        "bonus": 0,
+        "final": 0
+      },
+      "imp": {
+        "base": 0,
+        "bonus": 0,
+        "final": 0
+      },
+      "thr": {
+        "base": 2,
+        "bonus": 0,
+        "final": 0
+      },
+      "hea": {
+        "base": 1,
+        "bonus": 0,
+        "final": 0
+      },
+      "ele": {
+        "base": 2,
+        "bonus": 0,
+        "final": 0
+      },
+      "col": {
+        "base": 1,
+        "bonus": 0,
+        "final": 0
+      },
+      "ene": {
+        "base": 0,
+        "bonus": 0,
+        "final": 0
+      }
+    },
+    "fortitude": {
+      "base": 12,
+      "bonus": 0,
+      "final": 0
+    },
+    "presence": {
+      "base": 25,
+      "bonus": 0,
+      "final": 0
+    },
+    "wearArmorReq": {
+      "base": 0,
+      "bonus": 0,
+      "final": 0
+    },
+    "moveRestriction": {
+      "base": 0,
+      "bonus": 0,
+      "final": 0
+    },
+    "naturalPenalty": {
+      "base": 0,
+      "bonus": 0,
+      "final": 0
+    },
+    "physicalPenalty": 0,
+    "perceptionPenalty": 0,
+    "isEnchanted": false,
+    "armorClass": "soft",
+    "location": "shirt",
+    "equipped": false,
+    "specialValue": 0,
+    "weight": 7,
+    "availability": "common",
+    "quality": {
+      "value": "decent"
+    },
+    "cost": {
+      "value": 1,
+      "type": "gold"
+    },
+    "quantity": 1,
+    "description": "<p>This is armor made of very thick leather treated with oils to give it better resistance.</p>"
+  },
+  "_id": "UnWsci7BH5a0mljH",
+  "img": "icons/svg/shield.svg",
+  "effects": [],
+  "folder": "DHydMMEJIKrftEe7",
+  "sort": 100391,
+  "ownership": {
+    "default": 0,
+    "8tB4N7JyuUUH1l8H": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Item.UnWsci7BH5a0mljH",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1771202042548,
+    "modifiedTime": 1772996269556,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "_key": "!items!UnWsci7BH5a0mljH"
+}

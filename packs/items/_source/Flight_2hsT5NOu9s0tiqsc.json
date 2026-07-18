@@ -1,0 +1,42 @@
+{
+  "name": "Flight",
+  "type": "spell",
+  "folder": "J8HRFUkNCJO7DCVV",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 70,
+    "maxLevel": 80,
+    "action": "active",
+    "cost": 100,
+    "effect": "The target is able to move with Flight Value 8.",
+    "addedEffect": "+1 to Flight Value.",
+    "maintenance": "1 every 20 (5)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect",
+    "closedPaths": {
+      "path1": "earth"
+    }
+  },
+  "_id": "2hsT5NOu9s0tiqsc",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!2hsT5NOu9s0tiqsc"
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Oblivion Wave",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 73,
+    "action": "active",
+    "cost": 220,
+    "effect": "A massive pulse of void energy expands in a 150-foot radius. Deals 140 Base Damage and erases minor memories from all affected targets who fail MR 170, imposing –30 to Knowledge and Perception checks for 1 hour.",
+    "addedEffect": "+10 Base Damage and +10-foot radius.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Attack"
+  },
+  "_id": "i9LHNnpmfkRkJLx9",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!i9LHNnpmfkRkJLx9"
+}

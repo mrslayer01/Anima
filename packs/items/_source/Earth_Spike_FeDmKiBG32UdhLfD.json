@@ -1,0 +1,39 @@
+{
+  "name": "Earth Spike",
+  "type": "spell",
+  "folder": "IFdncsADpUjKHOtw",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "earth",
+    "level": 36,
+    "action": "active",
+    "cost": 80,
+    "effect": "Erupts up to two stone spikes (60 Base Damage, Thrust AT). Cannot affect immaterial or energy‑only beings unless enchanted.",
+    "addedEffect": "+1 additional spike.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Attack"
+  },
+  "_id": "FeDmKiBG32UdhLfD",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!FeDmKiBG32UdhLfD"
+}

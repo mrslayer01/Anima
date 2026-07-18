@@ -1,0 +1,39 @@
+{
+  "name": "Induce Calm",
+  "type": "spell",
+  "folder": "AxuVWz5XwsiEfv6z",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "light",
+    "level": 6,
+    "action": "active",
+    "cost": 40,
+    "effect": "Calms individuals feeling fear or hatred within 50 feet of the caster. Makes any Fear, Terror, or Anger States disappear, even if of supernatural origin. It does not prevent violent actions deliberately done in cold blood. The MR or PsR Check to overcome this spell has a Difficulty of 80.",
+    "addedEffect": "+30 feet to radius and +5 to MR or PsR Difficulty.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Spiritual"
+  },
+  "_id": "TE1vfleBWo9MYhZX",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!TE1vfleBWo9MYhZX"
+}

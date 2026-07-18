@@ -1,0 +1,42 @@
+{
+  "name": "Imitate Spell",
+  "type": "spell",
+  "folder": "SHOcmNy2tDMciwAq",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 90,
+    "maxLevel": 100,
+    "action": "passive",
+    "cost": 200,
+    "effect": "This spell allows the caster to imitate a spell being cast before him. Any type of spell, from automatic to maintained ones, can be imitated, provided they are cast in the same round as the Imitate Spell and have fewer than 100 Zeon. This spell can even imitate High Magic or Divine spells without the need of the caster having the required Gnosis level to cast them. The caster determines whether to use his own Magic Projection or that of the original caster.",
+    "addedEffect": "+5 to Zeonic value affected",
+    "maintenance": "As the imitated spell’s Zeonic value.",
+    "maxZeon": "Intelligence x30",
+    "typeOfSpell": "effect (variable)",
+    "closedPaths": {
+      "path1": "destruction"
+    }
+  },
+  "_id": "6y20zAtcEyRvrrb8",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 600000,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!6y20zAtcEyRvrrb8"
+}

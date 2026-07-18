@@ -1,0 +1,42 @@
+{
+  "name": "Plague",
+  "type": "spell",
+  "folder": "m9TM0PCwPH3Fta8X",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 60,
+    "maxLevel": 70,
+    "action": "active",
+    "cost": 140,
+    "effect": "Spreads an existing disease to all individuals within 1 mile. DR avoids contagion; MR 100 also avoids it.",
+    "addedEffect": "+5 Disease Level, +1 mile radius, +5 MR Difficulty.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Automatic",
+    "closedPaths": {
+      "path1": "illusion"
+    }
+  },
+  "_id": "sTS1RhAV7guO7Wl9",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!sTS1RhAV7guO7Wl9"
+}

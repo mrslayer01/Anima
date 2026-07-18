@@ -1,0 +1,39 @@
+{
+  "name": "Well of Life",
+  "type": "spell",
+  "folder": "nnTMGhW2sOBrT7lh",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "necromancy",
+    "level": 86,
+    "action": "active",
+    "cost": 300,
+    "effect": "Creates a 150-foot radius field of dark energy. The caster absorbs half of all Life Points lost by living beings within the area, healing himself. Does not deal damage by itself.",
+    "addedEffect": "+50-foot radius.",
+    "maintenance": "1 every 10 (30)",
+    "maxZeon": "Intelligence x30",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "F3Yim6OVR316NV05",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!F3Yim6OVR316NV05"
+}

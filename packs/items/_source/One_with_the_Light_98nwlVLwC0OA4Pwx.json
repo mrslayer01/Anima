@@ -1,0 +1,39 @@
+{
+  "name": "One with the Light",
+  "type": "spell",
+  "folder": "AxuVWz5XwsiEfv6z",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "light",
+    "level": 96,
+    "action": "active",
+    "cost": 100,
+    "effect": "The caster enters a meditative state and becomes one with the Light, ascending to the Flow of Souls. Gains x10 Zeon Regeneration and Healing Regeneration 16. The caster is unaware of the outside world. Can remain for one day.",
+    "addedEffect": "One day additional stay in the Flow of Souls.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "98nwlVLwC0OA4Pwx",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!98nwlVLwC0OA4Pwx"
+}

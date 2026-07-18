@@ -1,0 +1,39 @@
+{
+  "name": "Spy of Light",
+  "type": "spell",
+  "folder": "AxuVWz5XwsiEfv6z",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "light",
+    "level": 36,
+    "action": "active",
+    "cost": 100,
+    "effect": "Creates a small light of energy that moves as wished by the caster, with a Flight Value of 14, for a maximum distance of one mile. The caster can see and hear through it, but doing so overwhelms his senses. The Spy has Notice and Search 100, defends with the caster’s Magic Projection, and can only be attacked by supernatural attacks.",
+    "addedEffect": "+5 to Notice and Search and +1 mile to range.",
+    "maintenance": "1 every 5 (20) Daily",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "NdffPnvi8BdzLazQ",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!NdffPnvi8BdzLazQ"
+}

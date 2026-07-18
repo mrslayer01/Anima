@@ -1,0 +1,42 @@
+{
+  "name": "Strengthen Magic",
+  "type": "spell",
+  "folder": "SHOcmNy2tDMciwAq",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 90,
+    "maxLevel": 100,
+    "action": "active",
+    "cost": 200,
+    "effect": "This spell intensifies the power of the magic used by the caster, making his spells harder to destroy. As long as this spell is maintained, all other spells the caster performs are treated as having +50 Zeonic value. This increase is not actual Zeon, so it cannot provide any Added Effect bonuses, but it does make spells harder to destroy. For instance, a character casting Create Light with a Zeonic value of 30 while simultaneously maintaining Strengthen Magic would not see an increase in the Light spell, but if another character cast Destroy against him, the spell would have, to all practical purposes, a Zeonic value of 80 instead of 30.",
+    "addedEffect": "+5 Zeonic value to spells",
+    "maintenance": "1 every 10 (20) Daily",
+    "maxZeon": "Intelligence x40",
+    "typeOfSpell": "Effect",
+    "closedPaths": {
+      "path1": "destruction"
+    }
+  },
+  "_id": "EWeC8khDnVbTrMF6",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 1000000,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!EWeC8khDnVbTrMF6"
+}

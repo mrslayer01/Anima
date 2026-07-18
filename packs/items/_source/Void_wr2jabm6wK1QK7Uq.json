@@ -1,0 +1,39 @@
+{
+  "name": "Void",
+  "type": "spell",
+  "folder": "Z8spjTtxxbGftej8",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "destruction",
+    "level": 90,
+    "action": "active",
+    "cost": 250,
+    "effect": "Creates a 15-foot radius sphere of absolute void that unmakes all matter. Pulls objects and beings within 50 meters using Strength 14. Each turn inside, targets must pass MR 120 or lose Zeon equal to failure margin, and PhR 120 or lose LP equal to failure margin. When Zeon reaches zero, Power begins to be permanently lost.",
+    "addedEffect": "+3-foot radius, +150-foot influence area, +5 MR/PhR Difficulty.",
+    "maintenance": "1 every 10 (25)",
+    "maxZeon": "Intelligence x30",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "wr2jabm6wK1QK7Uq",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!wr2jabm6wK1QK7Uq"
+}

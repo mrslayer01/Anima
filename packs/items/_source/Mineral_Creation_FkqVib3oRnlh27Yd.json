@@ -1,0 +1,39 @@
+{
+  "name": "Mineral Creation",
+  "type": "spell",
+  "folder": "IFdncsADpUjKHOtw",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "earth",
+    "level": 70,
+    "action": "active",
+    "cost": 120,
+    "effect": "Creates any mineral or metal object with Presence ≤40. The object must appear in a logically appropriate location.",
+    "addedEffect": "+5 maximum Presence.",
+    "maintenance": "1 every 10 (12) Daily",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "FkqVib3oRnlh27Yd",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!FkqVib3oRnlh27Yd"
+}

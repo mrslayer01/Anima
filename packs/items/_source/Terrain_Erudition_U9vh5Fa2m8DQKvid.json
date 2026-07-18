@@ -1,0 +1,39 @@
+{
+  "name": "Terrain Erudition",
+  "type": "spell",
+  "folder": "IFdncsADpUjKHOtw",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "earth",
+    "level": 72,
+    "action": "active",
+    "cost": 120,
+    "effect": "Reveals complete knowledge of everything in contact with the ground within a 1,200‑foot radius, including constructions and living beings. Does not penetrate energy‑sealed areas.",
+    "addedEffect": "+600-foot radius.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x30",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "U9vh5Fa2m8DQKvid",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!U9vh5Fa2m8DQKvid"
+}

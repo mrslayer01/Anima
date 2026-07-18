@@ -1,0 +1,81 @@
+{
+  "name": "Circlet",
+  "type": "armor",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "system": {},
+    "location": "helm",
+    "weight": 0,
+    "quantity": 1,
+    "availability": "common",
+    "quality": {
+      "value": "decent"
+    },
+    "cost": {
+      "value": 0,
+      "type": "copper"
+    },
+    "armorType": {
+      "cut": {
+        "base": 2
+      },
+      "imp": {
+        "base": 2
+      },
+      "thr": {
+        "base": 1
+      },
+      "hea": {
+        "base": 1
+      },
+      "ele": {
+        "base": 1
+      },
+      "col": {
+        "base": 1
+      },
+      "ene": {
+        "base": 0
+      }
+    },
+    "wearArmorReq": {
+      "base": 0
+    },
+    "naturalPenalty": {
+      "base": 0
+    },
+    "moveRestriction": {
+      "base": 0
+    },
+    "fortitude": {
+      "base": 8
+    },
+    "presence": {
+      "base": 15
+    },
+    "specialValue": 0,
+    "armorClass": "hard",
+    "perceptionPenalty": 0
+  },
+  "effects": [],
+  "folder": "pSVtF9iN5wnDcUi2",
+  "ownership": {
+    "default": 0,
+    "cvaXLNt0ipl2zLRV": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1772996393120,
+    "modifiedTime": 1772996621790,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "_id": "GCfSXlNoQvOtX7KX",
+  "sort": 600000,
+  "_key": "!items!GCfSXlNoQvOtX7KX"
+}

@@ -1,0 +1,563 @@
+{
+  "folder": "R8wCHwnoz9eURbGA",
+  "name": "Deities",
+  "pages": [
+    {
+      "sort": 100000,
+      "name": "Abbadon",
+      "type": "text",
+      "_id": "zp1UzkJU7g2EcfgK",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h3>The Primeval Evil — Shajad</h3><p>Abbadon was originally the only Shajad unable to find a place for himself within the structure of reality. Indecisive, he ended up by absorbing in his essence all the minor negative feelings not related to his companions like disgust, envy, anger or pride. However, he did not feel attached to those emotions and to increase his importance he decided to personify the very principle of evil itself. As a form of mockery to all what the Beryls represent, his favorite incarnation is the traditional Christian devil; the figure of the fallen angel, which symbolizes all the sins of men and where he derives his name from. In time, he has come to feel exceptionally attached to this representation, to the point of considering it the main aspect of his being. He is constantly competing with the other Shajads for power and conspiring against Jedah and Meseguis to overtake their predominance. He is completely absorbed by the precept he has chosen and the role he plays, so he delights himself causing tragedies and spreading evil. His followers are usually satanists or worshippers of evil deities from different cultures. Those who synchronize best with him are low or deranged individuals whose lives are guided by evil.</p><p></p><h3>Modifiers</h3><section><h4>Elan lower than 50</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Being swept away by dark feelings</td><td>1</td></tr><tr><td>Committing a really evil action</td><td>4</td></tr><tr><td>Spreading evil among a large number of people</td><td>3</td></tr><tr><td>Originating evil or devil worshipping cults</td><td>2</td></tr><tr><td>Leading others into sin</td><td>2</td></tr></tbody></table><h4>Elan 50 or higher</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Corrupting a pure person’s heart</td><td>2</td></tr><tr><td>Causing a major evil to the world</td><td>3</td></tr></tbody></table><h4>Negative Modifiers</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Helping others without personal gain</td><td>-1</td></tr><tr><td>Committing a really good deed</td><td>-6</td></tr></tbody></table></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "category": "ApKBqOVZDs2qt0cf",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5CGlO3Mgp727qFqS.zp1UzkJU7g2EcfgK"
+    },
+    {
+      "sort": 200000,
+      "name": "Azreal",
+      "type": "text",
+      "category": "kSjFRhNVlj769saN",
+      "_id": "BxwAZRSHS7KCzGG6",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h3>Queen of Swords — Beryl</h3><p>Azrael is the warrior of the Light, the Beryl who represents the concepts of good and justice. This is a combative entity always ready to employ violence in the defense of the innocent and all the principles she personifies. She has a rather tumultuous story. At the beginning she was as peaceful as Mikael or Rafael and devoted to helping everyone equally. But little by little, she started to witness daily massacres of innocent victims who were not helped by any of the principles she stood for. All the pain, suffering, and death influenced her deeply in her decision to fight for all those who deserved protection and justice. Since then, her philosophy has moved into a more violent direction, its goal being to confront evil and darkness even if this means going against some of C’iel’s ideas (whom she professes true devotion for). She is the Beryl who faces the Shajads and the forces of darkness most directly. She combats their agents and followers and is at all-out war with them. In the very few occasions C’iel requires the use of violence, it is usually Azrael’s agents and paladins she relies on. She is the precept heroes incarnate, as well as all those who fight to defend those in need even at the expense of their own lives.</p><p></p><section><h3>Modifiers</h3><h4>Elan lower than 50</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Protecting the innocent</td><td>3</td></tr><tr><td>Destroying an evil/dark entity</td><td>2</td></tr><tr><td>Destroying a large number of dark/evil beings</td><td>5</td></tr><tr><td>Preventing an evil act</td><td>2</td></tr><tr><td>Defending justice</td><td>2</td></tr><tr><td>Stopping or destroying a Shajad agent</td><td>3</td></tr><tr><td>Becoming a hero</td><td>5</td></tr></tbody></table><h4>Elan 50 or higher</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Performing a relevant heroic act</td><td>1</td></tr><tr><td>Destroying a powerful evil creature</td><td>2</td></tr><tr><td>Saving the lives of a large number of innocents</td><td>2</td></tr><tr><td>Stopping a Shajad plan</td><td>3</td></tr></tbody></table><h4>Negative Modifiers</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Committing an evil action</td><td>-2</td></tr><tr><td>Taking an innocent person’s life</td><td>-8</td></tr><tr><td>Collaborating with the forces of darkness</td><td>-2</td></tr></tbody></table></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5CGlO3Mgp727qFqS.BxwAZRSHS7KCzGG6"
+    },
+    {
+      "sort": 200000,
+      "name": "Barakiel",
+      "type": "text",
+      "category": "kSjFRhNVlj769saN",
+      "_id": "L4k3Mzx68LsfSugu",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h3>The Perfect God — Beryl</h3><p>Barakiel is a powerful Beryl who incarnates the concepts of order and perfection. She thinks of herself as the greatest and highest of all powers, outdone only by C’iel herself, the only entity she admires and worships. The goal of her philosophy is to lead all civilizations into a perfect order of absolute equality. She thinks the way to achieve this is by establishing strict laws that govern every aspect of human life. She abhors chaos and instability, and fosters the advancement of the exact sciences, like mathematics and mechanics. She has a tense relationship with her sisters; in her opinion all of them are weak and imperfect. Her attitude has caused several open conflicts with Mikael, whose privileged position next to their Master she covets. She is extremely strict with her chosen ones and followers and demands them to maintain a scrupulous order and never to make mistakes. Those who fail rarely receive a second chance to please her. She is vain and likes to feel adored in all of the identities she takes on as a deity of order, law and the sciences. She synchronizes with narcissistic people who are endowed with great abilities or powers and who above all conduct their lives in an orderly fashion. She also favors scientists and those who worship her in any of her faces.</p><p></p><section><h3>Modifiers</h3><h4>Elan lower than 50</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Being the object of praise and admiration</td><td>1</td></tr><tr><td>Worshipping a divine incarnation of Barakiel</td><td>2</td></tr><tr><td>Promoting law and order</td><td>2</td></tr><tr><td>Undoing a chaotic situation</td><td>3</td></tr><tr><td>Making an important scientific advancement</td><td>5</td></tr><tr><td>Making a public display of extraordinary ability</td><td>2</td></tr></tbody></table><h4>Elan 50 or higher</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Being considered a divinity</td><td>2</td></tr><tr><td>Inducing society into order and law</td><td>3</td></tr><tr><td>Showing the true meaning of perfection</td><td>1</td></tr></tbody></table><h4>Negative Modifiers</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Showing external weakness</td><td>-2</td></tr><tr><td>Acting inconsistently or chaotically</td><td>-2</td></tr><tr><td>Breaking the laws</td><td>-5</td></tr><tr><td>Objectively failing something important</td><td>-10</td></tr></tbody></table></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5CGlO3Mgp727qFqS.L4k3Mzx68LsfSugu"
+    },
+    {
+      "sort": 200000,
+      "name": "Edamiel",
+      "type": "text",
+      "category": "kSjFRhNVlj769saN",
+      "_id": "2mrkIj2B6VXr2HcF",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h3>The Spirit of Emptiness — Beryl</h3><p>There is no Shajad or Beryl as inscrutable and unfeeling as The Spirit of Emptiness. Edamiel is separated from the world by her own choice, and unlike her sisters, she is not interested in becoming integrated with it. In the beginning, she tried to incarnate pleasure, the only feeling that brought her some satisfaction. Unfortunately, she soon realized not even that was enough to fill the void she carried inside, and she slowly drifted apart from reality until she disappeared. This is how she involuntarily came to represent abstract notions—like ignorance and nothingness—that neither Light nor Dark wanted to pick up. She believes true happiness is impossible because all feelings fade, and the only escape is to become one with emptiness. Her sisters are horrified by her philosophy, yet they tolerate her, unaware of the threat she poses. Occasionally she returns to her old incarnation, unleashing pleasure and desire, but often uses them to confuse and drag people toward nothingness. She has worshippers across cultures, often as a deity of desire and pleasure. Alarmingly, many synchronize with her—from hedonists to isolated individuals who reject the world.</p><p></p><section><h3>Modifiers</h3><h4>Elan lower than 50</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Conducting oneself with apathy</td><td>3</td></tr><tr><td>Surrendering to the pleasures of the flesh</td><td>3</td></tr><tr><td>Drawing someone into the world of desire and pleasure</td><td>2</td></tr><tr><td>Completely wiping something off from existence</td><td>5</td></tr><tr><td>Suppressing an individual’s emotions through pleasure</td><td>4</td></tr></tbody></table><h4>Elan 50 or higher</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Destroying a great amount of matter or souls</td><td>2</td></tr><tr><td>Driving a population or culture into desire</td><td>3</td></tr><tr><td>Suppressing someone’s emotions by forcing them to embrace nothingness</td><td>1</td></tr><tr><td>Driving a population or culture into apathy</td><td>4</td></tr></tbody></table><h4>Negative Modifiers</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Taking decisions that promote people’s being active</td><td>-2</td></tr><tr><td>Repressing one’s own worldly desires or those of others</td><td>-2</td></tr></tbody></table></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5CGlO3Mgp727qFqS.2mrkIj2B6VXr2HcF"
+    },
+    {
+      "sort": 200000,
+      "name": "Erebus",
+      "type": "text",
+      "category": "ApKBqOVZDs2qt0cf",
+      "_id": "aBtq0pZr3y5A7PLx",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h3>The Shadow of Dreams — Shajad</h3><p>Erebus is one of the most enigmatic of Shajads; his actions and goals are always wrapped in mystery. He is the Lord of Shadows, and he has chosen to incarnate the occult, the supernatural and fear. Throughout history, many cultures have worshipped him as a god of magic, dreams, or wonders. He remains away from the other Shajads’ conflicts for power while concentrating on his own mysterious ends. He is whimsical and unpredictable, but he follows a strange set of self-imposed rules which he never breaks. He supports the followers of the occult and magic, as well as all those dreamers who are able to create wonders in their sleep. Surprisingly, his influence is as big in dreams as it is in nightmares, although he is much more interested in the latter. He has a peculiar fascination with fear, which he considers to be the most fundamental and primeval emotion of living beings. To him, this is the secret drive behind all acts in the world and even the originator of existence itself. He who is not afraid, and is not able to understand this, has no future and is doomed to disappear. Whoever masters fear will have creation at his feet. Those who employ supernatural forces and dabble in the occult will synchronize with him. He is also drawn to those who learn to master fear, as well as dreamers and poets.</p><p></p><section><h3>Modifiers</h3><h4>Elan lower than 50</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>To delve into the world of the occult and the supernatural</td><td>2</td></tr><tr><td>Mastering a supernatural discipline</td><td>3</td></tr><tr><td>Facing and overcoming terror</td><td>2</td></tr><tr><td>Being fascinated by fear and all it entails</td><td>3</td></tr><tr><td>Being a dreamer who lives in a fantasy world</td><td>2</td></tr><tr><td>Mastering the meaning of dreams</td><td>2</td></tr></tbody></table><h4>Elan 50 or higher</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Living between reality and fantasy</td><td>2</td></tr><tr><td>Devoting life to the study of the occult arts</td><td>2</td></tr><tr><td>Learning to master one’s fears</td><td>2</td></tr></tbody></table><h4>Negative Modifiers</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Not having dreams or desires</td><td>-3</td></tr><tr><td>Neglecting the opportunity to advance in the occult</td><td>-2</td></tr></tbody></table></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5CGlO3Mgp727qFqS.aBtq0pZr3y5A7PLx"
+    },
+    {
+      "sort": 300000,
+      "name": "Eriol",
+      "type": "text",
+      "category": "ApKBqOVZDs2qt0cf",
+      "_id": "dSLczIbB7dHKJ6zd",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h3>Angel of Chaos — Shajad</h3><p>The Angel of Chaos is one of the strangest Lords of Darkness. His philosophy digresses from the principles of balance that both the Shajads and the Beryls have tried to sustain. He is an anarchic entity who, ironically, shares more doctrines with Uriel than anyone would care to admit. He is fickle and changes his mind according to his mood, yet he maintains a profound bond with Gaira, to whom he is completely faithful. Eriol incarnates chaos and luck, both good and bad. To him, existence is an infinite set of possibilities, and the true fascination lies in discovering which possibility will manifest. Everything is a game he calls 'The Law of Chance.' Those who synchronize with him are individuals who reject external rules, trust luck, and embrace chaos. Throughout history, Eriol and his agents have inspired cults devoted to luck, fortune, and chaos.</p><p></p><section><h3>Modifiers</h3><h4>Elan lower than 50</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Ignoring law and order</td><td>2</td></tr><tr><td>Promoting chaotic situations</td><td>2</td></tr><tr><td>Leaving an important event up to chance</td><td>5</td></tr><tr><td>Showing others the importance of chance</td><td>1</td></tr><tr><td>Behaving anarchically</td><td>2</td></tr></tbody></table><h4>Elan 50 or higher</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Partially controlling the Law of Chance</td><td>2</td></tr><tr><td>Unleashing chaos upon the world</td><td>2</td></tr><tr><td>Being completely ruled by chance</td><td>1</td></tr></tbody></table><h4>Negative Modifiers</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Conducting oneself in an orderly fashion</td><td>-2</td></tr><tr><td>Following orders or laws</td><td>-3</td></tr><tr><td>Disregarding chance</td><td>-2</td></tr></tbody></table></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5CGlO3Mgp727qFqS.dSLczIbB7dHKJ6zd"
+    },
+    {
+      "sort": 400000,
+      "name": "Gabriel",
+      "type": "text",
+      "category": "kSjFRhNVlj769saN",
+      "_id": "NPzNJRpRuDqZNQ2I",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h3>Lady of Feelings — Beryl</h3><p>Gabriel, the great Lady of Feelings is undoubtedly the Beryl who incarnates the largest number of positive feelings. It is the lady of love, friendship, arts, and peace. Those who know the true identity of the Daughters of the Light think of her as the purest among them. She feels devotion for all living beings and has always tried to protect and help them. For years she has lived among mortals under several different identities to feel integrated in their society and to be able to understand them. She is said to have become close enough with men as to even fall in love with one, although his identity is unknown. Gabriel promotes peace, friendship, love, and creative feelings among artists and poets. She thinks the best way to reach the dream of C’iel is to create an awareness of the importance of these feelings. Her capacity for forgiving is limitless, and she usually tries to avoid violent solutions. Artists and lovers and those whose lives are ruled by the most positive of feelings synchronize with her.</p><p></p><section><h3>Modifiers</h3><h4>Elan lower than 50</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Loving and caring for others</td><td>3</td></tr><tr><td>Stopping a conflict</td><td>1</td></tr><tr><td>Saving someone’s life</td><td>2</td></tr><tr><td>Promoting positive feelings among people</td><td>3</td></tr><tr><td>Creating art</td><td>1</td></tr></tbody></table><h4>Elan 50 or higher</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Stopping a war</td><td>3</td></tr><tr><td>Creating a masterpiece</td><td>2</td></tr><tr><td>Finding someone special to love</td><td>1</td></tr><tr><td>Protecting all forms of life</td><td>2</td></tr></tbody></table><h4>Negative Modifiers</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Starting a conflict</td><td>-2</td></tr><tr><td>Hating someone</td><td>-3</td></tr><tr><td>Being overcome by dark feelings</td><td>-2</td></tr><tr><td>Destroying beauty</td><td>-1</td></tr><tr><td>Causing unnecessary death</td><td>-5</td></tr></tbody></table></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5CGlO3Mgp727qFqS.NPzNJRpRuDqZNQ2I"
+    },
+    {
+      "sort": 400000,
+      "name": "Jedah",
+      "type": "text",
+      "category": "ApKBqOVZDs2qt0cf",
+      "_id": "a5hlnPVBlfaDBsF3",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h3>Puppet Master — Shajad</h3><p>Jedah is the puppet master, the most manipulative and subtle of the Shajads. He is said to control the history of mankind through the manipulation of beings, events, and the course of time. The purpose of such manipulation is nothing more than power, especially if it can be obtained in secret. Jedah never seeks to rule openly or directly. To him, the ideal would be to become the true master of a game, so subtle that no one would even notice his influence. He is not truly evil. He does not promote hatred or seek to cause suffering. Instead, he sees existence and its forces as tools to be used as much as he can. However, he would never use too much affection or emotion to achieve his goals. Jedah has influenced the entire fundamental idea of true humanism, aloof reason, dominance, politics, and knowledge. To most mortals, Jedah does not appear to be evil. He is not cruel, nor does he take pleasure in suffering. He simply manipulates others to serve his own ends. He believes that the best way to improve the world is to control it. He believes that the truth is meaningless compared to perception. He believes that the best way to understand someone is to dominate them. He believes that the best way to protect someone is to enslave them. He believes that the best way to improve someone is to manipulate them.</p><p></p><section><h3>Modifiers</h3><h4>Elan lower than 50</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Manipulating someone for personal power</td><td>1</td></tr><tr><td>Subduing others through psychological control</td><td>2</td></tr><tr><td>Using diplomacy to dominate</td><td>1</td></tr><tr><td>Controlling a group through influence</td><td>3</td></tr><tr><td>Creating a system of control</td><td>2</td></tr><tr><td>Enslaving someone mentally or spiritually</td><td>3</td></tr></tbody></table><h4>Elan 50 or higher</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Controlling a nation through manipulation</td><td>3</td></tr><tr><td>Creating a religion or ideology for control</td><td>2</td></tr><tr><td>Erasing someone’s will completely</td><td>2</td></tr></tbody></table><h4>Negative Modifiers</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Freeing someone from control</td><td>-2</td></tr><tr><td>Promoting personal freedom</td><td>-2</td></tr><tr><td>Rejecting manipulation as a tool</td><td>-3</td></tr></tbody></table></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5CGlO3Mgp727qFqS.a5hlnPVBlfaDBsF3"
+    },
+    {
+      "sort": 500000,
+      "name": "Meseguis",
+      "type": "text",
+      "category": "ApKBqOVZDs2qt0cf",
+      "_id": "rlzuvRlKPwy4qtvo",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h3>The Lament of Darkness — Shajad</h3><p>Meseguis, the Lady of Vengeance, is the only Shajad to have adopted a female identity. Exceptionally powerful, she holds great influence over Gaira alongside Jedah. Her essence contains some of the darkest and most contradictory emotions of humanity—hatred, pain, and sadness—yet she despises these feelings and seeks to spare others from them. She believes forgiveness is a temporary escape, not a cure, and that only vengeance can bring true peace. Those consumed by hatred synchronize with her only faintly, while those who believe in vengeance and help others pursue it achieve true communion. Meseguis is a melancholy entity, sometimes protective of the weak, other times capable of cruelty beyond comprehension.</p><p></p><section><h3>Modifiers</h3><h4>Elan lower than 50</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Being consumed by sorrow or grief</td><td>8</td></tr><tr><td>Devoting one’s entire life to vengeance</td><td>8</td></tr></tbody></table><h4>Elan 50 or higher</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Helping a weak person take revenge</td><td>2</td></tr><tr><td>Fostering a sense of vengeance in others</td><td>1</td></tr><tr><td>Consummating a lifelong revenge</td><td>4</td></tr></tbody></table><h4>Negative Modifiers</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Forgiving someone</td><td>-3</td></tr><tr><td>Inflicting pain or suffering for no reason</td><td>-4</td></tr></tbody></table></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5CGlO3Mgp727qFqS.rlzuvRlKPwy4qtvo"
+    },
+    {
+      "sort": 600000,
+      "name": "Mikael",
+      "type": "text",
+      "category": "kSjFRhNVlj769saN",
+      "_id": "5uFtMW1hvbwTIy9H",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h3>The Soul of God — Beryl</h3><p>Mikael is the first among the Beryls – the most powerful and important of all the Daughters of Light. She is extremely consonant with C’iel’s ideas and she generally acts as her spokeswoman and representative. She was also the first one to feel the need to form part of the existence which is alien to all of them, and fused a fragment of her essence with reality, as Lady Jade had done before. Mikael incarnates the virtue of hope and creation, without which all living beings would be completely lost – hope and salvation. For centuries, she has looked after men and women of all races, giving little thought to their affiliation to the Light or the Darkness, since they are all her desire to be worshipped. Although several cultures worship her directly, her only goal was always to help and guide others. Nevertheless, she felt a strong empathy with the principles and precepts of Christianity when they were first developed. For this reason, she slowly began to promote the virtues preached by the figure of God. In time, she became the most benign and merciful face of the god-men who sought to save mankind from suffering and offer it hope for the future. Those who follow her are, above all, strong believers of salvation.</p><p></p><section><h3>Modifiers</h3><h4>Elan lower than 50</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Giving back hope to an individual</td><td>1</td></tr><tr><td>Giving back hope to a large number of people</td><td>5</td></tr><tr><td>Saving someone’s life</td><td>3</td></tr><tr><td>Helping someone in need</td><td>3</td></tr><tr><td>Undoing a minor wrong</td><td>1</td></tr><tr><td>Undoing a major wrong</td><td>5</td></tr></tbody></table><h4>Elan 50 or higher</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Helping someone at one’s own expense</td><td>5</td></tr><tr><td>Undoing a major wrongdoing</td><td>5</td></tr><tr><td>Changing one’s life to save someone else’s</td><td>5</td></tr><tr><td>Give back the will to live to someone who has lost it</td><td>5</td></tr></tbody></table><h4>Negative Modifiers</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Losing hope</td><td>-5</td></tr><tr><td>Ignoring someone in great need</td><td>-5</td></tr><tr><td>Committing a really evil action</td><td>-10</td></tr></tbody></table></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5CGlO3Mgp727qFqS.5uFtMW1hvbwTIy9H"
+    },
+    {
+      "sort": 600000,
+      "name": "Noah",
+      "type": "text",
+      "category": "ApKBqOVZDs2qt0cf",
+      "_id": "F1oBGXaMW2U21SEb",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h3>The Dark Warrior — Shajad</h3><p>Undoubtedly, Noah is Gaira’s most strict disciple. Above all, he values strength and the drive to succeed that lies within every living creature. Noah incarnates competitiveness, combat, and victory. On the other hand, he also represents darker concepts – such as war and violence. He believes the only truly weak beings are those without the will to fight or to advance; such creatures are nothing but an obstacle in the way of evolution and universal progress. All means are acceptable when it comes to bettering one’s self. He approves of all conflicts, war, and the most critical of situations no matter how tragic or terrible, in the thought that those bring out the best in people and lead them into learning. Noah tremendously dislikes those that stupidly abuse their power, and those unable of controlling it. He has opened many fronts against the Beryls, which he considers to be a weakness for the world. Many cultures have worshipped him in his best known aspect as a god of war, but he has adopted many other identities throughout history. His main followers are typically great warriors or generals, but even thinkers and artists may also synchronize with him provided they are competitive enough.</p><p></p><section><h3>Modifiers</h3><h4>Elan lower than 50</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Being competitive</td><td>2</td></tr><tr><td>Overcoming a complex challenge</td><td>3</td></tr><tr><td>Dedicating life to combat</td><td>3</td></tr><tr><td>Imbuing self-improvement drive to others</td><td>3</td></tr><tr><td>Bettering one’s self</td><td>2</td></tr></tbody></table><h4>Elan 50 or higher</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Defeating a really difficult opponent</td><td>1</td></tr><tr><td>Inducing war</td><td>2</td></tr><tr><td>Creating a masterpiece or setting an unparalleled record</td><td>4</td></tr></tbody></table><h4>Negative Modifiers</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Ignoring a challenge for fear of failure</td><td>-2</td></tr><tr><td>Being defeated by an opponent of equal or lower standing</td><td>-5</td></tr><tr><td>Losing the will to better one’s self</td><td>-10</td></tr><tr><td>Abusing power foolishly</td><td>-2</td></tr></tbody></table></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5CGlO3Mgp727qFqS.F1oBGXaMW2U21SEb"
+    },
+    {
+      "sort": 700000,
+      "name": "Rafael",
+      "type": "text",
+      "category": "kSjFRhNVlj769saN",
+      "_id": "npCe38Ug8U0LczLc",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h3>Mother Nature — Beryl</h3><p>Life and nature are the aspects of creation that Rafael, one of the most independent Daughters of the Light, has chosen to incarnate. She is mainly devoted to people, animals, and plants that inhabit the natural world, but deep down she loves all living creatures equally. Even though she respects magic and the occult powers, she regards them as unnecessary in comparison to natural elements and their laws. The only mystical creatures she openly sympathizes with are those closely connected to nature, such as spirits of the woods or beings associated with vegetation. She openly opposes those who destroy nature or even worse pervert life. Above all, she dislikes necromantic entities and all they stand for; she considers them as a deviation. For centuries she has struggled with the idea of initiating active confrontation against them for fear of losing an important part of her conscience in the process. Many druids and cultures associated with forests worship her as the origin of all life and think of her as a primary aspect of creation. Those who protect nature and life achieve the highest level of synchronicity with her.</p><p></p><section><h3>Modifiers</h3><h4>Elan lower than 50</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Saving the life of an animal or plant</td><td>1</td></tr><tr><td>Saving the life of a large number of people or animals</td><td>5</td></tr><tr><td>Protecting nature</td><td>3</td></tr><tr><td>Destroying an undead creature</td><td>1</td></tr><tr><td>Extending or planting forests, jungles or woods</td><td>5</td></tr></tbody></table><h4>Elan 50 or higher</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Watching over the interests of plants and animals</td><td>2</td></tr><tr><td>Saving the lives of a large number of people or animals</td><td>1</td></tr><tr><td>Extending or planting large forests, jungles or woods</td><td>2</td></tr></tbody></table><h4>Negative Modifiers</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Taking a life for no reason</td><td>-5</td></tr><tr><td>Unnecessarily damaging nature</td><td>-3</td></tr><tr><td>Altering nature or life supernaturally</td><td>-10</td></tr></tbody></table></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5CGlO3Mgp727qFqS.npCe38Ug8U0LczLc"
+    },
+    {
+      "sort": 700000,
+      "name": "Uriel",
+      "type": "text",
+      "category": "kSjFRhNVlj769saN",
+      "_id": "ExYa1bTdncRUVskd",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h3>The Spirit of Freedom — Beryl</h3><p>Uriel Beryl is a spirit embodying freedom and rebellion, opposing tyranny, slavery, and laws that limit autonomy. The character is known for unpredictability and has inspired various religions and cults. Uriel is associated with the Beryls, a group of spiritual entities, and is said to have a strong connection with the Shaajad Eriol.</p><p></p><section><h3>Modifiers</h3><h4>Elan lower than 50</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Freeing a subdued person</td><td>2</td></tr><tr><td>Freeing a group of people</td><td>5</td></tr><tr><td>Acting freely, without ties</td><td>2</td></tr><tr><td>Ending tyrannical laws</td><td>1</td></tr><tr><td>Rebelling against oppression</td><td>1</td></tr><tr><td>Showing people the value of freedom</td><td>2</td></tr></tbody></table><h4>Elan 50 or higher</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Freeing a nation from an oppressor</td><td>3</td></tr><tr><td>Instigating rebellion against oppression</td><td>2</td></tr><tr><td>Living in absolute freedom</td><td>1</td></tr></tbody></table><h4>Negative Modifiers</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Obeying unfair orders</td><td>-1</td></tr><tr><td>Obeying tyrannical orders</td><td>-2</td></tr><tr><td>Bonding to something forever</td><td>-2</td></tr><tr><td>Slavery</td><td>-3</td></tr><tr><td>Enslaving or subduing someone</td><td>-3</td></tr></tbody></table></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5CGlO3Mgp727qFqS.ExYa1bTdncRUVskd"
+    },
+    {
+      "sort": 700000,
+      "name": "Zemial",
+      "type": "text",
+      "category": "ApKBqOVZDs2qt0cf",
+      "_id": "chr6eh7aw982FZGR",
+      "system": {},
+      "title": {
+        "show": true,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h3>The End of Days — Shajad</h3><p>Zemial, the shadow of existence, the burden of all life – there are so many names for a nightmare that never should have been named. Many arguments are made to sustain his status as the greatest among the Shajads and Beryls, but Darkness itself states his power is only comparable to his insanity. Some legends say that after the War of Heaven, he exterminated entire races; others say he rebelled against his own. Whatever his actions may have been in the past, time has washed them away. The only thing we know for sure is that Gaira himself locked Zemial away in the darkness to prevent him from acting freely upon the world, and chained him to the Void as punishment for his disobedience. The very thought of the existence of a concept like Zemial is a contradiction. It incarnates unchained destruction, despair, and death without meaning or purpose – it is the end of all existence. He makes no distinction between Light and Darkness; to him all that exists must be destroyed. There is no record of cults who openly worshipped him, although there have been cases of individuals slightly synchronizing with him. These are destructive beings that neither seek nor need justification for their acts, subjects with nothing to lose or gain in life and, usually, with some degree of psychotic disorder.</p><p></p><section><h3>Modifiers</h3><h4>Elan lower than 50</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Killing someone for no reason</td><td>1</td></tr><tr><td>Provoking large scale deaths for no reason</td><td>5</td></tr><tr><td>Instigating people to killing for no reason</td><td>2</td></tr><tr><td>Losing sanity (once more than 10 Elan points)</td><td>1</td></tr><tr><td>Driving someone mad</td><td>2</td></tr><tr><td>Engaging in self-destructive behavior</td><td>2</td></tr><tr><td>Exterminating a race</td><td>7</td></tr></tbody></table><h4>Elan 50 or higher</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Provoking an unnecessary massacre</td><td>2</td></tr><tr><td>Destroying a nation or principality</td><td>3</td></tr><tr><td>Seeking death</td><td>1</td></tr></tbody></table><h4>Negative Modifiers</h4><table class=\"modifier-table\"><thead><tr><th>Action</th><th>Modifier</th></tr></thead><tbody><tr><td>Consciously saving a life</td><td>-3</td></tr><tr><td>Stopping a massacre</td><td>-3</td></tr><tr><td>Showing concern for one’s own well-being</td><td>-2</td></tr></tbody></table></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!5CGlO3Mgp727qFqS.chr6eh7aw982FZGR"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Shajad",
+      "sort": 200000,
+      "_id": "ApKBqOVZDs2qt0cf",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!5CGlO3Mgp727qFqS.ApKBqOVZDs2qt0cf"
+    },
+    {
+      "name": "Beryl",
+      "sort": 100000,
+      "_id": "kSjFRhNVlj769saN",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!5CGlO3Mgp727qFqS.kSjFRhNVlj769saN"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.LsxDkxLwfpJZr9pz",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.2.1",
+    "createdTime": 1784386341361,
+    "modifiedTime": 1784386341361,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "ownership": {
+    "default": 0,
+    "cvaXLNt0ipl2zLRV": 3
+  },
+  "_id": "5CGlO3Mgp727qFqS",
+  "sort": 0,
+  "_key": "!journal!5CGlO3Mgp727qFqS"
+}

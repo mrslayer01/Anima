@@ -1,0 +1,42 @@
+{
+  "name": "Visualize Cartography",
+  "type": "spell",
+  "folder": "wXBfSMWCghYcXuKR",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 50,
+    "maxLevel": 60,
+    "action": "active",
+    "cost": 60,
+    "effect": "Allows the caster to visualize the surrounding landscape in a 15-mile radius. Cannot locate individuals or specific constructions.",
+    "addedEffect": "+15 miles radius.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect",
+    "closedPaths": {
+      "path1": "darkness"
+    }
+  },
+  "_id": "HVpryIrCjkI4qoSj",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!HVpryIrCjkI4qoSj"
+}

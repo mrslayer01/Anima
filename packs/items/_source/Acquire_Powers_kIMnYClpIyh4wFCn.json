@@ -1,0 +1,39 @@
+{
+  "name": "Acquire Powers",
+  "type": "spell",
+  "folder": "4Gsne2eJZ5qJHCjh",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "creation",
+    "level": 50,
+    "action": "active",
+    "cost": 100,
+    "effect": "Grants 100 DP to acquire supernatural Powers as if the target had Gnosis 25. Not cumulative.",
+    "addedEffect": "+10 DP with which to acquire powers.",
+    "maintenance": "1 every 5 (20)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "kIMnYClpIyh4wFCn",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!kIMnYClpIyh4wFCn"
+}

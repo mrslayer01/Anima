@@ -1,0 +1,39 @@
+{
+  "name": "Blessing",
+  "type": "spell",
+  "folder": "AxuVWz5XwsiEfv6z",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "light",
+    "level": 56,
+    "action": "active",
+    "cost": 100,
+    "effect": "Endows allies within 15 feet with +20 to all actions and Resistances. A character cannot benefit from more than one Blessing at a time.",
+    "addedEffect": "+15 feet to radius.",
+    "maintenance": "1 every 20 (5)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "JU4LQdNx5A3liXFs",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!JU4LQdNx5A3liXFs"
+}

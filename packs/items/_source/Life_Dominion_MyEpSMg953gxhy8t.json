@@ -1,0 +1,39 @@
+{
+  "name": "Life Dominion",
+  "type": "spell",
+  "folder": "Txiitqd71IXVZs1v",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "essence",
+    "level": 92,
+    "action": "active",
+    "cost": 300,
+    "effect": "Grants absolute control over all Natural beings within 60 miles. Orders are transmitted mystically. MR 100 to resist; new check daily or when given unnatural orders.",
+    "addedEffect": "+60-mile radius and +5 MR Difficulty.",
+    "maintenance": "1 every 5 (60) Daily",
+    "maxZeon": "Intelligence x30",
+    "typeOfSpell": "Automatic"
+  },
+  "_id": "MyEpSMg953gxhy8t",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!MyEpSMg953gxhy8t"
+}

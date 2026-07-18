@@ -1,0 +1,39 @@
+{
+  "name": "Freeze Magic",
+  "type": "spell",
+  "folder": "hDivpkoYQDkXlqVI",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "water",
+    "level": 86,
+    "action": "passive",
+    "cost": 250,
+    "effect": "Suspends active spells (Zeon ≤150), freezing their effects without dispelling them. Suspended spells require no maintenance and resume when Freeze Magic ends. Can suspend spells cast in the same round.",
+    "addedEffect": "+5 Zeon value affected.",
+    "maintenance": "1 every 5 (50) Daily",
+    "maxZeon": "Intelligence x30",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "qwDTJ5dEFYpxyCyg",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!qwDTJ5dEFYpxyCyg"
+}

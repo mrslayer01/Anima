@@ -1,0 +1,39 @@
+{
+  "name": "Relocate Magic",
+  "type": "spell",
+  "folder": "80PIYD2pUKkVAK2d",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "air",
+    "level": 90,
+    "action": "active",
+    "cost": 180,
+    "effect": "Transfers the magical source of an active spell (Zeon ≤100) to a new location or target. Works on place‑, object‑, or individual‑based spells. Spiritual spells allow a new Resistance Check.",
+    "addedEffect": "+5 Zeon value affected.",
+    "maintenance": "1 every 10 (18) Daily",
+    "maxZeon": "Intelligence x30",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "tqtZdyJE04ehqVAw",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!tqtZdyJE04ehqVAw"
+}

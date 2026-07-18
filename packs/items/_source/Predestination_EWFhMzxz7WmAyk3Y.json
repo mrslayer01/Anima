@@ -1,0 +1,42 @@
+{
+  "name": "Predestination",
+  "type": "spell",
+  "folder": "SHOcmNy2tDMciwAq",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 90,
+    "maxLevel": 100,
+    "action": "active",
+    "cost": 600,
+    "effect": "This spell allows the caster to modify future events according to his plan, thus predestining several circumstances in the future. The complexity of the events is left to the caster’s own design. He may preordain one event, leaving the different small happenings that lead up to its realization to chance, or quite on the contrary, he may try to determine each one of the aspects involved in producing a final result. The spell is not meant to cause a completely impossible outcome. However, the odds are limited only by the caster’s imagination. Preordained events may be set for a specific date or they may be scheduled to repeat eternally through time—solstices in leap years, for example. Given the huge complexity of the spell, let’s look at a few examples of what it could be used for: An imprecise Predestination would be a caster’s prediction of misfortune befalling an entire family and their offspring, condemning all their members to a horrible death before reaching a certain age. On the other hand, should the caster wish to be more explicit, he could condemn their first born children to be murdered by wild wolves on the very night of their birth. Naturally, not all predestinations need to be negative; the caster might predestine a child to become a king. However, the future created by the spell is not absolute and inevitable; there is always the chance of preventing it from coming true. Anyone outside the limits preordained by the caster, that is, anyone passing the MR Check, can keep destiny from fulfilling itself. In order to neutralize the actions of third parties, the caster may plan ahead for some security measures inside the limits of the spell. A good example of this would be the inclusion of a clause stating that any one who tries to thwart destiny will be murdered by wolves. Preventing this spell from working only requires that the person, creature, or object with the highest resistance of those directly affected by the spell passes a MR Check with a Difficulty of 140 at the time the spell is being cast. Those influenced by its effects will not be able to do anything to stop it from happening; chance will inevitably play against them in the most unavoidable of ways. The MR can be repeated only when some of the predestined events have come true. Therefore, the greater the detail the greater the chances of preventing the event. If any of the preordained events should be stopped, the whole spell is cancelled.",
+    "addedEffect": "+5 to MR Difficulty",
+    "maintenance": "1 every 20 (30) Daily",
+    "maxZeon": "Intelligence x40",
+    "typeOfSpell": "Automatic",
+    "closedPaths": {
+      "path1": "none"
+    }
+  },
+  "_id": "EWFhMzxz7WmAyk3Y",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 1200000,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!EWFhMzxz7WmAyk3Y"
+}

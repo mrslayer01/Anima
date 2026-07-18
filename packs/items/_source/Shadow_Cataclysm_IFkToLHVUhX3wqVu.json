@@ -1,0 +1,39 @@
+{
+  "name": "Shadow Cataclysm",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 93,
+    "action": "active",
+    "cost": 340,
+    "effect": "Triggers a massive implosion of shadow energy in a 150-foot radius. Deals 180 Base Damage and teleports all enemies randomly within 200 feet.",
+    "addedEffect": "+10 Base Damage.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Attack"
+  },
+  "_id": "IFkToLHVUhX3wqVu",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!IFkToLHVUhX3wqVu"
+}

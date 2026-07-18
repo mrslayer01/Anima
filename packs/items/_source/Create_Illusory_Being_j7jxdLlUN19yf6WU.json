@@ -1,0 +1,39 @@
+{
+  "name": "Create Illusory Being",
+  "type": "spell",
+  "folder": "n5Io2zXOYwnIrjqN",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "illusion",
+    "level": 40,
+    "action": "active",
+    "cost": 60,
+    "effect": "Creates a level‑1 illusory being (max 2 levels above caster). Exists in a 60‑foot radius zone. MR 120 to disbelieve. Cannot affect physical reality.",
+    "addedEffect": "+5 MR Difficulty, +1 level, +5-foot radius.",
+    "maintenance": "1 every 20 (3) Daily",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Automatic"
+  },
+  "_id": "j7jxdLlUN19yf6WU",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!j7jxdLlUN19yf6WU"
+}

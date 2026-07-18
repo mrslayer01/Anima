@@ -1,0 +1,81 @@
+{
+  "name": "Leather Hood",
+  "type": "armor",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "system": {},
+    "location": "helm",
+    "weight": 0,
+    "quantity": 1,
+    "availability": "common",
+    "quality": {
+      "value": "decent"
+    },
+    "cost": {
+      "value": 0,
+      "type": "copper"
+    },
+    "armorType": {
+      "cut": {
+        "base": 1
+      },
+      "imp": {
+        "base": 0
+      },
+      "thr": {
+        "base": 2
+      },
+      "hea": {
+        "base": 1
+      },
+      "ele": {
+        "base": 3
+      },
+      "col": {
+        "base": 1
+      },
+      "ene": {
+        "base": 0
+      }
+    },
+    "wearArmorReq": {
+      "base": 0
+    },
+    "naturalPenalty": {
+      "base": 0
+    },
+    "moveRestriction": {
+      "base": 0
+    },
+    "fortitude": {
+      "base": 10
+    },
+    "presence": {
+      "base": 15
+    },
+    "specialValue": 0,
+    "armorClass": "soft",
+    "perceptionPenalty": 0
+  },
+  "effects": [],
+  "folder": "pSVtF9iN5wnDcUi2",
+  "ownership": {
+    "default": 0,
+    "cvaXLNt0ipl2zLRV": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1772996399122,
+    "modifiedTime": 1772996654119,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "_id": "CmUWTYTGfj7p5Dgh",
+  "sort": 300000,
+  "_key": "!items!CmUWTYTGfj7p5Dgh"
+}

@@ -1,0 +1,42 @@
+{
+  "name": "The Magistrate",
+  "type": "spell",
+  "folder": "SHOcmNy2tDMciwAq",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 90,
+    "maxLevel": 100,
+    "action": "active",
+    "cost": 450,
+    "effect": "With this spell, the caster acts as a supreme judge of all events that transpire in a 150-foot radius around him. Within this space, the caster has the power to prohibit any Active Action taken by any person or creature who does not pass a MR Check with a Difficulty of 140. This check must be repeated each round in which an Active Action is attempted, unless the caster chooses to allow the action to occur. Only Active Actions may be prohibited, so affected targets may still perform Passive Actions, such as repelling attack. In order the prohibit an action, the caster must be aware of it, so some individuals may be able to overcome the effects of this spell through deception or subterfuge. Prohibiting another’s Active Action counts as a Passive Action for the caster. This spell’s area of effect remains stationary.",
+    "addedEffect": "+150 feet to radius and +5 to MR Difficulty.",
+    "maintenance": "1 every 10 (45) Daily",
+    "maxZeon": "Intelligence x40",
+    "typeOfSpell": "Automatic",
+    "closedPaths": {
+      "path1": "none"
+    }
+  },
+  "_id": "2YN7e5AxruzxjxTN",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 800000,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!2YN7e5AxruzxjxTN"
+}

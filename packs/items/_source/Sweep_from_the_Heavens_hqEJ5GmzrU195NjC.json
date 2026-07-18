@@ -1,0 +1,39 @@
+{
+  "name": "Sweep from the Heavens",
+  "type": "spell",
+  "folder": "Z8spjTtxxbGftej8",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "destruction",
+    "level": 88,
+    "action": "active",
+    "cost": 300,
+    "effect": "Steals the divine essence of an entity, reducing its Gnosis by 10 and disabling all Gnosis-based abilities. MR 120 to resist; no retries while active.",
+    "addedEffect": "–5 Gnosis and +5 MR Difficulty.",
+    "maintenance": "1 every 5 (60) Daily",
+    "maxZeon": "Intelligence x30",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "hqEJ5GmzrU195NjC",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!hqEJ5GmzrU195NjC"
+}

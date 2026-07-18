@@ -1,0 +1,39 @@
+{
+  "name": "Fix Illusion",
+  "type": "spell",
+  "folder": "n5Io2zXOYwnIrjqN",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "illusion",
+    "level": 82,
+    "action": "active",
+    "cost": 250,
+    "effect": "Makes an Illusion spell permanent by adding 1,000 Zeon Maintenance Points to it. Cannot be used on Free Access spells.",
+    "addedEffect": "+50 Zeon to the maintained spell.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x30",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "RHV0wxGvba34WzeU",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!RHV0wxGvba34WzeU"
+}

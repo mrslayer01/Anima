@@ -1,0 +1,39 @@
+{
+  "name": "Cloak of Night",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 67,
+    "action": "active",
+    "cost": 120,
+    "effect": "Envelops the caster in a mantle of pure night, granting total concealment from sight and magical detection. Attackers suffer –90 to attempts to locate or target the caster.",
+    "addedEffect": "+10 to concealment penalty.",
+    "maintenance": "1 every 10 (12)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "T6qpAWKP1BMLWdQx",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!T6qpAWKP1BMLWdQx"
+}

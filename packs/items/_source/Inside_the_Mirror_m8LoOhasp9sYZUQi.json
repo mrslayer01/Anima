@@ -1,0 +1,39 @@
+{
+  "name": "Inside the Mirror",
+  "type": "spell",
+  "folder": "hDivpkoYQDkXlqVI",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "water",
+    "level": 90,
+    "action": "active",
+    "cost": 300,
+    "effect": "Creates a mirrored duplicate of a territory up to 1,500‑foot radius, copying terrain, structures, flora, and weather. Living beings with Presence ≥20 are not duplicated. The caster creates any number of portals between worlds.",
+    "addedEffect": "+300‑foot radius.",
+    "maintenance": "1 every 10 (30) Daily",
+    "maxZeon": "Intelligence x40",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "m8LoOhasp9sYZUQi",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!m8LoOhasp9sYZUQi"
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Spiritual Standstill",
+  "type": "spell",
+  "folder": "4Gsne2eJZ5qJHCjh",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "creation",
+    "level": 58,
+    "action": "active",
+    "cost": 150,
+    "effect": "Freezes the target’s spiritual condition. They cannot gain or lose States. MR 100 to resist.",
+    "addedEffect": "+5 to the MR Difficulty.",
+    "maintenance": "1 every 10 (15)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Spiritual"
+  },
+  "_id": "tsenVnGgeklrEAZb",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!tsenVnGgeklrEAZb"
+}

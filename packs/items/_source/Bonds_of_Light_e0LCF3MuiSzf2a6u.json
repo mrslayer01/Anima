@@ -1,0 +1,39 @@
+{
+  "name": "Bonds of Light",
+  "type": "spell",
+  "folder": "AxuVWz5XwsiEfv6z",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "light",
+    "level": 28,
+    "action": "active",
+    "cost": 60,
+    "effect": "Casts bonds of light that immobilize a target. Uses Trapping rules but without penalties. Bonds use Strength 8 for checks. Attempts to free the target treat the bonds as an Energy weapon with Fortitude 20.",
+    "addedEffect": "+1 to Strength for all checks.",
+    "maintenance": "1 every 10 (6)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Attack"
+  },
+  "_id": "e0LCF3MuiSzf2a6u",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!e0LCF3MuiSzf2a6u"
+}

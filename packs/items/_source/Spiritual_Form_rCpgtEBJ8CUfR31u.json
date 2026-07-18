@@ -1,0 +1,39 @@
+{
+  "name": "Spiritual Form",
+  "type": "spell",
+  "folder": "Txiitqd71IXVZs1v",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "essence",
+    "level": 52,
+    "action": "active",
+    "cost": 100,
+    "effect": "Turns the target into spiritual matter: invisible to non‑spirit sight, intangible to non‑energy matter, no need for food/water/air. Affects Presence ≤60.",
+    "addedEffect": "+10 maximum Presence.",
+    "maintenance": "1 every 10 (10)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "rCpgtEBJ8CUfR31u",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!rCpgtEBJ8CUfR31u"
+}

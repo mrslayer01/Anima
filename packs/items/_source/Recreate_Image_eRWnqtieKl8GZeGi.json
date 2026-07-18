@@ -1,0 +1,42 @@
+{
+  "name": "Recreate Image",
+  "type": "spell",
+  "folder": "aUZY29vEWN9H1Naq",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 10,
+    "maxLevel": 20,
+    "action": "active",
+    "cost": 40,
+    "effect": "Recreates a previously seen image as a transparent hologram up to 5 square feet.",
+    "addedEffect": "+5 square feet.",
+    "maintenance": "1 every 10 (4)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect",
+    "closedPaths": {
+      "path1": "destruction"
+    }
+  },
+  "_id": "eRWnqtieKl8GZeGi",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!eRWnqtieKl8GZeGi"
+}

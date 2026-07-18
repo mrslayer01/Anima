@@ -1,0 +1,42 @@
+{
+  "name": "Magic Prism",
+  "type": "spell",
+  "folder": "YCRTx7esJIwienzC",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 80,
+    "maxLevel": 90,
+    "action": "active",
+    "cost": 200,
+    "effect": "Creates a supernatural container for Zeon with a capacity of 400 Zeon points.",
+    "addedEffect": "+25 Zeon capacity.",
+    "maintenance": "1 every 20 (10) Daily",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect",
+    "closedPaths": {
+      "path1": "destruction"
+    }
+  },
+  "_id": "jcIbiLiY2xBfXUCw",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!jcIbiLiY2xBfXUCw"
+}

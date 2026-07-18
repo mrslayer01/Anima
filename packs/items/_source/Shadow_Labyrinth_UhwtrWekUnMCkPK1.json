@@ -1,0 +1,39 @@
+{
+  "name": "Shadow Labyrinth",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 89,
+    "action": "active",
+    "cost": 260,
+    "effect": "Creates a maze of shifting shadows over a 400-foot area. Enemies must pass MR 180 or become lost, unable to act for 1 turn.",
+    "addedEffect": "+10-foot radius.",
+    "maintenance": "2 every 10 (16)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "UhwtrWekUnMCkPK1",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!UhwtrWekUnMCkPK1"
+}

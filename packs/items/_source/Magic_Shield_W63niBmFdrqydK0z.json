@@ -1,0 +1,42 @@
+{
+  "name": "Magic Shield",
+  "type": "spell",
+  "folder": "PH7VIVfyo7VjJzsk",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 20,
+    "maxLevel": 30,
+    "action": "passive",
+    "cost": 60,
+    "effect": "Creates a magical shield that protects the caster from all attacks, including supernatural ones. It can withstand up to 300 points of damage before breaking.",
+    "addedEffect": "+50 Resistance Points.",
+    "maintenance": "1 every 10 (6)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Defense",
+    "closedPaths": {
+      "path1": "none"
+    }
+  },
+  "_id": "W63niBmFdrqydK0z",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!W63niBmFdrqydK0z"
+}

@@ -1,0 +1,43 @@
+{
+  "name": "Move Objects",
+  "type": "spell",
+  "folder": "4CMdRqw0sbJaT8oX",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 1,
+    "maxLevel": 10,
+    "action": "active",
+    "cost": 30,
+    "effect": "This spell moves inorganic objects without the need of physical contact, granting them a Flight Value of 10. Maximum weight affected is 50 pounds.",
+    "addedEffect": "+20 pounds",
+    "maintenance": "1 every 10 (3)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect",
+    "closedPaths": {
+      "path1": "destruction",
+      "path2": "earth"
+    }
+  },
+  "_id": "8dxtfDKxRcrc31VK",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!8dxtfDKxRcrc31VK"
+}

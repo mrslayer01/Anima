@@ -1,0 +1,39 @@
+{
+  "name": "Natural Affinity",
+  "type": "spell",
+  "folder": "Txiitqd71IXVZs1v",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "essence",
+    "level": 2,
+    "action": "active",
+    "cost": 30,
+    "effect": "Alters the target’s essence so natural beings recognize them as one of their own (e.g., wolves treat them as a wolf). Affects up to 60 Presence.",
+    "addedEffect": "+10 maximum Presence.",
+    "maintenance": "1 every 10 (3) Daily",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "bV9cEQGWHlMcaS6F",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!bV9cEQGWHlMcaS6F"
+}

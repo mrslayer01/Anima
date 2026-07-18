@@ -1,0 +1,39 @@
+{
+  "name": "Blinding Flash",
+  "type": "spell",
+  "folder": "AxuVWz5XwsiEfv6z",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "light",
+    "level": 8,
+    "action": "active",
+    "cost": 50,
+    "effect": "Causes a sudden flash of light for a radius of 50 feet. It blinds anyone looking at it when it goes off for as many combat turns as he fails the MR check by, divided by 10. It is not possible to designate specific targets within the flash, and everyone except the caster is equally affected. Characters can resist this spell by passing a PhR Check with a Difficulty of 140. If someone is actively avoiding looking at the flash, the PhR Check Difficulty is 80.",
+    "addedEffect": "+15 feet to radius.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Automatic"
+  },
+  "_id": "VzSB5t2MURLIYwiT",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!VzSB5t2MURLIYwiT"
+}

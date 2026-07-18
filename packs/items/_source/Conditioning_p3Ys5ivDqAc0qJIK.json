@@ -1,0 +1,42 @@
+{
+  "name": "Conditioning",
+  "type": "spell",
+  "folder": "SHOcmNy2tDMciwAq",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 90,
+    "maxLevel": 100,
+    "action": "active",
+    "cost": 300,
+    "effect": "This spell directly affects other spells cast by the spellcaster, stalling them and delaying their activation until the advent of a particular circumstance or moment previously determined by the caster. Conditioning must be cast at the same time as the spells it will affect. Each restricted spell may be subject to a different condition, but once set, a caster can not make any changes at a later date. The conditioned spell automatically activates at the exact designated moment – even if the caster is unaware. For instance, a caster may condition Stop Fall to activate when falling from great heights. In the same way, a necromancer may condition Defeat Death to activate at the time of his death. Conditioned spells that have not been triggered require no maintenance. If the Conditioning spell itself disappears, all other spells linked to it also disappear. Any number of spells may be Conditioned as long as the total number of Zeon points is 100 or below. Only one Conditioning spell at a time may be kept active. Spell action will be Active or Passive depending on its own nature.",
+    "addedEffect": "+5 to the spell’s Zeonic value",
+    "maintenance": "1 every 5 (60) Daily",
+    "maxZeon": "Intelligence x40",
+    "typeOfSpell": "Effect",
+    "closedPaths": {
+      "path1": "none"
+    }
+  },
+  "_id": "p3Ys5ivDqAc0qJIK",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 200000,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Item.p3Ys5ivDqAc0qJIK",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!p3Ys5ivDqAc0qJIK"
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Bonds of Darkness",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 28,
+    "action": "active",
+    "cost": 60,
+    "effect": "Casts bonds of darkness that hold the designated target immobile. Uses Trapping rules with no penalty to the caster. The bonds use Strength 8 for any Check. Attempts to free the target treat the bonds as an Energy weapon with Fortitude 20.",
+    "addedEffect": "Strength +1",
+    "maintenance": "1 every 10 (6)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Attack"
+  },
+  "_id": "xX7giDF0EH3tOqSK",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!xX7giDF0EH3tOqSK"
+}

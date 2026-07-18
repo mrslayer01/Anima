@@ -1,0 +1,81 @@
+{
+  "name": "Open Helm",
+  "type": "armor",
+  "img": "icons/svg/shield.svg",
+  "system": {
+    "system": {},
+    "location": "helm",
+    "weight": 0,
+    "quantity": 1,
+    "availability": "common",
+    "quality": {
+      "value": "decent"
+    },
+    "cost": {
+      "value": 0,
+      "type": "copper"
+    },
+    "armorType": {
+      "cut": {
+        "base": 5
+      },
+      "imp": {
+        "base": 4
+      },
+      "thr": {
+        "base": 5
+      },
+      "hea": {
+        "base": 3
+      },
+      "ele": {
+        "base": 0
+      },
+      "col": {
+        "base": 3
+      },
+      "ene": {
+        "base": 1
+      }
+    },
+    "wearArmorReq": {
+      "base": 5
+    },
+    "naturalPenalty": {
+      "base": 0
+    },
+    "moveRestriction": {
+      "base": 0
+    },
+    "fortitude": {
+      "base": 16
+    },
+    "presence": {
+      "base": 25
+    },
+    "specialValue": 0,
+    "armorClass": "hard",
+    "perceptionPenalty": 20
+  },
+  "effects": [],
+  "folder": "pSVtF9iN5wnDcUi2",
+  "ownership": {
+    "default": 0,
+    "cvaXLNt0ipl2zLRV": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1772996402511,
+    "modifiedTime": 1772996739792,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "_id": "2tUqRA3hPLK57Z7O",
+  "sort": 0,
+  "_key": "!items!2tUqRA3hPLK57Z7O"
+}

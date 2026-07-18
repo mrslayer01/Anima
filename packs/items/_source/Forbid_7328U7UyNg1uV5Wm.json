@@ -1,0 +1,39 @@
+{
+  "name": "Forbid",
+  "type": "spell",
+  "folder": "Z8spjTtxxbGftej8",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "destruction",
+    "level": 58,
+    "action": "active",
+    "cost": 100,
+    "effect": "Prohibits the target from performing a specific Active Action. MR 120 to resist. Broad actions (attack, move) grant +10 to +30 MR bonus.",
+    "addedEffect": "+5 MR Difficulty.",
+    "maintenance": "1 every 20 (5)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Spiritual"
+  },
+  "_id": "7328U7UyNg1uV5Wm",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!7328U7UyNg1uV5Wm"
+}

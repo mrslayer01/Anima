@@ -1,0 +1,42 @@
+{
+  "name": "Containment",
+  "type": "spell",
+  "folder": "J8HRFUkNCJO7DCVV",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 70,
+    "maxLevel": 80,
+    "action": "active",
+    "cost": 200,
+    "effect": "Haunts an area, preventing anyone inside from leaving unless they pass MR 120. Area cannot exceed a 30-foot radius.",
+    "addedEffect": "+15 feet to radius and +5 MR Difficulty.",
+    "maintenance": "1 every 5 (50) Daily",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Automatic",
+    "closedPaths": {
+      "path1": "none"
+    }
+  },
+  "_id": "jOseH7dfX6TZ5gUs",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!jOseH7dfX6TZ5gUs"
+}

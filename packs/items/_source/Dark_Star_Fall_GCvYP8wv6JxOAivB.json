@@ -1,0 +1,39 @@
+{
+  "name": "Dark Star Fall",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 74,
+    "action": "active",
+    "cost": 240,
+    "effect": "Calls down a collapsing star of darkness onto a single point. Deals 180 Base Damage in a 50-foot radius and reduces all Light-based effects in the area to zero for 3 turns.",
+    "addedEffect": "+10 Base Damage and +5-foot radius.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Attack"
+  },
+  "_id": "GCvYP8wv6JxOAivB",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!GCvYP8wv6JxOAivB"
+}

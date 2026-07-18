@@ -1,0 +1,39 @@
+{
+  "name": "Shadow Legion",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 71,
+    "action": "active",
+    "cost": 200,
+    "effect": "Summons up to five autonomous shadow warriors with Attack 140, Defense 120, and 80 LP each. They obey the caster’s commands and dissipate after 5 turns or when destroyed.",
+    "addedEffect": "+1 additional warrior (max 8).",
+    "maintenance": "2 every 10 (16)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Summon"
+  },
+  "_id": "MBIxfm5jFzUUZ303",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!MBIxfm5jFzUUZ303"
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Perceive",
+  "type": "spell",
+  "folder": "AxuVWz5XwsiEfv6z",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "light",
+    "level": 12,
+    "action": "active",
+    "cost": 50,
+    "effect": "Improves the perception of the caster, increasing his secondary abilities of Notice and Search by +50. It also increases his Magical Appraisal by the same amount, but only for detecting or measuring magic potency, not hiding it.",
+    "addedEffect": "+10 to Notice, Search and Magical Appraisal.",
+    "maintenance": "1 every 10 (5)",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "54Yqx4XBBoBpCBxW",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!54Yqx4XBBoBpCBxW"
+}

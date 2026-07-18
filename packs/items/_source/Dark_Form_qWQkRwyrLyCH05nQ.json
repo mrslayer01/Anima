@@ -1,0 +1,39 @@
+{
+  "name": "Dark Form",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 50,
+    "action": "active",
+    "cost": 120,
+    "effect": "Transforms the caster into a semi-corporeal being of shadow. Grants Immunity to Criticals, +40 Defense, and allows passing through small openings. Physical attacks against the caster suffer –60.",
+    "addedEffect": "+10 Defense and –10 to enemy attack checks.",
+    "maintenance": "1 every 10 (12)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Transformation"
+  },
+  "_id": "qWQkRwyrLyCH05nQ",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!qWQkRwyrLyCH05nQ"
+}

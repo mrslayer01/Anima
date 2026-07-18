@@ -1,0 +1,39 @@
+{
+  "name": "Communication Through Essence",
+  "type": "spell",
+  "folder": "Txiitqd71IXVZs1v",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "essence",
+    "level": 10,
+    "action": "active",
+    "cost": 30,
+    "effect": "Creates a spiritual communication link with any living being, including plants and animals. Affects beings with Presence <40.",
+    "addedEffect": "+10 maximum Presence.",
+    "maintenance": "1 every 5 (6) Daily",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Automatic"
+  },
+  "_id": "eFTZp6MDfb4TJmCG",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!eFTZp6MDfb4TJmCG"
+}

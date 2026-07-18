@@ -1,0 +1,39 @@
+{
+  "name": "Greater Destruction",
+  "type": "spell",
+  "folder": "Z8spjTtxxbGftej8",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "destruction",
+    "level": 92,
+    "action": "active",
+    "cost": 350,
+    "effect": "Destroys inorganic objects on a massive scale. Can affect any number of objects as long as total Presence ≤100.",
+    "addedEffect": "+10 maximum Presence.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x30",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "V9vQzhhy2gZ0kQQS",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!V9vQzhhy2gZ0kQQS"
+}

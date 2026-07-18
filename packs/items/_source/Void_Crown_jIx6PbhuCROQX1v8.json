@@ -1,0 +1,39 @@
+{
+  "name": "Void Crown",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 90,
+    "action": "active",
+    "cost": 300,
+    "effect": "The caster becomes a nexus of void power, gaining +50 to all actions and immunity to critical hits for 5 turns.",
+    "addedEffect": "+1 turn duration.",
+    "maintenance": "2 every 10 (18)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Transformation"
+  },
+  "_id": "jIx6PbhuCROQX1v8",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!jIx6PbhuCROQX1v8"
+}

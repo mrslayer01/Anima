@@ -1,0 +1,39 @@
+{
+  "name": "Destroy Ki",
+  "type": "spell",
+  "folder": "Z8spjTtxxbGftej8",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "destruction",
+    "level": 28,
+    "action": "active",
+    "cost": 80,
+    "effect": "Dissolves the target’s Ki reserves. MR 120 to resist; failure causes Ki loss equal to the margin of failure.",
+    "addedEffect": "+5 MR Difficulty.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Spiritual"
+  },
+  "_id": "8e8ONlKXpu49v4QO",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!8e8ONlKXpu49v4QO"
+}

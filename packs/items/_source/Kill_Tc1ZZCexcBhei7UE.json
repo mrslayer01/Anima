@@ -1,0 +1,39 @@
+{
+  "name": "Kill",
+  "type": "spell",
+  "folder": "nnTMGhW2sOBrT7lh",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "necromancy",
+    "level": 66,
+    "action": "active",
+    "cost": 100,
+    "effect": "Stops bodily functions, causing instant death. MR or PhR 80 to survive. Does not affect spirits or some Beings Between Worlds.",
+    "addedEffect": "+5 MR/PhR Difficulty.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Spiritual"
+  },
+  "_id": "Tc1ZZCexcBhei7UE",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!Tc1ZZCexcBhei7UE"
+}

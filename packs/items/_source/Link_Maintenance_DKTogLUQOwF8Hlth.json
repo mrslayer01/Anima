@@ -1,0 +1,42 @@
+{
+  "name": "Link Maintenance",
+  "type": "spell",
+  "folder": "SHOcmNy2tDMciwAq",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 90,
+    "maxLevel": 100,
+    "action": "active",
+    "cost": 200,
+    "effect": "The spellcaster may assign maintenance payment of one of his spells to somebody else, thus forcing the target to invest Zeon points unknowingly. Link Maintenance can only be used in persons with the Gift, or magical beings or objects. Characters wishing to avoid this spell need to pass a MR Check with a Difficulty of 120. Those individuals unaware of the fact that they are being targeted can not roll again for Resistance. If they realize this and try to stop it, they will be granted another Check depending on the type of spell they are being linked to. Daily maintenance spells grant daily Checks, whereas the rest will grant one Check every five turns. Linking stops as soon as the target passes his MR or runs out of Zeon points.",
+    "addedEffect": "+5 to MR Difficulty",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Spiritual",
+    "closedPaths": {
+      "path1": "none"
+    }
+  },
+  "_id": "DKTogLUQOwF8Hlth",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 700000,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!DKTogLUQOwF8Hlth"
+}

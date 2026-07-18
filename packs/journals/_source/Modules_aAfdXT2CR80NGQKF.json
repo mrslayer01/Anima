@@ -1,0 +1,1831 @@
+{
+  "folder": "R8wCHwnoz9eURbGA",
+  "name": "Modules",
+  "pages": [
+    {
+      "sort": 100000,
+      "name": "Similar Weapon",
+      "type": "text",
+      "category": "uHZrMDZbi0OWigOf",
+      "_id": "7KMCjs2SY1gmd6Nb",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Similar Weapon</h2><p><strong>Type:</strong> General Weapon</p><p><strong>Cost:</strong> 10</p><p><strong>Effects:</strong> Gives the character the ability to use an additional weapon of the same class as one they already know.</p><p><strong>Description:</strong> The character knows how to use two similar weapons.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.7KMCjs2SY1gmd6Nb"
+    },
+    {
+      "sort": 100000,
+      "name": "Mixed-Class Weapon",
+      "type": "text",
+      "category": "uHZrMDZbi0OWigOf",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Mixed-Class Weapon</h2><p><strong>Type:</strong> General Weapon</p><p><strong>Cost:</strong> 15</p><p><strong>Effects:</strong> Allows the character to use an additional weapon that shares at least one class with a weapon they already know.</p><p><strong>Description:</strong> The character is trained in two weapons that share at least one class.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "CYmKnQL9My7KgLIx",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.CYmKnQL9My7KgLIx"
+    },
+    {
+      "sort": 100000,
+      "name": "Different Type / Unarmed",
+      "type": "text",
+      "category": "uHZrMDZbi0OWigOf",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Different Type / Unarmed</h2><p><strong>Type:</strong> General Weapon</p><p><strong>Cost:</strong> 20</p><p><strong>Effects:</strong> Allows the character to use a weapon of a class with which they are not familiar.</p><p><strong>Description:</strong> The character can use two very different weapons, including unfamiliar classes.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "Mn2N7O3OoFc77Ctc",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.Mn2N7O3OoFc77Ctc"
+    },
+    {
+      "sort": 100000,
+      "name": "Whole-Class Weapons",
+      "type": "text",
+      "category": "uHZrMDZbi0OWigOf",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Whole-Class Weapons</h2><p><strong>Type:</strong> General Weapon</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Allows the character to use any weapon of a chosen class without applying penalties to Combat Abilities.</p><p><strong>Description:</strong> The character masters all weapons of a chosen class (pure or mixed). For example, mastery of Swords includes all swords but not mixed-class weapons like the Bastard Sword.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "iLstsAugDk4V6Cdm",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.iLstsAugDk4V6Cdm"
+    },
+    {
+      "sort": 100000,
+      "name": "Projectile Weapons",
+      "type": "text",
+      "category": "uHZrMDZbi0OWigOf",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Projectile Weapons</h2><p><strong>Type:</strong> General Weapon</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Allows the character to use any projectile weapon using the same Attack Ability.</p><p><strong>Description:</strong> The character is trained in all projectile weapons, using a unified Attack Ability.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "i5flSSSJNie2kjhH",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.i5flSSSJNie2kjhH"
+    },
+    {
+      "sort": 100000,
+      "name": "Throwing",
+      "type": "text",
+      "category": "uHZrMDZbi0OWigOf",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Throwing</h2><p><strong>Type:</strong> General Weapon</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Allows the character to throw any object or weapon using the same Attack Ability.</p><p><strong>Description:</strong> The character gains skill at throwing all sorts of items. This does not grant the ability to use weapons with the Throwable rule — only to throw them effectively.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "TfcWf0AswKymjcFK",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.TfcWf0AswKymjcFK"
+    },
+    {
+      "sort": 100000,
+      "name": "Improvised Weapons",
+      "type": "text",
+      "category": "uHZrMDZbi0OWigOf",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Improvised Weapons</h2><p><strong>Type:</strong> General Weapon</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Allows the character to use any type of object as an improvised weapon.</p><p><strong>Description:</strong> The character is adept at turning everyday objects into effective improvised weapons.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "puc5tTBsHm02zKl3",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.puc5tTBsHm02zKl3"
+    },
+    {
+      "sort": 200000,
+      "name": "Barbarian Weapons",
+      "type": "text",
+      "category": "lsvcWLJNh4IudAhn",
+      "_id": "Vd4WlMqXFc7dPg4N",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Barbarian Weapons</h2><p><strong>Type:</strong> Archetypical Weapons</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Awards skill in War Axe, Battle Axe, Two‑handed Sword, Bastard Sword, and Heavy Battle Mace.</p><p><strong>Description:</strong> These big, powerful weapons are often used by individuals with fierce and barbaric fighting styles.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.Vd4WlMqXFc7dPg4N"
+    },
+    {
+      "sort": 200000,
+      "name": "Ninja Weapons",
+      "type": "text",
+      "category": "lsvcWLJNh4IudAhn",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Ninja Weapons</h2><p><strong>Type:</strong> Archetypical Weapons</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Awards skill in Katana, Tanto, Claws, Shuriken, and Kusari‑gama.</p><p><strong>Description:</strong> These exotic weapons were used by oriental assassins.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "l4DvrX0wpU8dkDTb",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.l4DvrX0wpU8dkDTb"
+    },
+    {
+      "sort": 200000,
+      "name": "Duelist Weapons",
+      "type": "text",
+      "category": "lsvcWLJNh4IudAhn",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Duelist Weapons</h2><p><strong>Type:</strong> Archetypical Weapons</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Awards skill in Rapier, Foil, Parrying Dagger, Saber, and Long Sword.</p><p><strong>Description:</strong> These weapons are used by swordsmen and fencing masters.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "bSiixELu5ZwVOG3l",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.bSiixELu5ZwVOG3l"
+    },
+    {
+      "sort": 200000,
+      "name": "Pirate Weapons",
+      "type": "text",
+      "category": "lsvcWLJNh4IudAhn",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Pirate Weapons</h2><p><strong>Type:</strong> Archetypical Weapons</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Awards skill in Harpoon, Gladiator’s Net, Hook, Saber, and Handaxe.</p><p><strong>Description:</strong> These are the weapons most used by sailors.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "nom9rr6wz5RMdKl1",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.nom9rr6wz5RMdKl1"
+    },
+    {
+      "sort": 200000,
+      "name": "Nomad Weapons",
+      "type": "text",
+      "category": "lsvcWLJNh4IudAhn",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Nomad Weapons</h2><p><strong>Type:</strong> Archetypical Weapons</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Awards skill in Dagger, Chakram, Long Bow, Scimitar, and Lance.</p><p><strong>Description:</strong> These weapons were used by warriors raised in the desert.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "5PtCus071w3wyKQX",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.5PtCus071w3wyKQX"
+    },
+    {
+      "sort": 200000,
+      "name": "Hunter Weapons",
+      "type": "text",
+      "category": "lsvcWLJNh4IudAhn",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Hunter Weapons</h2><p><strong>Type:</strong> Archetypical Weapons</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Awards skill in Javelin, Bow, Short Sword, Lance, and Bolos.</p><p><strong>Description:</strong> These weapons are used by fighters expert in subterfuge who rely on light, often projectile weapons.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "C7Ze3fY9anktfOfO",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.C7Ze3fY9anktfOfO"
+    },
+    {
+      "sort": 200000,
+      "name": "Knight Weapons",
+      "type": "text",
+      "category": "lsvcWLJNh4IudAhn",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Knight Weapons</h2><p><strong>Type:</strong> Archetypical Weapons</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Awards skill in Long Sword, Cavalry Lance, Mace, Bastard Sword, and Shield.</p><p><strong>Description:</strong> These weapons are used by orthodox warriors who fight on foot or from horseback.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "X1U7quETE2wmDicf",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.X1U7quETE2wmDicf"
+    },
+    {
+      "sort": 200000,
+      "name": "Gladiator Weapons",
+      "type": "text",
+      "category": "lsvcWLJNh4IudAhn",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Gladiator Weapons</h2><p><strong>Type:</strong> Archetypical Weapons</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Awards skill in Short Sword, Gladiator’s Net, Buckler, Trident, and Whip.</p><p><strong>Description:</strong> These exotic and showy weapons are used by fighters in circuses and arenas.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "S4dq1LDlj8awERjp",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.S4dq1LDlj8awERjp"
+    },
+    {
+      "sort": 200000,
+      "name": "Assassin Weapons",
+      "type": "text",
+      "category": "lsvcWLJNh4IudAhn",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Assassin Weapons</h2><p><strong>Type:</strong> Archetypical Weapons</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Awards skill in Short Sword, Miniature Crossbow, Club, Blowgun, and Stiletto.</p><p><strong>Description:</strong> These precise, deadly, and easy‑to‑hide weapons were often used by dark fighters.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "VkMyujQZD9R1AyjP",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.VkMyujQZD9R1AyjP"
+    },
+    {
+      "sort": 200000,
+      "name": "Soldier Weapons",
+      "type": "text",
+      "category": "lsvcWLJNh4IudAhn",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Soldier Weapons</h2><p><strong>Type:</strong> Archetypical Weapons</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Awards skill in Crossbow, Long Sword, Halberd, Lance, and Shield.</p><p><strong>Description:</strong> These are the weapons traditionally taught to regular soldiers in most armies.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "uOG45OMHIhTHHsbp",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.uOG45OMHIhTHHsbp"
+    },
+    {
+      "sort": 200000,
+      "name": "Indigenous Weapons",
+      "type": "text",
+      "category": "lsvcWLJNh4IudAhn",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Indigenous Weapons</h2><p><strong>Type:</strong> Archetypical Weapons</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Awards skill in Javelin, Lance, Full Shield, Bow, and Blowgun.</p><p><strong>Description:</strong> This is the combat equipment traditionally used by indigenous tribes of little sophistication.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "On9yUV4dZy4caXZm",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.On9yUV4dZy4caXZm"
+    },
+    {
+      "sort": 200000,
+      "name": "Bandit Weapons",
+      "type": "text",
+      "category": "lsvcWLJNh4IudAhn",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Bandit Weapons</h2><p><strong>Type:</strong> Archetypical Weapons</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Awards skill in Dagger, Crossbow, Short Sword, Mace, and Club.</p><p><strong>Description:</strong> These simple but menacing weapons are used by warriors who specialize in theft and robbery.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "4R1Cf8bFmxrb3h2f",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.4R1Cf8bFmxrb3h2f"
+    },
+    {
+      "sort": 300000,
+      "name": "Battojutsu / Iaijutsu",
+      "type": "text",
+      "category": "GZNGUK4oopvQpyvW",
+      "_id": "XJPYIpYR9T48FE2f",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Battojutsu / Iaijutsu</h2><p><strong>Type:</strong> Style</p><p><strong>Cost:</strong> 30</p><p><strong>Effects:</strong> The character can unsheathe their weapon without applying the –25 penalty to Attack or Block. No effect with two‑handed weapons.</p><p><strong>Description:</strong> This skill permits a character to unsheathe their weapon with perfect ease.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.XJPYIpYR9T48FE2f"
+    },
+    {
+      "sort": 300000,
+      "name": "Area Attack",
+      "type": "text",
+      "category": "GZNGUK4oopvQpyvW",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Area Attack</h2><p><strong>Type:</strong> Style</p><p><strong>Cost:</strong> 40</p><p><strong>Effects:</strong> Reduces the penalty for an Area Attack maneuver by half, resulting in a –25 penalty to Attack.</p><p><strong>Description:</strong> The character specializes in broad maneuvers capable of striking multiple enemies more effectively.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "Tff5O3YzyzSsfIFj",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.Tff5O3YzyzSsfIFj"
+    },
+    {
+      "sort": 300000,
+      "name": "Precision Attack",
+      "type": "text",
+      "category": "GZNGUK4oopvQpyvW",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Precision Attack</h2><p><strong>Type:</strong> Style</p><p><strong>Cost:</strong> 50</p><p><strong>Effects:</strong> Reduces the penalty for a Put at Weapon’s Point maneuver by half, resulting in a –50 penalty to Attack.</p><p><strong>Description:</strong> The character has a marked ability to place an adversary in a Menace Position with great accuracy.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "fQyi2nhHfvel1Z7h",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.fQyi2nhHfvel1Z7h"
+    },
+    {
+      "sort": 300000,
+      "name": "Disarming Attack",
+      "type": "text",
+      "category": "GZNGUK4oopvQpyvW",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Disarming Attack</h2><p><strong>Type:</strong> Style</p><p><strong>Cost:</strong> 40</p><p><strong>Effects:</strong> Reduces the penalty for a Disarm maneuver to –20.</p><p><strong>Description:</strong> A character with this ability has specialized in disarming opponents with practiced efficiency.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "g58iSzRQSwrIfLQd",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.g58iSzRQSwrIfLQd"
+    },
+    {
+      "sort": 400000,
+      "name": "Magic Projection as an Attack",
+      "type": "text",
+      "category": "7KKNZwZL0hDrvMC6",
+      "_id": "eVoyd5s00XLkdsKw",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Magic Projection as an Attack</h2><p><strong>Type:</strong> Mystical</p><p><strong>Cost:</strong> 75</p><p><strong>Effects:</strong> Allows the character to use their Attack ability for offensive Magic Projection. Only the base ability is used. Cannot launch passive or defensive spells.</p><p><strong>Description:</strong> Represents a fusion of combat knowledge with the ability to direct spells offensively.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.eVoyd5s00XLkdsKw"
+    },
+    {
+      "sort": 400000,
+      "name": "Magic Projection as a Defense",
+      "type": "text",
+      "category": "7KKNZwZL0hDrvMC6",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Magic Projection as a Defense</h2><p><strong>Type:</strong> Mystical</p><p><strong>Cost:</strong> 75</p><p><strong>Effects:</strong> Allows the character to use their Defense ability as defensive Magic Projection. Only the base ability is used. Cannot direct offensive spells.</p><p><strong>Description:</strong> The character projects passive and shielding spells as though they were weapons or armor.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "T85hkSjYsDJGPyLf",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.T85hkSjYsDJGPyLf"
+    },
+    {
+      "sort": 500000,
+      "name": "Psychic Projection Module",
+      "type": "text",
+      "category": "LKK7SQSOXuWwr6k8",
+      "_id": "uCBnvaE0E62wxvOt",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Psychic Projection Module</h2><p><strong>Type:</strong> Psychic</p><p><strong>Cost:</strong> 100</p><p><strong>Effects:</strong> Allows the character to use Combat Abilities as Psychic Projection. Offensive Combat Ability attacks; Defensive Combat Ability raises shields. Only base abilities are used.</p><p><strong>Description:</strong> The character uses their Combat Abilities to project mental powers as if they were actual weapons.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.uCBnvaE0E62wxvOt"
+    },
+    {
+      "sort": 600000,
+      "name": "Overview",
+      "type": "text",
+      "category": "eR7VbvAhnZkctHDh",
+      "_id": "dZi914OBO0Ew1uRK",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<h2>THE IDEA BEHIND MODULES</h2><p>When a character develops his Attack and Defense abilities, he does so with a single weapon, which he will have chosen from the beginning. It is also possible to learn to fight without weapons, in which case the character’s Combat Ability is considered to be “Unarmed.”</p><h2>Modifiers to Combat Abilities</h2><p>Even if he originally only learned to use one weapon, a character who is an expert fighter will have at least some minimal notion of how to fight using many other types of weapons. Although the way they are used might be quite different, there are always certain similarities. So, when using a weapon other than that with which he is trained, a character simply applies a penalty to his Attack and Block abilities. That penalty depends on the degree of difference between his normal weapon and the weapon he is currently using.</p><h3>Similar Weapon</h3><p>The character knows how to fight with at least one weapon of this class. This would be the case, for instance, for someone who knows how to use a Long Sword (Sword class) and tries to use a Saber (also Sword class).</p><h3>Mixed-Class Weapon</h3><p>The character knows how to use a weapon, but attempts to use one that is of more than one Class, including one in which he is not trained. This would be the case of someone who, for example, knows how to handle a Long Sword (Sword class) but wishes to wield a Bastard Sword (Sword and Two-handed Sword classes).</p><h3>Different Class / Unarmed</h3><p>The character is using a weapon with which he has no training. This would be the case for a person who knows how to use a Long Sword (Sword class) and tries to use a Warhammer (Mace). It is also used when someone who knows only unarmed combat tries to use a weapon, or vice versa.</p><h3>Blocking and Dodging</h3><p>This is the penalty that must be applied when a person with the Block ability tries to Dodge an attack, or vice versa. Remember that in addition to the –60, the two abilities are based on different Characteristics, and therefore use different bonuses.</p><p>When we created Celia, for example, we decided that her main weapon would be a saber, with which she has an Ability score of 70. If she takes up a Rapier, a similar weapon, her attack is reduced to 50, while if she grabs a Mixed-Class Weapon, such as a Bastard Sword, her ability falls to just 30. And, if she tries to fight Unarmed, or uses a weapon with which she has no expertise, such as a Battle Axe, she would have an ability of only 10.</p><h2>The Modules</h2><p>An individual isn’t limited to learning just one weapon; with practice he can become equally adept with many others. The Weapons Modules allow a character to eliminate the penalties for wielding weapons other than the one they chose initially, and even, on occasion, to use their Combat Ability to launch spells, or psychic powers. To acquire these modules, it is necessary to spend the DP indicated for their cost.</p><h2>The General Weapons Modules</h2><p>These modules are listed as a Primary Ability for combat. Therefore, any DP invested in these modules count toward a character’s point distribution limit.</p><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.7KMCjs2SY1gmd6Nb]{Similar Weapon}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.CYmKnQL9My7KgLIx]{Mixed-Class Weapon}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.Mn2N7O3OoFc77Ctc]{Different Type / Unarmed}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.iLstsAugDk4V6Cdm]{Whole-Class Weapons}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.i5flSSSJNie2kjhH]{Projectile Weapons}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.TfcWf0AswKymjcFK]{Throwing}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.puc5tTBsHm02zKl3]{Improvised Weapons}</p><h2>The Archetypical Weapons Modules</h2><p>These modules include a number of weapons that are traditionally used with great mastery by certain types of people. If you wish, you can create your own such modules, as long as the selection has a real relationship with a traditional or archetypical figure. As with the foregoing, these are considered Primary Abilities for combat.</p><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.Vd4WlMqXFc7dPg4N]{Barbarian Weapons}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.l4DvrX0wpU8dkDTb]{Ninja Weapons}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.bSiixELu5ZwVOG3l]{Duelist Weapons}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.nom9rr6wz5RMdKl1]{Pirate Weapons}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.5PtCus071w3wyKQX]{Nomad Weapons}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.C7Ze3fY9anktfOfO]{Hunter Weapons}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.X1U7quETE2wmDicf]{Knight Weapons}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.S4dq1LDlj8awERjp]{Gladiator Weapons}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.VkMyujQZD9R1AyjP]{Assassin Weapons}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.uOG45OMHIhTHHsbp]{Soldier Weapons}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.On9yUV4dZy4caXZm]{Indigenous Weapons}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.4R1Cf8bFmxrb3h2f]{Bandit Weapons}</p><p></p><p></p><h2>The Style Modules</h2><p>These modules permit the character to increase his combat effectiveness by reducing the penalties for performing certain attack maneuvers. As with the foregoing, these are considered Primary Abilities for combat.</p><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.XJPYIpYR9T48FE2f]{Battojutsu / Iaijutsu}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.Tff5O3YzyzSsfIFj]{Area Attack}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.fQyi2nhHfvel1Z7h]{Precision Attack}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.g58iSzRQSwrIfLQd]{Disarming Attack}</p><p></p><h2>Mystical Modules</h2><p>These modules act as Primary Supernatural Abilities. Therefore, any DP invested in these modules count toward a character’s point distribution limit.</p><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.eVoyd5s00XLkdsKw]{Magic Projection as an Attack}@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.T85hkSjYsDJGPyLf]{Magic Projection as a Defense}</p><p></p><h2>The Psychic Module</h2><p>This module acts as a Primary Psychic Ability. Therefore, any DP invested in this module counts toward a character’s Point distribution limit.</p><p>@UUID[Compendium.abf-system.abf-journals.JournalEntry.Y9yqs1iaiNlTSfOO.JournalEntryPage.uCBnvaE0E62wxvOt]{Psychic Projection Module}</p><p></p><h2>Martial Arts</h2><section><p>In Anima, a character who fights only using his body can learn to dominate martial arts. Any of the styles below will allow the character to use his Attack or Block abilities without penalty when fighting unarmed. In a way, they are equivalent to an Empty-hands Weapons Module, but they also offer their adherents additional advantages.</p><p>The acquisition of a martial art by a character implies much more than simply knowing the style. Many persons learn these styles, but that doesn’t mean they really know how to make use of the advantages they can offer. If a character in Anima “knows” a martial art, it means he is a true master who has learned it to perfection.</p><p>Learning a martial art is done by investing the necessary Development Points (DP). Each style costs 50 DP – although if a character decides to forego learning a weapon in order to develop his abilities with a martial art, the first martial art learned will cost only half as many points. If the character is a Tao, the cost of the first martial art learned will be only 10 DP.</p><p>There are ten basic martial arts, and ten more advanced ones. The basic ones are those that offer the character the ability to fight unarmed, while the more advanced improve the abilities conferred by the basic ones. To learn an advanced style, it is therefore necessary to first learn a basic one. For each martial art you will find a list of the advantages it offers.</p><p>For example, Hayato Nobunaga decides to develop his Combat Ability directly as a martial artist, instead of learning a weapon. It therefore costs him only 25 DP, rather than the 50 DP it would cost to learn a martial art if he already knew the use of a weapon.</p><p></p><h3><strong>Combining Martial Arts</strong></h3><p>A character can learn various martial arts and choose the advantages that he prefers from each. He can also accumulate the abilities gained and combine their effects – such as launching an additional attack or using a Trapping maneuver with only half the normal penalty. He can also choose the higher Final Damage of his multiple martial arts. Regarding special bonuses to the Attack, Block, or Dodge abilities, these are added as innate bonuses for a character’s class, and so the maximum limit, combined with those obtained through his profession, would be a +50.</p><p>Basically, this means that a character who knows several martial arts is not using them separately; Instead, he has created his own martial art using the characteristics that interest him from each one.</p><p>Nobunaga is a master of Shotokan, Kempo, and Sambo. He can therefore carry out additional attacks applying only a –10 to his ability, and any penalties to his combat maneuvers are halved. He also adds together the bonuses for Shotokan and Sambo, so that he has a bonus of +10 to his Attack, and a +10 to Block. Additionally, he can use the base damage of Shotokan, which is much higher than that of the others.</p><p></p><h3><strong>Limits to the Martial Arts</strong></h3><p>A character can only develop one Martial Art for every 40 points that he develops his Attack ability or Defense ability. If he wants to learn more styles, he must first bring up his Combat Abilities.</p><p>Nobunaga has an Attack ability of 80 points, and a Dodge of 50, so he can learn a maximum of three Martial Arts. This is because the total of his Combat Abilities is 130, and divided by 40 (the points required to permit learning a new martial art) allows him to learn up to three styles (rounding down).</p><p></p><h3><strong>Why Aren’t There Martial Arts for Weapons?</strong></h3><p>Someone might ask why there are no martial arts for weapons. Of course, a Samurai who uses a Katana has studied Kenjutsu, a style of fighting that could be considered a martial art as much as Shotokan or Aikido. So, why are there no martial arts for weapons? The answer is that the arms themselves offer the same special characteristics that martial arts do. The very ability to wield a particular weapon represents the possession of different styles. Two characters who have the same Attack ability with a Katana may employ different fencing styles, but even so, each is getting the most possible out of his weapon’s characteristics. How they use it is merely a question of aesthetics. On the other hand, the special abilities conferred by the martial arts are considered specific attributes of those unarmed arts, because the human body can be used as a weapon in many different ways.</p><p>The closest thing to martial arts with weapons are the Style Modules explained in the previous section.</p><p></p><h3><strong>Learning the Martial Arts</strong></h3><p>It wouldn’t be logical for a character to know a martial art without having taken the time to train in it. Therefore, even if he has the DP necessary, a character must still have a way of studying it, as well as some time to dedicate to it. It is up to the Game Master to determine how much time is necessary to invest in order to master a martial art.</p><p></p><h2><strong>Basic Martial Arts</strong></h2><p>These are the simplest martial arts a character can acquire. The characteristics of each of the ten are discussed below:</p><p><strong>Advantages:</strong> These are the advantages that martial art offers the character who learns it.</p><p><strong>Requirements:</strong> To learn a style, it is necessary to meet the requirements listed in this section.</p><p><strong>Martial Knowledge:</strong> The martial arts always confer a bonus to the character’s Martial Knowledge, which is listed in this section.</p><p><strong>Bonuses:</strong> The bonuses awarded by the martial arts are like innate class bonuses to the Attack, Block, and Dodge abilities. Therefore, the total of those bonuses are subject to the limit to innate improvement in combat. They can never be greater than +50. Of course, a character only receives the bonus when he masters the martial art, and not again every time he levels up.</p></section><p>@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.HcGUTgn7k6U5HThR]{Kempo}@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.mHm12pI7ob9ESMeS]{Capoeira}@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.TQGDHmhgbvaIMx3T]{Tai Chi}@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.uxWlHjNYII8TrUWc]{Shotokan}@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.Yb5RL0EyMDkcuu08]{Sambo}@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.9Wb3CC5xioXHtoYN]{Kung Fu}@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.TELhlPZtq85eGBrC]{Taekwondo}@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.t7YoZdk7KlZT1t6w]{Aikido}@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.O7a4t11xvUa9gVqr]{Muay Thai}@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.o2mVQWZcISl0KTS1]{Grappling}</p><p></p><h2><strong>Advanced Martial Arts</strong></h2><p>The Advanced Martial Arts are more complex styles of martial arts. They are based on knowledge developed through the basic arts, but with considerably higher level techniques. Naturally, to learn an Advanced Martial Art, it is necessary to first have mastered one or more of the styles on which they are based.</p><p></p><p>@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.9hz5H9zAMsWDLLk0]{Melkaiah}@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.TcJhfeHVGWv3EQMQ]{Seraphite}@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.m5ec46vnKYfgqlBe]{Asakusen}@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.l2fJpPOOh5wvvXyv]{Velez}@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.G3TuxgesNuA3wPNa]{Selene}@UUID[JournalEntry.JY9sgzJL7nQH9UWS.JournalEntryPage.qwldUSiYAm5WykQV]{Hakyoukuken}</p><p></p>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.dZi914OBO0Ew1uRK"
+    },
+    {
+      "sort": 1000,
+      "name": "Kempo",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Kempo</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> The rapid flurry of blows allows a Kempo master to carry out additional attacks with only a –10 penalty instead of –25. Base Damage 20 + Strength bonus. Uses the Blunt Table.</p><p><strong>Requirements:</strong> None</p><p><strong>Bonus:</strong> None</p><p><strong>Description:</strong> A freewheeling style focused on rapid combinations of strikes to exploit gaps in an opponent’s defenses.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "HcGUTgn7k6U5HThR",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.HcGUTgn7k6U5HThR"
+    },
+    {
+      "sort": 2000,
+      "name": "Capoeira",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Capoeira</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> When making an Area Attack, the user is treated as wielding a large weapon and may affect up to five opponents. Base Damage 20 + Strength bonus. Uses the Blunt Table.</p><p><strong>Requirements:</strong> Dance 40</p><p><strong>Bonus:</strong> +10 to Dodge</p><p><strong>Description:</strong> A fluid, acrobatic style resembling dance, using sweeping leg movements to confuse and overwhelm opponents.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "mHm12pI7ob9ESMeS",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.mHm12pI7ob9ESMeS"
+    },
+    {
+      "sort": 3000,
+      "name": "Tai Chi",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Tai Chi</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +30</p><p><strong>Advantages:</strong> Base Damage 20 + double the character’s Power bonus. Attacks use the Blunt Table despite being fueled by internal energy.</p><p><strong>Requirements:</strong> Use of Ki</p><p><strong>Bonus:</strong> None</p><p><strong>Description:</strong> A philosophical martial art using fluid, elegant movements and internal energy to generate force.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "TQGDHmhgbvaIMx3T",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.TQGDHmhgbvaIMx3T"
+    },
+    {
+      "sort": 4000,
+      "name": "Shotokan",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Shotokan</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> Base Damage 30 + Strength bonus. Uses the Blunt Table.</p><p><strong>Requirements:</strong> None</p><p><strong>Bonus:</strong> +10 to Attack (Unarmed)</p><p><strong>Description:</strong> A powerful striking art focused on exploiting weaknesses and ending fights with decisive, forceful blows.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "uxWlHjNYII8TrUWc",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.uxWlHjNYII8TrUWc"
+    },
+    {
+      "sort": 5000,
+      "name": "Sambo",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Sambo</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> Halves penalties for Trapping, Area Attack, Take‑Down, and Disarm. Base Damage 20 + Strength bonus. Uses the Blunt Table.</p><p><strong>Requirements:</strong> None</p><p><strong>Bonus:</strong> +10 to Block (Unarmed)</p><p><strong>Description:</strong> A precise, defensive style developed for military training, specializing in control and neutralization techniques.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "Yb5RL0EyMDkcuu08",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.Yb5RL0EyMDkcuu08"
+    },
+    {
+      "sort": 6000,
+      "name": "Kung Fu",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Kung Fu</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> Each turn, the practitioner may choose +10 to Attack, Block, Dodge, Damage, or Initiative. Base Damage 20 + Strength bonus. Uses the Blunt Table.</p><p><strong>Requirements:</strong> Acrobatics 40, Sleight of Hand 40, Style 20</p><p><strong>Bonus:</strong> Variable +10</p><p><strong>Description:</strong> A versatile art inspired by animal forms, allowing practitioners to adapt fluidly to changing combat situations.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "9Wb3CC5xioXHtoYN",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.9Wb3CC5xioXHtoYN"
+    },
+    {
+      "sort": 7000,
+      "name": "Taekwondo",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Taekwondo</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> Base Damage 20 + Strength bonus. Grants an additional leg attack each turn at only –20, usable even after weapon attacks. Uses the Blunt Table.</p><p><strong>Requirements:</strong> None</p><p><strong>Bonus:</strong> None</p><p><strong>Description:</strong> A kicking‑focused art ideal for blending unarmed strikes with weapon use.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "TELhlPZtq85eGBrC",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.TELhlPZtq85eGBrC"
+    },
+    {
+      "sort": 8000,
+      "name": "Aikido",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Aikido</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> Base Damage 10 + Strength bonus. Counterattacks add twice the opponent’s Strength bonus (minimum +5). No penalties to Trapping during counterattacks. Uses the Blunt Table.</p><p><strong>Requirements:</strong> Sleight of Hand 40</p><p><strong>Bonus:</strong> +10 to Dodge or Block (Unarmed)</p><p><strong>Description:</strong> A defensive art that redirects an attacker’s force, enabling effortless traps, breaks, and counters.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "t7YoZdk7KlZT1t6w",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.t7YoZdk7KlZT1t6w"
+    },
+    {
+      "sort": 9000,
+      "name": "Muay Thai",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Muay Thai</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> Base Damage 20 + triple the Strength bonus. Uses the Blunt Table.</p><p><strong>Requirements:</strong> Feats of Strength 40</p><p><strong>Bonus:</strong> None</p><p><strong>Description:</strong> A brutal striking art using elbows, knees, and targeted blows to exploit structural weaknesses.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "O7a4t11xvUa9gVqr",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.O7a4t11xvUa9gVqr"
+    },
+    {
+      "sort": 10000,
+      "name": "Grappling",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Grappling</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> No penalties for Trapping or Take‑Down. Base Damage 20 + Strength bonus. Uses the Blunt Table.</p><p><strong>Requirements:</strong> Feats of Strength 40</p><p><strong>Bonus:</strong> None</p><p><strong>Description:</strong> A close‑quarters style focused on holds, throws, and ground control to neutralize opponents.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "o2mVQWZcISl0KTS1",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.o2mVQWZcISl0KTS1"
+    },
+    {
+      "sort": 11000,
+      "name": "Melkaiah",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Melkaiah</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> Grants +3 to Strength or Dexterity Checks when performing Take‑Down or Trapping maneuvers.</p><p><strong>Requirements:</strong> Grappling or Sambo, Inhumanity, more than 160 in both Attack and Defense (Unarmed)</p><p><strong>Bonus:</strong> +10 to Attack (Unarmed)</p><p><strong>Description:</strong> A strange and powerful style based on overwhelming holds and throws. As long as the practitioner keeps their feet on the ground, they are said to be nearly impossible to defeat.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "9hz5H9zAMsWDLLk0",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.9hz5H9zAMsWDLLk0"
+    },
+    {
+      "sort": 12000,
+      "name": "Seraphite",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Seraphite</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> Adds +10 to Final Damage of the base martial art. May add +20 to Attack in exchange for –30 Defense (declared before Initiative).</p><p><strong>Requirements:</strong> Shotokan or Kempo, Presence Extrusion, more than 180 Attack (Unarmed)</p><p><strong>Bonus:</strong> +20 to Attack (Unarmed)</p><p><strong>Description:</strong> A perilous demon‑hunting style originating from the Church. Its movements are risky but dramatically increase offensive power.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "TcJhfeHVGWv3EQMQ",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.TcJhfeHVGWv3EQMQ"
+    },
+    {
+      "sort": 13000,
+      "name": "Dumah",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Dumah</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> Adds +10 to Final Damage of the martial art used. May use Thrust or Cut Tables. Reduces opponent’s Armor Type by 2 and adds +10 Breakage.</p><p><strong>Requirements:</strong> Kempo or Capoeira, Presence Extrusion</p><p><strong>Bonus:</strong> +20 to Attack (Unarmed)</p><p><strong>Description:</strong> A tribal art passed down through families, teaching practitioners to strike like cutting or thrusting weapons.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "MydtQ4lkcgMIA05O",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.MydtQ4lkcgMIA05O"
+    },
+    {
+      "sort": 14000,
+      "name": "Emp",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Emp</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> Allows Disarm with no penalty. Adds +3 to Characteristic in Contested Checks.</p><p><strong>Requirements:</strong> Kempo or Taekwondo, Mastery of Attack (Unarmed)</p><p><strong>Bonus:</strong> +20 to Attack (Unarmed) and +10 to Initiative when using martial arts</p><p><strong>Description:</strong> A refined style designed to defeat armed opponents using spiraling, disorienting movements.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "37twTMvYxrqYza4P",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.37twTMvYxrqYza4P"
+    },
+    {
+      "sort": 15000,
+      "name": "Enuth",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Enuth</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> Adds +20 to Critical Level when striking to knock out. May voluntarily reduce inflicted damage even after rolling.</p><p><strong>Requirements:</strong> Sambo or Shotokan, more than 160 in both Attack and Defense (Unarmed)</p><p><strong>Bonus:</strong> +20 to Dodge and Block (Unarmed)</p><p><strong>Description:</strong> A non‑lethal elven martial art perfected during ancient wars, designed to incapacitate without killing.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "ITLO0yfq7abI0wtE",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.ITLO0yfq7abI0wtE"
+    },
+    {
+      "sort": 16000,
+      "name": "Shephon",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Shephon</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> Increases Total Defense bonus to +60.</p><p><strong>Requirements:</strong> Aikido and Kung Fu, Ki Control, Mastery of Defense (Unarmed)</p><p><strong>Bonus:</strong> +20 to Dodge and Block (Unarmed)</p><p><strong>Description:</strong> A flowing defensive art inspired by water, capable of redirecting nearly any attack.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "a8MZh7LBh0IlHw7J",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.a8MZh7LBh0IlHw7J"
+    },
+    {
+      "sort": 17000,
+      "name": "Asakusen",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Asakusen</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> The variable +10 bonus of Kung Fu applies to Attack, Block, Dodge, Initiative, and Damage simultaneously. The user still chooses one ability to receive an additional +10.</p><p><strong>Requirements:</strong> Kung Fu, more than 160 in both Attack and Defense (Unarmed)</p><p><strong>Bonus:</strong> As listed in Advantages</p><p><strong>Description:</strong> A forbidden lethal art, once the pinnacle of martial perfection, now diluted into lesser forms.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "m5ec46vnKYfgqlBe",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.m5ec46vnKYfgqlBe"
+    },
+    {
+      "sort": 18000,
+      "name": "Velez",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Velez</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +20</p><p><strong>Advantages:</strong> Allows attacks using the Energy Table, though they may still be blocked normally.</p><p><strong>Requirements:</strong> Tai Chi or Kung Fu, Presence Extrusion</p><p><strong>Bonus:</strong> +20 to Block or Dodge (Unarmed)</p><p><strong>Description:</strong> A rare and spectacular art that channels internal energy into devastating strikes capable of penetrating matter.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "l2fJpPOOh5wvvXyv",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.l2fJpPOOh5wvvXyv"
+    },
+    {
+      "sort": 19000,
+      "name": "Selene",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Selene</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> Doubles counterattack bonus when using Defense ability to counterattack.</p><p><strong>Requirements:</strong> Aikido, Mastery of Block or Dodge (Unarmed)</p><p><strong>Bonus:</strong> +20 to Dodge and Block (Unarmed)</p><p><strong>Description:</strong> A subtle, ancient martial art traditionally practiced only by women, turning an attacker’s force against them effortlessly.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "G3TuxgesNuA3wPNa",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.G3TuxgesNuA3wPNa"
+    },
+    {
+      "sort": 20000,
+      "name": "Hakyoukuken",
+      "type": "text",
+      "system": {},
+      "title": {
+        "show": false,
+        "level": 1
+      },
+      "image": {},
+      "text": {
+        "format": 1,
+        "content": "<section><h2>Hakyoukuken</h2><p><strong>Type:</strong> Martial Art</p><p><strong>Cost:</strong> 50</p><p><strong>Martial Knowledge:</strong> +10</p><p><strong>Advantages:</strong> Adds +20 to Final Damage of the martial art used. Most armor offers no protection (soft armor AT –2). Adds +20 to Critical Level against organic beings.</p><p><strong>Requirements:</strong> Shotokan or Muay Thai, Use of Necessary Energy, Mastery in Attack (Unarmed)</p><p><strong>Bonus:</strong> +20 to Initiative when using martial arts and +10 to Attack (Unarmed)</p><p><strong>Description:</strong> A devastating, mysterious art of non‑human origin, focusing on internal destruction and overwhelming first strikes.</p></section>"
+      },
+      "video": {
+        "controls": true,
+        "volume": 0.5
+      },
+      "src": null,
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_id": "qwldUSiYAm5WykQV",
+      "category": "VXHlg3YS6P8mg1US",
+      "ownership": {
+        "default": -1
+      },
+      "_key": "!journal.pages!aAfdXT2CR80NGQKF.qwldUSiYAm5WykQV"
+    }
+  ],
+  "categories": [
+    {
+      "name": "Common",
+      "sort": 200000,
+      "_id": "uHZrMDZbi0OWigOf",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!aAfdXT2CR80NGQKF.uHZrMDZbi0OWigOf"
+    },
+    {
+      "name": "Archetypical Weapons",
+      "sort": 300000,
+      "_id": "lsvcWLJNh4IudAhn",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!aAfdXT2CR80NGQKF.lsvcWLJNh4IudAhn"
+    },
+    {
+      "name": "Mystical",
+      "sort": 500000,
+      "_id": "7KKNZwZL0hDrvMC6",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!aAfdXT2CR80NGQKF.7KKNZwZL0hDrvMC6"
+    },
+    {
+      "name": "Psychic",
+      "sort": 600000,
+      "_id": "LKK7SQSOXuWwr6k8",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!aAfdXT2CR80NGQKF.LKK7SQSOXuWwr6k8"
+    },
+    {
+      "name": "Style Modules",
+      "sort": 400000,
+      "_id": "GZNGUK4oopvQpyvW",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!aAfdXT2CR80NGQKF.GZNGUK4oopvQpyvW"
+    },
+    {
+      "name": "Martial Arts",
+      "sort": 700000,
+      "_id": "VXHlg3YS6P8mg1US",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!aAfdXT2CR80NGQKF.VXHlg3YS6P8mg1US"
+    },
+    {
+      "name": "Overview",
+      "sort": 100000,
+      "_id": "eR7VbvAhnZkctHDh",
+      "flags": {},
+      "_stats": {
+        "compendiumSource": null,
+        "duplicateSource": null,
+        "exportSource": null,
+        "coreVersion": "13.351",
+        "systemId": "abf-system",
+        "systemVersion": "0.2.1",
+        "lastModifiedBy": null
+      },
+      "_key": "!journal.categories!aAfdXT2CR80NGQKF.eR7VbvAhnZkctHDh"
+    }
+  ],
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Compendium.abf-system.abf-journals.JournalEntry.QkwmHC1L8krxNGoJ",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.2.1",
+    "createdTime": 1784386341361,
+    "modifiedTime": 1784386341361,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "ownership": {
+    "default": 0,
+    "cvaXLNt0ipl2zLRV": 3
+  },
+  "_id": "aAfdXT2CR80NGQKF",
+  "sort": 0,
+  "_key": "!journal!aAfdXT2CR80NGQKF"
+}

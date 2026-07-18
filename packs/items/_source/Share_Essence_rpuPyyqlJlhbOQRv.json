@@ -1,0 +1,39 @@
+{
+  "name": "Share Essence",
+  "type": "spell",
+  "folder": "Txiitqd71IXVZs1v",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "essence",
+    "level": 72,
+    "action": "active",
+    "cost": 140,
+    "effect": "Binds two beings’ essences. All damage and spiritual effects suffered by one affect the other. Both use the highest MR between them. Presence total ≤100. MR 120 to resist.",
+    "addedEffect": "+5 MR Difficulty and +10 maximum Presence.",
+    "maintenance": "1 every 10 (14) Daily",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Spiritual"
+  },
+  "_id": "rpuPyyqlJlhbOQRv",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!rpuPyyqlJlhbOQRv"
+}

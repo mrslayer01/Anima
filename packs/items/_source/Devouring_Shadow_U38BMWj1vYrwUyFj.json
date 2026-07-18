@@ -1,0 +1,39 @@
+{
+  "name": "Devouring Shadow",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 60,
+    "action": "active",
+    "cost": 160,
+    "effect": "Unleashes a wave of consuming darkness in a 150-foot cone. Deals 100 Base Damage and restores half the damage dealt as Life Points to the caster. Targets who fail MR Difficulty 160 also lose 1 Fatigue Point.",
+    "addedEffect": "+10 Base Damage and +10-foot cone length.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Attack"
+  },
+  "_id": "U38BMWj1vYrwUyFj",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!U38BMWj1vYrwUyFj"
+}

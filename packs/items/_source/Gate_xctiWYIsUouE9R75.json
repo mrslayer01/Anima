@@ -1,0 +1,42 @@
+{
+  "name": "Gate",
+  "type": "spell",
+  "folder": "YCRTx7esJIwienzC",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 80,
+    "maxLevel": 90,
+    "action": "active",
+    "cost": 500,
+    "effect": "Creates a magical door linking two distant places. Max length 15 feet, max distance 500 miles. Can transport creatures equal to Presence 500 per day.",
+    "addedEffect": "+50 maximum Presence transported, +500 miles distance, +5 feet width.",
+    "maintenance": "1 every 20 (25) Daily",
+    "maxZeon": "Intelligence x50",
+    "typeOfSpell": "Effect",
+    "closedPaths": {
+      "path1": "none"
+    }
+  },
+  "_id": "xctiWYIsUouE9R75",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!xctiWYIsUouE9R75"
+}

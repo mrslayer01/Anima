@@ -1,0 +1,108 @@
+{
+  "name": "Breastplate",
+  "type": "armor",
+  "system": {
+    "system": {},
+    "armorType": {
+      "cut": {
+        "base": 4,
+        "bonus": 0,
+        "final": 0
+      },
+      "imp": {
+        "base": 5,
+        "bonus": 0,
+        "final": 0
+      },
+      "thr": {
+        "base": 4,
+        "bonus": 0,
+        "final": 0
+      },
+      "hea": {
+        "base": 1,
+        "bonus": 0,
+        "final": 0
+      },
+      "ele": {
+        "base": 0,
+        "bonus": 0,
+        "final": 0
+      },
+      "col": {
+        "base": 1,
+        "bonus": 0,
+        "final": 0
+      },
+      "ene": {
+        "base": 0,
+        "bonus": 0,
+        "final": 0
+      }
+    },
+    "fortitude": {
+      "base": 16,
+      "bonus": 0,
+      "final": 0
+    },
+    "presence": {
+      "base": 30,
+      "bonus": 0,
+      "final": 0
+    },
+    "wearArmorReq": {
+      "base": 40,
+      "bonus": 0,
+      "final": 0
+    },
+    "moveRestriction": {
+      "base": 1,
+      "bonus": 0,
+      "final": 0
+    },
+    "naturalPenalty": {
+      "base": 15,
+      "bonus": 0,
+      "final": 0
+    },
+    "physicalPenalty": 0,
+    "perceptionPenalty": 0,
+    "isEnchanted": false,
+    "armorClass": "hard",
+    "location": "breastplate",
+    "equipped": false,
+    "specialValue": 0,
+    "weight": 9,
+    "availability": "uncommon",
+    "quality": {
+      "value": "decent"
+    },
+    "cost": {
+      "value": 40,
+      "type": "gold"
+    },
+    "quantity": 1
+  },
+  "_id": "ZIjeRq8xsj18Sp2W",
+  "img": "icons/svg/shield.svg",
+  "effects": [],
+  "folder": "DHydMMEJIKrftEe7",
+  "sort": 109375,
+  "ownership": {
+    "default": 0,
+    "8tB4N7JyuUUH1l8H": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": "Item.ZIjeRq8xsj18Sp2W",
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1771202042548,
+    "modifiedTime": 1772995090529,
+    "lastModifiedBy": "cvaXLNt0ipl2zLRV"
+  },
+  "_key": "!items!ZIjeRq8xsj18Sp2W"
+}

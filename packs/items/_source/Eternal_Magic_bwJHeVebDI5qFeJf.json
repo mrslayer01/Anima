@@ -1,0 +1,39 @@
+{
+  "name": "Eternal Magic",
+  "type": "spell",
+  "folder": "4Gsne2eJZ5qJHCjh",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "creation",
+    "level": 92,
+    "action": "active",
+    "cost": 600,
+    "effect": "Affects another existing spell, drastically reducing or eliminating its Maintenance Cost. Daily-maintenance spells become permanent without upkeep, even after the caster’s death. Per-turn spells become Daily. Only affects spells with Zeon cost ≤100 and Path Level <80.",
+    "addedEffect": "+10 to its maximum Zeon value.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x50",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "bwJHeVebDI5qFeJf",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!bwJHeVebDI5qFeJf"
+}

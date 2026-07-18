@@ -1,0 +1,43 @@
+{
+  "name": "Rejection",
+  "type": "spell",
+  "folder": "m9TM0PCwPH3Fta8X",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 60,
+    "maxLevel": 70,
+    "action": "active",
+    "cost": 80,
+    "effect": "Imbues a body with magical energy that provokes a Strength 8 impact on contact. Max Presence 30.",
+    "addedEffect": "+5 maximum Presence and +1 Strength.",
+    "maintenance": "1 every 20 (4) Daily",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect",
+    "closedPaths": {
+      "path1": "essence",
+      "path2": "water"
+    }
+  },
+  "_id": "1n4hVRwRFq86Nj6U",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!1n4hVRwRFq86Nj6U"
+}

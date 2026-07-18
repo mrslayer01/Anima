@@ -1,0 +1,23 @@
+{
+  "name": "10-20",
+  "type": "Item",
+  "_id": "aUZY29vEWN9H1Naq",
+  "description": "",
+  "folder": "qNQANor7akQWDeC5",
+  "sorting": "a",
+  "sort": 900000,
+  "color": null,
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774685,
+    "modifiedTime": 1773325774685,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!folders!aUZY29vEWN9H1Naq"
+}

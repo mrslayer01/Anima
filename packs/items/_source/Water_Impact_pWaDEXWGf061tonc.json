@@ -1,0 +1,39 @@
+{
+  "name": "Water Impact",
+  "type": "spell",
+  "folder": "hDivpkoYQDkXlqVI",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "water",
+    "level": 20,
+    "action": "active",
+    "cost": 50,
+    "effect": "Unleashes a water burst with 40 Base Damage (Impact AT) and an additional Strength 8 impact. Strength can be increased; above 12 requires two Added Effects per +1.",
+    "addedEffect": "+5 damage and +1 Strength.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Attack"
+  },
+  "_id": "pWaDEXWGf061tonc",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!pWaDEXWGf061tonc"
+}

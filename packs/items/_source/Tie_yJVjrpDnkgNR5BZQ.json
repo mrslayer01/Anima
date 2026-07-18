@@ -1,0 +1,43 @@
+{
+  "name": "Tie",
+  "type": "spell",
+  "folder": "4CMdRqw0sbJaT8oX",
+  "system": {
+    "system": {},
+    "spellType": "freeAccess",
+    "minLevel": 1,
+    "maxLevel": 10,
+    "action": "active",
+    "cost": 40,
+    "effect": "This spell causes chains, ropes, or any type of string to be knotted with a 140 Base Ability in Sleight of Hand. The caster may command strings to tie a subject up, in which case the target will have to fight off an automatic attack of Absurd Difficulty, following the rules of Trapping (this is to say, he would receive a direct attack with a final ability of 180). The Strength of the binding depends on the material used. Just as a reference, a very thick rope would have Strength of 10, whereas metallic chains would have Strength 12. Note that strings are not created by the spell.",
+    "addedEffect": "+10 to Sleight of Hand ability.",
+    "maintenance": "No",
+    "maxZeon": "Intelligence x10",
+    "typeOfSpell": "Effect",
+    "closedPaths": {
+      "path1": "destruction",
+      "path2": "illusion"
+    }
+  },
+  "_id": "yJVjrpDnkgNR5BZQ",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325774745,
+    "modifiedTime": 1773325774745,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!yJVjrpDnkgNR5BZQ"
+}

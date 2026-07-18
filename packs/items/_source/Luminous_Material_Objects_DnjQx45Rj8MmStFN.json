@@ -1,0 +1,39 @@
+{
+  "name": "Luminous Material Objects",
+  "type": "spell",
+  "folder": "AxuVWz5XwsiEfv6z",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "light",
+    "level": 76,
+    "action": "active",
+    "cost": 150,
+    "effect": "Forms a material object from luminous energy. The object may be complex or simple, has a maximum Presence of 60, and is treated as having a quality of +10. Quality does not affect Presence.",
+    "addedEffect": "+10 to the object’s Presence.",
+    "maintenance": "1 every 10 (15)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "DnjQx45Rj8MmStFN",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!DnjQx45Rj8MmStFN"
+}

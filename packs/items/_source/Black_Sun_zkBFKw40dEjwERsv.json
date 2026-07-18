@@ -1,0 +1,39 @@
+{
+  "name": "Black Sun",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 62,
+    "action": "active",
+    "cost": 180,
+    "effect": "Summons a miniature dark star overhead that warps energy and perception. All enemies within 200 feet suffer –60 to Attack, Defense, and Magic Projection. Light spells automatically fail unless cast with Zeon doubled.",
+    "addedEffect": "+20-foot radius and –5 to enemy penalties.",
+    "maintenance": "1 every 10 (14)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Effect"
+  },
+  "_id": "zkBFKw40dEjwERsv",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!zkBFKw40dEjwERsv"
+}

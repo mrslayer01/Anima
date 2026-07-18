@@ -1,0 +1,39 @@
+{
+  "name": "A Perfect World",
+  "type": "spell",
+  "folder": "hDivpkoYQDkXlqVI",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "water",
+    "level": 100,
+    "action": "active",
+    "cost": 450,
+    "effect": "Freezes reality itself, stopping time entirely. Only the caster can move, though he cannot regenerate Zeon. Only beings with Gnosis ≥35 may resist with MR 120.",
+    "addedEffect": "+5 MR Difficulty.",
+    "maintenance": "1 every 5 (90) Daily",
+    "maxZeon": "Intelligence x40",
+    "typeOfSpell": "Automatic"
+  },
+  "_id": "P10pDYCzij6bMLO8",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!P10pDYCzij6bMLO8"
+}

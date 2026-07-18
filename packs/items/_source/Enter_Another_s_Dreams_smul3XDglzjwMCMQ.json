@@ -1,0 +1,39 @@
+{
+  "name": "Enter Another’s Dreams",
+  "type": "spell",
+  "folder": "AxuVWz5XwsiEfv6z",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "light",
+    "level": 50,
+    "action": "active",
+    "cost": 120,
+    "effect": "Allows the caster to physically enter a sleeper’s dreams. The caster has no control over the dream. If the dream becomes a nightmare, or the dreamer awakens or dies, the caster is expelled. MR or PsR Check Difficulty 140. The caster may jump to another dreamer within 30 feet. If the dreamer’s consciousness is in The Wake, the caster becomes trapped.",
+    "addedEffect": "+30 feet additional to jumping range and +5 to MR or PsR Difficulty.",
+    "maintenance": "1 every 20 (6) Daily",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Spiritual"
+  },
+  "_id": "smul3XDglzjwMCMQ",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!smul3XDglzjwMCMQ"
+}

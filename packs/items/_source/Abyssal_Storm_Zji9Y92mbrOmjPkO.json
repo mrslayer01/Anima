@@ -1,0 +1,39 @@
+{
+  "name": "Abyssal Storm",
+  "type": "spell",
+  "folder": "I6czQarAuU2whl3R",
+  "system": {
+    "system": {},
+    "spellType": "spell",
+    "path": "darkness",
+    "level": 78,
+    "action": "active",
+    "cost": 240,
+    "effect": "Creates a storm of void lightning and shadow winds in a 200-foot radius. Deals 130 Base Damage each turn to enemies and imposes –40 to movement.",
+    "addedEffect": "+10 Base Damage and +10-foot radius.",
+    "maintenance": "2 every 10 (18)",
+    "maxZeon": "Intelligence x20",
+    "typeOfSpell": "Attack"
+  },
+  "_id": "Zji9Y92mbrOmjPkO",
+  "img": "icons/svg/book.svg",
+  "effects": [],
+  "sort": 0,
+  "ownership": {
+    "default": 0,
+    "Zm9bHeAlzE8wB6Tj": 3
+  },
+  "flags": {},
+  "_stats": {
+    "compendiumSource": null,
+    "duplicateSource": null,
+    "exportSource": null,
+    "coreVersion": "13.351",
+    "systemId": "abf-system",
+    "systemVersion": "0.1.0",
+    "createdTime": 1773325671754,
+    "modifiedTime": 1773325671754,
+    "lastModifiedBy": "Zm9bHeAlzE8wB6Tj"
+  },
+  "_key": "!items!Zji9Y92mbrOmjPkO"
+}
